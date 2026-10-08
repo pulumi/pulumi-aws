@@ -51,9 +51,6 @@ class GetEmailIdentityResult:
     @_builtins.property
     @pulumi.getter
     def email(self) -> _builtins.str:
-        """
-        Email identity.
-        """
         return pulumi.get(self, "email")
 
     @_builtins.property

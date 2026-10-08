@@ -13,8 +13,7 @@ namespace Pulumi.Aws.Ec2.Inputs
     public sealed class GetVpcIpamsFilterInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the field to filter by, as defined by
-        /// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpams.html).
+        /// Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpams.html).
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -23,8 +22,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         private InputList<string>? _values;
 
         /// <summary>
-        /// Set of values that are accepted for the given field.
-        /// An IPAM resource will be selected if any one of the given values matches.
+        /// Set of values that are accepted for the given field. An IPAM resource will be selected if any one of the given values matches.
         /// </summary>
         public InputList<string> Values
         {

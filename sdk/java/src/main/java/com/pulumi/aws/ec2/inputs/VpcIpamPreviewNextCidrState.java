@@ -18,14 +18,14 @@ public final class VpcIpamPreviewNextCidrState extends com.pulumi.resources.Reso
     public static final VpcIpamPreviewNextCidrState Empty = new VpcIpamPreviewNextCidrState();
 
     /**
-     * The previewed CIDR from the pool.
+     * Previewed CIDR from the pool.
      * 
      */
     @Import(name="cidr")
     private @Nullable Output<String> cidr;
 
     /**
-     * @return The previewed CIDR from the pool.
+     * @return Previewed CIDR from the pool.
      * 
      */
     public Optional<Output<String>> cidr() {
@@ -48,14 +48,14 @@ public final class VpcIpamPreviewNextCidrState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The ID of the pool to which you want to assign a CIDR.
+     * ID of the pool to which you want to assign a CIDR.
      * 
      */
     @Import(name="ipamPoolId")
     private @Nullable Output<String> ipamPoolId;
 
     /**
-     * @return The ID of the pool to which you want to assign a CIDR.
+     * @return ID of the pool to which you want to assign a CIDR.
      * 
      */
     public Optional<Output<String>> ipamPoolId() {
@@ -63,14 +63,14 @@ public final class VpcIpamPreviewNextCidrState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The netmask length of the CIDR you would like to preview from the IPAM pool.
+     * Netmask length of the CIDR you would like to preview from the IPAM pool.
      * 
      */
     @Import(name="netmaskLength")
     private @Nullable Output<Integer> netmaskLength;
 
     /**
-     * @return The netmask length of the CIDR you would like to preview from the IPAM pool.
+     * @return Netmask length of the CIDR you would like to preview from the IPAM pool.
      * 
      */
     public Optional<Output<Integer>> netmaskLength() {
@@ -121,7 +121,7 @@ public final class VpcIpamPreviewNextCidrState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param cidr The previewed CIDR from the pool.
+         * @param cidr Previewed CIDR from the pool.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class VpcIpamPreviewNextCidrState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param cidr The previewed CIDR from the pool.
+         * @param cidr Previewed CIDR from the pool.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class VpcIpamPreviewNextCidrState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param ipamPoolId The ID of the pool to which you want to assign a CIDR.
+         * @param ipamPoolId ID of the pool to which you want to assign a CIDR.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class VpcIpamPreviewNextCidrState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param ipamPoolId The ID of the pool to which you want to assign a CIDR.
+         * @param ipamPoolId ID of the pool to which you want to assign a CIDR.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class VpcIpamPreviewNextCidrState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param netmaskLength The netmask length of the CIDR you would like to preview from the IPAM pool.
+         * @param netmaskLength Netmask length of the CIDR you would like to preview from the IPAM pool.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class VpcIpamPreviewNextCidrState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param netmaskLength The netmask length of the CIDR you would like to preview from the IPAM pool.
+         * @param netmaskLength Netmask length of the CIDR you would like to preview from the IPAM pool.
          * 
          * @return builder
          * 

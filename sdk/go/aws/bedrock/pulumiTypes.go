@@ -48474,7 +48474,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimePtrOutput) 
 }
 
 type AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchema struct {
-	// Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3` (see `s3` Block). For HTTP targets, the `inlinePayload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
+	// Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3`. For HTTP targets, these blocks are documented under their full paths (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block and `target_configuration.http.agentcore_runtime.schema.source.s3` Block).
 	Source AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSource `pulumi:"source"`
 }
 
@@ -48490,7 +48490,7 @@ type AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaInput in
 }
 
 type AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaArgs struct {
-	// Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3` (see `s3` Block). For HTTP targets, the `inlinePayload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
+	// Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3`. For HTTP targets, these blocks are documented under their full paths (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block and `target_configuration.http.agentcore_runtime.schema.source.s3` Block).
 	Source AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSourceInput `pulumi:"source"`
 }
 
@@ -48571,7 +48571,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaOutpu
 	}).(AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaPtrOutput)
 }
 
-// Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3` (see `s3` Block). For HTTP targets, the `inlinePayload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
+// Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3`. For HTTP targets, these blocks are documented under their full paths (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block and `target_configuration.http.agentcore_runtime.schema.source.s3` Block).
 func (o AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaOutput) Source() AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSourceOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchema) AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSource {
 		return v.Source
@@ -48602,7 +48602,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaPtrOu
 	}).(AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaOutput)
 }
 
-// Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3` (see `s3` Block). For HTTP targets, the `inlinePayload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
+// Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3`. For HTTP targets, these blocks are documented under their full paths (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block and `target_configuration.http.agentcore_runtime.schema.source.s3` Block).
 func (o AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaPtrOutput) Source() AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSourcePtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchema) *AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSource {
 		if v == nil {
@@ -49304,7 +49304,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationHttpPassthroughPtrOutput) Stick
 }
 
 type AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchema struct {
-	// Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3` (see `s3` Block). For HTTP targets, the `inlinePayload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
+	// Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3`. For HTTP targets, these blocks are documented under their full paths (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block and `target_configuration.http.agentcore_runtime.schema.source.s3` Block).
 	Source AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSource `pulumi:"source"`
 }
 
@@ -49320,7 +49320,7 @@ type AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaInput interfa
 }
 
 type AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaArgs struct {
-	// Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3` (see `s3` Block). For HTTP targets, the `inlinePayload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
+	// Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3`. For HTTP targets, these blocks are documented under their full paths (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block and `target_configuration.http.agentcore_runtime.schema.source.s3` Block).
 	Source AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourceInput `pulumi:"source"`
 }
 
@@ -49401,7 +49401,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaOutput) To
 	}).(AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaPtrOutput)
 }
 
-// Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3` (see `s3` Block). For HTTP targets, the `inlinePayload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
+// Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3`. For HTTP targets, these blocks are documented under their full paths (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block and `target_configuration.http.agentcore_runtime.schema.source.s3` Block).
 func (o AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaOutput) Source() AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourceOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchema) AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSource {
 		return v.Source
@@ -49432,7 +49432,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaPtrOutput)
 	}).(AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaOutput)
 }
 
-// Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3` (see `s3` Block). For HTTP targets, the `inlinePayload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
+// Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3`. For HTTP targets, these blocks are documented under their full paths (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block and `target_configuration.http.agentcore_runtime.schema.source.s3` Block).
 func (o AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaPtrOutput) Source() AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourcePtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchema) *AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSource {
 		if v == nil {
@@ -51210,9 +51210,9 @@ type AgentcoreGatewayTargetTargetConfigurationMcp struct {
 	Lambda *AgentcoreGatewayTargetTargetConfigurationMcpLambda `pulumi:"lambda"`
 	// MCP server target configuration. See `mcpServer` Block below.
 	McpServer *AgentcoreGatewayTargetTargetConfigurationMcpMcpServer `pulumi:"mcpServer"`
-	// OpenAPI schema-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `s3` Block).
+	// OpenAPI schema-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `target_configuration.mcp.open_api_schema.s3` Block).
 	OpenApiSchema *AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema `pulumi:"openApiSchema"`
-	// Smithy model-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `s3` Block).
+	// Smithy model-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `target_configuration.mcp.smithy_model.s3` Block).
 	SmithyModel *AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel `pulumi:"smithyModel"`
 }
 
@@ -51236,9 +51236,9 @@ type AgentcoreGatewayTargetTargetConfigurationMcpArgs struct {
 	Lambda AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrInput `pulumi:"lambda"`
 	// MCP server target configuration. See `mcpServer` Block below.
 	McpServer AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrInput `pulumi:"mcpServer"`
-	// OpenAPI schema-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `s3` Block).
+	// OpenAPI schema-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `target_configuration.mcp.open_api_schema.s3` Block).
 	OpenApiSchema AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrInput `pulumi:"openApiSchema"`
-	// Smithy model-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `s3` Block).
+	// Smithy model-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `target_configuration.mcp.smithy_model.s3` Block).
 	SmithyModel AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrInput `pulumi:"smithyModel"`
 }
 
@@ -51347,14 +51347,14 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpOutput) McpServer() Agentcor
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutput)
 }
 
-// OpenAPI schema-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `s3` Block).
+// OpenAPI schema-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `target_configuration.mcp.open_api_schema.s3` Block).
 func (o AgentcoreGatewayTargetTargetConfigurationMcpOutput) OpenApiSchema() AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcp) *AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema {
 		return v.OpenApiSchema
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput)
 }
 
-// Smithy model-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `s3` Block).
+// Smithy model-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `target_configuration.mcp.smithy_model.s3` Block).
 func (o AgentcoreGatewayTargetTargetConfigurationMcpOutput) SmithyModel() AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcp) *AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel {
 		return v.SmithyModel
@@ -51425,7 +51425,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput) McpServer() Agent
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutput)
 }
 
-// OpenAPI schema-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `s3` Block).
+// OpenAPI schema-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `target_configuration.mcp.open_api_schema.s3` Block).
 func (o AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput) OpenApiSchema() AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcp) *AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema {
 		if v == nil {
@@ -51435,7 +51435,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput) OpenApiSchema() A
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaPtrOutput)
 }
 
-// Smithy model-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `s3` Block).
+// Smithy model-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `target_configuration.mcp.smithy_model.s3` Block).
 func (o AgentcoreGatewayTargetTargetConfigurationMcpPtrOutput) SmithyModel() AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcp) *AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel {
 		if v == nil {
@@ -52768,7 +52768,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput) ToolSchema(
 type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema struct {
 	// Inline tool definition. See `target_configuration.mcp.lambda.tool_schema.inline_payload` Block below.
 	InlinePayloads []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload `pulumi:"inlinePayloads"`
-	// S3-based tool definition. See `s3` Block below.
+	// S3-based tool definition. See `target_configuration.mcp.lambda.tool_schema.s3` Block below.
 	S3 *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3 `pulumi:"s3"`
 }
 
@@ -52786,7 +52786,7 @@ type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInput interface
 type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs struct {
 	// Inline tool definition. See `target_configuration.mcp.lambda.tool_schema.inline_payload` Block below.
 	InlinePayloads AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArrayInput `pulumi:"inlinePayloads"`
-	// S3-based tool definition. See `s3` Block below.
+	// S3-based tool definition. See `target_configuration.mcp.lambda.tool_schema.s3` Block below.
 	S3 AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrInput `pulumi:"s3"`
 }
 
@@ -52874,7 +52874,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaOutput) Inli
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArrayOutput)
 }
 
-// S3-based tool definition. See `s3` Block below.
+// S3-based tool definition. See `target_configuration.mcp.lambda.tool_schema.s3` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaOutput) S3() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3 {
 		return v.S3
@@ -52915,7 +52915,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput) I
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArrayOutput)
 }
 
-// S3-based tool definition. See `s3` Block below.
+// S3-based tool definition. See `target_configuration.mcp.lambda.tool_schema.s3` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput) S3() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3PtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3 {
 		if v == nil {
@@ -56551,7 +56551,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpMcpServerPtrOutput) Resource
 type AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchema struct {
 	// Inline tool schema payload. The `inlinePayload` block requires a `payload` (string) containing the MCP tool schema definition.
 	InlinePayload *AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePayload `pulumi:"inlinePayload"`
-	// S3 location of the tool schema. See `s3` Block below.
+	// S3 location of the tool schema. See `target_configuration.mcp.mcp_server.mcp_tool_schema.s3` Block below.
 	S3 *AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3 `pulumi:"s3"`
 }
 
@@ -56569,7 +56569,7 @@ type AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInput int
 type AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaArgs struct {
 	// Inline tool schema payload. The `inlinePayload` block requires a `payload` (string) containing the MCP tool schema definition.
 	InlinePayload AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePayloadPtrInput `pulumi:"inlinePayload"`
-	// S3 location of the tool schema. See `s3` Block below.
+	// S3 location of the tool schema. See `target_configuration.mcp.mcp_server.mcp_tool_schema.s3` Block below.
 	S3 AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3PtrInput `pulumi:"s3"`
 }
 
@@ -56657,7 +56657,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaOutput
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePayloadPtrOutput)
 }
 
-// S3 location of the tool schema. See `s3` Block below.
+// S3 location of the tool schema. See `target_configuration.mcp.mcp_server.mcp_tool_schema.s3` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaOutput) S3() AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3PtrOutput {
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchema) *AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3 {
 		return v.S3
@@ -56698,7 +56698,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaPtrOut
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePayloadPtrOutput)
 }
 
-// S3 location of the tool schema. See `s3` Block below.
+// S3 location of the tool schema. See `target_configuration.mcp.mcp_server.mcp_tool_schema.s3` Block below.
 func (o AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaPtrOutput) S3() AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3PtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchema) *AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3 {
 		if v == nil {
@@ -69433,11 +69433,11 @@ func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationCo
 }
 
 type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions struct {
-	// Message-based condition. See `messageBasedTrigger` Block below.
+	// Message-based condition. See `configuration.self_managed_configuration.trigger_conditions.message_based_trigger` Block below.
 	MessageBasedTrigger *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTrigger `pulumi:"messageBasedTrigger"`
-	// Idle-time condition. See `timeBasedTrigger` Block below.
+	// Idle-time condition. See `configuration.self_managed_configuration.trigger_conditions.time_based_trigger` Block below.
 	TimeBasedTrigger *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTrigger `pulumi:"timeBasedTrigger"`
-	// Token-based condition. See `tokenBasedTrigger` Block below.
+	// Token-based condition. See `configuration.self_managed_configuration.trigger_conditions.token_based_trigger` Block below.
 	TokenBasedTrigger *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTrigger `pulumi:"tokenBasedTrigger"`
 }
 
@@ -69453,11 +69453,11 @@ type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditio
 }
 
 type AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsArgs struct {
-	// Message-based condition. See `messageBasedTrigger` Block below.
+	// Message-based condition. See `configuration.self_managed_configuration.trigger_conditions.message_based_trigger` Block below.
 	MessageBasedTrigger AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrInput `pulumi:"messageBasedTrigger"`
-	// Idle-time condition. See `timeBasedTrigger` Block below.
+	// Idle-time condition. See `configuration.self_managed_configuration.trigger_conditions.time_based_trigger` Block below.
 	TimeBasedTrigger AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrInput `pulumi:"timeBasedTrigger"`
-	// Token-based condition. See `tokenBasedTrigger` Block below.
+	// Token-based condition. See `configuration.self_managed_configuration.trigger_conditions.token_based_trigger` Block below.
 	TokenBasedTrigger AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrInput `pulumi:"tokenBasedTrigger"`
 }
 
@@ -69538,21 +69538,21 @@ func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerCondi
 	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutput)
 }
 
-// Message-based condition. See `messageBasedTrigger` Block below.
+// Message-based condition. See `configuration.self_managed_configuration.trigger_conditions.message_based_trigger` Block below.
 func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsOutput) MessageBasedTrigger() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutput {
 	return o.ApplyT(func(v AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions) *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTrigger {
 		return v.MessageBasedTrigger
 	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutput)
 }
 
-// Idle-time condition. See `timeBasedTrigger` Block below.
+// Idle-time condition. See `configuration.self_managed_configuration.trigger_conditions.time_based_trigger` Block below.
 func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsOutput) TimeBasedTrigger() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutput {
 	return o.ApplyT(func(v AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions) *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTrigger {
 		return v.TimeBasedTrigger
 	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutput)
 }
 
-// Token-based condition. See `tokenBasedTrigger` Block below.
+// Token-based condition. See `configuration.self_managed_configuration.trigger_conditions.token_based_trigger` Block below.
 func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsOutput) TokenBasedTrigger() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutput {
 	return o.ApplyT(func(v AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions) *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTrigger {
 		return v.TokenBasedTrigger
@@ -69583,7 +69583,7 @@ func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerCondi
 	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsOutput)
 }
 
-// Message-based condition. See `messageBasedTrigger` Block below.
+// Message-based condition. See `configuration.self_managed_configuration.trigger_conditions.message_based_trigger` Block below.
 func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutput) MessageBasedTrigger() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutput {
 	return o.ApplyT(func(v *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions) *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTrigger {
 		if v == nil {
@@ -69593,7 +69593,7 @@ func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerCondi
 	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerPtrOutput)
 }
 
-// Idle-time condition. See `timeBasedTrigger` Block below.
+// Idle-time condition. See `configuration.self_managed_configuration.trigger_conditions.time_based_trigger` Block below.
 func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutput) TimeBasedTrigger() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutput {
 	return o.ApplyT(func(v *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions) *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTrigger {
 		if v == nil {
@@ -69603,7 +69603,7 @@ func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerCondi
 	}).(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerPtrOutput)
 }
 
-// Token-based condition. See `tokenBasedTrigger` Block below.
+// Token-based condition. See `configuration.self_managed_configuration.trigger_conditions.token_based_trigger` Block below.
 func (o AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsPtrOutput) TokenBasedTrigger() AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerPtrOutput {
 	return o.ApplyT(func(v *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions) *AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTrigger {
 		if v == nil {

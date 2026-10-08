@@ -88,56 +88,56 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:verifiedaccess/endpoint:Endpoint")
 public class Endpoint extends com.pulumi.resources.CustomResource {
     /**
-     * The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
+     * DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
      * 
      */
     @Export(name="applicationDomain", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> applicationDomain;
 
     /**
-     * @return The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
+     * @return DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
      * 
      */
     public Output<Optional<String>> applicationDomain() {
         return Codegen.optional(this.applicationDomain);
     }
     /**
-     * The type of attachment. Currently, only `vpc` is supported.
+     * Type of attachment. Currently, only `vpc` is supported.
      * 
      */
     @Export(name="attachmentType", refs={String.class}, tree="[0]")
     private Output<String> attachmentType;
 
     /**
-     * @return The type of attachment. Currently, only `vpc` is supported.
+     * @return Type of attachment. Currently, only `vpc` is supported.
      * 
      */
     public Output<String> attachmentType() {
         return this.attachmentType;
     }
     /**
-     * The CIDR block details. This parameter is required if the endpoint type is `cidr`.
+     * CIDR block details. This parameter is required if the endpoint type is `cidr`. See below.
      * 
      */
     @Export(name="cidrOptions", refs={EndpointCidrOptions.class}, tree="[0]")
     private Output</* @Nullable */ EndpointCidrOptions> cidrOptions;
 
     /**
-     * @return The CIDR block details. This parameter is required if the endpoint type is `cidr`.
+     * @return CIDR block details. This parameter is required if the endpoint type is `cidr`. See below.
      * 
      */
     public Output<Optional<EndpointCidrOptions>> cidrOptions() {
         return Codegen.optional(this.cidrOptions);
     }
     /**
-     * A description for the Verified Access endpoint.
+     * Description for the Verified Access endpoint.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A description for the Verified Access endpoint.
+     * @return Description for the Verified Access endpoint.
      * 
      */
     public Output<Optional<String>> description() {
@@ -158,106 +158,114 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return this.deviceValidationDomain;
     }
     /**
-     * The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
+     * ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
      * 
      */
     @Export(name="domainCertificateArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> domainCertificateArn;
 
     /**
-     * @return The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
+     * @return ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
      * 
      */
     public Output<Optional<String>> domainCertificateArn() {
         return Codegen.optional(this.domainCertificateArn);
     }
     /**
-     * A DNS name that is generated for the endpoint.
+     * DNS name that is generated for the endpoint.
      * 
      */
     @Export(name="endpointDomain", refs={String.class}, tree="[0]")
     private Output<String> endpointDomain;
 
     /**
-     * @return A DNS name that is generated for the endpoint.
+     * @return DNS name that is generated for the endpoint.
      * 
      */
     public Output<String> endpointDomain() {
         return this.endpointDomain;
     }
     /**
-     * A custom identifier that is prepended to the DNS name that is generated for the endpoint.
+     * Custom identifier that is prepended to the DNS name that is generated for the endpoint.
      * 
      */
     @Export(name="endpointDomainPrefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> endpointDomainPrefix;
 
     /**
-     * @return A custom identifier that is prepended to the DNS name that is generated for the endpoint.
+     * @return Custom identifier that is prepended to the DNS name that is generated for the endpoint.
      * 
      */
     public Output<Optional<String>> endpointDomainPrefix() {
         return Codegen.optional(this.endpointDomainPrefix);
     }
     /**
-     * The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
+     * Type of Verified Access endpoint to create. Valid values are `load-balancer`, `network-interface`, `cidr`, and `rds`.
      * 
      */
     @Export(name="endpointType", refs={String.class}, tree="[0]")
     private Output<String> endpointType;
 
     /**
-     * @return The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
+     * @return Type of Verified Access endpoint to create. Valid values are `load-balancer`, `network-interface`, `cidr`, and `rds`.
      * 
      */
     public Output<String> endpointType() {
         return this.endpointType;
     }
     /**
-     * The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
+     * Load balancer details. This parameter is required if the endpoint type is `load-balancer`. See below.
      * 
      */
     @Export(name="loadBalancerOptions", refs={EndpointLoadBalancerOptions.class}, tree="[0]")
     private Output</* @Nullable */ EndpointLoadBalancerOptions> loadBalancerOptions;
 
     /**
-     * @return The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
+     * @return Load balancer details. This parameter is required if the endpoint type is `load-balancer`. See below.
      * 
      */
     public Output<Optional<EndpointLoadBalancerOptions>> loadBalancerOptions() {
         return Codegen.optional(this.loadBalancerOptions);
     }
     /**
-     * The network interface details. This parameter is required if the endpoint type is `network-interface`.
+     * Network interface details. This parameter is required if the endpoint type is `network-interface`. See below.
      * 
      */
     @Export(name="networkInterfaceOptions", refs={EndpointNetworkInterfaceOptions.class}, tree="[0]")
     private Output</* @Nullable */ EndpointNetworkInterfaceOptions> networkInterfaceOptions;
 
     /**
-     * @return The network interface details. This parameter is required if the endpoint type is `network-interface`.
+     * @return Network interface details. This parameter is required if the endpoint type is `network-interface`. See below.
      * 
      */
     public Output<Optional<EndpointNetworkInterfaceOptions>> networkInterfaceOptions() {
         return Codegen.optional(this.networkInterfaceOptions);
     }
     /**
-     * The policy document that is associated with this resource.
+     * Policy document that is associated with this resource.
      * 
      */
     @Export(name="policyDocument", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> policyDocument;
 
     /**
-     * @return The policy document that is associated with this resource.
+     * @return Policy document that is associated with this resource.
      * 
      */
     public Output<Optional<String>> policyDocument() {
         return Codegen.optional(this.policyDocument);
     }
+    /**
+     * RDS details. This parameter is required if the endpoint type is `rds`. See below.
+     * 
+     */
     @Export(name="rdsOptions", refs={EndpointRdsOptions.class}, tree="[0]")
     private Output</* @Nullable */ EndpointRdsOptions> rdsOptions;
 
+    /**
+     * @return RDS details. This parameter is required if the endpoint type is `rds`. See below.
+     * 
+     */
     public Output<Optional<EndpointRdsOptions>> rdsOptions() {
         return Codegen.optional(this.rdsOptions);
     }
@@ -276,28 +284,28 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * List of the the security groups IDs to associate with the Verified Access endpoint.
+     * List of the security groups IDs to associate with the Verified Access endpoint.
      * 
      */
     @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> securityGroupIds;
 
     /**
-     * @return List of the the security groups IDs to associate with the Verified Access endpoint.
+     * @return List of the security groups IDs to associate with the Verified Access endpoint.
      * 
      */
     public Output<Optional<List<String>>> securityGroupIds() {
         return Codegen.optional(this.securityGroupIds);
     }
     /**
-     * The options in use for server side encryption.
+     * Options in use for server side encryption. See below.
      * 
      */
     @Export(name="sseSpecification", refs={EndpointSseSpecification.class}, tree="[0]")
     private Output<EndpointSseSpecification> sseSpecification;
 
     /**
-     * @return The options in use for server side encryption.
+     * @return Options in use for server side encryption. See below.
      * 
      */
     public Output<EndpointSseSpecification> sseSpecification() {
@@ -324,7 +332,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The ID of the Verified Access group to associate the endpoint with.
+     * ID of the Verified Access group to associate the endpoint with.
      * 
      * The following arguments are optional:
      * 
@@ -333,7 +341,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
     private Output<String> verifiedAccessGroupId;
 
     /**
-     * @return The ID of the Verified Access group to associate the endpoint with.
+     * @return ID of the Verified Access group to associate the endpoint with.
      * 
      * The following arguments are optional:
      * 
@@ -341,9 +349,17 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
     public Output<String> verifiedAccessGroupId() {
         return this.verifiedAccessGroupId;
     }
+    /**
+     * ID of the Verified Access instance.
+     * 
+     */
     @Export(name="verifiedAccessInstanceId", refs={String.class}, tree="[0]")
     private Output<String> verifiedAccessInstanceId;
 
+    /**
+     * @return ID of the Verified Access instance.
+     * 
+     */
     public Output<String> verifiedAccessInstanceId() {
         return this.verifiedAccessInstanceId;
     }

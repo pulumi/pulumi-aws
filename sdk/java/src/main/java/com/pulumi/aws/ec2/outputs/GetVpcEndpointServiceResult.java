@@ -32,7 +32,7 @@ public final class GetVpcEndpointServiceResult {
      */
     private List<String> availabilityZones;
     /**
-     * @return The DNS names for the service.
+     * @return DNS names for the service.
      * 
      */
     private List<String> baseEndpointDnsNames;
@@ -86,7 +86,7 @@ public final class GetVpcEndpointServiceResult {
     private @Nullable List<String> serviceRegions;
     private String serviceType;
     /**
-     * @return The supported IP address types.
+     * @return Supported IP address types.
      * 
      */
     private List<String> supportedIpAddressTypes;
@@ -124,7 +124,7 @@ public final class GetVpcEndpointServiceResult {
         return this.availabilityZones;
     }
     /**
-     * @return The DNS names for the service.
+     * @return DNS names for the service.
      * 
      */
     public List<String> baseEndpointDnsNames() {
@@ -206,7 +206,7 @@ public final class GetVpcEndpointServiceResult {
         return this.serviceType;
     }
     /**
-     * @return The supported IP address types.
+     * @return Supported IP address types.
      * 
      */
     public List<String> supportedIpAddressTypes() {

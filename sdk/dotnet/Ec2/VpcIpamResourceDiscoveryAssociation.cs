@@ -63,31 +63,31 @@ namespace Pulumi.Aws.Ec2
         public Output<string> IpamArn { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the IPAM to associate.
+        /// ID of the IPAM to associate.
         /// </summary>
         [Output("ipamId")]
         public Output<string> IpamId { get; private set; } = null!;
 
         /// <summary>
-        /// The home region of the IPAM.
+        /// Home region of the IPAM.
         /// </summary>
         [Output("ipamRegion")]
         public Output<string> IpamRegion { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Resource Discovery to associate.
+        /// ID of the Resource Discovery to associate.
         /// </summary>
         [Output("ipamResourceDiscoveryId")]
         public Output<string> IpamResourceDiscoveryId { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean to identify if the Resource Discovery is the accounts default resource discovery.
+        /// Boolean to identify if the Resource Discovery is the accounts default resource discovery.
         /// </summary>
         [Output("isDefault")]
         public Output<bool> IsDefault { get; private set; } = null!;
 
         /// <summary>
-        /// The account ID for the account that manages the Resource Discovery
+        /// Account ID for the account that manages the Resource Discovery
         /// </summary>
         [Output("ownerId")]
         public Output<string> OwnerId { get; private set; } = null!;
@@ -99,19 +99,19 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The lifecycle state of the association when you associate or disassociate a resource discovery.
+        /// Lifecycle state of the association when you associate or disassociate a resource discovery.
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to add to the IPAM resource discovery association resource.
+        /// Map of tags to add to the IPAM resource discovery association resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -163,13 +163,13 @@ namespace Pulumi.Aws.Ec2
     public sealed class VpcIpamResourceDiscoveryAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the IPAM to associate.
+        /// ID of the IPAM to associate.
         /// </summary>
         [Input("ipamId", required: true)]
         public Input<string> IpamId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Resource Discovery to associate.
+        /// ID of the Resource Discovery to associate.
         /// </summary>
         [Input("ipamResourceDiscoveryId", required: true)]
         public Input<string> IpamResourceDiscoveryId { get; set; } = null!;
@@ -184,7 +184,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to add to the IPAM resource discovery association resource.
+        /// Map of tags to add to the IPAM resource discovery association resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -213,31 +213,31 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? IpamArn { get; set; }
 
         /// <summary>
-        /// The ID of the IPAM to associate.
+        /// ID of the IPAM to associate.
         /// </summary>
         [Input("ipamId")]
         public Input<string>? IpamId { get; set; }
 
         /// <summary>
-        /// The home region of the IPAM.
+        /// Home region of the IPAM.
         /// </summary>
         [Input("ipamRegion")]
         public Input<string>? IpamRegion { get; set; }
 
         /// <summary>
-        /// The ID of the Resource Discovery to associate.
+        /// ID of the Resource Discovery to associate.
         /// </summary>
         [Input("ipamResourceDiscoveryId")]
         public Input<string>? IpamResourceDiscoveryId { get; set; }
 
         /// <summary>
-        /// A boolean to identify if the Resource Discovery is the accounts default resource discovery.
+        /// Boolean to identify if the Resource Discovery is the accounts default resource discovery.
         /// </summary>
         [Input("isDefault")]
         public Input<bool>? IsDefault { get; set; }
 
         /// <summary>
-        /// The account ID for the account that manages the Resource Discovery
+        /// Account ID for the account that manages the Resource Discovery
         /// </summary>
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
@@ -249,7 +249,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The lifecycle state of the association when you associate or disassociate a resource discovery.
+        /// Lifecycle state of the association when you associate or disassociate a resource discovery.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
@@ -258,7 +258,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to add to the IPAM resource discovery association resource.
+        /// Map of tags to add to the IPAM resource discovery association resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -270,7 +270,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

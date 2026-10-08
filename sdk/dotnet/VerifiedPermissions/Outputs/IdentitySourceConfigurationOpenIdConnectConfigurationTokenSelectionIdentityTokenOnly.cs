@@ -14,11 +14,11 @@ namespace Pulumi.Aws.VerifiedPermissions.Outputs
     public sealed class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly
     {
         /// <summary>
-        /// The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
+        /// ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
         /// </summary>
         public readonly ImmutableArray<string> ClientIds;
         /// <summary>
-        /// The claim that determines the principal in OIDC identity tokens.
+        /// Claim that determines the principal in OIDC identity tokens.
         /// </summary>
         public readonly string? PrincipalIdClaim;
 

@@ -108,7 +108,7 @@ type CaCertificate struct {
 
 	// Boolean flag to indicate if the certificate should be active for device authentication.
 	Active pulumi.BoolOutput `pulumi:"active"`
-	// Boolean flag to indicate if the certificate should be active for device regisration.
+	// Boolean flag to indicate if the certificate should be active for device registration.
 	AllowAutoRegistration pulumi.BoolOutput `pulumi:"allowAutoRegistration"`
 	// The ARN of the created CA certificate.
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -187,7 +187,7 @@ func GetCaCertificate(ctx *pulumi.Context,
 type caCertificateState struct {
 	// Boolean flag to indicate if the certificate should be active for device authentication.
 	Active *bool `pulumi:"active"`
-	// Boolean flag to indicate if the certificate should be active for device regisration.
+	// Boolean flag to indicate if the certificate should be active for device registration.
 	AllowAutoRegistration *bool `pulumi:"allowAutoRegistration"`
 	// The ARN of the created CA certificate.
 	Arn *string `pulumi:"arn"`
@@ -217,7 +217,7 @@ type caCertificateState struct {
 type CaCertificateState struct {
 	// Boolean flag to indicate if the certificate should be active for device authentication.
 	Active pulumi.BoolPtrInput
-	// Boolean flag to indicate if the certificate should be active for device regisration.
+	// Boolean flag to indicate if the certificate should be active for device registration.
 	AllowAutoRegistration pulumi.BoolPtrInput
 	// The ARN of the created CA certificate.
 	Arn pulumi.StringPtrInput
@@ -251,7 +251,7 @@ func (CaCertificateState) ElementType() reflect.Type {
 type caCertificateArgs struct {
 	// Boolean flag to indicate if the certificate should be active for device authentication.
 	Active bool `pulumi:"active"`
-	// Boolean flag to indicate if the certificate should be active for device regisration.
+	// Boolean flag to indicate if the certificate should be active for device registration.
 	AllowAutoRegistration bool `pulumi:"allowAutoRegistration"`
 	// PEM encoded CA certificate.
 	CaCertificatePem string `pulumi:"caCertificatePem"`
@@ -272,7 +272,7 @@ type caCertificateArgs struct {
 type CaCertificateArgs struct {
 	// Boolean flag to indicate if the certificate should be active for device authentication.
 	Active pulumi.BoolInput
-	// Boolean flag to indicate if the certificate should be active for device regisration.
+	// Boolean flag to indicate if the certificate should be active for device registration.
 	AllowAutoRegistration pulumi.BoolInput
 	// PEM encoded CA certificate.
 	CaCertificatePem pulumi.StringInput
@@ -381,7 +381,7 @@ func (o CaCertificateOutput) Active() pulumi.BoolOutput {
 	return o.ApplyT(func(v *CaCertificate) pulumi.BoolOutput { return v.Active }).(pulumi.BoolOutput)
 }
 
-// Boolean flag to indicate if the certificate should be active for device regisration.
+// Boolean flag to indicate if the certificate should be active for device registration.
 func (o CaCertificateOutput) AllowAutoRegistration() pulumi.BoolOutput {
 	return o.ApplyT(func(v *CaCertificate) pulumi.BoolOutput { return v.AllowAutoRegistration }).(pulumi.BoolOutput)
 }

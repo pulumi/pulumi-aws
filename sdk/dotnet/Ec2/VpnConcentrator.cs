@@ -68,7 +68,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -81,14 +81,14 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// ID of the transit gateway to attach the VPN concentrator to.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Output("transitGatewayId")]
         public Output<string> TransitGatewayId { get; private set; } = null!;
 
         /// <summary>
         /// Type of VPN concentrator. Valid value: `ipsec.1`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -165,14 +165,14 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// ID of the transit gateway to attach the VPN concentrator to.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("transitGatewayId", required: true)]
         public Input<string> TransitGatewayId { get; set; } = null!;
 
         /// <summary>
         /// Type of VPN concentrator. Valid value: `ipsec.1`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -207,7 +207,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -223,14 +223,14 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// ID of the transit gateway to attach the VPN concentrator to.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("transitGatewayId")]
         public Input<string>? TransitGatewayId { get; set; }
 
         /// <summary>
         /// Type of VPN concentrator. Valid value: `ipsec.1`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

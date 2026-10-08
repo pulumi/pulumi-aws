@@ -108,7 +108,7 @@ type LookupConnectResult struct {
 	TransitGatewayConnectId string            `pulumi:"transitGatewayConnectId"`
 	// EC2 Transit Gateway identifier
 	TransitGatewayId string `pulumi:"transitGatewayId"`
-	// The underlaying VPC attachment
+	// The underlying VPC attachment
 	TransportAttachmentId string `pulumi:"transportAttachmentId"`
 }
 
@@ -180,7 +180,7 @@ func (o LookupConnectResultOutput) TransitGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectResult) string { return v.TransitGatewayId }).(pulumi.StringOutput)
 }
 
-// The underlaying VPC attachment
+// The underlying VPC attachment
 func (o LookupConnectResultOutput) TransportAttachmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectResult) string { return v.TransportAttachmentId }).(pulumi.StringOutput)
 }

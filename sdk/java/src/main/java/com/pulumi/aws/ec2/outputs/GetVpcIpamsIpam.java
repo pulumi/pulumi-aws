@@ -20,12 +20,12 @@ public final class GetVpcIpamsIpam {
      */
     private String arn;
     /**
-     * @return The default resource discovery association ID.
+     * @return Default resource discovery association ID.
      * 
      */
     private String defaultResourceDiscoveryAssociationId;
     /**
-     * @return The default resource discovery ID.
+     * @return Default resource discovery ID.
      * 
      */
     private String defaultResourceDiscoveryId;
@@ -49,9 +49,13 @@ public final class GetVpcIpamsIpam {
      * 
      */
     private String ipamRegion;
+    /**
+     * @return AWS account that is charged for active IP addresses managed in IPAM.
+     * 
+     */
     private String meteredAccount;
     /**
-     * @return Regions that the IPAM is configured to operate in.
+     * @return Regions that the IPAM is configured to operate in. See below.
      * 
      */
     private List<GetVpcIpamsIpamOperatingRegion> operatingRegions;
@@ -105,14 +109,14 @@ public final class GetVpcIpamsIpam {
         return this.arn;
     }
     /**
-     * @return The default resource discovery association ID.
+     * @return Default resource discovery association ID.
      * 
      */
     public String defaultResourceDiscoveryAssociationId() {
         return this.defaultResourceDiscoveryAssociationId;
     }
     /**
-     * @return The default resource discovery ID.
+     * @return Default resource discovery ID.
      * 
      */
     public String defaultResourceDiscoveryId() {
@@ -146,11 +150,15 @@ public final class GetVpcIpamsIpam {
     public String ipamRegion() {
         return this.ipamRegion;
     }
+    /**
+     * @return AWS account that is charged for active IP addresses managed in IPAM.
+     * 
+     */
     public String meteredAccount() {
         return this.meteredAccount;
     }
     /**
-     * @return Regions that the IPAM is configured to operate in.
+     * @return Regions that the IPAM is configured to operate in. See below.
      * 
      */
     public List<GetVpcIpamsIpamOperatingRegion> operatingRegions() {

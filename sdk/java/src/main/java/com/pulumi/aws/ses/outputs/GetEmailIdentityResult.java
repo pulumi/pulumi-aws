@@ -15,10 +15,6 @@ public final class GetEmailIdentityResult {
      * 
      */
     private String arn;
-    /**
-     * @return Email identity.
-     * 
-     */
     private String email;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -35,10 +31,6 @@ public final class GetEmailIdentityResult {
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Email identity.
-     * 
-     */
     public String email() {
         return this.email;
     }

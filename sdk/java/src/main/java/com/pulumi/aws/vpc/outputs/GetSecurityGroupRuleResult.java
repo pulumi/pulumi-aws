@@ -22,61 +22,61 @@ public final class GetSecurityGroupRuleResult {
      */
     private String arn;
     /**
-     * @return The destination IPv4 CIDR range.
+     * @return Destination IPv4 CIDR range.
      * 
      */
     private String cidrIpv4;
     /**
-     * @return The destination IPv6 CIDR range.
+     * @return Destination IPv6 CIDR range.
      * 
      */
     private String cidrIpv6;
     /**
-     * @return The security group rule description.
+     * @return Security group rule description.
      * 
      */
     private String description;
     private @Nullable List<GetSecurityGroupRuleFilter> filters;
     /**
-     * @return The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
+     * @return Start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
      * 
      */
     private Integer fromPort;
     private String id;
     /**
-     * @return The IP protocol name or number. Use `-1` to specify all protocols.
+     * @return IP protocol name or number. Use `-1` to specify all protocols.
      * 
      */
     private String ipProtocol;
     /**
-     * @return Indicates whether the security group rule is an outbound rule.
+     * @return Whether the security group rule is an outbound rule.
      * 
      */
     private Boolean isEgress;
     /**
-     * @return The ID of the destination prefix list.
+     * @return ID of the destination prefix list.
      * 
      */
     private String prefixListId;
     /**
-     * @return The destination security group that is referenced in the rule.
+     * @return Destination security group that is referenced in the rule.
      * 
      */
     private String referencedSecurityGroupId;
     private String region;
     /**
-     * @return The ID of the security group.
+     * @return ID of the security group.
      * 
      */
     private String securityGroupId;
     private String securityGroupRuleId;
     /**
-     * @return A map of tags assigned to the resource.
+     * @return Map of tags assigned to the resource.
      * 
      */
     private Map<String,String> tags;
     /**
-     * @return (Optional) The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+     * @return End of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
      * 
      */
     private Integer toPort;
@@ -90,21 +90,21 @@ public final class GetSecurityGroupRuleResult {
         return this.arn;
     }
     /**
-     * @return The destination IPv4 CIDR range.
+     * @return Destination IPv4 CIDR range.
      * 
      */
     public String cidrIpv4() {
         return this.cidrIpv4;
     }
     /**
-     * @return The destination IPv6 CIDR range.
+     * @return Destination IPv6 CIDR range.
      * 
      */
     public String cidrIpv6() {
         return this.cidrIpv6;
     }
     /**
-     * @return The security group rule description.
+     * @return Security group rule description.
      * 
      */
     public String description() {
@@ -114,7 +114,7 @@ public final class GetSecurityGroupRuleResult {
         return this.filters == null ? List.of() : this.filters;
     }
     /**
-     * @return The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
+     * @return Start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
      * 
      */
     public Integer fromPort() {
@@ -124,28 +124,28 @@ public final class GetSecurityGroupRuleResult {
         return this.id;
     }
     /**
-     * @return The IP protocol name or number. Use `-1` to specify all protocols.
+     * @return IP protocol name or number. Use `-1` to specify all protocols.
      * 
      */
     public String ipProtocol() {
         return this.ipProtocol;
     }
     /**
-     * @return Indicates whether the security group rule is an outbound rule.
+     * @return Whether the security group rule is an outbound rule.
      * 
      */
     public Boolean isEgress() {
         return this.isEgress;
     }
     /**
-     * @return The ID of the destination prefix list.
+     * @return ID of the destination prefix list.
      * 
      */
     public String prefixListId() {
         return this.prefixListId;
     }
     /**
-     * @return The destination security group that is referenced in the rule.
+     * @return Destination security group that is referenced in the rule.
      * 
      */
     public String referencedSecurityGroupId() {
@@ -155,7 +155,7 @@ public final class GetSecurityGroupRuleResult {
         return this.region;
     }
     /**
-     * @return The ID of the security group.
+     * @return ID of the security group.
      * 
      */
     public String securityGroupId() {
@@ -165,14 +165,14 @@ public final class GetSecurityGroupRuleResult {
         return this.securityGroupRuleId;
     }
     /**
-     * @return A map of tags assigned to the resource.
+     * @return Map of tags assigned to the resource.
      * 
      */
     public Map<String,String> tags() {
         return this.tags;
     }
     /**
-     * @return (Optional) The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+     * @return End of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
      * 
      */
     public Integer toPort() {

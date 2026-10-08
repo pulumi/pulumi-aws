@@ -58,7 +58,7 @@ export class VpnGateway extends pulumi.CustomResource {
     }
 
     /**
-     * The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
+     * Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
      */
     declare public readonly amazonSideAsn: pulumi.Output<string>;
     /**
@@ -66,7 +66,7 @@ export class VpnGateway extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The Availability Zone for the virtual private gateway.
+     * Availability Zone for the virtual private gateway.
      */
     declare public readonly availabilityZone: pulumi.Output<string | undefined>;
     /**
@@ -74,15 +74,15 @@ export class VpnGateway extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The VPC ID to create in.
+     * VPC ID to create in.
      */
     declare public readonly vpcId: pulumi.Output<string>;
 
@@ -126,7 +126,7 @@ export class VpnGateway extends pulumi.CustomResource {
  */
 export interface VpnGatewayState {
     /**
-     * The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
+     * Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
      */
     amazonSideAsn?: pulumi.Input<string | undefined>;
     /**
@@ -134,7 +134,7 @@ export interface VpnGatewayState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The Availability Zone for the virtual private gateway.
+     * Availability Zone for the virtual private gateway.
      */
     availabilityZone?: pulumi.Input<string | undefined>;
     /**
@@ -142,15 +142,15 @@ export interface VpnGatewayState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The VPC ID to create in.
+     * VPC ID to create in.
      */
     vpcId?: pulumi.Input<string | undefined>;
 }
@@ -160,11 +160,11 @@ export interface VpnGatewayState {
  */
 export interface VpnGatewayArgs {
     /**
-     * The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
+     * Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
      */
     amazonSideAsn?: pulumi.Input<string | undefined>;
     /**
-     * The Availability Zone for the virtual private gateway.
+     * Availability Zone for the virtual private gateway.
      */
     availabilityZone?: pulumi.Input<string | undefined>;
     /**
@@ -172,11 +172,11 @@ export interface VpnGatewayArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The VPC ID to create in.
+     * VPC ID to create in.
      */
     vpcId?: pulumi.Input<string | undefined>;
 }

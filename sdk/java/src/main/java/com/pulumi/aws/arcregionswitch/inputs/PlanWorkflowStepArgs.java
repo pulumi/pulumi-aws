@@ -95,14 +95,14 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Description of the step.
+     * Description of the plan.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Description of the step.
+     * @return Description of the plan.
      * 
      */
     public Optional<Output<String>> description() {
@@ -230,14 +230,14 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Name of the step.
+     * Name of the plan. Must be unique within the account.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the step.
+     * @return Name of the plan. Must be unique within the account.
      * 
      */
     public Output<String> name() {
@@ -502,7 +502,7 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param description Description of the step.
+         * @param description Description of the plan.
          * 
          * @return builder
          * 
@@ -513,7 +513,7 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param description Description of the step.
+         * @param description Description of the plan.
          * 
          * @return builder
          * 
@@ -761,7 +761,7 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name Name of the step.
+         * @param name Name of the plan. Must be unique within the account.
          * 
          * @return builder
          * 
@@ -772,7 +772,7 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name Name of the step.
+         * @param name Name of the plan. Must be unique within the account.
          * 
          * @return builder
          * 

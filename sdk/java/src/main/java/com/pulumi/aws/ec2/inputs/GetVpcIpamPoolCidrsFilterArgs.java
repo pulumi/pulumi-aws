@@ -16,16 +16,14 @@ public final class GetVpcIpamPoolCidrsFilterArgs extends com.pulumi.resources.Re
     public static final GetVpcIpamPoolCidrsFilterArgs Empty = new GetVpcIpamPoolCidrsFilterArgs();
 
     /**
-     * Name of the field to filter by, as defined by
-     * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
+     * Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the field to filter by, as defined by
-     * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
+     * @return Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
      * 
      */
     public Output<String> name() {
@@ -73,8 +71,7 @@ public final class GetVpcIpamPoolCidrsFilterArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param name Name of the field to filter by, as defined by
-         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
+         * @param name Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
          * 
          * @return builder
          * 
@@ -85,8 +82,7 @@ public final class GetVpcIpamPoolCidrsFilterArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param name Name of the field to filter by, as defined by
-         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
+         * @param name Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
          * 
          * @return builder
          * 

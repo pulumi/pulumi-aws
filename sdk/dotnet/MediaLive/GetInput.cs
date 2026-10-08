@@ -143,6 +143,9 @@ namespace Pulumi.Aws.MediaLive
         /// Channels attached to Input.
         /// </summary>
         public readonly ImmutableArray<string> AttachedChannels;
+        /// <summary>
+        /// Destination settings for PUSH type inputs.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetInputDestinationResult> Destinations;
         public readonly string Id;
         /// <summary>

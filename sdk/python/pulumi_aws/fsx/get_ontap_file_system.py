@@ -140,7 +140,7 @@ class GetOntapFileSystemResult:
     @pulumi.getter(name="diskIopsConfigurations")
     def disk_iops_configurations(self) -> Sequence['outputs.GetOntapFileSystemDiskIopsConfigurationResult']:
         """
-        SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system, specifying the number of provisioned IOPS and the provision mode. See Disk IOPS Below.
+        SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system, specifying the number of provisioned IOPS and the provision mode. See `disk_iops_configuration` below.
         """
         return pulumi.get(self, "disk_iops_configurations")
 

@@ -503,7 +503,7 @@ func (o NotificationChannelSnsPtrOutput) TopicArn() pulumi.StringPtrOutput {
 }
 
 type ResourceCollectionCloudformation struct {
-	// Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all acccount resources) this array should be a single item containing a wildcard (`"*"`).
+	// Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all account resources) this array should be a single item containing a wildcard (`"*"`).
 	StackNames []string `pulumi:"stackNames"`
 }
 
@@ -519,7 +519,7 @@ type ResourceCollectionCloudformationInput interface {
 }
 
 type ResourceCollectionCloudformationArgs struct {
-	// Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all acccount resources) this array should be a single item containing a wildcard (`"*"`).
+	// Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all account resources) this array should be a single item containing a wildcard (`"*"`).
 	StackNames pulumi.StringArrayInput `pulumi:"stackNames"`
 }
 
@@ -600,7 +600,7 @@ func (o ResourceCollectionCloudformationOutput) ToResourceCollectionCloudformati
 	}).(ResourceCollectionCloudformationPtrOutput)
 }
 
-// Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all acccount resources) this array should be a single item containing a wildcard (`"*"`).
+// Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all account resources) this array should be a single item containing a wildcard (`"*"`).
 func (o ResourceCollectionCloudformationOutput) StackNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceCollectionCloudformation) []string { return v.StackNames }).(pulumi.StringArrayOutput)
 }
@@ -629,7 +629,7 @@ func (o ResourceCollectionCloudformationPtrOutput) Elem() ResourceCollectionClou
 	}).(ResourceCollectionCloudformationOutput)
 }
 
-// Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all acccount resources) this array should be a single item containing a wildcard (`"*"`).
+// Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all account resources) this array should be a single item containing a wildcard (`"*"`).
 func (o ResourceCollectionCloudformationPtrOutput) StackNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceCollectionCloudformation) []string {
 		if v == nil {

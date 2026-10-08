@@ -108,16 +108,14 @@ public final class GetVpcEndpointPlainArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the specific VPC Endpoint to retrieve.
+     * Map of tags, each pair of which must exactly match a pair on the specific VPC Endpoint to retrieve.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return Map of tags, each pair of which must exactly match
-     * a pair on the specific VPC Endpoint to retrieve.
+     * @return Map of tags, each pair of which must exactly match a pair on the specific VPC Endpoint to retrieve.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -142,18 +140,12 @@ public final class GetVpcEndpointPlainArgs extends com.pulumi.resources.InvokeAr
     /**
      * ID of the VPC in which the specific VPC Endpoint is used.
      * 
-     * The arguments of this data source act as filters for querying the available VPC endpoints.
-     * The given filters must match exactly one VPC endpoint whose data will be exported as attributes.
-     * 
      */
     @Import(name="vpcId")
     private @Nullable String vpcId;
 
     /**
      * @return ID of the VPC in which the specific VPC Endpoint is used.
-     * 
-     * The arguments of this data source act as filters for querying the available VPC endpoints.
-     * The given filters must match exactly one VPC endpoint whose data will be exported as attributes.
      * 
      */
     public Optional<String> vpcId() {
@@ -269,8 +261,7 @@ public final class GetVpcEndpointPlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param tags Map of tags, each pair of which must exactly match
-         * a pair on the specific VPC Endpoint to retrieve.
+         * @param tags Map of tags, each pair of which must exactly match a pair on the specific VPC Endpoint to retrieve.
          * 
          * @return builder
          * 
@@ -293,9 +284,6 @@ public final class GetVpcEndpointPlainArgs extends com.pulumi.resources.InvokeAr
 
         /**
          * @param vpcId ID of the VPC in which the specific VPC Endpoint is used.
-         * 
-         * The arguments of this data source act as filters for querying the available VPC endpoints.
-         * The given filters must match exactly one VPC endpoint whose data will be exported as attributes.
          * 
          * @return builder
          * 

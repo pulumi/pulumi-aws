@@ -15,6 +15,10 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetVpnGatewayResult {
     private String amazonSideAsn;
+    /**
+     * @return ARN of the VPN Gateway.
+     * 
+     */
     private String arn;
     private String attachedVpcId;
     private String availabilityZone;
@@ -28,6 +32,10 @@ public final class GetVpnGatewayResult {
     public String amazonSideAsn() {
         return this.amazonSideAsn;
     }
+    /**
+     * @return ARN of the VPN Gateway.
+     * 
+     */
     public String arn() {
         return this.arn;
     }

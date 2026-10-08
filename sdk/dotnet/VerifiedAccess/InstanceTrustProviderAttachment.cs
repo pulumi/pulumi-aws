@@ -62,13 +62,13 @@ namespace Pulumi.Aws.VerifiedAccess
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Verified Access instance to attach the Trust Provider to.
+        /// ID of the Verified Access instance to attach the Trust Provider to.
         /// </summary>
         [Output("verifiedaccessInstanceId")]
         public Output<string> VerifiedaccessInstanceId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Verified Access trust provider.
+        /// ID of the Verified Access trust provider.
         /// </summary>
         [Output("verifiedaccessTrustProviderId")]
         public Output<string> VerifiedaccessTrustProviderId { get; private set; } = null!;
@@ -126,13 +126,13 @@ namespace Pulumi.Aws.VerifiedAccess
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ID of the Verified Access instance to attach the Trust Provider to.
+        /// ID of the Verified Access instance to attach the Trust Provider to.
         /// </summary>
         [Input("verifiedaccessInstanceId", required: true)]
         public Input<string> VerifiedaccessInstanceId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Verified Access trust provider.
+        /// ID of the Verified Access trust provider.
         /// </summary>
         [Input("verifiedaccessTrustProviderId", required: true)]
         public Input<string> VerifiedaccessTrustProviderId { get; set; } = null!;
@@ -152,13 +152,13 @@ namespace Pulumi.Aws.VerifiedAccess
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ID of the Verified Access instance to attach the Trust Provider to.
+        /// ID of the Verified Access instance to attach the Trust Provider to.
         /// </summary>
         [Input("verifiedaccessInstanceId")]
         public Input<string>? VerifiedaccessInstanceId { get; set; }
 
         /// <summary>
-        /// The ID of the Verified Access trust provider.
+        /// ID of the Verified Access trust provider.
         /// </summary>
         [Input("verifiedaccessTrustProviderId")]
         public Input<string>? VerifiedaccessTrustProviderId { get; set; }

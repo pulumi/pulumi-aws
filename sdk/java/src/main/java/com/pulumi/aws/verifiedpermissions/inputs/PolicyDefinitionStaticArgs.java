@@ -17,14 +17,14 @@ public final class PolicyDefinitionStaticArgs extends com.pulumi.resources.Resou
     public static final PolicyDefinitionStaticArgs Empty = new PolicyDefinitionStaticArgs();
 
     /**
-     * The description of the static policy.
+     * Description of the static policy.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the static policy.
+     * @return Description of the static policy.
      * 
      */
     public Optional<Output<String>> description() {
@@ -32,14 +32,14 @@ public final class PolicyDefinitionStaticArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The statement of the static policy.
+     * Statement of the static policy.
      * 
      */
     @Import(name="statement", required=true)
     private Output<String> statement;
 
     /**
-     * @return The statement of the static policy.
+     * @return Statement of the static policy.
      * 
      */
     public Output<String> statement() {
@@ -72,7 +72,7 @@ public final class PolicyDefinitionStaticArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param description The description of the static policy.
+         * @param description Description of the static policy.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class PolicyDefinitionStaticArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param description The description of the static policy.
+         * @param description Description of the static policy.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class PolicyDefinitionStaticArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param statement The statement of the static policy.
+         * @param statement Statement of the static policy.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class PolicyDefinitionStaticArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param statement The statement of the static policy.
+         * @param statement Statement of the static policy.
          * 
          * @return builder
          * 

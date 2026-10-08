@@ -61,7 +61,7 @@ export class VpnConnectionRoute extends pulumi.CustomResource {
     }
 
     /**
-     * The CIDR block associated with the local subnet of the customer network.
+     * CIDR block associated with the local subnet of the customer network.
      */
     declare public readonly destinationCidrBlock: pulumi.Output<string>;
     /**
@@ -69,7 +69,7 @@ export class VpnConnectionRoute extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The ID of the VPN connection.
+     * ID of the VPN connection.
      */
     declare public readonly vpnConnectionId: pulumi.Output<string>;
 
@@ -111,7 +111,7 @@ export class VpnConnectionRoute extends pulumi.CustomResource {
  */
 export interface VpnConnectionRouteState {
     /**
-     * The CIDR block associated with the local subnet of the customer network.
+     * CIDR block associated with the local subnet of the customer network.
      */
     destinationCidrBlock?: pulumi.Input<string | undefined>;
     /**
@@ -119,7 +119,7 @@ export interface VpnConnectionRouteState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the VPN connection.
+     * ID of the VPN connection.
      */
     vpnConnectionId?: pulumi.Input<string | undefined>;
 }
@@ -129,7 +129,7 @@ export interface VpnConnectionRouteState {
  */
 export interface VpnConnectionRouteArgs {
     /**
-     * The CIDR block associated with the local subnet of the customer network.
+     * CIDR block associated with the local subnet of the customer network.
      */
     destinationCidrBlock: pulumi.Input<string>;
     /**
@@ -137,7 +137,7 @@ export interface VpnConnectionRouteArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the VPN connection.
+     * ID of the VPN connection.
      */
     vpnConnectionId: pulumi.Input<string>;
 }

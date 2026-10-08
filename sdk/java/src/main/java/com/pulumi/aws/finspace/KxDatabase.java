@@ -95,14 +95,14 @@ public class KxDatabase extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Timestamp at which the databse is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
+     * Timestamp at which the database is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
      * 
      */
     @Export(name="createdTimestamp", refs={String.class}, tree="[0]")
     private Output<String> createdTimestamp;
 
     /**
-     * @return Timestamp at which the databse is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
+     * @return Timestamp at which the database is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
      * 
      */
     public Output<String> createdTimestamp() {

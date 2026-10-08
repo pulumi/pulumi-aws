@@ -438,7 +438,7 @@ type ScheduledQuery struct {
 	NotificationConfiguration ScheduledQueryNotificationConfigurationOutput `pulumi:"notificationConfiguration"`
 	// Last time the scheduled query was run.
 	PreviousInvocationTime pulumi.StringOutput `pulumi:"previousInvocationTime"`
-	// Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `scheduleConfiguration` parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
+	// Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `scheduleConfiguration` parameter, will be the value of `@scheduled_runtime` parameter for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
 	QueryString pulumi.StringOutput `pulumi:"queryString"`
 	// Runtime summary for the last five failed scheduled query runs. See `recentlyFailedRuns` Block for details.
 	RecentlyFailedRuns ScheduledQueryRecentlyFailedRunArrayOutput `pulumi:"recentlyFailedRuns"`
@@ -527,7 +527,7 @@ type scheduledQueryState struct {
 	NotificationConfiguration *ScheduledQueryNotificationConfiguration `pulumi:"notificationConfiguration"`
 	// Last time the scheduled query was run.
 	PreviousInvocationTime *string `pulumi:"previousInvocationTime"`
-	// Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `scheduleConfiguration` parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
+	// Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `scheduleConfiguration` parameter, will be the value of `@scheduled_runtime` parameter for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
 	QueryString *string `pulumi:"queryString"`
 	// Runtime summary for the last five failed scheduled query runs. See `recentlyFailedRuns` Block for details.
 	RecentlyFailedRuns []ScheduledQueryRecentlyFailedRun `pulumi:"recentlyFailedRuns"`
@@ -569,7 +569,7 @@ type ScheduledQueryState struct {
 	NotificationConfiguration ScheduledQueryNotificationConfigurationPtrInput
 	// Last time the scheduled query was run.
 	PreviousInvocationTime pulumi.StringPtrInput
-	// Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `scheduleConfiguration` parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
+	// Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `scheduleConfiguration` parameter, will be the value of `@scheduled_runtime` parameter for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
 	QueryString pulumi.StringPtrInput
 	// Runtime summary for the last five failed scheduled query runs. See `recentlyFailedRuns` Block for details.
 	RecentlyFailedRuns ScheduledQueryRecentlyFailedRunArrayInput
@@ -607,7 +607,7 @@ type scheduledQueryArgs struct {
 	Name *string `pulumi:"name"`
 	// Configuration block for notification configuration for a scheduled query. A notification is sent by Timestream when a scheduled query is created, its state is updated, or when it is deleted. See below.
 	NotificationConfiguration ScheduledQueryNotificationConfiguration `pulumi:"notificationConfiguration"`
-	// Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `scheduleConfiguration` parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
+	// Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `scheduleConfiguration` parameter, will be the value of `@scheduled_runtime` parameter for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
 	QueryString string `pulumi:"queryString"`
 	// Runtime summary for the last five failed scheduled query runs. See `recentlyFailedRuns` Block for details.
 	RecentlyFailedRuns []ScheduledQueryRecentlyFailedRun `pulumi:"recentlyFailedRuns"`
@@ -638,7 +638,7 @@ type ScheduledQueryArgs struct {
 	Name pulumi.StringPtrInput
 	// Configuration block for notification configuration for a scheduled query. A notification is sent by Timestream when a scheduled query is created, its state is updated, or when it is deleted. See below.
 	NotificationConfiguration ScheduledQueryNotificationConfigurationInput
-	// Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `scheduleConfiguration` parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
+	// Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `scheduleConfiguration` parameter, will be the value of `@scheduled_runtime` parameter for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
 	QueryString pulumi.StringInput
 	// Runtime summary for the last five failed scheduled query runs. See `recentlyFailedRuns` Block for details.
 	RecentlyFailedRuns ScheduledQueryRecentlyFailedRunArrayInput
@@ -796,7 +796,7 @@ func (o ScheduledQueryOutput) PreviousInvocationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledQuery) pulumi.StringOutput { return v.PreviousInvocationTime }).(pulumi.StringOutput)
 }
 
-// Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `scheduleConfiguration` parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
+// Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `scheduleConfiguration` parameter, will be the value of `@scheduled_runtime` parameter for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
 func (o ScheduledQueryOutput) QueryString() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledQuery) pulumi.StringOutput { return v.QueryString }).(pulumi.StringOutput)
 }

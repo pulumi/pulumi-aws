@@ -36,14 +36,14 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
+     * Whether to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
      * 
      */
     @Import(name="cascade")
     private @Nullable Output<Boolean> cascade;
 
     /**
-     * @return Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
+     * @return Whether to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
      * 
      */
     public Optional<Output<Boolean>> cascade() {
@@ -51,14 +51,14 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The IPAM&#39;s default resource discovery association ID.
+     * IPAM&#39;s default resource discovery association ID.
      * 
      */
     @Import(name="defaultResourceDiscoveryAssociationId")
     private @Nullable Output<String> defaultResourceDiscoveryAssociationId;
 
     /**
-     * @return The IPAM&#39;s default resource discovery association ID.
+     * @return IPAM&#39;s default resource discovery association ID.
      * 
      */
     public Optional<Output<String>> defaultResourceDiscoveryAssociationId() {
@@ -66,14 +66,14 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The IPAM&#39;s default resource discovery ID.
+     * IPAM&#39;s default resource discovery ID.
      * 
      */
     @Import(name="defaultResourceDiscoveryId")
     private @Nullable Output<String> defaultResourceDiscoveryId;
 
     /**
-     * @return The IPAM&#39;s default resource discovery ID.
+     * @return IPAM&#39;s default resource discovery ID.
      * 
      */
     public Optional<Output<String>> defaultResourceDiscoveryId() {
@@ -81,14 +81,14 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A description for the IPAM.
+     * Description for the IPAM.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description for the IPAM.
+     * @return Description for the IPAM.
      * 
      */
     public Optional<Output<String>> description() {
@@ -96,14 +96,14 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
+     * Whether to use your own GUA ranges as private IPv6 addresses. Default: `false`.
      * 
      */
     @Import(name="enablePrivateGua")
     private @Nullable Output<Boolean> enablePrivateGua;
 
     /**
-     * @return Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
+     * @return Whether to use your own GUA ranges as private IPv6 addresses. Default: `false`.
      * 
      */
     public Optional<Output<Boolean>> enablePrivateGua() {
@@ -126,14 +126,14 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
+     * Locales that can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
      * 
      */
     @Import(name="operatingRegions")
     private @Nullable Output<List<VpcIpamOperatingRegionArgs>> operatingRegions;
 
     /**
-     * @return Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
+     * @return Locales that can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
      * 
      */
     public Optional<Output<List<VpcIpamOperatingRegionArgs>>> operatingRegions() {
@@ -141,14 +141,14 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the IPAM&#39;s private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
+     * ID of the IPAM&#39;s private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
      * 
      */
     @Import(name="privateDefaultScopeId")
     private @Nullable Output<String> privateDefaultScopeId;
 
     /**
-     * @return The ID of the IPAM&#39;s private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
+     * @return ID of the IPAM&#39;s private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
      * 
      */
     public Optional<Output<String>> privateDefaultScopeId() {
@@ -156,16 +156,14 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the IPAM&#39;s public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private
-     * IP space. The public scope is intended for all internet-routable IP space.
+     * ID of the IPAM&#39;s public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
      * 
      */
     @Import(name="publicDefaultScopeId")
     private @Nullable Output<String> publicDefaultScopeId;
 
     /**
-     * @return The ID of the IPAM&#39;s public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private
-     * IP space. The public scope is intended for all internet-routable IP space.
+     * @return ID of the IPAM&#39;s public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
      * 
      */
     public Optional<Output<String>> publicDefaultScopeId() {
@@ -188,14 +186,14 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of scopes in the IPAM.
+     * Number of scopes in the IPAM.
      * 
      */
     @Import(name="scopeCount")
     private @Nullable Output<Integer> scopeCount;
 
     /**
-     * @return The number of scopes in the IPAM.
+     * @return Number of scopes in the IPAM.
      * 
      */
     public Optional<Output<Integer>> scopeCount() {
@@ -203,14 +201,14 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -218,14 +216,14 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -307,7 +305,7 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cascade Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
+         * @param cascade Whether to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
          * 
          * @return builder
          * 
@@ -318,7 +316,7 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cascade Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
+         * @param cascade Whether to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
          * 
          * @return builder
          * 
@@ -328,7 +326,7 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultResourceDiscoveryAssociationId The IPAM&#39;s default resource discovery association ID.
+         * @param defaultResourceDiscoveryAssociationId IPAM&#39;s default resource discovery association ID.
          * 
          * @return builder
          * 
@@ -339,7 +337,7 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultResourceDiscoveryAssociationId The IPAM&#39;s default resource discovery association ID.
+         * @param defaultResourceDiscoveryAssociationId IPAM&#39;s default resource discovery association ID.
          * 
          * @return builder
          * 
@@ -349,7 +347,7 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultResourceDiscoveryId The IPAM&#39;s default resource discovery ID.
+         * @param defaultResourceDiscoveryId IPAM&#39;s default resource discovery ID.
          * 
          * @return builder
          * 
@@ -360,7 +358,7 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultResourceDiscoveryId The IPAM&#39;s default resource discovery ID.
+         * @param defaultResourceDiscoveryId IPAM&#39;s default resource discovery ID.
          * 
          * @return builder
          * 
@@ -370,7 +368,7 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description for the IPAM.
+         * @param description Description for the IPAM.
          * 
          * @return builder
          * 
@@ -381,7 +379,7 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description for the IPAM.
+         * @param description Description for the IPAM.
          * 
          * @return builder
          * 
@@ -391,7 +389,7 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enablePrivateGua Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
+         * @param enablePrivateGua Whether to use your own GUA ranges as private IPv6 addresses. Default: `false`.
          * 
          * @return builder
          * 
@@ -402,7 +400,7 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enablePrivateGua Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
+         * @param enablePrivateGua Whether to use your own GUA ranges as private IPv6 addresses. Default: `false`.
          * 
          * @return builder
          * 
@@ -433,7 +431,7 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param operatingRegions Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
+         * @param operatingRegions Locales that can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
          * 
          * @return builder
          * 
@@ -444,7 +442,7 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param operatingRegions Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
+         * @param operatingRegions Locales that can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
          * 
          * @return builder
          * 
@@ -454,7 +452,7 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param operatingRegions Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
+         * @param operatingRegions Locales that can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
          * 
          * @return builder
          * 
@@ -464,7 +462,7 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateDefaultScopeId The ID of the IPAM&#39;s private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
+         * @param privateDefaultScopeId ID of the IPAM&#39;s private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
          * 
          * @return builder
          * 
@@ -475,7 +473,7 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateDefaultScopeId The ID of the IPAM&#39;s private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
+         * @param privateDefaultScopeId ID of the IPAM&#39;s private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
          * 
          * @return builder
          * 
@@ -485,8 +483,7 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicDefaultScopeId The ID of the IPAM&#39;s public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private
-         * IP space. The public scope is intended for all internet-routable IP space.
+         * @param publicDefaultScopeId ID of the IPAM&#39;s public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
          * 
          * @return builder
          * 
@@ -497,8 +494,7 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicDefaultScopeId The ID of the IPAM&#39;s public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private
-         * IP space. The public scope is intended for all internet-routable IP space.
+         * @param publicDefaultScopeId ID of the IPAM&#39;s public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
          * 
          * @return builder
          * 
@@ -529,7 +525,7 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scopeCount The number of scopes in the IPAM.
+         * @param scopeCount Number of scopes in the IPAM.
          * 
          * @return builder
          * 
@@ -540,7 +536,7 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scopeCount The number of scopes in the IPAM.
+         * @param scopeCount Number of scopes in the IPAM.
          * 
          * @return builder
          * 
@@ -550,7 +546,7 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -561,7 +557,7 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -571,7 +567,7 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -582,7 +578,7 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

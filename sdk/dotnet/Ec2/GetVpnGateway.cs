@@ -15,6 +15,8 @@ namespace Pulumi.Aws.Ec2
         /// The VPN Gateway data source provides details about
         /// a specific VPN gateway.
         /// 
+        /// The arguments of this data source act as filters for querying the available VPN gateways. The given filters must match exactly one VPN gateway whose data will be exported as attributes.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -54,6 +56,8 @@ namespace Pulumi.Aws.Ec2
         /// The VPN Gateway data source provides details about
         /// a specific VPN gateway.
         /// 
+        /// The arguments of this data source act as filters for querying the available VPN gateways. The given filters must match exactly one VPN gateway whose data will be exported as attributes.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -92,6 +96,8 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The VPN Gateway data source provides details about
         /// a specific VPN gateway.
+        /// 
+        /// The arguments of this data source act as filters for querying the available VPN gateways. The given filters must match exactly one VPN gateway whose data will be exported as attributes.
         /// 
         /// ## Example Usage
         /// 
@@ -134,9 +140,6 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
-        /// 
-        /// The arguments of this data source act as filters for querying the available VPN gateways.
-        /// The given filters must match exactly one VPN gateway whose data will be exported as attributes.
         /// </summary>
         [Input("amazonSideAsn")]
         public string? AmazonSideAsn { get; set; }
@@ -187,8 +190,7 @@ namespace Pulumi.Aws.Ec2
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the desired VPN Gateway.
+        /// Map of tags, each pair of which must exactly match a pair on the desired VPN Gateway.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -206,9 +208,6 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
-        /// 
-        /// The arguments of this data source act as filters for querying the available VPN gateways.
-        /// The given filters must match exactly one VPN gateway whose data will be exported as attributes.
         /// </summary>
         [Input("amazonSideAsn")]
         public Input<string>? AmazonSideAsn { get; set; }
@@ -259,8 +258,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the desired VPN Gateway.
+        /// Map of tags, each pair of which must exactly match a pair on the desired VPN Gateway.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -279,6 +277,9 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetVpnGatewayResult
     {
         public readonly string AmazonSideAsn;
+        /// <summary>
+        /// ARN of the VPN Gateway.
+        /// </summary>
         public readonly string Arn;
         public readonly string AttachedVpcId;
         public readonly string AvailabilityZone;

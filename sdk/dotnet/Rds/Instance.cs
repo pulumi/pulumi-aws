@@ -209,7 +209,7 @@ namespace Pulumi.Aws.Rds
     ///         },
     ///     });
     /// 
-    ///     // The RDS Db2 instance resource requires licensing information. Create a new parameter group using the default paramater group as a source, and set license information.
+    ///     // The RDS Db2 instance resource requires licensing information. Create a new parameter group using the default parameter group as a source, and set license information.
     ///     var exampleParameterGroup = new Aws.Rds.ParameterGroup("example", new()
     ///     {
     ///         Parameters = new[]
@@ -687,7 +687,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> LicenseModel { get; private set; } = null!;
 
         /// <summary>
-        /// Listener connection endpoint for SQL Server Always On. See Endpoint below.
+        /// Listener connection endpoint for SQL Server Always On. See `ListenerEndpoint` Block below.
         /// </summary>
         [Output("listenerEndpoints")]
         public Output<ImmutableArray<Outputs.InstanceListenerEndpoint>> ListenerEndpoints { get; private set; } = null!;
@@ -1767,7 +1767,7 @@ namespace Pulumi.Aws.Rds
         private InputList<Inputs.InstanceListenerEndpointGetArgs>? _listenerEndpoints;
 
         /// <summary>
-        /// Listener connection endpoint for SQL Server Always On. See Endpoint below.
+        /// Listener connection endpoint for SQL Server Always On. See `ListenerEndpoint` Block below.
         /// </summary>
         public InputList<Inputs.InstanceListenerEndpointGetArgs> ListenerEndpoints
         {

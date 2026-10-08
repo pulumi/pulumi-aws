@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Ec2.Inputs
     public sealed class VpcEndpointDnsOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The DNS records created for the endpoint. Valid values are `Ipv4`, `Dualstack`, `service-defined`, and `Ipv6`.
+        /// DNS records created for the endpoint. Valid values are `Ipv4`, `Dualstack`, `service-defined`, and `Ipv6`.
         /// </summary>
         [Input("dnsRecordIpType")]
         public Input<string>? DnsRecordIpType { get; set; }
 
         /// <summary>
-        /// Boolean indicating whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `False`. This argument can be specified only if `PrivateDnsEnabled` is `True`.
+        /// Whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `False`. This argument can be specified only if `PrivateDnsEnabled` is `True`.
         /// </summary>
         [Input("privateDnsOnlyForInboundResolverEndpoint")]
         public Input<bool>? PrivateDnsOnlyForInboundResolverEndpoint { get; set; }

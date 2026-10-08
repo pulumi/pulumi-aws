@@ -355,24 +355,24 @@ export class RuleGroup extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the WAF rule group.
+     * ARN of the WAF rule group.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
+     * Web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
      */
     declare public readonly capacity: pulumi.Output<number>;
     /**
-     * Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
+     * Custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
      */
     declare public readonly customResponseBodies: pulumi.Output<outputs.wafv2.RuleGroupCustomResponseBody[] | undefined>;
     /**
-     * A friendly description of the rule group.
+     * Friendly description of the rule group.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     declare public /*out*/ readonly lockToken: pulumi.Output<string>;
     /**
-     * A friendly name of the rule group.
+     * Friendly name of the rule group.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -384,7 +384,7 @@ export class RuleGroup extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+     * Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
      */
     declare public readonly rules: pulumi.Output<outputs.wafv2.RuleGroupRule[] | undefined>;
     /**
@@ -392,19 +392,19 @@ export class RuleGroup extends pulumi.CustomResource {
      */
     declare public readonly rulesJson: pulumi.Output<string | undefined>;
     /**
-     * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+     * Scope of the rule group, either an AWS CloudFront distribution or a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      */
     declare public readonly scope: pulumi.Output<string>;
     /**
-     * An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+     * Amazon CloudWatch metrics and web request sample collection configuration. See Visibility Configuration below for details.
      */
     declare public readonly visibilityConfig: pulumi.Output<outputs.wafv2.RuleGroupVisibilityConfig>;
 
@@ -471,24 +471,24 @@ export class RuleGroup extends pulumi.CustomResource {
  */
 export interface RuleGroupState {
     /**
-     * The ARN of the WAF rule group.
+     * ARN of the WAF rule group.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
+     * Web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
      */
     capacity?: pulumi.Input<number | undefined>;
     /**
-     * Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
+     * Custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
      */
     customResponseBodies?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupCustomResponseBody>[] | undefined>;
     /**
-     * A friendly description of the rule group.
+     * Friendly description of the rule group.
      */
     description?: pulumi.Input<string | undefined>;
     lockToken?: pulumi.Input<string | undefined>;
     /**
-     * A friendly name of the rule group.
+     * Friendly name of the rule group.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -500,7 +500,7 @@ export interface RuleGroupState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+     * Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
      */
     rules?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRule>[] | undefined>;
     /**
@@ -508,19 +508,19 @@ export interface RuleGroupState {
      */
     rulesJson?: pulumi.Input<string | undefined>;
     /**
-     * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+     * Scope of the rule group, either an AWS CloudFront distribution or a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      */
     scope?: pulumi.Input<string | undefined>;
     /**
-     * An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+     * Amazon CloudWatch metrics and web request sample collection configuration. See Visibility Configuration below for details.
      */
     visibilityConfig?: pulumi.Input<inputs.wafv2.RuleGroupVisibilityConfig | undefined>;
 }
@@ -530,19 +530,19 @@ export interface RuleGroupState {
  */
 export interface RuleGroupArgs {
     /**
-     * The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
+     * Web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
      */
     capacity: pulumi.Input<number>;
     /**
-     * Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
+     * Custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
      */
     customResponseBodies?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupCustomResponseBody>[] | undefined>;
     /**
-     * A friendly description of the rule group.
+     * Friendly description of the rule group.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * A friendly name of the rule group.
+     * Friendly name of the rule group.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -554,7 +554,7 @@ export interface RuleGroupArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+     * Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
      */
     rules?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRule>[] | undefined>;
     /**
@@ -562,15 +562,15 @@ export interface RuleGroupArgs {
      */
     rulesJson?: pulumi.Input<string | undefined>;
     /**
-     * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+     * Scope of the rule group, either an AWS CloudFront distribution or a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      */
     scope: pulumi.Input<string>;
     /**
-     * An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+     * Amazon CloudWatch metrics and web request sample collection configuration. See Visibility Configuration below for details.
      */
     visibilityConfig: pulumi.Input<inputs.wafv2.RuleGroupVisibilityConfig>;
 }

@@ -65,7 +65,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			exampleWindowsFileSystem, err := fsx.NewWindowsFileSystem(ctx, "example", &fsx.WindowsFileSystemArgs{
-//				ActiveDirectoryId: pulumi.Any(eample.Id),
+//				ActiveDirectoryId: pulumi.Any(exampleAwsDirectoryServiceDirectory.Id),
 //				SkipFinalBackup:   pulumi.Bool(true),
 //				StorageCapacity:   pulumi.Int(32),
 //				SubnetIds: pulumi.StringArray{

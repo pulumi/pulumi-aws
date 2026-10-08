@@ -62,18 +62,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation")
 public class VpcDhcpOptionsAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * The ID of the DHCP Options Set to associate to the VPC.
-     * 
-     * &gt; **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS&#39;s `default` DHCP Options Set to the VPC.
+     * ID of the DHCP Options Set to associate to the VPC.
      * 
      */
     @Export(name="dhcpOptionsId", refs={String.class}, tree="[0]")
     private Output<String> dhcpOptionsId;
 
     /**
-     * @return The ID of the DHCP Options Set to associate to the VPC.
-     * 
-     * &gt; **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS&#39;s `default` DHCP Options Set to the VPC.
+     * @return ID of the DHCP Options Set to associate to the VPC.
      * 
      */
     public Output<String> dhcpOptionsId() {
@@ -94,14 +90,18 @@ public class VpcDhcpOptionsAssociation extends com.pulumi.resources.CustomResour
         return this.region;
     }
     /**
-     * The ID of the VPC to which we would like to associate a DHCP Options Set.
+     * ID of the VPC to which we would like to associate a DHCP Options Set.
+     * 
+     * &gt; **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS&#39;s `default` DHCP Options Set to the VPC.
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**
-     * @return The ID of the VPC to which we would like to associate a DHCP Options Set.
+     * @return ID of the VPC to which we would like to associate a DHCP Options Set.
+     * 
+     * &gt; **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS&#39;s `default` DHCP Options Set to the VPC.
      * 
      */
     public Output<String> vpcId() {

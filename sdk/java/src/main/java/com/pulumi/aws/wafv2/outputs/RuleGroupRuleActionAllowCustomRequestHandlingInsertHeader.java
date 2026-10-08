@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class RuleGroupRuleActionAllowCustomRequestHandlingInsertHeader {
     /**
-     * @return A friendly name of the rule group.
+     * @return Friendly name of the rule group.
      * 
      */
     private String name;
     /**
-     * @return The value of the custom header.
+     * @return Value of the custom header.
      * 
      */
     private String value;
 
     private RuleGroupRuleActionAllowCustomRequestHandlingInsertHeader() {}
     /**
-     * @return A friendly name of the rule group.
+     * @return Friendly name of the rule group.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The value of the custom header.
+     * @return Value of the custom header.
      * 
      */
     public String value() {

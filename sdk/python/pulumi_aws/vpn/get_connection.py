@@ -156,7 +156,7 @@ class GetConnectionResult:
     @pulumi.getter
     def routes(self) -> Sequence['outputs.GetConnectionRouteResult']:
         """
-        List of static routes associated with the VPN connection.
+        List of static routes associated with the VPN connection. See below.
         """
         return pulumi.get(self, "routes")
 
@@ -164,7 +164,7 @@ class GetConnectionResult:
     @pulumi.getter
     def state(self) -> _builtins.str:
         """
-        Current state of the VPN connection.
+        Current state of the static route.
         """
         return pulumi.get(self, "state")
 
@@ -196,7 +196,7 @@ class GetConnectionResult:
     @pulumi.getter(name="vgwTelemetries")
     def vgw_telemetries(self) -> Sequence['outputs.GetConnectionVgwTelemetryResult']:
         """
-        List of objects containing information about the VPN tunnel.
+        List of objects containing information about the VPN tunnel. See below.
         """
         return pulumi.get(self, "vgw_telemetries")
 

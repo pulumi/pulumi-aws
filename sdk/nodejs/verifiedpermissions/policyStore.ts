@@ -60,19 +60,19 @@ export class PolicyStore extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the Policy Store.
+     * ARN of the Policy Store.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+     * Whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
      */
     declare public readonly deletionProtection: pulumi.Output<string>;
     /**
-     * A description of the Policy Store.
+     * Description of the Policy Store.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * The ID of the Policy Store.
+     * ID of the Policy Store.
      */
     declare public /*out*/ readonly policyStoreId: pulumi.Output<string>;
     /**
@@ -88,7 +88,9 @@ export class PolicyStore extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * Validation settings for the policy store.
+     * Validation settings for the policy store. See Validation Settings below.
+     *
+     * The following arguments are optional:
      */
     declare public readonly validationSettings: pulumi.Output<outputs.verifiedpermissions.PolicyStoreValidationSettings>;
 
@@ -137,19 +139,19 @@ export class PolicyStore extends pulumi.CustomResource {
  */
 export interface PolicyStoreState {
     /**
-     * The ARN of the Policy Store.
+     * ARN of the Policy Store.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+     * Whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
      */
     deletionProtection?: pulumi.Input<string | undefined>;
     /**
-     * A description of the Policy Store.
+     * Description of the Policy Store.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the Policy Store.
+     * ID of the Policy Store.
      */
     policyStoreId?: pulumi.Input<string | undefined>;
     /**
@@ -165,7 +167,9 @@ export interface PolicyStoreState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Validation settings for the policy store.
+     * Validation settings for the policy store. See Validation Settings below.
+     *
+     * The following arguments are optional:
      */
     validationSettings?: pulumi.Input<inputs.verifiedpermissions.PolicyStoreValidationSettings | undefined>;
 }
@@ -175,11 +179,11 @@ export interface PolicyStoreState {
  */
 export interface PolicyStoreArgs {
     /**
-     * Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+     * Whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
      */
     deletionProtection?: pulumi.Input<string | undefined>;
     /**
-     * A description of the Policy Store.
+     * Description of the Policy Store.
      */
     description?: pulumi.Input<string | undefined>;
     /**
@@ -191,7 +195,9 @@ export interface PolicyStoreArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Validation settings for the policy store.
+     * Validation settings for the policy store. See Validation Settings below.
+     *
+     * The following arguments are optional:
      */
     validationSettings: pulumi.Input<inputs.verifiedpermissions.PolicyStoreValidationSettings>;
 }

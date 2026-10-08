@@ -20,8 +20,6 @@ public final class VpcEndpointConnectionNotificationArgs extends com.pulumi.reso
     /**
      * One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
      * 
-     * &gt; **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
-     * 
      */
     @Import(name="connectionEvents", required=true)
     private Output<List<String>> connectionEvents;
@@ -29,22 +27,20 @@ public final class VpcEndpointConnectionNotificationArgs extends com.pulumi.reso
     /**
      * @return One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
      * 
-     * &gt; **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
-     * 
      */
     public Output<List<String>> connectionEvents() {
         return this.connectionEvents;
     }
 
     /**
-     * The ARN of the SNS topic for the notifications.
+     * ARN of the SNS topic for the notifications.
      * 
      */
     @Import(name="connectionNotificationArn", required=true)
     private Output<String> connectionNotificationArn;
 
     /**
-     * @return The ARN of the SNS topic for the notifications.
+     * @return ARN of the SNS topic for the notifications.
      * 
      */
     public Output<String> connectionNotificationArn() {
@@ -67,14 +63,14 @@ public final class VpcEndpointConnectionNotificationArgs extends com.pulumi.reso
     }
 
     /**
-     * The ID of the VPC Endpoint to receive notifications for.
+     * ID of the VPC Endpoint to receive notifications for.
      * 
      */
     @Import(name="vpcEndpointId")
     private @Nullable Output<String> vpcEndpointId;
 
     /**
-     * @return The ID of the VPC Endpoint to receive notifications for.
+     * @return ID of the VPC Endpoint to receive notifications for.
      * 
      */
     public Optional<Output<String>> vpcEndpointId() {
@@ -82,14 +78,18 @@ public final class VpcEndpointConnectionNotificationArgs extends com.pulumi.reso
     }
 
     /**
-     * The ID of the VPC Endpoint Service to receive notifications for.
+     * ID of the VPC Endpoint Service to receive notifications for.
+     * 
+     * &gt; **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
      * 
      */
     @Import(name="vpcEndpointServiceId")
     private @Nullable Output<String> vpcEndpointServiceId;
 
     /**
-     * @return The ID of the VPC Endpoint Service to receive notifications for.
+     * @return ID of the VPC Endpoint Service to receive notifications for.
+     * 
+     * &gt; **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
      * 
      */
     public Optional<Output<String>> vpcEndpointServiceId() {
@@ -127,8 +127,6 @@ public final class VpcEndpointConnectionNotificationArgs extends com.pulumi.reso
         /**
          * @param connectionEvents One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
          * 
-         * &gt; **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
-         * 
          * @return builder
          * 
          */
@@ -140,8 +138,6 @@ public final class VpcEndpointConnectionNotificationArgs extends com.pulumi.reso
         /**
          * @param connectionEvents One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
          * 
-         * &gt; **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
-         * 
          * @return builder
          * 
          */
@@ -152,8 +148,6 @@ public final class VpcEndpointConnectionNotificationArgs extends com.pulumi.reso
         /**
          * @param connectionEvents One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
          * 
-         * &gt; **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
-         * 
          * @return builder
          * 
          */
@@ -162,7 +156,7 @@ public final class VpcEndpointConnectionNotificationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param connectionNotificationArn The ARN of the SNS topic for the notifications.
+         * @param connectionNotificationArn ARN of the SNS topic for the notifications.
          * 
          * @return builder
          * 
@@ -173,7 +167,7 @@ public final class VpcEndpointConnectionNotificationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param connectionNotificationArn The ARN of the SNS topic for the notifications.
+         * @param connectionNotificationArn ARN of the SNS topic for the notifications.
          * 
          * @return builder
          * 
@@ -204,7 +198,7 @@ public final class VpcEndpointConnectionNotificationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param vpcEndpointId The ID of the VPC Endpoint to receive notifications for.
+         * @param vpcEndpointId ID of the VPC Endpoint to receive notifications for.
          * 
          * @return builder
          * 
@@ -215,7 +209,7 @@ public final class VpcEndpointConnectionNotificationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param vpcEndpointId The ID of the VPC Endpoint to receive notifications for.
+         * @param vpcEndpointId ID of the VPC Endpoint to receive notifications for.
          * 
          * @return builder
          * 
@@ -225,7 +219,9 @@ public final class VpcEndpointConnectionNotificationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param vpcEndpointServiceId The ID of the VPC Endpoint Service to receive notifications for.
+         * @param vpcEndpointServiceId ID of the VPC Endpoint Service to receive notifications for.
+         * 
+         * &gt; **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
          * 
          * @return builder
          * 
@@ -236,7 +232,9 @@ public final class VpcEndpointConnectionNotificationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param vpcEndpointServiceId The ID of the VPC Endpoint Service to receive notifications for.
+         * @param vpcEndpointServiceId ID of the VPC Endpoint Service to receive notifications for.
+         * 
+         * &gt; **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
          * 
          * @return builder
          * 

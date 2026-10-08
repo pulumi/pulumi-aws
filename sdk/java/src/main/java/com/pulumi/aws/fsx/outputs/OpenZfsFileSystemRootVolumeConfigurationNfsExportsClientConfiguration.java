@@ -17,7 +17,7 @@ public final class OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfi
      */
     private String clients;
     /**
-     * @return Options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+     * @return Options to use when mounting the file system. Maximum of 20 items. See the [Linux NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
      * 
      */
     private List<String> options;
@@ -31,7 +31,7 @@ public final class OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfi
         return this.clients;
     }
     /**
-     * @return Options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+     * @return Options to use when mounting the file system. Maximum of 20 items. See the [Linux NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
      * 
      */
     public List<String> options() {

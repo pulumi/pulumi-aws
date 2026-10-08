@@ -69,11 +69,11 @@ export class InstanceTrustProviderAttachment extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The ID of the Verified Access instance to attach the Trust Provider to.
+     * ID of the Verified Access instance to attach the Trust Provider to.
      */
     declare public readonly verifiedaccessInstanceId: pulumi.Output<string>;
     /**
-     * The ID of the Verified Access trust provider.
+     * ID of the Verified Access trust provider.
      */
     declare public readonly verifiedaccessTrustProviderId: pulumi.Output<string>;
 
@@ -119,11 +119,11 @@ export interface InstanceTrustProviderAttachmentState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the Verified Access instance to attach the Trust Provider to.
+     * ID of the Verified Access instance to attach the Trust Provider to.
      */
     verifiedaccessInstanceId?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the Verified Access trust provider.
+     * ID of the Verified Access trust provider.
      */
     verifiedaccessTrustProviderId?: pulumi.Input<string | undefined>;
 }
@@ -137,11 +137,11 @@ export interface InstanceTrustProviderAttachmentArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the Verified Access instance to attach the Trust Provider to.
+     * ID of the Verified Access instance to attach the Trust Provider to.
      */
     verifiedaccessInstanceId: pulumi.Input<string>;
     /**
-     * The ID of the Verified Access trust provider.
+     * ID of the Verified Access trust provider.
      */
     verifiedaccessTrustProviderId: pulumi.Input<string>;
 }

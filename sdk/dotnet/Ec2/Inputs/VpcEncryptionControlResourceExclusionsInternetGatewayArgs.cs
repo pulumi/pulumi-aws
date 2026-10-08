@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Ec2.Inputs
     public sealed class VpcEncryptionControlResourceExclusionsInternetGatewayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The current state of the VPC Encryption Control.
+        /// Encryption enforcement state for peered VPCs.
         /// </summary>
         [Input("state", required: true)]
         public Input<string> State { get; set; } = null!;
 
         /// <summary>
-        /// A message providing additional information about the state of the VPC Encryption Control.
+        /// Message providing additional information about the encryption enforcement state.
         /// </summary>
         [Input("stateMessage", required: true)]
         public Input<string> StateMessage { get; set; } = null!;

@@ -21,12 +21,12 @@ public final class GetVpcIpamResult {
      */
     private String arn;
     /**
-     * @return The default resource discovery association ID.
+     * @return Default resource discovery association ID.
      * 
      */
     private String defaultResourceDiscoveryAssociationId;
     /**
-     * @return The default resource discovery ID.
+     * @return Default resource discovery ID.
      * 
      */
     private String defaultResourceDiscoveryId;
@@ -116,14 +116,14 @@ public final class GetVpcIpamResult {
         return this.arn;
     }
     /**
-     * @return The default resource discovery association ID.
+     * @return Default resource discovery association ID.
      * 
      */
     public String defaultResourceDiscoveryAssociationId() {
         return this.defaultResourceDiscoveryAssociationId;
     }
     /**
-     * @return The default resource discovery ID.
+     * @return Default resource discovery ID.
      * 
      */
     public String defaultResourceDiscoveryId() {

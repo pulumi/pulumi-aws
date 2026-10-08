@@ -16,7 +16,7 @@ namespace Pulumi.Aws.DataZone.Inputs
         private InputList<string>? _classifies;
 
         /// <summary>
-        /// String array that calssifies the term relations.
+        /// String array that classifies the term relations.
         /// </summary>
         public InputList<string> Classifies
         {

@@ -54,11 +54,11 @@ export interface GetVpcIpamResult {
      */
     readonly arn: string;
     /**
-     * The default resource discovery association ID.
+     * Default resource discovery association ID.
      */
     readonly defaultResourceDiscoveryAssociationId: string;
     /**
-     * The default resource discovery ID.
+     * Default resource discovery ID.
      */
     readonly defaultResourceDiscoveryId: string;
     /**

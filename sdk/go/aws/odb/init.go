@@ -21,6 +21,10 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:odb/autonomousDatabase:AutonomousDatabase":
+		r = &AutonomousDatabase{}
+	case "aws:odb/autonomousDatabaseSecretsManagerIntegration:AutonomousDatabaseSecretsManagerIntegration":
+		r = &AutonomousDatabaseSecretsManagerIntegration{}
 	case "aws:odb/cloudAutonomousVmCluster:CloudAutonomousVmCluster":
 		r = &CloudAutonomousVmCluster{}
 	case "aws:odb/cloudExadataInfrastructure:CloudExadataInfrastructure":
@@ -46,6 +50,16 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"odb/autonomousDatabase",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"odb/autonomousDatabaseSecretsManagerIntegration",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"odb/cloudAutonomousVmCluster",

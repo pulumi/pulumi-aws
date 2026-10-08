@@ -160,8 +160,7 @@ namespace Pulumi.Aws.Ec2
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the specific VPC Endpoint to retrieve.
+        /// Map of tags, each pair of which must exactly match a pair on the specific VPC Endpoint to retrieve.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -177,9 +176,6 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// ID of the VPC in which the specific VPC Endpoint is used.
-        /// 
-        /// The arguments of this data source act as filters for querying the available VPC endpoints.
-        /// The given filters must match exactly one VPC endpoint whose data will be exported as attributes.
         /// </summary>
         [Input("vpcId")]
         public string? VpcId { get; set; }
@@ -238,8 +234,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the specific VPC Endpoint to retrieve.
+        /// Map of tags, each pair of which must exactly match a pair on the specific VPC Endpoint to retrieve.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -255,9 +250,6 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// ID of the VPC in which the specific VPC Endpoint is used.
-        /// 
-        /// The arguments of this data source act as filters for querying the available VPC endpoints.
-        /// The given filters must match exactly one VPC endpoint whose data will be exported as attributes.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
@@ -290,6 +282,9 @@ namespace Pulumi.Aws.Ec2
         public readonly ImmutableArray<Outputs.GetVpcEndpointDnsOptionResult> DnsOptions;
         public readonly ImmutableArray<Outputs.GetVpcEndpointFilterResult> Filters;
         public readonly string Id;
+        /// <summary>
+        /// IP address type for the VPC Endpoint.
+        /// </summary>
         public readonly string IpAddressType;
         /// <summary>
         /// One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.

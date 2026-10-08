@@ -34,8 +34,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := kinesis.NewStream(ctx, "example", &kinesis.StreamArgs{
-//				Name:       pulumi.String("example"),
-//				ShardCount: pulumi.Int(2),
+//				StreamModeDetails: &kinesis.StreamStreamModeDetailsArgs{
+//					StreamMode: pulumi.String("ON_DEMAND"),
+//				},
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

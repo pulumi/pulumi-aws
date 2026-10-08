@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * `aws.vpc.getSecurityGroupRule` provides details about a specific security group rule.
  *
+ * The arguments of this data source act as filters for querying the available security group rules. The given filters must match exactly one security group rule whose data will be exported as attributes.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -37,10 +39,6 @@ export function getSecurityGroupRule(args?: GetSecurityGroupRuleArgs, opts?: pul
 export interface GetSecurityGroupRuleArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
-     *
-     * The arguments of this data source act as filters for querying the available
-     * security group rules. The given filters must match exactly one security group rule
-     * whose data will be exported as attributes.
      */
     filters?: inputs.vpc.GetSecurityGroupRuleFilter[];
     /**
@@ -62,56 +60,58 @@ export interface GetSecurityGroupRuleResult {
      */
     readonly arn: string;
     /**
-     * The destination IPv4 CIDR range.
+     * Destination IPv4 CIDR range.
      */
     readonly cidrIpv4: string;
     /**
-     * The destination IPv6 CIDR range.
+     * Destination IPv6 CIDR range.
      */
     readonly cidrIpv6: string;
     /**
-     * The security group rule description.
+     * Security group rule description.
      */
     readonly description: string;
     readonly filters?: outputs.vpc.GetSecurityGroupRuleFilter[];
     /**
-     * The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
+     * Start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
      */
     readonly fromPort: number;
     readonly id: string;
     /**
-     * The IP protocol name or number. Use `-1` to specify all protocols.
+     * IP protocol name or number. Use `-1` to specify all protocols.
      */
     readonly ipProtocol: string;
     /**
-     * Indicates whether the security group rule is an outbound rule.
+     * Whether the security group rule is an outbound rule.
      */
     readonly isEgress: boolean;
     /**
-     * The ID of the destination prefix list.
+     * ID of the destination prefix list.
      */
     readonly prefixListId: string;
     /**
-     * The destination security group that is referenced in the rule.
+     * Destination security group that is referenced in the rule.
      */
     readonly referencedSecurityGroupId: string;
     readonly region: string;
     /**
-     * The ID of the security group.
+     * ID of the security group.
      */
     readonly securityGroupId: string;
     readonly securityGroupRuleId: string;
     /**
-     * A map of tags assigned to the resource.
+     * Map of tags assigned to the resource.
      */
     readonly tags: {[key: string]: string};
     /**
-     * (Optional) The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+     * End of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
      */
     readonly toPort: number;
 }
 /**
  * `aws.vpc.getSecurityGroupRule` provides details about a specific security group rule.
+ *
+ * The arguments of this data source act as filters for querying the available security group rules. The given filters must match exactly one security group rule whose data will be exported as attributes.
  *
  * ## Example Usage
  *
@@ -140,10 +140,6 @@ export function getSecurityGroupRuleOutput(args?: GetSecurityGroupRuleOutputArgs
 export interface GetSecurityGroupRuleOutputArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
-     *
-     * The arguments of this data source act as filters for querying the available
-     * security group rules. The given filters must match exactly one security group rule
-     * whose data will be exported as attributes.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.vpc.GetSecurityGroupRuleFilterArgs>[] | undefined>;
     /**

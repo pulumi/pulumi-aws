@@ -26,10 +26,10 @@ class VpcIpamResourceDiscoveryAssociationArgs:
         """
         The set of arguments for constructing a VpcIpamResourceDiscoveryAssociation resource.
 
-        :param pulumi.Input[_builtins.str] ipam_id: The ID of the IPAM to associate.
-        :param pulumi.Input[_builtins.str] ipam_resource_discovery_id: The ID of the Resource Discovery to associate.
+        :param pulumi.Input[_builtins.str] ipam_id: ID of the IPAM to associate.
+        :param pulumi.Input[_builtins.str] ipam_resource_discovery_id: ID of the Resource Discovery to associate.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to add to the IPAM resource discovery association resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to add to the IPAM resource discovery association resource.
         """
         pulumi.set(__self__, "ipam_id", ipam_id)
         pulumi.set(__self__, "ipam_resource_discovery_id", ipam_resource_discovery_id)
@@ -42,7 +42,7 @@ class VpcIpamResourceDiscoveryAssociationArgs:
     @pulumi.getter(name="ipamId")
     def ipam_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the IPAM to associate.
+        ID of the IPAM to associate.
         """
         return pulumi.get(self, "ipam_id")
 
@@ -54,7 +54,7 @@ class VpcIpamResourceDiscoveryAssociationArgs:
     @pulumi.getter(name="ipamResourceDiscoveryId")
     def ipam_resource_discovery_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the Resource Discovery to associate.
+        ID of the Resource Discovery to associate.
         """
         return pulumi.get(self, "ipam_resource_discovery_id")
 
@@ -78,7 +78,7 @@ class VpcIpamResourceDiscoveryAssociationArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to add to the IPAM resource discovery association resource.
+        Map of tags to add to the IPAM resource discovery association resource.
         """
         return pulumi.get(self, "tags")
 
@@ -106,15 +106,15 @@ class _VpcIpamResourceDiscoveryAssociationState:
 
         :param pulumi.Input[_builtins.str] arn: ARN of IPAM Resource Discovery Association.
         :param pulumi.Input[_builtins.str] ipam_arn: ARN of the IPAM.
-        :param pulumi.Input[_builtins.str] ipam_id: The ID of the IPAM to associate.
-        :param pulumi.Input[_builtins.str] ipam_region: The home region of the IPAM.
-        :param pulumi.Input[_builtins.str] ipam_resource_discovery_id: The ID of the Resource Discovery to associate.
-        :param pulumi.Input[_builtins.bool] is_default: A boolean to identify if the Resource Discovery is the accounts default resource discovery.
-        :param pulumi.Input[_builtins.str] owner_id: The account ID for the account that manages the Resource Discovery
+        :param pulumi.Input[_builtins.str] ipam_id: ID of the IPAM to associate.
+        :param pulumi.Input[_builtins.str] ipam_region: Home region of the IPAM.
+        :param pulumi.Input[_builtins.str] ipam_resource_discovery_id: ID of the Resource Discovery to associate.
+        :param pulumi.Input[_builtins.bool] is_default: Boolean to identify if the Resource Discovery is the accounts default resource discovery.
+        :param pulumi.Input[_builtins.str] owner_id: Account ID for the account that manages the Resource Discovery
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] state: The lifecycle state of the association when you associate or disassociate a resource discovery.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to add to the IPAM resource discovery association resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] state: Lifecycle state of the association when you associate or disassociate a resource discovery.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to add to the IPAM resource discovery association resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -167,7 +167,7 @@ class _VpcIpamResourceDiscoveryAssociationState:
     @pulumi.getter(name="ipamId")
     def ipam_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the IPAM to associate.
+        ID of the IPAM to associate.
         """
         return pulumi.get(self, "ipam_id")
 
@@ -179,7 +179,7 @@ class _VpcIpamResourceDiscoveryAssociationState:
     @pulumi.getter(name="ipamRegion")
     def ipam_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The home region of the IPAM.
+        Home region of the IPAM.
         """
         return pulumi.get(self, "ipam_region")
 
@@ -191,7 +191,7 @@ class _VpcIpamResourceDiscoveryAssociationState:
     @pulumi.getter(name="ipamResourceDiscoveryId")
     def ipam_resource_discovery_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the Resource Discovery to associate.
+        ID of the Resource Discovery to associate.
         """
         return pulumi.get(self, "ipam_resource_discovery_id")
 
@@ -203,7 +203,7 @@ class _VpcIpamResourceDiscoveryAssociationState:
     @pulumi.getter(name="isDefault")
     def is_default(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        A boolean to identify if the Resource Discovery is the accounts default resource discovery.
+        Boolean to identify if the Resource Discovery is the accounts default resource discovery.
         """
         return pulumi.get(self, "is_default")
 
@@ -215,7 +215,7 @@ class _VpcIpamResourceDiscoveryAssociationState:
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The account ID for the account that manages the Resource Discovery
+        Account ID for the account that manages the Resource Discovery
         """
         return pulumi.get(self, "owner_id")
 
@@ -239,7 +239,7 @@ class _VpcIpamResourceDiscoveryAssociationState:
     @pulumi.getter
     def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The lifecycle state of the association when you associate or disassociate a resource discovery.
+        Lifecycle state of the association when you associate or disassociate a resource discovery.
         """
         return pulumi.get(self, "state")
 
@@ -251,7 +251,7 @@ class _VpcIpamResourceDiscoveryAssociationState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to add to the IPAM resource discovery association resource.
+        Map of tags to add to the IPAM resource discovery association resource.
         """
         return pulumi.get(self, "tags")
 
@@ -263,7 +263,7 @@ class _VpcIpamResourceDiscoveryAssociationState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -315,10 +315,10 @@ class VpcIpamResourceDiscoveryAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] ipam_id: The ID of the IPAM to associate.
-        :param pulumi.Input[_builtins.str] ipam_resource_discovery_id: The ID of the Resource Discovery to associate.
+        :param pulumi.Input[_builtins.str] ipam_id: ID of the IPAM to associate.
+        :param pulumi.Input[_builtins.str] ipam_resource_discovery_id: ID of the Resource Discovery to associate.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to add to the IPAM resource discovery association resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to add to the IPAM resource discovery association resource.
         """
         ...
     @overload
@@ -429,15 +429,15 @@ class VpcIpamResourceDiscoveryAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of IPAM Resource Discovery Association.
         :param pulumi.Input[_builtins.str] ipam_arn: ARN of the IPAM.
-        :param pulumi.Input[_builtins.str] ipam_id: The ID of the IPAM to associate.
-        :param pulumi.Input[_builtins.str] ipam_region: The home region of the IPAM.
-        :param pulumi.Input[_builtins.str] ipam_resource_discovery_id: The ID of the Resource Discovery to associate.
-        :param pulumi.Input[_builtins.bool] is_default: A boolean to identify if the Resource Discovery is the accounts default resource discovery.
-        :param pulumi.Input[_builtins.str] owner_id: The account ID for the account that manages the Resource Discovery
+        :param pulumi.Input[_builtins.str] ipam_id: ID of the IPAM to associate.
+        :param pulumi.Input[_builtins.str] ipam_region: Home region of the IPAM.
+        :param pulumi.Input[_builtins.str] ipam_resource_discovery_id: ID of the Resource Discovery to associate.
+        :param pulumi.Input[_builtins.bool] is_default: Boolean to identify if the Resource Discovery is the accounts default resource discovery.
+        :param pulumi.Input[_builtins.str] owner_id: Account ID for the account that manages the Resource Discovery
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] state: The lifecycle state of the association when you associate or disassociate a resource discovery.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to add to the IPAM resource discovery association resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] state: Lifecycle state of the association when you associate or disassociate a resource discovery.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to add to the IPAM resource discovery association resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -476,7 +476,7 @@ class VpcIpamResourceDiscoveryAssociation(pulumi.CustomResource):
     @pulumi.getter(name="ipamId")
     def ipam_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the IPAM to associate.
+        ID of the IPAM to associate.
         """
         return pulumi.get(self, "ipam_id")
 
@@ -484,7 +484,7 @@ class VpcIpamResourceDiscoveryAssociation(pulumi.CustomResource):
     @pulumi.getter(name="ipamRegion")
     def ipam_region(self) -> pulumi.Output[_builtins.str]:
         """
-        The home region of the IPAM.
+        Home region of the IPAM.
         """
         return pulumi.get(self, "ipam_region")
 
@@ -492,7 +492,7 @@ class VpcIpamResourceDiscoveryAssociation(pulumi.CustomResource):
     @pulumi.getter(name="ipamResourceDiscoveryId")
     def ipam_resource_discovery_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the Resource Discovery to associate.
+        ID of the Resource Discovery to associate.
         """
         return pulumi.get(self, "ipam_resource_discovery_id")
 
@@ -500,7 +500,7 @@ class VpcIpamResourceDiscoveryAssociation(pulumi.CustomResource):
     @pulumi.getter(name="isDefault")
     def is_default(self) -> pulumi.Output[_builtins.bool]:
         """
-        A boolean to identify if the Resource Discovery is the accounts default resource discovery.
+        Boolean to identify if the Resource Discovery is the accounts default resource discovery.
         """
         return pulumi.get(self, "is_default")
 
@@ -508,7 +508,7 @@ class VpcIpamResourceDiscoveryAssociation(pulumi.CustomResource):
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The account ID for the account that manages the Resource Discovery
+        Account ID for the account that manages the Resource Discovery
         """
         return pulumi.get(self, "owner_id")
 
@@ -524,7 +524,7 @@ class VpcIpamResourceDiscoveryAssociation(pulumi.CustomResource):
     @pulumi.getter
     def state(self) -> pulumi.Output[_builtins.str]:
         """
-        The lifecycle state of the association when you associate or disassociate a resource discovery.
+        Lifecycle state of the association when you associate or disassociate a resource discovery.
         """
         return pulumi.get(self, "state")
 
@@ -532,7 +532,7 @@ class VpcIpamResourceDiscoveryAssociation(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to add to the IPAM resource discovery association resource.
+        Map of tags to add to the IPAM resource discovery association resource.
         """
         return pulumi.get(self, "tags")
 
@@ -540,7 +540,7 @@ class VpcIpamResourceDiscoveryAssociation(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

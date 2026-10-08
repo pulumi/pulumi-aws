@@ -19,20 +19,14 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
     public static final VpcEncryptionControlState Empty = new VpcEncryptionControlState();
 
     /**
-     * Whether to exclude Egress-Only Internet Gateways from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * Whether to exclude Egress-Only Internet Gateways from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      * 
      */
     @Import(name="egressOnlyInternetGatewayExclusion")
     private @Nullable Output<String> egressOnlyInternetGatewayExclusion;
 
     /**
-     * @return Whether to exclude Egress-Only Internet Gateways from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * @return Whether to exclude Egress-Only Internet Gateways from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      * 
      */
     public Optional<Output<String>> egressOnlyInternetGatewayExclusion() {
@@ -40,20 +34,14 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Whether to exclude Elastic File System (EFS) from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * Whether to exclude Elastic File System (EFS) from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      * 
      */
     @Import(name="elasticFileSystemExclusion")
     private @Nullable Output<String> elasticFileSystemExclusion;
 
     /**
-     * @return Whether to exclude Elastic File System (EFS) from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * @return Whether to exclude Elastic File System (EFS) from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      * 
      */
     public Optional<Output<String>> elasticFileSystemExclusion() {
@@ -61,20 +49,14 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Whether to exclude Internet Gateways from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * Whether to exclude Internet Gateways from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      * 
      */
     @Import(name="internetGatewayExclusion")
     private @Nullable Output<String> internetGatewayExclusion;
 
     /**
-     * @return Whether to exclude Internet Gateways from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * @return Whether to exclude Internet Gateways from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      * 
      */
     public Optional<Output<String>> internetGatewayExclusion() {
@@ -82,20 +64,14 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Whether to exclude Lambda Functions from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * Whether to exclude Lambda Functions from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      * 
      */
     @Import(name="lambdaExclusion")
     private @Nullable Output<String> lambdaExclusion;
 
     /**
-     * @return Whether to exclude Lambda Functions from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * @return Whether to exclude Lambda Functions from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      * 
      */
     public Optional<Output<String>> lambdaExclusion() {
@@ -103,16 +79,14 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Mode to enable for VPC Encryption Control.
-     * Valid values are `monitor` or `enforce`.
+     * Mode to enable for VPC Encryption Control. Valid values are `monitor` or `enforce`.
      * 
      */
     @Import(name="mode")
     private @Nullable Output<String> mode;
 
     /**
-     * @return Mode to enable for VPC Encryption Control.
-     * Valid values are `monitor` or `enforce`.
+     * @return Mode to enable for VPC Encryption Control. Valid values are `monitor` or `enforce`.
      * 
      */
     public Optional<Output<String>> mode() {
@@ -120,20 +94,14 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Whether to exclude NAT Gateways from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * Whether to exclude NAT Gateways from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      * 
      */
     @Import(name="natGatewayExclusion")
     private @Nullable Output<String> natGatewayExclusion;
 
     /**
-     * @return Whether to exclude NAT Gateways from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * @return Whether to exclude NAT Gateways from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      * 
      */
     public Optional<Output<String>> natGatewayExclusion() {
@@ -156,18 +124,14 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
     }
 
     /**
-     * State of exclusions from encryption enforcement.
-     * Will be `nil` if `mode` is `monitor`.
-     * See `resourceExclusions` below
+     * State of exclusions from encryption enforcement. Will be `nil` if `mode` is `monitor`. See `resourceExclusions` below.
      * 
      */
     @Import(name="resourceExclusions")
     private @Nullable Output<VpcEncryptionControlResourceExclusionsArgs> resourceExclusions;
 
     /**
-     * @return State of exclusions from encryption enforcement.
-     * Will be `nil` if `mode` is `monitor`.
-     * See `resourceExclusions` below
+     * @return State of exclusions from encryption enforcement. Will be `nil` if `mode` is `monitor`. See `resourceExclusions` below.
      * 
      */
     public Optional<Output<VpcEncryptionControlResourceExclusionsArgs>> resourceExclusions() {
@@ -175,14 +139,14 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The current state of the VPC Encryption Control.
+     * Encryption enforcement state for peered VPCs.
      * 
      */
     @Import(name="state")
     private @Nullable Output<String> state;
 
     /**
-     * @return The current state of the VPC Encryption Control.
+     * @return Encryption enforcement state for peered VPCs.
      * 
      */
     public Optional<Output<String>> state() {
@@ -190,14 +154,14 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
     }
 
     /**
-     * A message providing additional information about the state of the VPC Encryption Control.
+     * Message providing additional information about the encryption enforcement state.
      * 
      */
     @Import(name="stateMessage")
     private @Nullable Output<String> stateMessage;
 
     /**
-     * @return A message providing additional information about the state of the VPC Encryption Control.
+     * @return Message providing additional information about the encryption enforcement state.
      * 
      */
     public Optional<Output<String>> stateMessage() {
@@ -205,14 +169,14 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -220,14 +184,14 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -242,20 +206,14 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Whether to exclude Virtual Private Gateways from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * Whether to exclude Virtual Private Gateways from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      * 
      */
     @Import(name="virtualPrivateGatewayExclusion")
     private @Nullable Output<String> virtualPrivateGatewayExclusion;
 
     /**
-     * @return Whether to exclude Virtual Private Gateways from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * @return Whether to exclude Virtual Private Gateways from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      * 
      */
     public Optional<Output<String>> virtualPrivateGatewayExclusion() {
@@ -263,7 +221,7 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The ID of the VPC the VPC Encryption Control is linked to.
+     * ID of the VPC the VPC Encryption Control is linked to.
      * 
      * The following arguments are optional:
      * 
@@ -272,7 +230,7 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
     private @Nullable Output<String> vpcId;
 
     /**
-     * @return The ID of the VPC the VPC Encryption Control is linked to.
+     * @return ID of the VPC the VPC Encryption Control is linked to.
      * 
      * The following arguments are optional:
      * 
@@ -282,20 +240,14 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Whether to exclude VPC Lattice from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * Whether to exclude VPC Lattice from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      * 
      */
     @Import(name="vpcLatticeExclusion")
     private @Nullable Output<String> vpcLatticeExclusion;
 
     /**
-     * @return Whether to exclude VPC Lattice from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * @return Whether to exclude VPC Lattice from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      * 
      */
     public Optional<Output<String>> vpcLatticeExclusion() {
@@ -303,20 +255,14 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Whether to exclude peered VPCs from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * Whether to exclude peered VPCs from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      * 
      */
     @Import(name="vpcPeeringExclusion")
     private @Nullable Output<String> vpcPeeringExclusion;
 
     /**
-     * @return Whether to exclude peered VPCs from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * @return Whether to exclude peered VPCs from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      * 
      */
     public Optional<Output<String>> vpcPeeringExclusion() {
@@ -364,10 +310,7 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param egressOnlyInternetGatewayExclusion Whether to exclude Egress-Only Internet Gateways from encryption enforcement.
-         * Valid values are `disable` or `enable`.
-         * Default is `disable`.
-         * Only valid when `mode` is `enforce`.
+         * @param egressOnlyInternetGatewayExclusion Whether to exclude Egress-Only Internet Gateways from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
          * 
          * @return builder
          * 
@@ -378,10 +321,7 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param egressOnlyInternetGatewayExclusion Whether to exclude Egress-Only Internet Gateways from encryption enforcement.
-         * Valid values are `disable` or `enable`.
-         * Default is `disable`.
-         * Only valid when `mode` is `enforce`.
+         * @param egressOnlyInternetGatewayExclusion Whether to exclude Egress-Only Internet Gateways from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
          * 
          * @return builder
          * 
@@ -391,10 +331,7 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param elasticFileSystemExclusion Whether to exclude Elastic File System (EFS) from encryption enforcement.
-         * Valid values are `disable` or `enable`.
-         * Default is `disable`.
-         * Only valid when `mode` is `enforce`.
+         * @param elasticFileSystemExclusion Whether to exclude Elastic File System (EFS) from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
          * 
          * @return builder
          * 
@@ -405,10 +342,7 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param elasticFileSystemExclusion Whether to exclude Elastic File System (EFS) from encryption enforcement.
-         * Valid values are `disable` or `enable`.
-         * Default is `disable`.
-         * Only valid when `mode` is `enforce`.
+         * @param elasticFileSystemExclusion Whether to exclude Elastic File System (EFS) from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
          * 
          * @return builder
          * 
@@ -418,10 +352,7 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param internetGatewayExclusion Whether to exclude Internet Gateways from encryption enforcement.
-         * Valid values are `disable` or `enable`.
-         * Default is `disable`.
-         * Only valid when `mode` is `enforce`.
+         * @param internetGatewayExclusion Whether to exclude Internet Gateways from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
          * 
          * @return builder
          * 
@@ -432,10 +363,7 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param internetGatewayExclusion Whether to exclude Internet Gateways from encryption enforcement.
-         * Valid values are `disable` or `enable`.
-         * Default is `disable`.
-         * Only valid when `mode` is `enforce`.
+         * @param internetGatewayExclusion Whether to exclude Internet Gateways from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
          * 
          * @return builder
          * 
@@ -445,10 +373,7 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param lambdaExclusion Whether to exclude Lambda Functions from encryption enforcement.
-         * Valid values are `disable` or `enable`.
-         * Default is `disable`.
-         * Only valid when `mode` is `enforce`.
+         * @param lambdaExclusion Whether to exclude Lambda Functions from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
          * 
          * @return builder
          * 
@@ -459,10 +384,7 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param lambdaExclusion Whether to exclude Lambda Functions from encryption enforcement.
-         * Valid values are `disable` or `enable`.
-         * Default is `disable`.
-         * Only valid when `mode` is `enforce`.
+         * @param lambdaExclusion Whether to exclude Lambda Functions from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
          * 
          * @return builder
          * 
@@ -472,8 +394,7 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param mode Mode to enable for VPC Encryption Control.
-         * Valid values are `monitor` or `enforce`.
+         * @param mode Mode to enable for VPC Encryption Control. Valid values are `monitor` or `enforce`.
          * 
          * @return builder
          * 
@@ -484,8 +405,7 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param mode Mode to enable for VPC Encryption Control.
-         * Valid values are `monitor` or `enforce`.
+         * @param mode Mode to enable for VPC Encryption Control. Valid values are `monitor` or `enforce`.
          * 
          * @return builder
          * 
@@ -495,10 +415,7 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param natGatewayExclusion Whether to exclude NAT Gateways from encryption enforcement.
-         * Valid values are `disable` or `enable`.
-         * Default is `disable`.
-         * Only valid when `mode` is `enforce`.
+         * @param natGatewayExclusion Whether to exclude NAT Gateways from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
          * 
          * @return builder
          * 
@@ -509,10 +426,7 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param natGatewayExclusion Whether to exclude NAT Gateways from encryption enforcement.
-         * Valid values are `disable` or `enable`.
-         * Default is `disable`.
-         * Only valid when `mode` is `enforce`.
+         * @param natGatewayExclusion Whether to exclude NAT Gateways from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
          * 
          * @return builder
          * 
@@ -543,9 +457,7 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param resourceExclusions State of exclusions from encryption enforcement.
-         * Will be `nil` if `mode` is `monitor`.
-         * See `resourceExclusions` below
+         * @param resourceExclusions State of exclusions from encryption enforcement. Will be `nil` if `mode` is `monitor`. See `resourceExclusions` below.
          * 
          * @return builder
          * 
@@ -556,9 +468,7 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param resourceExclusions State of exclusions from encryption enforcement.
-         * Will be `nil` if `mode` is `monitor`.
-         * See `resourceExclusions` below
+         * @param resourceExclusions State of exclusions from encryption enforcement. Will be `nil` if `mode` is `monitor`. See `resourceExclusions` below.
          * 
          * @return builder
          * 
@@ -568,7 +478,7 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param state The current state of the VPC Encryption Control.
+         * @param state Encryption enforcement state for peered VPCs.
          * 
          * @return builder
          * 
@@ -579,7 +489,7 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param state The current state of the VPC Encryption Control.
+         * @param state Encryption enforcement state for peered VPCs.
          * 
          * @return builder
          * 
@@ -589,7 +499,7 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param stateMessage A message providing additional information about the state of the VPC Encryption Control.
+         * @param stateMessage Message providing additional information about the encryption enforcement state.
          * 
          * @return builder
          * 
@@ -600,7 +510,7 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param stateMessage A message providing additional information about the state of the VPC Encryption Control.
+         * @param stateMessage Message providing additional information about the encryption enforcement state.
          * 
          * @return builder
          * 
@@ -610,7 +520,7 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -621,7 +531,7 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -631,7 +541,7 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -642,7 +552,7 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -661,10 +571,7 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param virtualPrivateGatewayExclusion Whether to exclude Virtual Private Gateways from encryption enforcement.
-         * Valid values are `disable` or `enable`.
-         * Default is `disable`.
-         * Only valid when `mode` is `enforce`.
+         * @param virtualPrivateGatewayExclusion Whether to exclude Virtual Private Gateways from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
          * 
          * @return builder
          * 
@@ -675,10 +582,7 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param virtualPrivateGatewayExclusion Whether to exclude Virtual Private Gateways from encryption enforcement.
-         * Valid values are `disable` or `enable`.
-         * Default is `disable`.
-         * Only valid when `mode` is `enforce`.
+         * @param virtualPrivateGatewayExclusion Whether to exclude Virtual Private Gateways from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
          * 
          * @return builder
          * 
@@ -688,7 +592,7 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param vpcId The ID of the VPC the VPC Encryption Control is linked to.
+         * @param vpcId ID of the VPC the VPC Encryption Control is linked to.
          * 
          * The following arguments are optional:
          * 
@@ -701,7 +605,7 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param vpcId The ID of the VPC the VPC Encryption Control is linked to.
+         * @param vpcId ID of the VPC the VPC Encryption Control is linked to.
          * 
          * The following arguments are optional:
          * 
@@ -713,10 +617,7 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param vpcLatticeExclusion Whether to exclude VPC Lattice from encryption enforcement.
-         * Valid values are `disable` or `enable`.
-         * Default is `disable`.
-         * Only valid when `mode` is `enforce`.
+         * @param vpcLatticeExclusion Whether to exclude VPC Lattice from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
          * 
          * @return builder
          * 
@@ -727,10 +628,7 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param vpcLatticeExclusion Whether to exclude VPC Lattice from encryption enforcement.
-         * Valid values are `disable` or `enable`.
-         * Default is `disable`.
-         * Only valid when `mode` is `enforce`.
+         * @param vpcLatticeExclusion Whether to exclude VPC Lattice from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
          * 
          * @return builder
          * 
@@ -740,10 +638,7 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param vpcPeeringExclusion Whether to exclude peered VPCs from encryption enforcement.
-         * Valid values are `disable` or `enable`.
-         * Default is `disable`.
-         * Only valid when `mode` is `enforce`.
+         * @param vpcPeeringExclusion Whether to exclude peered VPCs from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
          * 
          * @return builder
          * 
@@ -754,10 +649,7 @@ public final class VpcEncryptionControlState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param vpcPeeringExclusion Whether to exclude peered VPCs from encryption enforcement.
-         * Valid values are `disable` or `enable`.
-         * Default is `disable`.
-         * Only valid when `mode` is `enforce`.
+         * @param vpcPeeringExclusion Whether to exclude peered VPCs from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
          * 
          * @return builder
          * 

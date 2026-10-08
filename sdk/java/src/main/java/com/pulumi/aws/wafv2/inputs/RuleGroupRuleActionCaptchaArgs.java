@@ -16,14 +16,14 @@ public final class RuleGroupRuleActionCaptchaArgs extends com.pulumi.resources.R
     public static final RuleGroupRuleActionCaptchaArgs Empty = new RuleGroupRuleActionCaptchaArgs();
 
     /**
-     * Defines custom handling for the web request. See Custom Request Handling below for details.
+     * Custom handling for the web request. See Custom Request Handling below for details.
      * 
      */
     @Import(name="customRequestHandling")
     private @Nullable Output<RuleGroupRuleActionCaptchaCustomRequestHandlingArgs> customRequestHandling;
 
     /**
-     * @return Defines custom handling for the web request. See Custom Request Handling below for details.
+     * @return Custom handling for the web request. See Custom Request Handling below for details.
      * 
      */
     public Optional<Output<RuleGroupRuleActionCaptchaCustomRequestHandlingArgs>> customRequestHandling() {
@@ -55,7 +55,7 @@ public final class RuleGroupRuleActionCaptchaArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param customRequestHandling Defines custom handling for the web request. See Custom Request Handling below for details.
+         * @param customRequestHandling Custom handling for the web request. See Custom Request Handling below for details.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class RuleGroupRuleActionCaptchaArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param customRequestHandling Defines custom handling for the web request. See Custom Request Handling below for details.
+         * @param customRequestHandling Custom handling for the web request. See Custom Request Handling below for details.
          * 
          * @return builder
          * 

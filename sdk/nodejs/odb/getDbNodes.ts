@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Data source for manging db nodes linked to cloud vm cluster of Oracle Database@AWS.
+ * Data source for managing db nodes linked to cloud vm cluster of Oracle Database@AWS.
  *
  * You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
  *
@@ -61,7 +61,7 @@ export interface GetDbNodesResult {
     readonly region: string;
 }
 /**
- * Data source for manging db nodes linked to cloud vm cluster of Oracle Database@AWS.
+ * Data source for managing db nodes linked to cloud vm cluster of Oracle Database@AWS.
  *
  * You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
  *

@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Fingerprint { get; private set; } = null!;
 
         /// <summary>
-        /// Name for the key pair. If neither `KeyName` nor `KeyNamePrefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
+        /// Name for the key pair. If neither `KeyName` nor `KeyNamePrefix` is provided, the provider will create a unique key name.
         /// </summary>
         [Output("keyName")]
         public Output<string> KeyName { get; private set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class KeyPairArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name for the key pair. If neither `KeyName` nor `KeyNamePrefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
+        /// Name for the key pair. If neither `KeyName` nor `KeyNamePrefix` is provided, the provider will create a unique key name.
         /// </summary>
         [Input("keyName")]
         public Input<string>? KeyName { get; set; }
@@ -224,7 +224,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Fingerprint { get; set; }
 
         /// <summary>
-        /// Name for the key pair. If neither `KeyName` nor `KeyNamePrefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
+        /// Name for the key pair. If neither `KeyName` nor `KeyNamePrefix` is provided, the provider will create a unique key name.
         /// </summary>
         [Input("keyName")]
         public Input<string>? KeyName { get; set; }

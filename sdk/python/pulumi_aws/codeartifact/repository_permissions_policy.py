@@ -253,7 +253,7 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
                  repository: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a CodeArtifact Repostory Permissions Policy Resource.
+        Provides a CodeArtifact Repository Permissions Policy Resource.
 
         ## Example Usage
 
@@ -314,7 +314,7 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
                  args: RepositoryPermissionsPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a CodeArtifact Repostory Permissions Policy Resource.
+        Provides a CodeArtifact Repository Permissions Policy Resource.
 
         ## Example Usage
 

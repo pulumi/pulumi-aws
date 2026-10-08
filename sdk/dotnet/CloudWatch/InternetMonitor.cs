@@ -24,7 +24,7 @@ namespace Pulumi.Aws.CloudWatch
     /// {
     ///     var example = new Aws.CloudWatch.InternetMonitor("example", new()
     ///     {
-    ///         MonitorName = "exmple",
+    ///         MonitorName = "example",
     ///     });
     /// 
     /// });

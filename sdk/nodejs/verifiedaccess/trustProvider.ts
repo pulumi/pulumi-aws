@@ -60,33 +60,36 @@ export class TrustProvider extends pulumi.CustomResource {
     }
 
     /**
-     * A description for the AWS Verified Access trust provider.
+     * Description for the AWS Verified Access trust provider.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * A block of options for device identity based trust providers.
+     * Block of options for device identity based trust providers. See below.
      */
     declare public readonly deviceOptions: pulumi.Output<outputs.verifiedaccess.TrustProviderDeviceOptions | undefined>;
     /**
-     * The type of device-based trust provider.
+     * Type of device-based trust provider.
      */
     declare public readonly deviceTrustProviderType: pulumi.Output<string | undefined>;
     /**
-     * The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
+     * OpenID Connect details for a Native Application OIDC, user-identity based trust provider. See below.
      */
     declare public readonly nativeApplicationOidcOptions: pulumi.Output<outputs.verifiedaccess.TrustProviderNativeApplicationOidcOptions | undefined>;
     /**
-     * The OpenID Connect details for an oidc-type, user-identity based trust provider.
+     * OpenID Connect details for an oidc-type, user-identity based trust provider. See below.
      */
     declare public readonly oidcOptions: pulumi.Output<outputs.verifiedaccess.TrustProviderOidcOptions | undefined>;
     /**
-     * The identifier to be used when working with policy rules.
+     * Identifier to be used when working with policy rules.
      */
     declare public readonly policyReferenceName: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     declare public readonly region: pulumi.Output<string>;
+    /**
+     * Block of options in use for server side encryption. See below.
+     */
     declare public readonly sseSpecification: pulumi.Output<outputs.verifiedaccess.TrustProviderSseSpecification>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -94,13 +97,13 @@ export class TrustProvider extends pulumi.CustomResource {
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The type of trust provider can be either user or device-based.
+     * Type of trust provider can be either user or device-based.
      *
      * The following arguments are optional:
      */
     declare public readonly trustProviderType: pulumi.Output<string>;
     /**
-     * The type of user-based trust provider.
+     * Type of user-based trust provider.
      */
     declare public readonly userTrustProviderType: pulumi.Output<string | undefined>;
 
@@ -160,33 +163,36 @@ export class TrustProvider extends pulumi.CustomResource {
  */
 export interface TrustProviderState {
     /**
-     * A description for the AWS Verified Access trust provider.
+     * Description for the AWS Verified Access trust provider.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * A block of options for device identity based trust providers.
+     * Block of options for device identity based trust providers. See below.
      */
     deviceOptions?: pulumi.Input<inputs.verifiedaccess.TrustProviderDeviceOptions | undefined>;
     /**
-     * The type of device-based trust provider.
+     * Type of device-based trust provider.
      */
     deviceTrustProviderType?: pulumi.Input<string | undefined>;
     /**
-     * The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
+     * OpenID Connect details for a Native Application OIDC, user-identity based trust provider. See below.
      */
     nativeApplicationOidcOptions?: pulumi.Input<inputs.verifiedaccess.TrustProviderNativeApplicationOidcOptions | undefined>;
     /**
-     * The OpenID Connect details for an oidc-type, user-identity based trust provider.
+     * OpenID Connect details for an oidc-type, user-identity based trust provider. See below.
      */
     oidcOptions?: pulumi.Input<inputs.verifiedaccess.TrustProviderOidcOptions | undefined>;
     /**
-     * The identifier to be used when working with policy rules.
+     * Identifier to be used when working with policy rules.
      */
     policyReferenceName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
+    /**
+     * Block of options in use for server side encryption. See below.
+     */
     sseSpecification?: pulumi.Input<inputs.verifiedaccess.TrustProviderSseSpecification | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -194,13 +200,13 @@ export interface TrustProviderState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The type of trust provider can be either user or device-based.
+     * Type of trust provider can be either user or device-based.
      *
      * The following arguments are optional:
      */
     trustProviderType?: pulumi.Input<string | undefined>;
     /**
-     * The type of user-based trust provider.
+     * Type of user-based trust provider.
      */
     userTrustProviderType?: pulumi.Input<string | undefined>;
 }
@@ -210,46 +216,49 @@ export interface TrustProviderState {
  */
 export interface TrustProviderArgs {
     /**
-     * A description for the AWS Verified Access trust provider.
+     * Description for the AWS Verified Access trust provider.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * A block of options for device identity based trust providers.
+     * Block of options for device identity based trust providers. See below.
      */
     deviceOptions?: pulumi.Input<inputs.verifiedaccess.TrustProviderDeviceOptions | undefined>;
     /**
-     * The type of device-based trust provider.
+     * Type of device-based trust provider.
      */
     deviceTrustProviderType?: pulumi.Input<string | undefined>;
     /**
-     * The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
+     * OpenID Connect details for a Native Application OIDC, user-identity based trust provider. See below.
      */
     nativeApplicationOidcOptions?: pulumi.Input<inputs.verifiedaccess.TrustProviderNativeApplicationOidcOptions | undefined>;
     /**
-     * The OpenID Connect details for an oidc-type, user-identity based trust provider.
+     * OpenID Connect details for an oidc-type, user-identity based trust provider. See below.
      */
     oidcOptions?: pulumi.Input<inputs.verifiedaccess.TrustProviderOidcOptions | undefined>;
     /**
-     * The identifier to be used when working with policy rules.
+     * Identifier to be used when working with policy rules.
      */
     policyReferenceName: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
+    /**
+     * Block of options in use for server side encryption. See below.
+     */
     sseSpecification?: pulumi.Input<inputs.verifiedaccess.TrustProviderSseSpecification | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The type of trust provider can be either user or device-based.
+     * Type of trust provider can be either user or device-based.
      *
      * The following arguments are optional:
      */
     trustProviderType: pulumi.Input<string>;
     /**
-     * The type of user-based trust provider.
+     * Type of user-based trust provider.
      */
     userTrustProviderType?: pulumi.Input<string | undefined>;
 }

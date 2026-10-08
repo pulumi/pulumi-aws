@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RuleGroupRuleStatementXssMatchStatement {
     /**
-     * @return The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+     * @return Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
      * 
      */
     private @Nullable RuleGroupRuleStatementXssMatchStatementFieldToMatch fieldToMatch;
@@ -26,16 +26,14 @@ public final class RuleGroupRuleStatementXssMatchStatement {
      */
     private @Nullable List<RuleGroupRuleStatementXssMatchStatementPreParseTextTransformation> preParseTextTransformations;
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-     * At least one required.
-     * See Text Transformation below for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
      * 
      */
     private List<RuleGroupRuleStatementXssMatchStatementTextTransformation> textTransformations;
 
     private RuleGroupRuleStatementXssMatchStatement() {}
     /**
-     * @return The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+     * @return Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
      * 
      */
     public Optional<RuleGroupRuleStatementXssMatchStatementFieldToMatch> fieldToMatch() {
@@ -49,9 +47,7 @@ public final class RuleGroupRuleStatementXssMatchStatement {
         return this.preParseTextTransformations == null ? List.of() : this.preParseTextTransformations;
     }
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-     * At least one required.
-     * See Text Transformation below for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
      * 
      */
     public List<RuleGroupRuleStatementXssMatchStatementTextTransformation> textTransformations() {

@@ -16,14 +16,14 @@ public final class VpnConnectionRouteArgs extends com.pulumi.resources.ResourceA
     public static final VpnConnectionRouteArgs Empty = new VpnConnectionRouteArgs();
 
     /**
-     * The CIDR block associated with the local subnet of the customer data center.
+     * CIDR block associated with the local subnet of the customer data center.
      * 
      */
     @Import(name="destinationCidrBlock")
     private @Nullable Output<String> destinationCidrBlock;
 
     /**
-     * @return The CIDR block associated with the local subnet of the customer data center.
+     * @return CIDR block associated with the local subnet of the customer data center.
      * 
      */
     public Optional<Output<String>> destinationCidrBlock() {
@@ -31,14 +31,14 @@ public final class VpnConnectionRouteArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Indicates how the routes were provided.
+     * How the routes were provided.
      * 
      */
     @Import(name="source")
     private @Nullable Output<String> source;
 
     /**
-     * @return Indicates how the routes were provided.
+     * @return How the routes were provided.
      * 
      */
     public Optional<Output<String>> source() {
@@ -46,14 +46,14 @@ public final class VpnConnectionRouteArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The current state of the static route.
+     * Current state of the static route.
      * 
      */
     @Import(name="state")
     private @Nullable Output<String> state;
 
     /**
-     * @return The current state of the static route.
+     * @return Current state of the static route.
      * 
      */
     public Optional<Output<String>> state() {
@@ -87,7 +87,7 @@ public final class VpnConnectionRouteArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param destinationCidrBlock The CIDR block associated with the local subnet of the customer data center.
+         * @param destinationCidrBlock CIDR block associated with the local subnet of the customer data center.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class VpnConnectionRouteArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param destinationCidrBlock The CIDR block associated with the local subnet of the customer data center.
+         * @param destinationCidrBlock CIDR block associated with the local subnet of the customer data center.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class VpnConnectionRouteArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param source Indicates how the routes were provided.
+         * @param source How the routes were provided.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class VpnConnectionRouteArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param source Indicates how the routes were provided.
+         * @param source How the routes were provided.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class VpnConnectionRouteArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param state The current state of the static route.
+         * @param state Current state of the static route.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class VpnConnectionRouteArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param state The current state of the static route.
+         * @param state Current state of the static route.
          * 
          * @return builder
          * 

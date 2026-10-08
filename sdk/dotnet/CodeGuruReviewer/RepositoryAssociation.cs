@@ -76,7 +76,7 @@ namespace Pulumi.Aws.CodeGuruReviewer
         public Output<string> ConnectionArn { get; private set; } = null!;
 
         /// <summary>
-        /// An object describing the KMS key to asssociate. Block is documented below.
+        /// An object describing the KMS key to associate. Block is documented below.
         /// </summary>
         [Output("kmsKeyDetails")]
         public Output<Outputs.RepositoryAssociationKmsKeyDetails?> KmsKeyDetails { get; private set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.Aws.CodeGuruReviewer
     public sealed class RepositoryAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An object describing the KMS key to asssociate. Block is documented below.
+        /// An object describing the KMS key to associate. Block is documented below.
         /// </summary>
         [Input("kmsKeyDetails")]
         public Input<Inputs.RepositoryAssociationKmsKeyDetailsArgs>? KmsKeyDetails { get; set; }
@@ -235,7 +235,7 @@ namespace Pulumi.Aws.CodeGuruReviewer
         public Input<string>? ConnectionArn { get; set; }
 
         /// <summary>
-        /// An object describing the KMS key to asssociate. Block is documented below.
+        /// An object describing the KMS key to associate. Block is documented below.
         /// </summary>
         [Input("kmsKeyDetails")]
         public Input<Inputs.RepositoryAssociationKmsKeyDetailsGetArgs>? KmsKeyDetails { get; set; }

@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Ec2
         public Output<bool> AcceptanceRequired { get; private set; } = null!;
 
         /// <summary>
-        /// The ARNs of one or more principals allowed to discover the endpoint service.
+        /// ARNs of one or more principals allowed to discover the endpoint service.
         /// </summary>
         [Output("allowedPrincipals")]
         public Output<ImmutableArray<string>> AllowedPrincipals { get; private set; } = null!;
@@ -95,13 +95,13 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A set of Availability Zones in which the service is available.
+        /// Set of Availability Zones in which the service is available.
         /// </summary>
         [Output("availabilityZones")]
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
 
         /// <summary>
-        /// A set of DNS names for the service.
+        /// Set of DNS names for the service.
         /// </summary>
         [Output("baseEndpointDnsNames")]
         public Output<ImmutableArray<string>> BaseEndpointDnsNames { get; private set; } = null!;
@@ -125,7 +125,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<string>> NetworkLoadBalancerArns { get; private set; } = null!;
 
         /// <summary>
-        /// The private DNS name for the service.
+        /// Private DNS name for the service.
         /// </summary>
         [Output("privateDnsName")]
         public Output<string> PrivateDnsName { get; private set; } = null!;
@@ -143,43 +143,43 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The service name.
+        /// Service name.
         /// </summary>
         [Output("serviceName")]
         public Output<string> ServiceName { get; private set; } = null!;
 
         /// <summary>
-        /// The service type, `Gateway` or `Interface`.
+        /// Service type, `Gateway` or `Interface`.
         /// </summary>
         [Output("serviceType")]
         public Output<string> ServiceType { get; private set; } = null!;
 
         /// <summary>
-        /// Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `Verified`.
+        /// State of the VPC endpoint service.
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// The supported IP address types. The possible values are `Ipv4` and `Ipv6`.
+        /// Supported IP address types. The possible values are `Ipv4` and `Ipv6`.
         /// </summary>
         [Output("supportedIpAddressTypes")]
         public Output<ImmutableArray<string>> SupportedIpAddressTypes { get; private set; } = null!;
 
         /// <summary>
-        /// The set of regions from which service consumers can access the service.
+        /// Set of regions from which service consumers can access the service.
         /// </summary>
         [Output("supportedRegions")]
         public Output<ImmutableArray<string>> SupportedRegions { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -240,7 +240,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _allowedPrincipals;
 
         /// <summary>
-        /// The ARNs of one or more principals allowed to discover the endpoint service.
+        /// ARNs of one or more principals allowed to discover the endpoint service.
         /// </summary>
         public InputList<string> AllowedPrincipals
         {
@@ -273,7 +273,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The private DNS name for the service.
+        /// Private DNS name for the service.
         /// </summary>
         [Input("privateDnsName")]
         public Input<string>? PrivateDnsName { get; set; }
@@ -288,7 +288,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _supportedIpAddressTypes;
 
         /// <summary>
-        /// The supported IP address types. The possible values are `Ipv4` and `Ipv6`.
+        /// Supported IP address types. The possible values are `Ipv4` and `Ipv6`.
         /// </summary>
         public InputList<string> SupportedIpAddressTypes
         {
@@ -300,7 +300,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _supportedRegions;
 
         /// <summary>
-        /// The set of regions from which service consumers can access the service.
+        /// Set of regions from which service consumers can access the service.
         /// </summary>
         public InputList<string> SupportedRegions
         {
@@ -312,7 +312,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -338,7 +338,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _allowedPrincipals;
 
         /// <summary>
-        /// The ARNs of one or more principals allowed to discover the endpoint service.
+        /// ARNs of one or more principals allowed to discover the endpoint service.
         /// </summary>
         public InputList<string> AllowedPrincipals
         {
@@ -356,7 +356,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _availabilityZones;
 
         /// <summary>
-        /// A set of Availability Zones in which the service is available.
+        /// Set of Availability Zones in which the service is available.
         /// </summary>
         public InputList<string> AvailabilityZones
         {
@@ -368,7 +368,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _baseEndpointDnsNames;
 
         /// <summary>
-        /// A set of DNS names for the service.
+        /// Set of DNS names for the service.
         /// </summary>
         public InputList<string> BaseEndpointDnsNames
         {
@@ -407,7 +407,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The private DNS name for the service.
+        /// Private DNS name for the service.
         /// </summary>
         [Input("privateDnsName")]
         public Input<string>? PrivateDnsName { get; set; }
@@ -431,19 +431,19 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The service name.
+        /// Service name.
         /// </summary>
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
 
         /// <summary>
-        /// The service type, `Gateway` or `Interface`.
+        /// Service type, `Gateway` or `Interface`.
         /// </summary>
         [Input("serviceType")]
         public Input<string>? ServiceType { get; set; }
 
         /// <summary>
-        /// Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `Verified`.
+        /// State of the VPC endpoint service.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
@@ -452,7 +452,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _supportedIpAddressTypes;
 
         /// <summary>
-        /// The supported IP address types. The possible values are `Ipv4` and `Ipv6`.
+        /// Supported IP address types. The possible values are `Ipv4` and `Ipv6`.
         /// </summary>
         public InputList<string> SupportedIpAddressTypes
         {
@@ -464,7 +464,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _supportedRegions;
 
         /// <summary>
-        /// The set of regions from which service consumers can access the service.
+        /// Set of regions from which service consumers can access the service.
         /// </summary>
         public InputList<string> SupportedRegions
         {
@@ -476,7 +476,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -488,7 +488,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

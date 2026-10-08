@@ -49,9 +49,9 @@ type VpnGatewayRoutePropagation struct {
 
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The id of the `ec2.RouteTable` to propagate routes into.
+	// ID of the `ec2.RouteTable` to propagate routes into.
 	RouteTableId pulumi.StringOutput `pulumi:"routeTableId"`
-	// The id of the `ec2.VpnGateway` to propagate routes from.
+	// ID of the `ec2.VpnGateway` to propagate routes from.
 	VpnGatewayId pulumi.StringOutput `pulumi:"vpnGatewayId"`
 }
 
@@ -93,18 +93,18 @@ func GetVpnGatewayRoutePropagation(ctx *pulumi.Context,
 type vpnGatewayRoutePropagationState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The id of the `ec2.RouteTable` to propagate routes into.
+	// ID of the `ec2.RouteTable` to propagate routes into.
 	RouteTableId *string `pulumi:"routeTableId"`
-	// The id of the `ec2.VpnGateway` to propagate routes from.
+	// ID of the `ec2.VpnGateway` to propagate routes from.
 	VpnGatewayId *string `pulumi:"vpnGatewayId"`
 }
 
 type VpnGatewayRoutePropagationState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The id of the `ec2.RouteTable` to propagate routes into.
+	// ID of the `ec2.RouteTable` to propagate routes into.
 	RouteTableId pulumi.StringPtrInput
-	// The id of the `ec2.VpnGateway` to propagate routes from.
+	// ID of the `ec2.VpnGateway` to propagate routes from.
 	VpnGatewayId pulumi.StringPtrInput
 }
 
@@ -115,9 +115,9 @@ func (VpnGatewayRoutePropagationState) ElementType() reflect.Type {
 type vpnGatewayRoutePropagationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The id of the `ec2.RouteTable` to propagate routes into.
+	// ID of the `ec2.RouteTable` to propagate routes into.
 	RouteTableId string `pulumi:"routeTableId"`
-	// The id of the `ec2.VpnGateway` to propagate routes from.
+	// ID of the `ec2.VpnGateway` to propagate routes from.
 	VpnGatewayId string `pulumi:"vpnGatewayId"`
 }
 
@@ -125,9 +125,9 @@ type vpnGatewayRoutePropagationArgs struct {
 type VpnGatewayRoutePropagationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The id of the `ec2.RouteTable` to propagate routes into.
+	// ID of the `ec2.RouteTable` to propagate routes into.
 	RouteTableId pulumi.StringInput
-	// The id of the `ec2.VpnGateway` to propagate routes from.
+	// ID of the `ec2.VpnGateway` to propagate routes from.
 	VpnGatewayId pulumi.StringInput
 }
 
@@ -223,12 +223,12 @@ func (o VpnGatewayRoutePropagationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnGatewayRoutePropagation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The id of the `ec2.RouteTable` to propagate routes into.
+// ID of the `ec2.RouteTable` to propagate routes into.
 func (o VpnGatewayRoutePropagationOutput) RouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnGatewayRoutePropagation) pulumi.StringOutput { return v.RouteTableId }).(pulumi.StringOutput)
 }
 
-// The id of the `ec2.VpnGateway` to propagate routes from.
+// ID of the `ec2.VpnGateway` to propagate routes from.
 func (o VpnGatewayRoutePropagationOutput) VpnGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnGatewayRoutePropagation) pulumi.StringOutput { return v.VpnGatewayId }).(pulumi.StringOutput)
 }

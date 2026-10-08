@@ -65,13 +65,11 @@ type LookupAuthPolicyArgs struct {
 // A collection of values returned by getAuthPolicy.
 type LookupAuthPolicyResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Auth policy. The policy string in JSON must not contain newlines or blank lines.
+	Id                 string  `pulumi:"id"`
 	Policy             *string `pulumi:"policy"`
 	Region             string  `pulumi:"region"`
 	ResourceIdentifier string  `pulumi:"resourceIdentifier"`
-	// State of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
-	State *string `pulumi:"state"`
+	State              *string `pulumi:"state"`
 }
 
 func LookupAuthPolicyOutput(ctx *pulumi.Context, args LookupAuthPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupAuthPolicyResultOutput {
@@ -115,7 +113,6 @@ func (o LookupAuthPolicyResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAuthPolicyResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Auth policy. The policy string in JSON must not contain newlines or blank lines.
 func (o LookupAuthPolicyResultOutput) Policy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAuthPolicyResult) *string { return v.Policy }).(pulumi.StringPtrOutput)
 }
@@ -128,7 +125,6 @@ func (o LookupAuthPolicyResultOutput) ResourceIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAuthPolicyResult) string { return v.ResourceIdentifier }).(pulumi.StringOutput)
 }
 
-// State of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
 func (o LookupAuthPolicyResultOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAuthPolicyResult) *string { return v.State }).(pulumi.StringPtrOutput)
 }

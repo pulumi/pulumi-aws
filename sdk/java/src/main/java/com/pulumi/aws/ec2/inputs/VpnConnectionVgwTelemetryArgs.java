@@ -17,14 +17,14 @@ public final class VpnConnectionVgwTelemetryArgs extends com.pulumi.resources.Re
     public static final VpnConnectionVgwTelemetryArgs Empty = new VpnConnectionVgwTelemetryArgs();
 
     /**
-     * The number of accepted routes.
+     * Number of accepted routes.
      * 
      */
     @Import(name="acceptedRouteCount")
     private @Nullable Output<Integer> acceptedRouteCount;
 
     /**
-     * @return The number of accepted routes.
+     * @return Number of accepted routes.
      * 
      */
     public Optional<Output<Integer>> acceptedRouteCount() {
@@ -47,14 +47,14 @@ public final class VpnConnectionVgwTelemetryArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The date and time of the last change in status.
+     * Date and time of the last change in status.
      * 
      */
     @Import(name="lastStatusChange")
     private @Nullable Output<String> lastStatusChange;
 
     /**
-     * @return The date and time of the last change in status.
+     * @return Date and time of the last change in status.
      * 
      */
     public Optional<Output<String>> lastStatusChange() {
@@ -62,14 +62,14 @@ public final class VpnConnectionVgwTelemetryArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The Internet-routable IP address of the virtual private gateway&#39;s outside interface.
+     * Internet-routable IP address of the virtual private gateway&#39;s outside interface.
      * 
      */
     @Import(name="outsideIpAddress")
     private @Nullable Output<String> outsideIpAddress;
 
     /**
-     * @return The Internet-routable IP address of the virtual private gateway&#39;s outside interface.
+     * @return Internet-routable IP address of the virtual private gateway&#39;s outside interface.
      * 
      */
     public Optional<Output<String>> outsideIpAddress() {
@@ -77,14 +77,14 @@ public final class VpnConnectionVgwTelemetryArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The status of the VPN tunnel.
+     * Status of the VPN tunnel.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The status of the VPN tunnel.
+     * @return Status of the VPN tunnel.
      * 
      */
     public Optional<Output<String>> status() {
@@ -136,7 +136,7 @@ public final class VpnConnectionVgwTelemetryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param acceptedRouteCount The number of accepted routes.
+         * @param acceptedRouteCount Number of accepted routes.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class VpnConnectionVgwTelemetryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param acceptedRouteCount The number of accepted routes.
+         * @param acceptedRouteCount Number of accepted routes.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class VpnConnectionVgwTelemetryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param lastStatusChange The date and time of the last change in status.
+         * @param lastStatusChange Date and time of the last change in status.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class VpnConnectionVgwTelemetryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param lastStatusChange The date and time of the last change in status.
+         * @param lastStatusChange Date and time of the last change in status.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class VpnConnectionVgwTelemetryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param outsideIpAddress The Internet-routable IP address of the virtual private gateway&#39;s outside interface.
+         * @param outsideIpAddress Internet-routable IP address of the virtual private gateway&#39;s outside interface.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class VpnConnectionVgwTelemetryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param outsideIpAddress The Internet-routable IP address of the virtual private gateway&#39;s outside interface.
+         * @param outsideIpAddress Internet-routable IP address of the virtual private gateway&#39;s outside interface.
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class VpnConnectionVgwTelemetryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param status The status of the VPN tunnel.
+         * @param status Status of the VPN tunnel.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class VpnConnectionVgwTelemetryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param status The status of the VPN tunnel.
+         * @param status Status of the VPN tunnel.
          * 
          * @return builder
          * 

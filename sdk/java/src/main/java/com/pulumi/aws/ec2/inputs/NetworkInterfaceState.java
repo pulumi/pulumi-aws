@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.inputs;
 
 import com.pulumi.aws.ec2.inputs.NetworkInterfaceAttachmentArgs;
+import com.pulumi.aws.ec2.inputs.NetworkInterfaceConnectionTrackingSpecificationArgs;
 import com.pulumi.aws.ec2.inputs.NetworkInterfaceEnaSrdSpecificationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -49,6 +50,21 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
      */
     public Optional<Output<List<NetworkInterfaceAttachmentArgs>>> attachments() {
         return Optional.ofNullable(this.attachments);
+    }
+
+    /**
+     * Configures the [connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) for the network interface. See Connection Tracking Specification below for more details.
+     * 
+     */
+    @Import(name="connectionTrackingSpecification")
+    private @Nullable Output<NetworkInterfaceConnectionTrackingSpecificationArgs> connectionTrackingSpecification;
+
+    /**
+     * @return Configures the [connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) for the network interface. See Connection Tracking Specification below for more details.
+     * 
+     */
+    public Optional<Output<NetworkInterfaceConnectionTrackingSpecificationArgs>> connectionTrackingSpecification() {
+        return Optional.ofNullable(this.connectionTrackingSpecification);
     }
 
     /**
@@ -336,14 +352,14 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
+     * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assigned to an ENI by default.
      * 
      */
     @Import(name="privateIpsCount")
     private @Nullable Output<Integer> privateIpsCount;
 
     /**
-     * @return Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
+     * @return Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assigned to an ENI by default.
      * 
      */
     public Optional<Output<Integer>> privateIpsCount() {
@@ -449,6 +465,7 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
     private NetworkInterfaceState(NetworkInterfaceState $) {
         this.arn = $.arn;
         this.attachments = $.attachments;
+        this.connectionTrackingSpecification = $.connectionTrackingSpecification;
         this.description = $.description;
         this.enaSrdSpecification = $.enaSrdSpecification;
         this.enablePrimaryIpv6 = $.enablePrimaryIpv6;
@@ -546,6 +563,27 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
          */
         public Builder attachments(NetworkInterfaceAttachmentArgs... attachments) {
             return attachments(List.of(attachments));
+        }
+
+        /**
+         * @param connectionTrackingSpecification Configures the [connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) for the network interface. See Connection Tracking Specification below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectionTrackingSpecification(@Nullable Output<NetworkInterfaceConnectionTrackingSpecificationArgs> connectionTrackingSpecification) {
+            $.connectionTrackingSpecification = connectionTrackingSpecification;
+            return this;
+        }
+
+        /**
+         * @param connectionTrackingSpecification Configures the [connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) for the network interface. See Connection Tracking Specification below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectionTrackingSpecification(NetworkInterfaceConnectionTrackingSpecificationArgs connectionTrackingSpecification) {
+            return connectionTrackingSpecification(Output.of(connectionTrackingSpecification));
         }
 
         /**
@@ -1005,7 +1043,7 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param privateIpsCount Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
+         * @param privateIpsCount Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assigned to an ENI by default.
          * 
          * @return builder
          * 
@@ -1016,7 +1054,7 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param privateIpsCount Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
+         * @param privateIpsCount Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assigned to an ENI by default.
          * 
          * @return builder
          * 

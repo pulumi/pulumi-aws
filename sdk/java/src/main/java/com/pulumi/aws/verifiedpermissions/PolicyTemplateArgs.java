@@ -32,14 +32,14 @@ public final class PolicyTemplateArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The ID of the Policy Store.
+     * ID of the Policy Store.
      * 
      */
     @Import(name="policyStoreId", required=true)
     private Output<String> policyStoreId;
 
     /**
-     * @return The ID of the Policy Store.
+     * @return ID of the Policy Store.
      * 
      */
     public Output<String> policyStoreId() {
@@ -62,7 +62,7 @@ public final class PolicyTemplateArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Defines the content of the statement, written in Cedar policy language.
+     * Content of the statement, written in Cedar policy language.
      * 
      * The following arguments are optional:
      * 
@@ -71,7 +71,7 @@ public final class PolicyTemplateArgs extends com.pulumi.resources.ResourceArgs 
     private Output<String> statement;
 
     /**
-     * @return Defines the content of the statement, written in Cedar policy language.
+     * @return Content of the statement, written in Cedar policy language.
      * 
      * The following arguments are optional:
      * 
@@ -129,7 +129,7 @@ public final class PolicyTemplateArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param policyStoreId The ID of the Policy Store.
+         * @param policyStoreId ID of the Policy Store.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class PolicyTemplateArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param policyStoreId The ID of the Policy Store.
+         * @param policyStoreId ID of the Policy Store.
          * 
          * @return builder
          * 
@@ -171,7 +171,7 @@ public final class PolicyTemplateArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param statement Defines the content of the statement, written in Cedar policy language.
+         * @param statement Content of the statement, written in Cedar policy language.
          * 
          * The following arguments are optional:
          * 
@@ -184,7 +184,7 @@ public final class PolicyTemplateArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param statement Defines the content of the statement, written in Cedar policy language.
+         * @param statement Content of the statement, written in Cedar policy language.
          * 
          * The following arguments are optional:
          * 

@@ -34,7 +34,7 @@ class ExperienceArgs:
         :param pulumi.Input[_builtins.str] role_arn: ARN of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
                
                The following arguments are optional:
-        :param pulumi.Input['ExperienceConfigurationArgs'] configuration: Configuration information for your Amazon Kendra experience. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
+        :param pulumi.Input['ExperienceConfigurationArgs'] configuration: Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
         :param pulumi.Input[_builtins.str] description: Description for your Amazon Kendra experience.
         :param pulumi.Input[_builtins.str] name: Name for your Amazon Kendra experience.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -82,7 +82,7 @@ class ExperienceArgs:
     @pulumi.getter
     def configuration(self) -> pulumi.Input[Optional['ExperienceConfigurationArgs']]:
         """
-        Configuration information for your Amazon Kendra experience. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
+        Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
         """
         return pulumi.get(self, "configuration")
 
@@ -146,7 +146,7 @@ class _ExperienceState:
         Input properties used for looking up and filtering Experience resources.
 
         :param pulumi.Input[_builtins.str] arn: ARN of the Experience.
-        :param pulumi.Input['ExperienceConfigurationArgs'] configuration: Configuration information for your Amazon Kendra experience. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
+        :param pulumi.Input['ExperienceConfigurationArgs'] configuration: Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
         :param pulumi.Input[_builtins.str] description: Description for your Amazon Kendra experience.
         :param pulumi.Input[Sequence[pulumi.Input['ExperienceEndpointArgs']]] endpoints: Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are unique and fully hosted by AWS.
         :param pulumi.Input[_builtins.str] experience_id: Unique identifier of the experience.
@@ -197,7 +197,7 @@ class _ExperienceState:
     @pulumi.getter
     def configuration(self) -> pulumi.Input[Optional['ExperienceConfigurationArgs']]:
         """
-        Configuration information for your Amazon Kendra experience. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
+        Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
         """
         return pulumi.get(self, "configuration")
 
@@ -357,7 +357,7 @@ class Experience(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ExperienceConfigurationArgs', 'ExperienceConfigurationArgsDict', 'outputs.ExperienceConfiguration']] configuration: Configuration information for your Amazon Kendra experience. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
+        :param pulumi.Input[Union['ExperienceConfigurationArgs', 'ExperienceConfigurationArgsDict', 'outputs.ExperienceConfiguration']] configuration: Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
         :param pulumi.Input[_builtins.str] description: Description for your Amazon Kendra experience.
         :param pulumi.Input[_builtins.str] index_id: Identifier of the index for your Amazon Kendra experience.
         :param pulumi.Input[_builtins.str] name: Name for your Amazon Kendra experience.
@@ -482,7 +482,7 @@ class Experience(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Experience.
-        :param pulumi.Input[Union['ExperienceConfigurationArgs', 'ExperienceConfigurationArgsDict', 'outputs.ExperienceConfiguration']] configuration: Configuration information for your Amazon Kendra experience. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
+        :param pulumi.Input[Union['ExperienceConfigurationArgs', 'ExperienceConfigurationArgsDict', 'outputs.ExperienceConfiguration']] configuration: Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
         :param pulumi.Input[_builtins.str] description: Description for your Amazon Kendra experience.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ExperienceEndpointArgs', 'ExperienceEndpointArgsDict', 'outputs.ExperienceEndpoint']]]] endpoints: Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are unique and fully hosted by AWS.
         :param pulumi.Input[_builtins.str] experience_id: Unique identifier of the experience.
@@ -524,7 +524,7 @@ class Experience(pulumi.CustomResource):
     @pulumi.getter
     def configuration(self) -> pulumi.Output['outputs.ExperienceConfiguration']:
         """
-        Configuration information for your Amazon Kendra experience. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
+        Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
         """
         return pulumi.get(self, "configuration")
 

@@ -28,8 +28,8 @@ class RouteServerPropagationArgs:
         """
         The set of arguments for constructing a RouteServerPropagation resource.
 
-        :param pulumi.Input[_builtins.str] route_server_id: The unique identifier for the route server to be associated.
-        :param pulumi.Input[_builtins.str] route_table_id: The ID of the route table to which route server will propagate routes.
+        :param pulumi.Input[_builtins.str] route_server_id: Unique identifier for the route server to be associated.
+        :param pulumi.Input[_builtins.str] route_table_id: ID of the route table to which route server will propagate routes.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -45,7 +45,7 @@ class RouteServerPropagationArgs:
     @pulumi.getter(name="routeServerId")
     def route_server_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The unique identifier for the route server to be associated.
+        Unique identifier for the route server to be associated.
         """
         return pulumi.get(self, "route_server_id")
 
@@ -57,7 +57,7 @@ class RouteServerPropagationArgs:
     @pulumi.getter(name="routeTableId")
     def route_table_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the route table to which route server will propagate routes.
+        ID of the route table to which route server will propagate routes.
 
         The following arguments are optional:
         """
@@ -100,8 +100,8 @@ class _RouteServerPropagationState:
         Input properties used for looking up and filtering RouteServerPropagation resources.
 
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] route_server_id: The unique identifier for the route server to be associated.
-        :param pulumi.Input[_builtins.str] route_table_id: The ID of the route table to which route server will propagate routes.
+        :param pulumi.Input[_builtins.str] route_server_id: Unique identifier for the route server to be associated.
+        :param pulumi.Input[_builtins.str] route_table_id: ID of the route table to which route server will propagate routes.
                
                The following arguments are optional:
         """
@@ -130,7 +130,7 @@ class _RouteServerPropagationState:
     @pulumi.getter(name="routeServerId")
     def route_server_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The unique identifier for the route server to be associated.
+        Unique identifier for the route server to be associated.
         """
         return pulumi.get(self, "route_server_id")
 
@@ -142,7 +142,7 @@ class _RouteServerPropagationState:
     @pulumi.getter(name="routeTableId")
     def route_table_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the route table to which route server will propagate routes.
+        ID of the route table to which route server will propagate routes.
 
         The following arguments are optional:
         """
@@ -201,8 +201,8 @@ class RouteServerPropagation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] route_server_id: The unique identifier for the route server to be associated.
-        :param pulumi.Input[_builtins.str] route_table_id: The ID of the route table to which route server will propagate routes.
+        :param pulumi.Input[_builtins.str] route_server_id: Unique identifier for the route server to be associated.
+        :param pulumi.Input[_builtins.str] route_table_id: ID of the route table to which route server will propagate routes.
                
                The following arguments are optional:
         """
@@ -295,8 +295,8 @@ class RouteServerPropagation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] route_server_id: The unique identifier for the route server to be associated.
-        :param pulumi.Input[_builtins.str] route_table_id: The ID of the route table to which route server will propagate routes.
+        :param pulumi.Input[_builtins.str] route_server_id: Unique identifier for the route server to be associated.
+        :param pulumi.Input[_builtins.str] route_table_id: ID of the route table to which route server will propagate routes.
                
                The following arguments are optional:
         """
@@ -322,7 +322,7 @@ class RouteServerPropagation(pulumi.CustomResource):
     @pulumi.getter(name="routeServerId")
     def route_server_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The unique identifier for the route server to be associated.
+        Unique identifier for the route server to be associated.
         """
         return pulumi.get(self, "route_server_id")
 
@@ -330,7 +330,7 @@ class RouteServerPropagation(pulumi.CustomResource):
     @pulumi.getter(name="routeTableId")
     def route_table_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the route table to which route server will propagate routes.
+        ID of the route table to which route server will propagate routes.
 
         The following arguments are optional:
         """

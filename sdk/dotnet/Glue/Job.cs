@@ -451,7 +451,7 @@ namespace Pulumi.Aws.Glue
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The job timeout in minutes. The default is 2880 minutes (48 hours) for `Glueetl` and `Pythonshell` jobs, and 0 (unlimited) for `Gluestreaming` jobs. Leave this attribute argumnet unconfigured for `Glueray` jobs.
+        /// The job timeout in minutes. The default is 2880 minutes (48 hours) for `Glueetl` and `Pythonshell` jobs, and 0 (unlimited) for `Gluestreaming` jobs. Leave this attribute argument unconfigured for `Glueray` jobs.
         /// </summary>
         [Output("timeout")]
         public Output<int> Timeout { get; private set; } = null!;
@@ -659,7 +659,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The job timeout in minutes. The default is 2880 minutes (48 hours) for `Glueetl` and `Pythonshell` jobs, and 0 (unlimited) for `Gluestreaming` jobs. Leave this attribute argumnet unconfigured for `Glueray` jobs.
+        /// The job timeout in minutes. The default is 2880 minutes (48 hours) for `Glueetl` and `Pythonshell` jobs, and 0 (unlimited) for `Gluestreaming` jobs. Leave this attribute argument unconfigured for `Glueray` jobs.
         /// </summary>
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }
@@ -847,7 +847,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The job timeout in minutes. The default is 2880 minutes (48 hours) for `Glueetl` and `Pythonshell` jobs, and 0 (unlimited) for `Gluestreaming` jobs. Leave this attribute argumnet unconfigured for `Glueray` jobs.
+        /// The job timeout in minutes. The default is 2880 minutes (48 hours) for `Glueetl` and `Pythonshell` jobs, and 0 (unlimited) for `Gluestreaming` jobs. Leave this attribute argument unconfigured for `Glueray` jobs.
         /// </summary>
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }

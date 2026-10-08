@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.ec2.NetworkInterfaceArgs;
 import com.pulumi.aws.ec2.inputs.NetworkInterfaceState;
 import com.pulumi.aws.ec2.outputs.NetworkInterfaceAttachment;
+import com.pulumi.aws.ec2.outputs.NetworkInterfaceConnectionTrackingSpecification;
 import com.pulumi.aws.ec2.outputs.NetworkInterfaceEnaSrdSpecification;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -129,6 +130,20 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
      */
     public Output<List<NetworkInterfaceAttachment>> attachments() {
         return this.attachments;
+    }
+    /**
+     * Configures the [connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) for the network interface. See Connection Tracking Specification below for more details.
+     * 
+     */
+    @Export(name="connectionTrackingSpecification", refs={NetworkInterfaceConnectionTrackingSpecification.class}, tree="[0]")
+    private Output<NetworkInterfaceConnectionTrackingSpecification> connectionTrackingSpecification;
+
+    /**
+     * @return Configures the [connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) for the network interface. See Connection Tracking Specification below for more details.
+     * 
+     */
+    public Output<NetworkInterfaceConnectionTrackingSpecification> connectionTrackingSpecification() {
+        return this.connectionTrackingSpecification;
     }
     /**
      * Description for the network interface.
@@ -395,14 +410,14 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
         return this.privateIps;
     }
     /**
-     * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
+     * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assigned to an ENI by default.
      * 
      */
     @Export(name="privateIpsCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> privateIpsCount;
 
     /**
-     * @return Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
+     * @return Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assigned to an ENI by default.
      * 
      */
     public Output<Integer> privateIpsCount() {

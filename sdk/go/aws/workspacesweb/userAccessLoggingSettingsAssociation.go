@@ -38,8 +38,10 @@ import (
 //				return err
 //			}
 //			exampleStream, err := kinesis.NewStream(ctx, "example", &kinesis.StreamArgs{
-//				Name:       pulumi.String("amazon-workspaces-web-example"),
-//				ShardCount: pulumi.Int(1),
+//				StreamModeDetails: &kinesis.StreamStreamModeDetailsArgs{
+//					StreamMode: pulumi.String("ON_DEMAND"),
+//				},
+//				Name: pulumi.String("amazon-workspaces-web-example"),
 //			})
 //			if err != nil {
 //				return err

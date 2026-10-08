@@ -34,10 +34,7 @@ type GetVpcPeeringConnectionsArgs struct {
 	Filters []GetVpcPeeringConnectionsFilter `pulumi:"filters"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Mapping of tags, each pair of which must exactly match
-	// a pair on the desired VPC Peering Connection.
-	//
-	// The arguments of this data source act as filters for querying the available VPC peering connections.
+	// Mapping of tags, each pair of which must exactly match a pair on the desired VPC Peering Connection.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -63,10 +60,7 @@ type GetVpcPeeringConnectionsOutputArgs struct {
 	Filters GetVpcPeeringConnectionsFilterArrayInput `pulumi:"filters"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Mapping of tags, each pair of which must exactly match
-	// a pair on the desired VPC Peering Connection.
-	//
-	// The arguments of this data source act as filters for querying the available VPC peering connections.
+	// Mapping of tags, each pair of which must exactly match a pair on the desired VPC Peering Connection.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 

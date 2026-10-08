@@ -17,14 +17,14 @@ public final class VpcEndpointPolicyArgs extends com.pulumi.resources.ResourceAr
     public static final VpcEndpointPolicyArgs Empty = new VpcEndpointPolicyArgs();
 
     /**
-     * A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+     * Policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
      * 
      */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
     /**
-     * @return A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+     * @return Policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
      * 
      */
     public Optional<Output<String>> policy() {
@@ -47,14 +47,14 @@ public final class VpcEndpointPolicyArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The VPC Endpoint ID.
+     * VPC Endpoint ID.
      * 
      */
     @Import(name="vpcEndpointId", required=true)
     private Output<String> vpcEndpointId;
 
     /**
-     * @return The VPC Endpoint ID.
+     * @return VPC Endpoint ID.
      * 
      */
     public Output<String> vpcEndpointId() {
@@ -88,7 +88,7 @@ public final class VpcEndpointPolicyArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param policy A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+         * @param policy Policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class VpcEndpointPolicyArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param policy A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+         * @param policy Policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class VpcEndpointPolicyArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param vpcEndpointId The VPC Endpoint ID.
+         * @param vpcEndpointId VPC Endpoint ID.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class VpcEndpointPolicyArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param vpcEndpointId The VPC Endpoint ID.
+         * @param vpcEndpointId VPC Endpoint ID.
          * 
          * @return builder
          * 

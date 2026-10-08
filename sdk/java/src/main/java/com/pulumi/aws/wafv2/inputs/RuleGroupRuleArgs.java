@@ -24,14 +24,14 @@ public final class RuleGroupRuleArgs extends com.pulumi.resources.ResourceArgs {
     public static final RuleGroupRuleArgs Empty = new RuleGroupRuleArgs();
 
     /**
-     * The action that AWS WAF should take on a web request when it matches the rule&#39;s statement. Settings at the `aws.wafv2.WebAcl` level can override the rule action setting. See Action below for details.
+     * Action that AWS WAF should take on a web request when it matches the rule&#39;s statement. Settings at the `aws.wafv2.WebAcl` level can override the rule action setting. See Action below for details.
      * 
      */
     @Import(name="action", required=true)
     private Output<RuleGroupRuleActionArgs> action;
 
     /**
-     * @return The action that AWS WAF should take on a web request when it matches the rule&#39;s statement. Settings at the `aws.wafv2.WebAcl` level can override the rule action setting. See Action below for details.
+     * @return Action that AWS WAF should take on a web request when it matches the rule&#39;s statement. Settings at the `aws.wafv2.WebAcl` level can override the rule action setting. See Action below for details.
      * 
      */
     public Output<RuleGroupRuleActionArgs> action() {
@@ -39,14 +39,14 @@ public final class RuleGroupRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+     * Configuration for how AWS WAF handles CAPTCHA evaluations. See Captcha Configuration below for details.
      * 
      */
     @Import(name="captchaConfig")
     private @Nullable Output<RuleGroupRuleCaptchaConfigArgs> captchaConfig;
 
     /**
-     * @return Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+     * @return Configuration for how AWS WAF handles CAPTCHA evaluations. See Captcha Configuration below for details.
      * 
      */
     public Optional<Output<RuleGroupRuleCaptchaConfigArgs>> captchaConfig() {
@@ -54,14 +54,14 @@ public final class RuleGroupRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A friendly name of the rule.
+     * Friendly name of the rule.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return A friendly name of the rule.
+     * @return Friendly name of the rule.
      * 
      */
     public Output<String> name() {
@@ -99,14 +99,14 @@ public final class RuleGroupRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See Statement below for details.
+     * AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See Statement below for details.
      * 
      */
     @Import(name="statement", required=true)
     private Output<RuleGroupRuleStatementArgs> statement;
 
     /**
-     * @return The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See Statement below for details.
+     * @return AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See Statement below for details.
      * 
      */
     public Output<RuleGroupRuleStatementArgs> statement() {
@@ -114,14 +114,14 @@ public final class RuleGroupRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+     * Amazon CloudWatch metrics and web request sample collection configuration. See Visibility Configuration below for details.
      * 
      */
     @Import(name="visibilityConfig", required=true)
     private Output<RuleGroupRuleVisibilityConfigArgs> visibilityConfig;
 
     /**
-     * @return Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+     * @return Amazon CloudWatch metrics and web request sample collection configuration. See Visibility Configuration below for details.
      * 
      */
     public Output<RuleGroupRuleVisibilityConfigArgs> visibilityConfig() {
@@ -159,7 +159,7 @@ public final class RuleGroupRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param action The action that AWS WAF should take on a web request when it matches the rule&#39;s statement. Settings at the `aws.wafv2.WebAcl` level can override the rule action setting. See Action below for details.
+         * @param action Action that AWS WAF should take on a web request when it matches the rule&#39;s statement. Settings at the `aws.wafv2.WebAcl` level can override the rule action setting. See Action below for details.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class RuleGroupRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param action The action that AWS WAF should take on a web request when it matches the rule&#39;s statement. Settings at the `aws.wafv2.WebAcl` level can override the rule action setting. See Action below for details.
+         * @param action Action that AWS WAF should take on a web request when it matches the rule&#39;s statement. Settings at the `aws.wafv2.WebAcl` level can override the rule action setting. See Action below for details.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class RuleGroupRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param captchaConfig Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+         * @param captchaConfig Configuration for how AWS WAF handles CAPTCHA evaluations. See Captcha Configuration below for details.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class RuleGroupRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param captchaConfig Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+         * @param captchaConfig Configuration for how AWS WAF handles CAPTCHA evaluations. See Captcha Configuration below for details.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class RuleGroupRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A friendly name of the rule.
+         * @param name Friendly name of the rule.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class RuleGroupRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A friendly name of the rule.
+         * @param name Friendly name of the rule.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class RuleGroupRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statement The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See Statement below for details.
+         * @param statement AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See Statement below for details.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class RuleGroupRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statement The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See Statement below for details.
+         * @param statement AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See Statement below for details.
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class RuleGroupRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param visibilityConfig Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+         * @param visibilityConfig Amazon CloudWatch metrics and web request sample collection configuration. See Visibility Configuration below for details.
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class RuleGroupRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param visibilityConfig Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+         * @param visibilityConfig Amazon CloudWatch metrics and web request sample collection configuration. See Visibility Configuration below for details.
          * 
          * @return builder
          * 

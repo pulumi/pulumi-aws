@@ -85,7 +85,7 @@ export class Group extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly owner: pulumi.Output<string>;
     /**
-     * The policy document that is associated with this resource.
+     * Policy document that is associated with this resource.
      */
     declare public readonly policyDocument: pulumi.Output<string | undefined>;
     /**
@@ -93,7 +93,7 @@ export class Group extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Configuration block to use KMS keys for server-side encryption.
+     * Configuration block to use KMS keys for server-side encryption. See below.
      */
     declare public readonly sseConfiguration: pulumi.Output<outputs.verifiedaccess.GroupSseConfiguration>;
     /**
@@ -102,7 +102,7 @@ export class Group extends pulumi.CustomResource {
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * ARN of this verified acess group.
+     * ARN of this verified access group.
      */
     declare public /*out*/ readonly verifiedaccessGroupArn: pulumi.Output<string>;
     /**
@@ -110,7 +110,7 @@ export class Group extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly verifiedaccessGroupId: pulumi.Output<string>;
     /**
-     * The id of the verified access instance this group is associated with.
+     * ID of the verified access instance this group is associated with.
      *
      * The following arguments are optional:
      */
@@ -191,7 +191,7 @@ export interface GroupState {
      */
     owner?: pulumi.Input<string | undefined>;
     /**
-     * The policy document that is associated with this resource.
+     * Policy document that is associated with this resource.
      */
     policyDocument?: pulumi.Input<string | undefined>;
     /**
@@ -199,7 +199,7 @@ export interface GroupState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Configuration block to use KMS keys for server-side encryption.
+     * Configuration block to use KMS keys for server-side encryption. See below.
      */
     sseConfiguration?: pulumi.Input<inputs.verifiedaccess.GroupSseConfiguration | undefined>;
     /**
@@ -208,7 +208,7 @@ export interface GroupState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * ARN of this verified acess group.
+     * ARN of this verified access group.
      */
     verifiedaccessGroupArn?: pulumi.Input<string | undefined>;
     /**
@@ -216,7 +216,7 @@ export interface GroupState {
      */
     verifiedaccessGroupId?: pulumi.Input<string | undefined>;
     /**
-     * The id of the verified access instance this group is associated with.
+     * ID of the verified access instance this group is associated with.
      *
      * The following arguments are optional:
      */
@@ -232,7 +232,7 @@ export interface GroupArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The policy document that is associated with this resource.
+     * Policy document that is associated with this resource.
      */
     policyDocument?: pulumi.Input<string | undefined>;
     /**
@@ -240,7 +240,7 @@ export interface GroupArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Configuration block to use KMS keys for server-side encryption.
+     * Configuration block to use KMS keys for server-side encryption. See below.
      */
     sseConfiguration?: pulumi.Input<inputs.verifiedaccess.GroupSseConfiguration | undefined>;
     /**
@@ -248,7 +248,7 @@ export interface GroupArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The id of the verified access instance this group is associated with.
+     * ID of the verified access instance this group is associated with.
      *
      * The following arguments are optional:
      */

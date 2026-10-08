@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class VpcEncryptionControlResourceExclusionsInternetGateway
     {
         /// <summary>
-        /// The current state of the VPC Encryption Control.
+        /// Encryption enforcement state for peered VPCs.
         /// </summary>
         public readonly string State;
         /// <summary>
-        /// A message providing additional information about the state of the VPC Encryption Control.
+        /// Message providing additional information about the encryption enforcement state.
         /// </summary>
         public readonly string StateMessage;
 

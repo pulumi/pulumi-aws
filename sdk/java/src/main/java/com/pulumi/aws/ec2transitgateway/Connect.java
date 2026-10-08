@@ -171,14 +171,14 @@ public class Connect extends com.pulumi.resources.CustomResource {
         return this.transitGatewayId;
     }
     /**
-     * The underlaying VPC attachment
+     * The underlying VPC attachment
      * 
      */
     @Export(name="transportAttachmentId", refs={String.class}, tree="[0]")
     private Output<String> transportAttachmentId;
 
     /**
-     * @return The underlaying VPC attachment
+     * @return The underlying VPC attachment
      * 
      */
     public Output<String> transportAttachmentId() {

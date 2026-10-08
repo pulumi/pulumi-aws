@@ -27,8 +27,8 @@ class PolicyArgs:
         """
         The set of arguments for constructing a Policy resource.
 
-        :param pulumi.Input['PolicyDefinitionArgs'] definition: The definition of the policy. See Definition below.
-        :param pulumi.Input[_builtins.str] policy_store_id: The Policy Store ID of the policy store.
+        :param pulumi.Input['PolicyDefinitionArgs'] definition: Definition of the policy. See Definition below.
+        :param pulumi.Input[_builtins.str] policy_store_id: Policy Store ID of the policy store.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "definition", definition)
@@ -40,7 +40,7 @@ class PolicyArgs:
     @pulumi.getter
     def definition(self) -> pulumi.Input['PolicyDefinitionArgs']:
         """
-        The definition of the policy. See Definition below.
+        Definition of the policy. See Definition below.
         """
         return pulumi.get(self, "definition")
 
@@ -52,7 +52,7 @@ class PolicyArgs:
     @pulumi.getter(name="policyStoreId")
     def policy_store_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The Policy Store ID of the policy store.
+        Policy Store ID of the policy store.
         """
         return pulumi.get(self, "policy_store_id")
 
@@ -84,10 +84,10 @@ class _PolicyState:
         """
         Input properties used for looking up and filtering Policy resources.
 
-        :param pulumi.Input[_builtins.str] created_date: The date the policy was created.
-        :param pulumi.Input['PolicyDefinitionArgs'] definition: The definition of the policy. See Definition below.
-        :param pulumi.Input[_builtins.str] policy_id: The Policy ID of the policy.
-        :param pulumi.Input[_builtins.str] policy_store_id: The Policy Store ID of the policy store.
+        :param pulumi.Input[_builtins.str] created_date: Date the policy was created.
+        :param pulumi.Input['PolicyDefinitionArgs'] definition: Definition of the policy. See Definition below.
+        :param pulumi.Input[_builtins.str] policy_id: Policy ID of the policy.
+        :param pulumi.Input[_builtins.str] policy_store_id: Policy Store ID of the policy store.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if created_date is not None:
@@ -105,7 +105,7 @@ class _PolicyState:
     @pulumi.getter(name="createdDate")
     def created_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The date the policy was created.
+        Date the policy was created.
         """
         return pulumi.get(self, "created_date")
 
@@ -117,7 +117,7 @@ class _PolicyState:
     @pulumi.getter
     def definition(self) -> pulumi.Input[Optional['PolicyDefinitionArgs']]:
         """
-        The definition of the policy. See Definition below.
+        Definition of the policy. See Definition below.
         """
         return pulumi.get(self, "definition")
 
@@ -129,7 +129,7 @@ class _PolicyState:
     @pulumi.getter(name="policyId")
     def policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Policy ID of the policy.
+        Policy ID of the policy.
         """
         return pulumi.get(self, "policy_id")
 
@@ -141,7 +141,7 @@ class _PolicyState:
     @pulumi.getter(name="policyStoreId")
     def policy_store_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Policy Store ID of the policy store.
+        Policy Store ID of the policy store.
         """
         return pulumi.get(self, "policy_store_id")
 
@@ -203,8 +203,8 @@ class Policy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['PolicyDefinitionArgs', 'PolicyDefinitionArgsDict', 'outputs.PolicyDefinition']] definition: The definition of the policy. See Definition below.
-        :param pulumi.Input[_builtins.str] policy_store_id: The Policy Store ID of the policy store.
+        :param pulumi.Input[Union['PolicyDefinitionArgs', 'PolicyDefinitionArgsDict', 'outputs.PolicyDefinition']] definition: Definition of the policy. See Definition below.
+        :param pulumi.Input[_builtins.str] policy_store_id: Policy Store ID of the policy store.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -300,10 +300,10 @@ class Policy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] created_date: The date the policy was created.
-        :param pulumi.Input[Union['PolicyDefinitionArgs', 'PolicyDefinitionArgsDict', 'outputs.PolicyDefinition']] definition: The definition of the policy. See Definition below.
-        :param pulumi.Input[_builtins.str] policy_id: The Policy ID of the policy.
-        :param pulumi.Input[_builtins.str] policy_store_id: The Policy Store ID of the policy store.
+        :param pulumi.Input[_builtins.str] created_date: Date the policy was created.
+        :param pulumi.Input[Union['PolicyDefinitionArgs', 'PolicyDefinitionArgsDict', 'outputs.PolicyDefinition']] definition: Definition of the policy. See Definition below.
+        :param pulumi.Input[_builtins.str] policy_id: Policy ID of the policy.
+        :param pulumi.Input[_builtins.str] policy_store_id: Policy Store ID of the policy store.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -321,7 +321,7 @@ class Policy(pulumi.CustomResource):
     @pulumi.getter(name="createdDate")
     def created_date(self) -> pulumi.Output[_builtins.str]:
         """
-        The date the policy was created.
+        Date the policy was created.
         """
         return pulumi.get(self, "created_date")
 
@@ -329,7 +329,7 @@ class Policy(pulumi.CustomResource):
     @pulumi.getter
     def definition(self) -> pulumi.Output['outputs.PolicyDefinition']:
         """
-        The definition of the policy. See Definition below.
+        Definition of the policy. See Definition below.
         """
         return pulumi.get(self, "definition")
 
@@ -337,7 +337,7 @@ class Policy(pulumi.CustomResource):
     @pulumi.getter(name="policyId")
     def policy_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The Policy ID of the policy.
+        Policy ID of the policy.
         """
         return pulumi.get(self, "policy_id")
 
@@ -345,7 +345,7 @@ class Policy(pulumi.CustomResource):
     @pulumi.getter(name="policyStoreId")
     def policy_store_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The Policy Store ID of the policy store.
+        Policy Store ID of the policy store.
         """
         return pulumi.get(self, "policy_store_id")
 

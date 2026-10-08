@@ -32,14 +32,14 @@ public final class SecurityGroupVpcAssociationState extends com.pulumi.resources
     }
 
     /**
-     * The ID of the security group.
+     * ID of the security group.
      * 
      */
     @Import(name="securityGroupId")
     private @Nullable Output<String> securityGroupId;
 
     /**
-     * @return The ID of the security group.
+     * @return ID of the security group.
      * 
      */
     public Optional<Output<String>> securityGroupId() {
@@ -69,14 +69,14 @@ public final class SecurityGroupVpcAssociationState extends com.pulumi.resources
     }
 
     /**
-     * The ID of the VPC to make the association with.
+     * ID of the VPC to make the association with.
      * 
      */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
     /**
-     * @return The ID of the VPC to make the association with.
+     * @return ID of the VPC to make the association with.
      * 
      */
     public Optional<Output<String>> vpcId() {
@@ -133,7 +133,7 @@ public final class SecurityGroupVpcAssociationState extends com.pulumi.resources
         }
 
         /**
-         * @param securityGroupId The ID of the security group.
+         * @param securityGroupId ID of the security group.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class SecurityGroupVpcAssociationState extends com.pulumi.resources
         }
 
         /**
-         * @param securityGroupId The ID of the security group.
+         * @param securityGroupId ID of the security group.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class SecurityGroupVpcAssociationState extends com.pulumi.resources
         }
 
         /**
-         * @param vpcId The ID of the VPC to make the association with.
+         * @param vpcId ID of the VPC to make the association with.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class SecurityGroupVpcAssociationState extends com.pulumi.resources
         }
 
         /**
-         * @param vpcId The ID of the VPC to make the association with.
+         * @param vpcId ID of the VPC to make the association with.
          * 
          * @return builder
          * 

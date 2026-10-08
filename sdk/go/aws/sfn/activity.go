@@ -43,7 +43,7 @@ import (
 //
 // ### Encryption
 //
-// > *NOTE:* See the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling encryption of data using a customer-managed key for Step Functions State Machines data.
+// > *NOTE:* See the section [Data at rest encryption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling encryption of data using a customer-managed key for Step Functions State Machines data.
 //
 // ```go
 // package main
@@ -94,7 +94,7 @@ type Activity struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Date the activity was created.
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
-	// Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
+	// Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encryption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
 	EncryptionConfiguration ActivityEncryptionConfigurationOutput `pulumi:"encryptionConfiguration"`
 	// The name of the activity to create.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -140,7 +140,7 @@ type activityState struct {
 	Arn *string `pulumi:"arn"`
 	// Date the activity was created.
 	CreationDate *string `pulumi:"creationDate"`
-	// Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
+	// Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encryption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
 	EncryptionConfiguration *ActivityEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// The name of the activity to create.
 	Name *string `pulumi:"name"`
@@ -157,7 +157,7 @@ type ActivityState struct {
 	Arn pulumi.StringPtrInput
 	// Date the activity was created.
 	CreationDate pulumi.StringPtrInput
-	// Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
+	// Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encryption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
 	EncryptionConfiguration ActivityEncryptionConfigurationPtrInput
 	// The name of the activity to create.
 	Name pulumi.StringPtrInput
@@ -174,7 +174,7 @@ func (ActivityState) ElementType() reflect.Type {
 }
 
 type activityArgs struct {
-	// Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
+	// Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encryption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
 	EncryptionConfiguration *ActivityEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// The name of the activity to create.
 	Name *string `pulumi:"name"`
@@ -186,7 +186,7 @@ type activityArgs struct {
 
 // The set of arguments for constructing a Activity resource.
 type ActivityArgs struct {
-	// Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
+	// Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encryption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
 	EncryptionConfiguration ActivityEncryptionConfigurationPtrInput
 	// The name of the activity to create.
 	Name pulumi.StringPtrInput
@@ -293,7 +293,7 @@ func (o ActivityOutput) CreationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Activity) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
 }
 
-// Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
+// Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encryption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
 func (o ActivityOutput) EncryptionConfiguration() ActivityEncryptionConfigurationOutput {
 	return o.ApplyT(func(v *Activity) ActivityEncryptionConfigurationOutput { return v.EncryptionConfiguration }).(ActivityEncryptionConfigurationOutput)
 }

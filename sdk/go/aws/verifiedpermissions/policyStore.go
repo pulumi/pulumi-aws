@@ -54,13 +54,13 @@ import (
 type PolicyStore struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the Policy Store.
+	// ARN of the Policy Store.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+	// Whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
 	DeletionProtection pulumi.StringOutput `pulumi:"deletionProtection"`
-	// A description of the Policy Store.
+	// Description of the Policy Store.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The ID of the Policy Store.
+	// ID of the Policy Store.
 	PolicyStoreId pulumi.StringOutput `pulumi:"policyStoreId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -68,7 +68,9 @@ type PolicyStore struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Validation settings for the policy store.
+	// Validation settings for the policy store. See Validation Settings below.
+	//
+	// The following arguments are optional:
 	ValidationSettings PolicyStoreValidationSettingsOutput `pulumi:"validationSettings"`
 }
 
@@ -105,13 +107,13 @@ func GetPolicyStore(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PolicyStore resources.
 type policyStoreState struct {
-	// The ARN of the Policy Store.
+	// ARN of the Policy Store.
 	Arn *string `pulumi:"arn"`
-	// Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+	// Whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
 	DeletionProtection *string `pulumi:"deletionProtection"`
-	// A description of the Policy Store.
+	// Description of the Policy Store.
 	Description *string `pulumi:"description"`
-	// The ID of the Policy Store.
+	// ID of the Policy Store.
 	PolicyStoreId *string `pulumi:"policyStoreId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -119,18 +121,20 @@ type policyStoreState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Validation settings for the policy store.
+	// Validation settings for the policy store. See Validation Settings below.
+	//
+	// The following arguments are optional:
 	ValidationSettings *PolicyStoreValidationSettings `pulumi:"validationSettings"`
 }
 
 type PolicyStoreState struct {
-	// The ARN of the Policy Store.
+	// ARN of the Policy Store.
 	Arn pulumi.StringPtrInput
-	// Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+	// Whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
 	DeletionProtection pulumi.StringPtrInput
-	// A description of the Policy Store.
+	// Description of the Policy Store.
 	Description pulumi.StringPtrInput
-	// The ID of the Policy Store.
+	// ID of the Policy Store.
 	PolicyStoreId pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -138,7 +142,9 @@ type PolicyStoreState struct {
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// Validation settings for the policy store.
+	// Validation settings for the policy store. See Validation Settings below.
+	//
+	// The following arguments are optional:
 	ValidationSettings PolicyStoreValidationSettingsPtrInput
 }
 
@@ -147,29 +153,33 @@ func (PolicyStoreState) ElementType() reflect.Type {
 }
 
 type policyStoreArgs struct {
-	// Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+	// Whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
 	DeletionProtection *string `pulumi:"deletionProtection"`
-	// A description of the Policy Store.
+	// Description of the Policy Store.
 	Description *string `pulumi:"description"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Validation settings for the policy store.
+	// Validation settings for the policy store. See Validation Settings below.
+	//
+	// The following arguments are optional:
 	ValidationSettings PolicyStoreValidationSettings `pulumi:"validationSettings"`
 }
 
 // The set of arguments for constructing a PolicyStore resource.
 type PolicyStoreArgs struct {
-	// Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+	// Whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
 	DeletionProtection pulumi.StringPtrInput
-	// A description of the Policy Store.
+	// Description of the Policy Store.
 	Description pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Validation settings for the policy store.
+	// Validation settings for the policy store. See Validation Settings below.
+	//
+	// The following arguments are optional:
 	ValidationSettings PolicyStoreValidationSettingsInput
 }
 
@@ -260,22 +270,22 @@ func (o PolicyStoreOutput) ToPolicyStoreOutputWithContext(ctx context.Context) P
 	return o
 }
 
-// The ARN of the Policy Store.
+// ARN of the Policy Store.
 func (o PolicyStoreOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyStore) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+// Whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
 func (o PolicyStoreOutput) DeletionProtection() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyStore) pulumi.StringOutput { return v.DeletionProtection }).(pulumi.StringOutput)
 }
 
-// A description of the Policy Store.
+// Description of the Policy Store.
 func (o PolicyStoreOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyStore) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Policy Store.
+// ID of the Policy Store.
 func (o PolicyStoreOutput) PolicyStoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyStore) pulumi.StringOutput { return v.PolicyStoreId }).(pulumi.StringOutput)
 }
@@ -295,7 +305,9 @@ func (o PolicyStoreOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PolicyStore) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Validation settings for the policy store.
+// Validation settings for the policy store. See Validation Settings below.
+//
+// The following arguments are optional:
 func (o PolicyStoreOutput) ValidationSettings() PolicyStoreValidationSettingsOutput {
 	return o.ApplyT(func(v *PolicyStore) PolicyStoreValidationSettingsOutput { return v.ValidationSettings }).(PolicyStoreValidationSettingsOutput)
 }

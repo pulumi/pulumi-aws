@@ -68,14 +68,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount")
 public class VpcIpamOrganizationAdminAccount extends com.pulumi.resources.CustomResource {
     /**
-     * The Organizations ARN for the delegate account.
+     * Organizations ARN for the delegate account.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Organizations ARN for the delegate account.
+     * @return Organizations ARN for the delegate account.
      * 
      */
     public Output<String> arn() {
@@ -88,42 +88,42 @@ public class VpcIpamOrganizationAdminAccount extends com.pulumi.resources.Custom
         return this.delegatedAdminAccountId;
     }
     /**
-     * The Organizations email for the delegate account.
+     * Organizations email for the delegate account.
      * 
      */
     @Export(name="email", refs={String.class}, tree="[0]")
     private Output<String> email;
 
     /**
-     * @return The Organizations email for the delegate account.
+     * @return Organizations email for the delegate account.
      * 
      */
     public Output<String> email() {
         return this.email;
     }
     /**
-     * The Organizations name for the delegate account.
+     * Organizations name for the delegate account.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The Organizations name for the delegate account.
+     * @return Organizations name for the delegate account.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The AWS service principal.
+     * AWS service principal.
      * 
      */
     @Export(name="servicePrincipal", refs={String.class}, tree="[0]")
     private Output<String> servicePrincipal;
 
     /**
-     * @return The AWS service principal.
+     * @return AWS service principal.
      * 
      */
     public Output<String> servicePrincipal() {

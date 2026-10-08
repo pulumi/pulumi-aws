@@ -139,22 +139,14 @@ public final class GetVpcPeeringConnectionArgs extends com.pulumi.resources.Invo
     }
 
     /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired VPC Peering Connection.
-     * 
-     * The arguments of this data source act as filters for querying the available VPC peering connection.
-     * The given filters must match exactly one VPC peering connection whose data will be exported as attributes.
+     * Map of tags, each pair of which must exactly match a pair on the desired VPC Peering Connection.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Map of tags, each pair of which must exactly match
-     * a pair on the desired VPC Peering Connection.
-     * 
-     * The arguments of this data source act as filters for querying the available VPC peering connection.
-     * The given filters must match exactly one VPC peering connection whose data will be exported as attributes.
+     * @return Map of tags, each pair of which must exactly match a pair on the desired VPC Peering Connection.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -388,11 +380,7 @@ public final class GetVpcPeeringConnectionArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param tags Map of tags, each pair of which must exactly match
-         * a pair on the desired VPC Peering Connection.
-         * 
-         * The arguments of this data source act as filters for querying the available VPC peering connection.
-         * The given filters must match exactly one VPC peering connection whose data will be exported as attributes.
+         * @param tags Map of tags, each pair of which must exactly match a pair on the desired VPC Peering Connection.
          * 
          * @return builder
          * 
@@ -403,11 +391,7 @@ public final class GetVpcPeeringConnectionArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param tags Map of tags, each pair of which must exactly match
-         * a pair on the desired VPC Peering Connection.
-         * 
-         * The arguments of this data source act as filters for querying the available VPC peering connection.
-         * The given filters must match exactly one VPC peering connection whose data will be exported as attributes.
+         * @param tags Map of tags, each pair of which must exactly match a pair on the desired VPC Peering Connection.
          * 
          * @return builder
          * 

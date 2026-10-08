@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern
     {
         /// <summary>
-        /// An empty configuration block that is used for inspecting all headers.
+        /// Empty configuration block that is used for inspecting all headers.
         /// </summary>
         public readonly Outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll? All;
         public readonly ImmutableArray<string> ExcludedCookies;

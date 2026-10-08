@@ -138,7 +138,7 @@ func (o CertificateDomainValidationOptionArrayOutput) Index(i pulumi.IntInput) C
 }
 
 type CertificateOptions struct {
-	// Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
+	// Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details. This argument applies to Amazon-issued and private CA certificates. It **conflicts with** `privateKey` / `privateKeyWo`, so it cannot be set on imported certificates. Imported certificates are not managed by ACM issuance, so ACM does not control their certificate transparency logging.
 	CertificateTransparencyLoggingPreference *string `pulumi:"certificateTransparencyLoggingPreference"`
 	// Whether the certificate can be exported. Valid values are `ENABLED` or `DISABLED` (default). **Note** Issuing an exportable certificate is subject to additional charges. See [AWS Certificate Manager pricing](https://aws.amazon.com/certificate-manager/pricing/) for more details.
 	Export *string `pulumi:"export"`
@@ -156,7 +156,7 @@ type CertificateOptionsInput interface {
 }
 
 type CertificateOptionsArgs struct {
-	// Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
+	// Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details. This argument applies to Amazon-issued and private CA certificates. It **conflicts with** `privateKey` / `privateKeyWo`, so it cannot be set on imported certificates. Imported certificates are not managed by ACM issuance, so ACM does not control their certificate transparency logging.
 	CertificateTransparencyLoggingPreference pulumi.StringPtrInput `pulumi:"certificateTransparencyLoggingPreference"`
 	// Whether the certificate can be exported. Valid values are `ENABLED` or `DISABLED` (default). **Note** Issuing an exportable certificate is subject to additional charges. See [AWS Certificate Manager pricing](https://aws.amazon.com/certificate-manager/pricing/) for more details.
 	Export pulumi.StringPtrInput `pulumi:"export"`
@@ -239,7 +239,7 @@ func (o CertificateOptionsOutput) ToCertificateOptionsPtrOutputWithContext(ctx c
 	}).(CertificateOptionsPtrOutput)
 }
 
-// Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
+// Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details. This argument applies to Amazon-issued and private CA certificates. It **conflicts with** `privateKey` / `privateKeyWo`, so it cannot be set on imported certificates. Imported certificates are not managed by ACM issuance, so ACM does not control their certificate transparency logging.
 func (o CertificateOptionsOutput) CertificateTransparencyLoggingPreference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateOptions) *string { return v.CertificateTransparencyLoggingPreference }).(pulumi.StringPtrOutput)
 }
@@ -273,7 +273,7 @@ func (o CertificateOptionsPtrOutput) Elem() CertificateOptionsOutput {
 	}).(CertificateOptionsOutput)
 }
 
-// Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
+// Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details. This argument applies to Amazon-issued and private CA certificates. It **conflicts with** `privateKey` / `privateKeyWo`, so it cannot be set on imported certificates. Imported certificates are not managed by ACM issuance, so ACM does not control their certificate transparency logging.
 func (o CertificateOptionsPtrOutput) CertificateTransparencyLoggingPreference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateOptions) *string {
 		if v == nil {

@@ -90,20 +90,20 @@ type Group struct {
 	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
 	// AWS account number owning this resource.
 	Owner pulumi.StringOutput `pulumi:"owner"`
-	// The policy document that is associated with this resource.
+	// Policy document that is associated with this resource.
 	PolicyDocument pulumi.StringPtrOutput `pulumi:"policyDocument"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Configuration block to use KMS keys for server-side encryption.
+	// Configuration block to use KMS keys for server-side encryption. See below.
 	SseConfiguration GroupSseConfigurationOutput `pulumi:"sseConfiguration"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// ARN of this verified acess group.
+	// ARN of this verified access group.
 	VerifiedaccessGroupArn pulumi.StringOutput `pulumi:"verifiedaccessGroupArn"`
 	// ID of this verified access group.
 	VerifiedaccessGroupId pulumi.StringOutput `pulumi:"verifiedaccessGroupId"`
-	// The id of the verified access instance this group is associated with.
+	// ID of the verified access instance this group is associated with.
 	//
 	// The following arguments are optional:
 	VerifiedaccessInstanceId pulumi.StringOutput `pulumi:"verifiedaccessInstanceId"`
@@ -152,20 +152,20 @@ type groupState struct {
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	// AWS account number owning this resource.
 	Owner *string `pulumi:"owner"`
-	// The policy document that is associated with this resource.
+	// Policy document that is associated with this resource.
 	PolicyDocument *string `pulumi:"policyDocument"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Configuration block to use KMS keys for server-side encryption.
+	// Configuration block to use KMS keys for server-side encryption. See below.
 	SseConfiguration *GroupSseConfiguration `pulumi:"sseConfiguration"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// ARN of this verified acess group.
+	// ARN of this verified access group.
 	VerifiedaccessGroupArn *string `pulumi:"verifiedaccessGroupArn"`
 	// ID of this verified access group.
 	VerifiedaccessGroupId *string `pulumi:"verifiedaccessGroupId"`
-	// The id of the verified access instance this group is associated with.
+	// ID of the verified access instance this group is associated with.
 	//
 	// The following arguments are optional:
 	VerifiedaccessInstanceId *string `pulumi:"verifiedaccessInstanceId"`
@@ -182,20 +182,20 @@ type GroupState struct {
 	LastUpdatedTime pulumi.StringPtrInput
 	// AWS account number owning this resource.
 	Owner pulumi.StringPtrInput
-	// The policy document that is associated with this resource.
+	// Policy document that is associated with this resource.
 	PolicyDocument pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Configuration block to use KMS keys for server-side encryption.
+	// Configuration block to use KMS keys for server-side encryption. See below.
 	SseConfiguration GroupSseConfigurationPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
-	// ARN of this verified acess group.
+	// ARN of this verified access group.
 	VerifiedaccessGroupArn pulumi.StringPtrInput
 	// ID of this verified access group.
 	VerifiedaccessGroupId pulumi.StringPtrInput
-	// The id of the verified access instance this group is associated with.
+	// ID of the verified access instance this group is associated with.
 	//
 	// The following arguments are optional:
 	VerifiedaccessInstanceId pulumi.StringPtrInput
@@ -208,15 +208,15 @@ func (GroupState) ElementType() reflect.Type {
 type groupArgs struct {
 	// Description of the verified access group.
 	Description *string `pulumi:"description"`
-	// The policy document that is associated with this resource.
+	// Policy document that is associated with this resource.
 	PolicyDocument *string `pulumi:"policyDocument"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Configuration block to use KMS keys for server-side encryption.
+	// Configuration block to use KMS keys for server-side encryption. See below.
 	SseConfiguration *GroupSseConfiguration `pulumi:"sseConfiguration"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// The id of the verified access instance this group is associated with.
+	// ID of the verified access instance this group is associated with.
 	//
 	// The following arguments are optional:
 	VerifiedaccessInstanceId string `pulumi:"verifiedaccessInstanceId"`
@@ -226,15 +226,15 @@ type groupArgs struct {
 type GroupArgs struct {
 	// Description of the verified access group.
 	Description pulumi.StringPtrInput
-	// The policy document that is associated with this resource.
+	// Policy document that is associated with this resource.
 	PolicyDocument pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Configuration block to use KMS keys for server-side encryption.
+	// Configuration block to use KMS keys for server-side encryption. See below.
 	SseConfiguration GroupSseConfigurationPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// The id of the verified access instance this group is associated with.
+	// ID of the verified access instance this group is associated with.
 	//
 	// The following arguments are optional:
 	VerifiedaccessInstanceId pulumi.StringInput
@@ -352,7 +352,7 @@ func (o GroupOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
 }
 
-// The policy document that is associated with this resource.
+// Policy document that is associated with this resource.
 func (o GroupOutput) PolicyDocument() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.PolicyDocument }).(pulumi.StringPtrOutput)
 }
@@ -362,7 +362,7 @@ func (o GroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Configuration block to use KMS keys for server-side encryption.
+// Configuration block to use KMS keys for server-side encryption. See below.
 func (o GroupOutput) SseConfiguration() GroupSseConfigurationOutput {
 	return o.ApplyT(func(v *Group) GroupSseConfigurationOutput { return v.SseConfiguration }).(GroupSseConfigurationOutput)
 }
@@ -376,7 +376,7 @@ func (o GroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// ARN of this verified acess group.
+// ARN of this verified access group.
 func (o GroupOutput) VerifiedaccessGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.VerifiedaccessGroupArn }).(pulumi.StringOutput)
 }
@@ -386,7 +386,7 @@ func (o GroupOutput) VerifiedaccessGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.VerifiedaccessGroupId }).(pulumi.StringOutput)
 }
 
-// The id of the verified access instance this group is associated with.
+// ID of the verified access instance this group is associated with.
 //
 // The following arguments are optional:
 func (o GroupOutput) VerifiedaccessInstanceId() pulumi.StringOutput {

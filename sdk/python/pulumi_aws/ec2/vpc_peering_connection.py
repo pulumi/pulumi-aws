@@ -33,19 +33,15 @@ class VpcPeeringConnectionArgs:
         """
         The set of arguments for constructing a VpcPeeringConnection resource.
 
-        :param pulumi.Input[_builtins.str] peer_vpc_id: The ID of the target VPC with which you are creating the VPC Peering Connection.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the requester VPC.
-        :param pulumi.Input['VpcPeeringConnectionAccepterArgs'] accepter: An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
-               the peering connection (a maximum of one).
-        :param pulumi.Input[_builtins.bool] auto_accept: Accept the peering (both VPCs need to be in the same AWS account and region).
-        :param pulumi.Input[_builtins.str] peer_owner_id: The AWS account ID of the target peer VPC.
-               Defaults to the account ID the AWS provider is currently connected to, so must be managed if connecting cross-account.
-        :param pulumi.Input[_builtins.str] peer_region: The region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`,
-               and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
+        :param pulumi.Input[_builtins.str] peer_vpc_id: ID of the target VPC with which you are creating the VPC Peering Connection.
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the requester VPC.
+        :param pulumi.Input['VpcPeeringConnectionAccepterArgs'] accepter: Configuration block for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to set for the VPC that accepts the peering connection (a maximum of one). See `accepter` Block below.
+        :param pulumi.Input[_builtins.bool] auto_accept: Whether to accept the peering (both VPCs need to be in the same AWS account and region).
+        :param pulumi.Input[_builtins.str] peer_owner_id: AWS account ID of the target peer VPC. Defaults to the account ID the AWS provider is currently connected to, so must be managed if connecting cross-account.
+        :param pulumi.Input[_builtins.str] peer_region: Region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`, and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['VpcPeeringConnectionRequesterArgs'] requester: A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
-               the peering connection (a maximum of one).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input['VpcPeeringConnectionRequesterArgs'] requester: Configuration block for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to set for the VPC that requests the peering connection (a maximum of one). See `requester` Block below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "peer_vpc_id", peer_vpc_id)
         pulumi.set(__self__, "vpc_id", vpc_id)
@@ -68,7 +64,7 @@ class VpcPeeringConnectionArgs:
     @pulumi.getter(name="peerVpcId")
     def peer_vpc_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the target VPC with which you are creating the VPC Peering Connection.
+        ID of the target VPC with which you are creating the VPC Peering Connection.
         """
         return pulumi.get(self, "peer_vpc_id")
 
@@ -80,7 +76,7 @@ class VpcPeeringConnectionArgs:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the requester VPC.
+        ID of the requester VPC.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -92,8 +88,7 @@ class VpcPeeringConnectionArgs:
     @pulumi.getter
     def accepter(self) -> pulumi.Input[Optional['VpcPeeringConnectionAccepterArgs']]:
         """
-        An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
-        the peering connection (a maximum of one).
+        Configuration block for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to set for the VPC that accepts the peering connection (a maximum of one). See `accepter` Block below.
         """
         return pulumi.get(self, "accepter")
 
@@ -105,7 +100,7 @@ class VpcPeeringConnectionArgs:
     @pulumi.getter(name="autoAccept")
     def auto_accept(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Accept the peering (both VPCs need to be in the same AWS account and region).
+        Whether to accept the peering (both VPCs need to be in the same AWS account and region).
         """
         return pulumi.get(self, "auto_accept")
 
@@ -117,8 +112,7 @@ class VpcPeeringConnectionArgs:
     @pulumi.getter(name="peerOwnerId")
     def peer_owner_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The AWS account ID of the target peer VPC.
-        Defaults to the account ID the AWS provider is currently connected to, so must be managed if connecting cross-account.
+        AWS account ID of the target peer VPC. Defaults to the account ID the AWS provider is currently connected to, so must be managed if connecting cross-account.
         """
         return pulumi.get(self, "peer_owner_id")
 
@@ -130,8 +124,7 @@ class VpcPeeringConnectionArgs:
     @pulumi.getter(name="peerRegion")
     def peer_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`,
-        and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
+        Region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`, and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
         """
         return pulumi.get(self, "peer_region")
 
@@ -155,8 +148,7 @@ class VpcPeeringConnectionArgs:
     @pulumi.getter
     def requester(self) -> pulumi.Input[Optional['VpcPeeringConnectionRequesterArgs']]:
         """
-        A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
-        the peering connection (a maximum of one).
+        Configuration block for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to set for the VPC that requests the peering connection (a maximum of one). See `requester` Block below.
         """
         return pulumi.get(self, "requester")
 
@@ -168,7 +160,7 @@ class VpcPeeringConnectionArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -194,21 +186,17 @@ class _VpcPeeringConnectionState:
         """
         Input properties used for looking up and filtering VpcPeeringConnection resources.
 
-        :param pulumi.Input[_builtins.str] accept_status: The status of the VPC Peering Connection request.
-        :param pulumi.Input['VpcPeeringConnectionAccepterArgs'] accepter: An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
-               the peering connection (a maximum of one).
-        :param pulumi.Input[_builtins.bool] auto_accept: Accept the peering (both VPCs need to be in the same AWS account and region).
-        :param pulumi.Input[_builtins.str] peer_owner_id: The AWS account ID of the target peer VPC.
-               Defaults to the account ID the AWS provider is currently connected to, so must be managed if connecting cross-account.
-        :param pulumi.Input[_builtins.str] peer_region: The region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`,
-               and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
-        :param pulumi.Input[_builtins.str] peer_vpc_id: The ID of the target VPC with which you are creating the VPC Peering Connection.
+        :param pulumi.Input[_builtins.str] accept_status: Status of the VPC Peering Connection request.
+        :param pulumi.Input['VpcPeeringConnectionAccepterArgs'] accepter: Configuration block for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to set for the VPC that accepts the peering connection (a maximum of one). See `accepter` Block below.
+        :param pulumi.Input[_builtins.bool] auto_accept: Whether to accept the peering (both VPCs need to be in the same AWS account and region).
+        :param pulumi.Input[_builtins.str] peer_owner_id: AWS account ID of the target peer VPC. Defaults to the account ID the AWS provider is currently connected to, so must be managed if connecting cross-account.
+        :param pulumi.Input[_builtins.str] peer_region: Region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`, and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
+        :param pulumi.Input[_builtins.str] peer_vpc_id: ID of the target VPC with which you are creating the VPC Peering Connection.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['VpcPeeringConnectionRequesterArgs'] requester: A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
-               the peering connection (a maximum of one).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the requester VPC.
+        :param pulumi.Input['VpcPeeringConnectionRequesterArgs'] requester: Configuration block for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to set for the VPC that requests the peering connection (a maximum of one). See `requester` Block below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the requester VPC.
         """
         if accept_status is not None:
             pulumi.set(__self__, "accept_status", accept_status)
@@ -237,7 +225,7 @@ class _VpcPeeringConnectionState:
     @pulumi.getter(name="acceptStatus")
     def accept_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The status of the VPC Peering Connection request.
+        Status of the VPC Peering Connection request.
         """
         return pulumi.get(self, "accept_status")
 
@@ -249,8 +237,7 @@ class _VpcPeeringConnectionState:
     @pulumi.getter
     def accepter(self) -> pulumi.Input[Optional['VpcPeeringConnectionAccepterArgs']]:
         """
-        An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
-        the peering connection (a maximum of one).
+        Configuration block for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to set for the VPC that accepts the peering connection (a maximum of one). See `accepter` Block below.
         """
         return pulumi.get(self, "accepter")
 
@@ -262,7 +249,7 @@ class _VpcPeeringConnectionState:
     @pulumi.getter(name="autoAccept")
     def auto_accept(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Accept the peering (both VPCs need to be in the same AWS account and region).
+        Whether to accept the peering (both VPCs need to be in the same AWS account and region).
         """
         return pulumi.get(self, "auto_accept")
 
@@ -274,8 +261,7 @@ class _VpcPeeringConnectionState:
     @pulumi.getter(name="peerOwnerId")
     def peer_owner_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The AWS account ID of the target peer VPC.
-        Defaults to the account ID the AWS provider is currently connected to, so must be managed if connecting cross-account.
+        AWS account ID of the target peer VPC. Defaults to the account ID the AWS provider is currently connected to, so must be managed if connecting cross-account.
         """
         return pulumi.get(self, "peer_owner_id")
 
@@ -287,8 +273,7 @@ class _VpcPeeringConnectionState:
     @pulumi.getter(name="peerRegion")
     def peer_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`,
-        and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
+        Region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`, and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
         """
         return pulumi.get(self, "peer_region")
 
@@ -300,7 +285,7 @@ class _VpcPeeringConnectionState:
     @pulumi.getter(name="peerVpcId")
     def peer_vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the target VPC with which you are creating the VPC Peering Connection.
+        ID of the target VPC with which you are creating the VPC Peering Connection.
         """
         return pulumi.get(self, "peer_vpc_id")
 
@@ -324,8 +309,7 @@ class _VpcPeeringConnectionState:
     @pulumi.getter
     def requester(self) -> pulumi.Input[Optional['VpcPeeringConnectionRequesterArgs']]:
         """
-        A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
-        the peering connection (a maximum of one).
+        Configuration block for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to set for the VPC that requests the peering connection (a maximum of one). See `requester` Block below.
         """
         return pulumi.get(self, "requester")
 
@@ -337,7 +321,7 @@ class _VpcPeeringConnectionState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -349,7 +333,7 @@ class _VpcPeeringConnectionState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -361,7 +345,7 @@ class _VpcPeeringConnectionState:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the requester VPC.
+        ID of the requester VPC.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -482,19 +466,15 @@ class VpcPeeringConnection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['VpcPeeringConnectionAccepterArgs', 'VpcPeeringConnectionAccepterArgsDict', 'outputs.VpcPeeringConnectionAccepter']] accepter: An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
-               the peering connection (a maximum of one).
-        :param pulumi.Input[_builtins.bool] auto_accept: Accept the peering (both VPCs need to be in the same AWS account and region).
-        :param pulumi.Input[_builtins.str] peer_owner_id: The AWS account ID of the target peer VPC.
-               Defaults to the account ID the AWS provider is currently connected to, so must be managed if connecting cross-account.
-        :param pulumi.Input[_builtins.str] peer_region: The region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`,
-               and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
-        :param pulumi.Input[_builtins.str] peer_vpc_id: The ID of the target VPC with which you are creating the VPC Peering Connection.
+        :param pulumi.Input[Union['VpcPeeringConnectionAccepterArgs', 'VpcPeeringConnectionAccepterArgsDict', 'outputs.VpcPeeringConnectionAccepter']] accepter: Configuration block for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to set for the VPC that accepts the peering connection (a maximum of one). See `accepter` Block below.
+        :param pulumi.Input[_builtins.bool] auto_accept: Whether to accept the peering (both VPCs need to be in the same AWS account and region).
+        :param pulumi.Input[_builtins.str] peer_owner_id: AWS account ID of the target peer VPC. Defaults to the account ID the AWS provider is currently connected to, so must be managed if connecting cross-account.
+        :param pulumi.Input[_builtins.str] peer_region: Region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`, and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
+        :param pulumi.Input[_builtins.str] peer_vpc_id: ID of the target VPC with which you are creating the VPC Peering Connection.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['VpcPeeringConnectionRequesterArgs', 'VpcPeeringConnectionRequesterArgsDict', 'outputs.VpcPeeringConnectionRequester']] requester: A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
-               the peering connection (a maximum of one).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the requester VPC.
+        :param pulumi.Input[Union['VpcPeeringConnectionRequesterArgs', 'VpcPeeringConnectionRequesterArgsDict', 'outputs.VpcPeeringConnectionRequester']] requester: Configuration block for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to set for the VPC that requests the peering connection (a maximum of one). See `requester` Block below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the requester VPC.
         """
         ...
     @overload
@@ -672,21 +652,17 @@ class VpcPeeringConnection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] accept_status: The status of the VPC Peering Connection request.
-        :param pulumi.Input[Union['VpcPeeringConnectionAccepterArgs', 'VpcPeeringConnectionAccepterArgsDict', 'outputs.VpcPeeringConnectionAccepter']] accepter: An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
-               the peering connection (a maximum of one).
-        :param pulumi.Input[_builtins.bool] auto_accept: Accept the peering (both VPCs need to be in the same AWS account and region).
-        :param pulumi.Input[_builtins.str] peer_owner_id: The AWS account ID of the target peer VPC.
-               Defaults to the account ID the AWS provider is currently connected to, so must be managed if connecting cross-account.
-        :param pulumi.Input[_builtins.str] peer_region: The region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`,
-               and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
-        :param pulumi.Input[_builtins.str] peer_vpc_id: The ID of the target VPC with which you are creating the VPC Peering Connection.
+        :param pulumi.Input[_builtins.str] accept_status: Status of the VPC Peering Connection request.
+        :param pulumi.Input[Union['VpcPeeringConnectionAccepterArgs', 'VpcPeeringConnectionAccepterArgsDict', 'outputs.VpcPeeringConnectionAccepter']] accepter: Configuration block for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to set for the VPC that accepts the peering connection (a maximum of one). See `accepter` Block below.
+        :param pulumi.Input[_builtins.bool] auto_accept: Whether to accept the peering (both VPCs need to be in the same AWS account and region).
+        :param pulumi.Input[_builtins.str] peer_owner_id: AWS account ID of the target peer VPC. Defaults to the account ID the AWS provider is currently connected to, so must be managed if connecting cross-account.
+        :param pulumi.Input[_builtins.str] peer_region: Region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`, and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
+        :param pulumi.Input[_builtins.str] peer_vpc_id: ID of the target VPC with which you are creating the VPC Peering Connection.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['VpcPeeringConnectionRequesterArgs', 'VpcPeeringConnectionRequesterArgsDict', 'outputs.VpcPeeringConnectionRequester']] requester: A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
-               the peering connection (a maximum of one).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the requester VPC.
+        :param pulumi.Input[Union['VpcPeeringConnectionRequesterArgs', 'VpcPeeringConnectionRequesterArgsDict', 'outputs.VpcPeeringConnectionRequester']] requester: Configuration block for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to set for the VPC that requests the peering connection (a maximum of one). See `requester` Block below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the requester VPC.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -709,7 +685,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
     @pulumi.getter(name="acceptStatus")
     def accept_status(self) -> pulumi.Output[_builtins.str]:
         """
-        The status of the VPC Peering Connection request.
+        Status of the VPC Peering Connection request.
         """
         return pulumi.get(self, "accept_status")
 
@@ -717,8 +693,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
     @pulumi.getter
     def accepter(self) -> pulumi.Output['outputs.VpcPeeringConnectionAccepter']:
         """
-        An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
-        the peering connection (a maximum of one).
+        Configuration block for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to set for the VPC that accepts the peering connection (a maximum of one). See `accepter` Block below.
         """
         return pulumi.get(self, "accepter")
 
@@ -726,7 +701,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
     @pulumi.getter(name="autoAccept")
     def auto_accept(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Accept the peering (both VPCs need to be in the same AWS account and region).
+        Whether to accept the peering (both VPCs need to be in the same AWS account and region).
         """
         return pulumi.get(self, "auto_accept")
 
@@ -734,8 +709,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
     @pulumi.getter(name="peerOwnerId")
     def peer_owner_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The AWS account ID of the target peer VPC.
-        Defaults to the account ID the AWS provider is currently connected to, so must be managed if connecting cross-account.
+        AWS account ID of the target peer VPC. Defaults to the account ID the AWS provider is currently connected to, so must be managed if connecting cross-account.
         """
         return pulumi.get(self, "peer_owner_id")
 
@@ -743,8 +717,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
     @pulumi.getter(name="peerRegion")
     def peer_region(self) -> pulumi.Output[_builtins.str]:
         """
-        The region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`,
-        and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
+        Region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`, and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
         """
         return pulumi.get(self, "peer_region")
 
@@ -752,7 +725,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
     @pulumi.getter(name="peerVpcId")
     def peer_vpc_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the target VPC with which you are creating the VPC Peering Connection.
+        ID of the target VPC with which you are creating the VPC Peering Connection.
         """
         return pulumi.get(self, "peer_vpc_id")
 
@@ -768,8 +741,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
     @pulumi.getter
     def requester(self) -> pulumi.Output['outputs.VpcPeeringConnectionRequester']:
         """
-        A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
-        the peering connection (a maximum of one).
+        Configuration block for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to set for the VPC that requests the peering connection (a maximum of one). See `requester` Block below.
         """
         return pulumi.get(self, "requester")
 
@@ -777,7 +749,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -785,7 +757,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -793,7 +765,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the requester VPC.
+        ID of the requester VPC.
         """
         return pulumi.get(self, "vpc_id")
 

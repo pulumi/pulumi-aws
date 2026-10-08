@@ -47,25 +47,25 @@ namespace Pulumi.Aws.VerifiedPermissions
     public partial class PolicyStore : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the Policy Store.
+        /// ARN of the Policy Store.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+        /// Whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
         /// </summary>
         [Output("deletionProtection")]
         public Output<string> DeletionProtection { get; private set; } = null!;
 
         /// <summary>
-        /// A description of the Policy Store.
+        /// Description of the Policy Store.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Policy Store.
+        /// ID of the Policy Store.
         /// </summary>
         [Output("policyStoreId")]
         public Output<string> PolicyStoreId { get; private set; } = null!;
@@ -89,7 +89,9 @@ namespace Pulumi.Aws.VerifiedPermissions
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Validation settings for the policy store.
+        /// Validation settings for the policy store. See Validation Settings below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("validationSettings")]
         public Output<Outputs.PolicyStoreValidationSettings> ValidationSettings { get; private set; } = null!;
@@ -141,13 +143,13 @@ namespace Pulumi.Aws.VerifiedPermissions
     public sealed class PolicyStoreArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+        /// Whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
         /// </summary>
         [Input("deletionProtection")]
         public Input<string>? DeletionProtection { get; set; }
 
         /// <summary>
-        /// A description of the Policy Store.
+        /// Description of the Policy Store.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -171,7 +173,9 @@ namespace Pulumi.Aws.VerifiedPermissions
         }
 
         /// <summary>
-        /// Validation settings for the policy store.
+        /// Validation settings for the policy store. See Validation Settings below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("validationSettings", required: true)]
         public Input<Inputs.PolicyStoreValidationSettingsArgs> ValidationSettings { get; set; } = null!;
@@ -185,25 +189,25 @@ namespace Pulumi.Aws.VerifiedPermissions
     public sealed class PolicyStoreState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the Policy Store.
+        /// ARN of the Policy Store.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+        /// Whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
         /// </summary>
         [Input("deletionProtection")]
         public Input<string>? DeletionProtection { get; set; }
 
         /// <summary>
-        /// A description of the Policy Store.
+        /// Description of the Policy Store.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The ID of the Policy Store.
+        /// ID of the Policy Store.
         /// </summary>
         [Input("policyStoreId")]
         public Input<string>? PolicyStoreId { get; set; }
@@ -239,7 +243,9 @@ namespace Pulumi.Aws.VerifiedPermissions
         }
 
         /// <summary>
-        /// Validation settings for the policy store.
+        /// Validation settings for the policy store. See Validation Settings below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("validationSettings")]
         public Input<Inputs.PolicyStoreValidationSettingsGetArgs>? ValidationSettings { get; set; }

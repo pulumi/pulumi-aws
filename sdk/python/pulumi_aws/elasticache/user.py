@@ -38,7 +38,7 @@ class UserArgs:
         :param pulumi.Input[_builtins.str] access_string: Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
         :param pulumi.Input[_builtins.str] engine: The current supported values are `redis`, `valkey` (case insensitive).
         :param pulumi.Input[_builtins.str] user_id: The ID of the user.
-        :param pulumi.Input[_builtins.str] user_name: The username of the user.
+        :param pulumi.Input[_builtins.str] user_name: The username of the user. For IAM authentication, this value must match `user_id`.
                
                The following arguments are optional:
         :param pulumi.Input['UserAuthenticationModeArgs'] authentication_mode: Denotes the user's authentication properties. Detailed below.
@@ -109,7 +109,7 @@ class UserArgs:
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The username of the user.
+        The username of the user. For IAM authentication, this value must match `user_id`.
 
         The following arguments are optional:
         """
@@ -236,7 +236,7 @@ class _UserState:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A list of tags to be added to this resource. A tag is a key-value pair.
         :param pulumi.Input[_builtins.str] user_id: The ID of the user.
-        :param pulumi.Input[_builtins.str] user_name: The username of the user.
+        :param pulumi.Input[_builtins.str] user_name: The username of the user. For IAM authentication, this value must match `user_id`.
                
                The following arguments are optional:
         """
@@ -413,7 +413,7 @@ class _UserState:
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The username of the user.
+        The username of the user. For IAM authentication, this value must match `user_id`.
 
         The following arguments are optional:
         """
@@ -468,8 +468,8 @@ class User(pulumi.CustomResource):
             authentication_mode={
                 "type": "iam",
             },
-            user_id="testUserId",
-            user_name="testUserName",
+            user_id="testuserid",
+            user_name="testuserid",
             access_string="on ~* +@all",
             engine="redis")
         ```
@@ -529,7 +529,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A list of tags to be added to this resource. A tag is a key-value pair.
         :param pulumi.Input[_builtins.str] user_id: The ID of the user.
-        :param pulumi.Input[_builtins.str] user_name: The username of the user.
+        :param pulumi.Input[_builtins.str] user_name: The username of the user. For IAM authentication, this value must match `user_id`.
                
                The following arguments are optional:
         """
@@ -565,8 +565,8 @@ class User(pulumi.CustomResource):
             authentication_mode={
                 "type": "iam",
             },
-            user_id="testUserId",
-            user_name="testUserName",
+            user_id="testuserid",
+            user_name="testuserid",
             access_string="on ~* +@all",
             engine="redis")
         ```
@@ -713,7 +713,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A list of tags to be added to this resource. A tag is a key-value pair.
         :param pulumi.Input[_builtins.str] user_id: The ID of the user.
-        :param pulumi.Input[_builtins.str] user_name: The username of the user.
+        :param pulumi.Input[_builtins.str] user_name: The username of the user. For IAM authentication, this value must match `user_id`.
                
                The following arguments are optional:
         """
@@ -834,7 +834,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The username of the user.
+        The username of the user. For IAM authentication, this value must match `user_id`.
 
         The following arguments are optional:
         """

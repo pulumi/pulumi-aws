@@ -66,8 +66,10 @@ import (
 //				return err
 //			}
 //			testStream, err := kinesis.NewStream(ctx, "test_stream", &kinesis.StreamArgs{
-//				Name:       pulumi.String("kinesis-test"),
-//				ShardCount: pulumi.Int(1),
+//				StreamModeDetails: &kinesis.StreamStreamModeDetailsArgs{
+//					StreamMode: pulumi.String("ON_DEMAND"),
+//				},
+//				Name: pulumi.String("pulumi-kinesis-test"),
 //			})
 //			if err != nil {
 //				return err
@@ -464,7 +466,7 @@ import (
 //				Arn: exampleStage.ExecutionArn.ApplyT(func(executionArn string) (string, error) {
 //					return fmt.Sprintf("%v/GET", executionArn), nil
 //				}).(pulumi.StringOutput),
-//				Rule: exampleEventRule.ID().ToIDOutput().ToStringOutput(),
+//				Rule: exampleEventRule.Name,
 //			})
 //			if err != nil {
 //				return err
@@ -598,7 +600,7 @@ import (
 //					InputTemplate: pulumi.String("{\n  \\\"instance_id\\\": <instance>,\n  \\\"instance_status\\\": <status>\n}\n"),
 //				},
 //				Arn:  pulumi.Any(exampleAwsLambdaFunction.Arn),
-//				Rule: exampleEventRule.ID().ToIDOutput().ToStringOutput(),
+//				Rule: exampleEventRule.Name,
 //			})
 //			if err != nil {
 //				return err
@@ -636,7 +638,7 @@ import (
 //					InputTemplate: pulumi.String("\"<instance> is in state <status>\""),
 //				},
 //				Arn:  pulumi.Any(exampleAwsLambdaFunction.Arn),
-//				Rule: exampleEventRule.ID().ToIDOutput().ToStringOutput(),
+//				Rule: exampleEventRule.Name,
 //			})
 //			if err != nil {
 //				return err
@@ -862,7 +864,7 @@ import (
 //					Search:  pulumi.String("apis"),
 //					Replace: pulumi.String("endpoints/graphql-api"),
 //				}, nil).Result(),
-//				Rule:    invokeAppsyncMutation.ID().ToIDOutput().ToStringOutput(),
+//				Rule:    invokeAppsyncMutation.Name,
 //				RoleArn: appsyncMutationRole.Arn,
 //			})
 //			if err != nil {

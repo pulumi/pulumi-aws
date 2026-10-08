@@ -192,6 +192,21 @@ public final class AgentcoreAgentRuntimeState extends com.pulumi.resources.Resou
     }
 
     /**
+     * Platform version that controls how the agent runtime starts your agent. Valid values: `V1`, `V2`. When omitted, a new agent runtime uses `V1` and an existing agent runtime keeps its current platform version. `V2` restores each instance from a prepared snapshot, which keeps cold starts consistent regardless of image size. On `V2`, creates and updates take minutes rather than seconds, `environmentVariables` has a smaller total size limit, and availability is limited to a subset of Regions. See [Platform versions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-how-it-works.html#runtime-platform-versions) for details.
+     * 
+     */
+    @Import(name="platformVersion")
+    private @Nullable Output<String> platformVersion;
+
+    /**
+     * @return Platform version that controls how the agent runtime starts your agent. Valid values: `V1`, `V2`. When omitted, a new agent runtime uses `V1` and an existing agent runtime keeps its current platform version. `V2` restores each instance from a prepared snapshot, which keeps cold starts consistent regardless of image size. On `V2`, creates and updates take minutes rather than seconds, `environmentVariables` has a smaller total size limit, and availability is limited to a subset of Regions. See [Platform versions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-how-it-works.html#runtime-platform-versions) for details.
+     * 
+     */
+    public Optional<Output<String>> platformVersion() {
+        return Optional.ofNullable(this.platformVersion);
+    }
+
+    /**
      * Protocol configuration for the agent runtime. See `protocolConfiguration` below.
      * 
      */
@@ -321,6 +336,7 @@ public final class AgentcoreAgentRuntimeState extends com.pulumi.resources.Resou
         this.filesystemConfigurations = $.filesystemConfigurations;
         this.lifecycleConfigurations = $.lifecycleConfigurations;
         this.networkConfiguration = $.networkConfiguration;
+        this.platformVersion = $.platformVersion;
         this.protocolConfiguration = $.protocolConfiguration;
         this.region = $.region;
         this.requestHeaderConfiguration = $.requestHeaderConfiguration;
@@ -598,6 +614,27 @@ public final class AgentcoreAgentRuntimeState extends com.pulumi.resources.Resou
          */
         public Builder networkConfiguration(AgentcoreAgentRuntimeNetworkConfigurationArgs networkConfiguration) {
             return networkConfiguration(Output.of(networkConfiguration));
+        }
+
+        /**
+         * @param platformVersion Platform version that controls how the agent runtime starts your agent. Valid values: `V1`, `V2`. When omitted, a new agent runtime uses `V1` and an existing agent runtime keeps its current platform version. `V2` restores each instance from a prepared snapshot, which keeps cold starts consistent regardless of image size. On `V2`, creates and updates take minutes rather than seconds, `environmentVariables` has a smaller total size limit, and availability is limited to a subset of Regions. See [Platform versions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-how-it-works.html#runtime-platform-versions) for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder platformVersion(@Nullable Output<String> platformVersion) {
+            $.platformVersion = platformVersion;
+            return this;
+        }
+
+        /**
+         * @param platformVersion Platform version that controls how the agent runtime starts your agent. Valid values: `V1`, `V2`. When omitted, a new agent runtime uses `V1` and an existing agent runtime keeps its current platform version. `V2` restores each instance from a prepared snapshot, which keeps cold starts consistent regardless of image size. On `V2`, creates and updates take minutes rather than seconds, `environmentVariables` has a smaller total size limit, and availability is limited to a subset of Regions. See [Platform versions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-how-it-works.html#runtime-platform-versions) for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder platformVersion(String platformVersion) {
+            return platformVersion(Output.of(platformVersion));
         }
 
         /**

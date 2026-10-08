@@ -116,14 +116,14 @@ public final class ScheduledQueryArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Query string to run. Parameter names can be specified in the query string using the `{@literal @}` character followed by an identifier. The named parameter `{@literal @}scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `scheduleConfiguration` parameter, will be the value of `{@literal @}scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `{@literal @}scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
+     * Query string to run. Parameter names can be specified in the query string using the `{@literal @}` character followed by an identifier. The named parameter `{@literal @}scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `scheduleConfiguration` parameter, will be the value of `{@literal @}scheduled_runtime` parameter for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `{@literal @}scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
      * 
      */
     @Import(name="queryString", required=true)
     private Output<String> queryString;
 
     /**
-     * @return Query string to run. Parameter names can be specified in the query string using the `{@literal @}` character followed by an identifier. The named parameter `{@literal @}scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `scheduleConfiguration` parameter, will be the value of `{@literal @}scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `{@literal @}scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
+     * @return Query string to run. Parameter names can be specified in the query string using the `{@literal @}` character followed by an identifier. The named parameter `{@literal @}scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `scheduleConfiguration` parameter, will be the value of `{@literal @}scheduled_runtime` parameter for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `{@literal @}scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
      * 
      */
     public Output<String> queryString() {
@@ -389,7 +389,7 @@ public final class ScheduledQueryArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param queryString Query string to run. Parameter names can be specified in the query string using the `{@literal @}` character followed by an identifier. The named parameter `{@literal @}scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `scheduleConfiguration` parameter, will be the value of `{@literal @}scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `{@literal @}scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
+         * @param queryString Query string to run. Parameter names can be specified in the query string using the `{@literal @}` character followed by an identifier. The named parameter `{@literal @}scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `scheduleConfiguration` parameter, will be the value of `{@literal @}scheduled_runtime` parameter for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `{@literal @}scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
          * 
          * @return builder
          * 
@@ -400,7 +400,7 @@ public final class ScheduledQueryArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param queryString Query string to run. Parameter names can be specified in the query string using the `{@literal @}` character followed by an identifier. The named parameter `{@literal @}scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `scheduleConfiguration` parameter, will be the value of `{@literal @}scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `{@literal @}scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
+         * @param queryString Query string to run. Parameter names can be specified in the query string using the `{@literal @}` character followed by an identifier. The named parameter `{@literal @}scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `scheduleConfiguration` parameter, will be the value of `{@literal @}scheduled_runtime` parameter for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `{@literal @}scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
          * 
          * @return builder
          * 

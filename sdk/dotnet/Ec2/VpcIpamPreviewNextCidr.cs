@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Ec2
     public partial class VpcIpamPreviewNextCidr : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The previewed CIDR from the pool.
+        /// Previewed CIDR from the pool.
         /// </summary>
         [Output("cidr")]
         public Output<string> Cidr { get; private set; } = null!;
@@ -85,13 +85,13 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<string>> DisallowedCidrs { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the pool to which you want to assign a CIDR.
+        /// ID of the pool to which you want to assign a CIDR.
         /// </summary>
         [Output("ipamPoolId")]
         public Output<string> IpamPoolId { get; private set; } = null!;
 
         /// <summary>
-        /// The netmask length of the CIDR you would like to preview from the IPAM pool.
+        /// Netmask length of the CIDR you would like to preview from the IPAM pool.
         /// </summary>
         [Output("netmaskLength")]
         public Output<int?> NetmaskLength { get; private set; } = null!;
@@ -161,13 +161,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The ID of the pool to which you want to assign a CIDR.
+        /// ID of the pool to which you want to assign a CIDR.
         /// </summary>
         [Input("ipamPoolId", required: true)]
         public Input<string> IpamPoolId { get; set; } = null!;
 
         /// <summary>
-        /// The netmask length of the CIDR you would like to preview from the IPAM pool.
+        /// Netmask length of the CIDR you would like to preview from the IPAM pool.
         /// </summary>
         [Input("netmaskLength")]
         public Input<int>? NetmaskLength { get; set; }
@@ -187,7 +187,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class VpcIpamPreviewNextCidrState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The previewed CIDR from the pool.
+        /// Previewed CIDR from the pool.
         /// </summary>
         [Input("cidr")]
         public Input<string>? Cidr { get; set; }
@@ -205,13 +205,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The ID of the pool to which you want to assign a CIDR.
+        /// ID of the pool to which you want to assign a CIDR.
         /// </summary>
         [Input("ipamPoolId")]
         public Input<string>? IpamPoolId { get; set; }
 
         /// <summary>
-        /// The netmask length of the CIDR you would like to preview from the IPAM pool.
+        /// Netmask length of the CIDR you would like to preview from the IPAM pool.
         /// </summary>
         [Input("netmaskLength")]
         public Input<int>? NetmaskLength { get; set; }

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument
     {
         /// <summary>
-        /// A friendly name of the rule group.
+        /// The name of the query argument to use.
         /// </summary>
         public readonly string Name;
         /// <summary>

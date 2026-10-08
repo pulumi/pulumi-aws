@@ -18,14 +18,14 @@ public final class VpcDhcpOptionsState extends com.pulumi.resources.ResourceArgs
     public static final VpcDhcpOptionsState Empty = new VpcDhcpOptionsState();
 
     /**
-     * The ARN of the DHCP Options Set.
+     * ARN of the DHCP Options Set.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the DHCP Options Set.
+     * @return ARN of the DHCP Options Set.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -93,14 +93,14 @@ public final class VpcDhcpOptionsState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
+     * NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
      * 
      */
     @Import(name="netbiosNodeType")
     private @Nullable Output<String> netbiosNodeType;
 
     /**
-     * @return The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
+     * @return NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
      * 
      */
     public Optional<Output<String>> netbiosNodeType() {
@@ -123,14 +123,14 @@ public final class VpcDhcpOptionsState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The ID of the AWS account that owns the DHCP options set.
+     * ID of the AWS account that owns the DHCP options set.
      * 
      */
     @Import(name="ownerId")
     private @Nullable Output<String> ownerId;
 
     /**
-     * @return The ID of the AWS account that owns the DHCP options set.
+     * @return ID of the AWS account that owns the DHCP options set.
      * 
      */
     public Optional<Output<String>> ownerId() {
@@ -153,7 +153,7 @@ public final class VpcDhcpOptionsState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      * &gt; **Note:** All arguments are optional but at least one must be specified. `domainNameServers`, `netbiosNameServers`, and `ntpServers` are limited to four servers each. To use the DHCP Options Set you must associate it to a VPC using `aws.ec2.VpcDhcpOptionsAssociation`. If you delete a DHCP Options Set, all VPCs using it will be associated to AWS&#39;s `default` DHCP Option Set. In most cases, set `domainNameServers` to `AmazonProvidedDNS` unless configuring your own DNS.
      * 
@@ -162,7 +162,7 @@ public final class VpcDhcpOptionsState extends com.pulumi.resources.ResourceArgs
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      * &gt; **Note:** All arguments are optional but at least one must be specified. `domainNameServers`, `netbiosNameServers`, and `ntpServers` are limited to four servers each. To use the DHCP Options Set you must associate it to a VPC using `aws.ec2.VpcDhcpOptionsAssociation`. If you delete a DHCP Options Set, all VPCs using it will be associated to AWS&#39;s `default` DHCP Option Set. In most cases, set `domainNameServers` to `AmazonProvidedDNS` unless configuring your own DNS.
      * 
@@ -172,14 +172,14 @@ public final class VpcDhcpOptionsState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -221,7 +221,7 @@ public final class VpcDhcpOptionsState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn The ARN of the DHCP Options Set.
+         * @param arn ARN of the DHCP Options Set.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class VpcDhcpOptionsState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn The ARN of the DHCP Options Set.
+         * @param arn ARN of the DHCP Options Set.
          * 
          * @return builder
          * 
@@ -346,7 +346,7 @@ public final class VpcDhcpOptionsState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param netbiosNodeType The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
+         * @param netbiosNodeType NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
          * 
          * @return builder
          * 
@@ -357,7 +357,7 @@ public final class VpcDhcpOptionsState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param netbiosNodeType The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
+         * @param netbiosNodeType NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
          * 
          * @return builder
          * 
@@ -398,7 +398,7 @@ public final class VpcDhcpOptionsState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param ownerId The ID of the AWS account that owns the DHCP options set.
+         * @param ownerId ID of the AWS account that owns the DHCP options set.
          * 
          * @return builder
          * 
@@ -409,7 +409,7 @@ public final class VpcDhcpOptionsState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param ownerId The ID of the AWS account that owns the DHCP options set.
+         * @param ownerId ID of the AWS account that owns the DHCP options set.
          * 
          * @return builder
          * 
@@ -440,7 +440,7 @@ public final class VpcDhcpOptionsState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * &gt; **Note:** All arguments are optional but at least one must be specified. `domainNameServers`, `netbiosNameServers`, and `ntpServers` are limited to four servers each. To use the DHCP Options Set you must associate it to a VPC using `aws.ec2.VpcDhcpOptionsAssociation`. If you delete a DHCP Options Set, all VPCs using it will be associated to AWS&#39;s `default` DHCP Option Set. In most cases, set `domainNameServers` to `AmazonProvidedDNS` unless configuring your own DNS.
          * 
@@ -453,7 +453,7 @@ public final class VpcDhcpOptionsState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * &gt; **Note:** All arguments are optional but at least one must be specified. `domainNameServers`, `netbiosNameServers`, and `ntpServers` are limited to four servers each. To use the DHCP Options Set you must associate it to a VPC using `aws.ec2.VpcDhcpOptionsAssociation`. If you delete a DHCP Options Set, all VPCs using it will be associated to AWS&#39;s `default` DHCP Option Set. In most cases, set `domainNameServers` to `AmazonProvidedDNS` unless configuring your own DNS.
          * 
@@ -465,7 +465,7 @@ public final class VpcDhcpOptionsState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -476,7 +476,7 @@ public final class VpcDhcpOptionsState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

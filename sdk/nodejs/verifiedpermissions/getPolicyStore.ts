@@ -36,7 +36,7 @@ export function getPolicyStore(args: GetPolicyStoreArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetPolicyStoreArgs {
     /**
-     * The ID of the Policy Store.
+     * ID of the Policy Store.
      */
     id: string;
     /**
@@ -50,21 +50,24 @@ export interface GetPolicyStoreArgs {
  */
 export interface GetPolicyStoreResult {
     /**
-     * The ARN of the Policy Store.
+     * ARN of the Policy Store.
      */
     readonly arn: string;
     /**
-     * The date the Policy Store was created.
+     * Date the Policy Store was created.
      */
     readonly createdDate: string;
     /**
      * Whether the policy store can be deleted.
      */
     readonly deletionProtection: string;
+    /**
+     * Description of the Policy Store.
+     */
     readonly description: string;
     readonly id: string;
     /**
-     * The date the Policy Store was last updated.
+     * Date the Policy Store was last updated.
      */
     readonly lastUpdatedDate: string;
     readonly region: string;
@@ -73,7 +76,7 @@ export interface GetPolicyStoreResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * Validation settings for the policy store.
+     * Validation settings for the policy store. See Validation Settings below.
      */
     readonly validationSettings: outputs.verifiedpermissions.GetPolicyStoreValidationSetting[];
 }
@@ -106,7 +109,7 @@ export function getPolicyStoreOutput(args: GetPolicyStoreOutputArgs, opts?: pulu
  */
 export interface GetPolicyStoreOutputArgs {
     /**
-     * The ID of the Policy Store.
+     * ID of the Policy Store.
      */
     id: pulumi.Input<string>;
     /**

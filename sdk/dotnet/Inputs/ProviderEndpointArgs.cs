@@ -393,6 +393,12 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
+        [Input("cloudwatchomni")]
+        public Input<string>? Cloudwatchomni { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("cloudwatchrum")]
         public Input<string>? Cloudwatchrum { get; set; }
 
@@ -819,6 +825,12 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
+        [Input("eventbridgev2")]
+        public Input<string>? Eventbridgev2 { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("events")]
         public Input<string>? Events { get; set; }
 
@@ -1077,6 +1089,12 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
+        [Input("lambdaweb")]
+        public Input<string>? Lambdaweb { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("launchwizard")]
         public Input<string>? Launchwizard { get; set; }
 
@@ -1289,6 +1307,12 @@ namespace Pulumi.Aws.Inputs
         /// </summary>
         [Input("networkmonitor")]
         public Input<string>? Networkmonitor { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
+        [Input("networksecuritymanager")]
+        public Input<string>? Networksecuritymanager { get; set; }
 
         /// <summary>
         /// Use this to override the default service endpoint URL

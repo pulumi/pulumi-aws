@@ -10,23 +10,39 @@ import java.util.Objects;
 
 @CustomType
 public final class GetConnectionRoute {
+    /**
+     * @return CIDR block associated with the local subnet of the customer data center.
+     * 
+     */
     private String destinationCidrBlock;
+    /**
+     * @return How the routes were provided.
+     * 
+     */
     private String source;
     /**
-     * @return Current state of the VPN connection.
+     * @return Current state of the static route.
      * 
      */
     private String state;
 
     private GetConnectionRoute() {}
+    /**
+     * @return CIDR block associated with the local subnet of the customer data center.
+     * 
+     */
     public String destinationCidrBlock() {
         return this.destinationCidrBlock;
     }
+    /**
+     * @return How the routes were provided.
+     * 
+     */
     public String source() {
         return this.source;
     }
     /**
-     * @return Current state of the VPN connection.
+     * @return Current state of the static route.
      * 
      */
     public String state() {

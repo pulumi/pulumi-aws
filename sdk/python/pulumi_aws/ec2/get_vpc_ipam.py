@@ -98,7 +98,7 @@ class GetVpcIpamResult:
     @pulumi.getter(name="defaultResourceDiscoveryAssociationId")
     def default_resource_discovery_association_id(self) -> _builtins.str:
         """
-        The default resource discovery association ID.
+        Default resource discovery association ID.
         """
         return pulumi.get(self, "default_resource_discovery_association_id")
 
@@ -106,7 +106,7 @@ class GetVpcIpamResult:
     @pulumi.getter(name="defaultResourceDiscoveryId")
     def default_resource_discovery_id(self) -> _builtins.str:
         """
-        The default resource discovery ID.
+        Default resource discovery ID.
         """
         return pulumi.get(self, "default_resource_discovery_id")
 

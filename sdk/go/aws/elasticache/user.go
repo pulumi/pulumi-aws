@@ -63,8 +63,8 @@ import (
 //				AuthenticationMode: &elasticache.UserAuthenticationModeArgs{
 //					Type: pulumi.String("iam"),
 //				},
-//				UserId:       pulumi.String("testUserId"),
-//				UserName:     pulumi.String("testUserName"),
+//				UserId:       pulumi.String("testuserid"),
+//				UserName:     pulumi.String("testuserid"),
 //				AccessString: pulumi.String("on ~* +@all"),
 //				Engine:       pulumi.String("redis"),
 //			})
@@ -176,7 +176,7 @@ type User struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ID of the user.
 	UserId pulumi.StringOutput `pulumi:"userId"`
-	// The username of the user.
+	// The username of the user. For IAM authentication, this value must match `userId`.
 	//
 	// The following arguments are optional:
 	UserName pulumi.StringOutput `pulumi:"userName"`
@@ -259,7 +259,7 @@ type userState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of the user.
 	UserId *string `pulumi:"userId"`
-	// The username of the user.
+	// The username of the user. For IAM authentication, this value must match `userId`.
 	//
 	// The following arguments are optional:
 	UserName *string `pulumi:"userName"`
@@ -290,7 +290,7 @@ type UserState struct {
 	TagsAll pulumi.StringMapInput
 	// The ID of the user.
 	UserId pulumi.StringPtrInput
-	// The username of the user.
+	// The username of the user. For IAM authentication, this value must match `userId`.
 	//
 	// The following arguments are optional:
 	UserName pulumi.StringPtrInput
@@ -322,7 +322,7 @@ type userArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The ID of the user.
 	UserId string `pulumi:"userId"`
-	// The username of the user.
+	// The username of the user. For IAM authentication, this value must match `userId`.
 	//
 	// The following arguments are optional:
 	UserName string `pulumi:"userName"`
@@ -351,7 +351,7 @@ type UserArgs struct {
 	Tags pulumi.StringMapInput
 	// The ID of the user.
 	UserId pulumi.StringInput
-	// The username of the user.
+	// The username of the user. For IAM authentication, this value must match `userId`.
 	//
 	// The following arguments are optional:
 	UserName pulumi.StringInput
@@ -504,7 +504,7 @@ func (o UserOutput) UserId() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.UserId }).(pulumi.StringOutput)
 }
 
-// The username of the user.
+// The username of the user. For IAM authentication, this value must match `userId`.
 //
 // The following arguments are optional:
 func (o UserOutput) UserName() pulumi.StringOutput {

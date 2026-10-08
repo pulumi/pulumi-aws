@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Ec2
     public partial class SpotInstanceRequest : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// AMI to use for the instance. Required unless `LaunchTemplate` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `Ami` will override the AMI specified in the Launch Template.
+        /// AMI to use for the instance. Required unless `LaunchTemplate` is specified and the Launch Template specifies an AMI. If an AMI is specified in the Launch Template, setting `Ami` will override the AMI specified in the Launch Template.
         /// </summary>
         [Output("ami")]
         public Output<string> Ami { get; private set; } = null!;
@@ -520,7 +520,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class SpotInstanceRequestArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// AMI to use for the instance. Required unless `LaunchTemplate` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `Ami` will override the AMI specified in the Launch Template.
+        /// AMI to use for the instance. Required unless `LaunchTemplate` is specified and the Launch Template specifies an AMI. If an AMI is specified in the Launch Template, setting `Ami` will override the AMI specified in the Launch Template.
         /// </summary>
         [Input("ami")]
         public Input<string>? Ami { get; set; }
@@ -927,7 +927,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class SpotInstanceRequestState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// AMI to use for the instance. Required unless `LaunchTemplate` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `Ami` will override the AMI specified in the Launch Template.
+        /// AMI to use for the instance. Required unless `LaunchTemplate` is specified and the Launch Template specifies an AMI. If an AMI is specified in the Launch Template, setting `Ami` will override the AMI specified in the Launch Template.
         /// </summary>
         [Input("ami")]
         public Input<string>? Ami { get; set; }

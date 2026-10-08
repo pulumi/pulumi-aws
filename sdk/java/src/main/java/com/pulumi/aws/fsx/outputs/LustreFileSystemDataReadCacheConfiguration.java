@@ -19,7 +19,7 @@ public final class LustreFileSystemDataReadCacheConfiguration {
      */
     private @Nullable Integer size;
     /**
-     * @return Sizing mode for the cache. Valud values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
+     * @return Sizing mode for the cache. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
      * 
      */
     private String sizingMode;
@@ -33,7 +33,7 @@ public final class LustreFileSystemDataReadCacheConfiguration {
         return Optional.ofNullable(this.size);
     }
     /**
-     * @return Sizing mode for the cache. Valud values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
+     * @return Sizing mode for the cache. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
      * 
      */
     public String sizingMode() {

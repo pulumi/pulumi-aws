@@ -147,70 +147,70 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:vpc/routeServerPeer:RouteServerPeer")
 public class RouteServerPeer extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the route server peer.
+     * ARN of the route server peer.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the route server peer.
+     * @return ARN of the route server peer.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
+     * BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
      * 
      */
     @Export(name="bgpOptions", refs={RouteServerPeerBgpOptions.class}, tree="[0]")
     private Output<RouteServerPeerBgpOptions> bgpOptions;
 
     /**
-     * @return The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
+     * @return BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
      * 
      */
     public Output<RouteServerPeerBgpOptions> bgpOptions() {
         return this.bgpOptions;
     }
     /**
-     * The IP address of the Elastic network interface for the route server endpoint.
+     * IP address of the Elastic network interface for the route server endpoint.
      * 
      */
     @Export(name="endpointEniAddress", refs={String.class}, tree="[0]")
     private Output<String> endpointEniAddress;
 
     /**
-     * @return The IP address of the Elastic network interface for the route server endpoint.
+     * @return IP address of the Elastic network interface for the route server endpoint.
      * 
      */
     public Output<String> endpointEniAddress() {
         return this.endpointEniAddress;
     }
     /**
-     * The ID of the Elastic network interface for the route server endpoint.
+     * ID of the Elastic network interface for the route server endpoint.
      * 
      */
     @Export(name="endpointEniId", refs={String.class}, tree="[0]")
     private Output<String> endpointEniId;
 
     /**
-     * @return The ID of the Elastic network interface for the route server endpoint.
+     * @return ID of the Elastic network interface for the route server endpoint.
      * 
      */
     public Output<String> endpointEniId() {
         return this.endpointEniId;
     }
     /**
-     * The IPv4 address of the peer device.
+     * IPv4 address of the peer device.
      * 
      */
     @Export(name="peerAddress", refs={String.class}, tree="[0]")
     private Output<String> peerAddress;
 
     /**
-     * @return The IPv4 address of the peer device.
+     * @return IPv4 address of the peer device.
      * 
      */
     public Output<String> peerAddress() {
@@ -231,7 +231,7 @@ public class RouteServerPeer extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The ID of the route server endpoint for which to create a peer.
+     * ID of the route server endpoint for which to create a peer.
      * 
      * The following arguments are optional:
      * 
@@ -240,7 +240,7 @@ public class RouteServerPeer extends com.pulumi.resources.CustomResource {
     private Output<String> routeServerEndpointId;
 
     /**
-     * @return The ID of the route server endpoint for which to create a peer.
+     * @return ID of the route server endpoint for which to create a peer.
      * 
      * The following arguments are optional:
      * 
@@ -249,70 +249,70 @@ public class RouteServerPeer extends com.pulumi.resources.CustomResource {
         return this.routeServerEndpointId;
     }
     /**
-     * The ID of the route server associated with this peer.
+     * ID of the route server associated with this peer.
      * 
      */
     @Export(name="routeServerId", refs={String.class}, tree="[0]")
     private Output<String> routeServerId;
 
     /**
-     * @return The ID of the route server associated with this peer.
+     * @return ID of the route server associated with this peer.
      * 
      */
     public Output<String> routeServerId() {
         return this.routeServerId;
     }
     /**
-     * The unique identifier of the route server peer.
+     * Unique identifier of the route server peer.
      * 
      */
     @Export(name="routeServerPeerId", refs={String.class}, tree="[0]")
     private Output<String> routeServerPeerId;
 
     /**
-     * @return The unique identifier of the route server peer.
+     * @return Unique identifier of the route server peer.
      * 
      */
     public Output<String> routeServerPeerId() {
         return this.routeServerPeerId;
     }
     /**
-     * The ID of the subnet containing the route server peer.
+     * ID of the subnet containing the route server peer.
      * 
      */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
     /**
-     * @return The ID of the subnet containing the route server peer.
+     * @return ID of the subnet containing the route server peer.
      * 
      */
     public Output<String> subnetId() {
         return this.subnetId;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -325,14 +325,14 @@ public class RouteServerPeer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.timeouts);
     }
     /**
-     * The ID of the VPC containing the route server peer.
+     * ID of the VPC containing the route server peer.
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**
-     * @return The ID of the VPC containing the route server peer.
+     * @return ID of the VPC containing the route server peer.
      * 
      */
     public Output<String> vpcId() {

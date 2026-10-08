@@ -182,6 +182,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kinesis.VideoStreamArgs;
  * import com.pulumi.aws.kinesis.Stream;
  * import com.pulumi.aws.kinesis.StreamArgs;
+ * import com.pulumi.aws.kinesis.inputs.StreamStreamModeDetailsArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.iam.inputs.RoleInlinePolicyArgs;
@@ -220,8 +221,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleStream = new Stream("exampleStream", StreamArgs.builder()
+ *             .streamModeDetails(StreamStreamModeDetailsArgs.builder()
+ *                 .streamMode("ON_DEMAND")
+ *                 .build())
  *             .name("pulumi-kinesis-example")
- *             .shardCount(1)
  *             .build());
  * 
  *         var exampleRole = new Role("exampleRole", RoleArgs.builder()

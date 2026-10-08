@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class RuleGroupRuleActionBlock
     {
         /// <summary>
-        /// Defines a custom response for the web request. See Custom Response below for details.
+        /// Custom response for the web request. See Custom Response below for details.
         /// </summary>
         public readonly Outputs.RuleGroupRuleActionBlockCustomResponse? CustomResponse;
 

@@ -54,12 +54,12 @@ public final class GetConnectionResult {
     private String preSharedKeyArn;
     private String region;
     /**
-     * @return List of static routes associated with the VPN connection.
+     * @return List of static routes associated with the VPN connection. See below.
      * 
      */
     private List<GetConnectionRoute> routes;
     /**
-     * @return Current state of the VPN connection.
+     * @return Current state of the static route.
      * 
      */
     private String state;
@@ -79,7 +79,7 @@ public final class GetConnectionResult {
      */
     private String type;
     /**
-     * @return List of objects containing information about the VPN tunnel.
+     * @return List of objects containing information about the VPN tunnel. See below.
      * 
      */
     private List<GetConnectionVgwTelemetry> vgwTelemetries;
@@ -152,14 +152,14 @@ public final class GetConnectionResult {
         return this.region;
     }
     /**
-     * @return List of static routes associated with the VPN connection.
+     * @return List of static routes associated with the VPN connection. See below.
      * 
      */
     public List<GetConnectionRoute> routes() {
         return this.routes;
     }
     /**
-     * @return Current state of the VPN connection.
+     * @return Current state of the static route.
      * 
      */
     public String state() {
@@ -187,7 +187,7 @@ public final class GetConnectionResult {
         return this.type;
     }
     /**
-     * @return List of objects containing information about the VPN tunnel.
+     * @return List of objects containing information about the VPN tunnel. See below.
      * 
      */
     public List<GetConnectionVgwTelemetry> vgwTelemetries() {

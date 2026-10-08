@@ -24,6 +24,15 @@ __all__ = [
     'MicrovmLoggingCloudwatch',
     'MicrovmLoggingDisabled',
     'MicrovmTimeouts',
+    'GetImageVersionCodeArtifactResult',
+    'GetImageVersionCpuConfigurationResult',
+    'GetImageVersionHookResult',
+    'GetImageVersionHookMicrovmHookResult',
+    'GetImageVersionHookMicrovmImageHookResult',
+    'GetImageVersionLoggingResult',
+    'GetImageVersionLoggingCloudwatchResult',
+    'GetImageVersionLoggingDisabledResult',
+    'GetImageVersionResourceResult',
 ]
 
 @pulumi.output_type
@@ -282,5 +291,309 @@ class MicrovmTimeouts(dict):
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
+
+
+@pulumi.output_type
+class GetImageVersionCodeArtifactResult(dict):
+    def __init__(__self__, *,
+                 uri: _builtins.str):
+        """
+        :param _builtins.str uri: URI of the code artifact.
+        """
+        pulumi.set(__self__, "uri", uri)
+
+    @_builtins.property
+    @pulumi.getter
+    def uri(self) -> _builtins.str:
+        """
+        URI of the code artifact.
+        """
+        return pulumi.get(self, "uri")
+
+
+@pulumi.output_type
+class GetImageVersionCpuConfigurationResult(dict):
+    def __init__(__self__, *,
+                 architecture: _builtins.str):
+        """
+        :param _builtins.str architecture: CPU architecture.
+        """
+        pulumi.set(__self__, "architecture", architecture)
+
+    @_builtins.property
+    @pulumi.getter
+    def architecture(self) -> _builtins.str:
+        """
+        CPU architecture.
+        """
+        return pulumi.get(self, "architecture")
+
+
+@pulumi.output_type
+class GetImageVersionHookResult(dict):
+    def __init__(__self__, *,
+                 microvm_hooks: Sequence['outputs.GetImageVersionHookMicrovmHookResult'],
+                 microvm_image_hooks: Sequence['outputs.GetImageVersionHookMicrovmImageHookResult'],
+                 port: _builtins.int):
+        """
+        :param Sequence['GetImageVersionHookMicrovmHookArgs'] microvm_hooks: Lifecycle hooks for MicroVM events. See `microvm_hooks` below.
+        :param Sequence['GetImageVersionHookMicrovmImageHookArgs'] microvm_image_hooks: Hooks for MicroVM image build events. See `microvm_image_hooks` below.
+        :param _builtins.int port: Port number on which the hooks listener runs.
+        """
+        pulumi.set(__self__, "microvm_hooks", microvm_hooks)
+        pulumi.set(__self__, "microvm_image_hooks", microvm_image_hooks)
+        pulumi.set(__self__, "port", port)
+
+    @_builtins.property
+    @pulumi.getter(name="microvmHooks")
+    def microvm_hooks(self) -> Sequence['outputs.GetImageVersionHookMicrovmHookResult']:
+        """
+        Lifecycle hooks for MicroVM events. See `microvm_hooks` below.
+        """
+        return pulumi.get(self, "microvm_hooks")
+
+    @_builtins.property
+    @pulumi.getter(name="microvmImageHooks")
+    def microvm_image_hooks(self) -> Sequence['outputs.GetImageVersionHookMicrovmImageHookResult']:
+        """
+        Hooks for MicroVM image build events. See `microvm_image_hooks` below.
+        """
+        return pulumi.get(self, "microvm_image_hooks")
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> _builtins.int:
+        """
+        Port number on which the hooks listener runs.
+        """
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class GetImageVersionHookMicrovmHookResult(dict):
+    def __init__(__self__, *,
+                 resume: _builtins.str,
+                 resume_timeout_in_seconds: _builtins.int,
+                 run: _builtins.str,
+                 run_timeout_in_seconds: _builtins.int,
+                 suspend: _builtins.str,
+                 suspend_timeout_in_seconds: _builtins.int,
+                 terminate: _builtins.str,
+                 terminate_timeout_in_seconds: _builtins.int):
+        """
+        :param _builtins.str resume: Whether the resume hook is `ENABLED` or `DISABLED`.
+        :param _builtins.int resume_timeout_in_seconds: Maximum time in seconds for the resume hook to complete.
+        :param _builtins.str run: Whether the run hook is `ENABLED` or `DISABLED`.
+        :param _builtins.int run_timeout_in_seconds: Maximum time in seconds for the run hook to complete.
+        :param _builtins.str suspend: Whether the suspend hook is `ENABLED` or `DISABLED`.
+        :param _builtins.int suspend_timeout_in_seconds: Maximum time in seconds for the suspend hook to complete.
+        :param _builtins.str terminate: Whether the terminate hook is `ENABLED` or `DISABLED`.
+        :param _builtins.int terminate_timeout_in_seconds: Maximum time in seconds for the terminate hook to complete.
+        """
+        pulumi.set(__self__, "resume", resume)
+        pulumi.set(__self__, "resume_timeout_in_seconds", resume_timeout_in_seconds)
+        pulumi.set(__self__, "run", run)
+        pulumi.set(__self__, "run_timeout_in_seconds", run_timeout_in_seconds)
+        pulumi.set(__self__, "suspend", suspend)
+        pulumi.set(__self__, "suspend_timeout_in_seconds", suspend_timeout_in_seconds)
+        pulumi.set(__self__, "terminate", terminate)
+        pulumi.set(__self__, "terminate_timeout_in_seconds", terminate_timeout_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter
+    def resume(self) -> _builtins.str:
+        """
+        Whether the resume hook is `ENABLED` or `DISABLED`.
+        """
+        return pulumi.get(self, "resume")
+
+    @_builtins.property
+    @pulumi.getter(name="resumeTimeoutInSeconds")
+    def resume_timeout_in_seconds(self) -> _builtins.int:
+        """
+        Maximum time in seconds for the resume hook to complete.
+        """
+        return pulumi.get(self, "resume_timeout_in_seconds")
+
+    @_builtins.property
+    @pulumi.getter
+    def run(self) -> _builtins.str:
+        """
+        Whether the run hook is `ENABLED` or `DISABLED`.
+        """
+        return pulumi.get(self, "run")
+
+    @_builtins.property
+    @pulumi.getter(name="runTimeoutInSeconds")
+    def run_timeout_in_seconds(self) -> _builtins.int:
+        """
+        Maximum time in seconds for the run hook to complete.
+        """
+        return pulumi.get(self, "run_timeout_in_seconds")
+
+    @_builtins.property
+    @pulumi.getter
+    def suspend(self) -> _builtins.str:
+        """
+        Whether the suspend hook is `ENABLED` or `DISABLED`.
+        """
+        return pulumi.get(self, "suspend")
+
+    @_builtins.property
+    @pulumi.getter(name="suspendTimeoutInSeconds")
+    def suspend_timeout_in_seconds(self) -> _builtins.int:
+        """
+        Maximum time in seconds for the suspend hook to complete.
+        """
+        return pulumi.get(self, "suspend_timeout_in_seconds")
+
+    @_builtins.property
+    @pulumi.getter
+    def terminate(self) -> _builtins.str:
+        """
+        Whether the terminate hook is `ENABLED` or `DISABLED`.
+        """
+        return pulumi.get(self, "terminate")
+
+    @_builtins.property
+    @pulumi.getter(name="terminateTimeoutInSeconds")
+    def terminate_timeout_in_seconds(self) -> _builtins.int:
+        """
+        Maximum time in seconds for the terminate hook to complete.
+        """
+        return pulumi.get(self, "terminate_timeout_in_seconds")
+
+
+@pulumi.output_type
+class GetImageVersionHookMicrovmImageHookResult(dict):
+    def __init__(__self__, *,
+                 ready: _builtins.str,
+                 ready_timeout_in_seconds: _builtins.int,
+                 validate: _builtins.str,
+                 validate_timeout_in_seconds: _builtins.int):
+        """
+        :param _builtins.str ready: Whether the ready hook is `ENABLED` or `DISABLED`.
+        :param _builtins.int ready_timeout_in_seconds: Maximum time in seconds for the ready hook to complete.
+        :param _builtins.str validate: Whether the validate hook is `ENABLED` or `DISABLED`.
+        :param _builtins.int validate_timeout_in_seconds: Maximum time in seconds for the validate hook to complete.
+        """
+        pulumi.set(__self__, "ready", ready)
+        pulumi.set(__self__, "ready_timeout_in_seconds", ready_timeout_in_seconds)
+        pulumi.set(__self__, "validate", validate)
+        pulumi.set(__self__, "validate_timeout_in_seconds", validate_timeout_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter
+    def ready(self) -> _builtins.str:
+        """
+        Whether the ready hook is `ENABLED` or `DISABLED`.
+        """
+        return pulumi.get(self, "ready")
+
+    @_builtins.property
+    @pulumi.getter(name="readyTimeoutInSeconds")
+    def ready_timeout_in_seconds(self) -> _builtins.int:
+        """
+        Maximum time in seconds for the ready hook to complete.
+        """
+        return pulumi.get(self, "ready_timeout_in_seconds")
+
+    @_builtins.property
+    @pulumi.getter
+    def validate(self) -> _builtins.str:
+        """
+        Whether the validate hook is `ENABLED` or `DISABLED`.
+        """
+        return pulumi.get(self, "validate")
+
+    @_builtins.property
+    @pulumi.getter(name="validateTimeoutInSeconds")
+    def validate_timeout_in_seconds(self) -> _builtins.int:
+        """
+        Maximum time in seconds for the validate hook to complete.
+        """
+        return pulumi.get(self, "validate_timeout_in_seconds")
+
+
+@pulumi.output_type
+class GetImageVersionLoggingResult(dict):
+    def __init__(__self__, *,
+                 cloudwatches: Sequence['outputs.GetImageVersionLoggingCloudwatchResult'],
+                 disableds: Sequence['outputs.GetImageVersionLoggingDisabledResult']):
+        """
+        :param Sequence['GetImageVersionLoggingCloudwatchArgs'] cloudwatches: CloudWatch Logs configuration. See `cloudwatch` below.
+        :param Sequence['GetImageVersionLoggingDisabledArgs'] disableds: Present when logging is disabled.
+        """
+        pulumi.set(__self__, "cloudwatches", cloudwatches)
+        pulumi.set(__self__, "disableds", disableds)
+
+    @_builtins.property
+    @pulumi.getter
+    def cloudwatches(self) -> Sequence['outputs.GetImageVersionLoggingCloudwatchResult']:
+        """
+        CloudWatch Logs configuration. See `cloudwatch` below.
+        """
+        return pulumi.get(self, "cloudwatches")
+
+    @_builtins.property
+    @pulumi.getter
+    def disableds(self) -> Sequence['outputs.GetImageVersionLoggingDisabledResult']:
+        """
+        Present when logging is disabled.
+        """
+        return pulumi.get(self, "disableds")
+
+
+@pulumi.output_type
+class GetImageVersionLoggingCloudwatchResult(dict):
+    def __init__(__self__, *,
+                 log_group: _builtins.str,
+                 log_stream: _builtins.str):
+        """
+        :param _builtins.str log_group: Name of the CloudWatch Logs log group.
+        :param _builtins.str log_stream: Name of the CloudWatch Logs log stream.
+        """
+        pulumi.set(__self__, "log_group", log_group)
+        pulumi.set(__self__, "log_stream", log_stream)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroup")
+    def log_group(self) -> _builtins.str:
+        """
+        Name of the CloudWatch Logs log group.
+        """
+        return pulumi.get(self, "log_group")
+
+    @_builtins.property
+    @pulumi.getter(name="logStream")
+    def log_stream(self) -> _builtins.str:
+        """
+        Name of the CloudWatch Logs log stream.
+        """
+        return pulumi.get(self, "log_stream")
+
+
+@pulumi.output_type
+class GetImageVersionLoggingDisabledResult(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class GetImageVersionResourceResult(dict):
+    def __init__(__self__, *,
+                 minimum_memory_in_mib: _builtins.int):
+        """
+        :param _builtins.int minimum_memory_in_mib: Minimum amount of memory in MiB allocated to the MicroVM.
+        """
+        pulumi.set(__self__, "minimum_memory_in_mib", minimum_memory_in_mib)
+
+    @_builtins.property
+    @pulumi.getter(name="minimumMemoryInMib")
+    def minimum_memory_in_mib(self) -> _builtins.int:
+        """
+        Minimum amount of memory in MiB allocated to the MicroVM.
+        """
+        return pulumi.get(self, "minimum_memory_in_mib")
 
 

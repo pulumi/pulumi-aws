@@ -13,6 +13,118 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type GetRouteTablesFilter struct {
+	// Name of the field to filter by, as defined by
+	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A Route Table will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetRouteTablesFilterInput is an input type that accepts GetRouteTablesFilterArgs and GetRouteTablesFilterOutput values.
+// You can construct a concrete instance of `GetRouteTablesFilterInput` via:
+//
+//	GetRouteTablesFilterArgs{...}
+type GetRouteTablesFilterInput interface {
+	pulumi.Input
+
+	ToGetRouteTablesFilterOutput() GetRouteTablesFilterOutput
+	ToGetRouteTablesFilterOutputWithContext(context.Context) GetRouteTablesFilterOutput
+}
+
+type GetRouteTablesFilterArgs struct {
+	// Name of the field to filter by, as defined by
+	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A Route Table will be selected if any one of the given values matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetRouteTablesFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteTablesFilter)(nil)).Elem()
+}
+
+func (i GetRouteTablesFilterArgs) ToGetRouteTablesFilterOutput() GetRouteTablesFilterOutput {
+	return i.ToGetRouteTablesFilterOutputWithContext(context.Background())
+}
+
+func (i GetRouteTablesFilterArgs) ToGetRouteTablesFilterOutputWithContext(ctx context.Context) GetRouteTablesFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteTablesFilterOutput)
+}
+
+// GetRouteTablesFilterArrayInput is an input type that accepts GetRouteTablesFilterArray and GetRouteTablesFilterArrayOutput values.
+// You can construct a concrete instance of `GetRouteTablesFilterArrayInput` via:
+//
+//	GetRouteTablesFilterArray{ GetRouteTablesFilterArgs{...} }
+type GetRouteTablesFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteTablesFilterArrayOutput() GetRouteTablesFilterArrayOutput
+	ToGetRouteTablesFilterArrayOutputWithContext(context.Context) GetRouteTablesFilterArrayOutput
+}
+
+type GetRouteTablesFilterArray []GetRouteTablesFilterInput
+
+func (GetRouteTablesFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteTablesFilter)(nil)).Elem()
+}
+
+func (i GetRouteTablesFilterArray) ToGetRouteTablesFilterArrayOutput() GetRouteTablesFilterArrayOutput {
+	return i.ToGetRouteTablesFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteTablesFilterArray) ToGetRouteTablesFilterArrayOutputWithContext(ctx context.Context) GetRouteTablesFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteTablesFilterArrayOutput)
+}
+
+type GetRouteTablesFilterOutput struct{ *pulumi.OutputState }
+
+func (GetRouteTablesFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteTablesFilter)(nil)).Elem()
+}
+
+func (o GetRouteTablesFilterOutput) ToGetRouteTablesFilterOutput() GetRouteTablesFilterOutput {
+	return o
+}
+
+func (o GetRouteTablesFilterOutput) ToGetRouteTablesFilterOutputWithContext(ctx context.Context) GetRouteTablesFilterOutput {
+	return o
+}
+
+// Name of the field to filter by, as defined by
+// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
+func (o GetRouteTablesFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTablesFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given field.
+// A Route Table will be selected if any one of the given values matches.
+func (o GetRouteTablesFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRouteTablesFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetRouteTablesFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteTablesFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteTablesFilter)(nil)).Elem()
+}
+
+func (o GetRouteTablesFilterArrayOutput) ToGetRouteTablesFilterArrayOutput() GetRouteTablesFilterArrayOutput {
+	return o
+}
+
+func (o GetRouteTablesFilterArrayOutput) ToGetRouteTablesFilterArrayOutputWithContext(ctx context.Context) GetRouteTablesFilterArrayOutput {
+	return o
+}
+
+func (o GetRouteTablesFilterArrayOutput) Index(i pulumi.IntInput) GetRouteTablesFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteTablesFilter {
+		return vs[0].([]GetRouteTablesFilter)[vs[1].(int)]
+	}).(GetRouteTablesFilterOutput)
+}
+
 type GetSecurityGroupFilter struct {
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
@@ -995,8 +1107,6 @@ type GetVpcDhcpOptionsFilter struct {
 	// Name of the field to filter.
 	Name string `pulumi:"name"`
 	// Set of values for filtering.
-	//
-	// For more information about filtering, see the [EC2 API documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeDhcpOptions.html).
 	Values []string `pulumi:"values"`
 }
 
@@ -1015,8 +1125,6 @@ type GetVpcDhcpOptionsFilterArgs struct {
 	// Name of the field to filter.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values for filtering.
-	//
-	// For more information about filtering, see the [EC2 API documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeDhcpOptions.html).
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -1077,8 +1185,6 @@ func (o GetVpcDhcpOptionsFilterOutput) Name() pulumi.StringOutput {
 }
 
 // Set of values for filtering.
-//
-// For more information about filtering, see the [EC2 API documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeDhcpOptions.html).
 func (o GetVpcDhcpOptionsFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVpcDhcpOptionsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -1210,9 +1316,9 @@ func (o GetVpcEndpointDnsEntryArrayOutput) Index(i pulumi.IntInput) GetVpcEndpoi
 }
 
 type GetVpcEndpointDnsOption struct {
-	// The DNS records created for the endpoint.
+	// DNS records created for the endpoint.
 	DnsRecordIpType string `pulumi:"dnsRecordIpType"`
-	// Indicates whether to enable private DNS only for inbound endpoints.
+	// Whether to enable private DNS only for inbound endpoints.
 	PrivateDnsOnlyForInboundResolverEndpoint bool `pulumi:"privateDnsOnlyForInboundResolverEndpoint"`
 	// Preference for which private domains have a private hosted zone created for and associated with the specified VPC.
 	PrivateDnsPreference string `pulumi:"privateDnsPreference"`
@@ -1232,9 +1338,9 @@ type GetVpcEndpointDnsOptionInput interface {
 }
 
 type GetVpcEndpointDnsOptionArgs struct {
-	// The DNS records created for the endpoint.
+	// DNS records created for the endpoint.
 	DnsRecordIpType pulumi.StringInput `pulumi:"dnsRecordIpType"`
-	// Indicates whether to enable private DNS only for inbound endpoints.
+	// Whether to enable private DNS only for inbound endpoints.
 	PrivateDnsOnlyForInboundResolverEndpoint pulumi.BoolInput `pulumi:"privateDnsOnlyForInboundResolverEndpoint"`
 	// Preference for which private domains have a private hosted zone created for and associated with the specified VPC.
 	PrivateDnsPreference pulumi.StringInput `pulumi:"privateDnsPreference"`
@@ -1293,12 +1399,12 @@ func (o GetVpcEndpointDnsOptionOutput) ToGetVpcEndpointDnsOptionOutputWithContex
 	return o
 }
 
-// The DNS records created for the endpoint.
+// DNS records created for the endpoint.
 func (o GetVpcEndpointDnsOptionOutput) DnsRecordIpType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcEndpointDnsOption) string { return v.DnsRecordIpType }).(pulumi.StringOutput)
 }
 
-// Indicates whether to enable private DNS only for inbound endpoints.
+// Whether to enable private DNS only for inbound endpoints.
 func (o GetVpcEndpointDnsOptionOutput) PrivateDnsOnlyForInboundResolverEndpoint() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetVpcEndpointDnsOption) bool { return v.PrivateDnsOnlyForInboundResolverEndpoint }).(pulumi.BoolOutput)
 }
@@ -1334,11 +1440,9 @@ func (o GetVpcEndpointDnsOptionArrayOutput) Index(i pulumi.IntInput) GetVpcEndpo
 }
 
 type GetVpcEndpointFilter struct {
-	// Name of the field to filter by, as defined by
-	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
+	// Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
 	Name string `pulumi:"name"`
-	// Set of values that are accepted for the given field.
-	// A VPC Endpoint will be selected if any one of the given values matches.
+	// Set of values that are accepted for the given field. A VPC Endpoint will be selected if any one of the given values matches.
 	Values []string `pulumi:"values"`
 }
 
@@ -1354,11 +1458,9 @@ type GetVpcEndpointFilterInput interface {
 }
 
 type GetVpcEndpointFilterArgs struct {
-	// Name of the field to filter by, as defined by
-	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
+	// Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
 	Name pulumi.StringInput `pulumi:"name"`
-	// Set of values that are accepted for the given field.
-	// A VPC Endpoint will be selected if any one of the given values matches.
+	// Set of values that are accepted for the given field. A VPC Endpoint will be selected if any one of the given values matches.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -1413,14 +1515,12 @@ func (o GetVpcEndpointFilterOutput) ToGetVpcEndpointFilterOutputWithContext(ctx 
 	return o
 }
 
-// Name of the field to filter by, as defined by
-// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
+// Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
 func (o GetVpcEndpointFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcEndpointFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Set of values that are accepted for the given field.
-// A VPC Endpoint will be selected if any one of the given values matches.
+// Set of values that are accepted for the given field. A VPC Endpoint will be selected if any one of the given values matches.
 func (o GetVpcEndpointFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVpcEndpointFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -1658,6 +1758,7 @@ func (o GetVpcFilterArrayOutput) Index(i pulumi.IntInput) GetVpcFilterOutput {
 }
 
 type GetVpcIpamOperatingRegion struct {
+	// Name of the Region.
 	RegionName string `pulumi:"regionName"`
 }
 
@@ -1673,6 +1774,7 @@ type GetVpcIpamOperatingRegionInput interface {
 }
 
 type GetVpcIpamOperatingRegionArgs struct {
+	// Name of the Region.
 	RegionName pulumi.StringInput `pulumi:"regionName"`
 }
 
@@ -1727,6 +1829,7 @@ func (o GetVpcIpamOperatingRegionOutput) ToGetVpcIpamOperatingRegionOutputWithCo
 	return o
 }
 
+// Name of the Region.
 func (o GetVpcIpamOperatingRegionOutput) RegionName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIpamOperatingRegion) string { return v.RegionName }).(pulumi.StringOutput)
 }
@@ -1752,8 +1855,7 @@ func (o GetVpcIpamOperatingRegionArrayOutput) Index(i pulumi.IntInput) GetVpcIpa
 }
 
 type GetVpcIpamPoolCidrsFilter struct {
-	// Name of the field to filter by, as defined by
-	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
+	// Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
 	Values []string `pulumi:"values"`
@@ -1771,8 +1873,7 @@ type GetVpcIpamPoolCidrsFilterInput interface {
 }
 
 type GetVpcIpamPoolCidrsFilterArgs struct {
-	// Name of the field to filter by, as defined by
-	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
+	// Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -1829,8 +1930,7 @@ func (o GetVpcIpamPoolCidrsFilterOutput) ToGetVpcIpamPoolCidrsFilterOutputWithCo
 	return o
 }
 
-// Name of the field to filter by, as defined by
-// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
+// Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
 func (o GetVpcIpamPoolCidrsFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIpamPoolCidrsFilter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1861,9 +1961,9 @@ func (o GetVpcIpamPoolCidrsFilterArrayOutput) Index(i pulumi.IntInput) GetVpcIpa
 }
 
 type GetVpcIpamPoolCidrsIpamPoolCidr struct {
-	// A network CIDR.
+	// Network CIDR.
 	Cidr string `pulumi:"cidr"`
-	// The provisioning state of that CIDR.
+	// Provisioning state of that CIDR.
 	State string `pulumi:"state"`
 }
 
@@ -1879,9 +1979,9 @@ type GetVpcIpamPoolCidrsIpamPoolCidrInput interface {
 }
 
 type GetVpcIpamPoolCidrsIpamPoolCidrArgs struct {
-	// A network CIDR.
+	// Network CIDR.
 	Cidr pulumi.StringInput `pulumi:"cidr"`
-	// The provisioning state of that CIDR.
+	// Provisioning state of that CIDR.
 	State pulumi.StringInput `pulumi:"state"`
 }
 
@@ -1936,12 +2036,12 @@ func (o GetVpcIpamPoolCidrsIpamPoolCidrOutput) ToGetVpcIpamPoolCidrsIpamPoolCidr
 	return o
 }
 
-// A network CIDR.
+// Network CIDR.
 func (o GetVpcIpamPoolCidrsIpamPoolCidrOutput) Cidr() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIpamPoolCidrsIpamPoolCidr) string { return v.Cidr }).(pulumi.StringOutput)
 }
 
-// The provisioning state of that CIDR.
+// Provisioning state of that CIDR.
 func (o GetVpcIpamPoolCidrsIpamPoolCidrOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIpamPoolCidrsIpamPoolCidr) string { return v.State }).(pulumi.StringOutput)
 }
@@ -1967,9 +2067,9 @@ func (o GetVpcIpamPoolCidrsIpamPoolCidrArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 type GetVpcIpamPoolFilter struct {
-	// The name of the filter. Filter names are case-sensitive.
+	// Name of the filter. Filter names are case-sensitive.
 	Name string `pulumi:"name"`
-	// The filter values. Filter values are case-sensitive.
+	// Filter values. Filter values are case-sensitive.
 	Values []string `pulumi:"values"`
 }
 
@@ -1985,9 +2085,9 @@ type GetVpcIpamPoolFilterInput interface {
 }
 
 type GetVpcIpamPoolFilterArgs struct {
-	// The name of the filter. Filter names are case-sensitive.
+	// Name of the filter. Filter names are case-sensitive.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The filter values. Filter values are case-sensitive.
+	// Filter values. Filter values are case-sensitive.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -2042,12 +2142,12 @@ func (o GetVpcIpamPoolFilterOutput) ToGetVpcIpamPoolFilterOutputWithContext(ctx 
 	return o
 }
 
-// The name of the filter. Filter names are case-sensitive.
+// Name of the filter. Filter names are case-sensitive.
 func (o GetVpcIpamPoolFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIpamPoolFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The filter values. Filter values are case-sensitive.
+// Filter values. Filter values are case-sensitive.
 func (o GetVpcIpamPoolFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVpcIpamPoolFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -2073,13 +2173,13 @@ func (o GetVpcIpamPoolFilterArrayOutput) Index(i pulumi.IntInput) GetVpcIpamPool
 }
 
 type GetVpcIpamPoolSourceResource struct {
-	// (Required) ID of the resource.
+	// ID of the resource.
 	ResourceId string `pulumi:"resourceId"`
-	// (Required) Owner of the resource.
+	// Owner of the resource.
 	ResourceOwner string `pulumi:"resourceOwner"`
-	// (Required) Region where the resource exists. Must match the `locale` of the parent IPAM Pool.
+	// Region where the resource exists. Must match the `locale` of the parent IPAM Pool.
 	ResourceRegion string `pulumi:"resourceRegion"`
-	// (Required) Type of the resource. (`vpc`)
+	// Type of the resource. (`vpc`)
 	ResourceType string `pulumi:"resourceType"`
 }
 
@@ -2095,13 +2195,13 @@ type GetVpcIpamPoolSourceResourceInput interface {
 }
 
 type GetVpcIpamPoolSourceResourceArgs struct {
-	// (Required) ID of the resource.
+	// ID of the resource.
 	ResourceId pulumi.StringInput `pulumi:"resourceId"`
-	// (Required) Owner of the resource.
+	// Owner of the resource.
 	ResourceOwner pulumi.StringInput `pulumi:"resourceOwner"`
-	// (Required) Region where the resource exists. Must match the `locale` of the parent IPAM Pool.
+	// Region where the resource exists. Must match the `locale` of the parent IPAM Pool.
 	ResourceRegion pulumi.StringInput `pulumi:"resourceRegion"`
-	// (Required) Type of the resource. (`vpc`)
+	// Type of the resource. (`vpc`)
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
 }
 
@@ -2156,22 +2256,22 @@ func (o GetVpcIpamPoolSourceResourceOutput) ToGetVpcIpamPoolSourceResourceOutput
 	return o
 }
 
-// (Required) ID of the resource.
+// ID of the resource.
 func (o GetVpcIpamPoolSourceResourceOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIpamPoolSourceResource) string { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// (Required) Owner of the resource.
+// Owner of the resource.
 func (o GetVpcIpamPoolSourceResourceOutput) ResourceOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIpamPoolSourceResource) string { return v.ResourceOwner }).(pulumi.StringOutput)
 }
 
-// (Required) Region where the resource exists. Must match the `locale` of the parent IPAM Pool.
+// Region where the resource exists. Must match the `locale` of the parent IPAM Pool.
 func (o GetVpcIpamPoolSourceResourceOutput) ResourceRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIpamPoolSourceResource) string { return v.ResourceRegion }).(pulumi.StringOutput)
 }
 
-// (Required) Type of the resource. (`vpc`)
+// Type of the resource. (`vpc`)
 func (o GetVpcIpamPoolSourceResourceOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIpamPoolSourceResource) string { return v.ResourceType }).(pulumi.StringOutput)
 }
@@ -2197,9 +2297,9 @@ func (o GetVpcIpamPoolSourceResourceArrayOutput) Index(i pulumi.IntInput) GetVpc
 }
 
 type GetVpcIpamPoolsFilter struct {
-	// The name of the filter. Filter names are case-sensitive.
+	// Name of the filter. Filter names are case-sensitive.
 	Name string `pulumi:"name"`
-	// The filter values. Filter values are case-sensitive.
+	// Filter values. Filter values are case-sensitive.
 	Values []string `pulumi:"values"`
 }
 
@@ -2215,9 +2315,9 @@ type GetVpcIpamPoolsFilterInput interface {
 }
 
 type GetVpcIpamPoolsFilterArgs struct {
-	// The name of the filter. Filter names are case-sensitive.
+	// Name of the filter. Filter names are case-sensitive.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The filter values. Filter values are case-sensitive.
+	// Filter values. Filter values are case-sensitive.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -2272,12 +2372,12 @@ func (o GetVpcIpamPoolsFilterOutput) ToGetVpcIpamPoolsFilterOutputWithContext(ct
 	return o
 }
 
-// The name of the filter. Filter names are case-sensitive.
+// Name of the filter. Filter names are case-sensitive.
 func (o GetVpcIpamPoolsFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIpamPoolsFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The filter values. Filter values are case-sensitive.
+// Filter values. Filter values are case-sensitive.
 func (o GetVpcIpamPoolsFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVpcIpamPoolsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -2305,11 +2405,11 @@ func (o GetVpcIpamPoolsFilterArrayOutput) Index(i pulumi.IntInput) GetVpcIpamPoo
 type GetVpcIpamPoolsIpamPool struct {
 	// IP protocol assigned to this pool.
 	AddressFamily string `pulumi:"addressFamily"`
-	// A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
+	// Default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
 	AllocationDefaultNetmaskLength int `pulumi:"allocationDefaultNetmaskLength"`
-	// The maximum netmask length that will be required for CIDR allocations in this pool.
+	// Maximum netmask length that will be required for CIDR allocations in this pool.
 	AllocationMaxNetmaskLength int `pulumi:"allocationMaxNetmaskLength"`
-	// The minimum netmask length that will be required for CIDR allocations in this pool.
+	// Minimum netmask length that will be required for CIDR allocations in this pool.
 	AllocationMinNetmaskLength int `pulumi:"allocationMinNetmaskLength"`
 	// Tags that are required to create resources in using this pool.
 	AllocationResourceTags map[string]string `pulumi:"allocationResourceTags"`
@@ -2324,16 +2424,19 @@ type GetVpcIpamPoolsIpamPool struct {
 	// ID of the IPAM pool.
 	Id string `pulumi:"id"`
 	// ID of the scope the pool belongs to.
-	IpamScopeId   string `pulumi:"ipamScopeId"`
+	IpamScopeId string `pulumi:"ipamScopeId"`
+	// Type of the scope the pool belongs to.
 	IpamScopeType string `pulumi:"ipamScopeType"`
 	// Locale is the Region where your pool is available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region.
-	Locale    string `pulumi:"locale"`
-	PoolDepth int    `pulumi:"poolDepth"`
-	// Defines whether or not IPv6 pool space is publicly advertisable over the internet.
+	Locale string `pulumi:"locale"`
+	// Depth of pools in your IPAM pool.
+	PoolDepth int `pulumi:"poolDepth"`
+	// Whether IPv6 pool space is publicly advertisable over the internet.
 	PubliclyAdvertisable bool `pulumi:"publiclyAdvertisable"`
 	// ID of the source IPAM pool.
 	SourceIpamPoolId string `pulumi:"sourceIpamPoolId"`
-	State            string `pulumi:"state"`
+	// State of the IPAM pool.
+	State string `pulumi:"state"`
 	// Map of tags to assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -2352,11 +2455,11 @@ type GetVpcIpamPoolsIpamPoolInput interface {
 type GetVpcIpamPoolsIpamPoolArgs struct {
 	// IP protocol assigned to this pool.
 	AddressFamily pulumi.StringInput `pulumi:"addressFamily"`
-	// A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
+	// Default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
 	AllocationDefaultNetmaskLength pulumi.IntInput `pulumi:"allocationDefaultNetmaskLength"`
-	// The maximum netmask length that will be required for CIDR allocations in this pool.
+	// Maximum netmask length that will be required for CIDR allocations in this pool.
 	AllocationMaxNetmaskLength pulumi.IntInput `pulumi:"allocationMaxNetmaskLength"`
-	// The minimum netmask length that will be required for CIDR allocations in this pool.
+	// Minimum netmask length that will be required for CIDR allocations in this pool.
 	AllocationMinNetmaskLength pulumi.IntInput `pulumi:"allocationMinNetmaskLength"`
 	// Tags that are required to create resources in using this pool.
 	AllocationResourceTags pulumi.StringMapInput `pulumi:"allocationResourceTags"`
@@ -2371,16 +2474,19 @@ type GetVpcIpamPoolsIpamPoolArgs struct {
 	// ID of the IPAM pool.
 	Id pulumi.StringInput `pulumi:"id"`
 	// ID of the scope the pool belongs to.
-	IpamScopeId   pulumi.StringInput `pulumi:"ipamScopeId"`
+	IpamScopeId pulumi.StringInput `pulumi:"ipamScopeId"`
+	// Type of the scope the pool belongs to.
 	IpamScopeType pulumi.StringInput `pulumi:"ipamScopeType"`
 	// Locale is the Region where your pool is available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region.
-	Locale    pulumi.StringInput `pulumi:"locale"`
-	PoolDepth pulumi.IntInput    `pulumi:"poolDepth"`
-	// Defines whether or not IPv6 pool space is publicly advertisable over the internet.
+	Locale pulumi.StringInput `pulumi:"locale"`
+	// Depth of pools in your IPAM pool.
+	PoolDepth pulumi.IntInput `pulumi:"poolDepth"`
+	// Whether IPv6 pool space is publicly advertisable over the internet.
 	PubliclyAdvertisable pulumi.BoolInput `pulumi:"publiclyAdvertisable"`
 	// ID of the source IPAM pool.
 	SourceIpamPoolId pulumi.StringInput `pulumi:"sourceIpamPoolId"`
-	State            pulumi.StringInput `pulumi:"state"`
+	// State of the IPAM pool.
+	State pulumi.StringInput `pulumi:"state"`
 	// Map of tags to assigned to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -2441,17 +2547,17 @@ func (o GetVpcIpamPoolsIpamPoolOutput) AddressFamily() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIpamPoolsIpamPool) string { return v.AddressFamily }).(pulumi.StringOutput)
 }
 
-// A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
+// Default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
 func (o GetVpcIpamPoolsIpamPoolOutput) AllocationDefaultNetmaskLength() pulumi.IntOutput {
 	return o.ApplyT(func(v GetVpcIpamPoolsIpamPool) int { return v.AllocationDefaultNetmaskLength }).(pulumi.IntOutput)
 }
 
-// The maximum netmask length that will be required for CIDR allocations in this pool.
+// Maximum netmask length that will be required for CIDR allocations in this pool.
 func (o GetVpcIpamPoolsIpamPoolOutput) AllocationMaxNetmaskLength() pulumi.IntOutput {
 	return o.ApplyT(func(v GetVpcIpamPoolsIpamPool) int { return v.AllocationMaxNetmaskLength }).(pulumi.IntOutput)
 }
 
-// The minimum netmask length that will be required for CIDR allocations in this pool.
+// Minimum netmask length that will be required for CIDR allocations in this pool.
 func (o GetVpcIpamPoolsIpamPoolOutput) AllocationMinNetmaskLength() pulumi.IntOutput {
 	return o.ApplyT(func(v GetVpcIpamPoolsIpamPool) int { return v.AllocationMinNetmaskLength }).(pulumi.IntOutput)
 }
@@ -2491,6 +2597,7 @@ func (o GetVpcIpamPoolsIpamPoolOutput) IpamScopeId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIpamPoolsIpamPool) string { return v.IpamScopeId }).(pulumi.StringOutput)
 }
 
+// Type of the scope the pool belongs to.
 func (o GetVpcIpamPoolsIpamPoolOutput) IpamScopeType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIpamPoolsIpamPool) string { return v.IpamScopeType }).(pulumi.StringOutput)
 }
@@ -2500,11 +2607,12 @@ func (o GetVpcIpamPoolsIpamPoolOutput) Locale() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIpamPoolsIpamPool) string { return v.Locale }).(pulumi.StringOutput)
 }
 
+// Depth of pools in your IPAM pool.
 func (o GetVpcIpamPoolsIpamPoolOutput) PoolDepth() pulumi.IntOutput {
 	return o.ApplyT(func(v GetVpcIpamPoolsIpamPool) int { return v.PoolDepth }).(pulumi.IntOutput)
 }
 
-// Defines whether or not IPv6 pool space is publicly advertisable over the internet.
+// Whether IPv6 pool space is publicly advertisable over the internet.
 func (o GetVpcIpamPoolsIpamPoolOutput) PubliclyAdvertisable() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetVpcIpamPoolsIpamPool) bool { return v.PubliclyAdvertisable }).(pulumi.BoolOutput)
 }
@@ -2514,6 +2622,7 @@ func (o GetVpcIpamPoolsIpamPoolOutput) SourceIpamPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIpamPoolsIpamPool) string { return v.SourceIpamPoolId }).(pulumi.StringOutput)
 }
 
+// State of the IPAM pool.
 func (o GetVpcIpamPoolsIpamPoolOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIpamPoolsIpamPool) string { return v.State }).(pulumi.StringOutput)
 }
@@ -2544,11 +2653,9 @@ func (o GetVpcIpamPoolsIpamPoolArrayOutput) Index(i pulumi.IntInput) GetVpcIpamP
 }
 
 type GetVpcIpamsFilter struct {
-	// Name of the field to filter by, as defined by
-	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpams.html).
+	// Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpams.html).
 	Name string `pulumi:"name"`
-	// Set of values that are accepted for the given field.
-	// An IPAM resource will be selected if any one of the given values matches.
+	// Set of values that are accepted for the given field. An IPAM resource will be selected if any one of the given values matches.
 	Values []string `pulumi:"values"`
 }
 
@@ -2564,11 +2671,9 @@ type GetVpcIpamsFilterInput interface {
 }
 
 type GetVpcIpamsFilterArgs struct {
-	// Name of the field to filter by, as defined by
-	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpams.html).
+	// Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpams.html).
 	Name pulumi.StringInput `pulumi:"name"`
-	// Set of values that are accepted for the given field.
-	// An IPAM resource will be selected if any one of the given values matches.
+	// Set of values that are accepted for the given field. An IPAM resource will be selected if any one of the given values matches.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -2623,14 +2728,12 @@ func (o GetVpcIpamsFilterOutput) ToGetVpcIpamsFilterOutputWithContext(ctx contex
 	return o
 }
 
-// Name of the field to filter by, as defined by
-// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpams.html).
+// Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpams.html).
 func (o GetVpcIpamsFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIpamsFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Set of values that are accepted for the given field.
-// An IPAM resource will be selected if any one of the given values matches.
+// Set of values that are accepted for the given field. An IPAM resource will be selected if any one of the given values matches.
 func (o GetVpcIpamsFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVpcIpamsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -2658,9 +2761,9 @@ func (o GetVpcIpamsFilterArrayOutput) Index(i pulumi.IntInput) GetVpcIpamsFilter
 type GetVpcIpamsIpam struct {
 	// ARN of the IPAM.
 	Arn string `pulumi:"arn"`
-	// The default resource discovery association ID.
+	// Default resource discovery association ID.
 	DefaultResourceDiscoveryAssociationId string `pulumi:"defaultResourceDiscoveryAssociationId"`
-	// The default resource discovery ID.
+	// Default resource discovery ID.
 	DefaultResourceDiscoveryId string `pulumi:"defaultResourceDiscoveryId"`
 	// Description for the IPAM.
 	Description string `pulumi:"description"`
@@ -2669,9 +2772,10 @@ type GetVpcIpamsIpam struct {
 	// ID of the IPAM resource.
 	Id string `pulumi:"id"`
 	// Region that the IPAM exists in.
-	IpamRegion     string `pulumi:"ipamRegion"`
+	IpamRegion string `pulumi:"ipamRegion"`
+	// AWS account that is charged for active IP addresses managed in IPAM.
 	MeteredAccount string `pulumi:"meteredAccount"`
-	// Regions that the IPAM is configured to operate in.
+	// Regions that the IPAM is configured to operate in. See below.
 	OperatingRegions []GetVpcIpamsIpamOperatingRegion `pulumi:"operatingRegions"`
 	// ID of the account that owns this IPAM.
 	OwnerId string `pulumi:"ownerId"`
@@ -2705,9 +2809,9 @@ type GetVpcIpamsIpamInput interface {
 type GetVpcIpamsIpamArgs struct {
 	// ARN of the IPAM.
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// The default resource discovery association ID.
+	// Default resource discovery association ID.
 	DefaultResourceDiscoveryAssociationId pulumi.StringInput `pulumi:"defaultResourceDiscoveryAssociationId"`
-	// The default resource discovery ID.
+	// Default resource discovery ID.
 	DefaultResourceDiscoveryId pulumi.StringInput `pulumi:"defaultResourceDiscoveryId"`
 	// Description for the IPAM.
 	Description pulumi.StringInput `pulumi:"description"`
@@ -2716,9 +2820,10 @@ type GetVpcIpamsIpamArgs struct {
 	// ID of the IPAM resource.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Region that the IPAM exists in.
-	IpamRegion     pulumi.StringInput `pulumi:"ipamRegion"`
+	IpamRegion pulumi.StringInput `pulumi:"ipamRegion"`
+	// AWS account that is charged for active IP addresses managed in IPAM.
 	MeteredAccount pulumi.StringInput `pulumi:"meteredAccount"`
-	// Regions that the IPAM is configured to operate in.
+	// Regions that the IPAM is configured to operate in. See below.
 	OperatingRegions GetVpcIpamsIpamOperatingRegionArrayInput `pulumi:"operatingRegions"`
 	// ID of the account that owns this IPAM.
 	OwnerId pulumi.StringInput `pulumi:"ownerId"`
@@ -2794,12 +2899,12 @@ func (o GetVpcIpamsIpamOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIpamsIpam) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The default resource discovery association ID.
+// Default resource discovery association ID.
 func (o GetVpcIpamsIpamOutput) DefaultResourceDiscoveryAssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIpamsIpam) string { return v.DefaultResourceDiscoveryAssociationId }).(pulumi.StringOutput)
 }
 
-// The default resource discovery ID.
+// Default resource discovery ID.
 func (o GetVpcIpamsIpamOutput) DefaultResourceDiscoveryId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIpamsIpam) string { return v.DefaultResourceDiscoveryId }).(pulumi.StringOutput)
 }
@@ -2824,11 +2929,12 @@ func (o GetVpcIpamsIpamOutput) IpamRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIpamsIpam) string { return v.IpamRegion }).(pulumi.StringOutput)
 }
 
+// AWS account that is charged for active IP addresses managed in IPAM.
 func (o GetVpcIpamsIpamOutput) MeteredAccount() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIpamsIpam) string { return v.MeteredAccount }).(pulumi.StringOutput)
 }
 
-// Regions that the IPAM is configured to operate in.
+// Regions that the IPAM is configured to operate in. See below.
 func (o GetVpcIpamsIpamOutput) OperatingRegions() GetVpcIpamsIpamOperatingRegionArrayOutput {
 	return o.ApplyT(func(v GetVpcIpamsIpam) []GetVpcIpamsIpamOperatingRegion { return v.OperatingRegions }).(GetVpcIpamsIpamOperatingRegionArrayOutput)
 }
@@ -2894,6 +3000,7 @@ func (o GetVpcIpamsIpamArrayOutput) Index(i pulumi.IntInput) GetVpcIpamsIpamOutp
 }
 
 type GetVpcIpamsIpamOperatingRegion struct {
+	// Name of the Region.
 	RegionName string `pulumi:"regionName"`
 }
 
@@ -2909,6 +3016,7 @@ type GetVpcIpamsIpamOperatingRegionInput interface {
 }
 
 type GetVpcIpamsIpamOperatingRegionArgs struct {
+	// Name of the Region.
 	RegionName pulumi.StringInput `pulumi:"regionName"`
 }
 
@@ -2963,6 +3071,7 @@ func (o GetVpcIpamsIpamOperatingRegionOutput) ToGetVpcIpamsIpamOperatingRegionOu
 	return o
 }
 
+// Name of the Region.
 func (o GetVpcIpamsIpamOperatingRegionOutput) RegionName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIpamsIpamOperatingRegion) string { return v.RegionName }).(pulumi.StringOutput)
 }
@@ -3236,11 +3345,9 @@ func (o GetVpcPeeringConnectionCidrBlockSetArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GetVpcPeeringConnectionFilter struct {
-	// Name of the field to filter by, as defined by
-	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+	// Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
 	Name string `pulumi:"name"`
-	// Set of values that are accepted for the given field.
-	// A VPC Peering Connection will be selected if any one of the given values matches.
+	// Set of values that are accepted for the given field. A VPC Peering Connection will be selected if any one of the given values matches.
 	Values []string `pulumi:"values"`
 }
 
@@ -3256,11 +3363,9 @@ type GetVpcPeeringConnectionFilterInput interface {
 }
 
 type GetVpcPeeringConnectionFilterArgs struct {
-	// Name of the field to filter by, as defined by
-	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+	// Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
 	Name pulumi.StringInput `pulumi:"name"`
-	// Set of values that are accepted for the given field.
-	// A VPC Peering Connection will be selected if any one of the given values matches.
+	// Set of values that are accepted for the given field. A VPC Peering Connection will be selected if any one of the given values matches.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -3315,14 +3420,12 @@ func (o GetVpcPeeringConnectionFilterOutput) ToGetVpcPeeringConnectionFilterOutp
 	return o
 }
 
-// Name of the field to filter by, as defined by
-// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+// Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
 func (o GetVpcPeeringConnectionFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcPeeringConnectionFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Set of values that are accepted for the given field.
-// A VPC Peering Connection will be selected if any one of the given values matches.
+// Set of values that are accepted for the given field. A VPC Peering Connection will be selected if any one of the given values matches.
 func (o GetVpcPeeringConnectionFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVpcPeeringConnectionFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -3348,6 +3451,7 @@ func (o GetVpcPeeringConnectionFilterArrayOutput) Index(i pulumi.IntInput) GetVp
 }
 
 type GetVpcPeeringConnectionIpv6CidrBlockSet struct {
+	// IPv6 CIDR block associated to the VPC of the specific VPC Peering Connection.
 	Ipv6CidrBlock string `pulumi:"ipv6CidrBlock"`
 }
 
@@ -3363,6 +3467,7 @@ type GetVpcPeeringConnectionIpv6CidrBlockSetInput interface {
 }
 
 type GetVpcPeeringConnectionIpv6CidrBlockSetArgs struct {
+	// IPv6 CIDR block associated to the VPC of the specific VPC Peering Connection.
 	Ipv6CidrBlock pulumi.StringInput `pulumi:"ipv6CidrBlock"`
 }
 
@@ -3417,6 +3522,7 @@ func (o GetVpcPeeringConnectionIpv6CidrBlockSetOutput) ToGetVpcPeeringConnection
 	return o
 }
 
+// IPv6 CIDR block associated to the VPC of the specific VPC Peering Connection.
 func (o GetVpcPeeringConnectionIpv6CidrBlockSetOutput) Ipv6CidrBlock() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcPeeringConnectionIpv6CidrBlockSet) string { return v.Ipv6CidrBlock }).(pulumi.StringOutput)
 }
@@ -3539,6 +3645,7 @@ func (o GetVpcPeeringConnectionPeerCidrBlockSetArrayOutput) Index(i pulumi.IntIn
 }
 
 type GetVpcPeeringConnectionPeerIpv6CidrBlockSet struct {
+	// IPv6 CIDR block associated to the VPC of the specific VPC Peering Connection.
 	Ipv6CidrBlock string `pulumi:"ipv6CidrBlock"`
 }
 
@@ -3554,6 +3661,7 @@ type GetVpcPeeringConnectionPeerIpv6CidrBlockSetInput interface {
 }
 
 type GetVpcPeeringConnectionPeerIpv6CidrBlockSetArgs struct {
+	// IPv6 CIDR block associated to the VPC of the specific VPC Peering Connection.
 	Ipv6CidrBlock pulumi.StringInput `pulumi:"ipv6CidrBlock"`
 }
 
@@ -3608,6 +3716,7 @@ func (o GetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput) ToGetVpcPeeringConnec
 	return o
 }
 
+// IPv6 CIDR block associated to the VPC of the specific VPC Peering Connection.
 func (o GetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput) Ipv6CidrBlock() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcPeeringConnectionPeerIpv6CidrBlockSet) string { return v.Ipv6CidrBlock }).(pulumi.StringOutput)
 }
@@ -3633,11 +3742,9 @@ func (o GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutput) Index(i pulumi.I
 }
 
 type GetVpcPeeringConnectionsFilter struct {
-	// Name of the field to filter by, as defined by
-	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+	// Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
 	Name string `pulumi:"name"`
-	// Set of values that are accepted for the given field.
-	// A VPC Peering Connection will be selected if any one of the given values matches.
+	// Set of values that are accepted for the given field. A VPC Peering Connection will be selected if any one of the given values matches.
 	Values []string `pulumi:"values"`
 }
 
@@ -3653,11 +3760,9 @@ type GetVpcPeeringConnectionsFilterInput interface {
 }
 
 type GetVpcPeeringConnectionsFilterArgs struct {
-	// Name of the field to filter by, as defined by
-	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+	// Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
 	Name pulumi.StringInput `pulumi:"name"`
-	// Set of values that are accepted for the given field.
-	// A VPC Peering Connection will be selected if any one of the given values matches.
+	// Set of values that are accepted for the given field. A VPC Peering Connection will be selected if any one of the given values matches.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -3712,14 +3817,12 @@ func (o GetVpcPeeringConnectionsFilterOutput) ToGetVpcPeeringConnectionsFilterOu
 	return o
 }
 
-// Name of the field to filter by, as defined by
-// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+// Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
 func (o GetVpcPeeringConnectionsFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcPeeringConnectionsFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Set of values that are accepted for the given field.
-// A VPC Peering Connection will be selected if any one of the given values matches.
+// Set of values that are accepted for the given field. A VPC Peering Connection will be selected if any one of the given values matches.
 func (o GetVpcPeeringConnectionsFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVpcPeeringConnectionsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -3745,11 +3848,9 @@ func (o GetVpcPeeringConnectionsFilterArrayOutput) Index(i pulumi.IntInput) GetV
 }
 
 type GetVpcsFilter struct {
-	// Name of the field to filter by, as defined by
-	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
+	// Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
 	Name string `pulumi:"name"`
-	// Set of values that are accepted for the given field.
-	// A VPC will be selected if any one of the given values matches.
+	// Set of values that are accepted for the given field. A VPC will be selected if any one of the given values matches.
 	Values []string `pulumi:"values"`
 }
 
@@ -3765,11 +3866,9 @@ type GetVpcsFilterInput interface {
 }
 
 type GetVpcsFilterArgs struct {
-	// Name of the field to filter by, as defined by
-	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
+	// Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
 	Name pulumi.StringInput `pulumi:"name"`
-	// Set of values that are accepted for the given field.
-	// A VPC will be selected if any one of the given values matches.
+	// Set of values that are accepted for the given field. A VPC will be selected if any one of the given values matches.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -3824,14 +3923,12 @@ func (o GetVpcsFilterOutput) ToGetVpcsFilterOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Name of the field to filter by, as defined by
-// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
+// Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
 func (o GetVpcsFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcsFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Set of values that are accepted for the given field.
-// A VPC will be selected if any one of the given values matches.
+// Set of values that are accepted for the given field. A VPC will be selected if any one of the given values matches.
 func (o GetVpcsFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVpcsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -3963,9 +4060,11 @@ func (o GetVpnConnectionFilterArrayOutput) Index(i pulumi.IntInput) GetVpnConnec
 }
 
 type GetVpnConnectionRouteType struct {
+	// CIDR block associated with the local subnet of the customer data center.
 	DestinationCidrBlock string `pulumi:"destinationCidrBlock"`
-	Source               string `pulumi:"source"`
-	// Current state of the VPN connection.
+	// How the routes were provided.
+	Source string `pulumi:"source"`
+	// Current state of the static route.
 	State string `pulumi:"state"`
 }
 
@@ -3981,9 +4080,11 @@ type GetVpnConnectionRouteTypeInput interface {
 }
 
 type GetVpnConnectionRouteTypeArgs struct {
+	// CIDR block associated with the local subnet of the customer data center.
 	DestinationCidrBlock pulumi.StringInput `pulumi:"destinationCidrBlock"`
-	Source               pulumi.StringInput `pulumi:"source"`
-	// Current state of the VPN connection.
+	// How the routes were provided.
+	Source pulumi.StringInput `pulumi:"source"`
+	// Current state of the static route.
 	State pulumi.StringInput `pulumi:"state"`
 }
 
@@ -4038,15 +4139,17 @@ func (o GetVpnConnectionRouteTypeOutput) ToGetVpnConnectionRouteTypeOutputWithCo
 	return o
 }
 
+// CIDR block associated with the local subnet of the customer data center.
 func (o GetVpnConnectionRouteTypeOutput) DestinationCidrBlock() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpnConnectionRouteType) string { return v.DestinationCidrBlock }).(pulumi.StringOutput)
 }
 
+// How the routes were provided.
 func (o GetVpnConnectionRouteTypeOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpnConnectionRouteType) string { return v.Source }).(pulumi.StringOutput)
 }
 
-// Current state of the VPN connection.
+// Current state of the static route.
 func (o GetVpnConnectionRouteTypeOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpnConnectionRouteType) string { return v.State }).(pulumi.StringOutput)
 }
@@ -4072,11 +4175,16 @@ func (o GetVpnConnectionRouteTypeArrayOutput) Index(i pulumi.IntInput) GetVpnCon
 }
 
 type GetVpnConnectionVgwTelemetry struct {
-	AcceptedRouteCount int    `pulumi:"acceptedRouteCount"`
-	LastStatusChange   string `pulumi:"lastStatusChange"`
-	OutsideIpAddress   string `pulumi:"outsideIpAddress"`
-	Status             string `pulumi:"status"`
-	StatusMessage      string `pulumi:"statusMessage"`
+	// Number of accepted routes.
+	AcceptedRouteCount int `pulumi:"acceptedRouteCount"`
+	// Date and time of the last change in status.
+	LastStatusChange string `pulumi:"lastStatusChange"`
+	// IP address of the virtual private gateway tunnel endpoint.
+	OutsideIpAddress string `pulumi:"outsideIpAddress"`
+	// Status of the VPN tunnel.
+	Status string `pulumi:"status"`
+	// Information about the status change.
+	StatusMessage string `pulumi:"statusMessage"`
 }
 
 // GetVpnConnectionVgwTelemetryInput is an input type that accepts GetVpnConnectionVgwTelemetryArgs and GetVpnConnectionVgwTelemetryOutput values.
@@ -4091,11 +4199,16 @@ type GetVpnConnectionVgwTelemetryInput interface {
 }
 
 type GetVpnConnectionVgwTelemetryArgs struct {
-	AcceptedRouteCount pulumi.IntInput    `pulumi:"acceptedRouteCount"`
-	LastStatusChange   pulumi.StringInput `pulumi:"lastStatusChange"`
-	OutsideIpAddress   pulumi.StringInput `pulumi:"outsideIpAddress"`
-	Status             pulumi.StringInput `pulumi:"status"`
-	StatusMessage      pulumi.StringInput `pulumi:"statusMessage"`
+	// Number of accepted routes.
+	AcceptedRouteCount pulumi.IntInput `pulumi:"acceptedRouteCount"`
+	// Date and time of the last change in status.
+	LastStatusChange pulumi.StringInput `pulumi:"lastStatusChange"`
+	// IP address of the virtual private gateway tunnel endpoint.
+	OutsideIpAddress pulumi.StringInput `pulumi:"outsideIpAddress"`
+	// Status of the VPN tunnel.
+	Status pulumi.StringInput `pulumi:"status"`
+	// Information about the status change.
+	StatusMessage pulumi.StringInput `pulumi:"statusMessage"`
 }
 
 func (GetVpnConnectionVgwTelemetryArgs) ElementType() reflect.Type {
@@ -4149,22 +4262,27 @@ func (o GetVpnConnectionVgwTelemetryOutput) ToGetVpnConnectionVgwTelemetryOutput
 	return o
 }
 
+// Number of accepted routes.
 func (o GetVpnConnectionVgwTelemetryOutput) AcceptedRouteCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetVpnConnectionVgwTelemetry) int { return v.AcceptedRouteCount }).(pulumi.IntOutput)
 }
 
+// Date and time of the last change in status.
 func (o GetVpnConnectionVgwTelemetryOutput) LastStatusChange() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpnConnectionVgwTelemetry) string { return v.LastStatusChange }).(pulumi.StringOutput)
 }
 
+// IP address of the virtual private gateway tunnel endpoint.
 func (o GetVpnConnectionVgwTelemetryOutput) OutsideIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpnConnectionVgwTelemetry) string { return v.OutsideIpAddress }).(pulumi.StringOutput)
 }
 
+// Status of the VPN tunnel.
 func (o GetVpnConnectionVgwTelemetryOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpnConnectionVgwTelemetry) string { return v.Status }).(pulumi.StringOutput)
 }
 
+// Information about the status change.
 func (o GetVpnConnectionVgwTelemetryOutput) StatusMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpnConnectionVgwTelemetry) string { return v.StatusMessage }).(pulumi.StringOutput)
 }
@@ -4190,11 +4308,9 @@ func (o GetVpnConnectionVgwTelemetryArrayOutput) Index(i pulumi.IntInput) GetVpn
 }
 
 type GetVpnGatewayFilter struct {
-	// Name of the field to filter by, as defined by
-	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
+	// Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
 	Name string `pulumi:"name"`
-	// Set of values that are accepted for the given field.
-	// A VPN Gateway will be selected if any one of the given values matches.
+	// Set of values that are accepted for the given field. A VPN Gateway will be selected if any one of the given values matches.
 	Values []string `pulumi:"values"`
 }
 
@@ -4210,11 +4326,9 @@ type GetVpnGatewayFilterInput interface {
 }
 
 type GetVpnGatewayFilterArgs struct {
-	// Name of the field to filter by, as defined by
-	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
+	// Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
 	Name pulumi.StringInput `pulumi:"name"`
-	// Set of values that are accepted for the given field.
-	// A VPN Gateway will be selected if any one of the given values matches.
+	// Set of values that are accepted for the given field. A VPN Gateway will be selected if any one of the given values matches.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -4269,14 +4383,12 @@ func (o GetVpnGatewayFilterOutput) ToGetVpnGatewayFilterOutputWithContext(ctx co
 	return o
 }
 
-// Name of the field to filter by, as defined by
-// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
+// Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
 func (o GetVpnGatewayFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpnGatewayFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Set of values that are accepted for the given field.
-// A VPN Gateway will be selected if any one of the given values matches.
+// Set of values that are accepted for the given field. A VPN Gateway will be selected if any one of the given values matches.
 func (o GetVpnGatewayFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVpnGatewayFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -4302,6 +4414,8 @@ func (o GetVpnGatewayFilterArrayOutput) Index(i pulumi.IntInput) GetVpnGatewayFi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTablesFilterInput)(nil)).Elem(), GetRouteTablesFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTablesFilterArrayInput)(nil)).Elem(), GetRouteTablesFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityGroupFilterInput)(nil)).Elem(), GetSecurityGroupFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityGroupFilterArrayInput)(nil)).Elem(), GetSecurityGroupFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityGroupsFilterInput)(nil)).Elem(), GetSecurityGroupsFilterArgs{})
@@ -4376,6 +4490,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnConnectionVgwTelemetryArrayInput)(nil)).Elem(), GetVpnConnectionVgwTelemetryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnGatewayFilterInput)(nil)).Elem(), GetVpnGatewayFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnGatewayFilterArrayInput)(nil)).Elem(), GetVpnGatewayFilterArray{})
+	pulumi.RegisterOutputType(GetRouteTablesFilterOutput{})
+	pulumi.RegisterOutputType(GetRouteTablesFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetSecurityGroupFilterOutput{})
 	pulumi.RegisterOutputType(GetSecurityGroupFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetSecurityGroupsFilterOutput{})

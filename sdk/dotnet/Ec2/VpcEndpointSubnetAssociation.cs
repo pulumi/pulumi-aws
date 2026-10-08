@@ -57,13 +57,13 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the subnet to be associated with the VPC endpoint.
+        /// ID of the subnet to be associated with the VPC endpoint.
         /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the VPC endpoint with which the subnet will be associated.
+        /// ID of the VPC endpoint with which the subnet will be associated.
         /// </summary>
         [Output("vpcEndpointId")]
         public Output<string> VpcEndpointId { get; private set; } = null!;
@@ -121,13 +121,13 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ID of the subnet to be associated with the VPC endpoint.
+        /// ID of the subnet to be associated with the VPC endpoint.
         /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the VPC endpoint with which the subnet will be associated.
+        /// ID of the VPC endpoint with which the subnet will be associated.
         /// </summary>
         [Input("vpcEndpointId", required: true)]
         public Input<string> VpcEndpointId { get; set; } = null!;
@@ -147,13 +147,13 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ID of the subnet to be associated with the VPC endpoint.
+        /// ID of the subnet to be associated with the VPC endpoint.
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
         /// <summary>
-        /// The ID of the VPC endpoint with which the subnet will be associated.
+        /// ID of the VPC endpoint with which the subnet will be associated.
         /// </summary>
         [Input("vpcEndpointId")]
         public Input<string>? VpcEndpointId { get; set; }

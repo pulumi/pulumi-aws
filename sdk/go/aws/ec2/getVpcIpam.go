@@ -62,9 +62,9 @@ type LookupVpcIpamArgs struct {
 type LookupVpcIpamResult struct {
 	// ARN of the IPAM.
 	Arn string `pulumi:"arn"`
-	// The default resource discovery association ID.
+	// Default resource discovery association ID.
 	DefaultResourceDiscoveryAssociationId string `pulumi:"defaultResourceDiscoveryAssociationId"`
-	// The default resource discovery ID.
+	// Default resource discovery ID.
 	DefaultResourceDiscoveryId string `pulumi:"defaultResourceDiscoveryId"`
 	// Description for the IPAM.
 	Description string `pulumi:"description"`
@@ -136,12 +136,12 @@ func (o LookupVpcIpamResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcIpamResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The default resource discovery association ID.
+// Default resource discovery association ID.
 func (o LookupVpcIpamResultOutput) DefaultResourceDiscoveryAssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcIpamResult) string { return v.DefaultResourceDiscoveryAssociationId }).(pulumi.StringOutput)
 }
 
-// The default resource discovery ID.
+// Default resource discovery ID.
 func (o LookupVpcIpamResultOutput) DefaultResourceDiscoveryId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcIpamResult) string { return v.DefaultResourceDiscoveryId }).(pulumi.StringOutput)
 }

@@ -106,8 +106,8 @@ class RouteServerPeerBgpOptions(dict):
                  peer_asn: _builtins.int,
                  peer_liveness_detection: Optional[_builtins.str] = None):
         """
-        :param _builtins.int peer_asn: The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
-        :param _builtins.str peer_liveness_detection: The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
+        :param _builtins.int peer_asn: Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
+        :param _builtins.str peer_liveness_detection: Requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
         """
         pulumi.set(__self__, "peer_asn", peer_asn)
         if peer_liveness_detection is not None:
@@ -117,7 +117,7 @@ class RouteServerPeerBgpOptions(dict):
     @pulumi.getter(name="peerAsn")
     def peer_asn(self) -> _builtins.int:
         """
-        The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
+        Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
         """
         return pulumi.get(self, "peer_asn")
 
@@ -125,7 +125,7 @@ class RouteServerPeerBgpOptions(dict):
     @pulumi.getter(name="peerLivenessDetection")
     def peer_liveness_detection(self) -> Optional[_builtins.str]:
         """
-        The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
+        Requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
         """
         return pulumi.get(self, "peer_liveness_detection")
 
@@ -492,11 +492,8 @@ class GetSecurityGroupRulesFilterResult(dict):
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
         """
-        :param _builtins.str name: Name of the field to filter by, as defined by
-               [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html).
+        :param _builtins.str name: Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html).
         :param Sequence[_builtins.str] values: Set of values that are accepted for the given field.
-               
-               Security group rule IDs will be selected if any one of the given values match.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -505,8 +502,7 @@ class GetSecurityGroupRulesFilterResult(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Name of the field to filter by, as defined by
-        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html).
+        Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html).
         """
         return pulumi.get(self, "name")
 
@@ -515,8 +511,6 @@ class GetSecurityGroupRulesFilterResult(dict):
     def values(self) -> Sequence[_builtins.str]:
         """
         Set of values that are accepted for the given field.
-
-        Security group rule IDs will be selected if any one of the given values match.
         """
         return pulumi.get(self, "values")
 

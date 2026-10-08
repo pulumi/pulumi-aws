@@ -63,9 +63,10 @@ type LookupInputResult struct {
 	// ARN of the Input.
 	Arn string `pulumi:"arn"`
 	// Channels attached to Input.
-	AttachedChannels []string              `pulumi:"attachedChannels"`
-	Destinations     []GetInputDestination `pulumi:"destinations"`
-	Id               string                `pulumi:"id"`
+	AttachedChannels []string `pulumi:"attachedChannels"`
+	// Destination settings for PUSH type inputs.
+	Destinations []GetInputDestination `pulumi:"destinations"`
+	Id           string                `pulumi:"id"`
 	// The input class.
 	InputClass string `pulumi:"inputClass"`
 	// Settings for the devices.
@@ -135,6 +136,7 @@ func (o LookupInputResultOutput) AttachedChannels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupInputResult) []string { return v.AttachedChannels }).(pulumi.StringArrayOutput)
 }
 
+// Destination settings for PUSH type inputs.
 func (o LookupInputResultOutput) Destinations() GetInputDestinationArrayOutput {
 	return o.ApplyT(func(v LookupInputResult) []GetInputDestination { return v.Destinations }).(GetInputDestinationArrayOutput)
 }

@@ -16,14 +16,14 @@ public final class RuleGroupRuleActionCountArgs extends com.pulumi.resources.Res
     public static final RuleGroupRuleActionCountArgs Empty = new RuleGroupRuleActionCountArgs();
 
     /**
-     * Defines custom handling for the web request. See Custom Request Handling below for details.
+     * Custom handling for the web request. See Custom Request Handling below for details.
      * 
      */
     @Import(name="customRequestHandling")
     private @Nullable Output<RuleGroupRuleActionCountCustomRequestHandlingArgs> customRequestHandling;
 
     /**
-     * @return Defines custom handling for the web request. See Custom Request Handling below for details.
+     * @return Custom handling for the web request. See Custom Request Handling below for details.
      * 
      */
     public Optional<Output<RuleGroupRuleActionCountCustomRequestHandlingArgs>> customRequestHandling() {
@@ -55,7 +55,7 @@ public final class RuleGroupRuleActionCountArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param customRequestHandling Defines custom handling for the web request. See Custom Request Handling below for details.
+         * @param customRequestHandling Custom handling for the web request. See Custom Request Handling below for details.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class RuleGroupRuleActionCountArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param customRequestHandling Defines custom handling for the web request. See Custom Request Handling below for details.
+         * @param customRequestHandling Custom handling for the web request. See Custom Request Handling below for details.
          * 
          * @return builder
          * 

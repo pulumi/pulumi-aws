@@ -287,7 +287,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         public readonly string TransitGatewayId;
         /// <summary>
-        /// The underlaying VPC attachment
+        /// The underlying VPC attachment
         /// </summary>
         public readonly string TransportAttachmentId;
 

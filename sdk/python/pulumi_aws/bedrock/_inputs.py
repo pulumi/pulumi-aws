@@ -18351,7 +18351,7 @@ class AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeArgs:
 class AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaArgsDict(TypedDict):
     source: pulumi.Input['AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSourceArgsDict']
     """
-    Configuration for the API schema. Supports exactly one of `inline_payload` or `s3` (see `s3` Block). For HTTP targets, the `inline_payload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
+    Configuration for the API schema. Supports exactly one of `inline_payload` or `s3`. For HTTP targets, these blocks are documented under their full paths (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block and `target_configuration.http.agentcore_runtime.schema.source.s3` Block).
     """
 
 @pulumi.input_type
@@ -18359,7 +18359,7 @@ class AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaArgs:
     def __init__(__self__, *,
                  source: pulumi.Input['AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSourceArgs']):
         """
-        :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSourceArgs'] source: Configuration for the API schema. Supports exactly one of `inline_payload` or `s3` (see `s3` Block). For HTTP targets, the `inline_payload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
+        :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSourceArgs'] source: Configuration for the API schema. Supports exactly one of `inline_payload` or `s3`. For HTTP targets, these blocks are documented under their full paths (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block and `target_configuration.http.agentcore_runtime.schema.source.s3` Block).
         """
         pulumi.set(__self__, "source", source)
 
@@ -18367,7 +18367,7 @@ class AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaArgs:
     @pulumi.getter
     def source(self) -> pulumi.Input['AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSourceArgs']:
         """
-        Configuration for the API schema. Supports exactly one of `inline_payload` or `s3` (see `s3` Block). For HTTP targets, the `inline_payload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
+        Configuration for the API schema. Supports exactly one of `inline_payload` or `s3`. For HTTP targets, these blocks are documented under their full paths (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block and `target_configuration.http.agentcore_runtime.schema.source.s3` Block).
         """
         return pulumi.get(self, "source")
 
@@ -18616,7 +18616,7 @@ class AgentcoreGatewayTargetTargetConfigurationHttpPassthroughArgs:
 class AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaArgsDict(TypedDict):
     source: pulumi.Input['AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourceArgsDict']
     """
-    Configuration for the API schema. Supports exactly one of `inline_payload` or `s3` (see `s3` Block). For HTTP targets, the `inline_payload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
+    Configuration for the API schema. Supports exactly one of `inline_payload` or `s3`. For HTTP targets, these blocks are documented under their full paths (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block and `target_configuration.http.agentcore_runtime.schema.source.s3` Block).
     """
 
 @pulumi.input_type
@@ -18624,7 +18624,7 @@ class AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaArgs:
     def __init__(__self__, *,
                  source: pulumi.Input['AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourceArgs']):
         """
-        :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourceArgs'] source: Configuration for the API schema. Supports exactly one of `inline_payload` or `s3` (see `s3` Block). For HTTP targets, the `inline_payload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
+        :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourceArgs'] source: Configuration for the API schema. Supports exactly one of `inline_payload` or `s3`. For HTTP targets, these blocks are documented under their full paths (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block and `target_configuration.http.agentcore_runtime.schema.source.s3` Block).
         """
         pulumi.set(__self__, "source", source)
 
@@ -18632,7 +18632,7 @@ class AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaArgs:
     @pulumi.getter
     def source(self) -> pulumi.Input['AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourceArgs']:
         """
-        Configuration for the API schema. Supports exactly one of `inline_payload` or `s3` (see `s3` Block). For HTTP targets, the `inline_payload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
+        Configuration for the API schema. Supports exactly one of `inline_payload` or `s3`. For HTTP targets, these blocks are documented under their full paths (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block and `target_configuration.http.agentcore_runtime.schema.source.s3` Block).
         """
         return pulumi.get(self, "source")
 
@@ -19176,11 +19176,11 @@ class AgentcoreGatewayTargetTargetConfigurationMcpArgsDict(TypedDict):
     """
     open_api_schema: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgsDict']]]
     """
-    OpenAPI schema-based target configuration. Supports exactly one of `inline_payload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `s3` Block).
+    OpenAPI schema-based target configuration. Supports exactly one of `inline_payload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `target_configuration.mcp.open_api_schema.s3` Block).
     """
     smithy_model: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgsDict']]]
     """
-    Smithy model-based target configuration. Supports exactly one of `inline_payload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `s3` Block).
+    Smithy model-based target configuration. Supports exactly one of `inline_payload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `target_configuration.mcp.smithy_model.s3` Block).
     """
 
 @pulumi.input_type
@@ -19197,8 +19197,8 @@ class AgentcoreGatewayTargetTargetConfigurationMcpArgs:
         :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpConnectorArgs'] connector: Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `target_configuration.mcp.connector` Block below.
         :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs'] lambda_: Lambda function target configuration. See `lambda` Block below.
         :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs'] mcp_server: MCP server target configuration. See `mcp_server` Block below.
-        :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs'] open_api_schema: OpenAPI schema-based target configuration. Supports exactly one of `inline_payload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `s3` Block).
-        :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs'] smithy_model: Smithy model-based target configuration. Supports exactly one of `inline_payload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `s3` Block).
+        :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs'] open_api_schema: OpenAPI schema-based target configuration. Supports exactly one of `inline_payload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `target_configuration.mcp.open_api_schema.s3` Block).
+        :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs'] smithy_model: Smithy model-based target configuration. Supports exactly one of `inline_payload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `target_configuration.mcp.smithy_model.s3` Block).
         """
         if api_gateway is not None:
             pulumi.set(__self__, "api_gateway", api_gateway)
@@ -19265,7 +19265,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpArgs:
     @pulumi.getter(name="openApiSchema")
     def open_api_schema(self) -> pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs']]:
         """
-        OpenAPI schema-based target configuration. Supports exactly one of `inline_payload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `s3` Block).
+        OpenAPI schema-based target configuration. Supports exactly one of `inline_payload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `target_configuration.mcp.open_api_schema.s3` Block).
         """
         return pulumi.get(self, "open_api_schema")
 
@@ -19277,7 +19277,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpArgs:
     @pulumi.getter(name="smithyModel")
     def smithy_model(self) -> pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs']]:
         """
-        Smithy model-based target configuration. Supports exactly one of `inline_payload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `s3` Block).
+        Smithy model-based target configuration. Supports exactly one of `inline_payload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `target_configuration.mcp.smithy_model.s3` Block).
         """
         return pulumi.get(self, "smithy_model")
 
@@ -19853,7 +19853,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgsDict(Typed
     """
     s3: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3ArgsDict']]]
     """
-    S3-based tool definition. See `s3` Block below.
+    S3-based tool definition. See `target_configuration.mcp.lambda.tool_schema.s3` Block below.
     """
 
 @pulumi.input_type
@@ -19863,7 +19863,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs:
                  s3: pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs']]] inline_payloads: Inline tool definition. See `target_configuration.mcp.lambda.tool_schema.inline_payload` Block below.
-        :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args'] s3: S3-based tool definition. See `s3` Block below.
+        :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args'] s3: S3-based tool definition. See `target_configuration.mcp.lambda.tool_schema.s3` Block below.
         """
         if inline_payloads is not None:
             pulumi.set(__self__, "inline_payloads", inline_payloads)
@@ -19886,7 +19886,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs:
     @pulumi.getter
     def s3(self) -> pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args']]:
         """
-        S3-based tool definition. See `s3` Block below.
+        S3-based tool definition. See `target_configuration.mcp.lambda.tool_schema.s3` Block below.
         """
         return pulumi.get(self, "s3")
 
@@ -22021,7 +22021,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaArgsDict
     """
     s3: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3ArgsDict']]]
     """
-    S3 location of the tool schema. See `s3` Block below.
+    S3 location of the tool schema. See `target_configuration.mcp.mcp_server.mcp_tool_schema.s3` Block below.
     """
 
 @pulumi.input_type
@@ -22031,7 +22031,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaArgs:
                  s3: pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3Args']] = None):
         """
         :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePayloadArgs'] inline_payload: Inline tool schema payload. The `inline_payload` block requires a `payload` (string) containing the MCP tool schema definition.
-        :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3Args'] s3: S3 location of the tool schema. See `s3` Block below.
+        :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3Args'] s3: S3 location of the tool schema. See `target_configuration.mcp.mcp_server.mcp_tool_schema.s3` Block below.
         """
         if inline_payload is not None:
             pulumi.set(__self__, "inline_payload", inline_payload)
@@ -22054,7 +22054,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaArgs:
     @pulumi.getter
     def s3(self) -> pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3Args']]:
         """
-        S3 location of the tool schema. See `s3` Block below.
+        S3 location of the tool schema. See `target_configuration.mcp.mcp_server.mcp_tool_schema.s3` Block below.
         """
         return pulumi.get(self, "s3")
 
@@ -27370,15 +27370,15 @@ class AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConf
 class AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsArgsDict(TypedDict):
     message_based_trigger: NotRequired[pulumi.Input[Optional['AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerArgsDict']]]
     """
-    Message-based condition. See `message_based_trigger` Block below.
+    Message-based condition. See `configuration.self_managed_configuration.trigger_conditions.message_based_trigger` Block below.
     """
     time_based_trigger: NotRequired[pulumi.Input[Optional['AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerArgsDict']]]
     """
-    Idle-time condition. See `time_based_trigger` Block below.
+    Idle-time condition. See `configuration.self_managed_configuration.trigger_conditions.time_based_trigger` Block below.
     """
     token_based_trigger: NotRequired[pulumi.Input[Optional['AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerArgsDict']]]
     """
-    Token-based condition. See `token_based_trigger` Block below.
+    Token-based condition. See `configuration.self_managed_configuration.trigger_conditions.token_based_trigger` Block below.
     """
 
 @pulumi.input_type
@@ -27388,9 +27388,9 @@ class AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditi
                  time_based_trigger: pulumi.Input[Optional['AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerArgs']] = None,
                  token_based_trigger: pulumi.Input[Optional['AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerArgs']] = None):
         """
-        :param pulumi.Input['AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerArgs'] message_based_trigger: Message-based condition. See `message_based_trigger` Block below.
-        :param pulumi.Input['AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerArgs'] time_based_trigger: Idle-time condition. See `time_based_trigger` Block below.
-        :param pulumi.Input['AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerArgs'] token_based_trigger: Token-based condition. See `token_based_trigger` Block below.
+        :param pulumi.Input['AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerArgs'] message_based_trigger: Message-based condition. See `configuration.self_managed_configuration.trigger_conditions.message_based_trigger` Block below.
+        :param pulumi.Input['AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerArgs'] time_based_trigger: Idle-time condition. See `configuration.self_managed_configuration.trigger_conditions.time_based_trigger` Block below.
+        :param pulumi.Input['AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerArgs'] token_based_trigger: Token-based condition. See `configuration.self_managed_configuration.trigger_conditions.token_based_trigger` Block below.
         """
         if message_based_trigger is not None:
             pulumi.set(__self__, "message_based_trigger", message_based_trigger)
@@ -27403,7 +27403,7 @@ class AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditi
     @pulumi.getter(name="messageBasedTrigger")
     def message_based_trigger(self) -> pulumi.Input[Optional['AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerArgs']]:
         """
-        Message-based condition. See `message_based_trigger` Block below.
+        Message-based condition. See `configuration.self_managed_configuration.trigger_conditions.message_based_trigger` Block below.
         """
         return pulumi.get(self, "message_based_trigger")
 
@@ -27415,7 +27415,7 @@ class AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditi
     @pulumi.getter(name="timeBasedTrigger")
     def time_based_trigger(self) -> pulumi.Input[Optional['AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerArgs']]:
         """
-        Idle-time condition. See `time_based_trigger` Block below.
+        Idle-time condition. See `configuration.self_managed_configuration.trigger_conditions.time_based_trigger` Block below.
         """
         return pulumi.get(self, "time_based_trigger")
 
@@ -27427,7 +27427,7 @@ class AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditi
     @pulumi.getter(name="tokenBasedTrigger")
     def token_based_trigger(self) -> pulumi.Input[Optional['AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerArgs']]:
         """
-        Token-based condition. See `token_based_trigger` Block below.
+        Token-based condition. See `configuration.self_managed_configuration.trigger_conditions.token_based_trigger` Block below.
         """
         return pulumi.get(self, "token_based_trigger")
 

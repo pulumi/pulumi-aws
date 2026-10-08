@@ -17,7 +17,7 @@ public final class VpcEndpointServicePrivateDnsNameConfiguration {
      */
     private @Nullable String name;
     /**
-     * @return Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
+     * @return State of the VPC endpoint service.
      * 
      */
     private @Nullable String state;
@@ -41,7 +41,7 @@ public final class VpcEndpointServicePrivateDnsNameConfiguration {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
+     * @return State of the VPC endpoint service.
      * 
      */
     public Optional<String> state() {

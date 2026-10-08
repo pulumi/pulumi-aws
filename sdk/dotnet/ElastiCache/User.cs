@@ -52,8 +52,8 @@ namespace Pulumi.Aws.ElastiCache
     ///         {
     ///             Type = "iam",
     ///         },
-    ///         UserId = "testUserId",
-    ///         UserName = "testUserName",
+    ///         UserId = "testuserid",
+    ///         UserName = "testuserid",
     ///         AccessString = "on ~* +@all",
     ///         Engine = "redis",
     ///     });
@@ -194,7 +194,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> UserId { get; private set; } = null!;
 
         /// <summary>
-        /// The username of the user.
+        /// The username of the user. For IAM authentication, this value must match `UserId`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -340,7 +340,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string> UserId { get; set; } = null!;
 
         /// <summary>
-        /// The username of the user.
+        /// The username of the user. For IAM authentication, this value must match `UserId`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -457,7 +457,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? UserId { get; set; }
 
         /// <summary>
-        /// The username of the user.
+        /// The username of the user. For IAM authentication, this value must match `UserId`.
         /// 
         /// The following arguments are optional:
         /// </summary>

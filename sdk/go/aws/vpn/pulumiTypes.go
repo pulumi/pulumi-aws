@@ -120,9 +120,11 @@ func (o GetConnectionFilterArrayOutput) Index(i pulumi.IntInput) GetConnectionFi
 }
 
 type GetConnectionRoute struct {
+	// CIDR block associated with the local subnet of the customer data center.
 	DestinationCidrBlock string `pulumi:"destinationCidrBlock"`
-	Source               string `pulumi:"source"`
-	// Current state of the VPN connection.
+	// How the routes were provided.
+	Source string `pulumi:"source"`
+	// Current state of the static route.
 	State string `pulumi:"state"`
 }
 
@@ -138,9 +140,11 @@ type GetConnectionRouteInput interface {
 }
 
 type GetConnectionRouteArgs struct {
+	// CIDR block associated with the local subnet of the customer data center.
 	DestinationCidrBlock pulumi.StringInput `pulumi:"destinationCidrBlock"`
-	Source               pulumi.StringInput `pulumi:"source"`
-	// Current state of the VPN connection.
+	// How the routes were provided.
+	Source pulumi.StringInput `pulumi:"source"`
+	// Current state of the static route.
 	State pulumi.StringInput `pulumi:"state"`
 }
 
@@ -195,15 +199,17 @@ func (o GetConnectionRouteOutput) ToGetConnectionRouteOutputWithContext(ctx cont
 	return o
 }
 
+// CIDR block associated with the local subnet of the customer data center.
 func (o GetConnectionRouteOutput) DestinationCidrBlock() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionRoute) string { return v.DestinationCidrBlock }).(pulumi.StringOutput)
 }
 
+// How the routes were provided.
 func (o GetConnectionRouteOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionRoute) string { return v.Source }).(pulumi.StringOutput)
 }
 
-// Current state of the VPN connection.
+// Current state of the static route.
 func (o GetConnectionRouteOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionRoute) string { return v.State }).(pulumi.StringOutput)
 }
@@ -229,11 +235,16 @@ func (o GetConnectionRouteArrayOutput) Index(i pulumi.IntInput) GetConnectionRou
 }
 
 type GetConnectionVgwTelemetry struct {
-	AcceptedRouteCount int    `pulumi:"acceptedRouteCount"`
-	LastStatusChange   string `pulumi:"lastStatusChange"`
-	OutsideIpAddress   string `pulumi:"outsideIpAddress"`
-	Status             string `pulumi:"status"`
-	StatusMessage      string `pulumi:"statusMessage"`
+	// Number of accepted routes.
+	AcceptedRouteCount int `pulumi:"acceptedRouteCount"`
+	// Date and time of the last change in status.
+	LastStatusChange string `pulumi:"lastStatusChange"`
+	// IP address of the virtual private gateway tunnel endpoint.
+	OutsideIpAddress string `pulumi:"outsideIpAddress"`
+	// Status of the VPN tunnel.
+	Status string `pulumi:"status"`
+	// Information about the status change.
+	StatusMessage string `pulumi:"statusMessage"`
 }
 
 // GetConnectionVgwTelemetryInput is an input type that accepts GetConnectionVgwTelemetryArgs and GetConnectionVgwTelemetryOutput values.
@@ -248,11 +259,16 @@ type GetConnectionVgwTelemetryInput interface {
 }
 
 type GetConnectionVgwTelemetryArgs struct {
-	AcceptedRouteCount pulumi.IntInput    `pulumi:"acceptedRouteCount"`
-	LastStatusChange   pulumi.StringInput `pulumi:"lastStatusChange"`
-	OutsideIpAddress   pulumi.StringInput `pulumi:"outsideIpAddress"`
-	Status             pulumi.StringInput `pulumi:"status"`
-	StatusMessage      pulumi.StringInput `pulumi:"statusMessage"`
+	// Number of accepted routes.
+	AcceptedRouteCount pulumi.IntInput `pulumi:"acceptedRouteCount"`
+	// Date and time of the last change in status.
+	LastStatusChange pulumi.StringInput `pulumi:"lastStatusChange"`
+	// IP address of the virtual private gateway tunnel endpoint.
+	OutsideIpAddress pulumi.StringInput `pulumi:"outsideIpAddress"`
+	// Status of the VPN tunnel.
+	Status pulumi.StringInput `pulumi:"status"`
+	// Information about the status change.
+	StatusMessage pulumi.StringInput `pulumi:"statusMessage"`
 }
 
 func (GetConnectionVgwTelemetryArgs) ElementType() reflect.Type {
@@ -306,22 +322,27 @@ func (o GetConnectionVgwTelemetryOutput) ToGetConnectionVgwTelemetryOutputWithCo
 	return o
 }
 
+// Number of accepted routes.
 func (o GetConnectionVgwTelemetryOutput) AcceptedRouteCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetConnectionVgwTelemetry) int { return v.AcceptedRouteCount }).(pulumi.IntOutput)
 }
 
+// Date and time of the last change in status.
 func (o GetConnectionVgwTelemetryOutput) LastStatusChange() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionVgwTelemetry) string { return v.LastStatusChange }).(pulumi.StringOutput)
 }
 
+// IP address of the virtual private gateway tunnel endpoint.
 func (o GetConnectionVgwTelemetryOutput) OutsideIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionVgwTelemetry) string { return v.OutsideIpAddress }).(pulumi.StringOutput)
 }
 
+// Status of the VPN tunnel.
 func (o GetConnectionVgwTelemetryOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionVgwTelemetry) string { return v.Status }).(pulumi.StringOutput)
 }
 
+// Information about the status change.
 func (o GetConnectionVgwTelemetryOutput) StatusMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionVgwTelemetry) string { return v.StatusMessage }).(pulumi.StringOutput)
 }

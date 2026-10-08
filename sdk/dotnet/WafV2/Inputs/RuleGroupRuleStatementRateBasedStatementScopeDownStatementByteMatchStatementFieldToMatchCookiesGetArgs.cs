@@ -16,7 +16,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         private InputList<Inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternGetArgs>? _matchPatterns;
 
         /// <summary>
-        /// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `All`, `IncludedCookies` or `ExcludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        /// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `All`, `IncludedCookies` or `ExcludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         /// </summary>
         public InputList<Inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternGetArgs> MatchPatterns
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         }
 
         /// <summary>
-        /// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+        /// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         /// </summary>
         [Input("matchScope", required: true)]
         public Input<string> MatchScope { get; set; } = null!;

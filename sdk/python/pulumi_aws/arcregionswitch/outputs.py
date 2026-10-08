@@ -511,7 +511,7 @@ class PlanWorkflow(dict):
                  workflow_target_region: Optional[_builtins.str] = None):
         """
         :param _builtins.str workflow_target_action: Action to perform. Valid values: `activate`, `deactivate`.
-        :param Sequence['PlanWorkflowStepArgs'] steps: Steps in the workflow. See `step` Block for details.
+        :param Sequence['PlanWorkflowStepArgs'] steps: Steps in the workflow. See `workflow.step` Block for details.
         :param _builtins.str workflow_description: Description of the workflow.
         :param _builtins.str workflow_target_region: Target region for the workflow.
         """
@@ -535,7 +535,7 @@ class PlanWorkflow(dict):
     @pulumi.getter
     def steps(self) -> Optional[Sequence['outputs.PlanWorkflowStep']]:
         """
-        Steps in the workflow. See `step` Block for details.
+        Steps in the workflow. See `workflow.step` Block for details.
         """
         return pulumi.get(self, "steps")
 
@@ -632,12 +632,12 @@ class PlanWorkflowStep(dict):
                  route53_health_check_configs: Optional[Sequence['outputs.PlanWorkflowStepRoute53HealthCheckConfig']] = None):
         """
         :param _builtins.str execution_block_type: Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
-        :param _builtins.str name: Name of the step.
+        :param _builtins.str name: Name of the plan. Must be unique within the account.
         :param Sequence['PlanWorkflowStepArcRoutingControlConfigArgs'] arc_routing_control_configs: Configuration for ARC routing control. See `arc_routing_control_config` Block for details.
         :param Sequence['PlanWorkflowStepAuroraProvisionedScalingConfigArgs'] aurora_provisioned_scaling_configs: Configuration for Aurora provisioned scaling. See `aurora_provisioned_scaling_config` Block for details.
         :param Sequence['PlanWorkflowStepAuroraServerlessScalingConfigArgs'] aurora_serverless_scaling_configs: Configuration for Aurora Serverless scaling. See `aurora_serverless_scaling_config` Block for details.
         :param Sequence['PlanWorkflowStepCustomActionLambdaConfigArgs'] custom_action_lambda_configs: Configuration for Lambda function execution. See `custom_action_lambda_config` Block for details.
-        :param _builtins.str description: Description of the step.
+        :param _builtins.str description: Description of the plan.
         :param Sequence['PlanWorkflowStepDocumentDbConfigArgs'] document_db_configs: Configuration for DocumentDB global cluster operations. See `document_db_config` Block for details.
         :param Sequence['PlanWorkflowStepEc2AsgCapacityIncreaseConfigArgs'] ec2_asg_capacity_increase_configs: Configuration for EC2 Auto Scaling group capacity increase. See `ec2_asg_capacity_increase_config` Block for details.
         :param Sequence['PlanWorkflowStepEcsCapacityIncreaseConfigArgs'] ecs_capacity_increase_configs: Configuration for ECS service capacity increase. See `ecs_capacity_increase_config` Block for details.
@@ -703,7 +703,7 @@ class PlanWorkflowStep(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Name of the step.
+        Name of the plan. Must be unique within the account.
         """
         return pulumi.get(self, "name")
 
@@ -743,7 +743,7 @@ class PlanWorkflowStep(dict):
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
         """
-        Description of the step.
+        Description of the plan.
         """
         return pulumi.get(self, "description")
 
@@ -2717,7 +2717,7 @@ class PlanWorkflowStepParallelConfig(dict):
     def __init__(__self__, *,
                  steps: Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStep']] = None):
         """
-        :param Sequence['PlanWorkflowStepParallelConfigStepArgs'] steps: Steps to execute in parallel. See `step` Block for details. The parallel step schema matches `step` Block but does not support `parallel_config` to prevent infinite nesting.
+        :param Sequence['PlanWorkflowStepParallelConfigStepArgs'] steps: Steps to execute in parallel. See `workflow.step.parallel_config.step` Block for details. The parallel step schema matches `workflow.step` Block but does not support `parallel_config` to prevent infinite nesting.
         """
         if steps is not None:
             pulumi.set(__self__, "steps", steps)
@@ -2726,7 +2726,7 @@ class PlanWorkflowStepParallelConfig(dict):
     @pulumi.getter
     def steps(self) -> Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStep']]:
         """
-        Steps to execute in parallel. See `step` Block for details. The parallel step schema matches `step` Block but does not support `parallel_config` to prevent infinite nesting.
+        Steps to execute in parallel. See `workflow.step.parallel_config.step` Block for details. The parallel step schema matches `workflow.step` Block but does not support `parallel_config` to prevent infinite nesting.
         """
         return pulumi.get(self, "steps")
 
@@ -2804,12 +2804,12 @@ class PlanWorkflowStepParallelConfigStep(dict):
                  route53_health_check_configs: Optional[Sequence['outputs.PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfig']] = None):
         """
         :param _builtins.str execution_block_type: Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
-        :param _builtins.str name: Name of the step.
+        :param _builtins.str name: Name of the plan. Must be unique within the account.
         :param Sequence['PlanWorkflowStepParallelConfigStepArcRoutingControlConfigArgs'] arc_routing_control_configs: Configuration for ARC routing control. See `arc_routing_control_config` Block for details.
         :param Sequence['PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArgs'] aurora_provisioned_scaling_configs: Configuration for Aurora provisioned scaling. See `aurora_provisioned_scaling_config` Block for details.
         :param Sequence['PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArgs'] aurora_serverless_scaling_configs: Configuration for Aurora Serverless scaling. See `aurora_serverless_scaling_config` Block for details.
         :param Sequence['PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigArgs'] custom_action_lambda_configs: Configuration for Lambda function execution. See `custom_action_lambda_config` Block for details.
-        :param _builtins.str description: Description of the step.
+        :param _builtins.str description: Description of the plan.
         :param Sequence['PlanWorkflowStepParallelConfigStepDocumentDbConfigArgs'] document_db_configs: Configuration for DocumentDB global cluster operations. See `document_db_config` Block for details.
         :param Sequence['PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigArgs'] ec2_asg_capacity_increase_configs: Configuration for EC2 Auto Scaling group capacity increase. See `ec2_asg_capacity_increase_config` Block for details.
         :param Sequence['PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigArgs'] ecs_capacity_increase_configs: Configuration for ECS service capacity increase. See `ecs_capacity_increase_config` Block for details.
@@ -2872,7 +2872,7 @@ class PlanWorkflowStepParallelConfigStep(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Name of the step.
+        Name of the plan. Must be unique within the account.
         """
         return pulumi.get(self, "name")
 
@@ -2912,7 +2912,7 @@ class PlanWorkflowStepParallelConfigStep(dict):
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
         """
-        Description of the step.
+        Description of the plan.
         """
         return pulumi.get(self, "description")
 

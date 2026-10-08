@@ -18,30 +18,62 @@ public final class EndpointCidrOptionsArgs extends com.pulumi.resources.Resource
 
     public static final EndpointCidrOptionsArgs Empty = new EndpointCidrOptionsArgs();
 
+    /**
+     * CIDR block to send traffic to.
+     * 
+     */
     @Import(name="cidr", required=true)
     private Output<String> cidr;
 
+    /**
+     * @return CIDR block to send traffic to.
+     * 
+     */
     public Output<String> cidr() {
         return this.cidr;
     }
 
+    /**
+     * Port ranges. See below.
+     * 
+     */
     @Import(name="portRanges", required=true)
     private Output<List<EndpointCidrOptionsPortRangeArgs>> portRanges;
 
+    /**
+     * @return Port ranges. See below.
+     * 
+     */
     public Output<List<EndpointCidrOptionsPortRangeArgs>> portRanges() {
         return this.portRanges;
     }
 
+    /**
+     * Protocol. Currently `tcp` is supported.
+     * 
+     */
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
+    /**
+     * @return Protocol. Currently `tcp` is supported.
+     * 
+     */
     public Optional<Output<String>> protocol() {
         return Optional.ofNullable(this.protocol);
     }
 
+    /**
+     * IDs of the subnets.
+     * 
+     */
     @Import(name="subnetIds")
     private @Nullable Output<List<String>> subnetIds;
 
+    /**
+     * @return IDs of the subnets.
+     * 
+     */
     public Optional<Output<List<String>>> subnetIds() {
         return Optional.ofNullable(this.subnetIds);
     }
@@ -73,46 +105,106 @@ public final class EndpointCidrOptionsArgs extends com.pulumi.resources.Resource
             $ = new EndpointCidrOptionsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param cidr CIDR block to send traffic to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cidr(Output<String> cidr) {
             $.cidr = cidr;
             return this;
         }
 
+        /**
+         * @param cidr CIDR block to send traffic to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cidr(String cidr) {
             return cidr(Output.of(cidr));
         }
 
+        /**
+         * @param portRanges Port ranges. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder portRanges(Output<List<EndpointCidrOptionsPortRangeArgs>> portRanges) {
             $.portRanges = portRanges;
             return this;
         }
 
+        /**
+         * @param portRanges Port ranges. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder portRanges(List<EndpointCidrOptionsPortRangeArgs> portRanges) {
             return portRanges(Output.of(portRanges));
         }
 
+        /**
+         * @param portRanges Port ranges. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder portRanges(EndpointCidrOptionsPortRangeArgs... portRanges) {
             return portRanges(List.of(portRanges));
         }
 
+        /**
+         * @param protocol Protocol. Currently `tcp` is supported.
+         * 
+         * @return builder
+         * 
+         */
         public Builder protocol(@Nullable Output<String> protocol) {
             $.protocol = protocol;
             return this;
         }
 
+        /**
+         * @param protocol Protocol. Currently `tcp` is supported.
+         * 
+         * @return builder
+         * 
+         */
         public Builder protocol(String protocol) {
             return protocol(Output.of(protocol));
         }
 
+        /**
+         * @param subnetIds IDs of the subnets.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetIds(@Nullable Output<List<String>> subnetIds) {
             $.subnetIds = subnetIds;
             return this;
         }
 
+        /**
+         * @param subnetIds IDs of the subnets.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetIds(List<String> subnetIds) {
             return subnetIds(Output.of(subnetIds));
         }
 
+        /**
+         * @param subnetIds IDs of the subnets.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }

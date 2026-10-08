@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GroupSseConfiguration {
     /**
-     * @return Boolean flag to indicate that the CMK should be used.
+     * @return Whether the CMK should be used.
      * 
      */
     private @Nullable Boolean customerManagedKeyEnabled;
@@ -25,7 +25,7 @@ public final class GroupSseConfiguration {
 
     private GroupSseConfiguration() {}
     /**
-     * @return Boolean flag to indicate that the CMK should be used.
+     * @return Whether the CMK should be used.
      * 
      */
     public Optional<Boolean> customerManagedKeyEnabled() {

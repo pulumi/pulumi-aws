@@ -14,19 +14,19 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class GetVpcIpamPoolSourceResourceResult
     {
         /// <summary>
-        /// (Required) ID of the resource.
+        /// ID of the resource.
         /// </summary>
         public readonly string ResourceId;
         /// <summary>
-        /// (Required) Owner of the resource.
+        /// Owner of the resource.
         /// </summary>
         public readonly string ResourceOwner;
         /// <summary>
-        /// (Required) Region where the resource exists. Must match the `Locale` of the parent IPAM Pool.
+        /// Region where the resource exists. Must match the `Locale` of the parent IPAM Pool.
         /// </summary>
         public readonly string ResourceRegion;
         /// <summary>
-        /// (Required) Type of the resource. (`Vpc`)
+        /// Type of the resource. (`Vpc`)
         /// </summary>
         public readonly string ResourceType;
 

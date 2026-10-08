@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifier {
     /**
-     * @return Name of the custom data idenfitier
+     * @return Name of the custom data identifier
      * 
      */
     private String name;
@@ -23,7 +23,7 @@ public final class GetLogDataProtectionPolicyDocumentConfigurationCustomDataIden
 
     private GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifier() {}
     /**
-     * @return Name of the custom data idenfitier
+     * @return Name of the custom data identifier
      * 
      */
     public String name() {

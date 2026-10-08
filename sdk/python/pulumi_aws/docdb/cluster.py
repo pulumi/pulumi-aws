@@ -65,6 +65,8 @@ class ClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: A list of EC2 Availability Zones that instances in the DB cluster can be created in.
                DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
                We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
+               At most 3 AZs can be configured.
+               **Note:** Do not set `availability_zones` to the output of a data source such as `get_availability_zones`, as this may be subject to change (for example, when a new AZ is added to a Region). Because changing `availability_zones` forces replacement, any change to the set of values will plan to destroy and recreate the cluster. Always use an explicit, static list of AZs.
         :param pulumi.Input[_builtins.int] backup_retention_period: The days to retain backups for. Default `1`
         :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier. If omitted, the provider will assign a random, unique identifier.
         :param pulumi.Input[_builtins.str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
@@ -206,6 +208,8 @@ class ClusterArgs:
         A list of EC2 Availability Zones that instances in the DB cluster can be created in.
         DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
         We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
+        At most 3 AZs can be configured.
+        **Note:** Do not set `availability_zones` to the output of a data source such as `get_availability_zones`, as this may be subject to change (for example, when a new AZ is added to a Region). Because changing `availability_zones` forces replacement, any change to the set of values will plan to destroy and recreate the cluster. Always use an explicit, static list of AZs.
         """
         return pulumi.get(self, "availability_zones")
 
@@ -648,6 +652,8 @@ class _ClusterState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: A list of EC2 Availability Zones that instances in the DB cluster can be created in.
                DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
                We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
+               At most 3 AZs can be configured.
+               **Note:** Do not set `availability_zones` to the output of a data source such as `get_availability_zones`, as this may be subject to change (for example, when a new AZ is added to a Region). Because changing `availability_zones` forces replacement, any change to the set of values will plan to destroy and recreate the cluster. Always use an explicit, static list of AZs.
         :param pulumi.Input[_builtins.int] backup_retention_period: The days to retain backups for. Default `1`
         :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier. If omitted, the provider will assign a random, unique identifier.
         :param pulumi.Input[_builtins.str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
@@ -820,6 +826,8 @@ class _ClusterState:
         A list of EC2 Availability Zones that instances in the DB cluster can be created in.
         DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
         We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
+        At most 3 AZs can be configured.
+        **Note:** Do not set `availability_zones` to the output of a data source such as `get_availability_zones`, as this may be subject to change (for example, when a new AZ is added to a Region). Because changing `availability_zones` forces replacement, any change to the set of values will plan to destroy and recreate the cluster. Always use an explicit, static list of AZs.
         """
         return pulumi.get(self, "availability_zones")
 
@@ -1363,6 +1371,8 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: A list of EC2 Availability Zones that instances in the DB cluster can be created in.
                DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
                We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
+               At most 3 AZs can be configured.
+               **Note:** Do not set `availability_zones` to the output of a data source such as `get_availability_zones`, as this may be subject to change (for example, when a new AZ is added to a Region). Because changing `availability_zones` forces replacement, any change to the set of values will plan to destroy and recreate the cluster. Always use an explicit, static list of AZs.
         :param pulumi.Input[_builtins.int] backup_retention_period: The days to retain backups for. Default `1`
         :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier. If omitted, the provider will assign a random, unique identifier.
         :param pulumi.Input[_builtins.str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
@@ -1612,6 +1622,8 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: A list of EC2 Availability Zones that instances in the DB cluster can be created in.
                DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
                We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
+               At most 3 AZs can be configured.
+               **Note:** Do not set `availability_zones` to the output of a data source such as `get_availability_zones`, as this may be subject to change (for example, when a new AZ is added to a Region). Because changing `availability_zones` forces replacement, any change to the set of values will plan to destroy and recreate the cluster. Always use an explicit, static list of AZs.
         :param pulumi.Input[_builtins.int] backup_retention_period: The days to retain backups for. Default `1`
         :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier. If omitted, the provider will assign a random, unique identifier.
         :param pulumi.Input[_builtins.str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
@@ -1736,6 +1748,8 @@ class Cluster(pulumi.CustomResource):
         A list of EC2 Availability Zones that instances in the DB cluster can be created in.
         DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
         We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
+        At most 3 AZs can be configured.
+        **Note:** Do not set `availability_zones` to the output of a data source such as `get_availability_zones`, as this may be subject to change (for example, when a new AZ is added to a Region). Because changing `availability_zones` forces replacement, any change to the set of values will plan to destroy and recreate the cluster. Always use an explicit, static list of AZs.
         """
         return pulumi.get(self, "availability_zones")
 

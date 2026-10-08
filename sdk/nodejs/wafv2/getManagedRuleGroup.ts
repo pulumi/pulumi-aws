@@ -65,7 +65,7 @@ export interface GetManagedRuleGroupArgs {
  */
 export interface GetManagedRuleGroupResult {
     /**
-     * Labels that one or more rules in this rule group add to matching web requests. See Labels below for details.
+     * Labels that one or more rules in this rule group add to matching web requests. See `availableLabels` Block below for details.
      */
     readonly availableLabels: outputs.wafv2.GetManagedRuleGroupAvailableLabel[];
     /**
@@ -73,7 +73,7 @@ export interface GetManagedRuleGroupResult {
      */
     readonly capacity: number;
     /**
-     * Labels that one or more rules in this rule group match against in label match statements. See Labels below for details.
+     * Labels that one or more rules in this rule group match against in label match statements. See `consumedLabels` Block below for details.
      */
     readonly consumedLabels: outputs.wafv2.GetManagedRuleGroupConsumedLabel[];
     /**

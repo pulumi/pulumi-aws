@@ -688,14 +688,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Listener connection endpoint for SQL Server Always On. See Endpoint below.
+     * Listener connection endpoint for SQL Server Always On. See `listenerEndpoint` Block below.
      * 
      */
     @Import(name="listenerEndpoints")
     private @Nullable Output<List<InstanceListenerEndpointArgs>> listenerEndpoints;
 
     /**
-     * @return Listener connection endpoint for SQL Server Always On. See Endpoint below.
+     * @return Listener connection endpoint for SQL Server Always On. See `listenerEndpoint` Block below.
      * 
      */
     public Optional<Output<List<InstanceListenerEndpointArgs>>> listenerEndpoints() {
@@ -2393,7 +2393,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param listenerEndpoints Listener connection endpoint for SQL Server Always On. See Endpoint below.
+         * @param listenerEndpoints Listener connection endpoint for SQL Server Always On. See `listenerEndpoint` Block below.
          * 
          * @return builder
          * 
@@ -2404,7 +2404,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param listenerEndpoints Listener connection endpoint for SQL Server Always On. See Endpoint below.
+         * @param listenerEndpoints Listener connection endpoint for SQL Server Always On. See `listenerEndpoint` Block below.
          * 
          * @return builder
          * 
@@ -2414,7 +2414,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param listenerEndpoints Listener connection endpoint for SQL Server Always On. See Endpoint below.
+         * @param listenerEndpoints Listener connection endpoint for SQL Server Always On. See `listenerEndpoint` Block below.
          * 
          * @return builder
          * 

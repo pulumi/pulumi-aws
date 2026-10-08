@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         }
 
         /// <summary>
-        /// S3-based tool definition. See `S3` Block below.
+        /// S3-based tool definition. See `target_configuration.mcp.lambda.tool_schema.s3` Block below.
         /// </summary>
         [Input("s3")]
         public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3GetArgs>? S3 { get; set; }

@@ -113,7 +113,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public Output<bool?> AvailabilityZoneChangeProtection { get; private set; } = null!;
 
         /// <summary>
-        /// Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
+        /// Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the availability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
         /// </summary>
         [Output("availabilityZoneMappings")]
         public Output<ImmutableArray<Outputs.FirewallAvailabilityZoneMapping>> AvailabilityZoneMappings { get; private set; } = null!;
@@ -276,7 +276,7 @@ namespace Pulumi.Aws.NetworkFirewall
         private InputList<Inputs.FirewallAvailabilityZoneMappingArgs>? _availabilityZoneMappings;
 
         /// <summary>
-        /// Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
+        /// Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the availability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
         /// </summary>
         public InputList<Inputs.FirewallAvailabilityZoneMappingArgs> AvailabilityZoneMappings
         {
@@ -404,7 +404,7 @@ namespace Pulumi.Aws.NetworkFirewall
         private InputList<Inputs.FirewallAvailabilityZoneMappingGetArgs>? _availabilityZoneMappings;
 
         /// <summary>
-        /// Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
+        /// Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the availability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
         /// </summary>
         public InputList<Inputs.FirewallAvailabilityZoneMappingGetArgs> AvailabilityZoneMappings
         {

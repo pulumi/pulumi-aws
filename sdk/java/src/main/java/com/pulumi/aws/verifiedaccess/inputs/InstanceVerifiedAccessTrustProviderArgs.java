@@ -16,14 +16,14 @@ public final class InstanceVerifiedAccessTrustProviderArgs extends com.pulumi.re
     public static final InstanceVerifiedAccessTrustProviderArgs Empty = new InstanceVerifiedAccessTrustProviderArgs();
 
     /**
-     * A description for the AWS Verified Access Instance.
+     * Description for the AWS Verified Access Instance.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description for the AWS Verified Access Instance.
+     * @return Description for the AWS Verified Access Instance.
      * 
      */
     public Optional<Output<String>> description() {
@@ -31,14 +31,14 @@ public final class InstanceVerifiedAccessTrustProviderArgs extends com.pulumi.re
     }
 
     /**
-     * The type of device-based trust provider.
+     * Type of device-based trust provider.
      * 
      */
     @Import(name="deviceTrustProviderType")
     private @Nullable Output<String> deviceTrustProviderType;
 
     /**
-     * @return The type of device-based trust provider.
+     * @return Type of device-based trust provider.
      * 
      */
     public Optional<Output<String>> deviceTrustProviderType() {
@@ -46,14 +46,14 @@ public final class InstanceVerifiedAccessTrustProviderArgs extends com.pulumi.re
     }
 
     /**
-     * The type of trust provider (user- or device-based).
+     * Type of trust provider (user- or device-based).
      * 
      */
     @Import(name="trustProviderType")
     private @Nullable Output<String> trustProviderType;
 
     /**
-     * @return The type of trust provider (user- or device-based).
+     * @return Type of trust provider (user- or device-based).
      * 
      */
     public Optional<Output<String>> trustProviderType() {
@@ -61,14 +61,14 @@ public final class InstanceVerifiedAccessTrustProviderArgs extends com.pulumi.re
     }
 
     /**
-     * The type of user-based trust provider.
+     * Type of user-based trust provider.
      * 
      */
     @Import(name="userTrustProviderType")
     private @Nullable Output<String> userTrustProviderType;
 
     /**
-     * @return The type of user-based trust provider.
+     * @return Type of user-based trust provider.
      * 
      */
     public Optional<Output<String>> userTrustProviderType() {
@@ -76,14 +76,14 @@ public final class InstanceVerifiedAccessTrustProviderArgs extends com.pulumi.re
     }
 
     /**
-     * The ID of the trust provider.
+     * ID of the trust provider.
      * 
      */
     @Import(name="verifiedAccessTrustProviderId")
     private @Nullable Output<String> verifiedAccessTrustProviderId;
 
     /**
-     * @return The ID of the trust provider.
+     * @return ID of the trust provider.
      * 
      */
     public Optional<Output<String>> verifiedAccessTrustProviderId() {
@@ -119,7 +119,7 @@ public final class InstanceVerifiedAccessTrustProviderArgs extends com.pulumi.re
         }
 
         /**
-         * @param description A description for the AWS Verified Access Instance.
+         * @param description Description for the AWS Verified Access Instance.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class InstanceVerifiedAccessTrustProviderArgs extends com.pulumi.re
         }
 
         /**
-         * @param description A description for the AWS Verified Access Instance.
+         * @param description Description for the AWS Verified Access Instance.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class InstanceVerifiedAccessTrustProviderArgs extends com.pulumi.re
         }
 
         /**
-         * @param deviceTrustProviderType The type of device-based trust provider.
+         * @param deviceTrustProviderType Type of device-based trust provider.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class InstanceVerifiedAccessTrustProviderArgs extends com.pulumi.re
         }
 
         /**
-         * @param deviceTrustProviderType The type of device-based trust provider.
+         * @param deviceTrustProviderType Type of device-based trust provider.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class InstanceVerifiedAccessTrustProviderArgs extends com.pulumi.re
         }
 
         /**
-         * @param trustProviderType The type of trust provider (user- or device-based).
+         * @param trustProviderType Type of trust provider (user- or device-based).
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class InstanceVerifiedAccessTrustProviderArgs extends com.pulumi.re
         }
 
         /**
-         * @param trustProviderType The type of trust provider (user- or device-based).
+         * @param trustProviderType Type of trust provider (user- or device-based).
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class InstanceVerifiedAccessTrustProviderArgs extends com.pulumi.re
         }
 
         /**
-         * @param userTrustProviderType The type of user-based trust provider.
+         * @param userTrustProviderType Type of user-based trust provider.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class InstanceVerifiedAccessTrustProviderArgs extends com.pulumi.re
         }
 
         /**
-         * @param userTrustProviderType The type of user-based trust provider.
+         * @param userTrustProviderType Type of user-based trust provider.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class InstanceVerifiedAccessTrustProviderArgs extends com.pulumi.re
         }
 
         /**
-         * @param verifiedAccessTrustProviderId The ID of the trust provider.
+         * @param verifiedAccessTrustProviderId ID of the trust provider.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class InstanceVerifiedAccessTrustProviderArgs extends com.pulumi.re
         }
 
         /**
-         * @param verifiedAccessTrustProviderId The ID of the trust provider.
+         * @param verifiedAccessTrustProviderId ID of the trust provider.
          * 
          * @return builder
          * 

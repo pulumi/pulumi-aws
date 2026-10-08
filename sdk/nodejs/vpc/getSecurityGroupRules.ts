@@ -47,8 +47,7 @@ export interface GetSecurityGroupRulesArgs {
      */
     region?: string;
     /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired security group rule.
+     * Map of tags, each pair of which must exactly match a pair on the desired security group rule.
      */
     tags?: {[key: string]: string};
 }
@@ -106,8 +105,7 @@ export interface GetSecurityGroupRulesOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired security group rule.
+     * Map of tags, each pair of which must exactly match a pair on the desired security group rule.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

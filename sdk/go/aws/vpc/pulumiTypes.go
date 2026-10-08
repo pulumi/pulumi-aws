@@ -307,9 +307,9 @@ func (o RouteServerEndpointTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 }
 
 type RouteServerPeerBgpOptions struct {
-	// The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
+	// Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
 	PeerAsn int `pulumi:"peerAsn"`
-	// The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
+	// Requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
 	PeerLivenessDetection *string `pulumi:"peerLivenessDetection"`
 }
 
@@ -325,9 +325,9 @@ type RouteServerPeerBgpOptionsInput interface {
 }
 
 type RouteServerPeerBgpOptionsArgs struct {
-	// The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
+	// Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
 	PeerAsn pulumi.IntInput `pulumi:"peerAsn"`
-	// The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
+	// Requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
 	PeerLivenessDetection pulumi.StringPtrInput `pulumi:"peerLivenessDetection"`
 }
 
@@ -408,12 +408,12 @@ func (o RouteServerPeerBgpOptionsOutput) ToRouteServerPeerBgpOptionsPtrOutputWit
 	}).(RouteServerPeerBgpOptionsPtrOutput)
 }
 
-// The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
+// Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
 func (o RouteServerPeerBgpOptionsOutput) PeerAsn() pulumi.IntOutput {
 	return o.ApplyT(func(v RouteServerPeerBgpOptions) int { return v.PeerAsn }).(pulumi.IntOutput)
 }
 
-// The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
+// Requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
 func (o RouteServerPeerBgpOptionsOutput) PeerLivenessDetection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteServerPeerBgpOptions) *string { return v.PeerLivenessDetection }).(pulumi.StringPtrOutput)
 }
@@ -442,7 +442,7 @@ func (o RouteServerPeerBgpOptionsPtrOutput) Elem() RouteServerPeerBgpOptionsOutp
 	}).(RouteServerPeerBgpOptionsOutput)
 }
 
-// The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
+// Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
 func (o RouteServerPeerBgpOptionsPtrOutput) PeerAsn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RouteServerPeerBgpOptions) *int {
 		if v == nil {
@@ -452,7 +452,7 @@ func (o RouteServerPeerBgpOptionsPtrOutput) PeerAsn() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
+// Requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
 func (o RouteServerPeerBgpOptionsPtrOutput) PeerLivenessDetection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteServerPeerBgpOptions) *string {
 		if v == nil {
@@ -1950,12 +1950,9 @@ func (o GetSecurityGroupRuleFilterArrayOutput) Index(i pulumi.IntInput) GetSecur
 }
 
 type GetSecurityGroupRulesFilter struct {
-	// Name of the field to filter by, as defined by
-	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html).
+	// Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
-	//
-	// Security group rule IDs will be selected if any one of the given values match.
 	Values []string `pulumi:"values"`
 }
 
@@ -1971,12 +1968,9 @@ type GetSecurityGroupRulesFilterInput interface {
 }
 
 type GetSecurityGroupRulesFilterArgs struct {
-	// Name of the field to filter by, as defined by
-	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html).
+	// Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
-	//
-	// Security group rule IDs will be selected if any one of the given values match.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -2031,15 +2025,12 @@ func (o GetSecurityGroupRulesFilterOutput) ToGetSecurityGroupRulesFilterOutputWi
 	return o
 }
 
-// Name of the field to filter by, as defined by
-// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html).
+// Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html).
 func (o GetSecurityGroupRulesFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecurityGroupRulesFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Set of values that are accepted for the given field.
-//
-// Security group rule IDs will be selected if any one of the given values match.
 func (o GetSecurityGroupRulesFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSecurityGroupRulesFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }

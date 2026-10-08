@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PlanWorkflowStepParallelConfig {
     /**
-     * @return Steps to execute in parallel. See `step` Block for details. The parallel step schema matches `step` Block but does not support `parallelConfig` to prevent infinite nesting.
+     * @return Steps to execute in parallel. See `workflow.step.parallel_config.step` Block for details. The parallel step schema matches `workflow.step` Block but does not support `parallelConfig` to prevent infinite nesting.
      * 
      */
     private @Nullable List<PlanWorkflowStepParallelConfigStep> steps;
 
     private PlanWorkflowStepParallelConfig() {}
     /**
-     * @return Steps to execute in parallel. See `step` Block for details. The parallel step schema matches `step` Block but does not support `parallelConfig` to prevent infinite nesting.
+     * @return Steps to execute in parallel. See `workflow.step.parallel_config.step` Block for details. The parallel step schema matches `workflow.step` Block but does not support `parallelConfig` to prevent infinite nesting.
      * 
      */
     public List<PlanWorkflowStepParallelConfigStep> steps() {

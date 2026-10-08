@@ -46,10 +46,10 @@ class _VpcIpamOrganizationAdminAccountState:
         """
         Input properties used for looking up and filtering VpcIpamOrganizationAdminAccount resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Organizations ARN for the delegate account.
-        :param pulumi.Input[_builtins.str] email: The Organizations email for the delegate account.
-        :param pulumi.Input[_builtins.str] name: The Organizations name for the delegate account.
-        :param pulumi.Input[_builtins.str] service_principal: The AWS service principal.
+        :param pulumi.Input[_builtins.str] arn: Organizations ARN for the delegate account.
+        :param pulumi.Input[_builtins.str] email: Organizations email for the delegate account.
+        :param pulumi.Input[_builtins.str] name: Organizations name for the delegate account.
+        :param pulumi.Input[_builtins.str] service_principal: AWS service principal.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -66,7 +66,7 @@ class _VpcIpamOrganizationAdminAccountState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Organizations ARN for the delegate account.
+        Organizations ARN for the delegate account.
         """
         return pulumi.get(self, "arn")
 
@@ -87,7 +87,7 @@ class _VpcIpamOrganizationAdminAccountState:
     @pulumi.getter
     def email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Organizations email for the delegate account.
+        Organizations email for the delegate account.
         """
         return pulumi.get(self, "email")
 
@@ -99,7 +99,7 @@ class _VpcIpamOrganizationAdminAccountState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Organizations name for the delegate account.
+        Organizations name for the delegate account.
         """
         return pulumi.get(self, "name")
 
@@ -111,7 +111,7 @@ class _VpcIpamOrganizationAdminAccountState:
     @pulumi.getter(name="servicePrincipal")
     def service_principal(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The AWS service principal.
+        AWS service principal.
         """
         return pulumi.get(self, "service_principal")
 
@@ -239,10 +239,10 @@ class VpcIpamOrganizationAdminAccount(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Organizations ARN for the delegate account.
-        :param pulumi.Input[_builtins.str] email: The Organizations email for the delegate account.
-        :param pulumi.Input[_builtins.str] name: The Organizations name for the delegate account.
-        :param pulumi.Input[_builtins.str] service_principal: The AWS service principal.
+        :param pulumi.Input[_builtins.str] arn: Organizations ARN for the delegate account.
+        :param pulumi.Input[_builtins.str] email: Organizations email for the delegate account.
+        :param pulumi.Input[_builtins.str] name: Organizations name for the delegate account.
+        :param pulumi.Input[_builtins.str] service_principal: AWS service principal.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -259,7 +259,7 @@ class VpcIpamOrganizationAdminAccount(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Organizations ARN for the delegate account.
+        Organizations ARN for the delegate account.
         """
         return pulumi.get(self, "arn")
 
@@ -272,7 +272,7 @@ class VpcIpamOrganizationAdminAccount(pulumi.CustomResource):
     @pulumi.getter
     def email(self) -> pulumi.Output[_builtins.str]:
         """
-        The Organizations email for the delegate account.
+        Organizations email for the delegate account.
         """
         return pulumi.get(self, "email")
 
@@ -280,7 +280,7 @@ class VpcIpamOrganizationAdminAccount(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The Organizations name for the delegate account.
+        Organizations name for the delegate account.
         """
         return pulumi.get(self, "name")
 
@@ -288,7 +288,7 @@ class VpcIpamOrganizationAdminAccount(pulumi.CustomResource):
     @pulumi.getter(name="servicePrincipal")
     def service_principal(self) -> pulumi.Output[_builtins.str]:
         """
-        The AWS service principal.
+        AWS service principal.
         """
         return pulumi.get(self, "service_principal")
 

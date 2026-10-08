@@ -18,11 +18,11 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly string? CustomResponseBodyKey;
         /// <summary>
-        /// The HTTP status code to return to the client.
+        /// HTTP status code to return to the client.
         /// </summary>
         public readonly int ResponseCode;
         /// <summary>
-        /// The `ResponseHeader` blocks used to define the HTTP response headers added to the response. See `ResponseHeader` below for details.
+        /// `ResponseHeader` blocks used to define the HTTP response headers added to the response. See `ResponseHeader` below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclDefaultActionBlockCustomResponseResponseHeader> ResponseHeaders;
 

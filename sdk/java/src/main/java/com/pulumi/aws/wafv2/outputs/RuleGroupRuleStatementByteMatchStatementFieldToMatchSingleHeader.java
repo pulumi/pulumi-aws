@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader {
     /**
-     * @return The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+     * @return Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
      * 
      */
     private String name;
 
     private RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader() {}
     /**
-     * @return The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+     * @return Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
      * 
      */
     public String name() {

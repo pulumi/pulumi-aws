@@ -12,14 +12,24 @@ namespace Pulumi.Aws.VerifiedAccess.Inputs
 
     public sealed class TrustProviderNativeApplicationOidcOptionsGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// OIDC authorization endpoint.
+        /// </summary>
         [Input("authorizationEndpoint")]
         public Input<string>? AuthorizationEndpoint { get; set; }
 
+        /// <summary>
+        /// OAuth 2.0 client identifier.
+        /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
         [Input("clientSecret", required: true)]
         private Input<string>? _clientSecret;
+
+        /// <summary>
+        /// OAuth 2.0 client secret.
+        /// </summary>
         public Input<string>? ClientSecret
         {
             get => _clientSecret;
@@ -30,18 +40,33 @@ namespace Pulumi.Aws.VerifiedAccess.Inputs
             }
         }
 
+        /// <summary>
+        /// OIDC issuer identifier of the IdP.
+        /// </summary>
         [Input("issuer")]
         public Input<string>? Issuer { get; set; }
 
+        /// <summary>
+        /// OIDC public signing key endpoint.
+        /// </summary>
         [Input("publicSigningKeyEndpoint")]
         public Input<string>? PublicSigningKeyEndpoint { get; set; }
 
+        /// <summary>
+        /// OpenID Connect (OIDC) scope specified.
+        /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
 
+        /// <summary>
+        /// OIDC token endpoint.
+        /// </summary>
         [Input("tokenEndpoint")]
         public Input<string>? TokenEndpoint { get; set; }
 
+        /// <summary>
+        /// OIDC user info endpoint.
+        /// </summary>
         [Input("userInfoEndpoint")]
         public Input<string>? UserInfoEndpoint { get; set; }
 

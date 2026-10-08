@@ -61,7 +61,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
         }
 
         /// <summary>
-        /// Description of the step.
+        /// Description of the plan.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -157,7 +157,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
         }
 
         /// <summary>
-        /// Name of the step.
+        /// Name of the plan. Must be unique within the account.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

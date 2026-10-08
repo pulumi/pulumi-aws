@@ -15,14 +15,14 @@ public final class PolicyDefinitionTemplateLinkedPrincipalArgs extends com.pulum
     public static final PolicyDefinitionTemplateLinkedPrincipalArgs Empty = new PolicyDefinitionTemplateLinkedPrincipalArgs();
 
     /**
-     * The entity ID of the principal.
+     * Entity ID of the principal.
      * 
      */
     @Import(name="entityId", required=true)
     private Output<String> entityId;
 
     /**
-     * @return The entity ID of the principal.
+     * @return Entity ID of the principal.
      * 
      */
     public Output<String> entityId() {
@@ -30,14 +30,14 @@ public final class PolicyDefinitionTemplateLinkedPrincipalArgs extends com.pulum
     }
 
     /**
-     * The entity type of the principal.
+     * Entity type of the principal.
      * 
      */
     @Import(name="entityType", required=true)
     private Output<String> entityType;
 
     /**
-     * @return The entity type of the principal.
+     * @return Entity type of the principal.
      * 
      */
     public Output<String> entityType() {
@@ -70,7 +70,7 @@ public final class PolicyDefinitionTemplateLinkedPrincipalArgs extends com.pulum
         }
 
         /**
-         * @param entityId The entity ID of the principal.
+         * @param entityId Entity ID of the principal.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class PolicyDefinitionTemplateLinkedPrincipalArgs extends com.pulum
         }
 
         /**
-         * @param entityId The entity ID of the principal.
+         * @param entityId Entity ID of the principal.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class PolicyDefinitionTemplateLinkedPrincipalArgs extends com.pulum
         }
 
         /**
-         * @param entityType The entity type of the principal.
+         * @param entityType Entity type of the principal.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class PolicyDefinitionTemplateLinkedPrincipalArgs extends com.pulum
         }
 
         /**
-         * @param entityType The entity type of the principal.
+         * @param entityType Entity type of the principal.
          * 
          * @return builder
          * 

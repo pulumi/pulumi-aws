@@ -590,8 +590,10 @@ class StreamProcessor(pulumi.CustomResource):
             device_name="kinesis-video-device-name",
             media_type="video/h264")
         example_stream = aws.kinesis.Stream("example",
-            name="pulumi-kinesis-example",
-            shard_count=1)
+            stream_mode_details={
+                "stream_mode": "ON_DEMAND",
+            },
+            name="pulumi-kinesis-example")
         example_role = aws.iam.Role("example",
             inline_policies=[{
                 "name": "Rekognition-Access",
@@ -810,8 +812,10 @@ class StreamProcessor(pulumi.CustomResource):
             device_name="kinesis-video-device-name",
             media_type="video/h264")
         example_stream = aws.kinesis.Stream("example",
-            name="pulumi-kinesis-example",
-            shard_count=1)
+            stream_mode_details={
+                "stream_mode": "ON_DEMAND",
+            },
+            name="pulumi-kinesis-example")
         example_role = aws.iam.Role("example",
             inline_policies=[{
                 "name": "Rekognition-Access",

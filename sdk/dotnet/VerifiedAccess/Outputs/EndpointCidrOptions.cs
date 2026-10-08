@@ -13,9 +13,21 @@ namespace Pulumi.Aws.VerifiedAccess.Outputs
     [OutputType]
     public sealed class EndpointCidrOptions
     {
+        /// <summary>
+        /// CIDR block to send traffic to.
+        /// </summary>
         public readonly string Cidr;
+        /// <summary>
+        /// Port ranges. See below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.EndpointCidrOptionsPortRange> PortRanges;
+        /// <summary>
+        /// Protocol. Currently `Tcp` is supported.
+        /// </summary>
         public readonly string? Protocol;
+        /// <summary>
+        /// IDs of the subnets.
+        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
 
         [OutputConstructor]

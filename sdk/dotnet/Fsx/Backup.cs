@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Fsx
     /// {
     ///     var exampleWindowsFileSystem = new Aws.Fsx.WindowsFileSystem("example", new()
     ///     {
-    ///         ActiveDirectoryId = eample.Id,
+    ///         ActiveDirectoryId = exampleAwsDirectoryServiceDirectory.Id,
     ///         SkipFinalBackup = true,
     ///         StorageCapacity = 32,
     ///         SubnetIds = new[]

@@ -779,8 +779,10 @@ class EventTarget(pulumi.CustomResource):
                 ],
             }))
         test_stream = aws.kinesis.Stream("test_stream",
-            name="kinesis-test",
-            shard_count=1)
+            stream_mode_details={
+                "stream_mode": "ON_DEMAND",
+            },
+            name="pulumi-kinesis-test")
         yada = aws.cloudwatch.EventTarget("yada",
             run_command_targets=[
                 {
@@ -968,7 +970,7 @@ class EventTarget(pulumi.CustomResource):
                 },
             },
             arn=example_stage.execution_arn.apply(lambda execution_arn: f"{execution_arn}/GET"),
-            rule=example_event_rule.id)
+            rule=example_event_rule.name)
         ```
 
         ### Cross-Account Event Bus target
@@ -1030,7 +1032,7 @@ class EventTarget(pulumi.CustomResource):
         \"\"\",
             },
             arn=example_aws_lambda_function["arn"],
-            rule=example_event_rule.id)
+            rule=example_event_rule.name)
         ```
 
         ### Input Transformer Usage - Simple String
@@ -1049,7 +1051,7 @@ class EventTarget(pulumi.CustomResource):
                 "input_template": "\\"<instance> is in state <status>\\"",
             },
             arn=example_aws_lambda_function["arn"],
-            rule=example_event_rule.id)
+            rule=example_event_rule.name)
         ```
 
         ### Cloudwatch Log Group Usage
@@ -1171,7 +1173,7 @@ class EventTarget(pulumi.CustomResource):
             arn=std.replace_output(text=graphql_api.arn,
                 search="apis",
                 replace="endpoints/graphql-api").result,
-            rule=invoke_appsync_mutation.id,
+            rule=invoke_appsync_mutation.name,
             role_arn=appsync_mutation_role.arn)
         appsync_mutation_role_policy_document = aws.iam.get_policy_document_output(statements=[{
             "actions": ["appsync:GraphQL"],
@@ -1274,8 +1276,10 @@ class EventTarget(pulumi.CustomResource):
                 ],
             }))
         test_stream = aws.kinesis.Stream("test_stream",
-            name="kinesis-test",
-            shard_count=1)
+            stream_mode_details={
+                "stream_mode": "ON_DEMAND",
+            },
+            name="pulumi-kinesis-test")
         yada = aws.cloudwatch.EventTarget("yada",
             run_command_targets=[
                 {
@@ -1463,7 +1467,7 @@ class EventTarget(pulumi.CustomResource):
                 },
             },
             arn=example_stage.execution_arn.apply(lambda execution_arn: f"{execution_arn}/GET"),
-            rule=example_event_rule.id)
+            rule=example_event_rule.name)
         ```
 
         ### Cross-Account Event Bus target
@@ -1525,7 +1529,7 @@ class EventTarget(pulumi.CustomResource):
         \"\"\",
             },
             arn=example_aws_lambda_function["arn"],
-            rule=example_event_rule.id)
+            rule=example_event_rule.name)
         ```
 
         ### Input Transformer Usage - Simple String
@@ -1544,7 +1548,7 @@ class EventTarget(pulumi.CustomResource):
                 "input_template": "\\"<instance> is in state <status>\\"",
             },
             arn=example_aws_lambda_function["arn"],
-            rule=example_event_rule.id)
+            rule=example_event_rule.name)
         ```
 
         ### Cloudwatch Log Group Usage
@@ -1666,7 +1670,7 @@ class EventTarget(pulumi.CustomResource):
             arn=std.replace_output(text=graphql_api.arn,
                 search="apis",
                 replace="endpoints/graphql-api").result,
-            rule=invoke_appsync_mutation.id,
+            rule=invoke_appsync_mutation.name,
             role_arn=appsync_mutation_role.arn)
         appsync_mutation_role_policy_document = aws.iam.get_policy_document_output(statements=[{
             "actions": ["appsync:GraphQL"],

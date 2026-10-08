@@ -18,14 +18,14 @@ public final class RouteServerEndpointState extends com.pulumi.resources.Resourc
     public static final RouteServerEndpointState Empty = new RouteServerEndpointState();
 
     /**
-     * The ARN of the route server endpoint.
+     * ARN of the route server endpoint.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the route server endpoint.
+     * @return ARN of the route server endpoint.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -33,14 +33,14 @@ public final class RouteServerEndpointState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The IP address of the Elastic network interface for the endpoint.
+     * IP address of the Elastic network interface for the endpoint.
      * 
      */
     @Import(name="eniAddress")
     private @Nullable Output<String> eniAddress;
 
     /**
-     * @return The IP address of the Elastic network interface for the endpoint.
+     * @return IP address of the Elastic network interface for the endpoint.
      * 
      */
     public Optional<Output<String>> eniAddress() {
@@ -48,14 +48,14 @@ public final class RouteServerEndpointState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The ID of the Elastic network interface for the endpoint.
+     * ID of the Elastic network interface for the endpoint.
      * 
      */
     @Import(name="eniId")
     private @Nullable Output<String> eniId;
 
     /**
-     * @return The ID of the Elastic network interface for the endpoint.
+     * @return ID of the Elastic network interface for the endpoint.
      * 
      */
     public Optional<Output<String>> eniId() {
@@ -78,14 +78,14 @@ public final class RouteServerEndpointState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The unique identifier of the route server endpoint.
+     * Unique identifier of the route server endpoint.
      * 
      */
     @Import(name="routeServerEndpointId")
     private @Nullable Output<String> routeServerEndpointId;
 
     /**
-     * @return The unique identifier of the route server endpoint.
+     * @return Unique identifier of the route server endpoint.
      * 
      */
     public Optional<Output<String>> routeServerEndpointId() {
@@ -93,14 +93,14 @@ public final class RouteServerEndpointState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The ID of the route server for which to create an endpoint.
+     * ID of the route server for which to create an endpoint.
      * 
      */
     @Import(name="routeServerId")
     private @Nullable Output<String> routeServerId;
 
     /**
-     * @return The ID of the route server for which to create an endpoint.
+     * @return ID of the route server for which to create an endpoint.
      * 
      */
     public Optional<Output<String>> routeServerId() {
@@ -108,7 +108,7 @@ public final class RouteServerEndpointState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The ID of the subnet in which to create the route server endpoint.
+     * ID of the subnet in which to create the route server endpoint.
      * 
      * The following arguments are optional:
      * 
@@ -117,7 +117,7 @@ public final class RouteServerEndpointState extends com.pulumi.resources.Resourc
     private @Nullable Output<String> subnetId;
 
     /**
-     * @return The ID of the subnet in which to create the route server endpoint.
+     * @return ID of the subnet in which to create the route server endpoint.
      * 
      * The following arguments are optional:
      * 
@@ -127,14 +127,14 @@ public final class RouteServerEndpointState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -142,14 +142,14 @@ public final class RouteServerEndpointState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -164,14 +164,14 @@ public final class RouteServerEndpointState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The ID of the VPC containing the endpoint.
+     * ID of the VPC containing the endpoint.
      * 
      */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
     /**
-     * @return The ID of the VPC containing the endpoint.
+     * @return ID of the VPC containing the endpoint.
      * 
      */
     public Optional<Output<String>> vpcId() {
@@ -213,7 +213,7 @@ public final class RouteServerEndpointState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param arn The ARN of the route server endpoint.
+         * @param arn ARN of the route server endpoint.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class RouteServerEndpointState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param arn The ARN of the route server endpoint.
+         * @param arn ARN of the route server endpoint.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class RouteServerEndpointState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param eniAddress The IP address of the Elastic network interface for the endpoint.
+         * @param eniAddress IP address of the Elastic network interface for the endpoint.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class RouteServerEndpointState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param eniAddress The IP address of the Elastic network interface for the endpoint.
+         * @param eniAddress IP address of the Elastic network interface for the endpoint.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class RouteServerEndpointState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param eniId The ID of the Elastic network interface for the endpoint.
+         * @param eniId ID of the Elastic network interface for the endpoint.
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class RouteServerEndpointState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param eniId The ID of the Elastic network interface for the endpoint.
+         * @param eniId ID of the Elastic network interface for the endpoint.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class RouteServerEndpointState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param routeServerEndpointId The unique identifier of the route server endpoint.
+         * @param routeServerEndpointId Unique identifier of the route server endpoint.
          * 
          * @return builder
          * 
@@ -308,7 +308,7 @@ public final class RouteServerEndpointState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param routeServerEndpointId The unique identifier of the route server endpoint.
+         * @param routeServerEndpointId Unique identifier of the route server endpoint.
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class RouteServerEndpointState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param routeServerId The ID of the route server for which to create an endpoint.
+         * @param routeServerId ID of the route server for which to create an endpoint.
          * 
          * @return builder
          * 
@@ -329,7 +329,7 @@ public final class RouteServerEndpointState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param routeServerId The ID of the route server for which to create an endpoint.
+         * @param routeServerId ID of the route server for which to create an endpoint.
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class RouteServerEndpointState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param subnetId The ID of the subnet in which to create the route server endpoint.
+         * @param subnetId ID of the subnet in which to create the route server endpoint.
          * 
          * The following arguments are optional:
          * 
@@ -352,7 +352,7 @@ public final class RouteServerEndpointState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param subnetId The ID of the subnet in which to create the route server endpoint.
+         * @param subnetId ID of the subnet in which to create the route server endpoint.
          * 
          * The following arguments are optional:
          * 
@@ -364,7 +364,7 @@ public final class RouteServerEndpointState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class RouteServerEndpointState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -385,7 +385,7 @@ public final class RouteServerEndpointState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -396,7 +396,7 @@ public final class RouteServerEndpointState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -415,7 +415,7 @@ public final class RouteServerEndpointState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param vpcId The ID of the VPC containing the endpoint.
+         * @param vpcId ID of the VPC containing the endpoint.
          * 
          * @return builder
          * 
@@ -426,7 +426,7 @@ public final class RouteServerEndpointState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param vpcId The ID of the VPC containing the endpoint.
+         * @param vpcId ID of the VPC containing the endpoint.
          * 
          * @return builder
          * 

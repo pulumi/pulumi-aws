@@ -18,30 +18,62 @@ public final class EndpointNetworkInterfaceOptionsArgs extends com.pulumi.resour
 
     public static final EndpointNetworkInterfaceOptionsArgs Empty = new EndpointNetworkInterfaceOptionsArgs();
 
+    /**
+     * ID of the network interface.
+     * 
+     */
     @Import(name="networkInterfaceId")
     private @Nullable Output<String> networkInterfaceId;
 
+    /**
+     * @return ID of the network interface.
+     * 
+     */
     public Optional<Output<String>> networkInterfaceId() {
         return Optional.ofNullable(this.networkInterfaceId);
     }
 
+    /**
+     * IP port number.
+     * 
+     */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
+    /**
+     * @return IP port number.
+     * 
+     */
     public Optional<Output<Integer>> port() {
         return Optional.ofNullable(this.port);
     }
 
+    /**
+     * Port ranges. See below.
+     * 
+     */
     @Import(name="portRanges")
     private @Nullable Output<List<EndpointNetworkInterfaceOptionsPortRangeArgs>> portRanges;
 
+    /**
+     * @return Port ranges. See below.
+     * 
+     */
     public Optional<Output<List<EndpointNetworkInterfaceOptionsPortRangeArgs>>> portRanges() {
         return Optional.ofNullable(this.portRanges);
     }
 
+    /**
+     * IP protocol.
+     * 
+     */
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
+    /**
+     * @return IP protocol.
+     * 
+     */
     public Optional<Output<String>> protocol() {
         return Optional.ofNullable(this.protocol);
     }
@@ -73,42 +105,96 @@ public final class EndpointNetworkInterfaceOptionsArgs extends com.pulumi.resour
             $ = new EndpointNetworkInterfaceOptionsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param networkInterfaceId ID of the network interface.
+         * 
+         * @return builder
+         * 
+         */
         public Builder networkInterfaceId(@Nullable Output<String> networkInterfaceId) {
             $.networkInterfaceId = networkInterfaceId;
             return this;
         }
 
+        /**
+         * @param networkInterfaceId ID of the network interface.
+         * 
+         * @return builder
+         * 
+         */
         public Builder networkInterfaceId(String networkInterfaceId) {
             return networkInterfaceId(Output.of(networkInterfaceId));
         }
 
+        /**
+         * @param port IP port number.
+         * 
+         * @return builder
+         * 
+         */
         public Builder port(@Nullable Output<Integer> port) {
             $.port = port;
             return this;
         }
 
+        /**
+         * @param port IP port number.
+         * 
+         * @return builder
+         * 
+         */
         public Builder port(Integer port) {
             return port(Output.of(port));
         }
 
+        /**
+         * @param portRanges Port ranges. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder portRanges(@Nullable Output<List<EndpointNetworkInterfaceOptionsPortRangeArgs>> portRanges) {
             $.portRanges = portRanges;
             return this;
         }
 
+        /**
+         * @param portRanges Port ranges. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder portRanges(List<EndpointNetworkInterfaceOptionsPortRangeArgs> portRanges) {
             return portRanges(Output.of(portRanges));
         }
 
+        /**
+         * @param portRanges Port ranges. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder portRanges(EndpointNetworkInterfaceOptionsPortRangeArgs... portRanges) {
             return portRanges(List.of(portRanges));
         }
 
+        /**
+         * @param protocol IP protocol.
+         * 
+         * @return builder
+         * 
+         */
         public Builder protocol(@Nullable Output<String> protocol) {
             $.protocol = protocol;
             return this;
         }
 
+        /**
+         * @param protocol IP protocol.
+         * 
+         * @return builder
+         * 
+         */
         public Builder protocol(String protocol) {
             return protocol(Output.of(protocol));
         }

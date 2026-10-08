@@ -31,14 +31,14 @@ class RouteServerArgs:
         """
         The set of arguments for constructing a RouteServer resource.
 
-        :param pulumi.Input[_builtins.int] amazon_side_asn: The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
+        :param pulumi.Input[_builtins.int] amazon_side_asn: Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] persist_routes: Indicates whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
-        :param pulumi.Input[_builtins.int] persist_routes_duration: The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persist_routes` is enabled.
+        :param pulumi.Input[_builtins.str] persist_routes: Whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
+        :param pulumi.Input[_builtins.int] persist_routes_duration: Number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persist_routes` is enabled.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] sns_notifications_enabled: Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.bool] sns_notifications_enabled: Whether to enable SNS notifications for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "amazon_side_asn", amazon_side_asn)
         if persist_routes is not None:
@@ -58,7 +58,7 @@ class RouteServerArgs:
     @pulumi.getter(name="amazonSideAsn")
     def amazon_side_asn(self) -> pulumi.Input[_builtins.int]:
         """
-        The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
+        Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
 
         The following arguments are optional:
         """
@@ -72,7 +72,7 @@ class RouteServerArgs:
     @pulumi.getter(name="persistRoutes")
     def persist_routes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Indicates whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
+        Whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
         """
         return pulumi.get(self, "persist_routes")
 
@@ -84,7 +84,7 @@ class RouteServerArgs:
     @pulumi.getter(name="persistRoutesDuration")
     def persist_routes_duration(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persist_routes` is enabled.
+        Number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persist_routes` is enabled.
         """
         return pulumi.get(self, "persist_routes_duration")
 
@@ -108,7 +108,7 @@ class RouteServerArgs:
     @pulumi.getter(name="snsNotificationsEnabled")
     def sns_notifications_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
+        Whether to enable SNS notifications for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS.
         """
         return pulumi.get(self, "sns_notifications_enabled")
 
@@ -120,7 +120,7 @@ class RouteServerArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -155,18 +155,18 @@ class _RouteServerState:
         """
         Input properties used for looking up and filtering RouteServer resources.
 
-        :param pulumi.Input[_builtins.int] amazon_side_asn: The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
+        :param pulumi.Input[_builtins.int] amazon_side_asn: Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] arn: The ARN of the route server.
-        :param pulumi.Input[_builtins.str] persist_routes: Indicates whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
-        :param pulumi.Input[_builtins.int] persist_routes_duration: The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persist_routes` is enabled.
+        :param pulumi.Input[_builtins.str] arn: ARN of the route server.
+        :param pulumi.Input[_builtins.str] persist_routes: Whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
+        :param pulumi.Input[_builtins.int] persist_routes_duration: Number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persist_routes` is enabled.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] route_server_id: The unique identifier of the route server.
-        :param pulumi.Input[_builtins.bool] sns_notifications_enabled: Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
-        :param pulumi.Input[_builtins.str] sns_topic_arn: The ARN of the SNS topic where notifications are published.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] route_server_id: Unique identifier of the route server.
+        :param pulumi.Input[_builtins.bool] sns_notifications_enabled: Whether to enable SNS notifications for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS.
+        :param pulumi.Input[_builtins.str] sns_topic_arn: ARN of the SNS topic where notifications are published.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if amazon_side_asn is not None:
             pulumi.set(__self__, "amazon_side_asn", amazon_side_asn)
@@ -195,7 +195,7 @@ class _RouteServerState:
     @pulumi.getter(name="amazonSideAsn")
     def amazon_side_asn(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
+        Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
 
         The following arguments are optional:
         """
@@ -209,7 +209,7 @@ class _RouteServerState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the route server.
+        ARN of the route server.
         """
         return pulumi.get(self, "arn")
 
@@ -221,7 +221,7 @@ class _RouteServerState:
     @pulumi.getter(name="persistRoutes")
     def persist_routes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Indicates whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
+        Whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
         """
         return pulumi.get(self, "persist_routes")
 
@@ -233,7 +233,7 @@ class _RouteServerState:
     @pulumi.getter(name="persistRoutesDuration")
     def persist_routes_duration(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persist_routes` is enabled.
+        Number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persist_routes` is enabled.
         """
         return pulumi.get(self, "persist_routes_duration")
 
@@ -257,7 +257,7 @@ class _RouteServerState:
     @pulumi.getter(name="routeServerId")
     def route_server_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The unique identifier of the route server.
+        Unique identifier of the route server.
         """
         return pulumi.get(self, "route_server_id")
 
@@ -269,7 +269,7 @@ class _RouteServerState:
     @pulumi.getter(name="snsNotificationsEnabled")
     def sns_notifications_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
+        Whether to enable SNS notifications for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS.
         """
         return pulumi.get(self, "sns_notifications_enabled")
 
@@ -281,7 +281,7 @@ class _RouteServerState:
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the SNS topic where notifications are published.
+        ARN of the SNS topic where notifications are published.
         """
         return pulumi.get(self, "sns_topic_arn")
 
@@ -293,7 +293,7 @@ class _RouteServerState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -305,7 +305,7 @@ class _RouteServerState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -382,14 +382,14 @@ class RouteServer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] amazon_side_asn: The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
+        :param pulumi.Input[_builtins.int] amazon_side_asn: Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] persist_routes: Indicates whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
-        :param pulumi.Input[_builtins.int] persist_routes_duration: The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persist_routes` is enabled.
+        :param pulumi.Input[_builtins.str] persist_routes: Whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
+        :param pulumi.Input[_builtins.int] persist_routes_duration: Number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persist_routes` is enabled.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] sns_notifications_enabled: Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.bool] sns_notifications_enabled: Whether to enable SNS notifications for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -512,18 +512,18 @@ class RouteServer(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] amazon_side_asn: The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
+        :param pulumi.Input[_builtins.int] amazon_side_asn: Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] arn: The ARN of the route server.
-        :param pulumi.Input[_builtins.str] persist_routes: Indicates whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
-        :param pulumi.Input[_builtins.int] persist_routes_duration: The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persist_routes` is enabled.
+        :param pulumi.Input[_builtins.str] arn: ARN of the route server.
+        :param pulumi.Input[_builtins.str] persist_routes: Whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
+        :param pulumi.Input[_builtins.int] persist_routes_duration: Number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persist_routes` is enabled.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] route_server_id: The unique identifier of the route server.
-        :param pulumi.Input[_builtins.bool] sns_notifications_enabled: Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
-        :param pulumi.Input[_builtins.str] sns_topic_arn: The ARN of the SNS topic where notifications are published.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] route_server_id: Unique identifier of the route server.
+        :param pulumi.Input[_builtins.bool] sns_notifications_enabled: Whether to enable SNS notifications for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS.
+        :param pulumi.Input[_builtins.str] sns_topic_arn: ARN of the SNS topic where notifications are published.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -546,7 +546,7 @@ class RouteServer(pulumi.CustomResource):
     @pulumi.getter(name="amazonSideAsn")
     def amazon_side_asn(self) -> pulumi.Output[_builtins.int]:
         """
-        The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
+        Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
 
         The following arguments are optional:
         """
@@ -556,7 +556,7 @@ class RouteServer(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the route server.
+        ARN of the route server.
         """
         return pulumi.get(self, "arn")
 
@@ -564,7 +564,7 @@ class RouteServer(pulumi.CustomResource):
     @pulumi.getter(name="persistRoutes")
     def persist_routes(self) -> pulumi.Output[_builtins.str]:
         """
-        Indicates whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
+        Whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
         """
         return pulumi.get(self, "persist_routes")
 
@@ -572,7 +572,7 @@ class RouteServer(pulumi.CustomResource):
     @pulumi.getter(name="persistRoutesDuration")
     def persist_routes_duration(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persist_routes` is enabled.
+        Number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persist_routes` is enabled.
         """
         return pulumi.get(self, "persist_routes_duration")
 
@@ -588,7 +588,7 @@ class RouteServer(pulumi.CustomResource):
     @pulumi.getter(name="routeServerId")
     def route_server_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The unique identifier of the route server.
+        Unique identifier of the route server.
         """
         return pulumi.get(self, "route_server_id")
 
@@ -596,7 +596,7 @@ class RouteServer(pulumi.CustomResource):
     @pulumi.getter(name="snsNotificationsEnabled")
     def sns_notifications_enabled(self) -> pulumi.Output[_builtins.bool]:
         """
-        Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
+        Whether to enable SNS notifications for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS.
         """
         return pulumi.get(self, "sns_notifications_enabled")
 
@@ -604,7 +604,7 @@ class RouteServer(pulumi.CustomResource):
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the SNS topic where notifications are published.
+        ARN of the SNS topic where notifications are published.
         """
         return pulumi.get(self, "sns_topic_arn")
 
@@ -612,7 +612,7 @@ class RouteServer(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -620,7 +620,7 @@ class RouteServer(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

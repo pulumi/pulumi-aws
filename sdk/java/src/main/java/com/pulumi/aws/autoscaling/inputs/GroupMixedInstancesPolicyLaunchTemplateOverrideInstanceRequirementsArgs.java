@@ -58,14 +58,14 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
     }
 
     /**
-     * List of accelerator names. Default is any acclerator.
+     * List of accelerator names. Default is any accelerator.
      * 
      */
     @Import(name="acceleratorNames")
     private @Nullable Output<List<String>> acceleratorNames;
 
     /**
-     * @return List of accelerator names. Default is any acclerator.
+     * @return List of accelerator names. Default is any accelerator.
      * 
      */
     public Optional<Output<List<String>>> acceleratorNames() {
@@ -122,14 +122,14 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
     }
 
     /**
-     * Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+     * Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
      * 
      */
     @Import(name="bareMetal")
     private @Nullable Output<String> bareMetal;
 
     /**
-     * @return Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+     * @return Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
      * 
      */
     public Optional<Output<String>> bareMetal() {
@@ -507,7 +507,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
         }
 
         /**
-         * @param acceleratorNames List of accelerator names. Default is any acclerator.
+         * @param acceleratorNames List of accelerator names. Default is any accelerator.
          * 
          * @return builder
          * 
@@ -518,7 +518,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
         }
 
         /**
-         * @param acceleratorNames List of accelerator names. Default is any acclerator.
+         * @param acceleratorNames List of accelerator names. Default is any accelerator.
          * 
          * @return builder
          * 
@@ -528,7 +528,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
         }
 
         /**
-         * @param acceleratorNames List of accelerator names. Default is any acclerator.
+         * @param acceleratorNames List of accelerator names. Default is any accelerator.
          * 
          * @return builder
          * 
@@ -627,7 +627,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
         }
 
         /**
-         * @param bareMetal Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+         * @param bareMetal Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
          * 
          * @return builder
          * 
@@ -638,7 +638,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
         }
 
         /**
-         * @param bareMetal Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+         * @param bareMetal Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
          * 
          * @return builder
          * 

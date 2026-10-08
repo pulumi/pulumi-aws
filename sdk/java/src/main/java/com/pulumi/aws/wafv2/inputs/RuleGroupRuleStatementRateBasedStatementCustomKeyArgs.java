@@ -34,14 +34,14 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
     }
 
     /**
-     * (Optional) Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
+     * Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
      * 
      */
     @Import(name="cookie")
     private @Nullable Output<RuleGroupRuleStatementRateBasedStatementCustomKeyCookieArgs> cookie;
 
     /**
-     * @return (Optional) Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
+     * @return Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
      * 
      */
     public Optional<Output<RuleGroupRuleStatementRateBasedStatementCustomKeyCookieArgs>> cookie() {
@@ -49,14 +49,14 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
     }
 
     /**
-     * (Optional) Use the first IP address in an HTTP header as an aggregate key. See `forwardedIp` below for details.
+     * Use the first IP address in an HTTP header as an aggregate key. See `forwardedIp` below for details.
      * 
      */
     @Import(name="forwardedIp")
     private @Nullable Output<RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIpArgs> forwardedIp;
 
     /**
-     * @return (Optional) Use the first IP address in an HTTP header as an aggregate key. See `forwardedIp` below for details.
+     * @return Use the first IP address in an HTTP header as an aggregate key. See `forwardedIp` below for details.
      * 
      */
     public Optional<Output<RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIpArgs>> forwardedIp() {
@@ -64,14 +64,14 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
     }
 
     /**
-     * (Optional) Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
+     * Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
      * 
      */
     @Import(name="header")
     private @Nullable Output<RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderArgs> header;
 
     /**
-     * @return (Optional) Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
+     * @return Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
      * 
      */
     public Optional<Output<RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderArgs>> header() {
@@ -79,14 +79,14 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
     }
 
     /**
-     * (Optional) Use the request&#39;s HTTP method as an aggregate key. See RateLimit `httpMethod` below for details.
+     * Use the request&#39;s HTTP method as an aggregate key. See RateLimit `httpMethod` below for details.
      * 
      */
     @Import(name="httpMethod")
     private @Nullable Output<RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethodArgs> httpMethod;
 
     /**
-     * @return (Optional) Use the request&#39;s HTTP method as an aggregate key. See RateLimit `httpMethod` below for details.
+     * @return Use the request&#39;s HTTP method as an aggregate key. See RateLimit `httpMethod` below for details.
      * 
      */
     public Optional<Output<RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethodArgs>> httpMethod() {
@@ -94,14 +94,14 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
     }
 
     /**
-     * (Optional) Use the request&#39;s originating IP address as an aggregate key. See `RateLimit ip` below for details.
+     * Use the request&#39;s originating IP address as an aggregate key. See `RateLimit ip` below for details.
      * 
      */
     @Import(name="ip")
     private @Nullable Output<RuleGroupRuleStatementRateBasedStatementCustomKeyIpArgs> ip;
 
     /**
-     * @return (Optional) Use the request&#39;s originating IP address as an aggregate key. See `RateLimit ip` below for details.
+     * @return Use the request&#39;s originating IP address as an aggregate key. See `RateLimit ip` below for details.
      * 
      */
     public Optional<Output<RuleGroupRuleStatementRateBasedStatementCustomKeyIpArgs>> ip() {
@@ -109,14 +109,14 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
     }
 
     /**
-     * (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+     * Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ja3Fingerprint` below for details.
      * 
      */
     @Import(name="ja3Fingerprint")
     private @Nullable Output<RuleGroupRuleStatementRateBasedStatementCustomKeyJa3FingerprintArgs> ja3Fingerprint;
 
     /**
-     * @return (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+     * @return Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ja3Fingerprint` below for details.
      * 
      */
     public Optional<Output<RuleGroupRuleStatementRateBasedStatementCustomKeyJa3FingerprintArgs>> ja3Fingerprint() {
@@ -124,14 +124,14 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
     }
 
     /**
-     * (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+     * Use the JA4 fingerprint in the request as an aggregate key. See `RateLimit ja4Fingerprint` below for details.
      * 
      */
     @Import(name="ja4Fingerprint")
     private @Nullable Output<RuleGroupRuleStatementRateBasedStatementCustomKeyJa4FingerprintArgs> ja4Fingerprint;
 
     /**
-     * @return (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+     * @return Use the JA4 fingerprint in the request as an aggregate key. See `RateLimit ja4Fingerprint` below for details.
      * 
      */
     public Optional<Output<RuleGroupRuleStatementRateBasedStatementCustomKeyJa4FingerprintArgs>> ja4Fingerprint() {
@@ -139,14 +139,14 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
     }
 
     /**
-     * (Optional) Use the specified label namespace as an aggregate key. See RateLimit `labelNamespace` below for details.
+     * Use the specified label namespace as an aggregate key. See RateLimit `labelNamespace` below for details.
      * 
      */
     @Import(name="labelNamespace")
     private @Nullable Output<RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespaceArgs> labelNamespace;
 
     /**
-     * @return (Optional) Use the specified label namespace as an aggregate key. See RateLimit `labelNamespace` below for details.
+     * @return Use the specified label namespace as an aggregate key. See RateLimit `labelNamespace` below for details.
      * 
      */
     public Optional<Output<RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespaceArgs>> labelNamespace() {
@@ -154,14 +154,14 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
     }
 
     /**
-     * (Optional) Use the specified query argument as an aggregate key. See RateLimit `queryArgument` below for details.
+     * Use the specified query argument as an aggregate key. See RateLimit `queryArgument` below for details.
      * 
      */
     @Import(name="queryArgument")
     private @Nullable Output<RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs> queryArgument;
 
     /**
-     * @return (Optional) Use the specified query argument as an aggregate key. See RateLimit `queryArgument` below for details.
+     * @return Use the specified query argument as an aggregate key. See RateLimit `queryArgument` below for details.
      * 
      */
     public Optional<Output<RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs>> queryArgument() {
@@ -169,14 +169,14 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
     }
 
     /**
-     * (Optional) Use the request&#39;s query string as an aggregate key. See RateLimit `queryString` below for details.
+     * Use the request&#39;s query string as an aggregate key. See RateLimit `queryString` below for details.
      * 
      */
     @Import(name="queryString")
     private @Nullable Output<RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringArgs> queryString;
 
     /**
-     * @return (Optional) Use the request&#39;s query string as an aggregate key. See RateLimit `queryString` below for details.
+     * @return Use the request&#39;s query string as an aggregate key. See RateLimit `queryString` below for details.
      * 
      */
     public Optional<Output<RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringArgs>> queryString() {
@@ -184,14 +184,14 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
     }
 
     /**
-     * (Optional) Use the request&#39;s URI path as an aggregate key. See RateLimit `uriPath` below for details.
+     * Use the request&#39;s URI path as an aggregate key. See RateLimit `uriPath` below for details.
      * 
      */
     @Import(name="uriPath")
     private @Nullable Output<RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathArgs> uriPath;
 
     /**
-     * @return (Optional) Use the request&#39;s URI path as an aggregate key. See RateLimit `uriPath` below for details.
+     * @return Use the request&#39;s URI path as an aggregate key. See RateLimit `uriPath` below for details.
      * 
      */
     public Optional<Output<RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathArgs>> uriPath() {
@@ -243,7 +243,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
         }
 
         /**
-         * @param cookie (Optional) Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
+         * @param cookie Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
         }
 
         /**
-         * @param cookie (Optional) Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
+         * @param cookie Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
         }
 
         /**
-         * @param forwardedIp (Optional) Use the first IP address in an HTTP header as an aggregate key. See `forwardedIp` below for details.
+         * @param forwardedIp Use the first IP address in an HTTP header as an aggregate key. See `forwardedIp` below for details.
          * 
          * @return builder
          * 
@@ -275,7 +275,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
         }
 
         /**
-         * @param forwardedIp (Optional) Use the first IP address in an HTTP header as an aggregate key. See `forwardedIp` below for details.
+         * @param forwardedIp Use the first IP address in an HTTP header as an aggregate key. See `forwardedIp` below for details.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
         }
 
         /**
-         * @param header (Optional) Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
+         * @param header Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
         }
 
         /**
-         * @param header (Optional) Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
+         * @param header Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
         }
 
         /**
-         * @param httpMethod (Optional) Use the request&#39;s HTTP method as an aggregate key. See RateLimit `httpMethod` below for details.
+         * @param httpMethod Use the request&#39;s HTTP method as an aggregate key. See RateLimit `httpMethod` below for details.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
         }
 
         /**
-         * @param httpMethod (Optional) Use the request&#39;s HTTP method as an aggregate key. See RateLimit `httpMethod` below for details.
+         * @param httpMethod Use the request&#39;s HTTP method as an aggregate key. See RateLimit `httpMethod` below for details.
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
         }
 
         /**
-         * @param ip (Optional) Use the request&#39;s originating IP address as an aggregate key. See `RateLimit ip` below for details.
+         * @param ip Use the request&#39;s originating IP address as an aggregate key. See `RateLimit ip` below for details.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
         }
 
         /**
-         * @param ip (Optional) Use the request&#39;s originating IP address as an aggregate key. See `RateLimit ip` below for details.
+         * @param ip Use the request&#39;s originating IP address as an aggregate key. See `RateLimit ip` below for details.
          * 
          * @return builder
          * 
@@ -348,7 +348,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
         }
 
         /**
-         * @param ja3Fingerprint (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+         * @param ja3Fingerprint Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ja3Fingerprint` below for details.
          * 
          * @return builder
          * 
@@ -359,7 +359,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
         }
 
         /**
-         * @param ja3Fingerprint (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+         * @param ja3Fingerprint Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ja3Fingerprint` below for details.
          * 
          * @return builder
          * 
@@ -369,7 +369,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
         }
 
         /**
-         * @param ja4Fingerprint (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+         * @param ja4Fingerprint Use the JA4 fingerprint in the request as an aggregate key. See `RateLimit ja4Fingerprint` below for details.
          * 
          * @return builder
          * 
@@ -380,7 +380,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
         }
 
         /**
-         * @param ja4Fingerprint (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+         * @param ja4Fingerprint Use the JA4 fingerprint in the request as an aggregate key. See `RateLimit ja4Fingerprint` below for details.
          * 
          * @return builder
          * 
@@ -390,7 +390,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
         }
 
         /**
-         * @param labelNamespace (Optional) Use the specified label namespace as an aggregate key. See RateLimit `labelNamespace` below for details.
+         * @param labelNamespace Use the specified label namespace as an aggregate key. See RateLimit `labelNamespace` below for details.
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
         }
 
         /**
-         * @param labelNamespace (Optional) Use the specified label namespace as an aggregate key. See RateLimit `labelNamespace` below for details.
+         * @param labelNamespace Use the specified label namespace as an aggregate key. See RateLimit `labelNamespace` below for details.
          * 
          * @return builder
          * 
@@ -411,7 +411,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
         }
 
         /**
-         * @param queryArgument (Optional) Use the specified query argument as an aggregate key. See RateLimit `queryArgument` below for details.
+         * @param queryArgument Use the specified query argument as an aggregate key. See RateLimit `queryArgument` below for details.
          * 
          * @return builder
          * 
@@ -422,7 +422,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
         }
 
         /**
-         * @param queryArgument (Optional) Use the specified query argument as an aggregate key. See RateLimit `queryArgument` below for details.
+         * @param queryArgument Use the specified query argument as an aggregate key. See RateLimit `queryArgument` below for details.
          * 
          * @return builder
          * 
@@ -432,7 +432,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
         }
 
         /**
-         * @param queryString (Optional) Use the request&#39;s query string as an aggregate key. See RateLimit `queryString` below for details.
+         * @param queryString Use the request&#39;s query string as an aggregate key. See RateLimit `queryString` below for details.
          * 
          * @return builder
          * 
@@ -443,7 +443,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
         }
 
         /**
-         * @param queryString (Optional) Use the request&#39;s query string as an aggregate key. See RateLimit `queryString` below for details.
+         * @param queryString Use the request&#39;s query string as an aggregate key. See RateLimit `queryString` below for details.
          * 
          * @return builder
          * 
@@ -453,7 +453,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
         }
 
         /**
-         * @param uriPath (Optional) Use the request&#39;s URI path as an aggregate key. See RateLimit `uriPath` below for details.
+         * @param uriPath Use the request&#39;s URI path as an aggregate key. See RateLimit `uriPath` below for details.
          * 
          * @return builder
          * 
@@ -464,7 +464,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs extends
         }
 
         /**
-         * @param uriPath (Optional) Use the request&#39;s URI path as an aggregate key. See RateLimit `uriPath` below for details.
+         * @param uriPath Use the request&#39;s URI path as an aggregate key. See RateLimit `uriPath` below for details.
          * 
          * @return builder
          * 

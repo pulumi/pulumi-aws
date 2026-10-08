@@ -30,11 +30,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServer? McpServer;
         /// <summary>
-        /// OpenAPI schema-based target configuration. Supports exactly one of `InlinePayload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `S3` (see `S3` Block).
+        /// OpenAPI schema-based target configuration. Supports exactly one of `InlinePayload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `S3` (see `target_configuration.mcp.open_api_schema.s3` Block).
         /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema? OpenApiSchema;
         /// <summary>
-        /// Smithy model-based target configuration. Supports exactly one of `InlinePayload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `S3` (see `S3` Block).
+        /// Smithy model-based target configuration. Supports exactly one of `InlinePayload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `S3` (see `target_configuration.mcp.smithy_model.s3` Block).
         /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel? SmithyModel;
 

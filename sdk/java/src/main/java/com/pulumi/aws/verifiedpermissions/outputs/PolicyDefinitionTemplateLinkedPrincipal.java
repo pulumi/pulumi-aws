@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class PolicyDefinitionTemplateLinkedPrincipal {
     /**
-     * @return The entity ID of the principal.
+     * @return Entity ID of the principal.
      * 
      */
     private String entityId;
     /**
-     * @return The entity type of the principal.
+     * @return Entity type of the principal.
      * 
      */
     private String entityType;
 
     private PolicyDefinitionTemplateLinkedPrincipal() {}
     /**
-     * @return The entity ID of the principal.
+     * @return Entity ID of the principal.
      * 
      */
     public String entityId() {
         return this.entityId;
     }
     /**
-     * @return The entity type of the principal.
+     * @return Entity type of the principal.
      * 
      */
     public String entityType() {

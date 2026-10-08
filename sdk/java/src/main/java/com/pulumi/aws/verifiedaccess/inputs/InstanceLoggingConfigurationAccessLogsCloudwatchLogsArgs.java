@@ -18,14 +18,14 @@ public final class InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs exte
     public static final InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs Empty = new InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs();
 
     /**
-     * Indicates whether logging is enabled.
+     * Whether logging is enabled.
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return Indicates whether logging is enabled.
+     * @return Whether logging is enabled.
      * 
      */
     public Output<Boolean> enabled() {
@@ -33,14 +33,14 @@ public final class InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs exte
     }
 
     /**
-     * The name of the CloudWatch Logs Log Group.
+     * Name of the CloudWatch Logs Log Group.
      * 
      */
     @Import(name="logGroup")
     private @Nullable Output<String> logGroup;
 
     /**
-     * @return The name of the CloudWatch Logs Log Group.
+     * @return Name of the CloudWatch Logs Log Group.
      * 
      */
     public Optional<Output<String>> logGroup() {
@@ -73,7 +73,7 @@ public final class InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs exte
         }
 
         /**
-         * @param enabled Indicates whether logging is enabled.
+         * @param enabled Whether logging is enabled.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs exte
         }
 
         /**
-         * @param enabled Indicates whether logging is enabled.
+         * @param enabled Whether logging is enabled.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs exte
         }
 
         /**
-         * @param logGroup The name of the CloudWatch Logs Log Group.
+         * @param logGroup Name of the CloudWatch Logs Log Group.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs exte
         }
 
         /**
-         * @param logGroup The name of the CloudWatch Logs Log Group.
+         * @param logGroup Name of the CloudWatch Logs Log Group.
          * 
          * @return builder
          * 

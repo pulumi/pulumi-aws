@@ -49,16 +49,14 @@ public final class GetVpcsArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired vpcs.
+     * Map of tags, each pair of which must exactly match a pair on the desired vpcs.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Map of tags, each pair of which must exactly match
-     * a pair on the desired vpcs.
+     * @return Map of tags, each pair of which must exactly match a pair on the desired vpcs.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -144,8 +142,7 @@ public final class GetVpcsArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags Map of tags, each pair of which must exactly match
-         * a pair on the desired vpcs.
+         * @param tags Map of tags, each pair of which must exactly match a pair on the desired vpcs.
          * 
          * @return builder
          * 
@@ -156,8 +153,7 @@ public final class GetVpcsArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags Map of tags, each pair of which must exactly match
-         * a pair on the desired vpcs.
+         * @param tags Map of tags, each pair of which must exactly match a pair on the desired vpcs.
          * 
          * @return builder
          * 

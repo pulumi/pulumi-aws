@@ -13,7 +13,13 @@ namespace Pulumi.Aws.VerifiedAccess.Outputs
     [OutputType]
     public sealed class TrustProviderSseSpecification
     {
+        /// <summary>
+        /// Whether a customer managed key is in use.
+        /// </summary>
         public readonly bool? CustomerManagedKeyEnabled;
+        /// <summary>
+        /// ARN of the KMS key.
+        /// </summary>
         public readonly string? KmsKeyArn;
 
         [OutputConstructor]

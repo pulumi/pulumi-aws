@@ -182,8 +182,11 @@ namespace Pulumi.Aws.Rekognition
     /// 
     ///     var exampleStream = new Aws.Kinesis.Stream("example", new()
     ///     {
+    ///         StreamModeDetails = new Aws.Kinesis.Inputs.StreamStreamModeDetailsArgs
+    ///         {
+    ///             StreamMode = "ON_DEMAND",
+    ///         },
     ///         Name = "pulumi-kinesis-example",
-    ///         ShardCount = 1,
     ///     });
     /// 
     ///     var exampleRole = new Aws.Iam.Role("example", new()

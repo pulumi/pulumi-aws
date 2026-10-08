@@ -17,14 +17,14 @@ public final class GetPolicyStoreArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetPolicyStoreArgs Empty = new GetPolicyStoreArgs();
 
     /**
-     * The ID of the Policy Store.
+     * ID of the Policy Store.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return The ID of the Policy Store.
+     * @return ID of the Policy Store.
      * 
      */
     public Output<String> id() {
@@ -72,7 +72,7 @@ public final class GetPolicyStoreArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id The ID of the Policy Store.
+         * @param id ID of the Policy Store.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GetPolicyStoreArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id The ID of the Policy Store.
+         * @param id ID of the Policy Store.
          * 
          * @return builder
          * 

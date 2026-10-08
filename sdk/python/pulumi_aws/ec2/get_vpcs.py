@@ -134,8 +134,7 @@ def get_vpcs(filters: Optional[Sequence[Union['GetVpcsFilterArgs', 'GetVpcsFilte
 
     :param Sequence[Union['GetVpcsFilterArgs', 'GetVpcsFilterArgsDict', 'outputs.GetVpcsFilterResult']] filters: Custom filter block as described below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired vpcs.
+    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired vpcs.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -194,8 +193,7 @@ def get_vpcs_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetV
 
     :param Sequence[Union['GetVpcsFilterArgs', 'GetVpcsFilterArgsDict', 'outputs.GetVpcsFilterResult']] filters: Custom filter block as described below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired vpcs.
+    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired vpcs.
     """
     __args__ = dict()
     __args__['filters'] = filters

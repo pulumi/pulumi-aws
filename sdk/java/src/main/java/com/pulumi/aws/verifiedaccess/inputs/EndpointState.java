@@ -23,14 +23,14 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     public static final EndpointState Empty = new EndpointState();
 
     /**
-     * The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
+     * DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
      * 
      */
     @Import(name="applicationDomain")
     private @Nullable Output<String> applicationDomain;
 
     /**
-     * @return The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
+     * @return DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
      * 
      */
     public Optional<Output<String>> applicationDomain() {
@@ -38,14 +38,14 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of attachment. Currently, only `vpc` is supported.
+     * Type of attachment. Currently, only `vpc` is supported.
      * 
      */
     @Import(name="attachmentType")
     private @Nullable Output<String> attachmentType;
 
     /**
-     * @return The type of attachment. Currently, only `vpc` is supported.
+     * @return Type of attachment. Currently, only `vpc` is supported.
      * 
      */
     public Optional<Output<String>> attachmentType() {
@@ -53,14 +53,14 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The CIDR block details. This parameter is required if the endpoint type is `cidr`.
+     * CIDR block details. This parameter is required if the endpoint type is `cidr`. See below.
      * 
      */
     @Import(name="cidrOptions")
     private @Nullable Output<EndpointCidrOptionsArgs> cidrOptions;
 
     /**
-     * @return The CIDR block details. This parameter is required if the endpoint type is `cidr`.
+     * @return CIDR block details. This parameter is required if the endpoint type is `cidr`. See below.
      * 
      */
     public Optional<Output<EndpointCidrOptionsArgs>> cidrOptions() {
@@ -68,14 +68,14 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A description for the Verified Access endpoint.
+     * Description for the Verified Access endpoint.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description for the Verified Access endpoint.
+     * @return Description for the Verified Access endpoint.
      * 
      */
     public Optional<Output<String>> description() {
@@ -98,14 +98,14 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
+     * ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
      * 
      */
     @Import(name="domainCertificateArn")
     private @Nullable Output<String> domainCertificateArn;
 
     /**
-     * @return The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
+     * @return ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
      * 
      */
     public Optional<Output<String>> domainCertificateArn() {
@@ -113,14 +113,14 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A DNS name that is generated for the endpoint.
+     * DNS name that is generated for the endpoint.
      * 
      */
     @Import(name="endpointDomain")
     private @Nullable Output<String> endpointDomain;
 
     /**
-     * @return A DNS name that is generated for the endpoint.
+     * @return DNS name that is generated for the endpoint.
      * 
      */
     public Optional<Output<String>> endpointDomain() {
@@ -128,14 +128,14 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A custom identifier that is prepended to the DNS name that is generated for the endpoint.
+     * Custom identifier that is prepended to the DNS name that is generated for the endpoint.
      * 
      */
     @Import(name="endpointDomainPrefix")
     private @Nullable Output<String> endpointDomainPrefix;
 
     /**
-     * @return A custom identifier that is prepended to the DNS name that is generated for the endpoint.
+     * @return Custom identifier that is prepended to the DNS name that is generated for the endpoint.
      * 
      */
     public Optional<Output<String>> endpointDomainPrefix() {
@@ -143,14 +143,14 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
+     * Type of Verified Access endpoint to create. Valid values are `load-balancer`, `network-interface`, `cidr`, and `rds`.
      * 
      */
     @Import(name="endpointType")
     private @Nullable Output<String> endpointType;
 
     /**
-     * @return The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
+     * @return Type of Verified Access endpoint to create. Valid values are `load-balancer`, `network-interface`, `cidr`, and `rds`.
      * 
      */
     public Optional<Output<String>> endpointType() {
@@ -158,14 +158,14 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
+     * Load balancer details. This parameter is required if the endpoint type is `load-balancer`. See below.
      * 
      */
     @Import(name="loadBalancerOptions")
     private @Nullable Output<EndpointLoadBalancerOptionsArgs> loadBalancerOptions;
 
     /**
-     * @return The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
+     * @return Load balancer details. This parameter is required if the endpoint type is `load-balancer`. See below.
      * 
      */
     public Optional<Output<EndpointLoadBalancerOptionsArgs>> loadBalancerOptions() {
@@ -173,14 +173,14 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The network interface details. This parameter is required if the endpoint type is `network-interface`.
+     * Network interface details. This parameter is required if the endpoint type is `network-interface`. See below.
      * 
      */
     @Import(name="networkInterfaceOptions")
     private @Nullable Output<EndpointNetworkInterfaceOptionsArgs> networkInterfaceOptions;
 
     /**
-     * @return The network interface details. This parameter is required if the endpoint type is `network-interface`.
+     * @return Network interface details. This parameter is required if the endpoint type is `network-interface`. See below.
      * 
      */
     public Optional<Output<EndpointNetworkInterfaceOptionsArgs>> networkInterfaceOptions() {
@@ -188,23 +188,31 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The policy document that is associated with this resource.
+     * Policy document that is associated with this resource.
      * 
      */
     @Import(name="policyDocument")
     private @Nullable Output<String> policyDocument;
 
     /**
-     * @return The policy document that is associated with this resource.
+     * @return Policy document that is associated with this resource.
      * 
      */
     public Optional<Output<String>> policyDocument() {
         return Optional.ofNullable(this.policyDocument);
     }
 
+    /**
+     * RDS details. This parameter is required if the endpoint type is `rds`. See below.
+     * 
+     */
     @Import(name="rdsOptions")
     private @Nullable Output<EndpointRdsOptionsArgs> rdsOptions;
 
+    /**
+     * @return RDS details. This parameter is required if the endpoint type is `rds`. See below.
+     * 
+     */
     public Optional<Output<EndpointRdsOptionsArgs>> rdsOptions() {
         return Optional.ofNullable(this.rdsOptions);
     }
@@ -225,14 +233,14 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of the the security groups IDs to associate with the Verified Access endpoint.
+     * List of the security groups IDs to associate with the Verified Access endpoint.
      * 
      */
     @Import(name="securityGroupIds")
     private @Nullable Output<List<String>> securityGroupIds;
 
     /**
-     * @return List of the the security groups IDs to associate with the Verified Access endpoint.
+     * @return List of the security groups IDs to associate with the Verified Access endpoint.
      * 
      */
     public Optional<Output<List<String>>> securityGroupIds() {
@@ -240,14 +248,14 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The options in use for server side encryption.
+     * Options in use for server side encryption. See below.
      * 
      */
     @Import(name="sseSpecification")
     private @Nullable Output<EndpointSseSpecificationArgs> sseSpecification;
 
     /**
-     * @return The options in use for server side encryption.
+     * @return Options in use for server side encryption. See below.
      * 
      */
     public Optional<Output<EndpointSseSpecificationArgs>> sseSpecification() {
@@ -277,7 +285,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the Verified Access group to associate the endpoint with.
+     * ID of the Verified Access group to associate the endpoint with.
      * 
      * The following arguments are optional:
      * 
@@ -286,7 +294,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> verifiedAccessGroupId;
 
     /**
-     * @return The ID of the Verified Access group to associate the endpoint with.
+     * @return ID of the Verified Access group to associate the endpoint with.
      * 
      * The following arguments are optional:
      * 
@@ -295,9 +303,17 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.verifiedAccessGroupId);
     }
 
+    /**
+     * ID of the Verified Access instance.
+     * 
+     */
     @Import(name="verifiedAccessInstanceId")
     private @Nullable Output<String> verifiedAccessInstanceId;
 
+    /**
+     * @return ID of the Verified Access instance.
+     * 
+     */
     public Optional<Output<String>> verifiedAccessInstanceId() {
         return Optional.ofNullable(this.verifiedAccessInstanceId);
     }
@@ -346,7 +362,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationDomain The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
+         * @param applicationDomain DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
          * 
          * @return builder
          * 
@@ -357,7 +373,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationDomain The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
+         * @param applicationDomain DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
          * 
          * @return builder
          * 
@@ -367,7 +383,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param attachmentType The type of attachment. Currently, only `vpc` is supported.
+         * @param attachmentType Type of attachment. Currently, only `vpc` is supported.
          * 
          * @return builder
          * 
@@ -378,7 +394,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param attachmentType The type of attachment. Currently, only `vpc` is supported.
+         * @param attachmentType Type of attachment. Currently, only `vpc` is supported.
          * 
          * @return builder
          * 
@@ -388,7 +404,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cidrOptions The CIDR block details. This parameter is required if the endpoint type is `cidr`.
+         * @param cidrOptions CIDR block details. This parameter is required if the endpoint type is `cidr`. See below.
          * 
          * @return builder
          * 
@@ -399,7 +415,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cidrOptions The CIDR block details. This parameter is required if the endpoint type is `cidr`.
+         * @param cidrOptions CIDR block details. This parameter is required if the endpoint type is `cidr`. See below.
          * 
          * @return builder
          * 
@@ -409,7 +425,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description for the Verified Access endpoint.
+         * @param description Description for the Verified Access endpoint.
          * 
          * @return builder
          * 
@@ -420,7 +436,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description for the Verified Access endpoint.
+         * @param description Description for the Verified Access endpoint.
          * 
          * @return builder
          * 
@@ -451,7 +467,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainCertificateArn The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
+         * @param domainCertificateArn ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
          * 
          * @return builder
          * 
@@ -462,7 +478,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainCertificateArn The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
+         * @param domainCertificateArn ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
          * 
          * @return builder
          * 
@@ -472,7 +488,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endpointDomain A DNS name that is generated for the endpoint.
+         * @param endpointDomain DNS name that is generated for the endpoint.
          * 
          * @return builder
          * 
@@ -483,7 +499,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endpointDomain A DNS name that is generated for the endpoint.
+         * @param endpointDomain DNS name that is generated for the endpoint.
          * 
          * @return builder
          * 
@@ -493,7 +509,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endpointDomainPrefix A custom identifier that is prepended to the DNS name that is generated for the endpoint.
+         * @param endpointDomainPrefix Custom identifier that is prepended to the DNS name that is generated for the endpoint.
          * 
          * @return builder
          * 
@@ -504,7 +520,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endpointDomainPrefix A custom identifier that is prepended to the DNS name that is generated for the endpoint.
+         * @param endpointDomainPrefix Custom identifier that is prepended to the DNS name that is generated for the endpoint.
          * 
          * @return builder
          * 
@@ -514,7 +530,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endpointType The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
+         * @param endpointType Type of Verified Access endpoint to create. Valid values are `load-balancer`, `network-interface`, `cidr`, and `rds`.
          * 
          * @return builder
          * 
@@ -525,7 +541,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endpointType The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
+         * @param endpointType Type of Verified Access endpoint to create. Valid values are `load-balancer`, `network-interface`, `cidr`, and `rds`.
          * 
          * @return builder
          * 
@@ -535,7 +551,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancerOptions The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
+         * @param loadBalancerOptions Load balancer details. This parameter is required if the endpoint type is `load-balancer`. See below.
          * 
          * @return builder
          * 
@@ -546,7 +562,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancerOptions The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
+         * @param loadBalancerOptions Load balancer details. This parameter is required if the endpoint type is `load-balancer`. See below.
          * 
          * @return builder
          * 
@@ -556,7 +572,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkInterfaceOptions The network interface details. This parameter is required if the endpoint type is `network-interface`.
+         * @param networkInterfaceOptions Network interface details. This parameter is required if the endpoint type is `network-interface`. See below.
          * 
          * @return builder
          * 
@@ -567,7 +583,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkInterfaceOptions The network interface details. This parameter is required if the endpoint type is `network-interface`.
+         * @param networkInterfaceOptions Network interface details. This parameter is required if the endpoint type is `network-interface`. See below.
          * 
          * @return builder
          * 
@@ -577,7 +593,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyDocument The policy document that is associated with this resource.
+         * @param policyDocument Policy document that is associated with this resource.
          * 
          * @return builder
          * 
@@ -588,7 +604,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyDocument The policy document that is associated with this resource.
+         * @param policyDocument Policy document that is associated with this resource.
          * 
          * @return builder
          * 
@@ -597,11 +613,23 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
             return policyDocument(Output.of(policyDocument));
         }
 
+        /**
+         * @param rdsOptions RDS details. This parameter is required if the endpoint type is `rds`. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rdsOptions(@Nullable Output<EndpointRdsOptionsArgs> rdsOptions) {
             $.rdsOptions = rdsOptions;
             return this;
         }
 
+        /**
+         * @param rdsOptions RDS details. This parameter is required if the endpoint type is `rds`. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rdsOptions(EndpointRdsOptionsArgs rdsOptions) {
             return rdsOptions(Output.of(rdsOptions));
         }
@@ -628,7 +656,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroupIds List of the the security groups IDs to associate with the Verified Access endpoint.
+         * @param securityGroupIds List of the security groups IDs to associate with the Verified Access endpoint.
          * 
          * @return builder
          * 
@@ -639,7 +667,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroupIds List of the the security groups IDs to associate with the Verified Access endpoint.
+         * @param securityGroupIds List of the security groups IDs to associate with the Verified Access endpoint.
          * 
          * @return builder
          * 
@@ -649,7 +677,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroupIds List of the the security groups IDs to associate with the Verified Access endpoint.
+         * @param securityGroupIds List of the security groups IDs to associate with the Verified Access endpoint.
          * 
          * @return builder
          * 
@@ -659,7 +687,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sseSpecification The options in use for server side encryption.
+         * @param sseSpecification Options in use for server side encryption. See below.
          * 
          * @return builder
          * 
@@ -670,7 +698,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sseSpecification The options in use for server side encryption.
+         * @param sseSpecification Options in use for server side encryption. See below.
          * 
          * @return builder
          * 
@@ -710,7 +738,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param verifiedAccessGroupId The ID of the Verified Access group to associate the endpoint with.
+         * @param verifiedAccessGroupId ID of the Verified Access group to associate the endpoint with.
          * 
          * The following arguments are optional:
          * 
@@ -723,7 +751,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param verifiedAccessGroupId The ID of the Verified Access group to associate the endpoint with.
+         * @param verifiedAccessGroupId ID of the Verified Access group to associate the endpoint with.
          * 
          * The following arguments are optional:
          * 
@@ -734,11 +762,23 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
             return verifiedAccessGroupId(Output.of(verifiedAccessGroupId));
         }
 
+        /**
+         * @param verifiedAccessInstanceId ID of the Verified Access instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder verifiedAccessInstanceId(@Nullable Output<String> verifiedAccessInstanceId) {
             $.verifiedAccessInstanceId = verifiedAccessInstanceId;
             return this;
         }
 
+        /**
+         * @param verifiedAccessInstanceId ID of the Verified Access instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder verifiedAccessInstanceId(String verifiedAccessInstanceId) {
             return verifiedAccessInstanceId(Output.of(verifiedAccessInstanceId));
         }

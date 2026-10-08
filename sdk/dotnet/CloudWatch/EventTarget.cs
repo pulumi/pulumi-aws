@@ -55,8 +55,11 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     ///     var testStream = new Aws.Kinesis.Stream("test_stream", new()
     ///     {
-    ///         Name = "kinesis-test",
-    ///         ShardCount = 1,
+    ///         StreamModeDetails = new Aws.Kinesis.Inputs.StreamStreamModeDetailsArgs
+    ///         {
+    ///             StreamMode = "ON_DEMAND",
+    ///         },
+    ///         Name = "pulumi-kinesis-test",
     ///     });
     /// 
     ///     var yada = new Aws.CloudWatch.EventTarget("yada", new()
@@ -440,7 +443,7 @@ namespace Pulumi.Aws.CloudWatch
     ///             },
     ///         },
     ///         Arn = exampleStage.ExecutionArn.Apply(executionArn =&gt; $"{executionArn}/GET"),
-    ///         Rule = exampleEventRule.Id,
+    ///         Rule = exampleEventRule.Name,
     ///     });
     /// 
     /// });
@@ -565,7 +568,7 @@ namespace Pulumi.Aws.CloudWatch
     /// ",
     ///         },
     ///         Arn = exampleAwsLambdaFunction.Arn,
-    ///         Rule = exampleEventRule.Id,
+    ///         Rule = exampleEventRule.Name,
     ///     });
     /// 
     /// });
@@ -595,7 +598,7 @@ namespace Pulumi.Aws.CloudWatch
     ///             InputTemplate = "\"&lt;instance&gt; is in state &lt;status&gt;\"",
     ///         },
     ///         Arn = exampleAwsLambdaFunction.Arn,
-    ///         Rule = exampleEventRule.Id,
+    ///         Rule = exampleEventRule.Name,
     ///     });
     /// 
     /// });
@@ -816,7 +819,7 @@ namespace Pulumi.Aws.CloudWatch
     ///             Search = "apis",
     ///             Replace = "endpoints/graphql-api",
     ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         Rule = invokeAppsyncMutation.Id,
+    ///         Rule = invokeAppsyncMutation.Name,
     ///         RoleArn = appsyncMutationRole.Arn,
     ///     });
     /// 

@@ -16,14 +16,14 @@ public final class VpcEndpointSubnetConfigurationArgs extends com.pulumi.resourc
     public static final VpcEndpointSubnetConfigurationArgs Empty = new VpcEndpointSubnetConfigurationArgs();
 
     /**
-     * The IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
+     * IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
      * 
      */
     @Import(name="ipv4")
     private @Nullable Output<String> ipv4;
 
     /**
-     * @return The IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
+     * @return IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
      * 
      */
     public Optional<Output<String>> ipv4() {
@@ -31,14 +31,14 @@ public final class VpcEndpointSubnetConfigurationArgs extends com.pulumi.resourc
     }
 
     /**
-     * The IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
+     * IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
      * 
      */
     @Import(name="ipv6")
     private @Nullable Output<String> ipv6;
 
     /**
-     * @return The IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
+     * @return IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
      * 
      */
     public Optional<Output<String>> ipv6() {
@@ -46,14 +46,14 @@ public final class VpcEndpointSubnetConfigurationArgs extends com.pulumi.resourc
     }
 
     /**
-     * The ID of the subnet. Must have a corresponding subnet in the `subnetIds` argument.
+     * ID of the subnet. Must have a corresponding subnet in the `subnetIds` argument.
      * 
      */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
     /**
-     * @return The ID of the subnet. Must have a corresponding subnet in the `subnetIds` argument.
+     * @return ID of the subnet. Must have a corresponding subnet in the `subnetIds` argument.
      * 
      */
     public Optional<Output<String>> subnetId() {
@@ -87,7 +87,7 @@ public final class VpcEndpointSubnetConfigurationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param ipv4 The IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
+         * @param ipv4 IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class VpcEndpointSubnetConfigurationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param ipv4 The IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
+         * @param ipv4 IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class VpcEndpointSubnetConfigurationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param ipv6 The IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
+         * @param ipv6 IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class VpcEndpointSubnetConfigurationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param ipv6 The IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
+         * @param ipv6 IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class VpcEndpointSubnetConfigurationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param subnetId The ID of the subnet. Must have a corresponding subnet in the `subnetIds` argument.
+         * @param subnetId ID of the subnet. Must have a corresponding subnet in the `subnetIds` argument.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class VpcEndpointSubnetConfigurationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param subnetId The ID of the subnet. Must have a corresponding subnet in the `subnetIds` argument.
+         * @param subnetId ID of the subnet. Must have a corresponding subnet in the `subnetIds` argument.
          * 
          * @return builder
          * 

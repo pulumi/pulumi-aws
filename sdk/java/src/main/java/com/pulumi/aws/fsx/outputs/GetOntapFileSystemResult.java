@@ -36,7 +36,7 @@ public final class GetOntapFileSystemResult {
      */
     private String deploymentType;
     /**
-     * @return SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system, specifying the number of provisioned IOPS and the provision mode. See Disk IOPS Below.
+     * @return SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system, specifying the number of provisioned IOPS and the provision mode. See `diskIopsConfiguration` below.
      * 
      */
     private List<GetOntapFileSystemDiskIopsConfiguration> diskIopsConfigurations;
@@ -167,7 +167,7 @@ public final class GetOntapFileSystemResult {
         return this.deploymentType;
     }
     /**
-     * @return SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system, specifying the number of provisioned IOPS and the provision mode. See Disk IOPS Below.
+     * @return SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system, specifying the number of provisioned IOPS and the provision mode. See `diskIopsConfiguration` below.
      * 
      */
     public List<GetOntapFileSystemDiskIopsConfiguration> diskIopsConfigurations() {

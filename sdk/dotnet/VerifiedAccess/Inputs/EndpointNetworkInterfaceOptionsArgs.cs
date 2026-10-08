@@ -12,20 +12,33 @@ namespace Pulumi.Aws.VerifiedAccess.Inputs
 
     public sealed class EndpointNetworkInterfaceOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ID of the network interface.
+        /// </summary>
         [Input("networkInterfaceId")]
         public Input<string>? NetworkInterfaceId { get; set; }
 
+        /// <summary>
+        /// IP port number.
+        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
         [Input("portRanges")]
         private InputList<Inputs.EndpointNetworkInterfaceOptionsPortRangeArgs>? _portRanges;
+
+        /// <summary>
+        /// Port ranges. See below.
+        /// </summary>
         public InputList<Inputs.EndpointNetworkInterfaceOptionsPortRangeArgs> PortRanges
         {
             get => _portRanges ?? (_portRanges = new InputList<Inputs.EndpointNetworkInterfaceOptionsPortRangeArgs>());
             set => _portRanges = value;
         }
 
+        /// <summary>
+        /// IP protocol.
+        /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
 

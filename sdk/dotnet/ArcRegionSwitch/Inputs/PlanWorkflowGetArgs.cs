@@ -16,7 +16,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
         private InputList<Inputs.PlanWorkflowStepGetArgs>? _steps;
 
         /// <summary>
-        /// Steps in the workflow. See `Step` Block for details.
+        /// Steps in the workflow. See `workflow.step` Block for details.
         /// </summary>
         public InputList<Inputs.PlanWorkflowStepGetArgs> Steps
         {

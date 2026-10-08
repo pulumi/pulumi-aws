@@ -124,7 +124,7 @@ class _KxDatabaseState:
         Input properties used for looking up and filtering KxDatabase resources.
 
         :param pulumi.Input[_builtins.str] arn: ARN identifier of the KX database.
-        :param pulumi.Input[_builtins.str] created_timestamp: Timestamp at which the databse is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
+        :param pulumi.Input[_builtins.str] created_timestamp: Timestamp at which the database is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         :param pulumi.Input[_builtins.str] description: Description of the KX database.
         :param pulumi.Input[_builtins.str] environment_id: Unique identifier for the KX environment.
         :param pulumi.Input[_builtins.str] last_modified_timestamp: Last timestamp at which the database was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
@@ -170,7 +170,7 @@ class _KxDatabaseState:
     @pulumi.getter(name="createdTimestamp")
     def created_timestamp(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Timestamp at which the databse is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
+        Timestamp at which the database is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         """
         return pulumi.get(self, "created_timestamp")
 
@@ -424,7 +424,7 @@ class KxDatabase(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN identifier of the KX database.
-        :param pulumi.Input[_builtins.str] created_timestamp: Timestamp at which the databse is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
+        :param pulumi.Input[_builtins.str] created_timestamp: Timestamp at which the database is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         :param pulumi.Input[_builtins.str] description: Description of the KX database.
         :param pulumi.Input[_builtins.str] environment_id: Unique identifier for the KX environment.
         :param pulumi.Input[_builtins.str] last_modified_timestamp: Last timestamp at which the database was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
@@ -462,7 +462,7 @@ class KxDatabase(pulumi.CustomResource):
     @pulumi.getter(name="createdTimestamp")
     def created_timestamp(self) -> pulumi.Output[_builtins.str]:
         """
-        Timestamp at which the databse is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
+        Timestamp at which the database is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         """
         return pulumi.get(self, "created_timestamp")
 

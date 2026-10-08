@@ -14,21 +14,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EndpointNetworkInterfaceOptions {
+    /**
+     * @return ID of the network interface.
+     * 
+     */
     private @Nullable String networkInterfaceId;
+    /**
+     * @return IP port number.
+     * 
+     */
     private @Nullable Integer port;
+    /**
+     * @return Port ranges. See below.
+     * 
+     */
     private @Nullable List<EndpointNetworkInterfaceOptionsPortRange> portRanges;
+    /**
+     * @return IP protocol.
+     * 
+     */
     private @Nullable String protocol;
 
     private EndpointNetworkInterfaceOptions() {}
+    /**
+     * @return ID of the network interface.
+     * 
+     */
     public Optional<String> networkInterfaceId() {
         return Optional.ofNullable(this.networkInterfaceId);
     }
+    /**
+     * @return IP port number.
+     * 
+     */
     public Optional<Integer> port() {
         return Optional.ofNullable(this.port);
     }
+    /**
+     * @return Port ranges. See below.
+     * 
+     */
     public List<EndpointNetworkInterfaceOptionsPortRange> portRanges() {
         return this.portRanges == null ? List.of() : this.portRanges;
     }
+    /**
+     * @return IP protocol.
+     * 
+     */
     public Optional<String> protocol() {
         return Optional.ofNullable(this.protocol);
     }

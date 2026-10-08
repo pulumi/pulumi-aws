@@ -17,14 +17,14 @@ public final class InstanceLoggingConfigurationState extends com.pulumi.resource
     public static final InstanceLoggingConfigurationState Empty = new InstanceLoggingConfigurationState();
 
     /**
-     * A block that specifies the configuration options for Verified Access instances. Detailed below.
+     * Block that specifies the configuration options for Verified Access instances. Detailed below.
      * 
      */
     @Import(name="accessLogs")
     private @Nullable Output<InstanceLoggingConfigurationAccessLogsArgs> accessLogs;
 
     /**
-     * @return A block that specifies the configuration options for Verified Access instances. Detailed below.
+     * @return Block that specifies the configuration options for Verified Access instances. Detailed below.
      * 
      */
     public Optional<Output<InstanceLoggingConfigurationAccessLogsArgs>> accessLogs() {
@@ -47,14 +47,14 @@ public final class InstanceLoggingConfigurationState extends com.pulumi.resource
     }
 
     /**
-     * The ID of the Verified Access instance.
+     * ID of the Verified Access instance.
      * 
      */
     @Import(name="verifiedaccessInstanceId")
     private @Nullable Output<String> verifiedaccessInstanceId;
 
     /**
-     * @return The ID of the Verified Access instance.
+     * @return ID of the Verified Access instance.
      * 
      */
     public Optional<Output<String>> verifiedaccessInstanceId() {
@@ -88,7 +88,7 @@ public final class InstanceLoggingConfigurationState extends com.pulumi.resource
         }
 
         /**
-         * @param accessLogs A block that specifies the configuration options for Verified Access instances. Detailed below.
+         * @param accessLogs Block that specifies the configuration options for Verified Access instances. Detailed below.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class InstanceLoggingConfigurationState extends com.pulumi.resource
         }
 
         /**
-         * @param accessLogs A block that specifies the configuration options for Verified Access instances. Detailed below.
+         * @param accessLogs Block that specifies the configuration options for Verified Access instances. Detailed below.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class InstanceLoggingConfigurationState extends com.pulumi.resource
         }
 
         /**
-         * @param verifiedaccessInstanceId The ID of the Verified Access instance.
+         * @param verifiedaccessInstanceId ID of the Verified Access instance.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class InstanceLoggingConfigurationState extends com.pulumi.resource
         }
 
         /**
-         * @param verifiedaccessInstanceId The ID of the Verified Access instance.
+         * @param verifiedaccessInstanceId ID of the Verified Access instance.
          * 
          * @return builder
          * 

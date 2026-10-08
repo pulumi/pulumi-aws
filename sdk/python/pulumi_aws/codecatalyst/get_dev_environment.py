@@ -127,7 +127,7 @@ class GetDevEnvironmentResult:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> _builtins.str:
         """
-        The Amazon EC2 instace type to use for the Dev Environment.
+        The Amazon EC2 instance type to use for the Dev Environment.
         """
         return pulumi.get(self, "instance_type")
 

@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TrustProviderSseSpecification {
+    /**
+     * @return Whether a customer managed key is in use.
+     * 
+     */
     private @Nullable Boolean customerManagedKeyEnabled;
+    /**
+     * @return ARN of the KMS key.
+     * 
+     */
     private @Nullable String kmsKeyArn;
 
     private TrustProviderSseSpecification() {}
+    /**
+     * @return Whether a customer managed key is in use.
+     * 
+     */
     public Optional<Boolean> customerManagedKeyEnabled() {
         return Optional.ofNullable(this.customerManagedKeyEnabled);
     }
+    /**
+     * @return ARN of the KMS key.
+     * 
+     */
     public Optional<String> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }

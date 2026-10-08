@@ -18,14 +18,14 @@ public final class VpcEndpointDnsOptionsArgs extends com.pulumi.resources.Resour
     public static final VpcEndpointDnsOptionsArgs Empty = new VpcEndpointDnsOptionsArgs();
 
     /**
-     * The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
+     * DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
      * 
      */
     @Import(name="dnsRecordIpType")
     private @Nullable Output<String> dnsRecordIpType;
 
     /**
-     * @return The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
+     * @return DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
      * 
      */
     public Optional<Output<String>> dnsRecordIpType() {
@@ -33,14 +33,14 @@ public final class VpcEndpointDnsOptionsArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Boolean indicating whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `privateDnsEnabled` is `true`.
+     * Whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `privateDnsEnabled` is `true`.
      * 
      */
     @Import(name="privateDnsOnlyForInboundResolverEndpoint")
     private @Nullable Output<Boolean> privateDnsOnlyForInboundResolverEndpoint;
 
     /**
-     * @return Boolean indicating whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `privateDnsEnabled` is `true`.
+     * @return Whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `privateDnsEnabled` is `true`.
      * 
      */
     public Optional<Output<Boolean>> privateDnsOnlyForInboundResolverEndpoint() {
@@ -105,7 +105,7 @@ public final class VpcEndpointDnsOptionsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param dnsRecordIpType The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
+         * @param dnsRecordIpType DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class VpcEndpointDnsOptionsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param dnsRecordIpType The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
+         * @param dnsRecordIpType DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class VpcEndpointDnsOptionsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param privateDnsOnlyForInboundResolverEndpoint Boolean indicating whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `privateDnsEnabled` is `true`.
+         * @param privateDnsOnlyForInboundResolverEndpoint Whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `privateDnsEnabled` is `true`.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class VpcEndpointDnsOptionsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param privateDnsOnlyForInboundResolverEndpoint Boolean indicating whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `privateDnsEnabled` is `true`.
+         * @param privateDnsOnlyForInboundResolverEndpoint Whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `privateDnsEnabled` is `true`.
          * 
          * @return builder
          * 

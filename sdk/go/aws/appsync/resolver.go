@@ -177,7 +177,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `appsync.Resolver` using the `apiId`, a hyphen, `type`, a hypen and `field`. For example:
+// Using `pulumi import`, import `appsync.Resolver` using the `apiId`, a hyphen, `type`, a hyphen and `field`. For example:
 //
 // ```sh
 // $ pulumi import aws:appsync/resolver:Resolver example abcdef123456-exampleType-exampleField

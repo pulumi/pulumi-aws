@@ -96,14 +96,14 @@ public class Experience extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Configuration information for your Amazon Kendra experience. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
+     * Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
      * 
      */
     @Export(name="configuration", refs={ExperienceConfiguration.class}, tree="[0]")
     private Output<ExperienceConfiguration> configuration;
 
     /**
-     * @return Configuration information for your Amazon Kendra experience. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
+     * @return Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
      * 
      */
     public Output<ExperienceConfiguration> configuration() {

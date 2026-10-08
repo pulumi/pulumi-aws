@@ -12,22 +12,36 @@ namespace Pulumi.Aws.VerifiedAccess.Inputs
 
     public sealed class EndpointCidrOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// CIDR block to send traffic to.
+        /// </summary>
         [Input("cidr", required: true)]
         public Input<string> Cidr { get; set; } = null!;
 
         [Input("portRanges", required: true)]
         private InputList<Inputs.EndpointCidrOptionsPortRangeArgs>? _portRanges;
+
+        /// <summary>
+        /// Port ranges. See below.
+        /// </summary>
         public InputList<Inputs.EndpointCidrOptionsPortRangeArgs> PortRanges
         {
             get => _portRanges ?? (_portRanges = new InputList<Inputs.EndpointCidrOptionsPortRangeArgs>());
             set => _portRanges = value;
         }
 
+        /// <summary>
+        /// Protocol. Currently `Tcp` is supported.
+        /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
 
         [Input("subnetIds")]
         private InputList<string>? _subnetIds;
+
+        /// <summary>
+        /// IDs of the subnets.
+        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());

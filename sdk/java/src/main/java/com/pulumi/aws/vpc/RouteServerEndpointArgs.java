@@ -34,14 +34,14 @@ public final class RouteServerEndpointArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The ID of the route server for which to create an endpoint.
+     * ID of the route server for which to create an endpoint.
      * 
      */
     @Import(name="routeServerId", required=true)
     private Output<String> routeServerId;
 
     /**
-     * @return The ID of the route server for which to create an endpoint.
+     * @return ID of the route server for which to create an endpoint.
      * 
      */
     public Output<String> routeServerId() {
@@ -49,7 +49,7 @@ public final class RouteServerEndpointArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The ID of the subnet in which to create the route server endpoint.
+     * ID of the subnet in which to create the route server endpoint.
      * 
      * The following arguments are optional:
      * 
@@ -58,7 +58,7 @@ public final class RouteServerEndpointArgs extends com.pulumi.resources.Resource
     private Output<String> subnetId;
 
     /**
-     * @return The ID of the subnet in which to create the route server endpoint.
+     * @return ID of the subnet in which to create the route server endpoint.
      * 
      * The following arguments are optional:
      * 
@@ -68,14 +68,14 @@ public final class RouteServerEndpointArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -139,7 +139,7 @@ public final class RouteServerEndpointArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param routeServerId The ID of the route server for which to create an endpoint.
+         * @param routeServerId ID of the route server for which to create an endpoint.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class RouteServerEndpointArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param routeServerId The ID of the route server for which to create an endpoint.
+         * @param routeServerId ID of the route server for which to create an endpoint.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class RouteServerEndpointArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param subnetId The ID of the subnet in which to create the route server endpoint.
+         * @param subnetId ID of the subnet in which to create the route server endpoint.
          * 
          * The following arguments are optional:
          * 
@@ -173,7 +173,7 @@ public final class RouteServerEndpointArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param subnetId The ID of the subnet in which to create the route server endpoint.
+         * @param subnetId ID of the subnet in which to create the route server endpoint.
          * 
          * The following arguments are optional:
          * 
@@ -185,7 +185,7 @@ public final class RouteServerEndpointArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class RouteServerEndpointArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

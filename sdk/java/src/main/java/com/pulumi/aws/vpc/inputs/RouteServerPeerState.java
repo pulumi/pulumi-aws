@@ -19,14 +19,14 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
     public static final RouteServerPeerState Empty = new RouteServerPeerState();
 
     /**
-     * The ARN of the route server peer.
+     * ARN of the route server peer.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the route server peer.
+     * @return ARN of the route server peer.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -34,14 +34,14 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
+     * BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
      * 
      */
     @Import(name="bgpOptions")
     private @Nullable Output<RouteServerPeerBgpOptionsArgs> bgpOptions;
 
     /**
-     * @return The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
+     * @return BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
      * 
      */
     public Optional<Output<RouteServerPeerBgpOptionsArgs>> bgpOptions() {
@@ -49,14 +49,14 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The IP address of the Elastic network interface for the route server endpoint.
+     * IP address of the Elastic network interface for the route server endpoint.
      * 
      */
     @Import(name="endpointEniAddress")
     private @Nullable Output<String> endpointEniAddress;
 
     /**
-     * @return The IP address of the Elastic network interface for the route server endpoint.
+     * @return IP address of the Elastic network interface for the route server endpoint.
      * 
      */
     public Optional<Output<String>> endpointEniAddress() {
@@ -64,14 +64,14 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The ID of the Elastic network interface for the route server endpoint.
+     * ID of the Elastic network interface for the route server endpoint.
      * 
      */
     @Import(name="endpointEniId")
     private @Nullable Output<String> endpointEniId;
 
     /**
-     * @return The ID of the Elastic network interface for the route server endpoint.
+     * @return ID of the Elastic network interface for the route server endpoint.
      * 
      */
     public Optional<Output<String>> endpointEniId() {
@@ -79,14 +79,14 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The IPv4 address of the peer device.
+     * IPv4 address of the peer device.
      * 
      */
     @Import(name="peerAddress")
     private @Nullable Output<String> peerAddress;
 
     /**
-     * @return The IPv4 address of the peer device.
+     * @return IPv4 address of the peer device.
      * 
      */
     public Optional<Output<String>> peerAddress() {
@@ -109,7 +109,7 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The ID of the route server endpoint for which to create a peer.
+     * ID of the route server endpoint for which to create a peer.
      * 
      * The following arguments are optional:
      * 
@@ -118,7 +118,7 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
     private @Nullable Output<String> routeServerEndpointId;
 
     /**
-     * @return The ID of the route server endpoint for which to create a peer.
+     * @return ID of the route server endpoint for which to create a peer.
      * 
      * The following arguments are optional:
      * 
@@ -128,14 +128,14 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The ID of the route server associated with this peer.
+     * ID of the route server associated with this peer.
      * 
      */
     @Import(name="routeServerId")
     private @Nullable Output<String> routeServerId;
 
     /**
-     * @return The ID of the route server associated with this peer.
+     * @return ID of the route server associated with this peer.
      * 
      */
     public Optional<Output<String>> routeServerId() {
@@ -143,14 +143,14 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The unique identifier of the route server peer.
+     * Unique identifier of the route server peer.
      * 
      */
     @Import(name="routeServerPeerId")
     private @Nullable Output<String> routeServerPeerId;
 
     /**
-     * @return The unique identifier of the route server peer.
+     * @return Unique identifier of the route server peer.
      * 
      */
     public Optional<Output<String>> routeServerPeerId() {
@@ -158,14 +158,14 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The ID of the subnet containing the route server peer.
+     * ID of the subnet containing the route server peer.
      * 
      */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
     /**
-     * @return The ID of the subnet containing the route server peer.
+     * @return ID of the subnet containing the route server peer.
      * 
      */
     public Optional<Output<String>> subnetId() {
@@ -173,14 +173,14 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -188,14 +188,14 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -210,14 +210,14 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The ID of the VPC containing the route server peer.
+     * ID of the VPC containing the route server peer.
      * 
      */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
     /**
-     * @return The ID of the VPC containing the route server peer.
+     * @return ID of the VPC containing the route server peer.
      * 
      */
     public Optional<Output<String>> vpcId() {
@@ -262,7 +262,7 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn The ARN of the route server peer.
+         * @param arn ARN of the route server peer.
          * 
          * @return builder
          * 
@@ -273,7 +273,7 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn The ARN of the route server peer.
+         * @param arn ARN of the route server peer.
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param bgpOptions The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
+         * @param bgpOptions BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param bgpOptions The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
+         * @param bgpOptions BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
          * 
          * @return builder
          * 
@@ -304,7 +304,7 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param endpointEniAddress The IP address of the Elastic network interface for the route server endpoint.
+         * @param endpointEniAddress IP address of the Elastic network interface for the route server endpoint.
          * 
          * @return builder
          * 
@@ -315,7 +315,7 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param endpointEniAddress The IP address of the Elastic network interface for the route server endpoint.
+         * @param endpointEniAddress IP address of the Elastic network interface for the route server endpoint.
          * 
          * @return builder
          * 
@@ -325,7 +325,7 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param endpointEniId The ID of the Elastic network interface for the route server endpoint.
+         * @param endpointEniId ID of the Elastic network interface for the route server endpoint.
          * 
          * @return builder
          * 
@@ -336,7 +336,7 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param endpointEniId The ID of the Elastic network interface for the route server endpoint.
+         * @param endpointEniId ID of the Elastic network interface for the route server endpoint.
          * 
          * @return builder
          * 
@@ -346,7 +346,7 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param peerAddress The IPv4 address of the peer device.
+         * @param peerAddress IPv4 address of the peer device.
          * 
          * @return builder
          * 
@@ -357,7 +357,7 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param peerAddress The IPv4 address of the peer device.
+         * @param peerAddress IPv4 address of the peer device.
          * 
          * @return builder
          * 
@@ -388,7 +388,7 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param routeServerEndpointId The ID of the route server endpoint for which to create a peer.
+         * @param routeServerEndpointId ID of the route server endpoint for which to create a peer.
          * 
          * The following arguments are optional:
          * 
@@ -401,7 +401,7 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param routeServerEndpointId The ID of the route server endpoint for which to create a peer.
+         * @param routeServerEndpointId ID of the route server endpoint for which to create a peer.
          * 
          * The following arguments are optional:
          * 
@@ -413,7 +413,7 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param routeServerId The ID of the route server associated with this peer.
+         * @param routeServerId ID of the route server associated with this peer.
          * 
          * @return builder
          * 
@@ -424,7 +424,7 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param routeServerId The ID of the route server associated with this peer.
+         * @param routeServerId ID of the route server associated with this peer.
          * 
          * @return builder
          * 
@@ -434,7 +434,7 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param routeServerPeerId The unique identifier of the route server peer.
+         * @param routeServerPeerId Unique identifier of the route server peer.
          * 
          * @return builder
          * 
@@ -445,7 +445,7 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param routeServerPeerId The unique identifier of the route server peer.
+         * @param routeServerPeerId Unique identifier of the route server peer.
          * 
          * @return builder
          * 
@@ -455,7 +455,7 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param subnetId The ID of the subnet containing the route server peer.
+         * @param subnetId ID of the subnet containing the route server peer.
          * 
          * @return builder
          * 
@@ -466,7 +466,7 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param subnetId The ID of the subnet containing the route server peer.
+         * @param subnetId ID of the subnet containing the route server peer.
          * 
          * @return builder
          * 
@@ -476,7 +476,7 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -487,7 +487,7 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -497,7 +497,7 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -508,7 +508,7 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -527,7 +527,7 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param vpcId The ID of the VPC containing the route server peer.
+         * @param vpcId ID of the VPC containing the route server peer.
          * 
          * @return builder
          * 
@@ -538,7 +538,7 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param vpcId The ID of the VPC containing the route server peer.
+         * @param vpcId ID of the VPC containing the route server peer.
          * 
          * @return builder
          * 

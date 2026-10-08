@@ -13,7 +13,7 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An empty configuration block that is used for inspecting all headers.
+        /// Empty configuration block that is used for inspecting all headers.
         /// </summary>
         [Input("all")]
         public Input<Inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAllArgs>? All { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         private InputList<string>? _excludedHeaders;
 
         /// <summary>
-        /// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+        /// Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         /// </summary>
         public InputList<string> ExcludedHeaders
         {
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         private InputList<string>? _includedHeaders;
 
         /// <summary>
-        /// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+        /// Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         /// </summary>
         public InputList<string> IncludedHeaders
         {

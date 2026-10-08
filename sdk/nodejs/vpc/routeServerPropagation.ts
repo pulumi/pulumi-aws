@@ -65,11 +65,11 @@ export class RouteServerPropagation extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The unique identifier for the route server to be associated.
+     * Unique identifier for the route server to be associated.
      */
     declare public readonly routeServerId: pulumi.Output<string>;
     /**
-     * The ID of the route table to which route server will propagate routes.
+     * ID of the route table to which route server will propagate routes.
      *
      * The following arguments are optional:
      */
@@ -120,11 +120,11 @@ export interface RouteServerPropagationState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The unique identifier for the route server to be associated.
+     * Unique identifier for the route server to be associated.
      */
     routeServerId?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the route table to which route server will propagate routes.
+     * ID of the route table to which route server will propagate routes.
      *
      * The following arguments are optional:
      */
@@ -141,11 +141,11 @@ export interface RouteServerPropagationArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The unique identifier for the route server to be associated.
+     * Unique identifier for the route server to be associated.
      */
     routeServerId: pulumi.Input<string>;
     /**
-     * The ID of the route table to which route server will propagate routes.
+     * ID of the route table to which route server will propagate routes.
      *
      * The following arguments are optional:
      */

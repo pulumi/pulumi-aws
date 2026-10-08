@@ -70,7 +70,7 @@ type RepositoryAssociation struct {
 	AssociationId pulumi.StringOutput `pulumi:"associationId"`
 	// ARN of an AWS CodeStar Connections connection.
 	ConnectionArn pulumi.StringOutput `pulumi:"connectionArn"`
-	// An object describing the KMS key to asssociate. Block is documented below.
+	// An object describing the KMS key to associate. Block is documented below.
 	KmsKeyDetails RepositoryAssociationKmsKeyDetailsPtrOutput `pulumi:"kmsKeyDetails"`
 	// The name of the repository.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -132,7 +132,7 @@ type repositoryAssociationState struct {
 	AssociationId *string `pulumi:"associationId"`
 	// ARN of an AWS CodeStar Connections connection.
 	ConnectionArn *string `pulumi:"connectionArn"`
-	// An object describing the KMS key to asssociate. Block is documented below.
+	// An object describing the KMS key to associate. Block is documented below.
 	KmsKeyDetails *RepositoryAssociationKmsKeyDetails `pulumi:"kmsKeyDetails"`
 	// The name of the repository.
 	Name *string `pulumi:"name"`
@@ -162,7 +162,7 @@ type RepositoryAssociationState struct {
 	AssociationId pulumi.StringPtrInput
 	// ARN of an AWS CodeStar Connections connection.
 	ConnectionArn pulumi.StringPtrInput
-	// An object describing the KMS key to asssociate. Block is documented below.
+	// An object describing the KMS key to associate. Block is documented below.
 	KmsKeyDetails RepositoryAssociationKmsKeyDetailsPtrInput
 	// The name of the repository.
 	Name pulumi.StringPtrInput
@@ -190,7 +190,7 @@ func (RepositoryAssociationState) ElementType() reflect.Type {
 }
 
 type repositoryAssociationArgs struct {
-	// An object describing the KMS key to asssociate. Block is documented below.
+	// An object describing the KMS key to associate. Block is documented below.
 	KmsKeyDetails *RepositoryAssociationKmsKeyDetails `pulumi:"kmsKeyDetails"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -203,7 +203,7 @@ type repositoryAssociationArgs struct {
 
 // The set of arguments for constructing a RepositoryAssociation resource.
 type RepositoryAssociationArgs struct {
-	// An object describing the KMS key to asssociate. Block is documented below.
+	// An object describing the KMS key to associate. Block is documented below.
 	KmsKeyDetails RepositoryAssociationKmsKeyDetailsPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -316,7 +316,7 @@ func (o RepositoryAssociationOutput) ConnectionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryAssociation) pulumi.StringOutput { return v.ConnectionArn }).(pulumi.StringOutput)
 }
 
-// An object describing the KMS key to asssociate. Block is documented below.
+// An object describing the KMS key to associate. Block is documented below.
 func (o RepositoryAssociationOutput) KmsKeyDetails() RepositoryAssociationKmsKeyDetailsPtrOutput {
 	return o.ApplyT(func(v *RepositoryAssociation) RepositoryAssociationKmsKeyDetailsPtrOutput { return v.KmsKeyDetails }).(RepositoryAssociationKmsKeyDetailsPtrOutput)
 }

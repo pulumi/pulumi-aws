@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleWindowsFileSystem = new WindowsFileSystem("exampleWindowsFileSystem", WindowsFileSystemArgs.builder()
- *             .activeDirectoryId(eample.id())
+ *             .activeDirectoryId(exampleAwsDirectoryServiceDirectory.id())
  *             .skipFinalBackup(true)
  *             .storageCapacity(32)
  *             .subnetIds(example1.id())

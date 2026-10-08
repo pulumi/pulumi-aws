@@ -94,7 +94,7 @@ export interface GetConnectResult {
      */
     readonly transitGatewayId: string;
     /**
-     * The underlaying VPC attachment
+     * The underlying VPC attachment
      */
     readonly transportAttachmentId: string;
 }

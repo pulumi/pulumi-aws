@@ -26,8 +26,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const testStream = new aws.kinesis.Stream("test_stream", {
- *     name: "kinesis-test",
- *     shardCount: 1,
+ *     streamModeDetails: {
+ *         streamMode: "ON_DEMAND",
+ *     },
+ *     name: "pulumi-kinesis-test",
  * });
  * const testApplication = new aws.kinesis.AnalyticsApplication("test_application", {
  *     inputs: {
@@ -71,8 +73,10 @@ import * as utilities from "../utilities";
  *     logGroupName: example.name,
  * });
  * const exampleStream = new aws.kinesis.Stream("example", {
+ *     streamModeDetails: {
+ *         streamMode: "ON_DEMAND",
+ *     },
  *     name: "example-kinesis-stream",
- *     shardCount: 1,
  * });
  * const exampleFirehoseDeliveryStream = new aws.kinesis.FirehoseDeliveryStream("example", {
  *     extendedS3Configuration: {

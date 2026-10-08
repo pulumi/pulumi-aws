@@ -20,18 +20,12 @@ public final class GetVpnGatewayPlainArgs extends com.pulumi.resources.InvokeArg
     /**
      * Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
      * 
-     * The arguments of this data source act as filters for querying the available VPN gateways.
-     * The given filters must match exactly one VPN gateway whose data will be exported as attributes.
-     * 
      */
     @Import(name="amazonSideAsn")
     private @Nullable String amazonSideAsn;
 
     /**
      * @return Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
-     * 
-     * The arguments of this data source act as filters for querying the available VPN gateways.
-     * The given filters must match exactly one VPN gateway whose data will be exported as attributes.
      * 
      */
     public Optional<String> amazonSideAsn() {
@@ -129,16 +123,14 @@ public final class GetVpnGatewayPlainArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired VPN Gateway.
+     * Map of tags, each pair of which must exactly match a pair on the desired VPN Gateway.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return Map of tags, each pair of which must exactly match
-     * a pair on the desired VPN Gateway.
+     * @return Map of tags, each pair of which must exactly match a pair on the desired VPN Gateway.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -178,9 +170,6 @@ public final class GetVpnGatewayPlainArgs extends com.pulumi.resources.InvokeArg
 
         /**
          * @param amazonSideAsn Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
-         * 
-         * The arguments of this data source act as filters for querying the available VPN gateways.
-         * The given filters must match exactly one VPN gateway whose data will be exported as attributes.
          * 
          * @return builder
          * 
@@ -267,8 +256,7 @@ public final class GetVpnGatewayPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param tags Map of tags, each pair of which must exactly match
-         * a pair on the desired VPN Gateway.
+         * @param tags Map of tags, each pair of which must exactly match a pair on the desired VPN Gateway.
          * 
          * @return builder
          * 

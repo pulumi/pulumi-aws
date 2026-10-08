@@ -19,14 +19,14 @@ public final class PolicyDefinitionTemplateLinkedArgs extends com.pulumi.resourc
     public static final PolicyDefinitionTemplateLinkedArgs Empty = new PolicyDefinitionTemplateLinkedArgs();
 
     /**
-     * The ID of the template.
+     * ID of the template.
      * 
      */
     @Import(name="policyTemplateId", required=true)
     private Output<String> policyTemplateId;
 
     /**
-     * @return The ID of the template.
+     * @return ID of the template.
      * 
      */
     public Output<String> policyTemplateId() {
@@ -34,14 +34,14 @@ public final class PolicyDefinitionTemplateLinkedArgs extends com.pulumi.resourc
     }
 
     /**
-     * The principal of the template linked policy.
+     * Principal of the template linked policy. See Principal below.
      * 
      */
     @Import(name="principal")
     private @Nullable Output<PolicyDefinitionTemplateLinkedPrincipalArgs> principal;
 
     /**
-     * @return The principal of the template linked policy.
+     * @return Principal of the template linked policy. See Principal below.
      * 
      */
     public Optional<Output<PolicyDefinitionTemplateLinkedPrincipalArgs>> principal() {
@@ -49,14 +49,14 @@ public final class PolicyDefinitionTemplateLinkedArgs extends com.pulumi.resourc
     }
 
     /**
-     * The resource of the template linked policy.
+     * Resource of the template linked policy. See Resource below.
      * 
      */
     @Import(name="resource")
     private @Nullable Output<PolicyDefinitionTemplateLinkedResourceArgs> resource;
 
     /**
-     * @return The resource of the template linked policy.
+     * @return Resource of the template linked policy. See Resource below.
      * 
      */
     public Optional<Output<PolicyDefinitionTemplateLinkedResourceArgs>> resource() {
@@ -90,7 +90,7 @@ public final class PolicyDefinitionTemplateLinkedArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param policyTemplateId The ID of the template.
+         * @param policyTemplateId ID of the template.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class PolicyDefinitionTemplateLinkedArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param policyTemplateId The ID of the template.
+         * @param policyTemplateId ID of the template.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class PolicyDefinitionTemplateLinkedArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param principal The principal of the template linked policy.
+         * @param principal Principal of the template linked policy. See Principal below.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class PolicyDefinitionTemplateLinkedArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param principal The principal of the template linked policy.
+         * @param principal Principal of the template linked policy. See Principal below.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class PolicyDefinitionTemplateLinkedArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param resource The resource of the template linked policy.
+         * @param resource Resource of the template linked policy. See Resource below.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class PolicyDefinitionTemplateLinkedArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param resource The resource of the template linked policy.
+         * @param resource Resource of the template linked policy. See Resource below.
          * 
          * @return builder
          * 

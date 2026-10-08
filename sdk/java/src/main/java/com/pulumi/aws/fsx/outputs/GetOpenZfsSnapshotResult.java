@@ -33,10 +33,6 @@ public final class GetOpenZfsSnapshotResult {
      */
     private String id;
     private @Nullable Boolean mostRecent;
-    /**
-     * @return Name of the snapshot.
-     * 
-     */
     private @Nullable String name;
     private String region;
     /**
@@ -84,10 +80,6 @@ public final class GetOpenZfsSnapshotResult {
     public Optional<Boolean> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
     }
-    /**
-     * @return Name of the snapshot.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }

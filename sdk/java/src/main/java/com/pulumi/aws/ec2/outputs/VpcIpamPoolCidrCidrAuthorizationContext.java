@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VpcIpamPoolCidrCidrAuthorizationContext {
     /**
-     * @return The plain-text authorization message for the prefix and account.
+     * @return Plain-text authorization message for the prefix and account.
      * 
      */
     private @Nullable String message;
     /**
-     * @return The signed authorization message for the prefix and account.
+     * @return Signed authorization message for the prefix and account.
      * 
      */
     private @Nullable String signature;
 
     private VpcIpamPoolCidrCidrAuthorizationContext() {}
     /**
-     * @return The plain-text authorization message for the prefix and account.
+     * @return Plain-text authorization message for the prefix and account.
      * 
      */
     public Optional<String> message() {
         return Optional.ofNullable(this.message);
     }
     /**
-     * @return The signed authorization message for the prefix and account.
+     * @return Signed authorization message for the prefix and account.
      * 
      */
     public Optional<String> signature() {

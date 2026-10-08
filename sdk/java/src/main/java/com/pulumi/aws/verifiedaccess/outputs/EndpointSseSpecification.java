@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EndpointSseSpecification {
+    /**
+     * @return Whether to encrypt the policy using a customer managed key.
+     * 
+     */
     private @Nullable Boolean customerManagedKeyEnabled;
+    /**
+     * @return ARN of the KMS key.
+     * 
+     */
     private @Nullable String kmsKeyArn;
 
     private EndpointSseSpecification() {}
+    /**
+     * @return Whether to encrypt the policy using a customer managed key.
+     * 
+     */
     public Optional<Boolean> customerManagedKeyEnabled() {
         return Optional.ofNullable(this.customerManagedKeyEnabled);
     }
+    /**
+     * @return ARN of the KMS key.
+     * 
+     */
     public Optional<String> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }

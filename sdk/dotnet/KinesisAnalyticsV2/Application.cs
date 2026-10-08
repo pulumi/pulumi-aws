@@ -393,7 +393,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
+        /// Runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`, `FLINK-2_3`.
         /// </summary>
         [Output("runtimeEnvironment")]
         public Output<string> RuntimeEnvironment { get; private set; } = null!;
@@ -525,7 +525,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
+        /// Runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`, `FLINK-2_3`.
         /// </summary>
         [Input("runtimeEnvironment", required: true)]
         public Input<string> RuntimeEnvironment { get; set; } = null!;
@@ -625,7 +625,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
+        /// Runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`, `FLINK-2_3`.
         /// </summary>
         [Input("runtimeEnvironment")]
         public Input<string>? RuntimeEnvironment { get; set; }

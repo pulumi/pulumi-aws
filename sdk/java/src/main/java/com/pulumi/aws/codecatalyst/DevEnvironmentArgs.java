@@ -59,7 +59,7 @@ public final class DevEnvironmentArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
+     * The Amazon EC2 instance type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
      * 
      * The following arguments are optional:
      * 
@@ -68,7 +68,7 @@ public final class DevEnvironmentArgs extends com.pulumi.resources.ResourceArgs 
     private Output<String> instanceType;
 
     /**
-     * @return The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
+     * @return The Amazon EC2 instance type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
      * 
      * The following arguments are optional:
      * 
@@ -236,7 +236,7 @@ public final class DevEnvironmentArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param instanceType The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
+         * @param instanceType The Amazon EC2 instance type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
          * 
          * The following arguments are optional:
          * 
@@ -249,7 +249,7 @@ public final class DevEnvironmentArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param instanceType The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
+         * @param instanceType The Amazon EC2 instance type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
          * 
          * The following arguments are optional:
          * 

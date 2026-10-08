@@ -36,7 +36,7 @@ public final class WebAclAssociationConfigRequestBody {
      */
     private @Nullable WebAclAssociationConfigRequestBodyCognitoUserPool cognitoUserPool;
     /**
-     * @return Customizes the request body that your protected AWS Verfied Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verifiedAccessInstance` below for details.
+     * @return Customizes the request body that your protected AWS Verified Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verifiedAccessInstance` below for details.
      * 
      */
     private @Nullable WebAclAssociationConfigRequestBodyVerifiedAccessInstance verifiedAccessInstance;
@@ -71,7 +71,7 @@ public final class WebAclAssociationConfigRequestBody {
         return Optional.ofNullable(this.cognitoUserPool);
     }
     /**
-     * @return Customizes the request body that your protected AWS Verfied Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verifiedAccessInstance` below for details.
+     * @return Customizes the request body that your protected AWS Verified Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verifiedAccessInstance` below for details.
      * 
      */
     public Optional<WebAclAssociationConfigRequestBodyVerifiedAccessInstance> verifiedAccessInstance() {

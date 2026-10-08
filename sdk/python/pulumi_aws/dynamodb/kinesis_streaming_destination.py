@@ -188,8 +188,10 @@ class KinesisStreamingDestination(pulumi.CustomResource):
             name="orders",
             hash_key="id")
         example_stream = aws.kinesis.Stream("example",
-            name="order_item_changes",
-            shard_count=1)
+            stream_mode_details={
+                "stream_mode": "ON_DEMAND",
+            },
+            name="order_item_changes")
         example_kinesis_streaming_destination = aws.dynamodb.KinesisStreamingDestination("example",
             stream_arn=example_stream.arn,
             table_name=example.name,
@@ -235,8 +237,10 @@ class KinesisStreamingDestination(pulumi.CustomResource):
             name="orders",
             hash_key="id")
         example_stream = aws.kinesis.Stream("example",
-            name="order_item_changes",
-            shard_count=1)
+            stream_mode_details={
+                "stream_mode": "ON_DEMAND",
+            },
+            name="order_item_changes")
         example_kinesis_streaming_destination = aws.dynamodb.KinesisStreamingDestination("example",
             stream_arn=example_stream.arn,
             table_name=example.name,

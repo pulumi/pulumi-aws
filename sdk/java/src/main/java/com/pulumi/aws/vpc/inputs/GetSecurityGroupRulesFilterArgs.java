@@ -16,16 +16,14 @@ public final class GetSecurityGroupRulesFilterArgs extends com.pulumi.resources.
     public static final GetSecurityGroupRulesFilterArgs Empty = new GetSecurityGroupRulesFilterArgs();
 
     /**
-     * Name of the field to filter by, as defined by
-     * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html).
+     * Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html).
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the field to filter by, as defined by
-     * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html).
+     * @return Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html).
      * 
      */
     public Output<String> name() {
@@ -35,16 +33,12 @@ public final class GetSecurityGroupRulesFilterArgs extends com.pulumi.resources.
     /**
      * Set of values that are accepted for the given field.
      * 
-     * Security group rule IDs will be selected if any one of the given values match.
-     * 
      */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
     /**
      * @return Set of values that are accepted for the given field.
-     * 
-     * Security group rule IDs will be selected if any one of the given values match.
      * 
      */
     public Output<List<String>> values() {
@@ -77,8 +71,7 @@ public final class GetSecurityGroupRulesFilterArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param name Name of the field to filter by, as defined by
-         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html).
+         * @param name Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html).
          * 
          * @return builder
          * 
@@ -89,8 +82,7 @@ public final class GetSecurityGroupRulesFilterArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param name Name of the field to filter by, as defined by
-         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html).
+         * @param name Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html).
          * 
          * @return builder
          * 
@@ -101,8 +93,6 @@ public final class GetSecurityGroupRulesFilterArgs extends com.pulumi.resources.
 
         /**
          * @param values Set of values that are accepted for the given field.
-         * 
-         * Security group rule IDs will be selected if any one of the given values match.
          * 
          * @return builder
          * 
@@ -115,8 +105,6 @@ public final class GetSecurityGroupRulesFilterArgs extends com.pulumi.resources.
         /**
          * @param values Set of values that are accepted for the given field.
          * 
-         * Security group rule IDs will be selected if any one of the given values match.
-         * 
          * @return builder
          * 
          */
@@ -126,8 +114,6 @@ public final class GetSecurityGroupRulesFilterArgs extends com.pulumi.resources.
 
         /**
          * @param values Set of values that are accepted for the given field.
-         * 
-         * Security group rule IDs will be selected if any one of the given values match.
          * 
          * @return builder
          * 

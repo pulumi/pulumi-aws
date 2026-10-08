@@ -65,19 +65,19 @@ export class Policy extends pulumi.CustomResource {
     }
 
     /**
-     * The date the policy was created.
+     * Date the policy was created.
      */
     declare public /*out*/ readonly createdDate: pulumi.Output<string>;
     /**
-     * The definition of the policy. See Definition below.
+     * Definition of the policy. See Definition below.
      */
     declare public readonly definition: pulumi.Output<outputs.verifiedpermissions.PolicyDefinition>;
     /**
-     * The Policy ID of the policy.
+     * Policy ID of the policy.
      */
     declare public /*out*/ readonly policyId: pulumi.Output<string>;
     /**
-     * The Policy Store ID of the policy store.
+     * Policy Store ID of the policy store.
      */
     declare public readonly policyStoreId: pulumi.Output<string>;
     /**
@@ -127,19 +127,19 @@ export class Policy extends pulumi.CustomResource {
  */
 export interface PolicyState {
     /**
-     * The date the policy was created.
+     * Date the policy was created.
      */
     createdDate?: pulumi.Input<string | undefined>;
     /**
-     * The definition of the policy. See Definition below.
+     * Definition of the policy. See Definition below.
      */
     definition?: pulumi.Input<inputs.verifiedpermissions.PolicyDefinition | undefined>;
     /**
-     * The Policy ID of the policy.
+     * Policy ID of the policy.
      */
     policyId?: pulumi.Input<string | undefined>;
     /**
-     * The Policy Store ID of the policy store.
+     * Policy Store ID of the policy store.
      */
     policyStoreId?: pulumi.Input<string | undefined>;
     /**
@@ -153,11 +153,11 @@ export interface PolicyState {
  */
 export interface PolicyArgs {
     /**
-     * The definition of the policy. See Definition below.
+     * Definition of the policy. See Definition below.
      */
     definition: pulumi.Input<inputs.verifiedpermissions.PolicyDefinition>;
     /**
-     * The Policy Store ID of the policy store.
+     * Policy Store ID of the policy store.
      */
     policyStoreId: pulumi.Input<string>;
     /**

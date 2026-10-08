@@ -16,14 +16,14 @@ public final class VpcIpamOrganizationAdminAccountState extends com.pulumi.resou
     public static final VpcIpamOrganizationAdminAccountState Empty = new VpcIpamOrganizationAdminAccountState();
 
     /**
-     * The Organizations ARN for the delegate account.
+     * Organizations ARN for the delegate account.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Organizations ARN for the delegate account.
+     * @return Organizations ARN for the delegate account.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -38,14 +38,14 @@ public final class VpcIpamOrganizationAdminAccountState extends com.pulumi.resou
     }
 
     /**
-     * The Organizations email for the delegate account.
+     * Organizations email for the delegate account.
      * 
      */
     @Import(name="email")
     private @Nullable Output<String> email;
 
     /**
-     * @return The Organizations email for the delegate account.
+     * @return Organizations email for the delegate account.
      * 
      */
     public Optional<Output<String>> email() {
@@ -53,14 +53,14 @@ public final class VpcIpamOrganizationAdminAccountState extends com.pulumi.resou
     }
 
     /**
-     * The Organizations name for the delegate account.
+     * Organizations name for the delegate account.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The Organizations name for the delegate account.
+     * @return Organizations name for the delegate account.
      * 
      */
     public Optional<Output<String>> name() {
@@ -68,14 +68,14 @@ public final class VpcIpamOrganizationAdminAccountState extends com.pulumi.resou
     }
 
     /**
-     * The AWS service principal.
+     * AWS service principal.
      * 
      */
     @Import(name="servicePrincipal")
     private @Nullable Output<String> servicePrincipal;
 
     /**
-     * @return The AWS service principal.
+     * @return AWS service principal.
      * 
      */
     public Optional<Output<String>> servicePrincipal() {
@@ -111,7 +111,7 @@ public final class VpcIpamOrganizationAdminAccountState extends com.pulumi.resou
         }
 
         /**
-         * @param arn The Organizations ARN for the delegate account.
+         * @param arn Organizations ARN for the delegate account.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class VpcIpamOrganizationAdminAccountState extends com.pulumi.resou
         }
 
         /**
-         * @param arn The Organizations ARN for the delegate account.
+         * @param arn Organizations ARN for the delegate account.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class VpcIpamOrganizationAdminAccountState extends com.pulumi.resou
         }
 
         /**
-         * @param email The Organizations email for the delegate account.
+         * @param email Organizations email for the delegate account.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class VpcIpamOrganizationAdminAccountState extends com.pulumi.resou
         }
 
         /**
-         * @param email The Organizations email for the delegate account.
+         * @param email Organizations email for the delegate account.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class VpcIpamOrganizationAdminAccountState extends com.pulumi.resou
         }
 
         /**
-         * @param name The Organizations name for the delegate account.
+         * @param name Organizations name for the delegate account.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class VpcIpamOrganizationAdminAccountState extends com.pulumi.resou
         }
 
         /**
-         * @param name The Organizations name for the delegate account.
+         * @param name Organizations name for the delegate account.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class VpcIpamOrganizationAdminAccountState extends com.pulumi.resou
         }
 
         /**
-         * @param servicePrincipal The AWS service principal.
+         * @param servicePrincipal AWS service principal.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class VpcIpamOrganizationAdminAccountState extends com.pulumi.resou
         }
 
         /**
-         * @param servicePrincipal The AWS service principal.
+         * @param servicePrincipal AWS service principal.
          * 
          * @return builder
          * 

@@ -56,6 +56,18 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `DestinationCidrBlock` (String) IPv4 or IPv6 CIDR block used for destination matches.
+    /// * `TransitGatewayRouteTableId` (String) Identifier of EC2 Transit Gateway Route Table.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import `aws.ec2transitgateway.Route` using the EC2 Transit Gateway Route Table, an underscore, and the destination. For example:
     /// 
     /// ```sh

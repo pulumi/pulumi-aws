@@ -55,9 +55,9 @@ type RouteServerPropagation struct {
 
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The unique identifier for the route server to be associated.
+	// Unique identifier for the route server to be associated.
 	RouteServerId pulumi.StringOutput `pulumi:"routeServerId"`
-	// The ID of the route table to which route server will propagate routes.
+	// ID of the route table to which route server will propagate routes.
 	//
 	// The following arguments are optional:
 	RouteTableId pulumi.StringOutput                     `pulumi:"routeTableId"`
@@ -102,9 +102,9 @@ func GetRouteServerPropagation(ctx *pulumi.Context,
 type routeServerPropagationState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The unique identifier for the route server to be associated.
+	// Unique identifier for the route server to be associated.
 	RouteServerId *string `pulumi:"routeServerId"`
-	// The ID of the route table to which route server will propagate routes.
+	// ID of the route table to which route server will propagate routes.
 	//
 	// The following arguments are optional:
 	RouteTableId *string                         `pulumi:"routeTableId"`
@@ -114,9 +114,9 @@ type routeServerPropagationState struct {
 type RouteServerPropagationState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The unique identifier for the route server to be associated.
+	// Unique identifier for the route server to be associated.
 	RouteServerId pulumi.StringPtrInput
-	// The ID of the route table to which route server will propagate routes.
+	// ID of the route table to which route server will propagate routes.
 	//
 	// The following arguments are optional:
 	RouteTableId pulumi.StringPtrInput
@@ -130,9 +130,9 @@ func (RouteServerPropagationState) ElementType() reflect.Type {
 type routeServerPropagationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The unique identifier for the route server to be associated.
+	// Unique identifier for the route server to be associated.
 	RouteServerId string `pulumi:"routeServerId"`
-	// The ID of the route table to which route server will propagate routes.
+	// ID of the route table to which route server will propagate routes.
 	//
 	// The following arguments are optional:
 	RouteTableId string                          `pulumi:"routeTableId"`
@@ -143,9 +143,9 @@ type routeServerPropagationArgs struct {
 type RouteServerPropagationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The unique identifier for the route server to be associated.
+	// Unique identifier for the route server to be associated.
 	RouteServerId pulumi.StringInput
-	// The ID of the route table to which route server will propagate routes.
+	// ID of the route table to which route server will propagate routes.
 	//
 	// The following arguments are optional:
 	RouteTableId pulumi.StringInput
@@ -244,12 +244,12 @@ func (o RouteServerPropagationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteServerPropagation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The unique identifier for the route server to be associated.
+// Unique identifier for the route server to be associated.
 func (o RouteServerPropagationOutput) RouteServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteServerPropagation) pulumi.StringOutput { return v.RouteServerId }).(pulumi.StringOutput)
 }
 
-// The ID of the route table to which route server will propagate routes.
+// ID of the route table to which route server will propagate routes.
 //
 // The following arguments are optional:
 func (o RouteServerPropagationOutput) RouteTableId() pulumi.StringOutput {

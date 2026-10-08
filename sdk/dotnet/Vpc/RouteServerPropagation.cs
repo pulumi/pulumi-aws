@@ -51,13 +51,13 @@ namespace Pulumi.Aws.Vpc
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The unique identifier for the route server to be associated.
+        /// Unique identifier for the route server to be associated.
         /// </summary>
         [Output("routeServerId")]
         public Output<string> RouteServerId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the route table to which route server will propagate routes.
+        /// ID of the route table to which route server will propagate routes.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -120,13 +120,13 @@ namespace Pulumi.Aws.Vpc
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The unique identifier for the route server to be associated.
+        /// Unique identifier for the route server to be associated.
         /// </summary>
         [Input("routeServerId", required: true)]
         public Input<string> RouteServerId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the route table to which route server will propagate routes.
+        /// ID of the route table to which route server will propagate routes.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -151,13 +151,13 @@ namespace Pulumi.Aws.Vpc
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The unique identifier for the route server to be associated.
+        /// Unique identifier for the route server to be associated.
         /// </summary>
         [Input("routeServerId")]
         public Input<string>? RouteServerId { get; set; }
 
         /// <summary>
-        /// The ID of the route table to which route server will propagate routes.
+        /// ID of the route table to which route server will propagate routes.
         /// 
         /// The following arguments are optional:
         /// </summary>

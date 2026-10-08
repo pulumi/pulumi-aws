@@ -13,10 +13,25 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetVpnConnectionVgwTelemetryResult
     {
+        /// <summary>
+        /// Number of accepted routes.
+        /// </summary>
         public readonly int AcceptedRouteCount;
+        /// <summary>
+        /// Date and time of the last change in status.
+        /// </summary>
         public readonly string LastStatusChange;
+        /// <summary>
+        /// IP address of the virtual private gateway tunnel endpoint.
+        /// </summary>
         public readonly string OutsideIpAddress;
+        /// <summary>
+        /// Status of the VPN tunnel.
+        /// </summary>
         public readonly string Status;
+        /// <summary>
+        /// Information about the status change.
+        /// </summary>
         public readonly string StatusMessage;
 
         [OutputConstructor]

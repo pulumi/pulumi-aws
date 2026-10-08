@@ -113,7 +113,7 @@ export class Firewall extends pulumi.CustomResource {
      */
     declare public readonly availabilityZoneChangeProtection: pulumi.Output<boolean | undefined>;
     /**
-     * Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
+     * Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the availability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
      */
     declare public readonly availabilityZoneMappings: pulumi.Output<outputs.networkfirewall.FirewallAvailabilityZoneMapping[]>;
     /**
@@ -262,7 +262,7 @@ export interface FirewallState {
      */
     availabilityZoneChangeProtection?: pulumi.Input<boolean | undefined>;
     /**
-     * Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
+     * Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the availability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
      */
     availabilityZoneMappings?: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallAvailabilityZoneMapping>[] | undefined>;
     /**
@@ -344,7 +344,7 @@ export interface FirewallArgs {
      */
     availabilityZoneChangeProtection?: pulumi.Input<boolean | undefined>;
     /**
-     * Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
+     * Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the availability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
      */
     availabilityZoneMappings?: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallAvailabilityZoneMapping>[] | undefined>;
     /**

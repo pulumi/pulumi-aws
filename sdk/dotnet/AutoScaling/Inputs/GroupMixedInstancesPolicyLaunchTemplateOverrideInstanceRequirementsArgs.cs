@@ -42,7 +42,7 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         private InputList<string>? _acceleratorNames;
 
         /// <summary>
-        /// List of accelerator names. Default is any acclerator.
+        /// List of accelerator names. Default is any accelerator.
         /// 
         /// ```
         /// Valid names:
@@ -101,7 +101,7 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         }
 
         /// <summary>
-        /// Indicate whether bare metal instace types should be `Included`, `Excluded`, or `Required`. Default is `Excluded`.
+        /// Indicate whether bare metal instance types should be `Included`, `Excluded`, or `Required`. Default is `Excluded`.
         /// </summary>
         [Input("bareMetal")]
         public Input<string>? BareMetal { get; set; }

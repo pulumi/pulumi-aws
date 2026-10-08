@@ -12,37 +12,101 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TrustProviderNativeApplicationOidcOptions {
+    /**
+     * @return OIDC authorization endpoint.
+     * 
+     */
     private @Nullable String authorizationEndpoint;
+    /**
+     * @return OAuth 2.0 client identifier.
+     * 
+     */
     private @Nullable String clientId;
+    /**
+     * @return OAuth 2.0 client secret.
+     * 
+     */
     private String clientSecret;
+    /**
+     * @return OIDC issuer identifier of the IdP.
+     * 
+     */
     private @Nullable String issuer;
+    /**
+     * @return OIDC public signing key endpoint.
+     * 
+     */
     private @Nullable String publicSigningKeyEndpoint;
+    /**
+     * @return OpenID Connect (OIDC) scope specified.
+     * 
+     */
     private @Nullable String scope;
+    /**
+     * @return OIDC token endpoint.
+     * 
+     */
     private @Nullable String tokenEndpoint;
+    /**
+     * @return OIDC user info endpoint.
+     * 
+     */
     private @Nullable String userInfoEndpoint;
 
     private TrustProviderNativeApplicationOidcOptions() {}
+    /**
+     * @return OIDC authorization endpoint.
+     * 
+     */
     public Optional<String> authorizationEndpoint() {
         return Optional.ofNullable(this.authorizationEndpoint);
     }
+    /**
+     * @return OAuth 2.0 client identifier.
+     * 
+     */
     public Optional<String> clientId() {
         return Optional.ofNullable(this.clientId);
     }
+    /**
+     * @return OAuth 2.0 client secret.
+     * 
+     */
     public String clientSecret() {
         return this.clientSecret;
     }
+    /**
+     * @return OIDC issuer identifier of the IdP.
+     * 
+     */
     public Optional<String> issuer() {
         return Optional.ofNullable(this.issuer);
     }
+    /**
+     * @return OIDC public signing key endpoint.
+     * 
+     */
     public Optional<String> publicSigningKeyEndpoint() {
         return Optional.ofNullable(this.publicSigningKeyEndpoint);
     }
+    /**
+     * @return OpenID Connect (OIDC) scope specified.
+     * 
+     */
     public Optional<String> scope() {
         return Optional.ofNullable(this.scope);
     }
+    /**
+     * @return OIDC token endpoint.
+     * 
+     */
     public Optional<String> tokenEndpoint() {
         return Optional.ofNullable(this.tokenEndpoint);
     }
+    /**
+     * @return OIDC user info endpoint.
+     * 
+     */
     public Optional<String> userInfoEndpoint() {
         return Optional.ofNullable(this.userInfoEndpoint);
     }

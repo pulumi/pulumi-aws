@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Ec2
     public partial class VpnConnectionRoute : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The CIDR block associated with the local subnet of the customer network.
+        /// CIDR block associated with the local subnet of the customer network.
         /// </summary>
         [Output("destinationCidrBlock")]
         public Output<string> DestinationCidrBlock { get; private set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the VPN connection.
+        /// ID of the VPN connection.
         /// </summary>
         [Output("vpnConnectionId")]
         public Output<string> VpnConnectionId { get; private set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class VpnConnectionRouteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The CIDR block associated with the local subnet of the customer network.
+        /// CIDR block associated with the local subnet of the customer network.
         /// </summary>
         [Input("destinationCidrBlock", required: true)]
         public Input<string> DestinationCidrBlock { get; set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ID of the VPN connection.
+        /// ID of the VPN connection.
         /// </summary>
         [Input("vpnConnectionId", required: true)]
         public Input<string> VpnConnectionId { get; set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class VpnConnectionRouteState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The CIDR block associated with the local subnet of the customer network.
+        /// CIDR block associated with the local subnet of the customer network.
         /// </summary>
         [Input("destinationCidrBlock")]
         public Input<string>? DestinationCidrBlock { get; set; }
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ID of the VPN connection.
+        /// ID of the VPN connection.
         /// </summary>
         [Input("vpnConnectionId")]
         public Input<string>? VpnConnectionId { get; set; }

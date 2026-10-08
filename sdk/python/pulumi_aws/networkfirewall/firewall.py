@@ -41,7 +41,7 @@ class FirewallArgs:
 
         :param pulumi.Input[_builtins.str] firewall_policy_arn: ARN of the VPC Firewall policy.
         :param pulumi.Input[_builtins.bool] availability_zone_change_protection: A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `true`, you must first disable this protection before adding or removing Availability Zones.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallAvailabilityZoneMappingArgs']]] availability_zone_mappings: Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallAvailabilityZoneMappingArgs']]] availability_zone_mappings: Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the availability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
         :param pulumi.Input[_builtins.bool] delete_protection: A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
         :param pulumi.Input[_builtins.str] description: A friendly description of the firewall.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_analysis_types: Set of types for which to collect analysis metrics. See [Reporting on network traffic in Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/reporting.html) for details on how to use the data. Valid values: `TLS_SNI`, `HTTP_HOST`. Defaults to `[]`.
@@ -113,7 +113,7 @@ class FirewallArgs:
     @pulumi.getter(name="availabilityZoneMappings")
     def availability_zone_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FirewallAvailabilityZoneMappingArgs']]]]:
         """
-        Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
+        Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the availability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
         """
         return pulumi.get(self, "availability_zone_mappings")
 
@@ -294,7 +294,7 @@ class _FirewallState:
 
         :param pulumi.Input[_builtins.str] arn: ARN that identifies the firewall.
         :param pulumi.Input[_builtins.bool] availability_zone_change_protection: A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `true`, you must first disable this protection before adding or removing Availability Zones.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallAvailabilityZoneMappingArgs']]] availability_zone_mappings: Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallAvailabilityZoneMappingArgs']]] availability_zone_mappings: Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the availability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
         :param pulumi.Input[_builtins.bool] delete_protection: A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
         :param pulumi.Input[_builtins.str] description: A friendly description of the firewall.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_analysis_types: Set of types for which to collect analysis metrics. See [Reporting on network traffic in Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/reporting.html) for details on how to use the data. Valid values: `TLS_SNI`, `HTTP_HOST`. Defaults to `[]`.
@@ -382,7 +382,7 @@ class _FirewallState:
     @pulumi.getter(name="availabilityZoneMappings")
     def availability_zone_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FirewallAvailabilityZoneMappingArgs']]]]:
         """
-        Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
+        Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the availability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
         """
         return pulumi.get(self, "availability_zone_mappings")
 
@@ -681,7 +681,7 @@ class Firewall(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] availability_zone_change_protection: A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `true`, you must first disable this protection before adding or removing Availability Zones.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallAvailabilityZoneMappingArgs', 'FirewallAvailabilityZoneMappingArgsDict', 'outputs.FirewallAvailabilityZoneMapping']]]] availability_zone_mappings: Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallAvailabilityZoneMappingArgs', 'FirewallAvailabilityZoneMappingArgsDict', 'outputs.FirewallAvailabilityZoneMapping']]]] availability_zone_mappings: Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the availability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
         :param pulumi.Input[_builtins.bool] delete_protection: A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
         :param pulumi.Input[_builtins.str] description: A friendly description of the firewall.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_analysis_types: Set of types for which to collect analysis metrics. See [Reporting on network traffic in Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/reporting.html) for details on how to use the data. Valid values: `TLS_SNI`, `HTTP_HOST`. Defaults to `[]`.
@@ -863,7 +863,7 @@ class Firewall(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN that identifies the firewall.
         :param pulumi.Input[_builtins.bool] availability_zone_change_protection: A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `true`, you must first disable this protection before adding or removing Availability Zones.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallAvailabilityZoneMappingArgs', 'FirewallAvailabilityZoneMappingArgsDict', 'outputs.FirewallAvailabilityZoneMapping']]]] availability_zone_mappings: Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallAvailabilityZoneMappingArgs', 'FirewallAvailabilityZoneMappingArgsDict', 'outputs.FirewallAvailabilityZoneMapping']]]] availability_zone_mappings: Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the availability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
         :param pulumi.Input[_builtins.bool] delete_protection: A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
         :param pulumi.Input[_builtins.str] description: A friendly description of the firewall.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_analysis_types: Set of types for which to collect analysis metrics. See [Reporting on network traffic in Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/reporting.html) for details on how to use the data. Valid values: `TLS_SNI`, `HTTP_HOST`. Defaults to `[]`.
@@ -928,7 +928,7 @@ class Firewall(pulumi.CustomResource):
     @pulumi.getter(name="availabilityZoneMappings")
     def availability_zone_mappings(self) -> pulumi.Output[Sequence['outputs.FirewallAvailabilityZoneMapping']]:
         """
-        Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
+        Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the availability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
         """
         return pulumi.get(self, "availability_zone_mappings")
 

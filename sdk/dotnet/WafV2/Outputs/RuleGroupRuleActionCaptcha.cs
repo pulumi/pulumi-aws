@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class RuleGroupRuleActionCaptcha
     {
         /// <summary>
-        /// Defines custom handling for the web request. See Custom Request Handling below for details.
+        /// Custom handling for the web request. See Custom Request Handling below for details.
         /// </summary>
         public readonly Outputs.RuleGroupRuleActionCaptchaCustomRequestHandling? CustomRequestHandling;
 

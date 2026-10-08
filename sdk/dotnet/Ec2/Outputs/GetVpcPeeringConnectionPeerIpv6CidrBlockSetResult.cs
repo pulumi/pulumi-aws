@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetVpcPeeringConnectionPeerIpv6CidrBlockSetResult
     {
+        /// <summary>
+        /// IPv6 CIDR block associated to the VPC of the specific VPC Peering Connection.
+        /// </summary>
         public readonly string Ipv6CidrBlock;
 
         [OutputConstructor]

@@ -189,7 +189,7 @@ class ResourceCollectionCloudformation(dict):
     def __init__(__self__, *,
                  stack_names: Sequence[_builtins.str]):
         """
-        :param Sequence[_builtins.str] stack_names: Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all acccount resources) this array should be a single item containing a wildcard (`"*"`).
+        :param Sequence[_builtins.str] stack_names: Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all account resources) this array should be a single item containing a wildcard (`"*"`).
         """
         pulumi.set(__self__, "stack_names", stack_names)
 
@@ -197,7 +197,7 @@ class ResourceCollectionCloudformation(dict):
     @pulumi.getter(name="stackNames")
     def stack_names(self) -> Sequence[_builtins.str]:
         """
-        Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all acccount resources) this array should be a single item containing a wildcard (`"*"`).
+        Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all account resources) this array should be a single item containing a wildcard (`"*"`).
         """
         return pulumi.get(self, "stack_names")
 

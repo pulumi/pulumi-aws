@@ -17,14 +17,14 @@ public final class GroupSseConfigurationArgs extends com.pulumi.resources.Resour
     public static final GroupSseConfigurationArgs Empty = new GroupSseConfigurationArgs();
 
     /**
-     * Boolean flag to indicate that the CMK should be used.
+     * Whether the CMK should be used.
      * 
      */
     @Import(name="customerManagedKeyEnabled")
     private @Nullable Output<Boolean> customerManagedKeyEnabled;
 
     /**
-     * @return Boolean flag to indicate that the CMK should be used.
+     * @return Whether the CMK should be used.
      * 
      */
     public Optional<Output<Boolean>> customerManagedKeyEnabled() {
@@ -72,7 +72,7 @@ public final class GroupSseConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param customerManagedKeyEnabled Boolean flag to indicate that the CMK should be used.
+         * @param customerManagedKeyEnabled Whether the CMK should be used.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GroupSseConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param customerManagedKeyEnabled Boolean flag to indicate that the CMK should be used.
+         * @param customerManagedKeyEnabled Whether the CMK should be used.
          * 
          * @return builder
          * 

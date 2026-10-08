@@ -14,7 +14,7 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Provides a CodeArtifact Repostory Permissions Policy Resource.
+ * Provides a CodeArtifact Repository Permissions Policy Resource.
  * 
  * ## Example Usage
  * 

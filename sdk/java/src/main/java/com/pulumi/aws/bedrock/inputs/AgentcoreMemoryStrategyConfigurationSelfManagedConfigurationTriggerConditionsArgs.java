@@ -18,14 +18,14 @@ public final class AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationT
     public static final AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsArgs Empty = new AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsArgs();
 
     /**
-     * Message-based condition. See `messageBasedTrigger` Block below.
+     * Message-based condition. See `configuration.self_managed_configuration.trigger_conditions.message_based_trigger` Block below.
      * 
      */
     @Import(name="messageBasedTrigger")
     private @Nullable Output<AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerArgs> messageBasedTrigger;
 
     /**
-     * @return Message-based condition. See `messageBasedTrigger` Block below.
+     * @return Message-based condition. See `configuration.self_managed_configuration.trigger_conditions.message_based_trigger` Block below.
      * 
      */
     public Optional<Output<AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerArgs>> messageBasedTrigger() {
@@ -33,14 +33,14 @@ public final class AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationT
     }
 
     /**
-     * Idle-time condition. See `timeBasedTrigger` Block below.
+     * Idle-time condition. See `configuration.self_managed_configuration.trigger_conditions.time_based_trigger` Block below.
      * 
      */
     @Import(name="timeBasedTrigger")
     private @Nullable Output<AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerArgs> timeBasedTrigger;
 
     /**
-     * @return Idle-time condition. See `timeBasedTrigger` Block below.
+     * @return Idle-time condition. See `configuration.self_managed_configuration.trigger_conditions.time_based_trigger` Block below.
      * 
      */
     public Optional<Output<AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTriggerArgs>> timeBasedTrigger() {
@@ -48,14 +48,14 @@ public final class AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationT
     }
 
     /**
-     * Token-based condition. See `tokenBasedTrigger` Block below.
+     * Token-based condition. See `configuration.self_managed_configuration.trigger_conditions.token_based_trigger` Block below.
      * 
      */
     @Import(name="tokenBasedTrigger")
     private @Nullable Output<AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerArgs> tokenBasedTrigger;
 
     /**
-     * @return Token-based condition. See `tokenBasedTrigger` Block below.
+     * @return Token-based condition. See `configuration.self_managed_configuration.trigger_conditions.token_based_trigger` Block below.
      * 
      */
     public Optional<Output<AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTriggerArgs>> tokenBasedTrigger() {
@@ -89,7 +89,7 @@ public final class AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationT
         }
 
         /**
-         * @param messageBasedTrigger Message-based condition. See `messageBasedTrigger` Block below.
+         * @param messageBasedTrigger Message-based condition. See `configuration.self_managed_configuration.trigger_conditions.message_based_trigger` Block below.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationT
         }
 
         /**
-         * @param messageBasedTrigger Message-based condition. See `messageBasedTrigger` Block below.
+         * @param messageBasedTrigger Message-based condition. See `configuration.self_managed_configuration.trigger_conditions.message_based_trigger` Block below.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationT
         }
 
         /**
-         * @param timeBasedTrigger Idle-time condition. See `timeBasedTrigger` Block below.
+         * @param timeBasedTrigger Idle-time condition. See `configuration.self_managed_configuration.trigger_conditions.time_based_trigger` Block below.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationT
         }
 
         /**
-         * @param timeBasedTrigger Idle-time condition. See `timeBasedTrigger` Block below.
+         * @param timeBasedTrigger Idle-time condition. See `configuration.self_managed_configuration.trigger_conditions.time_based_trigger` Block below.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationT
         }
 
         /**
-         * @param tokenBasedTrigger Token-based condition. See `tokenBasedTrigger` Block below.
+         * @param tokenBasedTrigger Token-based condition. See `configuration.self_managed_configuration.trigger_conditions.token_based_trigger` Block below.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationT
         }
 
         /**
-         * @param tokenBasedTrigger Token-based condition. See `tokenBasedTrigger` Block below.
+         * @param tokenBasedTrigger Token-based condition. See `configuration.self_managed_configuration.trigger_conditions.token_based_trigger` Block below.
          * 
          * @return builder
          * 

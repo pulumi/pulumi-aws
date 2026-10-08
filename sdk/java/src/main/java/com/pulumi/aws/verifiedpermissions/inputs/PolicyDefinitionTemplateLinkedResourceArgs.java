@@ -15,14 +15,14 @@ public final class PolicyDefinitionTemplateLinkedResourceArgs extends com.pulumi
     public static final PolicyDefinitionTemplateLinkedResourceArgs Empty = new PolicyDefinitionTemplateLinkedResourceArgs();
 
     /**
-     * The entity ID of the resource.
+     * Entity ID of the resource.
      * 
      */
     @Import(name="entityId", required=true)
     private Output<String> entityId;
 
     /**
-     * @return The entity ID of the resource.
+     * @return Entity ID of the resource.
      * 
      */
     public Output<String> entityId() {
@@ -30,14 +30,14 @@ public final class PolicyDefinitionTemplateLinkedResourceArgs extends com.pulumi
     }
 
     /**
-     * The entity type of the resource.
+     * Entity type of the resource.
      * 
      */
     @Import(name="entityType", required=true)
     private Output<String> entityType;
 
     /**
-     * @return The entity type of the resource.
+     * @return Entity type of the resource.
      * 
      */
     public Output<String> entityType() {
@@ -70,7 +70,7 @@ public final class PolicyDefinitionTemplateLinkedResourceArgs extends com.pulumi
         }
 
         /**
-         * @param entityId The entity ID of the resource.
+         * @param entityId Entity ID of the resource.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class PolicyDefinitionTemplateLinkedResourceArgs extends com.pulumi
         }
 
         /**
-         * @param entityId The entity ID of the resource.
+         * @param entityId Entity ID of the resource.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class PolicyDefinitionTemplateLinkedResourceArgs extends com.pulumi
         }
 
         /**
-         * @param entityType The entity type of the resource.
+         * @param entityType Entity type of the resource.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class PolicyDefinitionTemplateLinkedResourceArgs extends com.pulumi
         }
 
         /**
-         * @param entityType The entity type of the resource.
+         * @param entityType Entity type of the resource.
          * 
          * @return builder
          * 

@@ -112,8 +112,10 @@ import * as utilities from "../utilities";
  *     mediaType: "video/h264",
  * });
  * const exampleStream = new aws.kinesis.Stream("example", {
+ *     streamModeDetails: {
+ *         streamMode: "ON_DEMAND",
+ *     },
  *     name: "pulumi-kinesis-example",
- *     shardCount: 1,
  * });
  * const exampleRole = new aws.iam.Role("example", {
  *     inlinePolicies: [{

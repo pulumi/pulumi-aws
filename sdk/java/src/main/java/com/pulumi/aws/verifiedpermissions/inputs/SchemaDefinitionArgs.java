@@ -15,14 +15,14 @@ public final class SchemaDefinitionArgs extends com.pulumi.resources.ResourceArg
     public static final SchemaDefinitionArgs Empty = new SchemaDefinitionArgs();
 
     /**
-     * A JSON string representation of the schema.
+     * JSON string representation of the schema.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return A JSON string representation of the schema.
+     * @return JSON string representation of the schema.
      * 
      */
     public Output<String> value() {
@@ -54,7 +54,7 @@ public final class SchemaDefinitionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param value A JSON string representation of the schema.
+         * @param value JSON string representation of the schema.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class SchemaDefinitionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param value A JSON string representation of the schema.
+         * @param value JSON string representation of the schema.
          * 
          * @return builder
          * 

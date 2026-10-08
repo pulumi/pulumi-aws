@@ -19,14 +19,14 @@ public final class VpcIpamPoolCidrAllocationState extends com.pulumi.resources.R
     public static final VpcIpamPoolCidrAllocationState Empty = new VpcIpamPoolCidrAllocationState();
 
     /**
-     * The CIDR you want to assign to the pool.
+     * CIDR you want to assign to the pool.
      * 
      */
     @Import(name="cidr")
     private @Nullable Output<String> cidr;
 
     /**
-     * @return The CIDR you want to assign to the pool.
+     * @return CIDR you want to assign to the pool.
      * 
      */
     public Optional<Output<String>> cidr() {
@@ -34,14 +34,14 @@ public final class VpcIpamPoolCidrAllocationState extends com.pulumi.resources.R
     }
 
     /**
-     * The description for the allocation.
+     * Description for the allocation.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description for the allocation.
+     * @return Description for the allocation.
      * 
      */
     public Optional<Output<String>> description() {
@@ -63,22 +63,30 @@ public final class VpcIpamPoolCidrAllocationState extends com.pulumi.resources.R
         return Optional.ofNullable(this.disallowedCidrs);
     }
 
+    /**
+     * ID of the allocation.
+     * 
+     */
     @Import(name="ipamPoolAllocationId")
     private @Nullable Output<String> ipamPoolAllocationId;
 
+    /**
+     * @return ID of the allocation.
+     * 
+     */
     public Optional<Output<String>> ipamPoolAllocationId() {
         return Optional.ofNullable(this.ipamPoolAllocationId);
     }
 
     /**
-     * The ID of the pool to which you want to assign a CIDR.
+     * ID of the pool to which you want to assign a CIDR.
      * 
      */
     @Import(name="ipamPoolId")
     private @Nullable Output<String> ipamPoolId;
 
     /**
-     * @return The ID of the pool to which you want to assign a CIDR.
+     * @return ID of the pool to which you want to assign a CIDR.
      * 
      */
     public Optional<Output<String>> ipamPoolId() {
@@ -86,14 +94,14 @@ public final class VpcIpamPoolCidrAllocationState extends com.pulumi.resources.R
     }
 
     /**
-     * The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
+     * Netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
      * 
      */
     @Import(name="netmaskLength")
     private @Nullable Output<Integer> netmaskLength;
 
     /**
-     * @return The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
+     * @return Netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
      * 
      */
     public Optional<Output<Integer>> netmaskLength() {
@@ -116,14 +124,14 @@ public final class VpcIpamPoolCidrAllocationState extends com.pulumi.resources.R
     }
 
     /**
-     * The ID of the resource.
+     * ID of the resource.
      * 
      */
     @Import(name="resourceId")
     private @Nullable Output<String> resourceId;
 
     /**
-     * @return The ID of the resource.
+     * @return ID of the resource.
      * 
      */
     public Optional<Output<String>> resourceId() {
@@ -131,14 +139,14 @@ public final class VpcIpamPoolCidrAllocationState extends com.pulumi.resources.R
     }
 
     /**
-     * The owner of the resource.
+     * Owner of the resource.
      * 
      */
     @Import(name="resourceOwner")
     private @Nullable Output<String> resourceOwner;
 
     /**
-     * @return The owner of the resource.
+     * @return Owner of the resource.
      * 
      */
     public Optional<Output<String>> resourceOwner() {
@@ -146,14 +154,14 @@ public final class VpcIpamPoolCidrAllocationState extends com.pulumi.resources.R
     }
 
     /**
-     * The type of the resource.
+     * Type of the resource.
      * 
      */
     @Import(name="resourceType")
     private @Nullable Output<String> resourceType;
 
     /**
-     * @return The type of the resource.
+     * @return Type of the resource.
      * 
      */
     public Optional<Output<String>> resourceType() {
@@ -226,7 +234,7 @@ public final class VpcIpamPoolCidrAllocationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param cidr The CIDR you want to assign to the pool.
+         * @param cidr CIDR you want to assign to the pool.
          * 
          * @return builder
          * 
@@ -237,7 +245,7 @@ public final class VpcIpamPoolCidrAllocationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param cidr The CIDR you want to assign to the pool.
+         * @param cidr CIDR you want to assign to the pool.
          * 
          * @return builder
          * 
@@ -247,7 +255,7 @@ public final class VpcIpamPoolCidrAllocationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param description The description for the allocation.
+         * @param description Description for the allocation.
          * 
          * @return builder
          * 
@@ -258,7 +266,7 @@ public final class VpcIpamPoolCidrAllocationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param description The description for the allocation.
+         * @param description Description for the allocation.
          * 
          * @return builder
          * 
@@ -298,17 +306,29 @@ public final class VpcIpamPoolCidrAllocationState extends com.pulumi.resources.R
             return disallowedCidrs(List.of(disallowedCidrs));
         }
 
+        /**
+         * @param ipamPoolAllocationId ID of the allocation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipamPoolAllocationId(@Nullable Output<String> ipamPoolAllocationId) {
             $.ipamPoolAllocationId = ipamPoolAllocationId;
             return this;
         }
 
+        /**
+         * @param ipamPoolAllocationId ID of the allocation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipamPoolAllocationId(String ipamPoolAllocationId) {
             return ipamPoolAllocationId(Output.of(ipamPoolAllocationId));
         }
 
         /**
-         * @param ipamPoolId The ID of the pool to which you want to assign a CIDR.
+         * @param ipamPoolId ID of the pool to which you want to assign a CIDR.
          * 
          * @return builder
          * 
@@ -319,7 +339,7 @@ public final class VpcIpamPoolCidrAllocationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param ipamPoolId The ID of the pool to which you want to assign a CIDR.
+         * @param ipamPoolId ID of the pool to which you want to assign a CIDR.
          * 
          * @return builder
          * 
@@ -329,7 +349,7 @@ public final class VpcIpamPoolCidrAllocationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param netmaskLength The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
+         * @param netmaskLength Netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
          * 
          * @return builder
          * 
@@ -340,7 +360,7 @@ public final class VpcIpamPoolCidrAllocationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param netmaskLength The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
+         * @param netmaskLength Netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
          * 
          * @return builder
          * 
@@ -371,7 +391,7 @@ public final class VpcIpamPoolCidrAllocationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param resourceId The ID of the resource.
+         * @param resourceId ID of the resource.
          * 
          * @return builder
          * 
@@ -382,7 +402,7 @@ public final class VpcIpamPoolCidrAllocationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param resourceId The ID of the resource.
+         * @param resourceId ID of the resource.
          * 
          * @return builder
          * 
@@ -392,7 +412,7 @@ public final class VpcIpamPoolCidrAllocationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param resourceOwner The owner of the resource.
+         * @param resourceOwner Owner of the resource.
          * 
          * @return builder
          * 
@@ -403,7 +423,7 @@ public final class VpcIpamPoolCidrAllocationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param resourceOwner The owner of the resource.
+         * @param resourceOwner Owner of the resource.
          * 
          * @return builder
          * 
@@ -413,7 +433,7 @@ public final class VpcIpamPoolCidrAllocationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param resourceType The type of the resource.
+         * @param resourceType Type of the resource.
          * 
          * @return builder
          * 
@@ -424,7 +444,7 @@ public final class VpcIpamPoolCidrAllocationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param resourceType The type of the resource.
+         * @param resourceType Type of the resource.
          * 
          * @return builder
          * 

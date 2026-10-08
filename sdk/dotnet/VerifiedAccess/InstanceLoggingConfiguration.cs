@@ -187,7 +187,7 @@ namespace Pulumi.Aws.VerifiedAccess
     public partial class InstanceLoggingConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A block that specifies the configuration options for Verified Access instances. Detailed below.
+        /// Block that specifies the configuration options for Verified Access instances. Detailed below.
         /// </summary>
         [Output("accessLogs")]
         public Output<Outputs.InstanceLoggingConfigurationAccessLogs> AccessLogs { get; private set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.Aws.VerifiedAccess
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Verified Access instance.
+        /// ID of the Verified Access instance.
         /// </summary>
         [Output("verifiedaccessInstanceId")]
         public Output<string> VerifiedaccessInstanceId { get; private set; } = null!;
@@ -251,7 +251,7 @@ namespace Pulumi.Aws.VerifiedAccess
     public sealed class InstanceLoggingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A block that specifies the configuration options for Verified Access instances. Detailed below.
+        /// Block that specifies the configuration options for Verified Access instances. Detailed below.
         /// </summary>
         [Input("accessLogs", required: true)]
         public Input<Inputs.InstanceLoggingConfigurationAccessLogsArgs> AccessLogs { get; set; } = null!;
@@ -263,7 +263,7 @@ namespace Pulumi.Aws.VerifiedAccess
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ID of the Verified Access instance.
+        /// ID of the Verified Access instance.
         /// </summary>
         [Input("verifiedaccessInstanceId", required: true)]
         public Input<string> VerifiedaccessInstanceId { get; set; } = null!;
@@ -277,7 +277,7 @@ namespace Pulumi.Aws.VerifiedAccess
     public sealed class InstanceLoggingConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A block that specifies the configuration options for Verified Access instances. Detailed below.
+        /// Block that specifies the configuration options for Verified Access instances. Detailed below.
         /// </summary>
         [Input("accessLogs")]
         public Input<Inputs.InstanceLoggingConfigurationAccessLogsGetArgs>? AccessLogs { get; set; }
@@ -289,7 +289,7 @@ namespace Pulumi.Aws.VerifiedAccess
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ID of the Verified Access instance.
+        /// ID of the Verified Access instance.
         /// </summary>
         [Input("verifiedaccessInstanceId")]
         public Input<string>? VerifiedaccessInstanceId { get; set; }

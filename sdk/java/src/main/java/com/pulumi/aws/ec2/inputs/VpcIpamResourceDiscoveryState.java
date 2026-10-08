@@ -36,14 +36,14 @@ public final class VpcIpamResourceDiscoveryState extends com.pulumi.resources.Re
     }
 
     /**
-     * A description for the IPAM Resource Discovery.
+     * Description for the IPAM Resource Discovery.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description for the IPAM Resource Discovery.
+     * @return Description for the IPAM Resource Discovery.
      * 
      */
     public Optional<Output<String>> description() {
@@ -51,14 +51,14 @@ public final class VpcIpamResourceDiscoveryState extends com.pulumi.resources.Re
     }
 
     /**
-     * The home region of the Resource Discovery
+     * Home region of the Resource Discovery
      * 
      */
     @Import(name="ipamResourceDiscoveryRegion")
     private @Nullable Output<String> ipamResourceDiscoveryRegion;
 
     /**
-     * @return The home region of the Resource Discovery
+     * @return Home region of the Resource Discovery
      * 
      */
     public Optional<Output<String>> ipamResourceDiscoveryRegion() {
@@ -66,14 +66,14 @@ public final class VpcIpamResourceDiscoveryState extends com.pulumi.resources.Re
     }
 
     /**
-     * A boolean to identify if the Resource Discovery is the accounts default resource discovery
+     * Boolean to identify if the Resource Discovery is the accounts default resource discovery
      * 
      */
     @Import(name="isDefault")
     private @Nullable Output<Boolean> isDefault;
 
     /**
-     * @return A boolean to identify if the Resource Discovery is the accounts default resource discovery
+     * @return Boolean to identify if the Resource Discovery is the accounts default resource discovery
      * 
      */
     public Optional<Output<Boolean>> isDefault() {
@@ -81,14 +81,14 @@ public final class VpcIpamResourceDiscoveryState extends com.pulumi.resources.Re
     }
 
     /**
-     * Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
+     * Regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
      * 
      */
     @Import(name="operatingRegions")
     private @Nullable Output<List<VpcIpamResourceDiscoveryOperatingRegionArgs>> operatingRegions;
 
     /**
-     * @return Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
+     * @return Regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
      * 
      */
     public Optional<Output<List<VpcIpamResourceDiscoveryOperatingRegionArgs>>> operatingRegions() {
@@ -111,14 +111,14 @@ public final class VpcIpamResourceDiscoveryState extends com.pulumi.resources.Re
     }
 
     /**
-     * The account ID for the account that manages the Resource Discovery
+     * Account ID for the account that manages the Resource Discovery
      * 
      */
     @Import(name="ownerId")
     private @Nullable Output<String> ownerId;
 
     /**
-     * @return The account ID for the account that manages the Resource Discovery
+     * @return Account ID for the account that manages the Resource Discovery
      * 
      */
     public Optional<Output<String>> ownerId() {
@@ -141,14 +141,14 @@ public final class VpcIpamResourceDiscoveryState extends com.pulumi.resources.Re
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -156,14 +156,14 @@ public final class VpcIpamResourceDiscoveryState extends com.pulumi.resources.Re
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -225,7 +225,7 @@ public final class VpcIpamResourceDiscoveryState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param description A description for the IPAM Resource Discovery.
+         * @param description Description for the IPAM Resource Discovery.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class VpcIpamResourceDiscoveryState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param description A description for the IPAM Resource Discovery.
+         * @param description Description for the IPAM Resource Discovery.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class VpcIpamResourceDiscoveryState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ipamResourceDiscoveryRegion The home region of the Resource Discovery
+         * @param ipamResourceDiscoveryRegion Home region of the Resource Discovery
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class VpcIpamResourceDiscoveryState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ipamResourceDiscoveryRegion The home region of the Resource Discovery
+         * @param ipamResourceDiscoveryRegion Home region of the Resource Discovery
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class VpcIpamResourceDiscoveryState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param isDefault A boolean to identify if the Resource Discovery is the accounts default resource discovery
+         * @param isDefault Boolean to identify if the Resource Discovery is the accounts default resource discovery
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class VpcIpamResourceDiscoveryState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param isDefault A boolean to identify if the Resource Discovery is the accounts default resource discovery
+         * @param isDefault Boolean to identify if the Resource Discovery is the accounts default resource discovery
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class VpcIpamResourceDiscoveryState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param operatingRegions Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
+         * @param operatingRegions Regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
          * 
          * @return builder
          * 
@@ -299,7 +299,7 @@ public final class VpcIpamResourceDiscoveryState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param operatingRegions Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
+         * @param operatingRegions Regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
          * 
          * @return builder
          * 
@@ -309,7 +309,7 @@ public final class VpcIpamResourceDiscoveryState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param operatingRegions Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
+         * @param operatingRegions Regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
          * 
          * @return builder
          * 
@@ -350,7 +350,7 @@ public final class VpcIpamResourceDiscoveryState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ownerId The account ID for the account that manages the Resource Discovery
+         * @param ownerId Account ID for the account that manages the Resource Discovery
          * 
          * @return builder
          * 
@@ -361,7 +361,7 @@ public final class VpcIpamResourceDiscoveryState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ownerId The account ID for the account that manages the Resource Discovery
+         * @param ownerId Account ID for the account that manages the Resource Discovery
          * 
          * @return builder
          * 
@@ -392,7 +392,7 @@ public final class VpcIpamResourceDiscoveryState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -403,7 +403,7 @@ public final class VpcIpamResourceDiscoveryState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -413,7 +413,7 @@ public final class VpcIpamResourceDiscoveryState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -424,7 +424,7 @@ public final class VpcIpamResourceDiscoveryState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

@@ -401,6 +401,10 @@ export interface ProviderEndpoint {
     /**
      * Use this to override the default service endpoint URL
      */
+    cloudwatchomni?: pulumi.Input<string | undefined>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     cloudwatchrum?: pulumi.Input<string | undefined>;
     /**
      * Use this to override the default service endpoint URL
@@ -685,6 +689,10 @@ export interface ProviderEndpoint {
     /**
      * Use this to override the default service endpoint URL
      */
+    eventbridgev2?: pulumi.Input<string | undefined>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     events?: pulumi.Input<string | undefined>;
     /**
      * Use this to override the default service endpoint URL
@@ -857,6 +865,10 @@ export interface ProviderEndpoint {
     /**
      * Use this to override the default service endpoint URL
      */
+    lambdaweb?: pulumi.Input<string | undefined>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     launchwizard?: pulumi.Input<string | undefined>;
     /**
      * Use this to override the default service endpoint URL
@@ -998,6 +1010,10 @@ export interface ProviderEndpoint {
      * Use this to override the default service endpoint URL
      */
     networkmonitor?: pulumi.Input<string | undefined>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
+    networksecuritymanager?: pulumi.Input<string | undefined>;
     /**
      * Use this to override the default service endpoint URL
      */
@@ -1716,7 +1732,7 @@ export namespace acm {
 
     export interface CertificateOptions {
         /**
-         * Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
+         * Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details. This argument applies to Amazon-issued and private CA certificates. It **conflicts with** `privateKey` / `privateKeyWo`, so it cannot be set on imported certificates. Imported certificates are not managed by ACM issuance, so ACM does not control their certificate transparency logging.
          */
         certificateTransparencyLoggingPreference?: pulumi.Input<string | undefined>;
         /**
@@ -9429,7 +9445,7 @@ export namespace arcregionswitch {
 
     export interface PlanWorkflow {
         /**
-         * Steps in the workflow. See `step` Block for details.
+         * Steps in the workflow. See `workflow.step` Block for details.
          */
         steps?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStep>[] | undefined>;
         /**
@@ -9464,7 +9480,7 @@ export namespace arcregionswitch {
          */
         customActionLambdaConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepCustomActionLambdaConfig>[] | undefined>;
         /**
-         * Description of the step.
+         * Description of the plan.
          */
         description?: pulumi.Input<string | undefined>;
         /**
@@ -9500,7 +9516,7 @@ export namespace arcregionswitch {
          */
         lambdaEventSourceMappingConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepLambdaEventSourceMappingConfig>[] | undefined>;
         /**
-         * Name of the step.
+         * Name of the plan. Must be unique within the account.
          */
         name: pulumi.Input<string>;
         /**
@@ -10014,7 +10030,7 @@ export namespace arcregionswitch {
 
     export interface PlanWorkflowStepParallelConfig {
         /**
-         * Steps to execute in parallel. See `step` Block for details. The parallel step schema matches `step` Block but does not support `parallelConfig` to prevent infinite nesting.
+         * Steps to execute in parallel. See `workflow.step.parallel_config.step` Block for details. The parallel step schema matches `workflow.step` Block but does not support `parallelConfig` to prevent infinite nesting.
          */
         steps?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStep>[] | undefined>;
     }
@@ -10037,7 +10053,7 @@ export namespace arcregionswitch {
          */
         customActionLambdaConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepCustomActionLambdaConfig>[] | undefined>;
         /**
-         * Description of the step.
+         * Description of the plan.
          */
         description?: pulumi.Input<string | undefined>;
         /**
@@ -10073,7 +10089,7 @@ export namespace arcregionswitch {
          */
         lambdaEventSourceMappingConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfig>[] | undefined>;
         /**
-         * Name of the step.
+         * Name of the plan. Must be unique within the account.
          */
         name: pulumi.Input<string>;
         /**
@@ -11445,7 +11461,7 @@ export namespace autoscaling {
          */
         acceleratorManufacturers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * List of accelerator names. Default is any acclerator.
+         * List of accelerator names. Default is any accelerator.
          *
          * ```
          * Valid names:
@@ -11481,7 +11497,7 @@ export namespace autoscaling {
          */
         allowedInstanceTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+         * Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
          */
         bareMetal?: pulumi.Input<string | undefined>;
         /**
@@ -17255,7 +17271,7 @@ export namespace bedrock {
 
     export interface AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchema {
         /**
-         * Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3` (see `s3` Block). For HTTP targets, the `inlinePayload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
+         * Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3`. For HTTP targets, these blocks are documented under their full paths (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block and `target_configuration.http.agentcore_runtime.schema.source.s3` Block).
          */
         source: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSource>;
     }
@@ -17312,7 +17328,7 @@ export namespace bedrock {
 
     export interface AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchema {
         /**
-         * Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3` (see `s3` Block). For HTTP targets, the `inlinePayload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
+         * Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3`. For HTTP targets, these blocks are documented under their full paths (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block and `target_configuration.http.agentcore_runtime.schema.source.s3` Block).
          */
         source: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSource>;
     }
@@ -17450,11 +17466,11 @@ export namespace bedrock {
          */
         mcpServer?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpMcpServer | undefined>;
         /**
-         * OpenAPI schema-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `s3` Block).
+         * OpenAPI schema-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `target_configuration.mcp.open_api_schema.s3` Block).
          */
         openApiSchema?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema | undefined>;
         /**
-         * Smithy model-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `s3` Block).
+         * Smithy model-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `target_configuration.mcp.smithy_model.s3` Block).
          */
         smithyModel?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel | undefined>;
     }
@@ -17589,7 +17605,7 @@ export namespace bedrock {
          */
         inlinePayloads?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload>[] | undefined>;
         /**
-         * S3-based tool definition. See `s3` Block below.
+         * S3-based tool definition. See `target_configuration.mcp.lambda.tool_schema.s3` Block below.
          */
         s3?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3 | undefined>;
     }
@@ -18055,7 +18071,7 @@ export namespace bedrock {
          */
         inlinePayload?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePayload | undefined>;
         /**
-         * S3 location of the tool schema. See `s3` Block below.
+         * S3 location of the tool schema. See `target_configuration.mcp.mcp_server.mcp_tool_schema.s3` Block below.
          */
         s3?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3 | undefined>;
     }
@@ -19243,15 +19259,15 @@ export namespace bedrock {
 
     export interface AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions {
         /**
-         * Message-based condition. See `messageBasedTrigger` Block below.
+         * Message-based condition. See `configuration.self_managed_configuration.trigger_conditions.message_based_trigger` Block below.
          */
         messageBasedTrigger?: pulumi.Input<inputs.bedrock.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTrigger | undefined>;
         /**
-         * Idle-time condition. See `timeBasedTrigger` Block below.
+         * Idle-time condition. See `configuration.self_managed_configuration.trigger_conditions.time_based_trigger` Block below.
          */
         timeBasedTrigger?: pulumi.Input<inputs.bedrock.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTrigger | undefined>;
         /**
-         * Token-based condition. See `tokenBasedTrigger` Block below.
+         * Token-based condition. See `configuration.self_managed_configuration.trigger_conditions.token_based_trigger` Block below.
          */
         tokenBasedTrigger?: pulumi.Input<inputs.bedrock.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTrigger | undefined>;
     }
@@ -26514,7 +26530,7 @@ export namespace cloudwatch {
 
     export interface GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifier {
         /**
-         * Name of the custom data idenfitier
+         * Name of the custom data identifier
          */
         name: string;
         /**
@@ -26525,7 +26541,7 @@ export namespace cloudwatch {
 
     export interface GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgs {
         /**
-         * Name of the custom data idenfitier
+         * Name of the custom data identifier
          */
         name: pulumi.Input<string>;
         /**
@@ -33595,7 +33611,7 @@ export namespace datazone {
 
     export interface GlossaryTermTermRelations {
         /**
-         * String array that calssifies the term relations.
+         * String array that classifies the term relations.
          */
         classifies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         isAs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
@@ -34017,7 +34033,7 @@ export namespace devopsguru {
 
     export interface ResourceCollectionCloudformation {
         /**
-         * Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all acccount resources) this array should be a single item containing a wildcard (`"*"`).
+         * Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all account resources) this array should be a single item containing a wildcard (`"*"`).
          */
         stackNames: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -36718,123 +36734,123 @@ export namespace ec2 {
 
     export interface EncryptionControlResourceExclusions {
         /**
-         * `state` and `stateMessage` describing encryption enforcement state for Egress-Only Internet Gateways.
+         * Encryption enforcement state for Egress-Only Internet Gateways. See `resource_exclusions.egress_only_internet_gateway` below.
          */
         egressOnlyInternetGateway: pulumi.Input<inputs.ec2.EncryptionControlResourceExclusionsEgressOnlyInternetGateway>;
         /**
-         * `state` and `stateMessage` describing encryption enforcement state for Elastic File System (EFS).
+         * Encryption enforcement state for Elastic File System (EFS). See `resource_exclusions.elastic_file_system` below.
          */
         elasticFileSystem: pulumi.Input<inputs.ec2.EncryptionControlResourceExclusionsElasticFileSystem>;
         /**
-         * `state` and `stateMessage` describing encryption enforcement state for Internet Gateways.
+         * Encryption enforcement state for Internet Gateways. See `resource_exclusions.internet_gateway` below.
          */
         internetGateway: pulumi.Input<inputs.ec2.EncryptionControlResourceExclusionsInternetGateway>;
         /**
-         * `state` and `stateMessage` describing encryption enforcement state for Lambda Functions.
+         * Encryption enforcement state for Lambda Functions. See `resource_exclusions.lambda` below.
          */
         lambda: pulumi.Input<inputs.ec2.EncryptionControlResourceExclusionsLambda>;
         /**
-         * `state` and `stateMessage` describing encryption enforcement state for NAT Gateways.
+         * Encryption enforcement state for NAT Gateways. See `resource_exclusions.nat_gateway` below.
          */
         natGateway: pulumi.Input<inputs.ec2.EncryptionControlResourceExclusionsNatGateway>;
         /**
-         * `state` and `stateMessage` describing encryption enforcement state for Virtual Private Gateways.
+         * Encryption enforcement state for Virtual Private Gateways. See `resource_exclusions.virtual_private_gateway` below.
          */
         virtualPrivateGateway: pulumi.Input<inputs.ec2.EncryptionControlResourceExclusionsVirtualPrivateGateway>;
         /**
-         * `state` and `stateMessage` describing encryption enforcement state for VPC Lattice.
+         * Encryption enforcement state for VPC Lattice. See `resource_exclusions.vpc_lattice` below.
          */
         vpcLattice: pulumi.Input<inputs.ec2.EncryptionControlResourceExclusionsVpcLattice>;
         /**
-         * `state` and `stateMessage` describing encryption enforcement state for peered VPCs.
+         * Encryption enforcement state for peered VPCs. See `resource_exclusions.vpc_peering` below.
          */
         vpcPeering: pulumi.Input<inputs.ec2.EncryptionControlResourceExclusionsVpcPeering>;
     }
 
     export interface EncryptionControlResourceExclusionsEgressOnlyInternetGateway {
         /**
-         * The current state of the VPC Encryption Control.
+         * Encryption enforcement state for peered VPCs.
          */
         state: pulumi.Input<string>;
         /**
-         * A message providing additional information about the state of the VPC Encryption Control.
+         * Message providing additional information about the encryption enforcement state.
          */
         stateMessage: pulumi.Input<string>;
     }
 
     export interface EncryptionControlResourceExclusionsElasticFileSystem {
         /**
-         * The current state of the VPC Encryption Control.
+         * Encryption enforcement state for peered VPCs.
          */
         state: pulumi.Input<string>;
         /**
-         * A message providing additional information about the state of the VPC Encryption Control.
+         * Message providing additional information about the encryption enforcement state.
          */
         stateMessage: pulumi.Input<string>;
     }
 
     export interface EncryptionControlResourceExclusionsInternetGateway {
         /**
-         * The current state of the VPC Encryption Control.
+         * Encryption enforcement state for peered VPCs.
          */
         state: pulumi.Input<string>;
         /**
-         * A message providing additional information about the state of the VPC Encryption Control.
+         * Message providing additional information about the encryption enforcement state.
          */
         stateMessage: pulumi.Input<string>;
     }
 
     export interface EncryptionControlResourceExclusionsLambda {
         /**
-         * The current state of the VPC Encryption Control.
+         * Encryption enforcement state for peered VPCs.
          */
         state: pulumi.Input<string>;
         /**
-         * A message providing additional information about the state of the VPC Encryption Control.
+         * Message providing additional information about the encryption enforcement state.
          */
         stateMessage: pulumi.Input<string>;
     }
 
     export interface EncryptionControlResourceExclusionsNatGateway {
         /**
-         * The current state of the VPC Encryption Control.
+         * Encryption enforcement state for peered VPCs.
          */
         state: pulumi.Input<string>;
         /**
-         * A message providing additional information about the state of the VPC Encryption Control.
+         * Message providing additional information about the encryption enforcement state.
          */
         stateMessage: pulumi.Input<string>;
     }
 
     export interface EncryptionControlResourceExclusionsVirtualPrivateGateway {
         /**
-         * The current state of the VPC Encryption Control.
+         * Encryption enforcement state for peered VPCs.
          */
         state: pulumi.Input<string>;
         /**
-         * A message providing additional information about the state of the VPC Encryption Control.
+         * Message providing additional information about the encryption enforcement state.
          */
         stateMessage: pulumi.Input<string>;
     }
 
     export interface EncryptionControlResourceExclusionsVpcLattice {
         /**
-         * The current state of the VPC Encryption Control.
+         * Encryption enforcement state for peered VPCs.
          */
         state: pulumi.Input<string>;
         /**
-         * A message providing additional information about the state of the VPC Encryption Control.
+         * Message providing additional information about the encryption enforcement state.
          */
         stateMessage: pulumi.Input<string>;
     }
 
     export interface EncryptionControlResourceExclusionsVpcPeering {
         /**
-         * The current state of the VPC Encryption Control.
+         * Encryption enforcement state for peered VPCs.
          */
         state: pulumi.Input<string>;
         /**
-         * A message providing additional information about the state of the VPC Encryption Control.
+         * Message providing additional information about the encryption enforcement state.
          */
         stateMessage: pulumi.Input<string>;
     }
@@ -36940,7 +36956,7 @@ export namespace ec2 {
          */
         acceleratorManufacturers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * List of accelerator names. Default is any acclerator.
+         * List of accelerator names. Default is any accelerator.
          */
         acceleratorNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
@@ -36958,7 +36974,7 @@ export namespace ec2 {
          */
         allowedInstanceTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+         * Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
          */
         bareMetal?: pulumi.Input<string | undefined>;
         /**
@@ -38313,8 +38329,6 @@ export namespace ec2 {
         name: string;
         /**
          * Set of values for filtering.
-         *
-         * For more information about filtering, see the [EC2 API documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeDhcpOptions.html).
          */
         values: string[];
     }
@@ -38326,34 +38340,28 @@ export namespace ec2 {
         name: pulumi.Input<string>;
         /**
          * Set of values for filtering.
-         *
-         * For more information about filtering, see the [EC2 API documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeDhcpOptions.html).
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface GetVpcEndpointFilter {
         /**
-         * Name of the field to filter by, as defined by
-         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
+         * Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
          */
         name: string;
         /**
-         * Set of values that are accepted for the given field.
-         * A VPC Endpoint will be selected if any one of the given values matches.
+         * Set of values that are accepted for the given field. A VPC Endpoint will be selected if any one of the given values matches.
          */
         values: string[];
     }
 
     export interface GetVpcEndpointFilterArgs {
         /**
-         * Name of the field to filter by, as defined by
-         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
+         * Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
          */
         name: pulumi.Input<string>;
         /**
-         * Set of values that are accepted for the given field.
-         * A VPC Endpoint will be selected if any one of the given values matches.
+         * Set of values that are accepted for the given field. A VPC Endpoint will be selected if any one of the given values matches.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -38404,8 +38412,7 @@ export namespace ec2 {
 
     export interface GetVpcIpamPoolCidrsFilter {
         /**
-         * Name of the field to filter by, as defined by
-         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
+         * Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
          */
         name: string;
         /**
@@ -38416,8 +38423,7 @@ export namespace ec2 {
 
     export interface GetVpcIpamPoolCidrsFilterArgs {
         /**
-         * Name of the field to filter by, as defined by
-         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
+         * Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
          */
         name: pulumi.Input<string>;
         /**
@@ -38428,148 +38434,132 @@ export namespace ec2 {
 
     export interface GetVpcIpamPoolFilter {
         /**
-         * The name of the filter. Filter names are case-sensitive.
+         * Name of the filter. Filter names are case-sensitive.
          */
         name: string;
         /**
-         * The filter values. Filter values are case-sensitive.
+         * Filter values. Filter values are case-sensitive.
          */
         values: string[];
     }
 
     export interface GetVpcIpamPoolFilterArgs {
         /**
-         * The name of the filter. Filter names are case-sensitive.
+         * Name of the filter. Filter names are case-sensitive.
          */
         name: pulumi.Input<string>;
         /**
-         * The filter values. Filter values are case-sensitive.
+         * Filter values. Filter values are case-sensitive.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface GetVpcIpamPoolsFilter {
         /**
-         * The name of the filter. Filter names are case-sensitive.
+         * Name of the filter. Filter names are case-sensitive.
          */
         name: string;
         /**
-         * The filter values. Filter values are case-sensitive.
+         * Filter values. Filter values are case-sensitive.
          */
         values: string[];
     }
 
     export interface GetVpcIpamPoolsFilterArgs {
         /**
-         * The name of the filter. Filter names are case-sensitive.
+         * Name of the filter. Filter names are case-sensitive.
          */
         name: pulumi.Input<string>;
         /**
-         * The filter values. Filter values are case-sensitive.
+         * Filter values. Filter values are case-sensitive.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface GetVpcIpamsFilter {
         /**
-         * Name of the field to filter by, as defined by
-         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpams.html).
+         * Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpams.html).
          */
         name: string;
         /**
-         * Set of values that are accepted for the given field.
-         * An IPAM resource will be selected if any one of the given values matches.
+         * Set of values that are accepted for the given field. An IPAM resource will be selected if any one of the given values matches.
          */
         values: string[];
     }
 
     export interface GetVpcIpamsFilterArgs {
         /**
-         * Name of the field to filter by, as defined by
-         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpams.html).
+         * Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpams.html).
          */
         name: pulumi.Input<string>;
         /**
-         * Set of values that are accepted for the given field.
-         * An IPAM resource will be selected if any one of the given values matches.
+         * Set of values that are accepted for the given field. An IPAM resource will be selected if any one of the given values matches.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface GetVpcPeeringConnectionFilter {
         /**
-         * Name of the field to filter by, as defined by
-         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+         * Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
          */
         name: string;
         /**
-         * Set of values that are accepted for the given field.
-         * A VPC Peering Connection will be selected if any one of the given values matches.
+         * Set of values that are accepted for the given field. A VPC Peering Connection will be selected if any one of the given values matches.
          */
         values: string[];
     }
 
     export interface GetVpcPeeringConnectionFilterArgs {
         /**
-         * Name of the field to filter by, as defined by
-         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+         * Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
          */
         name: pulumi.Input<string>;
         /**
-         * Set of values that are accepted for the given field.
-         * A VPC Peering Connection will be selected if any one of the given values matches.
+         * Set of values that are accepted for the given field. A VPC Peering Connection will be selected if any one of the given values matches.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface GetVpcPeeringConnectionsFilter {
         /**
-         * Name of the field to filter by, as defined by
-         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+         * Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
          */
         name: string;
         /**
-         * Set of values that are accepted for the given field.
-         * A VPC Peering Connection will be selected if any one of the given values matches.
+         * Set of values that are accepted for the given field. A VPC Peering Connection will be selected if any one of the given values matches.
          */
         values: string[];
     }
 
     export interface GetVpcPeeringConnectionsFilterArgs {
         /**
-         * Name of the field to filter by, as defined by
-         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+         * Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
          */
         name: pulumi.Input<string>;
         /**
-         * Set of values that are accepted for the given field.
-         * A VPC Peering Connection will be selected if any one of the given values matches.
+         * Set of values that are accepted for the given field. A VPC Peering Connection will be selected if any one of the given values matches.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface GetVpcsFilter {
         /**
-         * Name of the field to filter by, as defined by
-         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
+         * Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
          */
         name: string;
         /**
-         * Set of values that are accepted for the given field.
-         * A VPC will be selected if any one of the given values matches.
+         * Set of values that are accepted for the given field. A VPC will be selected if any one of the given values matches.
          */
         values: string[];
     }
 
     export interface GetVpcsFilterArgs {
         /**
-         * Name of the field to filter by, as defined by
-         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
+         * Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
          */
         name: pulumi.Input<string>;
         /**
-         * Set of values that are accepted for the given field.
-         * A VPC will be selected if any one of the given values matches.
+         * Set of values that are accepted for the given field. A VPC will be selected if any one of the given values matches.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -38598,26 +38588,22 @@ export namespace ec2 {
 
     export interface GetVpnGatewayFilter {
         /**
-         * Name of the field to filter by, as defined by
-         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
+         * Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
          */
         name: string;
         /**
-         * Set of values that are accepted for the given field.
-         * A VPN Gateway will be selected if any one of the given values matches.
+         * Set of values that are accepted for the given field. A VPN Gateway will be selected if any one of the given values matches.
          */
         values: string[];
     }
 
     export interface GetVpnGatewayFilterArgs {
         /**
-         * Name of the field to filter by, as defined by
-         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
+         * Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
          */
         name: pulumi.Input<string>;
         /**
-         * Set of values that are accepted for the given field.
-         * A VPN Gateway will be selected if any one of the given values matches.
+         * Set of values that are accepted for the given field. A VPN Gateway will be selected if any one of the given values matches.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -39262,7 +39248,7 @@ export namespace ec2 {
          */
         acceleratorManufacturers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * List of accelerator names. Default is any acclerator.
+         * List of accelerator names. Default is any accelerator.
          *
          * ```
          * Valid names:
@@ -39298,7 +39284,7 @@ export namespace ec2 {
          */
         allowedInstanceTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+         * Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
          */
         bareMetal?: pulumi.Input<string | undefined>;
         /**
@@ -41165,6 +41151,21 @@ export namespace ec2 {
         networkCardIndex?: pulumi.Input<number | undefined>;
     }
 
+    export interface NetworkInterfaceConnectionTrackingSpecification {
+        /**
+         * Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Recommended: Less than 432000 seconds.
+         */
+        tcpEstablishedTimeout?: pulumi.Input<number | undefined>;
+        /**
+         * Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
+         */
+        udpStreamTimeout?: pulumi.Input<number | undefined>;
+        /**
+         * Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
+         */
+        udpTimeout?: pulumi.Input<number | undefined>;
+    }
+
     export interface NetworkInterfaceEnaSrdSpecification {
         /**
          * Indicates whether ENA Express is enabled for the network interface.
@@ -41196,14 +41197,14 @@ export namespace ec2 {
 
     export interface PeeringConnectionOptionsAccepter {
         /**
-         * Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+         * Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
          */
         allowRemoteVpcDnsResolution?: pulumi.Input<boolean | undefined>;
     }
 
     export interface PeeringConnectionOptionsRequester {
         /**
-         * Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+         * Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
          */
         allowRemoteVpcDnsResolution?: pulumi.Input<boolean | undefined>;
     }
@@ -41564,7 +41565,7 @@ export namespace ec2 {
          */
         acceleratorManufacturers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * List of accelerator names. Default is any acclerator.
+         * List of accelerator names. Default is any accelerator.
          *
          * ```
          * Valid names:
@@ -41600,7 +41601,7 @@ export namespace ec2 {
          */
         allowedInstanceTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+         * Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
          */
         bareMetal?: pulumi.Input<string | undefined>;
         /**
@@ -42165,123 +42166,123 @@ export namespace ec2 {
 
     export interface VpcEncryptionControlResourceExclusions {
         /**
-         * `state` and `stateMessage` describing encryption enforcement state for Egress-Only Internet Gateways.
+         * Encryption enforcement state for Egress-Only Internet Gateways. See `resource_exclusions.egress_only_internet_gateway` below.
          */
         egressOnlyInternetGateway: pulumi.Input<inputs.ec2.VpcEncryptionControlResourceExclusionsEgressOnlyInternetGateway>;
         /**
-         * `state` and `stateMessage` describing encryption enforcement state for Elastic File System (EFS).
+         * Encryption enforcement state for Elastic File System (EFS). See `resource_exclusions.elastic_file_system` below.
          */
         elasticFileSystem: pulumi.Input<inputs.ec2.VpcEncryptionControlResourceExclusionsElasticFileSystem>;
         /**
-         * `state` and `stateMessage` describing encryption enforcement state for Internet Gateways.
+         * Encryption enforcement state for Internet Gateways. See `resource_exclusions.internet_gateway` below.
          */
         internetGateway: pulumi.Input<inputs.ec2.VpcEncryptionControlResourceExclusionsInternetGateway>;
         /**
-         * `state` and `stateMessage` describing encryption enforcement state for Lambda Functions.
+         * Encryption enforcement state for Lambda Functions. See `resource_exclusions.lambda` below.
          */
         lambda: pulumi.Input<inputs.ec2.VpcEncryptionControlResourceExclusionsLambda>;
         /**
-         * `state` and `stateMessage` describing encryption enforcement state for NAT Gateways.
+         * Encryption enforcement state for NAT Gateways. See `resource_exclusions.nat_gateway` below.
          */
         natGateway: pulumi.Input<inputs.ec2.VpcEncryptionControlResourceExclusionsNatGateway>;
         /**
-         * `state` and `stateMessage` describing encryption enforcement state for Virtual Private Gateways.
+         * Encryption enforcement state for Virtual Private Gateways. See `resource_exclusions.virtual_private_gateway` below.
          */
         virtualPrivateGateway: pulumi.Input<inputs.ec2.VpcEncryptionControlResourceExclusionsVirtualPrivateGateway>;
         /**
-         * `state` and `stateMessage` describing encryption enforcement state for VPC Lattice.
+         * Encryption enforcement state for VPC Lattice. See `resource_exclusions.vpc_lattice` below.
          */
         vpcLattice: pulumi.Input<inputs.ec2.VpcEncryptionControlResourceExclusionsVpcLattice>;
         /**
-         * `state` and `stateMessage` describing encryption enforcement state for peered VPCs.
+         * Encryption enforcement state for peered VPCs. See `resource_exclusions.vpc_peering` below.
          */
         vpcPeering: pulumi.Input<inputs.ec2.VpcEncryptionControlResourceExclusionsVpcPeering>;
     }
 
     export interface VpcEncryptionControlResourceExclusionsEgressOnlyInternetGateway {
         /**
-         * The current state of the VPC Encryption Control.
+         * Encryption enforcement state for peered VPCs.
          */
         state: pulumi.Input<string>;
         /**
-         * A message providing additional information about the state of the VPC Encryption Control.
+         * Message providing additional information about the encryption enforcement state.
          */
         stateMessage: pulumi.Input<string>;
     }
 
     export interface VpcEncryptionControlResourceExclusionsElasticFileSystem {
         /**
-         * The current state of the VPC Encryption Control.
+         * Encryption enforcement state for peered VPCs.
          */
         state: pulumi.Input<string>;
         /**
-         * A message providing additional information about the state of the VPC Encryption Control.
+         * Message providing additional information about the encryption enforcement state.
          */
         stateMessage: pulumi.Input<string>;
     }
 
     export interface VpcEncryptionControlResourceExclusionsInternetGateway {
         /**
-         * The current state of the VPC Encryption Control.
+         * Encryption enforcement state for peered VPCs.
          */
         state: pulumi.Input<string>;
         /**
-         * A message providing additional information about the state of the VPC Encryption Control.
+         * Message providing additional information about the encryption enforcement state.
          */
         stateMessage: pulumi.Input<string>;
     }
 
     export interface VpcEncryptionControlResourceExclusionsLambda {
         /**
-         * The current state of the VPC Encryption Control.
+         * Encryption enforcement state for peered VPCs.
          */
         state: pulumi.Input<string>;
         /**
-         * A message providing additional information about the state of the VPC Encryption Control.
+         * Message providing additional information about the encryption enforcement state.
          */
         stateMessage: pulumi.Input<string>;
     }
 
     export interface VpcEncryptionControlResourceExclusionsNatGateway {
         /**
-         * The current state of the VPC Encryption Control.
+         * Encryption enforcement state for peered VPCs.
          */
         state: pulumi.Input<string>;
         /**
-         * A message providing additional information about the state of the VPC Encryption Control.
+         * Message providing additional information about the encryption enforcement state.
          */
         stateMessage: pulumi.Input<string>;
     }
 
     export interface VpcEncryptionControlResourceExclusionsVirtualPrivateGateway {
         /**
-         * The current state of the VPC Encryption Control.
+         * Encryption enforcement state for peered VPCs.
          */
         state: pulumi.Input<string>;
         /**
-         * A message providing additional information about the state of the VPC Encryption Control.
+         * Message providing additional information about the encryption enforcement state.
          */
         stateMessage: pulumi.Input<string>;
     }
 
     export interface VpcEncryptionControlResourceExclusionsVpcLattice {
         /**
-         * The current state of the VPC Encryption Control.
+         * Encryption enforcement state for peered VPCs.
          */
         state: pulumi.Input<string>;
         /**
-         * A message providing additional information about the state of the VPC Encryption Control.
+         * Message providing additional information about the encryption enforcement state.
          */
         stateMessage: pulumi.Input<string>;
     }
 
     export interface VpcEncryptionControlResourceExclusionsVpcPeering {
         /**
-         * The current state of the VPC Encryption Control.
+         * Encryption enforcement state for peered VPCs.
          */
         state: pulumi.Input<string>;
         /**
-         * A message providing additional information about the state of the VPC Encryption Control.
+         * Message providing additional information about the encryption enforcement state.
          */
         stateMessage: pulumi.Input<string>;
     }
@@ -42303,22 +42304,22 @@ export namespace ec2 {
 
     export interface VpcEndpointDnsEntry {
         /**
-         * The DNS name.
+         * DNS name.
          */
         dnsName?: pulumi.Input<string | undefined>;
         /**
-         * The ID of the private hosted zone.
+         * ID of the private hosted zone.
          */
         hostedZoneId?: pulumi.Input<string | undefined>;
     }
 
     export interface VpcEndpointDnsOptions {
         /**
-         * The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
+         * DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
          */
         dnsRecordIpType?: pulumi.Input<string | undefined>;
         /**
-         * Boolean indicating whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `privateDnsEnabled` is `true`.
+         * Whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `privateDnsEnabled` is `true`.
          */
         privateDnsOnlyForInboundResolverEndpoint?: pulumi.Input<boolean | undefined>;
         /**
@@ -42337,7 +42338,7 @@ export namespace ec2 {
          */
         name?: pulumi.Input<string | undefined>;
         /**
-         * Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
+         * State of the VPC endpoint service.
          */
         state?: pulumi.Input<string | undefined>;
         /**
@@ -42352,33 +42353,33 @@ export namespace ec2 {
 
     export interface VpcEndpointSubnetConfiguration {
         /**
-         * The IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
+         * IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
          */
         ipv4?: pulumi.Input<string | undefined>;
         /**
-         * The IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
+         * IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
          */
         ipv6?: pulumi.Input<string | undefined>;
         /**
-         * The ID of the subnet. Must have a corresponding subnet in the `subnetIds` argument.
+         * ID of the subnet. Must have a corresponding subnet in the `subnetIds` argument.
          */
         subnetId?: pulumi.Input<string | undefined>;
     }
 
     export interface VpcIpamOperatingRegion {
         /**
-         * The name of the Region you want to add to the IPAM.
+         * Name of the Region you want to add to the IPAM.
          */
         regionName: pulumi.Input<string>;
     }
 
     export interface VpcIpamPoolCidrCidrAuthorizationContext {
         /**
-         * The plain-text authorization message for the prefix and account.
+         * Plain-text authorization message for the prefix and account.
          */
         message?: pulumi.Input<string | undefined>;
         /**
-         * The signed authorization message for the prefix and account.
+         * Signed authorization message for the prefix and account.
          */
         signature?: pulumi.Input<string | undefined>;
     }
@@ -42404,7 +42405,7 @@ export namespace ec2 {
 
     export interface VpcIpamResourceDiscoveryOperatingRegion {
         /**
-         * The name of the Region you want to add to the IPAM.
+         * Name of the Region you want to add to the IPAM.
          */
         regionName: pulumi.Input<string>;
     }
@@ -42418,47 +42419,43 @@ export namespace ec2 {
 
     export interface VpcPeeringConnectionAccepter {
         /**
-         * Allow a local VPC to resolve public DNS hostnames to
-         * private IP addresses when queried from instances in the peer VPC.
+         * Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
          */
         allowRemoteVpcDnsResolution?: pulumi.Input<boolean | undefined>;
     }
 
     export interface VpcPeeringConnectionAccepterAccepter {
         /**
-         * Indicates whether a local VPC can resolve public DNS hostnames to
-         * private IP addresses when queried from instances in a peer VPC.
+         * Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in a peer VPC.
          */
         allowRemoteVpcDnsResolution?: pulumi.Input<boolean | undefined>;
     }
 
     export interface VpcPeeringConnectionAccepterRequester {
         /**
-         * Indicates whether a local VPC can resolve public DNS hostnames to
-         * private IP addresses when queried from instances in a peer VPC.
+         * Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in a peer VPC.
          */
         allowRemoteVpcDnsResolution?: pulumi.Input<boolean | undefined>;
     }
 
     export interface VpcPeeringConnectionRequester {
         /**
-         * Allow a local VPC to resolve public DNS hostnames to
-         * private IP addresses when queried from instances in the peer VPC.
+         * Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
          */
         allowRemoteVpcDnsResolution?: pulumi.Input<boolean | undefined>;
     }
 
     export interface VpnConnectionRoute {
         /**
-         * The CIDR block associated with the local subnet of the customer data center.
+         * CIDR block associated with the local subnet of the customer data center.
          */
         destinationCidrBlock?: pulumi.Input<string | undefined>;
         /**
-         * Indicates how the routes were provided.
+         * How the routes were provided.
          */
         source?: pulumi.Input<string | undefined>;
         /**
-         * The current state of the static route.
+         * Current state of the static route.
          */
         state?: pulumi.Input<string | undefined>;
     }
@@ -42472,7 +42469,7 @@ export namespace ec2 {
 
     export interface VpnConnectionTunnel1LogOptionsCloudwatchLogOptions {
         /**
-         * Enable or disable BGP logging feature. The default is `false`.
+         * Whether to enable the BGP logging feature. The default is `false`.
          */
         bgpLogEnabled?: pulumi.Input<boolean | undefined>;
         /**
@@ -42484,7 +42481,7 @@ export namespace ec2 {
          */
         bgpLogOutputFormat?: pulumi.Input<string | undefined>;
         /**
-         * Enable or disable VPN tunnel logging feature. The default is `false`.
+         * Whether to enable the VPN tunnel logging feature. The default is `false`.
          */
         logEnabled?: pulumi.Input<boolean | undefined>;
         /**
@@ -42506,7 +42503,7 @@ export namespace ec2 {
 
     export interface VpnConnectionTunnel2LogOptionsCloudwatchLogOptions {
         /**
-         * Enable or disable BGP logging feature. The default is `false`.
+         * Whether to enable the BGP logging feature. The default is `false`.
          */
         bgpLogEnabled?: pulumi.Input<boolean | undefined>;
         /**
@@ -42518,7 +42515,7 @@ export namespace ec2 {
          */
         bgpLogOutputFormat?: pulumi.Input<string | undefined>;
         /**
-         * Enable or disable VPN tunnel logging feature. The default is `false`.
+         * Whether to enable the VPN tunnel logging feature. The default is `false`.
          */
         logEnabled?: pulumi.Input<boolean | undefined>;
         /**
@@ -42533,7 +42530,7 @@ export namespace ec2 {
 
     export interface VpnConnectionVgwTelemetry {
         /**
-         * The number of accepted routes.
+         * Number of accepted routes.
          */
         acceptedRouteCount?: pulumi.Input<number | undefined>;
         /**
@@ -42541,15 +42538,15 @@ export namespace ec2 {
          */
         certificateArn?: pulumi.Input<string | undefined>;
         /**
-         * The date and time of the last change in status.
+         * Date and time of the last change in status.
          */
         lastStatusChange?: pulumi.Input<string | undefined>;
         /**
-         * The Internet-routable IP address of the virtual private gateway's outside interface.
+         * Internet-routable IP address of the virtual private gateway's outside interface.
          */
         outsideIpAddress?: pulumi.Input<string | undefined>;
         /**
-         * The status of the VPN tunnel.
+         * Status of the VPN tunnel.
          */
         status?: pulumi.Input<string | undefined>;
         /**
@@ -49344,7 +49341,7 @@ export namespace fsx {
          */
         size?: pulumi.Input<number | undefined>;
         /**
-         * Sizing mode for the cache. Valud values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
+         * Sizing mode for the cache. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
          */
         sizingMode: pulumi.Input<string>;
     }
@@ -49397,11 +49394,11 @@ export namespace fsx {
 
     export interface OntapFileSystemEndpoint {
         /**
-         * Endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
+         * Endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See `endpoints.intercluster` below.
          */
         interclusters?: pulumi.Input<pulumi.Input<inputs.fsx.OntapFileSystemEndpointIntercluster>[] | undefined>;
         /**
-         * Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+         * Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See `endpoints.management` below.
          */
         managements?: pulumi.Input<pulumi.Input<inputs.fsx.OntapFileSystemEndpointManagement>[] | undefined>;
     }
@@ -49468,19 +49465,19 @@ export namespace fsx {
 
     export interface OntapStorageVirtualMachineEndpoint {
         /**
-         * Endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
+         * Endpoint for accessing data on your storage virtual machine via iSCSI protocol. See `endpoints.iscsi` below.
          */
         iscsis?: pulumi.Input<pulumi.Input<inputs.fsx.OntapStorageVirtualMachineEndpointIscsi>[] | undefined>;
         /**
-         * Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+         * Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See `endpoints.management` below.
          */
         managements?: pulumi.Input<pulumi.Input<inputs.fsx.OntapStorageVirtualMachineEndpointManagement>[] | undefined>;
         /**
-         * Endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
+         * Endpoint for accessing data on your storage virtual machine via NFS protocol. See `endpoints.nfs` below.
          */
         nfs?: pulumi.Input<pulumi.Input<inputs.fsx.OntapStorageVirtualMachineEndpointNf>[] | undefined>;
         /**
-         * Endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See Endpoint.
+         * Endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See `endpoints.smb` below.
          */
         smbs?: pulumi.Input<pulumi.Input<inputs.fsx.OntapStorageVirtualMachineEndpointSmb>[] | undefined>;
     }
@@ -49703,7 +49700,7 @@ export namespace fsx {
          */
         clients: pulumi.Input<string>;
         /**
-         * Options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+         * Options to use when mounting the file system. Maximum of 20 items. See the [Linux NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
          */
         options: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -49736,7 +49733,7 @@ export namespace fsx {
          */
         clients: pulumi.Input<string>;
         /**
-         * The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+         * The options to use when mounting the file system. Maximum of 20 items. See the [Linux NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
          */
         options: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -55946,7 +55943,7 @@ export namespace kendra {
 
     export interface ExperienceConfiguration {
         /**
-         * Identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
+         * Identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
          */
         contentSourceConfiguration?: pulumi.Input<inputs.kendra.ExperienceConfigurationContentSourceConfiguration | undefined>;
         /**
@@ -83847,6 +83844,256 @@ export namespace observabilityadmin {
 }
 
 export namespace odb {
+    export interface AutonomousDatabaseAdminPasswordSource {
+        customerManagedAwsSecret?: pulumi.Input<inputs.odb.AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret | undefined>;
+    }
+
+    export interface AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret {
+        /**
+         * OCI identifier type used as the external ID when OCI assumes the customer-managed IAM role. Valid values are `databaseOcid`, `compartmentOcid`, and `tenantOcid`.
+         */
+        externalIdType: pulumi.Input<string>;
+        /**
+         * ARN of the customer-managed IAM role OCI assumes to retrieve the secret. Its trust policy must allow the Oracle-managed service role to assume it.
+         */
+        iamRoleArn: pulumi.Input<string>;
+        /**
+         * ARN of the AWS Secrets Manager secret containing the ADMIN password.
+         */
+        secretArn: pulumi.Input<string>;
+    }
+
+    export interface AutonomousDatabaseCustomerContactsToSendToOci {
+        /**
+         * Email address that receives operational notifications from OCI.
+         */
+        email: pulumi.Input<string>;
+    }
+
+    export interface AutonomousDatabaseDbToolsDetail {
+        /**
+         * Compute capacity allocated to the database tool.
+         */
+        computeCount?: pulumi.Input<number | undefined>;
+        /**
+         * Whether the database tool is enabled.
+         */
+        isEnabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Maximum idle time before the tool is shut down.
+         */
+        maxIdleTimeInMinutes?: pulumi.Input<number | undefined>;
+        /**
+         * Database tool name.
+         */
+        name?: pulumi.Input<string | undefined>;
+    }
+
+    export interface AutonomousDatabaseLongTermBackupSchedule {
+        /**
+         * Whether the long-term backup schedule is disabled.
+         */
+        isDisabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Backup cadence. Valid values are `ONE_TIME`, `WEEKLY`, `MONTHLY`, and `YEARLY`.
+         */
+        repeatCadence?: pulumi.Input<string | undefined>;
+        /**
+         * Backup retention period. Valid values are from `90` through `3650`.
+         */
+        retentionPeriodInDays?: pulumi.Input<number | undefined>;
+        /**
+         * RFC3339 timestamp at which the backup is taken.
+         */
+        timeOfBackup?: pulumi.Input<string | undefined>;
+    }
+
+    export interface AutonomousDatabaseResourcePoolSummary {
+        /**
+         * Available compute capacity.
+         */
+        availableComputeCapacity?: pulumi.Input<number | undefined>;
+        /**
+         * Available storage capacity in TB.
+         */
+        availableStorageCapacityInTbs?: pulumi.Input<number | undefined>;
+        /**
+         * Whether the resource pool is disabled.
+         */
+        isDisabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Number of Autonomous Databases the pool can contain.
+         */
+        poolSize?: pulumi.Input<number | undefined>;
+        /**
+         * Pool storage size in TB.
+         */
+        poolStorageSizeInTbs?: pulumi.Input<number | undefined>;
+        /**
+         * Total compute capacity.
+         */
+        totalComputeCapacity?: pulumi.Input<number | undefined>;
+    }
+
+    export interface AutonomousDatabaseScheduledOperation {
+        /**
+         * Day of the week.
+         */
+        dayOfWeek: pulumi.Input<string>;
+        /**
+         * Scheduled start time in UTC.
+         */
+        scheduledStartTime?: pulumi.Input<string | undefined>;
+        /**
+         * Scheduled stop time in UTC.
+         */
+        scheduledStopTime?: pulumi.Input<string | undefined>;
+    }
+
+    export interface AutonomousDatabaseSecretsManagerIntegrationTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string | undefined>;
+    }
+
+    export interface AutonomousDatabaseSourceConfiguration {
+        cloneToRefreshable?: pulumi.Input<inputs.odb.AutonomousDatabaseSourceConfigurationCloneToRefreshable | undefined>;
+        crossRegionDataGuard?: pulumi.Input<inputs.odb.AutonomousDatabaseSourceConfigurationCrossRegionDataGuard | undefined>;
+        crossRegionDisasterRecovery?: pulumi.Input<inputs.odb.AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecovery | undefined>;
+        databaseClone?: pulumi.Input<inputs.odb.AutonomousDatabaseSourceConfigurationDatabaseClone | undefined>;
+        pointInTimeRestore?: pulumi.Input<inputs.odb.AutonomousDatabaseSourceConfigurationPointInTimeRestore | undefined>;
+        restoreFromBackup?: pulumi.Input<inputs.odb.AutonomousDatabaseSourceConfigurationRestoreFromBackup | undefined>;
+    }
+
+    export interface AutonomousDatabaseSourceConfigurationCloneToRefreshable {
+        /**
+         * Automatic refresh frequency in seconds.
+         */
+        autoRefreshFrequencyInSeconds?: pulumi.Input<number | undefined>;
+        /**
+         * Refresh lag in seconds.
+         */
+        autoRefreshPointLagInSeconds?: pulumi.Input<number | undefined>;
+        /**
+         * Clone type.
+         */
+        cloneType?: pulumi.Input<string | undefined>;
+        /**
+         * Clone open mode.
+         */
+        openMode?: pulumi.Input<string | undefined>;
+        /**
+         * Refresh mode.
+         */
+        refreshableMode?: pulumi.Input<string | undefined>;
+        /**
+         * ID of the source Autonomous Database.
+         */
+        sourceAutonomousDatabaseId: pulumi.Input<string>;
+        /**
+         * RFC3339 automatic refresh start timestamp.
+         */
+        timeOfAutoRefreshStart?: pulumi.Input<string | undefined>;
+    }
+
+    export interface AutonomousDatabaseSourceConfigurationCrossRegionDataGuard {
+        /**
+         * ARN of the source Autonomous Database.
+         */
+        sourceAutonomousDatabaseArn: pulumi.Input<string>;
+    }
+
+    export interface AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecovery {
+        /**
+         * Whether automatic backups are replicated.
+         */
+        isReplicateAutomaticBackups?: pulumi.Input<boolean | undefined>;
+        /**
+         * Remote disaster recovery type.
+         */
+        remoteDisasterRecoveryType: pulumi.Input<string>;
+        /**
+         * ARN of the source Autonomous Database.
+         */
+        sourceAutonomousDatabaseArn: pulumi.Input<string>;
+    }
+
+    export interface AutonomousDatabaseSourceConfigurationDatabaseClone {
+        /**
+         * Clone type.
+         */
+        cloneType: pulumi.Input<string>;
+        /**
+         * ID of the source Autonomous Database.
+         */
+        sourceAutonomousDatabaseId: pulumi.Input<string>;
+    }
+
+    export interface AutonomousDatabaseSourceConfigurationPointInTimeRestore {
+        /**
+         * List of tablespace IDs to clone.
+         */
+        cloneTableSpaceLists?: pulumi.Input<pulumi.Input<number>[] | undefined>;
+        /**
+         * Clone type.
+         */
+        cloneType: pulumi.Input<string>;
+        /**
+         * ID of the source Autonomous Database.
+         */
+        sourceAutonomousDatabaseId: pulumi.Input<string>;
+        /**
+         * RFC3339 timestamp to which the database is restored.
+         */
+        timestamp?: pulumi.Input<string | undefined>;
+        /**
+         * Whether to use the latest available backup timestamp.
+         */
+        useLatestAvailableBackupTimestamp?: pulumi.Input<boolean | undefined>;
+    }
+
+    export interface AutonomousDatabaseSourceConfigurationRestoreFromBackup {
+        /**
+         * ID of the Autonomous Database backup.
+         */
+        autonomousDatabaseBackupId: pulumi.Input<string>;
+        /**
+         * List of tablespace IDs to clone.
+         */
+        cloneTableSpaceLists?: pulumi.Input<pulumi.Input<number>[] | undefined>;
+        /**
+         * Clone type.
+         */
+        cloneType: pulumi.Input<string>;
+    }
+
+    export interface AutonomousDatabaseTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string | undefined>;
+    }
+
+    export interface AutonomousDatabaseTransportableTablespace {
+        /**
+         * URL of the transportable tablespace bundle.
+         */
+        ttsBundleUrl?: pulumi.Input<string | undefined>;
+    }
+
     export interface CloudAutonomousVmClusterMaintenanceWindow {
         /**
          * Days of the week when maintenance can be performed. Changing this will force terraform to create new resource. See `daysOfWeek` Block below.
@@ -106358,9 +106605,21 @@ export namespace transfer {
 
 export namespace verifiedaccess {
     export interface EndpointCidrOptions {
+        /**
+         * CIDR block to send traffic to.
+         */
         cidr: pulumi.Input<string>;
+        /**
+         * Port ranges. See below.
+         */
         portRanges: pulumi.Input<pulumi.Input<inputs.verifiedaccess.EndpointCidrOptionsPortRange>[]>;
+        /**
+         * Protocol. Currently `tcp` is supported.
+         */
         protocol?: pulumi.Input<string | undefined>;
+        /**
+         * IDs of the subnets.
+         */
         subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
@@ -106370,10 +106629,25 @@ export namespace verifiedaccess {
     }
 
     export interface EndpointLoadBalancerOptions {
+        /**
+         * ARN of the load balancer.
+         */
         loadBalancerArn?: pulumi.Input<string | undefined>;
+        /**
+         * IP port number.
+         */
         port?: pulumi.Input<number | undefined>;
+        /**
+         * Port ranges. See below.
+         */
         portRanges?: pulumi.Input<pulumi.Input<inputs.verifiedaccess.EndpointLoadBalancerOptionsPortRange>[] | undefined>;
+        /**
+         * IP protocol.
+         */
         protocol?: pulumi.Input<string | undefined>;
+        /**
+         * IDs of the subnets.
+         */
         subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
@@ -106383,9 +106657,21 @@ export namespace verifiedaccess {
     }
 
     export interface EndpointNetworkInterfaceOptions {
+        /**
+         * ID of the network interface.
+         */
         networkInterfaceId?: pulumi.Input<string | undefined>;
+        /**
+         * IP port number.
+         */
         port?: pulumi.Input<number | undefined>;
+        /**
+         * Port ranges. See below.
+         */
         portRanges?: pulumi.Input<pulumi.Input<inputs.verifiedaccess.EndpointNetworkInterfaceOptionsPortRange>[] | undefined>;
+        /**
+         * IP protocol.
+         */
         protocol?: pulumi.Input<string | undefined>;
     }
 
@@ -106395,23 +106681,50 @@ export namespace verifiedaccess {
     }
 
     export interface EndpointRdsOptions {
+        /**
+         * IP port number.
+         */
         port?: pulumi.Input<number | undefined>;
+        /**
+         * Protocol. Currently `tcp` is supported.
+         */
         protocol?: pulumi.Input<string | undefined>;
+        /**
+         * ARN of the RDS cluster.
+         */
         rdsDbClusterArn?: pulumi.Input<string | undefined>;
+        /**
+         * ARN of the RDS instance.
+         */
         rdsDbInstanceArn?: pulumi.Input<string | undefined>;
+        /**
+         * ARN of the RDS proxy.
+         */
         rdsDbProxyArn?: pulumi.Input<string | undefined>;
+        /**
+         * RDS endpoint.
+         */
         rdsEndpoint?: pulumi.Input<string | undefined>;
+        /**
+         * IDs of the subnets.
+         */
         subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface EndpointSseSpecification {
+        /**
+         * Whether to encrypt the policy using a customer managed key.
+         */
         customerManagedKeyEnabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * ARN of the KMS key.
+         */
         kmsKeyArn?: pulumi.Input<string | undefined>;
     }
 
     export interface GroupSseConfiguration {
         /**
-         * Boolean flag to indicate that the CMK should be used.
+         * Whether the CMK should be used.
          */
         customerManagedKeyEnabled?: pulumi.Input<boolean | undefined>;
         /**
@@ -106422,118 +106735,172 @@ export namespace verifiedaccess {
 
     export interface InstanceLoggingConfigurationAccessLogs {
         /**
-         * A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
+         * Block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
          */
         cloudwatchLogs?: pulumi.Input<inputs.verifiedaccess.InstanceLoggingConfigurationAccessLogsCloudwatchLogs | undefined>;
         /**
-         * Include trust data sent by trust providers into the logs.
+         * Whether to include trust data sent by trust providers in the logs.
          */
         includeTrustContext?: pulumi.Input<boolean | undefined>;
         /**
-         * A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
+         * Block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
          */
         kinesisDataFirehose?: pulumi.Input<inputs.verifiedaccess.InstanceLoggingConfigurationAccessLogsKinesisDataFirehose | undefined>;
         /**
-         * The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
+         * Logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
          */
         logVersion?: pulumi.Input<string | undefined>;
         /**
-         * A block that specifies configures sending Verified Access logs to S3. Detailed below.
+         * Block that specifies configures sending Verified Access logs to S3. Detailed below.
          */
         s3?: pulumi.Input<inputs.verifiedaccess.InstanceLoggingConfigurationAccessLogsS3 | undefined>;
     }
 
     export interface InstanceLoggingConfigurationAccessLogsCloudwatchLogs {
         /**
-         * Indicates whether logging is enabled.
+         * Whether logging is enabled.
          */
         enabled: pulumi.Input<boolean>;
         /**
-         * The name of the CloudWatch Logs Log Group.
+         * Name of the CloudWatch Logs Log Group.
          */
         logGroup?: pulumi.Input<string | undefined>;
     }
 
     export interface InstanceLoggingConfigurationAccessLogsKinesisDataFirehose {
         /**
-         * The name of the delivery stream.
+         * Name of the delivery stream.
          */
         deliveryStream?: pulumi.Input<string | undefined>;
         /**
-         * Indicates whether logging is enabled.
+         * Whether logging is enabled.
          */
         enabled: pulumi.Input<boolean>;
     }
 
     export interface InstanceLoggingConfigurationAccessLogsS3 {
         /**
-         * The name of S3 bucket.
+         * Name of S3 bucket.
          */
         bucketName?: pulumi.Input<string | undefined>;
         /**
-         * The ID of the AWS account that owns the Amazon S3 bucket.
+         * ID of the AWS account that owns the Amazon S3 bucket.
          */
         bucketOwner?: pulumi.Input<string | undefined>;
         /**
-         * Indicates whether logging is enabled.
+         * Whether logging is enabled.
          */
         enabled: pulumi.Input<boolean>;
         /**
-         * The bucket prefix.
+         * Bucket prefix.
          */
         prefix?: pulumi.Input<string | undefined>;
     }
 
     export interface InstanceVerifiedAccessTrustProvider {
         /**
-         * A description for the AWS Verified Access Instance.
+         * Description for the AWS Verified Access Instance.
          */
         description?: pulumi.Input<string | undefined>;
         /**
-         * The type of device-based trust provider.
+         * Type of device-based trust provider.
          */
         deviceTrustProviderType?: pulumi.Input<string | undefined>;
         /**
-         * The type of trust provider (user- or device-based).
+         * Type of trust provider (user- or device-based).
          */
         trustProviderType?: pulumi.Input<string | undefined>;
         /**
-         * The type of user-based trust provider.
+         * Type of user-based trust provider.
          */
         userTrustProviderType?: pulumi.Input<string | undefined>;
         /**
-         * The ID of the trust provider.
+         * ID of the trust provider.
          */
         verifiedAccessTrustProviderId?: pulumi.Input<string | undefined>;
     }
 
     export interface TrustProviderDeviceOptions {
+        /**
+         * ID of the tenant application with the device-identity provider.
+         */
         tenantId?: pulumi.Input<string | undefined>;
     }
 
     export interface TrustProviderNativeApplicationOidcOptions {
+        /**
+         * OIDC authorization endpoint.
+         */
         authorizationEndpoint?: pulumi.Input<string | undefined>;
+        /**
+         * OAuth 2.0 client identifier.
+         */
         clientId?: pulumi.Input<string | undefined>;
+        /**
+         * OAuth 2.0 client secret.
+         */
         clientSecret: pulumi.Input<string>;
+        /**
+         * OIDC issuer identifier of the IdP.
+         */
         issuer?: pulumi.Input<string | undefined>;
+        /**
+         * OIDC public signing key endpoint.
+         */
         publicSigningKeyEndpoint?: pulumi.Input<string | undefined>;
+        /**
+         * OpenID Connect (OIDC) scope specified.
+         */
         scope?: pulumi.Input<string | undefined>;
+        /**
+         * OIDC token endpoint.
+         */
         tokenEndpoint?: pulumi.Input<string | undefined>;
+        /**
+         * OIDC user info endpoint.
+         */
         userInfoEndpoint?: pulumi.Input<string | undefined>;
     }
 
     export interface TrustProviderOidcOptions {
+        /**
+         * OIDC authorization endpoint.
+         */
         authorizationEndpoint?: pulumi.Input<string | undefined>;
+        /**
+         * OAuth 2.0 client identifier.
+         */
         clientId?: pulumi.Input<string | undefined>;
+        /**
+         * OAuth 2.0 client secret.
+         */
         clientSecret: pulumi.Input<string>;
+        /**
+         * OIDC issuer identifier of the IdP.
+         */
         issuer?: pulumi.Input<string | undefined>;
+        /**
+         * OpenID Connect (OIDC) scope specified.
+         */
         scope?: pulumi.Input<string | undefined>;
+        /**
+         * OIDC token endpoint.
+         */
         tokenEndpoint?: pulumi.Input<string | undefined>;
+        /**
+         * OIDC user info endpoint.
+         */
         userInfoEndpoint?: pulumi.Input<string | undefined>;
     }
 
     export interface TrustProviderSseSpecification {
+        /**
+         * Whether a customer managed key is in use.
+         */
         customerManagedKeyEnabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * ARN of the KMS key.
+         */
         kmsKeyArn?: pulumi.Input<string | undefined>;
     }
 }
@@ -106541,22 +106908,22 @@ export namespace verifiedaccess {
 export namespace verifiedpermissions {
     export interface IdentitySourceConfiguration {
         /**
-         * Specifies the configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
+         * Configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
          */
         cognitoUserPoolConfiguration?: pulumi.Input<inputs.verifiedpermissions.IdentitySourceConfigurationCognitoUserPoolConfiguration | undefined>;
         /**
-         * Specifies the configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
+         * Configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
          */
         openIdConnectConfiguration?: pulumi.Input<inputs.verifiedpermissions.IdentitySourceConfigurationOpenIdConnectConfiguration | undefined>;
     }
 
     export interface IdentitySourceConfigurationCognitoUserPoolConfiguration {
         /**
-         * The unique application client IDs that are associated with the specified Amazon Cognito user pool.
+         * Unique application client IDs that are associated with the specified Amazon Cognito user pool.
          */
         clientIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+         * Type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
          */
         groupConfiguration?: pulumi.Input<inputs.verifiedpermissions.IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration | undefined>;
         /**
@@ -106567,145 +106934,143 @@ export namespace verifiedpermissions {
 
     export interface IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration {
         /**
-         * The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+         * Policy store entity type that you want to map your users' group claim to. For example, `MyCorp::UserGroup`. A group entity type is an entity that can have a user entity type as a member.
          */
         groupEntityType: pulumi.Input<string>;
     }
 
     export interface IdentitySourceConfigurationOpenIdConnectConfiguration {
         /**
-         * A descriptive string that you want to prefix to user entities from your OIDC identity provider.
+         * Descriptive string that you want to prefix to user entities from your OIDC identity provider.
          */
         entityIdPrefix?: pulumi.Input<string | undefined>;
         /**
-         * The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+         * Type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
          */
         groupConfiguration?: pulumi.Input<inputs.verifiedpermissions.IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration | undefined>;
         /**
-         * The issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
+         * Issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
          */
         issuer: pulumi.Input<string>;
         /**
-         * The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
+         * Token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
          */
         tokenSelection: pulumi.Input<inputs.verifiedpermissions.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection>;
     }
 
     export interface IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration {
         /**
-         * The token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
+         * Token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
          */
         groupClaim: pulumi.Input<string>;
         /**
-         * The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+         * Policy store entity type that you want to map your users' group claim to. For example, `MyCorp::UserGroup`. A group entity type is an entity that can have a user entity type as a member.
          */
         groupEntityType: pulumi.Input<string>;
     }
 
     export interface IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection {
         /**
-         * The OIDC configuration for processing access tokens. See Access Token Only below.
+         * OIDC configuration for processing access tokens. See Access Token Only below.
          */
         accessTokenOnly?: pulumi.Input<inputs.verifiedpermissions.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly | undefined>;
         /**
-         * The OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
+         * OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
          */
         identityTokenOnly?: pulumi.Input<inputs.verifiedpermissions.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly | undefined>;
     }
 
     export interface IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly {
         /**
-         * The access token aud claim values that you want to accept in your policy store.
+         * Access token aud claim values that you want to accept in your policy store.
          */
         audiences?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * The claim that determines the principal in OIDC access tokens.
+         * Claim that determines the principal in OIDC access tokens.
          */
         principalIdClaim?: pulumi.Input<string | undefined>;
     }
 
     export interface IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly {
         /**
-         * The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
+         * ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
          */
         clientIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * The claim that determines the principal in OIDC identity tokens.
+         * Claim that determines the principal in OIDC identity tokens.
          */
         principalIdClaim?: pulumi.Input<string | undefined>;
     }
 
     export interface PolicyDefinition {
         /**
-         * The static policy statement. See Static below.
+         * Static policy statement. See Static below.
          */
         static?: pulumi.Input<inputs.verifiedpermissions.PolicyDefinitionStatic | undefined>;
         /**
-         * The template linked policy. See Template Linked below.
+         * Template linked policy. See Template Linked below.
          */
         templateLinked?: pulumi.Input<inputs.verifiedpermissions.PolicyDefinitionTemplateLinked | undefined>;
     }
 
     export interface PolicyDefinitionStatic {
         /**
-         * The description of the static policy.
+         * Description of the static policy.
          */
         description?: pulumi.Input<string | undefined>;
         /**
-         * The statement of the static policy.
+         * Statement of the static policy.
          */
         statement: pulumi.Input<string>;
     }
 
     export interface PolicyDefinitionTemplateLinked {
         /**
-         * The ID of the template.
+         * ID of the template.
          */
         policyTemplateId: pulumi.Input<string>;
         /**
-         * The principal of the template linked policy.
+         * Principal of the template linked policy. See Principal below.
          */
         principal?: pulumi.Input<inputs.verifiedpermissions.PolicyDefinitionTemplateLinkedPrincipal | undefined>;
         /**
-         * The resource of the template linked policy.
+         * Resource of the template linked policy. See Resource below.
          */
         resource?: pulumi.Input<inputs.verifiedpermissions.PolicyDefinitionTemplateLinkedResource | undefined>;
     }
 
     export interface PolicyDefinitionTemplateLinkedPrincipal {
         /**
-         * The entity ID of the principal.
+         * Entity ID of the principal.
          */
         entityId: pulumi.Input<string>;
         /**
-         * The entity type of the principal.
+         * Entity type of the principal.
          */
         entityType: pulumi.Input<string>;
     }
 
     export interface PolicyDefinitionTemplateLinkedResource {
         /**
-         * The entity ID of the resource.
+         * Entity ID of the resource.
          */
         entityId: pulumi.Input<string>;
         /**
-         * The entity type of the resource.
+         * Entity type of the resource.
          */
         entityType: pulumi.Input<string>;
     }
 
     export interface PolicyStoreValidationSettings {
         /**
-         * The mode for the validation settings. Valid values: `OFF`, `STRICT`.
-         *
-         * The following arguments are optional:
+         * Mode for the validation settings. Valid values: `OFF`, `STRICT`.
          */
         mode: pulumi.Input<string>;
     }
 
     export interface SchemaDefinition {
         /**
-         * A JSON string representation of the schema.
+         * JSON string representation of the schema.
          */
         value: pulumi.Input<string>;
     }
@@ -106743,28 +107108,22 @@ export namespace vpc {
 
     export interface GetSecurityGroupRulesFilter {
         /**
-         * Name of the field to filter by, as defined by
-         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html).
+         * Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html).
          */
         name: string;
         /**
          * Set of values that are accepted for the given field.
-         *
-         * Security group rule IDs will be selected if any one of the given values match.
          */
         values: string[];
     }
 
     export interface GetSecurityGroupRulesFilterArgs {
         /**
-         * Name of the field to filter by, as defined by
-         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html).
+         * Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html).
          */
         name: pulumi.Input<string>;
         /**
          * Set of values that are accepted for the given field.
-         *
-         * Security group rule IDs will be selected if any one of the given values match.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -106782,11 +107141,11 @@ export namespace vpc {
 
     export interface RouteServerPeerBgpOptions {
         /**
-         * The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
+         * Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
          */
         peerAsn: pulumi.Input<number>;
         /**
-         * The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
+         * Requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
          */
         peerLivenessDetection?: pulumi.Input<string | undefined>;
     }
@@ -107885,30 +108244,30 @@ export namespace wafv2 {
 
     export interface RuleGroupCustomResponseBody {
         /**
-         * The payload of the custom response.
+         * Payload of the custom response.
          */
         content: pulumi.Input<string>;
         /**
-         * The type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
+         * Type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
          */
         contentType: pulumi.Input<string>;
         /**
-         * A unique key identifying the custom response body. This is referenced by the `customResponseBodyKey` argument in the Custom Response block.
+         * Unique key identifying the custom response body. This is referenced by the `customResponseBodyKey` argument in the Custom Response block.
          */
         key: pulumi.Input<string>;
     }
 
     export interface RuleGroupRule {
         /**
-         * The action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the `aws.wafv2.WebAcl` level can override the rule action setting. See Action below for details.
+         * Action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the `aws.wafv2.WebAcl` level can override the rule action setting. See Action below for details.
          */
         action: pulumi.Input<inputs.wafv2.RuleGroupRuleAction>;
         /**
-         * Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+         * Configuration for how AWS WAF handles CAPTCHA evaluations. See Captcha Configuration below for details.
          */
         captchaConfig?: pulumi.Input<inputs.wafv2.RuleGroupRuleCaptchaConfig | undefined>;
         /**
-         * A friendly name of the rule.
+         * Friendly name of the rule.
          */
         name: pulumi.Input<string>;
         /**
@@ -107920,11 +108279,11 @@ export namespace wafv2 {
          */
         ruleLabels?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleRuleLabel>[] | undefined>;
         /**
-         * The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See Statement below for details.
+         * AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See Statement below for details.
          */
         statement: pulumi.Input<inputs.wafv2.RuleGroupRuleStatement>;
         /**
-         * Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+         * Amazon CloudWatch metrics and web request sample collection configuration. See Visibility Configuration below for details.
          */
         visibilityConfig: pulumi.Input<inputs.wafv2.RuleGroupRuleVisibilityConfig>;
     }
@@ -107954,32 +108313,32 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleActionAllow {
         /**
-         * Defines custom handling for the web request. See Custom Request Handling below for details.
+         * Custom handling for the web request. See Custom Request Handling below for details.
          */
         customRequestHandling?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionAllowCustomRequestHandling | undefined>;
     }
 
     export interface RuleGroupRuleActionAllowCustomRequestHandling {
         /**
-         * The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+         * `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
          */
         insertHeaders: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleActionAllowCustomRequestHandlingInsertHeader>[]>;
     }
 
     export interface RuleGroupRuleActionAllowCustomRequestHandlingInsertHeader {
         /**
-         * A friendly name of the rule group.
+         * Friendly name of the rule group.
          */
         name: pulumi.Input<string>;
         /**
-         * The value of the custom header.
+         * Value of the custom header.
          */
         value: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleActionBlock {
         /**
-         * Defines a custom response for the web request. See Custom Response below for details.
+         * Custom response for the web request. See Custom Response below for details.
          */
         customResponse?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionBlockCustomResponse | undefined>;
     }
@@ -107990,125 +108349,125 @@ export namespace wafv2 {
          */
         customResponseBodyKey?: pulumi.Input<string | undefined>;
         /**
-         * The HTTP status code to return to the client.
+         * HTTP status code to return to the client.
          */
         responseCode: pulumi.Input<number>;
         /**
-         * The `responseHeader` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
+         * `responseHeader` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
          */
         responseHeaders?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleActionBlockCustomResponseResponseHeader>[] | undefined>;
     }
 
     export interface RuleGroupRuleActionBlockCustomResponseResponseHeader {
         /**
-         * A friendly name of the rule group.
+         * Friendly name of the rule group.
          */
         name: pulumi.Input<string>;
         /**
-         * The value of the custom header.
+         * Value of the custom header.
          */
         value: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleActionCaptcha {
         /**
-         * Defines custom handling for the web request. See Custom Request Handling below for details.
+         * Custom handling for the web request. See Custom Request Handling below for details.
          */
         customRequestHandling?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionCaptchaCustomRequestHandling | undefined>;
     }
 
     export interface RuleGroupRuleActionCaptchaCustomRequestHandling {
         /**
-         * The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+         * `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
          */
         insertHeaders: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader>[]>;
     }
 
     export interface RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader {
         /**
-         * A friendly name of the rule group.
+         * Friendly name of the rule group.
          */
         name: pulumi.Input<string>;
         /**
-         * The value of the custom header.
+         * Value of the custom header.
          */
         value: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleActionChallenge {
         /**
-         * Defines custom handling for the web request. See Custom Request Handling below for details.
+         * Custom handling for the web request. See Custom Request Handling below for details.
          */
         customRequestHandling?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionChallengeCustomRequestHandling | undefined>;
     }
 
     export interface RuleGroupRuleActionChallengeCustomRequestHandling {
         /**
-         * The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+         * `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
          */
         insertHeaders: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader>[]>;
     }
 
     export interface RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader {
         /**
-         * A friendly name of the rule group.
+         * Friendly name of the rule group.
          */
         name: pulumi.Input<string>;
         /**
-         * The value of the custom header.
+         * Value of the custom header.
          */
         value: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleActionCount {
         /**
-         * Defines custom handling for the web request. See Custom Request Handling below for details.
+         * Custom handling for the web request. See Custom Request Handling below for details.
          */
         customRequestHandling?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionCountCustomRequestHandling | undefined>;
     }
 
     export interface RuleGroupRuleActionCountCustomRequestHandling {
         /**
-         * The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+         * `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
          */
         insertHeaders: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleActionCountCustomRequestHandlingInsertHeader>[]>;
     }
 
     export interface RuleGroupRuleActionCountCustomRequestHandlingInsertHeader {
         /**
-         * A friendly name of the rule group.
+         * Friendly name of the rule group.
          */
         name: pulumi.Input<string>;
         /**
-         * The value of the custom header.
+         * Value of the custom header.
          */
         value: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleCaptchaConfig {
         /**
-         * Defines custom immunity time. See Immunity Time Property below for details.
+         * Custom immunity time. See Immunity Time Property below for details.
          */
         immunityTimeProperty?: pulumi.Input<inputs.wafv2.RuleGroupRuleCaptchaConfigImmunityTimeProperty | undefined>;
     }
 
     export interface RuleGroupRuleCaptchaConfigImmunityTimeProperty {
         /**
-         * The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+         * Amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
          */
         immunityTime?: pulumi.Input<number | undefined>;
     }
 
     export interface RuleGroupRuleRuleLabel {
         /**
-         * The label string.
+         * Label string.
          */
         name: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatement {
         /**
-         * A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+         * Logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
          */
         andStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatement | undefined>;
         /**
@@ -108116,58 +108475,58 @@ export namespace wafv2 {
          */
         asnMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAsnMatchStatement | undefined>;
         /**
-         * A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+         * Rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
          */
         byteMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatement | undefined>;
         /**
-         * A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+         * Rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
          */
         geoMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementGeoMatchStatement | undefined>;
         /**
-         * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         * Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementIpSetReferenceStatement | undefined>;
         /**
-         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         * Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
          */
         labelMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementLabelMatchStatement | undefined>;
         /**
-         * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
+         * Logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
         notStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatement | undefined>;
         /**
-         * A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
+         * Logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
          */
         orStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatement | undefined>;
         /**
-         * A rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See Rate Based Statement below for details.
+         * Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See Rate Based Statement below for details.
          */
         rateBasedStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatement | undefined>;
         /**
-         * A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+         * Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
          */
         regexMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexMatchStatement | undefined>;
         /**
-         * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         * Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatement | undefined>;
         /**
-         * A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+         * Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
          */
         sizeConstraintStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatement | undefined>;
         /**
-         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+         * SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
          */
         sqliMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatement | undefined>;
         /**
-         * A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+         * Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
          */
         xssMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatement | undefined>;
     }
 
     export interface RuleGroupRuleStatementAndStatement {
         /**
-         * The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+         * Statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
          */
         statements: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatement>[]>;
     }
@@ -108196,11 +108555,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementByteMatchStatement {
         /**
-         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         * Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatch | undefined>;
         /**
-         * The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+         * Area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
          */
         positionalConstraint: pulumi.Input<string>;
         /**
@@ -108208,13 +108567,11 @@ export namespace wafv2 {
          */
         preParseTextTransformations?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementPreParseTextTransformation>[] | undefined>;
         /**
-         * A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+         * String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
          */
         searchString: pulumi.Input<string>;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
          */
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementTextTransformation>[]>;
     }
@@ -108287,11 +108644,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchCookies {
         /**
-         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         * Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
          */
         matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern>[]>;
         /**
-         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         * Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
          */
         matchScope: pulumi.Input<string>;
         /**
@@ -108302,7 +108659,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll | undefined>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
@@ -108314,11 +108671,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchHeader {
         /**
-         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         * Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
          */
         matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern>;
         /**
-         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         * Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
          */
         matchScope: pulumi.Input<string>;
         /**
@@ -108329,15 +108686,15 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll | undefined>;
         /**
-         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
          */
         excludedHeaders?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
          */
         includedHeaders?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
@@ -108354,14 +108711,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: pulumi.Input<string>;
     }
@@ -108372,11 +108729,11 @@ export namespace wafv2 {
          */
         invalidFallbackBehavior?: pulumi.Input<string | undefined>;
         /**
-         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         * Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
          */
         matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern>;
         /**
-         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         * Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
          */
         matchScope: pulumi.Input<string>;
         /**
@@ -108387,7 +108744,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll | undefined>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[] | undefined>;
@@ -108404,14 +108761,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
@@ -108428,33 +108785,33 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementByteMatchStatementPreParseTextTransformation {
         /**
-         * The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+         * Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
          */
         priority: pulumi.Input<number>;
         /**
-         * The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+         * Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
          */
         type: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementByteMatchStatementTextTransformation {
         /**
-         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
          */
         priority: pulumi.Input<number>;
         /**
-         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
          */
         type: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementGeoMatchStatement {
         /**
-         * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+         * Array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         * Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
          */
         forwardedIpConfig?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementGeoMatchStatementForwardedIpConfig | undefined>;
     }
@@ -108476,7 +108833,7 @@ export namespace wafv2 {
          */
         arn: pulumi.Input<string>;
         /**
-         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         * Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
          */
         ipSetForwardedIpConfig?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig | undefined>;
     }
@@ -108498,7 +108855,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementLabelMatchStatement {
         /**
-         * The string to match against.
+         * String to match against.
          */
         key: pulumi.Input<string>;
         /**
@@ -108509,14 +108866,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementNotStatement {
         /**
-         * The statement to negate. You can use any statement that can be nested. See Statement above for details.
+         * Statement to negate. You can use any statement that can be nested. See Statement above for details.
          */
         statements: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatement>[]>;
     }
 
     export interface RuleGroupRuleStatementOrStatement {
         /**
-         * The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+         * Statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
          */
         statements: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatement>[]>;
     }
@@ -108531,13 +108888,13 @@ export namespace wafv2 {
          */
         customKeys?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKey>[] | undefined>;
         /**
-         * The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
+         * Amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
          *
          * **NOTE:** This setting doesn't determine how often AWS WAF checks the rate, but how far back it looks each time it checks. AWS WAF checks the rate about every 10 seconds.
          */
         evaluationWindowSec?: pulumi.Input<number | undefined>;
         /**
-         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregateKeyType` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
+         * Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregateKeyType` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
          */
         forwardedIpConfig?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementForwardedIpConfig | undefined>;
         /**
@@ -108545,7 +108902,7 @@ export namespace wafv2 {
          */
         limit: pulumi.Input<number>;
         /**
-         * An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details. If `aggregateKeyType` is set to `CONSTANT`, this block is required.
+         * Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details. If `aggregateKeyType` is set to `CONSTANT`, this block is required.
          */
         scopeDownStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatement | undefined>;
     }
@@ -108553,47 +108910,47 @@ export namespace wafv2 {
     export interface RuleGroupRuleStatementRateBasedStatementCustomKey {
         asn?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyAsn | undefined>;
         /**
-         * (Optional) Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
+         * Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
          */
         cookie?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyCookie | undefined>;
         /**
-         * (Optional) Use the first IP address in an HTTP header as an aggregate key. See `forwardedIp` below for details.
+         * Use the first IP address in an HTTP header as an aggregate key. See `forwardedIp` below for details.
          */
         forwardedIp?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIp | undefined>;
         /**
-         * (Optional) Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
+         * Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
          */
         header?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyHeader | undefined>;
         /**
-         * (Optional) Use the request's HTTP method as an aggregate key. See RateLimit `httpMethod` below for details.
+         * Use the request's HTTP method as an aggregate key. See RateLimit `httpMethod` below for details.
          */
         httpMethod?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethod | undefined>;
         /**
-         * (Optional) Use the request's originating IP address as an aggregate key. See `RateLimit ip` below for details.
+         * Use the request's originating IP address as an aggregate key. See `RateLimit ip` below for details.
          */
         ip?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyIp | undefined>;
         /**
-         * (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+         * Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ja3Fingerprint` below for details.
          */
         ja3Fingerprint?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyJa3Fingerprint | undefined>;
         /**
-         * (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+         * Use the JA4 fingerprint in the request as an aggregate key. See `RateLimit ja4Fingerprint` below for details.
          */
         ja4Fingerprint?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyJa4Fingerprint | undefined>;
         /**
-         * (Optional) Use the specified label namespace as an aggregate key. See RateLimit `labelNamespace` below for details.
+         * Use the specified label namespace as an aggregate key. See RateLimit `labelNamespace` below for details.
          */
         labelNamespace?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespace | undefined>;
         /**
-         * (Optional) Use the specified query argument as an aggregate key. See RateLimit `queryArgument` below for details.
+         * Use the specified query argument as an aggregate key. See RateLimit `queryArgument` below for details.
          */
         queryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument | undefined>;
         /**
-         * (Optional) Use the request's query string as an aggregate key. See RateLimit `queryString` below for details.
+         * Use the request's query string as an aggregate key. See RateLimit `queryString` below for details.
          */
         queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString | undefined>;
         /**
-         * (Optional) Use the request's URI path as an aggregate key. See RateLimit `uriPath` below for details.
+         * Use the request's URI path as an aggregate key. See RateLimit `uriPath` below for details.
          */
         uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath | undefined>;
     }
@@ -108603,22 +108960,22 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementCustomKeyCookie {
         /**
-         * A friendly name of the rule group.
+         * The name of the cookie to use.
          */
         name: pulumi.Input<string>;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required.  See Text Transformation above for details.
          */
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformation>[]>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformation {
         /**
-         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
          */
         priority: pulumi.Input<number>;
         /**
-         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
          */
         type: pulumi.Input<string>;
     }
@@ -108628,22 +108985,22 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementCustomKeyHeader {
         /**
-         * A friendly name of the rule group.
+         * The name of the header to use.
          */
         name: pulumi.Input<string>;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required.  See Text Transformation above for details.
          */
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation>[]>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation {
         /**
-         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
          */
         priority: pulumi.Input<number>;
         /**
-         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
          */
         type: pulumi.Input<string>;
     }
@@ -108656,14 +109013,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementCustomKeyJa3Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementCustomKeyJa4Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: pulumi.Input<string>;
     }
@@ -108677,7 +109034,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument {
         /**
-         * A friendly name of the rule group.
+         * The name of the query argument to use.
          */
         name: pulumi.Input<string>;
         /**
@@ -108688,11 +109045,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformation {
         /**
-         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
          */
         priority: pulumi.Input<number>;
         /**
-         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
          */
         type: pulumi.Input<string>;
     }
@@ -108706,11 +109063,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformation {
         /**
-         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
          */
         priority: pulumi.Input<number>;
         /**
-         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
          */
         type: pulumi.Input<string>;
     }
@@ -108724,11 +109081,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation {
         /**
-         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
          */
         priority: pulumi.Input<number>;
         /**
-         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
          */
         type: pulumi.Input<string>;
     }
@@ -108746,7 +109103,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatement {
         /**
-         * A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+         * Logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
          */
         andStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement | undefined>;
         /**
@@ -108754,54 +109111,54 @@ export namespace wafv2 {
          */
         asnMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement | undefined>;
         /**
-         * A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+         * Rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
          */
         byteMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement | undefined>;
         /**
-         * A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+         * Rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
          */
         geoMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement | undefined>;
         /**
-         * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         * Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement | undefined>;
         /**
-         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         * Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
          */
         labelMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement | undefined>;
         /**
-         * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
+         * Logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
         notStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatement | undefined>;
         /**
-         * A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
+         * Logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
          */
         orStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatement | undefined>;
         /**
-         * A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+         * Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
          */
         regexMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement | undefined>;
         /**
-         * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         * Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement | undefined>;
         /**
-         * A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+         * Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
          */
         sizeConstraintStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement | undefined>;
         /**
-         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+         * SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
          */
         sqliMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement | undefined>;
         /**
-         * A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+         * Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
          */
         xssMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement | undefined>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement {
         /**
-         * The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+         * Statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
          */
         statements: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatement>[]>;
     }
@@ -108830,11 +109187,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement {
         /**
-         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         * Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch | undefined>;
         /**
-         * The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+         * Area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
          */
         positionalConstraint: pulumi.Input<string>;
         /**
@@ -108842,13 +109199,11 @@ export namespace wafv2 {
          */
         preParseTextTransformations?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformation>[] | undefined>;
         /**
-         * A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+         * String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
          */
         searchString: pulumi.Input<string>;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
          */
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation>[]>;
     }
@@ -108921,11 +109276,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookies {
         /**
-         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         * Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
          */
         matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPattern>[]>;
         /**
-         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         * Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
          */
         matchScope: pulumi.Input<string>;
         /**
@@ -108936,7 +109291,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll | undefined>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
@@ -108948,11 +109303,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeader {
         /**
-         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         * Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
          */
         matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPattern>;
         /**
-         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         * Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
          */
         matchScope: pulumi.Input<string>;
         /**
@@ -108963,15 +109318,15 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll | undefined>;
         /**
-         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
          */
         excludedHeaders?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
          */
         includedHeaders?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
@@ -108988,14 +109343,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: pulumi.Input<string>;
     }
@@ -109006,11 +109361,11 @@ export namespace wafv2 {
          */
         invalidFallbackBehavior?: pulumi.Input<string | undefined>;
         /**
-         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         * Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
          */
         matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern>;
         /**
-         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         * Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
          */
         matchScope: pulumi.Input<string>;
         /**
@@ -109021,7 +109376,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll | undefined>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[] | undefined>;
@@ -109038,14 +109393,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
@@ -109062,33 +109417,33 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformation {
         /**
-         * The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+         * Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
          */
         priority: pulumi.Input<number>;
         /**
-         * The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+         * Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
          */
         type: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation {
         /**
-         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
          */
         priority: pulumi.Input<number>;
         /**
-         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
          */
         type: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement {
         /**
-         * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+         * Array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         * Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
          */
         forwardedIpConfig?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig | undefined>;
     }
@@ -109110,7 +109465,7 @@ export namespace wafv2 {
          */
         arn: pulumi.Input<string>;
         /**
-         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         * Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
          */
         ipSetForwardedIpConfig?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig | undefined>;
     }
@@ -109132,7 +109487,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement {
         /**
-         * The string to match against.
+         * String to match against.
          */
         key: pulumi.Input<string>;
         /**
@@ -109143,21 +109498,21 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatement {
         /**
-         * The statement to negate. You can use any statement that can be nested. See Statement above for details.
+         * Statement to negate. You can use any statement that can be nested. See Statement above for details.
          */
         statements: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatement>[]>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatement {
         /**
-         * The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+         * Statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
          */
         statements: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatement>[]>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement {
         /**
-         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         * Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatch | undefined>;
         /**
@@ -109165,13 +109520,11 @@ export namespace wafv2 {
          */
         preParseTextTransformations?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformation>[] | undefined>;
         /**
-         * The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
+         * String representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
          */
         regexString: pulumi.Input<string>;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
          */
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation>[]>;
     }
@@ -109244,11 +109597,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies {
         /**
-         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         * Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
          */
         matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPattern>[]>;
         /**
-         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         * Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
          */
         matchScope: pulumi.Input<string>;
         /**
@@ -109259,7 +109612,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll | undefined>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
@@ -109271,11 +109624,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader {
         /**
-         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         * Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
          */
         matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPattern>;
         /**
-         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         * Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
          */
         matchScope: pulumi.Input<string>;
         /**
@@ -109286,15 +109639,15 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll | undefined>;
         /**
-         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
          */
         excludedHeaders?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
          */
         includedHeaders?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
@@ -109311,14 +109664,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: pulumi.Input<string>;
     }
@@ -109329,11 +109682,11 @@ export namespace wafv2 {
          */
         invalidFallbackBehavior?: pulumi.Input<string | undefined>;
         /**
-         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         * Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
          */
         matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern>;
         /**
-         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         * Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
          */
         matchScope: pulumi.Input<string>;
         /**
@@ -109344,7 +109697,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll | undefined>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[] | undefined>;
@@ -109361,14 +109714,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
@@ -109385,22 +109738,22 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformation {
         /**
-         * The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+         * Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
          */
         priority: pulumi.Input<number>;
         /**
-         * The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+         * Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
          */
         type: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation {
         /**
-         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
          */
         priority: pulumi.Input<number>;
         /**
-         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
          */
         type: pulumi.Input<string>;
     }
@@ -109411,7 +109764,7 @@ export namespace wafv2 {
          */
         arn: pulumi.Input<string>;
         /**
-         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         * Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch | undefined>;
         /**
@@ -109419,9 +109772,7 @@ export namespace wafv2 {
          */
         preParseTextTransformations?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformation>[] | undefined>;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
          */
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation>[]>;
     }
@@ -109494,11 +109845,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies {
         /**
-         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         * Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
          */
         matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern>[]>;
         /**
-         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         * Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
          */
         matchScope: pulumi.Input<string>;
         /**
@@ -109509,7 +109860,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll | undefined>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
@@ -109521,11 +109872,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader {
         /**
-         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         * Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
          */
         matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern>;
         /**
-         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         * Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
          */
         matchScope: pulumi.Input<string>;
         /**
@@ -109536,15 +109887,15 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll | undefined>;
         /**
-         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
          */
         excludedHeaders?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
          */
         includedHeaders?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
@@ -109561,14 +109912,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: pulumi.Input<string>;
     }
@@ -109579,11 +109930,11 @@ export namespace wafv2 {
          */
         invalidFallbackBehavior?: pulumi.Input<string | undefined>;
         /**
-         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         * Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
          */
         matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern>;
         /**
-         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         * Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
          */
         matchScope: pulumi.Input<string>;
         /**
@@ -109594,7 +109945,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll | undefined>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[] | undefined>;
@@ -109611,14 +109962,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
         /**
-         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
@@ -109635,33 +109986,33 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformation {
         /**
-         * The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+         * Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
          */
         priority: pulumi.Input<number>;
         /**
-         * The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+         * Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
          */
         type: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation {
         /**
-         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
          */
         priority: pulumi.Input<number>;
         /**
-         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
          */
         type: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement {
         /**
-         * The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         * Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
          */
         comparisonOperator: pulumi.Input<string>;
         /**
-         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         * Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch | undefined>;
         /**
@@ -109669,13 +110020,11 @@ export namespace wafv2 {
          */
         preParseTextTransformations?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformation>[] | undefined>;
         /**
-         * The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         * Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
          */
         size: pulumi.Input<number>;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
          */
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation>[]>;
     }
@@ -109748,11 +110097,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies {
         /**
-         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         * Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
          */
         matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern>[]>;
         /**
-         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         * Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
          */
         matchScope: pulumi.Input<string>;
         /**
@@ -109763,7 +110112,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll | undefined>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
@@ -109775,11 +110124,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader {
         /**
-         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         * Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
          */
         matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern>;
         /**
-         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         * Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
          */
         matchScope: pulumi.Input<string>;
         /**
@@ -109790,15 +110139,15 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll | undefined>;
         /**
-         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
          */
         excludedHeaders?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
          */
         includedHeaders?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
@@ -109815,14 +110164,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: pulumi.Input<string>;
     }
@@ -109833,11 +110182,11 @@ export namespace wafv2 {
          */
         invalidFallbackBehavior?: pulumi.Input<string | undefined>;
         /**
-         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         * Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
          */
         matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern>;
         /**
-         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         * Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
          */
         matchScope: pulumi.Input<string>;
         /**
@@ -109848,7 +110197,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll | undefined>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[] | undefined>;
@@ -109865,14 +110214,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader {
         /**
-         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
@@ -109889,29 +110238,29 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformation {
         /**
-         * The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+         * Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
          */
         priority: pulumi.Input<number>;
         /**
-         * The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+         * Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
          */
         type: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation {
         /**
-         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
          */
         priority: pulumi.Input<number>;
         /**
-         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
          */
         type: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement {
         /**
-         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         * Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch | undefined>;
         /**
@@ -109923,9 +110272,7 @@ export namespace wafv2 {
          */
         sensitivityLevel?: pulumi.Input<string | undefined>;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
          */
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation>[]>;
     }
@@ -109998,11 +110345,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookies {
         /**
-         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         * Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
          */
         matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPattern>[]>;
         /**
-         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         * Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
          */
         matchScope: pulumi.Input<string>;
         /**
@@ -110013,7 +110360,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll | undefined>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
@@ -110025,11 +110372,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader {
         /**
-         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         * Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
          */
         matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPattern>;
         /**
-         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         * Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
          */
         matchScope: pulumi.Input<string>;
         /**
@@ -110040,15 +110387,15 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll | undefined>;
         /**
-         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
          */
         excludedHeaders?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
          */
         includedHeaders?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
@@ -110065,14 +110412,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: pulumi.Input<string>;
     }
@@ -110083,11 +110430,11 @@ export namespace wafv2 {
          */
         invalidFallbackBehavior?: pulumi.Input<string | undefined>;
         /**
-         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         * Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
          */
         matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern>;
         /**
-         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         * Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
          */
         matchScope: pulumi.Input<string>;
         /**
@@ -110098,7 +110445,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll | undefined>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[] | undefined>;
@@ -110115,14 +110462,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
@@ -110139,29 +110486,29 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformation {
         /**
-         * The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+         * Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
          */
         priority: pulumi.Input<number>;
         /**
-         * The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+         * Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
          */
         type: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation {
         /**
-         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
          */
         priority: pulumi.Input<number>;
         /**
-         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
          */
         type: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement {
         /**
-         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         * Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch | undefined>;
         /**
@@ -110169,9 +110516,7 @@ export namespace wafv2 {
          */
         preParseTextTransformations?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformation>[] | undefined>;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
          */
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation>[]>;
     }
@@ -110244,11 +110589,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies {
         /**
-         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         * Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
          */
         matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern>[]>;
         /**
-         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         * Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
          */
         matchScope: pulumi.Input<string>;
         /**
@@ -110259,7 +110604,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll | undefined>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
@@ -110271,11 +110616,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeader {
         /**
-         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         * Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
          */
         matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern>;
         /**
-         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         * Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
          */
         matchScope: pulumi.Input<string>;
         /**
@@ -110286,15 +110631,15 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll | undefined>;
         /**
-         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
          */
         excludedHeaders?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
          */
         includedHeaders?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
@@ -110311,14 +110656,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa4Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: pulumi.Input<string>;
     }
@@ -110329,11 +110674,11 @@ export namespace wafv2 {
          */
         invalidFallbackBehavior?: pulumi.Input<string | undefined>;
         /**
-         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         * Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
          */
         matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern>;
         /**
-         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         * Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
          */
         matchScope: pulumi.Input<string>;
         /**
@@ -110344,7 +110689,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll | undefined>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[] | undefined>;
@@ -110361,14 +110706,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
@@ -110385,29 +110730,29 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformation {
         /**
-         * The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+         * Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
          */
         priority: pulumi.Input<number>;
         /**
-         * The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+         * Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
          */
         type: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation {
         /**
-         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
          */
         priority: pulumi.Input<number>;
         /**
-         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
          */
         type: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRegexMatchStatement {
         /**
-         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         * Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatch | undefined>;
         /**
@@ -110415,13 +110760,11 @@ export namespace wafv2 {
          */
         preParseTextTransformations?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexMatchStatementPreParseTextTransformation>[] | undefined>;
         /**
-         * The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
+         * String representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
          */
         regexString: pulumi.Input<string>;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
          */
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexMatchStatementTextTransformation>[]>;
     }
@@ -110494,11 +110837,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookies {
         /**
-         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         * Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
          */
         matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern>[]>;
         /**
-         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         * Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
          */
         matchScope: pulumi.Input<string>;
         /**
@@ -110509,7 +110852,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll | undefined>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
@@ -110521,11 +110864,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeader {
         /**
-         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         * Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
          */
         matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern>;
         /**
-         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         * Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
          */
         matchScope: pulumi.Input<string>;
         /**
@@ -110536,15 +110879,15 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll | undefined>;
         /**
-         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
          */
         excludedHeaders?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
          */
         includedHeaders?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
@@ -110561,14 +110904,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa4Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: pulumi.Input<string>;
     }
@@ -110579,11 +110922,11 @@ export namespace wafv2 {
          */
         invalidFallbackBehavior?: pulumi.Input<string | undefined>;
         /**
-         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         * Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
          */
         matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern>;
         /**
-         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         * Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
          */
         matchScope: pulumi.Input<string>;
         /**
@@ -110594,7 +110937,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll | undefined>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[] | undefined>;
@@ -110611,14 +110954,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
@@ -110635,22 +110978,22 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexMatchStatementPreParseTextTransformation {
         /**
-         * The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+         * Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
          */
         priority: pulumi.Input<number>;
         /**
-         * The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+         * Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
          */
         type: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRegexMatchStatementTextTransformation {
         /**
-         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
          */
         priority: pulumi.Input<number>;
         /**
-         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
          */
         type: pulumi.Input<string>;
     }
@@ -110661,7 +111004,7 @@ export namespace wafv2 {
          */
         arn: pulumi.Input<string>;
         /**
-         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         * Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch | undefined>;
         /**
@@ -110669,9 +111012,7 @@ export namespace wafv2 {
          */
         preParseTextTransformations?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformation>[] | undefined>;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
          */
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformation>[]>;
     }
@@ -110744,11 +111085,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies {
         /**
-         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         * Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
          */
         matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern>[]>;
         /**
-         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         * Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
          */
         matchScope: pulumi.Input<string>;
         /**
@@ -110759,7 +111100,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll | undefined>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
@@ -110771,11 +111112,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader {
         /**
-         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         * Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
          */
         matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern>;
         /**
-         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         * Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
          */
         matchScope: pulumi.Input<string>;
         /**
@@ -110786,15 +111127,15 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll | undefined>;
         /**
-         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
          */
         excludedHeaders?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
          */
         includedHeaders?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
@@ -110811,14 +111152,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: pulumi.Input<string>;
     }
@@ -110829,11 +111170,11 @@ export namespace wafv2 {
          */
         invalidFallbackBehavior?: pulumi.Input<string | undefined>;
         /**
-         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         * Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
          */
         matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern>;
         /**
-         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         * Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
          */
         matchScope: pulumi.Input<string>;
         /**
@@ -110844,7 +111185,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll | undefined>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[] | undefined>;
@@ -110861,14 +111202,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
         /**
-         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
@@ -110885,33 +111226,33 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformation {
         /**
-         * The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+         * Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
          */
         priority: pulumi.Input<number>;
         /**
-         * The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+         * Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
          */
         type: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformation {
         /**
-         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
          */
         priority: pulumi.Input<number>;
         /**
-         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
          */
         type: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementSizeConstraintStatement {
         /**
-         * The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         * Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
          */
         comparisonOperator: pulumi.Input<string>;
         /**
-         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         * Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatch | undefined>;
         /**
@@ -110919,13 +111260,11 @@ export namespace wafv2 {
          */
         preParseTextTransformations?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementPreParseTextTransformation>[] | undefined>;
         /**
-         * The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         * Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
          */
         size: pulumi.Input<number>;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
          */
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementTextTransformation>[]>;
     }
@@ -110998,11 +111337,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookies {
         /**
-         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         * Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
          */
         matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern>[]>;
         /**
-         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         * Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
          */
         matchScope: pulumi.Input<string>;
         /**
@@ -111013,7 +111352,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll | undefined>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
@@ -111025,11 +111364,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeader {
         /**
-         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         * Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
          */
         matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern>;
         /**
-         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         * Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
          */
         matchScope: pulumi.Input<string>;
         /**
@@ -111040,15 +111379,15 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll | undefined>;
         /**
-         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
          */
         excludedHeaders?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
          */
         includedHeaders?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
@@ -111065,14 +111404,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: pulumi.Input<string>;
     }
@@ -111083,11 +111422,11 @@ export namespace wafv2 {
          */
         invalidFallbackBehavior?: pulumi.Input<string | undefined>;
         /**
-         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         * Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
          */
         matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern>;
         /**
-         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         * Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
          */
         matchScope: pulumi.Input<string>;
         /**
@@ -111098,7 +111437,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll | undefined>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[] | undefined>;
@@ -111115,14 +111454,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeader {
         /**
-         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
@@ -111139,29 +111478,29 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSizeConstraintStatementPreParseTextTransformation {
         /**
-         * The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+         * Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
          */
         priority: pulumi.Input<number>;
         /**
-         * The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+         * Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
          */
         type: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementSizeConstraintStatementTextTransformation {
         /**
-         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
          */
         priority: pulumi.Input<number>;
         /**
-         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
          */
         type: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementSqliMatchStatement {
         /**
-         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         * Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatch | undefined>;
         /**
@@ -111173,9 +111512,7 @@ export namespace wafv2 {
          */
         sensitivityLevel?: pulumi.Input<string | undefined>;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
          */
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementTextTransformation>[]>;
     }
@@ -111248,11 +111585,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies {
         /**
-         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         * Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
          */
         matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern>[]>;
         /**
-         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         * Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
          */
         matchScope: pulumi.Input<string>;
         /**
@@ -111263,7 +111600,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll | undefined>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
@@ -111275,11 +111612,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeader {
         /**
-         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         * Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
          */
         matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern>;
         /**
-         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         * Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
          */
         matchScope: pulumi.Input<string>;
         /**
@@ -111290,15 +111627,15 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll | undefined>;
         /**
-         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
          */
         excludedHeaders?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
          */
         includedHeaders?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
@@ -111315,14 +111652,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: pulumi.Input<string>;
     }
@@ -111333,11 +111670,11 @@ export namespace wafv2 {
          */
         invalidFallbackBehavior?: pulumi.Input<string | undefined>;
         /**
-         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         * Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
          */
         matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern>;
         /**
-         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         * Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
          */
         matchScope: pulumi.Input<string>;
         /**
@@ -111348,7 +111685,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll | undefined>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[] | undefined>;
@@ -111365,14 +111702,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
@@ -111389,29 +111726,29 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSqliMatchStatementPreParseTextTransformation {
         /**
-         * The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+         * Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
          */
         priority: pulumi.Input<number>;
         /**
-         * The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+         * Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
          */
         type: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementSqliMatchStatementTextTransformation {
         /**
-         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
          */
         priority: pulumi.Input<number>;
         /**
-         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
          */
         type: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementXssMatchStatement {
         /**
-         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         * Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatch | undefined>;
         /**
@@ -111419,9 +111756,7 @@ export namespace wafv2 {
          */
         preParseTextTransformations?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementPreParseTextTransformation>[] | undefined>;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
          */
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementTextTransformation>[]>;
     }
@@ -111494,11 +111829,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchCookies {
         /**
-         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         * Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
          */
         matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern>[]>;
         /**
-         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         * Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
          */
         matchScope: pulumi.Input<string>;
         /**
@@ -111509,7 +111844,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll | undefined>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
@@ -111521,11 +111856,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchHeader {
         /**
-         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         * Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
          */
         matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern>;
         /**
-         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         * Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
          */
         matchScope: pulumi.Input<string>;
         /**
@@ -111536,15 +111871,15 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll | undefined>;
         /**
-         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
          */
         excludedHeaders?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
          */
         includedHeaders?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
@@ -111561,14 +111896,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: pulumi.Input<string>;
     }
@@ -111579,11 +111914,11 @@ export namespace wafv2 {
          */
         invalidFallbackBehavior?: pulumi.Input<string | undefined>;
         /**
-         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         * Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
          */
         matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern>;
         /**
-         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         * Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
          */
         matchScope: pulumi.Input<string>;
         /**
@@ -111594,7 +111929,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll | undefined>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[] | undefined>;
@@ -111611,14 +111946,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
@@ -111635,52 +111970,52 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementXssMatchStatementPreParseTextTransformation {
         /**
-         * The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+         * Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
          */
         priority: pulumi.Input<number>;
         /**
-         * The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+         * Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
          */
         type: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementXssMatchStatementTextTransformation {
         /**
-         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
          */
         priority: pulumi.Input<number>;
         /**
-         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
          */
         type: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleVisibilityConfig {
         /**
-         * A boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
+         * Boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
          */
         cloudwatchMetricsEnabled: pulumi.Input<boolean>;
         /**
-         * A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
+         * Friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
          */
         metricName: pulumi.Input<string>;
         /**
-         * A boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
+         * Boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
          */
         sampledRequestsEnabled: pulumi.Input<boolean>;
     }
 
     export interface RuleGroupVisibilityConfig {
         /**
-         * A boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
+         * Boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
          */
         cloudwatchMetricsEnabled: pulumi.Input<boolean>;
         /**
-         * A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
+         * Friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
          */
         metricName: pulumi.Input<string>;
         /**
-         * A boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
+         * Boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
          */
         sampledRequestsEnabled: pulumi.Input<boolean>;
     }
@@ -111710,70 +112045,70 @@ export namespace wafv2 {
          */
         cognitoUserPool?: pulumi.Input<inputs.wafv2.WebAclAssociationConfigRequestBodyCognitoUserPool | undefined>;
         /**
-         * Customizes the request body that your protected AWS Verfied Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verifiedAccessInstance` below for details.
+         * Customizes the request body that your protected AWS Verified Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verifiedAccessInstance` below for details.
          */
         verifiedAccessInstance?: pulumi.Input<inputs.wafv2.WebAclAssociationConfigRequestBodyVerifiedAccessInstance | undefined>;
     }
 
     export interface WebAclAssociationConfigRequestBodyApiGateway {
         /**
-         * Specifies the maximum size of the web request body component that an associated Amazon API Gateway REST APIs should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+         * Maximum size of the web request body component that an associated Amazon API Gateway REST APIs should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
          */
         defaultSizeInspectionLimit: pulumi.Input<string>;
     }
 
     export interface WebAclAssociationConfigRequestBodyAppRunnerService {
         /**
-         * Specifies the maximum size of the web request body component that an associated Amazon App Runner services should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+         * Maximum size of the web request body component that an associated Amazon App Runner services should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
          */
         defaultSizeInspectionLimit: pulumi.Input<string>;
     }
 
     export interface WebAclAssociationConfigRequestBodyCloudfront {
         /**
-         * Specifies the maximum size of the web request body component that an associated Amazon CloudFront distribution should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+         * Maximum size of the web request body component that an associated Amazon CloudFront distribution should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
          */
         defaultSizeInspectionLimit: pulumi.Input<string>;
     }
 
     export interface WebAclAssociationConfigRequestBodyCognitoUserPool {
         /**
-         * Specifies the maximum size of the web request body component that an associated Amazon Cognito user pools should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+         * Maximum size of the web request body component that an associated Amazon Cognito user pools should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
          */
         defaultSizeInspectionLimit: pulumi.Input<string>;
     }
 
     export interface WebAclAssociationConfigRequestBodyVerifiedAccessInstance {
         /**
-         * Specifies the maximum size of the web request body component that an associated AWS Verified Access instances should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+         * Maximum size of the web request body component that an associated AWS Verified Access instances should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
          */
         defaultSizeInspectionLimit: pulumi.Input<string>;
     }
 
     export interface WebAclCaptchaConfig {
         /**
-         * Defines custom immunity time. See `immunityTimeProperty` below for details.
+         * Custom immunity time. See `immunityTimeProperty` below for details.
          */
         immunityTimeProperty?: pulumi.Input<inputs.wafv2.WebAclCaptchaConfigImmunityTimeProperty | undefined>;
     }
 
     export interface WebAclCaptchaConfigImmunityTimeProperty {
         /**
-         * The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+         * Amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
          */
         immunityTime?: pulumi.Input<number | undefined>;
     }
 
     export interface WebAclChallengeConfig {
         /**
-         * Defines custom immunity time. See `immunityTimeProperty` below for details.
+         * Custom immunity time. See `immunityTimeProperty` below for details.
          */
         immunityTimeProperty?: pulumi.Input<inputs.wafv2.WebAclChallengeConfigImmunityTimeProperty | undefined>;
     }
 
     export interface WebAclChallengeConfigImmunityTimeProperty {
         /**
-         * The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+         * Amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
          */
         immunityTime?: pulumi.Input<number | undefined>;
     }
@@ -111795,14 +112130,14 @@ export namespace wafv2 {
 
     export interface WebAclDataProtectionConfig {
         /**
-         * A block for data protection configurations for specific web request field types. See `dataProtection` block for details.
+         * Block for data protection configurations for specific web request field types. See `dataProtection` block for details.
          */
         dataProtections?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclDataProtectionConfigDataProtection>[] | undefined>;
     }
 
     export interface WebAclDataProtectionConfigDataProtection {
         /**
-         * Specifies how to protect the field. Valid values are `SUBSTITUTION` or `HASH`.
+         * Protection behavior to apply to the field. Valid values are `SUBSTITUTION` or `HASH`.
          */
         action: pulumi.Input<string>;
         /**
@@ -111814,7 +112149,7 @@ export namespace wafv2 {
          */
         excludeRuleMatchDetails?: pulumi.Input<boolean | undefined>;
         /**
-         * Specifies the field type and optional keys to apply the protection behavior to. See `field` block below for details.
+         * Field type and optional keys to apply the protection behavior to. See `field` block below for details.
          */
         field: pulumi.Input<inputs.wafv2.WebAclDataProtectionConfigDataProtectionField>;
     }
@@ -111825,32 +112160,32 @@ export namespace wafv2 {
          */
         fieldKeys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * Specifies the web request component type to protect. Valid Values are `SINGLE_HEADER`, `SINGLE_COOKIE`, `SINGLE_QUERY_ARGUMENT`, `QUERY_STRING`, `BODY`.
+         * Web request component type to protect. Valid Values are `SINGLE_HEADER`, `SINGLE_COOKIE`, `SINGLE_QUERY_ARGUMENT`, `QUERY_STRING`, `BODY`.
          */
         fieldType: pulumi.Input<string>;
     }
 
     export interface WebAclDefaultAction {
         /**
-         * Specifies that AWS WAF should allow requests by default. See `allow` below for details.
+         * Allows requests by default. See `allow` below for details.
          */
         allow?: pulumi.Input<inputs.wafv2.WebAclDefaultActionAllow | undefined>;
         /**
-         * Specifies that AWS WAF should block requests by default. See `block` below for details.
+         * Blocks requests by default. See `block` below for details.
          */
         block?: pulumi.Input<inputs.wafv2.WebAclDefaultActionBlock | undefined>;
     }
 
     export interface WebAclDefaultActionAllow {
         /**
-         * Defines custom handling for the web request. See `customRequestHandling` below for details.
+         * Custom handling for the web request. See `customRequestHandling` below for details.
          */
         customRequestHandling?: pulumi.Input<inputs.wafv2.WebAclDefaultActionAllowCustomRequestHandling | undefined>;
     }
 
     export interface WebAclDefaultActionAllowCustomRequestHandling {
         /**
-         * The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+         * `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
          */
         insertHeaders: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclDefaultActionAllowCustomRequestHandlingInsertHeader>[]>;
     }
@@ -111868,7 +112203,7 @@ export namespace wafv2 {
 
     export interface WebAclDefaultActionBlock {
         /**
-         * Defines a custom response for the web request. See `customResponse` below for details.
+         * Custom response for the web request. See `customResponse` below for details.
          */
         customResponse?: pulumi.Input<inputs.wafv2.WebAclDefaultActionBlockCustomResponse | undefined>;
     }
@@ -111879,11 +112214,11 @@ export namespace wafv2 {
          */
         customResponseBodyKey?: pulumi.Input<string | undefined>;
         /**
-         * The HTTP status code to return to the client.
+         * HTTP status code to return to the client.
          */
         responseCode: pulumi.Input<number>;
         /**
-         * The `responseHeader` blocks used to define the HTTP response headers added to the response. See `responseHeader` below for details.
+         * `responseHeader` blocks used to define the HTTP response headers added to the response. See `responseHeader` below for details.
          */
         responseHeaders?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclDefaultActionBlockCustomResponseResponseHeader>[] | undefined>;
     }
@@ -111991,11 +112326,11 @@ export namespace wafv2 {
          */
         action?: pulumi.Input<inputs.wafv2.WebAclRuleAction | undefined>;
         /**
-         * Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
+         * Configuration for how AWS WAF handles CAPTCHA evaluations. See `captchaConfig` below for details.
          */
         captchaConfig?: pulumi.Input<inputs.wafv2.WebAclRuleCaptchaConfig | undefined>;
         /**
-         * Specifies how AWS WAF should handle Challenge evaluations on the rule level. See `challengeConfig` below for details.
+         * Configuration for how AWS WAF handles Challenge evaluations at the rule level. See `challengeConfig` below for details.
          */
         challengeConfig?: pulumi.Input<inputs.wafv2.WebAclRuleChallengeConfig | undefined>;
         /**
@@ -112015,11 +112350,11 @@ export namespace wafv2 {
          */
         ruleLabels?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleRuleLabel>[] | undefined>;
         /**
-         * The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See `statement` below for details.
+         * AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See `statement` below for details.
          */
         statement: pulumi.Input<inputs.wafv2.WebAclRuleStatement>;
         /**
-         * Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
+         * Amazon CloudWatch metrics and web request sample collection configuration. See `visibilityConfig` below for details.
          */
         visibilityConfig: pulumi.Input<inputs.wafv2.WebAclRuleVisibilityConfig>;
     }
@@ -118493,7 +118828,7 @@ export namespace wafv2 {
          */
         cloudwatchMetricsEnabled: pulumi.Input<boolean>;
         /**
-         * A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
+         * Friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
          */
         metricName: pulumi.Input<string>;
         /**

@@ -14,15 +14,15 @@ namespace Pulumi.Aws.VerifiedPermissions.Outputs
     public sealed class PolicyDefinitionTemplateLinked
     {
         /// <summary>
-        /// The ID of the template.
+        /// ID of the template.
         /// </summary>
         public readonly string PolicyTemplateId;
         /// <summary>
-        /// The principal of the template linked policy.
+        /// Principal of the template linked policy. See Principal below.
         /// </summary>
         public readonly Outputs.PolicyDefinitionTemplateLinkedPrincipal? Principal;
         /// <summary>
-        /// The resource of the template linked policy.
+        /// Resource of the template linked policy. See Resource below.
         /// </summary>
         public readonly Outputs.PolicyDefinitionTemplateLinkedResource? Resource;
 

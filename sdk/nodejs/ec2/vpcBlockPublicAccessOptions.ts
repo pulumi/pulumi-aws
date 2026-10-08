@@ -58,11 +58,11 @@ export class VpcBlockPublicAccessOptions extends pulumi.CustomResource {
     }
 
     /**
-     * The AWS account id to which these options apply.
+     * AWS account id to which these options apply.
      */
     declare public /*out*/ readonly awsAccountId: pulumi.Output<string>;
     /**
-     * The AWS region to which these options apply.
+     * AWS region to which these options apply.
      */
     declare public /*out*/ readonly awsRegion: pulumi.Output<string>;
     /**
@@ -114,11 +114,11 @@ export class VpcBlockPublicAccessOptions extends pulumi.CustomResource {
  */
 export interface VpcBlockPublicAccessOptionsState {
     /**
-     * The AWS account id to which these options apply.
+     * AWS account id to which these options apply.
      */
     awsAccountId?: pulumi.Input<string | undefined>;
     /**
-     * The AWS region to which these options apply.
+     * AWS region to which these options apply.
      */
     awsRegion?: pulumi.Input<string | undefined>;
     /**

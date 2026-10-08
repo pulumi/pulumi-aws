@@ -124,14 +124,14 @@ public class RepositoryAssociation extends com.pulumi.resources.CustomResource {
         return this.connectionArn;
     }
     /**
-     * An object describing the KMS key to asssociate. Block is documented below.
+     * An object describing the KMS key to associate. Block is documented below.
      * 
      */
     @Export(name="kmsKeyDetails", refs={RepositoryAssociationKmsKeyDetails.class}, tree="[0]")
     private Output</* @Nullable */ RepositoryAssociationKmsKeyDetails> kmsKeyDetails;
 
     /**
-     * @return An object describing the KMS key to asssociate. Block is documented below.
+     * @return An object describing the KMS key to associate. Block is documented below.
      * 
      */
     public Output<Optional<RepositoryAssociationKmsKeyDetails>> kmsKeyDetails() {

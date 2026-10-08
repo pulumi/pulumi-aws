@@ -25,8 +25,8 @@ class VpnGatewayAttachmentArgs:
         """
         The set of arguments for constructing a VpnGatewayAttachment resource.
 
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC.
-        :param pulumi.Input[_builtins.str] vpn_gateway_id: The ID of the Virtual Private Gateway.
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC.
+        :param pulumi.Input[_builtins.str] vpn_gateway_id: ID of the Virtual Private Gateway.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "vpc_id", vpc_id)
@@ -38,7 +38,7 @@ class VpnGatewayAttachmentArgs:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the VPC.
+        ID of the VPC.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -50,7 +50,7 @@ class VpnGatewayAttachmentArgs:
     @pulumi.getter(name="vpnGatewayId")
     def vpn_gateway_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the Virtual Private Gateway.
+        ID of the Virtual Private Gateway.
         """
         return pulumi.get(self, "vpn_gateway_id")
 
@@ -81,8 +81,8 @@ class _VpnGatewayAttachmentState:
         Input properties used for looking up and filtering VpnGatewayAttachment resources.
 
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC.
-        :param pulumi.Input[_builtins.str] vpn_gateway_id: The ID of the Virtual Private Gateway.
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC.
+        :param pulumi.Input[_builtins.str] vpn_gateway_id: ID of the Virtual Private Gateway.
         """
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -107,7 +107,7 @@ class _VpnGatewayAttachmentState:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the VPC.
+        ID of the VPC.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -119,7 +119,7 @@ class _VpnGatewayAttachmentState:
     @pulumi.getter(name="vpnGatewayId")
     def vpn_gateway_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the Virtual Private Gateway.
+        ID of the Virtual Private Gateway.
         """
         return pulumi.get(self, "vpn_gateway_id")
 
@@ -173,8 +173,8 @@ class VpnGatewayAttachment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC.
-        :param pulumi.Input[_builtins.str] vpn_gateway_id: The ID of the Virtual Private Gateway.
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC.
+        :param pulumi.Input[_builtins.str] vpn_gateway_id: ID of the Virtual Private Gateway.
         """
         ...
     @overload
@@ -269,8 +269,8 @@ class VpnGatewayAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC.
-        :param pulumi.Input[_builtins.str] vpn_gateway_id: The ID of the Virtual Private Gateway.
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC.
+        :param pulumi.Input[_builtins.str] vpn_gateway_id: ID of the Virtual Private Gateway.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -293,7 +293,7 @@ class VpnGatewayAttachment(pulumi.CustomResource):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the VPC.
+        ID of the VPC.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -301,7 +301,7 @@ class VpnGatewayAttachment(pulumi.CustomResource):
     @pulumi.getter(name="vpnGatewayId")
     def vpn_gateway_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the Virtual Private Gateway.
+        ID of the Virtual Private Gateway.
         """
         return pulumi.get(self, "vpn_gateway_id")
 

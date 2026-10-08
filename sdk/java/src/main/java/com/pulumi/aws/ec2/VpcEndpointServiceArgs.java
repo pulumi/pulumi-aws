@@ -35,14 +35,14 @@ public final class VpcEndpointServiceArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The ARNs of one or more principals allowed to discover the endpoint service.
+     * ARNs of one or more principals allowed to discover the endpoint service.
      * 
      */
     @Import(name="allowedPrincipals")
     private @Nullable Output<List<String>> allowedPrincipals;
 
     /**
-     * @return The ARNs of one or more principals allowed to discover the endpoint service.
+     * @return ARNs of one or more principals allowed to discover the endpoint service.
      * 
      */
     public Optional<Output<List<String>>> allowedPrincipals() {
@@ -80,14 +80,14 @@ public final class VpcEndpointServiceArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The private DNS name for the service.
+     * Private DNS name for the service.
      * 
      */
     @Import(name="privateDnsName")
     private @Nullable Output<String> privateDnsName;
 
     /**
-     * @return The private DNS name for the service.
+     * @return Private DNS name for the service.
      * 
      */
     public Optional<Output<String>> privateDnsName() {
@@ -110,14 +110,14 @@ public final class VpcEndpointServiceArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The supported IP address types. The possible values are `ipv4` and `ipv6`.
+     * Supported IP address types. The possible values are `ipv4` and `ipv6`.
      * 
      */
     @Import(name="supportedIpAddressTypes")
     private @Nullable Output<List<String>> supportedIpAddressTypes;
 
     /**
-     * @return The supported IP address types. The possible values are `ipv4` and `ipv6`.
+     * @return Supported IP address types. The possible values are `ipv4` and `ipv6`.
      * 
      */
     public Optional<Output<List<String>>> supportedIpAddressTypes() {
@@ -125,14 +125,14 @@ public final class VpcEndpointServiceArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The set of regions from which service consumers can access the service.
+     * Set of regions from which service consumers can access the service.
      * 
      */
     @Import(name="supportedRegions")
     private @Nullable Output<List<String>> supportedRegions;
 
     /**
-     * @return The set of regions from which service consumers can access the service.
+     * @return Set of regions from which service consumers can access the service.
      * 
      */
     public Optional<Output<List<String>>> supportedRegions() {
@@ -140,14 +140,14 @@ public final class VpcEndpointServiceArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -208,7 +208,7 @@ public final class VpcEndpointServiceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param allowedPrincipals The ARNs of one or more principals allowed to discover the endpoint service.
+         * @param allowedPrincipals ARNs of one or more principals allowed to discover the endpoint service.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class VpcEndpointServiceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param allowedPrincipals The ARNs of one or more principals allowed to discover the endpoint service.
+         * @param allowedPrincipals ARNs of one or more principals allowed to discover the endpoint service.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class VpcEndpointServiceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param allowedPrincipals The ARNs of one or more principals allowed to discover the endpoint service.
+         * @param allowedPrincipals ARNs of one or more principals allowed to discover the endpoint service.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class VpcEndpointServiceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param privateDnsName The private DNS name for the service.
+         * @param privateDnsName Private DNS name for the service.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class VpcEndpointServiceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param privateDnsName The private DNS name for the service.
+         * @param privateDnsName Private DNS name for the service.
          * 
          * @return builder
          * 
@@ -343,7 +343,7 @@ public final class VpcEndpointServiceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param supportedIpAddressTypes The supported IP address types. The possible values are `ipv4` and `ipv6`.
+         * @param supportedIpAddressTypes Supported IP address types. The possible values are `ipv4` and `ipv6`.
          * 
          * @return builder
          * 
@@ -354,7 +354,7 @@ public final class VpcEndpointServiceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param supportedIpAddressTypes The supported IP address types. The possible values are `ipv4` and `ipv6`.
+         * @param supportedIpAddressTypes Supported IP address types. The possible values are `ipv4` and `ipv6`.
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class VpcEndpointServiceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param supportedIpAddressTypes The supported IP address types. The possible values are `ipv4` and `ipv6`.
+         * @param supportedIpAddressTypes Supported IP address types. The possible values are `ipv4` and `ipv6`.
          * 
          * @return builder
          * 
@@ -374,7 +374,7 @@ public final class VpcEndpointServiceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param supportedRegions The set of regions from which service consumers can access the service.
+         * @param supportedRegions Set of regions from which service consumers can access the service.
          * 
          * @return builder
          * 
@@ -385,7 +385,7 @@ public final class VpcEndpointServiceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param supportedRegions The set of regions from which service consumers can access the service.
+         * @param supportedRegions Set of regions from which service consumers can access the service.
          * 
          * @return builder
          * 
@@ -395,7 +395,7 @@ public final class VpcEndpointServiceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param supportedRegions The set of regions from which service consumers can access the service.
+         * @param supportedRegions Set of regions from which service consumers can access the service.
          * 
          * @return builder
          * 
@@ -405,7 +405,7 @@ public final class VpcEndpointServiceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -416,7 +416,7 @@ public final class VpcEndpointServiceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclDataProtectionConfigDataProtection {
     /**
-     * @return Specifies how to protect the field. Valid values are `SUBSTITUTION` or `HASH`.
+     * @return Protection behavior to apply to the field. Valid values are `SUBSTITUTION` or `HASH`.
      * 
      */
     private String action;
@@ -30,14 +30,14 @@ public final class WebAclDataProtectionConfigDataProtection {
      */
     private @Nullable Boolean excludeRuleMatchDetails;
     /**
-     * @return Specifies the field type and optional keys to apply the protection behavior to. See `field` block below for details.
+     * @return Field type and optional keys to apply the protection behavior to. See `field` block below for details.
      * 
      */
     private WebAclDataProtectionConfigDataProtectionField field;
 
     private WebAclDataProtectionConfigDataProtection() {}
     /**
-     * @return Specifies how to protect the field. Valid values are `SUBSTITUTION` or `HASH`.
+     * @return Protection behavior to apply to the field. Valid values are `SUBSTITUTION` or `HASH`.
      * 
      */
     public String action() {
@@ -58,7 +58,7 @@ public final class WebAclDataProtectionConfigDataProtection {
         return Optional.ofNullable(this.excludeRuleMatchDetails);
     }
     /**
-     * @return Specifies the field type and optional keys to apply the protection behavior to. See `field` block below for details.
+     * @return Field type and optional keys to apply the protection behavior to. See `field` block below for details.
      * 
      */
     public WebAclDataProtectionConfigDataProtectionField field() {

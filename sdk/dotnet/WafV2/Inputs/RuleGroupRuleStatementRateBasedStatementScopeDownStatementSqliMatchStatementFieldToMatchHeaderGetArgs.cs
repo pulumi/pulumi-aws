@@ -13,13 +13,13 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The filter to use to identify the subset of headers to inspect in a web request. The `MatchPattern` block supports only one of the following arguments:
+        /// Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
         /// </summary>
         [Input("matchPattern", required: true)]
         public Input<Inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternGetArgs> MatchPattern { get; set; } = null!;
 
         /// <summary>
-        /// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+        /// Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         /// </summary>
         [Input("matchScope", required: true)]
         public Input<string> MatchScope { get; set; } = null!;

@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * The VPN Gateway data source provides details about
  * a specific VPN gateway.
  *
+ * The arguments of this data source act as filters for querying the available VPN gateways. The given filters must match exactly one VPN gateway whose data will be exported as attributes.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -47,9 +49,6 @@ export function getVpnGateway(args?: GetVpnGatewayArgs, opts?: pulumi.InvokeOpti
 export interface GetVpnGatewayArgs {
     /**
      * Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
-     *
-     * The arguments of this data source act as filters for querying the available VPN gateways.
-     * The given filters must match exactly one VPN gateway whose data will be exported as attributes.
      */
     amazonSideAsn?: string;
     /**
@@ -77,8 +76,7 @@ export interface GetVpnGatewayArgs {
      */
     state?: string;
     /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired VPN Gateway.
+     * Map of tags, each pair of which must exactly match a pair on the desired VPN Gateway.
      */
     tags?: {[key: string]: string};
 }
@@ -88,6 +86,9 @@ export interface GetVpnGatewayArgs {
  */
 export interface GetVpnGatewayResult {
     readonly amazonSideAsn: string;
+    /**
+     * ARN of the VPN Gateway.
+     */
     readonly arn: string;
     readonly attachedVpcId: string;
     readonly availabilityZone: string;
@@ -100,6 +101,8 @@ export interface GetVpnGatewayResult {
 /**
  * The VPN Gateway data source provides details about
  * a specific VPN gateway.
+ *
+ * The arguments of this data source act as filters for querying the available VPN gateways. The given filters must match exactly one VPN gateway whose data will be exported as attributes.
  *
  * ## Example Usage
  *
@@ -137,9 +140,6 @@ export function getVpnGatewayOutput(args?: GetVpnGatewayOutputArgs, opts?: pulum
 export interface GetVpnGatewayOutputArgs {
     /**
      * Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
-     *
-     * The arguments of this data source act as filters for querying the available VPN gateways.
-     * The given filters must match exactly one VPN gateway whose data will be exported as attributes.
      */
     amazonSideAsn?: pulumi.Input<string | undefined>;
     /**
@@ -167,8 +167,7 @@ export interface GetVpnGatewayOutputArgs {
      */
     state?: pulumi.Input<string | undefined>;
     /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired VPN Gateway.
+     * Map of tags, each pair of which must exactly match a pair on the desired VPN Gateway.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

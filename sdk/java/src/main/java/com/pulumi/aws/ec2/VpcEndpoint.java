@@ -440,70 +440,70 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
+     * Whether to accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
      * 
      */
     @Export(name="autoAccept", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoAccept;
 
     /**
-     * @return Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
+     * @return Whether to accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
      * 
      */
     public Output<Optional<Boolean>> autoAccept() {
         return Codegen.optional(this.autoAccept);
     }
     /**
-     * The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
+     * List of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
      * 
      */
     @Export(name="cidrBlocks", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> cidrBlocks;
 
     /**
-     * @return The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
+     * @return List of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
      * 
      */
     public Output<List<String>> cidrBlocks() {
         return this.cidrBlocks;
     }
     /**
-     * The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
+     * DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. See `dnsEntry` below.
      * 
      */
     @Export(name="dnsEntries", refs={List.class,VpcEndpointDnsEntry.class}, tree="[0,1]")
     private Output<List<VpcEndpointDnsEntry>> dnsEntries;
 
     /**
-     * @return The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
+     * @return DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. See `dnsEntry` below.
      * 
      */
     public Output<List<VpcEndpointDnsEntry>> dnsEntries() {
         return this.dnsEntries;
     }
     /**
-     * The DNS options for the endpoint. See dnsOptions below.
+     * DNS options for the endpoint. See `dnsOptions` below.
      * 
      */
     @Export(name="dnsOptions", refs={VpcEndpointDnsOptions.class}, tree="[0]")
     private Output<VpcEndpointDnsOptions> dnsOptions;
 
     /**
-     * @return The DNS options for the endpoint. See dnsOptions below.
+     * @return DNS options for the endpoint. See `dnsOptions` below.
      * 
      */
     public Output<VpcEndpointDnsOptions> dnsOptions() {
         return this.dnsOptions;
     }
     /**
-     * The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
+     * IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
      * 
      */
     @Export(name="ipAddressType", refs={String.class}, tree="[0]")
     private Output<String> ipAddressType;
 
     /**
-     * @return The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
+     * @return IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
      * 
      */
     public Output<String> ipAddressType() {
@@ -524,58 +524,56 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
         return this.networkInterfaceIds;
     }
     /**
-     * The ID of the AWS account that owns the VPC endpoint.
+     * ID of the AWS account that owns the VPC endpoint.
      * 
      */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
     /**
-     * @return The ID of the AWS account that owns the VPC endpoint.
+     * @return ID of the AWS account that owns the VPC endpoint.
      * 
      */
     public Output<String> ownerId() {
         return this.ownerId;
     }
     /**
-     * A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+     * Policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
      * 
      */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
-     * @return A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+     * @return Policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
      * 
      */
     public Output<String> policy() {
         return this.policy;
     }
     /**
-     * The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
+     * Prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
      * 
      */
     @Export(name="prefixListId", refs={String.class}, tree="[0]")
     private Output<String> prefixListId;
 
     /**
-     * @return The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
+     * @return Prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
      * 
      */
     public Output<String> prefixListId() {
         return this.prefixListId;
     }
     /**
-     * Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
-     * Defaults to `false`. If `vpcEndpointType` is anything other than `Interface`, changing this value forces a new resource to be created.
+     * Whether to associate a private hosted zone with the specified VPC. Available for AWS services and AWS Marketplace partner services only. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint. Defaults to `false`. If `vpcEndpointType` is anything other than `Interface`, changing this value forces a new resource to be created.
      * 
      */
     @Export(name="privateDnsEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> privateDnsEnabled;
 
     /**
-     * @return Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
-     * Defaults to `false`. If `vpcEndpointType` is anything other than `Interface`, changing this value forces a new resource to be created.
+     * @return Whether to associate a private hosted zone with the specified VPC. Available for AWS services and AWS Marketplace partner services only. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint. Defaults to `false`. If `vpcEndpointType` is anything other than `Interface`, changing this value forces a new resource to be created.
      * 
      */
     public Output<Boolean> privateDnsEnabled() {
@@ -610,14 +608,14 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
         return this.requesterManaged;
     }
     /**
-     * The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+     * ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
      * 
      */
     @Export(name="resourceConfigurationArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> resourceConfigurationArn;
 
     /**
-     * @return The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+     * @return ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
      * 
      */
     public Output<Optional<String>> resourceConfigurationArn() {
@@ -638,72 +636,70 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
         return this.routeTableIds;
     }
     /**
-     * The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
-     * If no security groups are specified, the VPC&#39;s [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
+     * ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`. If no security groups are specified, the VPC&#39;s [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
      * 
      */
     @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroupIds;
 
     /**
-     * @return The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
-     * If no security groups are specified, the VPC&#39;s [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
+     * @return ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`. If no security groups are specified, the VPC&#39;s [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
      * 
      */
     public Output<List<String>> securityGroupIds() {
         return this.securityGroupIds;
     }
     /**
-     * The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+     * Service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
      * 
      */
     @Export(name="serviceName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> serviceName;
 
     /**
-     * @return The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+     * @return Service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
      * 
      */
     public Output<Optional<String>> serviceName() {
         return Codegen.optional(this.serviceName);
     }
     /**
-     * The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+     * ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
      * 
      */
     @Export(name="serviceNetworkArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> serviceNetworkArn;
 
     /**
-     * @return The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+     * @return ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
      * 
      */
     public Output<Optional<String>> serviceNetworkArn() {
         return Codegen.optional(this.serviceNetworkArn);
     }
     /**
-     * The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
+     * AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
      * 
      */
     @Export(name="serviceRegion", refs={String.class}, tree="[0]")
     private Output<String> serviceRegion;
 
     /**
-     * @return The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
+     * @return AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
      * 
      */
     public Output<String> serviceRegion() {
         return this.serviceRegion;
     }
     /**
-     * The state of the VPC endpoint.
+     * State of the VPC endpoint.
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
-     * @return The state of the VPC endpoint.
+     * @return State of the VPC endpoint.
      * 
      */
     public Output<String> state() {
@@ -724,70 +720,70 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
         return this.subnetConfigurations;
     }
     /**
-     * The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
+     * ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
      * 
      */
     @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnetIds;
 
     /**
-     * @return The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
+     * @return ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
      * 
      */
     public Output<List<String>> subnetIds() {
         return this.subnetIds;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
+     * VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
      * 
      */
     @Export(name="vpcEndpointType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vpcEndpointType;
 
     /**
-     * @return The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
+     * @return VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
      * 
      */
     public Output<Optional<String>> vpcEndpointType() {
         return Codegen.optional(this.vpcEndpointType);
     }
     /**
-     * The ID of the VPC in which the endpoint will be used.
+     * ID of the VPC in which the endpoint will be used.
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**
-     * @return The ID of the VPC in which the endpoint will be used.
+     * @return ID of the VPC in which the endpoint will be used.
      * 
      */
     public Output<String> vpcId() {

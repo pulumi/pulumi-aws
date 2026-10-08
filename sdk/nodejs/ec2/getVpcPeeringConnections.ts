@@ -56,10 +56,7 @@ export interface GetVpcPeeringConnectionsArgs {
      */
     region?: string;
     /**
-     * Mapping of tags, each pair of which must exactly match
-     * a pair on the desired VPC Peering Connection.
-     *
-     * The arguments of this data source act as filters for querying the available VPC peering connections.
+     * Mapping of tags, each pair of which must exactly match a pair on the desired VPC Peering Connection.
      */
     tags?: {[key: string]: string};
 }
@@ -129,10 +126,7 @@ export interface GetVpcPeeringConnectionsOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Mapping of tags, each pair of which must exactly match
-     * a pair on the desired VPC Peering Connection.
-     *
-     * The arguments of this data source act as filters for querying the available VPC peering connections.
+     * Mapping of tags, each pair of which must exactly match a pair on the desired VPC Peering Connection.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

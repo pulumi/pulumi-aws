@@ -365,7 +365,7 @@ export namespace acm {
 
     export interface CertificateOptions {
         /**
-         * Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
+         * Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details. This argument applies to Amazon-issued and private CA certificates. It **conflicts with** `privateKey` / `privateKeyWo`, so it cannot be set on imported certificates. Imported certificates are not managed by ACM issuance, so ACM does not control their certificate transparency logging.
          */
         certificateTransparencyLoggingPreference?: string;
         /**
@@ -10231,7 +10231,7 @@ export namespace arcregionswitch {
 
     export interface PlanWorkflow {
         /**
-         * Steps in the workflow. See `step` Block for details.
+         * Steps in the workflow. See `workflow.step` Block for details.
          */
         steps?: outputs.arcregionswitch.PlanWorkflowStep[];
         /**
@@ -10266,7 +10266,7 @@ export namespace arcregionswitch {
          */
         customActionLambdaConfigs?: outputs.arcregionswitch.PlanWorkflowStepCustomActionLambdaConfig[];
         /**
-         * Description of the step.
+         * Description of the plan.
          */
         description?: string;
         /**
@@ -10302,7 +10302,7 @@ export namespace arcregionswitch {
          */
         lambdaEventSourceMappingConfigs?: outputs.arcregionswitch.PlanWorkflowStepLambdaEventSourceMappingConfig[];
         /**
-         * Name of the step.
+         * Name of the plan. Must be unique within the account.
          */
         name: string;
         /**
@@ -10816,7 +10816,7 @@ export namespace arcregionswitch {
 
     export interface PlanWorkflowStepParallelConfig {
         /**
-         * Steps to execute in parallel. See `step` Block for details. The parallel step schema matches `step` Block but does not support `parallelConfig` to prevent infinite nesting.
+         * Steps to execute in parallel. See `workflow.step.parallel_config.step` Block for details. The parallel step schema matches `workflow.step` Block but does not support `parallelConfig` to prevent infinite nesting.
          */
         steps?: outputs.arcregionswitch.PlanWorkflowStepParallelConfigStep[];
     }
@@ -10839,7 +10839,7 @@ export namespace arcregionswitch {
          */
         customActionLambdaConfigs?: outputs.arcregionswitch.PlanWorkflowStepParallelConfigStepCustomActionLambdaConfig[];
         /**
-         * Description of the step.
+         * Description of the plan.
          */
         description?: string;
         /**
@@ -10875,7 +10875,7 @@ export namespace arcregionswitch {
          */
         lambdaEventSourceMappingConfigs?: outputs.arcregionswitch.PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfig[];
         /**
-         * Name of the step.
+         * Name of the plan. Must be unique within the account.
          */
         name: string;
         /**
@@ -12648,7 +12648,7 @@ export namespace autoscaling {
          */
         acceleratorManufacturers?: string[];
         /**
-         * List of accelerator names. Default is any acclerator.
+         * List of accelerator names. Default is any accelerator.
          *
          * ```
          * Valid names:
@@ -12684,7 +12684,7 @@ export namespace autoscaling {
          */
         allowedInstanceTypes?: string[];
         /**
-         * Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+         * Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
          */
         bareMetal?: string;
         /**
@@ -19425,7 +19425,7 @@ export namespace bedrock {
 
     export interface AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchema {
         /**
-         * Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3` (see `s3` Block). For HTTP targets, the `inlinePayload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
+         * Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3`. For HTTP targets, these blocks are documented under their full paths (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block and `target_configuration.http.agentcore_runtime.schema.source.s3` Block).
          */
         source: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSource;
     }
@@ -19482,7 +19482,7 @@ export namespace bedrock {
 
     export interface AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchema {
         /**
-         * Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3` (see `s3` Block). For HTTP targets, the `inlinePayload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
+         * Configuration for the API schema. Supports exactly one of `inlinePayload` or `s3`. For HTTP targets, these blocks are documented under their full paths (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block and `target_configuration.http.agentcore_runtime.schema.source.s3` Block).
          */
         source: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSource;
     }
@@ -19620,11 +19620,11 @@ export namespace bedrock {
          */
         mcpServer?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpMcpServer;
         /**
-         * OpenAPI schema-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `s3` Block).
+         * OpenAPI schema-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `target_configuration.mcp.open_api_schema.s3` Block).
          */
         openApiSchema?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema;
         /**
-         * Smithy model-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `s3` Block).
+         * Smithy model-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `target_configuration.mcp.smithy_model.s3` Block).
          */
         smithyModel?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel;
     }
@@ -19759,7 +19759,7 @@ export namespace bedrock {
          */
         inlinePayloads?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload[];
         /**
-         * S3-based tool definition. See `s3` Block below.
+         * S3-based tool definition. See `target_configuration.mcp.lambda.tool_schema.s3` Block below.
          */
         s3?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3;
     }
@@ -20225,7 +20225,7 @@ export namespace bedrock {
          */
         inlinePayload?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePayload;
         /**
-         * S3 location of the tool schema. See `s3` Block below.
+         * S3 location of the tool schema. See `target_configuration.mcp.mcp_server.mcp_tool_schema.s3` Block below.
          */
         s3?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3;
     }
@@ -21413,15 +21413,15 @@ export namespace bedrock {
 
     export interface AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions {
         /**
-         * Message-based condition. See `messageBasedTrigger` Block below.
+         * Message-based condition. See `configuration.self_managed_configuration.trigger_conditions.message_based_trigger` Block below.
          */
         messageBasedTrigger?: outputs.bedrock.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTrigger;
         /**
-         * Idle-time condition. See `timeBasedTrigger` Block below.
+         * Idle-time condition. See `configuration.self_managed_configuration.trigger_conditions.time_based_trigger` Block below.
          */
         timeBasedTrigger?: outputs.bedrock.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTrigger;
         /**
-         * Token-based condition. See `tokenBasedTrigger` Block below.
+         * Token-based condition. See `configuration.self_managed_configuration.trigger_conditions.token_based_trigger` Block below.
          */
         tokenBasedTrigger?: outputs.bedrock.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTrigger;
     }
@@ -29531,7 +29531,7 @@ export namespace cloudwatch {
 
     export interface GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifier {
         /**
-         * Name of the custom data idenfitier
+         * Name of the custom data identifier
          */
         name: string;
         /**
@@ -34027,6 +34027,10 @@ export namespace config {
         /**
          * Use this to override the default service endpoint URL
          */
+        cloudwatchomni?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         cloudwatchrum?: string;
         /**
          * Use this to override the default service endpoint URL
@@ -34311,6 +34315,10 @@ export namespace config {
         /**
          * Use this to override the default service endpoint URL
          */
+        eventbridgev2?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         events?: string;
         /**
          * Use this to override the default service endpoint URL
@@ -34483,6 +34491,10 @@ export namespace config {
         /**
          * Use this to override the default service endpoint URL
          */
+        lambdaweb?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         launchwizard?: string;
         /**
          * Use this to override the default service endpoint URL
@@ -34624,6 +34636,10 @@ export namespace config {
          * Use this to override the default service endpoint URL
          */
         networkmonitor?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
+        networksecuritymanager?: string;
         /**
          * Use this to override the default service endpoint URL
          */
@@ -39431,7 +39447,7 @@ export namespace datazone {
 
     export interface GlossaryTermTermRelations {
         /**
-         * String array that calssifies the term relations.
+         * String array that classifies the term relations.
          */
         classifies?: string[];
         isAs?: string[];
@@ -39856,7 +39872,7 @@ export namespace devopsguru {
 
     export interface ResourceCollectionCloudformation {
         /**
-         * Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all acccount resources) this array should be a single item containing a wildcard (`"*"`).
+         * Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all account resources) this array should be a single item containing a wildcard (`"*"`).
          */
         stackNames: string[];
     }
@@ -42907,123 +42923,123 @@ export namespace ec2 {
 
     export interface EncryptionControlResourceExclusions {
         /**
-         * `state` and `stateMessage` describing encryption enforcement state for Egress-Only Internet Gateways.
+         * Encryption enforcement state for Egress-Only Internet Gateways. See `resource_exclusions.egress_only_internet_gateway` below.
          */
         egressOnlyInternetGateway: outputs.ec2.EncryptionControlResourceExclusionsEgressOnlyInternetGateway;
         /**
-         * `state` and `stateMessage` describing encryption enforcement state for Elastic File System (EFS).
+         * Encryption enforcement state for Elastic File System (EFS). See `resource_exclusions.elastic_file_system` below.
          */
         elasticFileSystem: outputs.ec2.EncryptionControlResourceExclusionsElasticFileSystem;
         /**
-         * `state` and `stateMessage` describing encryption enforcement state for Internet Gateways.
+         * Encryption enforcement state for Internet Gateways. See `resource_exclusions.internet_gateway` below.
          */
         internetGateway: outputs.ec2.EncryptionControlResourceExclusionsInternetGateway;
         /**
-         * `state` and `stateMessage` describing encryption enforcement state for Lambda Functions.
+         * Encryption enforcement state for Lambda Functions. See `resource_exclusions.lambda` below.
          */
         lambda: outputs.ec2.EncryptionControlResourceExclusionsLambda;
         /**
-         * `state` and `stateMessage` describing encryption enforcement state for NAT Gateways.
+         * Encryption enforcement state for NAT Gateways. See `resource_exclusions.nat_gateway` below.
          */
         natGateway: outputs.ec2.EncryptionControlResourceExclusionsNatGateway;
         /**
-         * `state` and `stateMessage` describing encryption enforcement state for Virtual Private Gateways.
+         * Encryption enforcement state for Virtual Private Gateways. See `resource_exclusions.virtual_private_gateway` below.
          */
         virtualPrivateGateway: outputs.ec2.EncryptionControlResourceExclusionsVirtualPrivateGateway;
         /**
-         * `state` and `stateMessage` describing encryption enforcement state for VPC Lattice.
+         * Encryption enforcement state for VPC Lattice. See `resource_exclusions.vpc_lattice` below.
          */
         vpcLattice: outputs.ec2.EncryptionControlResourceExclusionsVpcLattice;
         /**
-         * `state` and `stateMessage` describing encryption enforcement state for peered VPCs.
+         * Encryption enforcement state for peered VPCs. See `resource_exclusions.vpc_peering` below.
          */
         vpcPeering: outputs.ec2.EncryptionControlResourceExclusionsVpcPeering;
     }
 
     export interface EncryptionControlResourceExclusionsEgressOnlyInternetGateway {
         /**
-         * The current state of the VPC Encryption Control.
+         * Encryption enforcement state for peered VPCs.
          */
         state: string;
         /**
-         * A message providing additional information about the state of the VPC Encryption Control.
+         * Message providing additional information about the encryption enforcement state.
          */
         stateMessage: string;
     }
 
     export interface EncryptionControlResourceExclusionsElasticFileSystem {
         /**
-         * The current state of the VPC Encryption Control.
+         * Encryption enforcement state for peered VPCs.
          */
         state: string;
         /**
-         * A message providing additional information about the state of the VPC Encryption Control.
+         * Message providing additional information about the encryption enforcement state.
          */
         stateMessage: string;
     }
 
     export interface EncryptionControlResourceExclusionsInternetGateway {
         /**
-         * The current state of the VPC Encryption Control.
+         * Encryption enforcement state for peered VPCs.
          */
         state: string;
         /**
-         * A message providing additional information about the state of the VPC Encryption Control.
+         * Message providing additional information about the encryption enforcement state.
          */
         stateMessage: string;
     }
 
     export interface EncryptionControlResourceExclusionsLambda {
         /**
-         * The current state of the VPC Encryption Control.
+         * Encryption enforcement state for peered VPCs.
          */
         state: string;
         /**
-         * A message providing additional information about the state of the VPC Encryption Control.
+         * Message providing additional information about the encryption enforcement state.
          */
         stateMessage: string;
     }
 
     export interface EncryptionControlResourceExclusionsNatGateway {
         /**
-         * The current state of the VPC Encryption Control.
+         * Encryption enforcement state for peered VPCs.
          */
         state: string;
         /**
-         * A message providing additional information about the state of the VPC Encryption Control.
+         * Message providing additional information about the encryption enforcement state.
          */
         stateMessage: string;
     }
 
     export interface EncryptionControlResourceExclusionsVirtualPrivateGateway {
         /**
-         * The current state of the VPC Encryption Control.
+         * Encryption enforcement state for peered VPCs.
          */
         state: string;
         /**
-         * A message providing additional information about the state of the VPC Encryption Control.
+         * Message providing additional information about the encryption enforcement state.
          */
         stateMessage: string;
     }
 
     export interface EncryptionControlResourceExclusionsVpcLattice {
         /**
-         * The current state of the VPC Encryption Control.
+         * Encryption enforcement state for peered VPCs.
          */
         state: string;
         /**
-         * A message providing additional information about the state of the VPC Encryption Control.
+         * Message providing additional information about the encryption enforcement state.
          */
         stateMessage: string;
     }
 
     export interface EncryptionControlResourceExclusionsVpcPeering {
         /**
-         * The current state of the VPC Encryption Control.
+         * Encryption enforcement state for peered VPCs.
          */
         state: string;
         /**
-         * A message providing additional information about the state of the VPC Encryption Control.
+         * Message providing additional information about the encryption enforcement state.
          */
         stateMessage: string;
     }
@@ -43129,7 +43145,7 @@ export namespace ec2 {
          */
         acceleratorManufacturers?: string[];
         /**
-         * List of accelerator names. Default is any acclerator.
+         * List of accelerator names. Default is any accelerator.
          */
         acceleratorNames?: string[];
         /**
@@ -43147,7 +43163,7 @@ export namespace ec2 {
          */
         allowedInstanceTypes?: string[];
         /**
-         * Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+         * Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
          */
         bareMetal?: string;
         /**
@@ -45768,8 +45784,6 @@ export namespace ec2 {
         name: string;
         /**
          * Set of values for filtering.
-         *
-         * For more information about filtering, see the [EC2 API documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeDhcpOptions.html).
          */
         values: string[];
     }
@@ -45787,11 +45801,11 @@ export namespace ec2 {
 
     export interface GetVpcEndpointDnsOption {
         /**
-         * The DNS records created for the endpoint.
+         * DNS records created for the endpoint.
          */
         dnsRecordIpType: string;
         /**
-         * Indicates whether to enable private DNS only for inbound endpoints.
+         * Whether to enable private DNS only for inbound endpoints.
          */
         privateDnsOnlyForInboundResolverEndpoint: boolean;
         /**
@@ -45806,13 +45820,11 @@ export namespace ec2 {
 
     export interface GetVpcEndpointFilter {
         /**
-         * Name of the field to filter by, as defined by
-         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
+         * Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
          */
         name: string;
         /**
-         * Set of values that are accepted for the given field.
-         * A VPC Endpoint will be selected if any one of the given values matches.
+         * Set of values that are accepted for the given field. A VPC Endpoint will be selected if any one of the given values matches.
          */
         values: string[];
     }
@@ -45840,13 +45852,15 @@ export namespace ec2 {
     }
 
     export interface GetVpcIpamOperatingRegion {
+        /**
+         * Name of the Region.
+         */
         regionName: string;
     }
 
     export interface GetVpcIpamPoolCidrsFilter {
         /**
-         * Name of the field to filter by, as defined by
-         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
+         * Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
          */
         name: string;
         /**
@@ -45857,52 +45871,52 @@ export namespace ec2 {
 
     export interface GetVpcIpamPoolCidrsIpamPoolCidr {
         /**
-         * A network CIDR.
+         * Network CIDR.
          */
         cidr: string;
         /**
-         * The provisioning state of that CIDR.
+         * Provisioning state of that CIDR.
          */
         state: string;
     }
 
     export interface GetVpcIpamPoolFilter {
         /**
-         * The name of the filter. Filter names are case-sensitive.
+         * Name of the filter. Filter names are case-sensitive.
          */
         name: string;
         /**
-         * The filter values. Filter values are case-sensitive.
+         * Filter values. Filter values are case-sensitive.
          */
         values: string[];
     }
 
     export interface GetVpcIpamPoolSourceResource {
         /**
-         * (Required) ID of the resource.
+         * ID of the resource.
          */
         resourceId: string;
         /**
-         * (Required) Owner of the resource.
+         * Owner of the resource.
          */
         resourceOwner: string;
         /**
-         * (Required) Region where the resource exists. Must match the `locale` of the parent IPAM Pool.
+         * Region where the resource exists. Must match the `locale` of the parent IPAM Pool.
          */
         resourceRegion: string;
         /**
-         * (Required) Type of the resource. (`vpc`)
+         * Type of the resource. (`vpc`)
          */
         resourceType: string;
     }
 
     export interface GetVpcIpamPoolsFilter {
         /**
-         * The name of the filter. Filter names are case-sensitive.
+         * Name of the filter. Filter names are case-sensitive.
          */
         name: string;
         /**
-         * The filter values. Filter values are case-sensitive.
+         * Filter values. Filter values are case-sensitive.
          */
         values: string[];
     }
@@ -45913,15 +45927,15 @@ export namespace ec2 {
          */
         addressFamily: string;
         /**
-         * A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
+         * Default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
          */
         allocationDefaultNetmaskLength: number;
         /**
-         * The maximum netmask length that will be required for CIDR allocations in this pool.
+         * Maximum netmask length that will be required for CIDR allocations in this pool.
          */
         allocationMaxNetmaskLength: number;
         /**
-         * The minimum netmask length that will be required for CIDR allocations in this pool.
+         * Minimum netmask length that will be required for CIDR allocations in this pool.
          */
         allocationMinNetmaskLength: number;
         /**
@@ -45952,20 +45966,29 @@ export namespace ec2 {
          * ID of the scope the pool belongs to.
          */
         ipamScopeId: string;
+        /**
+         * Type of the scope the pool belongs to.
+         */
         ipamScopeType: string;
         /**
          * Locale is the Region where your pool is available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region.
          */
         locale: string;
+        /**
+         * Depth of pools in your IPAM pool.
+         */
         poolDepth: number;
         /**
-         * Defines whether or not IPv6 pool space is publicly advertisable over the internet.
+         * Whether IPv6 pool space is publicly advertisable over the internet.
          */
         publiclyAdvertisable: boolean;
         /**
          * ID of the source IPAM pool.
          */
         sourceIpamPoolId: string;
+        /**
+         * State of the IPAM pool.
+         */
         state: string;
         /**
          * Map of tags to assigned to the resource.
@@ -45975,13 +45998,11 @@ export namespace ec2 {
 
     export interface GetVpcIpamsFilter {
         /**
-         * Name of the field to filter by, as defined by
-         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpams.html).
+         * Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpams.html).
          */
         name: string;
         /**
-         * Set of values that are accepted for the given field.
-         * An IPAM resource will be selected if any one of the given values matches.
+         * Set of values that are accepted for the given field. An IPAM resource will be selected if any one of the given values matches.
          */
         values: string[];
     }
@@ -45992,11 +46013,11 @@ export namespace ec2 {
          */
         arn: string;
         /**
-         * The default resource discovery association ID.
+         * Default resource discovery association ID.
          */
         defaultResourceDiscoveryAssociationId: string;
         /**
-         * The default resource discovery ID.
+         * Default resource discovery ID.
          */
         defaultResourceDiscoveryId: string;
         /**
@@ -46015,9 +46036,12 @@ export namespace ec2 {
          * Region that the IPAM exists in.
          */
         ipamRegion: string;
+        /**
+         * AWS account that is charged for active IP addresses managed in IPAM.
+         */
         meteredAccount: string;
         /**
-         * Regions that the IPAM is configured to operate in.
+         * Regions that the IPAM is configured to operate in. See below.
          */
         operatingRegions: outputs.ec2.GetVpcIpamsIpamOperatingRegion[];
         /**
@@ -46055,6 +46079,9 @@ export namespace ec2 {
     }
 
     export interface GetVpcIpamsIpamOperatingRegion {
+        /**
+         * Name of the Region.
+         */
         regionName: string;
     }
 
@@ -46098,18 +46125,19 @@ export namespace ec2 {
 
     export interface GetVpcPeeringConnectionFilter {
         /**
-         * Name of the field to filter by, as defined by
-         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+         * Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
          */
         name: string;
         /**
-         * Set of values that are accepted for the given field.
-         * A VPC Peering Connection will be selected if any one of the given values matches.
+         * Set of values that are accepted for the given field. A VPC Peering Connection will be selected if any one of the given values matches.
          */
         values: string[];
     }
 
     export interface GetVpcPeeringConnectionIpv6CidrBlockSet {
+        /**
+         * IPv6 CIDR block associated to the VPC of the specific VPC Peering Connection.
+         */
         ipv6CidrBlock: string;
     }
 
@@ -46121,31 +46149,30 @@ export namespace ec2 {
     }
 
     export interface GetVpcPeeringConnectionPeerIpv6CidrBlockSet {
+        /**
+         * IPv6 CIDR block associated to the VPC of the specific VPC Peering Connection.
+         */
         ipv6CidrBlock: string;
     }
 
     export interface GetVpcPeeringConnectionsFilter {
         /**
-         * Name of the field to filter by, as defined by
-         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+         * Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
          */
         name: string;
         /**
-         * Set of values that are accepted for the given field.
-         * A VPC Peering Connection will be selected if any one of the given values matches.
+         * Set of values that are accepted for the given field. A VPC Peering Connection will be selected if any one of the given values matches.
          */
         values: string[];
     }
 
     export interface GetVpcsFilter {
         /**
-         * Name of the field to filter by, as defined by
-         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
+         * Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
          */
         name: string;
         /**
-         * Set of values that are accepted for the given field.
-         * A VPC will be selected if any one of the given values matches.
+         * Set of values that are accepted for the given field. A VPC will be selected if any one of the given values matches.
          */
         values: string[];
     }
@@ -46162,31 +46189,50 @@ export namespace ec2 {
     }
 
     export interface GetVpnConnectionRoute {
+        /**
+         * CIDR block associated with the local subnet of the customer data center.
+         */
         destinationCidrBlock: string;
+        /**
+         * How the routes were provided.
+         */
         source: string;
         /**
-         * Current state of the VPN connection.
+         * Current state of the static route.
          */
         state: string;
     }
 
     export interface GetVpnConnectionVgwTelemetry {
+        /**
+         * Number of accepted routes.
+         */
         acceptedRouteCount: number;
+        /**
+         * Date and time of the last change in status.
+         */
         lastStatusChange: string;
+        /**
+         * IP address of the virtual private gateway tunnel endpoint.
+         */
         outsideIpAddress: string;
+        /**
+         * Status of the VPN tunnel.
+         */
         status: string;
+        /**
+         * Information about the status change.
+         */
         statusMessage: string;
     }
 
     export interface GetVpnGatewayFilter {
         /**
-         * Name of the field to filter by, as defined by
-         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
+         * Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
          */
         name: string;
         /**
-         * Set of values that are accepted for the given field.
-         * A VPN Gateway will be selected if any one of the given values matches.
+         * Set of values that are accepted for the given field. A VPN Gateway will be selected if any one of the given values matches.
          */
         values: string[];
     }
@@ -46831,7 +46877,7 @@ export namespace ec2 {
          */
         acceleratorManufacturers?: string[];
         /**
-         * List of accelerator names. Default is any acclerator.
+         * List of accelerator names. Default is any accelerator.
          *
          * ```
          * Valid names:
@@ -46867,7 +46913,7 @@ export namespace ec2 {
          */
         allowedInstanceTypes?: string[];
         /**
-         * Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+         * Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
          */
         bareMetal?: string;
         /**
@@ -48734,6 +48780,21 @@ export namespace ec2 {
         networkCardIndex: number;
     }
 
+    export interface NetworkInterfaceConnectionTrackingSpecification {
+        /**
+         * Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Recommended: Less than 432000 seconds.
+         */
+        tcpEstablishedTimeout: number;
+        /**
+         * Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
+         */
+        udpStreamTimeout: number;
+        /**
+         * Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
+         */
+        udpTimeout: number;
+    }
+
     export interface NetworkInterfaceEnaSrdSpecification {
         /**
          * Indicates whether ENA Express is enabled for the network interface.
@@ -48765,14 +48826,14 @@ export namespace ec2 {
 
     export interface PeeringConnectionOptionsAccepter {
         /**
-         * Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+         * Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
          */
         allowRemoteVpcDnsResolution?: boolean;
     }
 
     export interface PeeringConnectionOptionsRequester {
         /**
-         * Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+         * Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
          */
         allowRemoteVpcDnsResolution?: boolean;
     }
@@ -49133,7 +49194,7 @@ export namespace ec2 {
          */
         acceleratorManufacturers?: string[];
         /**
-         * List of accelerator names. Default is any acclerator.
+         * List of accelerator names. Default is any accelerator.
          *
          * ```
          * Valid names:
@@ -49169,7 +49230,7 @@ export namespace ec2 {
          */
         allowedInstanceTypes?: string[];
         /**
-         * Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+         * Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
          */
         bareMetal?: string;
         /**
@@ -49734,123 +49795,123 @@ export namespace ec2 {
 
     export interface VpcEncryptionControlResourceExclusions {
         /**
-         * `state` and `stateMessage` describing encryption enforcement state for Egress-Only Internet Gateways.
+         * Encryption enforcement state for Egress-Only Internet Gateways. See `resource_exclusions.egress_only_internet_gateway` below.
          */
         egressOnlyInternetGateway: outputs.ec2.VpcEncryptionControlResourceExclusionsEgressOnlyInternetGateway;
         /**
-         * `state` and `stateMessage` describing encryption enforcement state for Elastic File System (EFS).
+         * Encryption enforcement state for Elastic File System (EFS). See `resource_exclusions.elastic_file_system` below.
          */
         elasticFileSystem: outputs.ec2.VpcEncryptionControlResourceExclusionsElasticFileSystem;
         /**
-         * `state` and `stateMessage` describing encryption enforcement state for Internet Gateways.
+         * Encryption enforcement state for Internet Gateways. See `resource_exclusions.internet_gateway` below.
          */
         internetGateway: outputs.ec2.VpcEncryptionControlResourceExclusionsInternetGateway;
         /**
-         * `state` and `stateMessage` describing encryption enforcement state for Lambda Functions.
+         * Encryption enforcement state for Lambda Functions. See `resource_exclusions.lambda` below.
          */
         lambda: outputs.ec2.VpcEncryptionControlResourceExclusionsLambda;
         /**
-         * `state` and `stateMessage` describing encryption enforcement state for NAT Gateways.
+         * Encryption enforcement state for NAT Gateways. See `resource_exclusions.nat_gateway` below.
          */
         natGateway: outputs.ec2.VpcEncryptionControlResourceExclusionsNatGateway;
         /**
-         * `state` and `stateMessage` describing encryption enforcement state for Virtual Private Gateways.
+         * Encryption enforcement state for Virtual Private Gateways. See `resource_exclusions.virtual_private_gateway` below.
          */
         virtualPrivateGateway: outputs.ec2.VpcEncryptionControlResourceExclusionsVirtualPrivateGateway;
         /**
-         * `state` and `stateMessage` describing encryption enforcement state for VPC Lattice.
+         * Encryption enforcement state for VPC Lattice. See `resource_exclusions.vpc_lattice` below.
          */
         vpcLattice: outputs.ec2.VpcEncryptionControlResourceExclusionsVpcLattice;
         /**
-         * `state` and `stateMessage` describing encryption enforcement state for peered VPCs.
+         * Encryption enforcement state for peered VPCs. See `resource_exclusions.vpc_peering` below.
          */
         vpcPeering: outputs.ec2.VpcEncryptionControlResourceExclusionsVpcPeering;
     }
 
     export interface VpcEncryptionControlResourceExclusionsEgressOnlyInternetGateway {
         /**
-         * The current state of the VPC Encryption Control.
+         * Encryption enforcement state for peered VPCs.
          */
         state: string;
         /**
-         * A message providing additional information about the state of the VPC Encryption Control.
+         * Message providing additional information about the encryption enforcement state.
          */
         stateMessage: string;
     }
 
     export interface VpcEncryptionControlResourceExclusionsElasticFileSystem {
         /**
-         * The current state of the VPC Encryption Control.
+         * Encryption enforcement state for peered VPCs.
          */
         state: string;
         /**
-         * A message providing additional information about the state of the VPC Encryption Control.
+         * Message providing additional information about the encryption enforcement state.
          */
         stateMessage: string;
     }
 
     export interface VpcEncryptionControlResourceExclusionsInternetGateway {
         /**
-         * The current state of the VPC Encryption Control.
+         * Encryption enforcement state for peered VPCs.
          */
         state: string;
         /**
-         * A message providing additional information about the state of the VPC Encryption Control.
+         * Message providing additional information about the encryption enforcement state.
          */
         stateMessage: string;
     }
 
     export interface VpcEncryptionControlResourceExclusionsLambda {
         /**
-         * The current state of the VPC Encryption Control.
+         * Encryption enforcement state for peered VPCs.
          */
         state: string;
         /**
-         * A message providing additional information about the state of the VPC Encryption Control.
+         * Message providing additional information about the encryption enforcement state.
          */
         stateMessage: string;
     }
 
     export interface VpcEncryptionControlResourceExclusionsNatGateway {
         /**
-         * The current state of the VPC Encryption Control.
+         * Encryption enforcement state for peered VPCs.
          */
         state: string;
         /**
-         * A message providing additional information about the state of the VPC Encryption Control.
+         * Message providing additional information about the encryption enforcement state.
          */
         stateMessage: string;
     }
 
     export interface VpcEncryptionControlResourceExclusionsVirtualPrivateGateway {
         /**
-         * The current state of the VPC Encryption Control.
+         * Encryption enforcement state for peered VPCs.
          */
         state: string;
         /**
-         * A message providing additional information about the state of the VPC Encryption Control.
+         * Message providing additional information about the encryption enforcement state.
          */
         stateMessage: string;
     }
 
     export interface VpcEncryptionControlResourceExclusionsVpcLattice {
         /**
-         * The current state of the VPC Encryption Control.
+         * Encryption enforcement state for peered VPCs.
          */
         state: string;
         /**
-         * A message providing additional information about the state of the VPC Encryption Control.
+         * Message providing additional information about the encryption enforcement state.
          */
         stateMessage: string;
     }
 
     export interface VpcEncryptionControlResourceExclusionsVpcPeering {
         /**
-         * The current state of the VPC Encryption Control.
+         * Encryption enforcement state for peered VPCs.
          */
         state: string;
         /**
-         * A message providing additional information about the state of the VPC Encryption Control.
+         * Message providing additional information about the encryption enforcement state.
          */
         stateMessage: string;
     }
@@ -49872,22 +49933,22 @@ export namespace ec2 {
 
     export interface VpcEndpointDnsEntry {
         /**
-         * The DNS name.
+         * DNS name.
          */
         dnsName: string;
         /**
-         * The ID of the private hosted zone.
+         * ID of the private hosted zone.
          */
         hostedZoneId: string;
     }
 
     export interface VpcEndpointDnsOptions {
         /**
-         * The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
+         * DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
          */
         dnsRecordIpType: string;
         /**
-         * Boolean indicating whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `privateDnsEnabled` is `true`.
+         * Whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `privateDnsEnabled` is `true`.
          */
         privateDnsOnlyForInboundResolverEndpoint?: boolean;
         /**
@@ -49906,7 +49967,7 @@ export namespace ec2 {
          */
         name: string;
         /**
-         * Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
+         * State of the VPC endpoint service.
          */
         state: string;
         /**
@@ -49921,33 +49982,33 @@ export namespace ec2 {
 
     export interface VpcEndpointSubnetConfiguration {
         /**
-         * The IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
+         * IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
          */
         ipv4?: string;
         /**
-         * The IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
+         * IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
          */
         ipv6?: string;
         /**
-         * The ID of the subnet. Must have a corresponding subnet in the `subnetIds` argument.
+         * ID of the subnet. Must have a corresponding subnet in the `subnetIds` argument.
          */
         subnetId?: string;
     }
 
     export interface VpcIpamOperatingRegion {
         /**
-         * The name of the Region you want to add to the IPAM.
+         * Name of the Region you want to add to the IPAM.
          */
         regionName: string;
     }
 
     export interface VpcIpamPoolCidrCidrAuthorizationContext {
         /**
-         * The plain-text authorization message for the prefix and account.
+         * Plain-text authorization message for the prefix and account.
          */
         message?: string;
         /**
-         * The signed authorization message for the prefix and account.
+         * Signed authorization message for the prefix and account.
          */
         signature?: string;
     }
@@ -49973,7 +50034,7 @@ export namespace ec2 {
 
     export interface VpcIpamResourceDiscoveryOperatingRegion {
         /**
-         * The name of the Region you want to add to the IPAM.
+         * Name of the Region you want to add to the IPAM.
          */
         regionName: string;
     }
@@ -49987,47 +50048,43 @@ export namespace ec2 {
 
     export interface VpcPeeringConnectionAccepter {
         /**
-         * Allow a local VPC to resolve public DNS hostnames to
-         * private IP addresses when queried from instances in the peer VPC.
+         * Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
          */
         allowRemoteVpcDnsResolution?: boolean;
     }
 
     export interface VpcPeeringConnectionAccepterAccepter {
         /**
-         * Indicates whether a local VPC can resolve public DNS hostnames to
-         * private IP addresses when queried from instances in a peer VPC.
+         * Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in a peer VPC.
          */
         allowRemoteVpcDnsResolution?: boolean;
     }
 
     export interface VpcPeeringConnectionAccepterRequester {
         /**
-         * Indicates whether a local VPC can resolve public DNS hostnames to
-         * private IP addresses when queried from instances in a peer VPC.
+         * Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in a peer VPC.
          */
         allowRemoteVpcDnsResolution?: boolean;
     }
 
     export interface VpcPeeringConnectionRequester {
         /**
-         * Allow a local VPC to resolve public DNS hostnames to
-         * private IP addresses when queried from instances in the peer VPC.
+         * Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
          */
         allowRemoteVpcDnsResolution?: boolean;
     }
 
     export interface VpnConnectionRoute {
         /**
-         * The CIDR block associated with the local subnet of the customer data center.
+         * CIDR block associated with the local subnet of the customer data center.
          */
         destinationCidrBlock: string;
         /**
-         * Indicates how the routes were provided.
+         * How the routes were provided.
          */
         source: string;
         /**
-         * The current state of the static route.
+         * Current state of the static route.
          */
         state: string;
     }
@@ -50041,7 +50098,7 @@ export namespace ec2 {
 
     export interface VpnConnectionTunnel1LogOptionsCloudwatchLogOptions {
         /**
-         * Enable or disable BGP logging feature. The default is `false`.
+         * Whether to enable the BGP logging feature. The default is `false`.
          */
         bgpLogEnabled?: boolean;
         /**
@@ -50053,7 +50110,7 @@ export namespace ec2 {
          */
         bgpLogOutputFormat?: string;
         /**
-         * Enable or disable VPN tunnel logging feature. The default is `false`.
+         * Whether to enable the VPN tunnel logging feature. The default is `false`.
          */
         logEnabled?: boolean;
         /**
@@ -50075,7 +50132,7 @@ export namespace ec2 {
 
     export interface VpnConnectionTunnel2LogOptionsCloudwatchLogOptions {
         /**
-         * Enable or disable BGP logging feature. The default is `false`.
+         * Whether to enable the BGP logging feature. The default is `false`.
          */
         bgpLogEnabled?: boolean;
         /**
@@ -50087,7 +50144,7 @@ export namespace ec2 {
          */
         bgpLogOutputFormat?: string;
         /**
-         * Enable or disable VPN tunnel logging feature. The default is `false`.
+         * Whether to enable the VPN tunnel logging feature. The default is `false`.
          */
         logEnabled?: boolean;
         /**
@@ -50102,7 +50159,7 @@ export namespace ec2 {
 
     export interface VpnConnectionVgwTelemetry {
         /**
-         * The number of accepted routes.
+         * Number of accepted routes.
          */
         acceptedRouteCount: number;
         /**
@@ -50110,15 +50167,15 @@ export namespace ec2 {
          */
         certificateArn: string;
         /**
-         * The date and time of the last change in status.
+         * Date and time of the last change in status.
          */
         lastStatusChange: string;
         /**
-         * The Internet-routable IP address of the virtual private gateway's outside interface.
+         * Internet-routable IP address of the virtual private gateway's outside interface.
          */
         outsideIpAddress: string;
         /**
-         * The status of the VPN tunnel.
+         * Status of the VPN tunnel.
          */
         status: string;
         /**
@@ -58645,11 +58702,11 @@ export namespace fsx {
 
     export interface GetOntapFileSystemEndpoint {
         /**
-         * FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint below.
+         * FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See `endpoints.intercluster` below.
          */
         interclusters: outputs.fsx.GetOntapFileSystemEndpointIntercluster[];
         /**
-         * FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint below.
+         * FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See `endpoints.management` below.
          */
         managements: outputs.fsx.GetOntapFileSystemEndpointManagement[];
     }
@@ -58845,7 +58902,7 @@ export namespace fsx {
          */
         size: number;
         /**
-         * Sizing mode for the cache. Valud values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
+         * Sizing mode for the cache. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
          */
         sizingMode: string;
     }
@@ -58898,11 +58955,11 @@ export namespace fsx {
 
     export interface OntapFileSystemEndpoint {
         /**
-         * Endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
+         * Endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See `endpoints.intercluster` below.
          */
         interclusters: outputs.fsx.OntapFileSystemEndpointIntercluster[];
         /**
-         * Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+         * Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See `endpoints.management` below.
          */
         managements: outputs.fsx.OntapFileSystemEndpointManagement[];
     }
@@ -58969,19 +59026,19 @@ export namespace fsx {
 
     export interface OntapStorageVirtualMachineEndpoint {
         /**
-         * Endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
+         * Endpoint for accessing data on your storage virtual machine via iSCSI protocol. See `endpoints.iscsi` below.
          */
         iscsis: outputs.fsx.OntapStorageVirtualMachineEndpointIscsi[];
         /**
-         * Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+         * Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See `endpoints.management` below.
          */
         managements: outputs.fsx.OntapStorageVirtualMachineEndpointManagement[];
         /**
-         * Endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
+         * Endpoint for accessing data on your storage virtual machine via NFS protocol. See `endpoints.nfs` below.
          */
         nfs: outputs.fsx.OntapStorageVirtualMachineEndpointNf[];
         /**
-         * Endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See Endpoint.
+         * Endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See `endpoints.smb` below.
          */
         smbs: outputs.fsx.OntapStorageVirtualMachineEndpointSmb[];
     }
@@ -59204,7 +59261,7 @@ export namespace fsx {
          */
         clients: string;
         /**
-         * Options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+         * Options to use when mounting the file system. Maximum of 20 items. See the [Linux NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
          */
         options: string[];
     }
@@ -59237,7 +59294,7 @@ export namespace fsx {
          */
         clients: string;
         /**
-         * The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+         * The options to use when mounting the file system. Maximum of 20 items. See the [Linux NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
          */
         options: string[];
     }
@@ -66610,7 +66667,7 @@ export namespace kendra {
 
     export interface ExperienceConfiguration {
         /**
-         * Identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
+         * Identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
          */
         contentSourceConfiguration: outputs.kendra.ExperienceConfigurationContentSourceConfiguration;
         /**
@@ -71608,6 +71665,121 @@ export namespace lambda {
 }
 
 export namespace lambdamicrovms {
+    export interface GetImageVersionCodeArtifact {
+        /**
+         * URI of the code artifact.
+         */
+        uri: string;
+    }
+
+    export interface GetImageVersionCpuConfiguration {
+        /**
+         * CPU architecture.
+         */
+        architecture: string;
+    }
+
+    export interface GetImageVersionHook {
+        /**
+         * Lifecycle hooks for MicroVM events. See `microvmHooks` below.
+         */
+        microvmHooks: outputs.lambdamicrovms.GetImageVersionHookMicrovmHook[];
+        /**
+         * Hooks for MicroVM image build events. See `microvmImageHooks` below.
+         */
+        microvmImageHooks: outputs.lambdamicrovms.GetImageVersionHookMicrovmImageHook[];
+        /**
+         * Port number on which the hooks listener runs.
+         */
+        port: number;
+    }
+
+    export interface GetImageVersionHookMicrovmHook {
+        /**
+         * Whether the resume hook is `ENABLED` or `DISABLED`.
+         */
+        resume: string;
+        /**
+         * Maximum time in seconds for the resume hook to complete.
+         */
+        resumeTimeoutInSeconds: number;
+        /**
+         * Whether the run hook is `ENABLED` or `DISABLED`.
+         */
+        run: string;
+        /**
+         * Maximum time in seconds for the run hook to complete.
+         */
+        runTimeoutInSeconds: number;
+        /**
+         * Whether the suspend hook is `ENABLED` or `DISABLED`.
+         */
+        suspend: string;
+        /**
+         * Maximum time in seconds for the suspend hook to complete.
+         */
+        suspendTimeoutInSeconds: number;
+        /**
+         * Whether the terminate hook is `ENABLED` or `DISABLED`.
+         */
+        terminate: string;
+        /**
+         * Maximum time in seconds for the terminate hook to complete.
+         */
+        terminateTimeoutInSeconds: number;
+    }
+
+    export interface GetImageVersionHookMicrovmImageHook {
+        /**
+         * Whether the ready hook is `ENABLED` or `DISABLED`.
+         */
+        ready: string;
+        /**
+         * Maximum time in seconds for the ready hook to complete.
+         */
+        readyTimeoutInSeconds: number;
+        /**
+         * Whether the validate hook is `ENABLED` or `DISABLED`.
+         */
+        validate: string;
+        /**
+         * Maximum time in seconds for the validate hook to complete.
+         */
+        validateTimeoutInSeconds: number;
+    }
+
+    export interface GetImageVersionLogging {
+        /**
+         * CloudWatch Logs configuration. See `cloudwatch` below.
+         */
+        cloudwatches: outputs.lambdamicrovms.GetImageVersionLoggingCloudwatch[];
+        /**
+         * Present when logging is disabled.
+         */
+        disableds: outputs.lambdamicrovms.GetImageVersionLoggingDisabled[];
+    }
+
+    export interface GetImageVersionLoggingCloudwatch {
+        /**
+         * Name of the CloudWatch Logs log group.
+         */
+        logGroup: string;
+        /**
+         * Name of the CloudWatch Logs log stream.
+         */
+        logStream: string;
+    }
+
+    export interface GetImageVersionLoggingDisabled {
+    }
+
+    export interface GetImageVersionResource {
+        /**
+         * Minimum amount of memory in MiB allocated to the MicroVM.
+         */
+        minimumMemoryInMib: number;
+    }
+
     export interface ImageCodeArtifact {
         /**
          * S3 URI of the zip archive containing the application code and Dockerfile (e.g., `s3://bucket/code.zip`).
@@ -95089,6 +95261,256 @@ export namespace observabilityadmin {
 }
 
 export namespace odb {
+    export interface AutonomousDatabaseAdminPasswordSource {
+        customerManagedAwsSecret?: outputs.odb.AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret;
+    }
+
+    export interface AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret {
+        /**
+         * OCI identifier type used as the external ID when OCI assumes the customer-managed IAM role. Valid values are `databaseOcid`, `compartmentOcid`, and `tenantOcid`.
+         */
+        externalIdType: string;
+        /**
+         * ARN of the customer-managed IAM role OCI assumes to retrieve the secret. Its trust policy must allow the Oracle-managed service role to assume it.
+         */
+        iamRoleArn: string;
+        /**
+         * ARN of the AWS Secrets Manager secret containing the ADMIN password.
+         */
+        secretArn: string;
+    }
+
+    export interface AutonomousDatabaseCustomerContactsToSendToOci {
+        /**
+         * Email address that receives operational notifications from OCI.
+         */
+        email: string;
+    }
+
+    export interface AutonomousDatabaseDbToolsDetail {
+        /**
+         * Compute capacity allocated to the database tool.
+         */
+        computeCount: number;
+        /**
+         * Whether the database tool is enabled.
+         */
+        isEnabled: boolean;
+        /**
+         * Maximum idle time before the tool is shut down.
+         */
+        maxIdleTimeInMinutes: number;
+        /**
+         * Database tool name.
+         */
+        name: string;
+    }
+
+    export interface AutonomousDatabaseLongTermBackupSchedule {
+        /**
+         * Whether the long-term backup schedule is disabled.
+         */
+        isDisabled: boolean;
+        /**
+         * Backup cadence. Valid values are `ONE_TIME`, `WEEKLY`, `MONTHLY`, and `YEARLY`.
+         */
+        repeatCadence: string;
+        /**
+         * Backup retention period. Valid values are from `90` through `3650`.
+         */
+        retentionPeriodInDays: number;
+        /**
+         * RFC3339 timestamp at which the backup is taken.
+         */
+        timeOfBackup: string;
+    }
+
+    export interface AutonomousDatabaseResourcePoolSummary {
+        /**
+         * Available compute capacity.
+         */
+        availableComputeCapacity: number;
+        /**
+         * Available storage capacity in TB.
+         */
+        availableStorageCapacityInTbs: number;
+        /**
+         * Whether the resource pool is disabled.
+         */
+        isDisabled: boolean;
+        /**
+         * Number of Autonomous Databases the pool can contain.
+         */
+        poolSize: number;
+        /**
+         * Pool storage size in TB.
+         */
+        poolStorageSizeInTbs: number;
+        /**
+         * Total compute capacity.
+         */
+        totalComputeCapacity: number;
+    }
+
+    export interface AutonomousDatabaseScheduledOperation {
+        /**
+         * Day of the week.
+         */
+        dayOfWeek: string;
+        /**
+         * Scheduled start time in UTC.
+         */
+        scheduledStartTime: string;
+        /**
+         * Scheduled stop time in UTC.
+         */
+        scheduledStopTime: string;
+    }
+
+    export interface AutonomousDatabaseSecretsManagerIntegrationTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+    }
+
+    export interface AutonomousDatabaseSourceConfiguration {
+        cloneToRefreshable?: outputs.odb.AutonomousDatabaseSourceConfigurationCloneToRefreshable;
+        crossRegionDataGuard?: outputs.odb.AutonomousDatabaseSourceConfigurationCrossRegionDataGuard;
+        crossRegionDisasterRecovery?: outputs.odb.AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecovery;
+        databaseClone?: outputs.odb.AutonomousDatabaseSourceConfigurationDatabaseClone;
+        pointInTimeRestore?: outputs.odb.AutonomousDatabaseSourceConfigurationPointInTimeRestore;
+        restoreFromBackup?: outputs.odb.AutonomousDatabaseSourceConfigurationRestoreFromBackup;
+    }
+
+    export interface AutonomousDatabaseSourceConfigurationCloneToRefreshable {
+        /**
+         * Automatic refresh frequency in seconds.
+         */
+        autoRefreshFrequencyInSeconds?: number;
+        /**
+         * Refresh lag in seconds.
+         */
+        autoRefreshPointLagInSeconds?: number;
+        /**
+         * Clone type.
+         */
+        cloneType?: string;
+        /**
+         * Clone open mode.
+         */
+        openMode?: string;
+        /**
+         * Refresh mode.
+         */
+        refreshableMode?: string;
+        /**
+         * ID of the source Autonomous Database.
+         */
+        sourceAutonomousDatabaseId: string;
+        /**
+         * RFC3339 automatic refresh start timestamp.
+         */
+        timeOfAutoRefreshStart?: string;
+    }
+
+    export interface AutonomousDatabaseSourceConfigurationCrossRegionDataGuard {
+        /**
+         * ARN of the source Autonomous Database.
+         */
+        sourceAutonomousDatabaseArn: string;
+    }
+
+    export interface AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecovery {
+        /**
+         * Whether automatic backups are replicated.
+         */
+        isReplicateAutomaticBackups?: boolean;
+        /**
+         * Remote disaster recovery type.
+         */
+        remoteDisasterRecoveryType: string;
+        /**
+         * ARN of the source Autonomous Database.
+         */
+        sourceAutonomousDatabaseArn: string;
+    }
+
+    export interface AutonomousDatabaseSourceConfigurationDatabaseClone {
+        /**
+         * Clone type.
+         */
+        cloneType: string;
+        /**
+         * ID of the source Autonomous Database.
+         */
+        sourceAutonomousDatabaseId: string;
+    }
+
+    export interface AutonomousDatabaseSourceConfigurationPointInTimeRestore {
+        /**
+         * List of tablespace IDs to clone.
+         */
+        cloneTableSpaceLists?: number[];
+        /**
+         * Clone type.
+         */
+        cloneType: string;
+        /**
+         * ID of the source Autonomous Database.
+         */
+        sourceAutonomousDatabaseId: string;
+        /**
+         * RFC3339 timestamp to which the database is restored.
+         */
+        timestamp?: string;
+        /**
+         * Whether to use the latest available backup timestamp.
+         */
+        useLatestAvailableBackupTimestamp?: boolean;
+    }
+
+    export interface AutonomousDatabaseSourceConfigurationRestoreFromBackup {
+        /**
+         * ID of the Autonomous Database backup.
+         */
+        autonomousDatabaseBackupId: string;
+        /**
+         * List of tablespace IDs to clone.
+         */
+        cloneTableSpaceLists?: number[];
+        /**
+         * Clone type.
+         */
+        cloneType: string;
+    }
+
+    export interface AutonomousDatabaseTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
+    }
+
+    export interface AutonomousDatabaseTransportableTablespace {
+        /**
+         * URL of the transportable tablespace bundle.
+         */
+        ttsBundleUrl?: string;
+    }
+
     export interface CloudAutonomousVmClusterMaintenanceWindow {
         /**
          * Days of the week when maintenance can be performed. Changing this will force terraform to create new resource. See `daysOfWeek` Block below.
@@ -95282,6 +95704,115 @@ export namespace odb {
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
          */
         update?: string;
+    }
+
+    export interface GetAutonomousDatabaseAdminPasswordSource {
+        /**
+         * Customer-managed AWS Secrets Manager configuration.
+         */
+        customerManagedAwsSecrets: outputs.odb.GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret[];
+    }
+
+    export interface GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret {
+        /**
+         * OCI identifier type used as the external ID when OCI assumes the customer-managed IAM role.
+         */
+        externalIdType: string;
+        /**
+         * ARN of the customer-managed IAM role OCI assumes to retrieve the secret.
+         */
+        iamRoleArn: string;
+        /**
+         * ARN of the AWS Secrets Manager secret containing the ADMIN password.
+         */
+        secretArn: string;
+    }
+
+    export interface GetAutonomousDatabaseCustomerContactsToSendToOci {
+        /**
+         * Customer contact email address.
+         */
+        email: string;
+    }
+
+    export interface GetAutonomousDatabaseDbToolsDetail {
+        /**
+         * Compute capacity allocated to the database tool.
+         */
+        computeCount: number;
+        /**
+         * Whether the database tool is enabled.
+         */
+        isEnabled: boolean;
+        /**
+         * Maximum idle time before the tool is shut down.
+         */
+        maxIdleTimeInMinutes: number;
+        /**
+         * Database tool name.
+         */
+        name: string;
+    }
+
+    export interface GetAutonomousDatabaseLongTermBackupSchedule {
+        /**
+         * Whether the resource pool is disabled.
+         */
+        isDisabled: boolean;
+        /**
+         * Backup cadence.
+         */
+        repeatCadence: string;
+        /**
+         * Backup retention period in days.
+         */
+        retentionPeriodInDays: number;
+        /**
+         * Backup date and time.
+         */
+        timeOfBackup: string;
+    }
+
+    export interface GetAutonomousDatabaseResourcePoolSummary {
+        /**
+         * Available compute capacity.
+         */
+        availableComputeCapacity: number;
+        /**
+         * Available storage capacity in TB.
+         */
+        availableStorageCapacityInTbs: number;
+        /**
+         * Whether the resource pool is disabled.
+         */
+        isDisabled: boolean;
+        /**
+         * Number of databases the pool can contain.
+         */
+        poolSize: number;
+        /**
+         * Pool storage size in TB.
+         */
+        poolStorageSizeInTbs: number;
+        /**
+         * Total compute capacity.
+         */
+        totalComputeCapacity: number;
+    }
+
+    export interface GetAutonomousDatabaseScheduledOperation {
+        /**
+         * Day of the week.
+         */
+        dayOfWeek: string;
+        /**
+         * Scheduled start time in UTC.
+         */
+        scheduledStartTime: string;
+        /**
+         * Scheduled stop time in UTC.
+         */
+        scheduledStopTime: string;
     }
 
     export interface GetCloudAutonomousVmClusterMaintenanceWindow {
@@ -121074,9 +121605,21 @@ export namespace transfer {
 
 export namespace verifiedaccess {
     export interface EndpointCidrOptions {
+        /**
+         * CIDR block to send traffic to.
+         */
         cidr: string;
+        /**
+         * Port ranges. See below.
+         */
         portRanges: outputs.verifiedaccess.EndpointCidrOptionsPortRange[];
+        /**
+         * Protocol. Currently `tcp` is supported.
+         */
         protocol?: string;
+        /**
+         * IDs of the subnets.
+         */
         subnetIds?: string[];
     }
 
@@ -121086,10 +121629,25 @@ export namespace verifiedaccess {
     }
 
     export interface EndpointLoadBalancerOptions {
+        /**
+         * ARN of the load balancer.
+         */
         loadBalancerArn?: string;
+        /**
+         * IP port number.
+         */
         port?: number;
+        /**
+         * Port ranges. See below.
+         */
         portRanges?: outputs.verifiedaccess.EndpointLoadBalancerOptionsPortRange[];
+        /**
+         * IP protocol.
+         */
         protocol?: string;
+        /**
+         * IDs of the subnets.
+         */
         subnetIds?: string[];
     }
 
@@ -121099,9 +121657,21 @@ export namespace verifiedaccess {
     }
 
     export interface EndpointNetworkInterfaceOptions {
+        /**
+         * ID of the network interface.
+         */
         networkInterfaceId?: string;
+        /**
+         * IP port number.
+         */
         port?: number;
+        /**
+         * Port ranges. See below.
+         */
         portRanges?: outputs.verifiedaccess.EndpointNetworkInterfaceOptionsPortRange[];
+        /**
+         * IP protocol.
+         */
         protocol?: string;
     }
 
@@ -121111,23 +121681,50 @@ export namespace verifiedaccess {
     }
 
     export interface EndpointRdsOptions {
+        /**
+         * IP port number.
+         */
         port?: number;
+        /**
+         * Protocol. Currently `tcp` is supported.
+         */
         protocol?: string;
+        /**
+         * ARN of the RDS cluster.
+         */
         rdsDbClusterArn?: string;
+        /**
+         * ARN of the RDS instance.
+         */
         rdsDbInstanceArn?: string;
+        /**
+         * ARN of the RDS proxy.
+         */
         rdsDbProxyArn?: string;
+        /**
+         * RDS endpoint.
+         */
         rdsEndpoint?: string;
+        /**
+         * IDs of the subnets.
+         */
         subnetIds?: string[];
     }
 
     export interface EndpointSseSpecification {
+        /**
+         * Whether to encrypt the policy using a customer managed key.
+         */
         customerManagedKeyEnabled?: boolean;
+        /**
+         * ARN of the KMS key.
+         */
         kmsKeyArn?: string;
     }
 
     export interface GroupSseConfiguration {
         /**
-         * Boolean flag to indicate that the CMK should be used.
+         * Whether the CMK should be used.
          */
         customerManagedKeyEnabled?: boolean;
         /**
@@ -121138,118 +121735,172 @@ export namespace verifiedaccess {
 
     export interface InstanceLoggingConfigurationAccessLogs {
         /**
-         * A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
+         * Block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
          */
         cloudwatchLogs?: outputs.verifiedaccess.InstanceLoggingConfigurationAccessLogsCloudwatchLogs;
         /**
-         * Include trust data sent by trust providers into the logs.
+         * Whether to include trust data sent by trust providers in the logs.
          */
         includeTrustContext: boolean;
         /**
-         * A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
+         * Block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
          */
         kinesisDataFirehose?: outputs.verifiedaccess.InstanceLoggingConfigurationAccessLogsKinesisDataFirehose;
         /**
-         * The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
+         * Logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
          */
         logVersion: string;
         /**
-         * A block that specifies configures sending Verified Access logs to S3. Detailed below.
+         * Block that specifies configures sending Verified Access logs to S3. Detailed below.
          */
         s3?: outputs.verifiedaccess.InstanceLoggingConfigurationAccessLogsS3;
     }
 
     export interface InstanceLoggingConfigurationAccessLogsCloudwatchLogs {
         /**
-         * Indicates whether logging is enabled.
+         * Whether logging is enabled.
          */
         enabled: boolean;
         /**
-         * The name of the CloudWatch Logs Log Group.
+         * Name of the CloudWatch Logs Log Group.
          */
         logGroup?: string;
     }
 
     export interface InstanceLoggingConfigurationAccessLogsKinesisDataFirehose {
         /**
-         * The name of the delivery stream.
+         * Name of the delivery stream.
          */
         deliveryStream?: string;
         /**
-         * Indicates whether logging is enabled.
+         * Whether logging is enabled.
          */
         enabled: boolean;
     }
 
     export interface InstanceLoggingConfigurationAccessLogsS3 {
         /**
-         * The name of S3 bucket.
+         * Name of S3 bucket.
          */
         bucketName?: string;
         /**
-         * The ID of the AWS account that owns the Amazon S3 bucket.
+         * ID of the AWS account that owns the Amazon S3 bucket.
          */
         bucketOwner: string;
         /**
-         * Indicates whether logging is enabled.
+         * Whether logging is enabled.
          */
         enabled: boolean;
         /**
-         * The bucket prefix.
+         * Bucket prefix.
          */
         prefix?: string;
     }
 
     export interface InstanceVerifiedAccessTrustProvider {
         /**
-         * A description for the AWS Verified Access Instance.
+         * Description for the AWS Verified Access Instance.
          */
         description: string;
         /**
-         * The type of device-based trust provider.
+         * Type of device-based trust provider.
          */
         deviceTrustProviderType: string;
         /**
-         * The type of trust provider (user- or device-based).
+         * Type of trust provider (user- or device-based).
          */
         trustProviderType: string;
         /**
-         * The type of user-based trust provider.
+         * Type of user-based trust provider.
          */
         userTrustProviderType: string;
         /**
-         * The ID of the trust provider.
+         * ID of the trust provider.
          */
         verifiedAccessTrustProviderId: string;
     }
 
     export interface TrustProviderDeviceOptions {
+        /**
+         * ID of the tenant application with the device-identity provider.
+         */
         tenantId?: string;
     }
 
     export interface TrustProviderNativeApplicationOidcOptions {
+        /**
+         * OIDC authorization endpoint.
+         */
         authorizationEndpoint?: string;
+        /**
+         * OAuth 2.0 client identifier.
+         */
         clientId?: string;
+        /**
+         * OAuth 2.0 client secret.
+         */
         clientSecret: string;
+        /**
+         * OIDC issuer identifier of the IdP.
+         */
         issuer?: string;
+        /**
+         * OIDC public signing key endpoint.
+         */
         publicSigningKeyEndpoint?: string;
+        /**
+         * OpenID Connect (OIDC) scope specified.
+         */
         scope?: string;
+        /**
+         * OIDC token endpoint.
+         */
         tokenEndpoint?: string;
+        /**
+         * OIDC user info endpoint.
+         */
         userInfoEndpoint?: string;
     }
 
     export interface TrustProviderOidcOptions {
+        /**
+         * OIDC authorization endpoint.
+         */
         authorizationEndpoint?: string;
+        /**
+         * OAuth 2.0 client identifier.
+         */
         clientId?: string;
+        /**
+         * OAuth 2.0 client secret.
+         */
         clientSecret: string;
+        /**
+         * OIDC issuer identifier of the IdP.
+         */
         issuer?: string;
+        /**
+         * OpenID Connect (OIDC) scope specified.
+         */
         scope?: string;
+        /**
+         * OIDC token endpoint.
+         */
         tokenEndpoint?: string;
+        /**
+         * OIDC user info endpoint.
+         */
         userInfoEndpoint?: string;
     }
 
     export interface TrustProviderSseSpecification {
+        /**
+         * Whether a customer managed key is in use.
+         */
         customerManagedKeyEnabled?: boolean;
+        /**
+         * ARN of the KMS key.
+         */
         kmsKeyArn?: string;
     }
 
@@ -121257,27 +121908,30 @@ export namespace verifiedaccess {
 
 export namespace verifiedpermissions {
     export interface GetPolicyStoreValidationSetting {
+        /**
+         * Mode for the validation settings.
+         */
         mode: string;
     }
 
     export interface IdentitySourceConfiguration {
         /**
-         * Specifies the configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
+         * Configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
          */
         cognitoUserPoolConfiguration?: outputs.verifiedpermissions.IdentitySourceConfigurationCognitoUserPoolConfiguration;
         /**
-         * Specifies the configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
+         * Configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
          */
         openIdConnectConfiguration?: outputs.verifiedpermissions.IdentitySourceConfigurationOpenIdConnectConfiguration;
     }
 
     export interface IdentitySourceConfigurationCognitoUserPoolConfiguration {
         /**
-         * The unique application client IDs that are associated with the specified Amazon Cognito user pool.
+         * Unique application client IDs that are associated with the specified Amazon Cognito user pool.
          */
         clientIds: string[];
         /**
-         * The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+         * Type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
          */
         groupConfiguration?: outputs.verifiedpermissions.IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration;
         /**
@@ -121288,145 +121942,143 @@ export namespace verifiedpermissions {
 
     export interface IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration {
         /**
-         * The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+         * Policy store entity type that you want to map your users' group claim to. For example, `MyCorp::UserGroup`. A group entity type is an entity that can have a user entity type as a member.
          */
         groupEntityType: string;
     }
 
     export interface IdentitySourceConfigurationOpenIdConnectConfiguration {
         /**
-         * A descriptive string that you want to prefix to user entities from your OIDC identity provider.
+         * Descriptive string that you want to prefix to user entities from your OIDC identity provider.
          */
         entityIdPrefix?: string;
         /**
-         * The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+         * Type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
          */
         groupConfiguration?: outputs.verifiedpermissions.IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration;
         /**
-         * The issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
+         * Issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
          */
         issuer: string;
         /**
-         * The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
+         * Token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
          */
         tokenSelection: outputs.verifiedpermissions.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection;
     }
 
     export interface IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration {
         /**
-         * The token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
+         * Token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
          */
         groupClaim: string;
         /**
-         * The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+         * Policy store entity type that you want to map your users' group claim to. For example, `MyCorp::UserGroup`. A group entity type is an entity that can have a user entity type as a member.
          */
         groupEntityType: string;
     }
 
     export interface IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection {
         /**
-         * The OIDC configuration for processing access tokens. See Access Token Only below.
+         * OIDC configuration for processing access tokens. See Access Token Only below.
          */
         accessTokenOnly?: outputs.verifiedpermissions.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly;
         /**
-         * The OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
+         * OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
          */
         identityTokenOnly?: outputs.verifiedpermissions.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly;
     }
 
     export interface IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly {
         /**
-         * The access token aud claim values that you want to accept in your policy store.
+         * Access token aud claim values that you want to accept in your policy store.
          */
         audiences?: string[];
         /**
-         * The claim that determines the principal in OIDC access tokens.
+         * Claim that determines the principal in OIDC access tokens.
          */
         principalIdClaim?: string;
     }
 
     export interface IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly {
         /**
-         * The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
+         * ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
          */
         clientIds?: string[];
         /**
-         * The claim that determines the principal in OIDC identity tokens.
+         * Claim that determines the principal in OIDC identity tokens.
          */
         principalIdClaim?: string;
     }
 
     export interface PolicyDefinition {
         /**
-         * The static policy statement. See Static below.
+         * Static policy statement. See Static below.
          */
         static?: outputs.verifiedpermissions.PolicyDefinitionStatic;
         /**
-         * The template linked policy. See Template Linked below.
+         * Template linked policy. See Template Linked below.
          */
         templateLinked?: outputs.verifiedpermissions.PolicyDefinitionTemplateLinked;
     }
 
     export interface PolicyDefinitionStatic {
         /**
-         * The description of the static policy.
+         * Description of the static policy.
          */
         description?: string;
         /**
-         * The statement of the static policy.
+         * Statement of the static policy.
          */
         statement: string;
     }
 
     export interface PolicyDefinitionTemplateLinked {
         /**
-         * The ID of the template.
+         * ID of the template.
          */
         policyTemplateId: string;
         /**
-         * The principal of the template linked policy.
+         * Principal of the template linked policy. See Principal below.
          */
         principal?: outputs.verifiedpermissions.PolicyDefinitionTemplateLinkedPrincipal;
         /**
-         * The resource of the template linked policy.
+         * Resource of the template linked policy. See Resource below.
          */
         resource?: outputs.verifiedpermissions.PolicyDefinitionTemplateLinkedResource;
     }
 
     export interface PolicyDefinitionTemplateLinkedPrincipal {
         /**
-         * The entity ID of the principal.
+         * Entity ID of the principal.
          */
         entityId: string;
         /**
-         * The entity type of the principal.
+         * Entity type of the principal.
          */
         entityType: string;
     }
 
     export interface PolicyDefinitionTemplateLinkedResource {
         /**
-         * The entity ID of the resource.
+         * Entity ID of the resource.
          */
         entityId: string;
         /**
-         * The entity type of the resource.
+         * Entity type of the resource.
          */
         entityType: string;
     }
 
     export interface PolicyStoreValidationSettings {
         /**
-         * The mode for the validation settings. Valid values: `OFF`, `STRICT`.
-         *
-         * The following arguments are optional:
+         * Mode for the validation settings. Valid values: `OFF`, `STRICT`.
          */
         mode: string;
     }
 
     export interface SchemaDefinition {
         /**
-         * A JSON string representation of the schema.
+         * JSON string representation of the schema.
          */
         value: string;
     }
@@ -121512,14 +122164,11 @@ export namespace vpc {
 
     export interface GetSecurityGroupRulesFilter {
         /**
-         * Name of the field to filter by, as defined by
-         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html).
+         * Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html).
          */
         name: string;
         /**
          * Set of values that are accepted for the given field.
-         *
-         * Security group rule IDs will be selected if any one of the given values match.
          */
         values: string[];
     }
@@ -121537,11 +122186,11 @@ export namespace vpc {
 
     export interface RouteServerPeerBgpOptions {
         /**
-         * The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
+         * Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
          */
         peerAsn: number;
         /**
-         * The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
+         * Requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
          */
         peerLivenessDetection: string;
     }
@@ -122101,19 +122750,40 @@ export namespace vpn {
     }
 
     export interface GetConnectionRoute {
+        /**
+         * CIDR block associated with the local subnet of the customer data center.
+         */
         destinationCidrBlock: string;
+        /**
+         * How the routes were provided.
+         */
         source: string;
         /**
-         * Current state of the VPN connection.
+         * Current state of the static route.
          */
         state: string;
     }
 
     export interface GetConnectionVgwTelemetry {
+        /**
+         * Number of accepted routes.
+         */
         acceptedRouteCount: number;
+        /**
+         * Date and time of the last change in status.
+         */
         lastStatusChange: string;
+        /**
+         * IP address of the virtual private gateway tunnel endpoint.
+         */
         outsideIpAddress: string;
+        /**
+         * Status of the VPN tunnel.
+         */
         status: string;
+        /**
+         * Information about the status change.
+         */
         statusMessage: string;
     }
 
@@ -122951,30 +123621,30 @@ export namespace wafv2 {
 
     export interface RuleGroupCustomResponseBody {
         /**
-         * The payload of the custom response.
+         * Payload of the custom response.
          */
         content: string;
         /**
-         * The type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
+         * Type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
          */
         contentType: string;
         /**
-         * A unique key identifying the custom response body. This is referenced by the `customResponseBodyKey` argument in the Custom Response block.
+         * Unique key identifying the custom response body. This is referenced by the `customResponseBodyKey` argument in the Custom Response block.
          */
         key: string;
     }
 
     export interface RuleGroupRule {
         /**
-         * The action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the `aws.wafv2.WebAcl` level can override the rule action setting. See Action below for details.
+         * Action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the `aws.wafv2.WebAcl` level can override the rule action setting. See Action below for details.
          */
         action: outputs.wafv2.RuleGroupRuleAction;
         /**
-         * Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+         * Configuration for how AWS WAF handles CAPTCHA evaluations. See Captcha Configuration below for details.
          */
         captchaConfig?: outputs.wafv2.RuleGroupRuleCaptchaConfig;
         /**
-         * A friendly name of the rule.
+         * Friendly name of the rule.
          */
         name: string;
         /**
@@ -122986,11 +123656,11 @@ export namespace wafv2 {
          */
         ruleLabels?: outputs.wafv2.RuleGroupRuleRuleLabel[];
         /**
-         * The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See Statement below for details.
+         * AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See Statement below for details.
          */
         statement: outputs.wafv2.RuleGroupRuleStatement;
         /**
-         * Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+         * Amazon CloudWatch metrics and web request sample collection configuration. See Visibility Configuration below for details.
          */
         visibilityConfig: outputs.wafv2.RuleGroupRuleVisibilityConfig;
     }
@@ -123020,32 +123690,32 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleActionAllow {
         /**
-         * Defines custom handling for the web request. See Custom Request Handling below for details.
+         * Custom handling for the web request. See Custom Request Handling below for details.
          */
         customRequestHandling?: outputs.wafv2.RuleGroupRuleActionAllowCustomRequestHandling;
     }
 
     export interface RuleGroupRuleActionAllowCustomRequestHandling {
         /**
-         * The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+         * `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
          */
         insertHeaders: outputs.wafv2.RuleGroupRuleActionAllowCustomRequestHandlingInsertHeader[];
     }
 
     export interface RuleGroupRuleActionAllowCustomRequestHandlingInsertHeader {
         /**
-         * A friendly name of the rule group.
+         * Friendly name of the rule group.
          */
         name: string;
         /**
-         * The value of the custom header.
+         * Value of the custom header.
          */
         value: string;
     }
 
     export interface RuleGroupRuleActionBlock {
         /**
-         * Defines a custom response for the web request. See Custom Response below for details.
+         * Custom response for the web request. See Custom Response below for details.
          */
         customResponse?: outputs.wafv2.RuleGroupRuleActionBlockCustomResponse;
     }
@@ -123056,125 +123726,125 @@ export namespace wafv2 {
          */
         customResponseBodyKey?: string;
         /**
-         * The HTTP status code to return to the client.
+         * HTTP status code to return to the client.
          */
         responseCode: number;
         /**
-         * The `responseHeader` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
+         * `responseHeader` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
          */
         responseHeaders?: outputs.wafv2.RuleGroupRuleActionBlockCustomResponseResponseHeader[];
     }
 
     export interface RuleGroupRuleActionBlockCustomResponseResponseHeader {
         /**
-         * A friendly name of the rule group.
+         * Friendly name of the rule group.
          */
         name: string;
         /**
-         * The value of the custom header.
+         * Value of the custom header.
          */
         value: string;
     }
 
     export interface RuleGroupRuleActionCaptcha {
         /**
-         * Defines custom handling for the web request. See Custom Request Handling below for details.
+         * Custom handling for the web request. See Custom Request Handling below for details.
          */
         customRequestHandling?: outputs.wafv2.RuleGroupRuleActionCaptchaCustomRequestHandling;
     }
 
     export interface RuleGroupRuleActionCaptchaCustomRequestHandling {
         /**
-         * The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+         * `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
          */
         insertHeaders: outputs.wafv2.RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader[];
     }
 
     export interface RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader {
         /**
-         * A friendly name of the rule group.
+         * Friendly name of the rule group.
          */
         name: string;
         /**
-         * The value of the custom header.
+         * Value of the custom header.
          */
         value: string;
     }
 
     export interface RuleGroupRuleActionChallenge {
         /**
-         * Defines custom handling for the web request. See Custom Request Handling below for details.
+         * Custom handling for the web request. See Custom Request Handling below for details.
          */
         customRequestHandling?: outputs.wafv2.RuleGroupRuleActionChallengeCustomRequestHandling;
     }
 
     export interface RuleGroupRuleActionChallengeCustomRequestHandling {
         /**
-         * The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+         * `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
          */
         insertHeaders: outputs.wafv2.RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader[];
     }
 
     export interface RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader {
         /**
-         * A friendly name of the rule group.
+         * Friendly name of the rule group.
          */
         name: string;
         /**
-         * The value of the custom header.
+         * Value of the custom header.
          */
         value: string;
     }
 
     export interface RuleGroupRuleActionCount {
         /**
-         * Defines custom handling for the web request. See Custom Request Handling below for details.
+         * Custom handling for the web request. See Custom Request Handling below for details.
          */
         customRequestHandling?: outputs.wafv2.RuleGroupRuleActionCountCustomRequestHandling;
     }
 
     export interface RuleGroupRuleActionCountCustomRequestHandling {
         /**
-         * The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+         * `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
          */
         insertHeaders: outputs.wafv2.RuleGroupRuleActionCountCustomRequestHandlingInsertHeader[];
     }
 
     export interface RuleGroupRuleActionCountCustomRequestHandlingInsertHeader {
         /**
-         * A friendly name of the rule group.
+         * Friendly name of the rule group.
          */
         name: string;
         /**
-         * The value of the custom header.
+         * Value of the custom header.
          */
         value: string;
     }
 
     export interface RuleGroupRuleCaptchaConfig {
         /**
-         * Defines custom immunity time. See Immunity Time Property below for details.
+         * Custom immunity time. See Immunity Time Property below for details.
          */
         immunityTimeProperty?: outputs.wafv2.RuleGroupRuleCaptchaConfigImmunityTimeProperty;
     }
 
     export interface RuleGroupRuleCaptchaConfigImmunityTimeProperty {
         /**
-         * The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+         * Amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
          */
         immunityTime?: number;
     }
 
     export interface RuleGroupRuleRuleLabel {
         /**
-         * The label string.
+         * Label string.
          */
         name: string;
     }
 
     export interface RuleGroupRuleStatement {
         /**
-         * A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+         * Logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
          */
         andStatement?: outputs.wafv2.RuleGroupRuleStatementAndStatement;
         /**
@@ -123182,58 +123852,58 @@ export namespace wafv2 {
          */
         asnMatchStatement?: outputs.wafv2.RuleGroupRuleStatementAsnMatchStatement;
         /**
-         * A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+         * Rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
          */
         byteMatchStatement?: outputs.wafv2.RuleGroupRuleStatementByteMatchStatement;
         /**
-         * A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+         * Rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
          */
         geoMatchStatement?: outputs.wafv2.RuleGroupRuleStatementGeoMatchStatement;
         /**
-         * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         * Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.RuleGroupRuleStatementIpSetReferenceStatement;
         /**
-         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         * Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
          */
         labelMatchStatement?: outputs.wafv2.RuleGroupRuleStatementLabelMatchStatement;
         /**
-         * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
+         * Logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
         notStatement?: outputs.wafv2.RuleGroupRuleStatementNotStatement;
         /**
-         * A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
+         * Logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
          */
         orStatement?: outputs.wafv2.RuleGroupRuleStatementOrStatement;
         /**
-         * A rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See Rate Based Statement below for details.
+         * Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See Rate Based Statement below for details.
          */
         rateBasedStatement?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatement;
         /**
-         * A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+         * Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
          */
         regexMatchStatement?: outputs.wafv2.RuleGroupRuleStatementRegexMatchStatement;
         /**
-         * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         * Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: outputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatement;
         /**
-         * A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+         * Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
          */
         sizeConstraintStatement?: outputs.wafv2.RuleGroupRuleStatementSizeConstraintStatement;
         /**
-         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+         * SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
          */
         sqliMatchStatement?: outputs.wafv2.RuleGroupRuleStatementSqliMatchStatement;
         /**
-         * A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+         * Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
          */
         xssMatchStatement?: outputs.wafv2.RuleGroupRuleStatementXssMatchStatement;
     }
 
     export interface RuleGroupRuleStatementAndStatement {
         /**
-         * The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+         * Statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
          */
         statements: outputs.wafv2.RuleGroupRuleStatement[];
     }
@@ -123262,11 +123932,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementByteMatchStatement {
         /**
-         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         * Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: outputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatch;
         /**
-         * The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+         * Area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
          */
         positionalConstraint: string;
         /**
@@ -123274,13 +123944,11 @@ export namespace wafv2 {
          */
         preParseTextTransformations?: outputs.wafv2.RuleGroupRuleStatementByteMatchStatementPreParseTextTransformation[];
         /**
-         * A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+         * String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
          */
         searchString: string;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
          */
         textTransformations: outputs.wafv2.RuleGroupRuleStatementByteMatchStatementTextTransformation[];
     }
@@ -123353,11 +124021,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchCookies {
         /**
-         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         * Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
          */
         matchPatterns: outputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern[];
         /**
-         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         * Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
          */
         matchScope: string;
         /**
@@ -123368,7 +124036,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: outputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
@@ -123380,11 +124048,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchHeader {
         /**
-         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         * Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
          */
         matchPattern: outputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern;
         /**
-         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         * Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
          */
         matchScope: string;
         /**
@@ -123395,15 +124063,15 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: outputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll;
         /**
-         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
          */
         excludedHeaders?: string[];
         /**
-         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
          */
         includedHeaders?: string[];
     }
@@ -123420,14 +124088,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
@@ -123438,11 +124106,11 @@ export namespace wafv2 {
          */
         invalidFallbackBehavior?: string;
         /**
-         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         * Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
          */
         matchPattern: outputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern;
         /**
-         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         * Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
          */
         matchScope: string;
         /**
@@ -123453,7 +124121,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: outputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
@@ -123470,14 +124138,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
@@ -123494,33 +124162,33 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementByteMatchStatementPreParseTextTransformation {
         /**
-         * The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+         * Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
          */
         priority: number;
         /**
-         * The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+         * Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
          */
         type: string;
     }
 
     export interface RuleGroupRuleStatementByteMatchStatementTextTransformation {
         /**
-         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
          */
         priority: number;
         /**
-         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
          */
         type: string;
     }
 
     export interface RuleGroupRuleStatementGeoMatchStatement {
         /**
-         * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+         * Array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
         /**
-         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         * Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
          */
         forwardedIpConfig?: outputs.wafv2.RuleGroupRuleStatementGeoMatchStatementForwardedIpConfig;
     }
@@ -123542,7 +124210,7 @@ export namespace wafv2 {
          */
         arn: string;
         /**
-         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         * Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
          */
         ipSetForwardedIpConfig?: outputs.wafv2.RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig;
     }
@@ -123564,7 +124232,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementLabelMatchStatement {
         /**
-         * The string to match against.
+         * String to match against.
          */
         key: string;
         /**
@@ -123575,14 +124243,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementNotStatement {
         /**
-         * The statement to negate. You can use any statement that can be nested. See Statement above for details.
+         * Statement to negate. You can use any statement that can be nested. See Statement above for details.
          */
         statements: outputs.wafv2.RuleGroupRuleStatement[];
     }
 
     export interface RuleGroupRuleStatementOrStatement {
         /**
-         * The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+         * Statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
          */
         statements: outputs.wafv2.RuleGroupRuleStatement[];
     }
@@ -123597,13 +124265,13 @@ export namespace wafv2 {
          */
         customKeys?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKey[];
         /**
-         * The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
+         * Amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
          *
          * **NOTE:** This setting doesn't determine how often AWS WAF checks the rate, but how far back it looks each time it checks. AWS WAF checks the rate about every 10 seconds.
          */
         evaluationWindowSec?: number;
         /**
-         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregateKeyType` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
+         * Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregateKeyType` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
          */
         forwardedIpConfig?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementForwardedIpConfig;
         /**
@@ -123611,7 +124279,7 @@ export namespace wafv2 {
          */
         limit: number;
         /**
-         * An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details. If `aggregateKeyType` is set to `CONSTANT`, this block is required.
+         * Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details. If `aggregateKeyType` is set to `CONSTANT`, this block is required.
          */
         scopeDownStatement?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatement;
     }
@@ -123619,47 +124287,47 @@ export namespace wafv2 {
     export interface RuleGroupRuleStatementRateBasedStatementCustomKey {
         asn?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyAsn;
         /**
-         * (Optional) Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
+         * Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
          */
         cookie?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyCookie;
         /**
-         * (Optional) Use the first IP address in an HTTP header as an aggregate key. See `forwardedIp` below for details.
+         * Use the first IP address in an HTTP header as an aggregate key. See `forwardedIp` below for details.
          */
         forwardedIp?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIp;
         /**
-         * (Optional) Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
+         * Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
          */
         header?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyHeader;
         /**
-         * (Optional) Use the request's HTTP method as an aggregate key. See RateLimit `httpMethod` below for details.
+         * Use the request's HTTP method as an aggregate key. See RateLimit `httpMethod` below for details.
          */
         httpMethod?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethod;
         /**
-         * (Optional) Use the request's originating IP address as an aggregate key. See `RateLimit ip` below for details.
+         * Use the request's originating IP address as an aggregate key. See `RateLimit ip` below for details.
          */
         ip?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyIp;
         /**
-         * (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+         * Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ja3Fingerprint` below for details.
          */
         ja3Fingerprint?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyJa3Fingerprint;
         /**
-         * (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+         * Use the JA4 fingerprint in the request as an aggregate key. See `RateLimit ja4Fingerprint` below for details.
          */
         ja4Fingerprint?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyJa4Fingerprint;
         /**
-         * (Optional) Use the specified label namespace as an aggregate key. See RateLimit `labelNamespace` below for details.
+         * Use the specified label namespace as an aggregate key. See RateLimit `labelNamespace` below for details.
          */
         labelNamespace?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespace;
         /**
-         * (Optional) Use the specified query argument as an aggregate key. See RateLimit `queryArgument` below for details.
+         * Use the specified query argument as an aggregate key. See RateLimit `queryArgument` below for details.
          */
         queryArgument?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument;
         /**
-         * (Optional) Use the request's query string as an aggregate key. See RateLimit `queryString` below for details.
+         * Use the request's query string as an aggregate key. See RateLimit `queryString` below for details.
          */
         queryString?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString;
         /**
-         * (Optional) Use the request's URI path as an aggregate key. See RateLimit `uriPath` below for details.
+         * Use the request's URI path as an aggregate key. See RateLimit `uriPath` below for details.
          */
         uriPath?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath;
     }
@@ -123669,22 +124337,22 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementCustomKeyCookie {
         /**
-         * A friendly name of the rule group.
+         * The name of the cookie to use.
          */
         name: string;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required.  See Text Transformation above for details.
          */
         textTransformations: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformation[];
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformation {
         /**
-         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
          */
         priority: number;
         /**
-         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
          */
         type: string;
     }
@@ -123694,22 +124362,22 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementCustomKeyHeader {
         /**
-         * A friendly name of the rule group.
+         * The name of the header to use.
          */
         name: string;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required.  See Text Transformation above for details.
          */
         textTransformations: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation[];
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation {
         /**
-         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
          */
         priority: number;
         /**
-         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
          */
         type: string;
     }
@@ -123722,14 +124390,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementCustomKeyJa3Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementCustomKeyJa4Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
@@ -123743,7 +124411,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument {
         /**
-         * A friendly name of the rule group.
+         * The name of the query argument to use.
          */
         name: string;
         /**
@@ -123754,11 +124422,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformation {
         /**
-         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
          */
         priority: number;
         /**
-         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
          */
         type: string;
     }
@@ -123772,11 +124440,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformation {
         /**
-         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
          */
         priority: number;
         /**
-         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
          */
         type: string;
     }
@@ -123790,11 +124458,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation {
         /**
-         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
          */
         priority: number;
         /**
-         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
          */
         type: string;
     }
@@ -123812,7 +124480,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatement {
         /**
-         * A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+         * Logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
          */
         andStatement?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement;
         /**
@@ -123820,54 +124488,54 @@ export namespace wafv2 {
          */
         asnMatchStatement?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement;
         /**
-         * A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+         * Rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
          */
         byteMatchStatement?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement;
         /**
-         * A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+         * Rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
          */
         geoMatchStatement?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement;
         /**
-         * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         * Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement;
         /**
-         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         * Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
          */
         labelMatchStatement?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement;
         /**
-         * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
+         * Logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
         notStatement?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatement;
         /**
-         * A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
+         * Logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
          */
         orStatement?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatement;
         /**
-         * A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+         * Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
          */
         regexMatchStatement?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement;
         /**
-         * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         * Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement;
         /**
-         * A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+         * Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
          */
         sizeConstraintStatement?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement;
         /**
-         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+         * SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
          */
         sqliMatchStatement?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement;
         /**
-         * A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+         * Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
          */
         xssMatchStatement?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement {
         /**
-         * The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+         * Statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
          */
         statements: outputs.wafv2.RuleGroupRuleStatement[];
     }
@@ -123896,11 +124564,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement {
         /**
-         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         * Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch;
         /**
-         * The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+         * Area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
          */
         positionalConstraint: string;
         /**
@@ -123908,13 +124576,11 @@ export namespace wafv2 {
          */
         preParseTextTransformations?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformation[];
         /**
-         * A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+         * String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
          */
         searchString: string;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
          */
         textTransformations: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation[];
     }
@@ -123987,11 +124653,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookies {
         /**
-         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         * Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
          */
         matchPatterns: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPattern[];
         /**
-         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         * Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
          */
         matchScope: string;
         /**
@@ -124002,7 +124668,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
@@ -124014,11 +124680,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeader {
         /**
-         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         * Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
          */
         matchPattern: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPattern;
         /**
-         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         * Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
          */
         matchScope: string;
         /**
@@ -124029,15 +124695,15 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll;
         /**
-         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
          */
         excludedHeaders?: string[];
         /**
-         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
          */
         includedHeaders?: string[];
     }
@@ -124054,14 +124720,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
@@ -124072,11 +124738,11 @@ export namespace wafv2 {
          */
         invalidFallbackBehavior?: string;
         /**
-         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         * Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
          */
         matchPattern: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern;
         /**
-         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         * Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
          */
         matchScope: string;
         /**
@@ -124087,7 +124753,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
@@ -124104,14 +124770,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
@@ -124128,33 +124794,33 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformation {
         /**
-         * The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+         * Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
          */
         priority: number;
         /**
-         * The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+         * Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
          */
         type: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation {
         /**
-         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
          */
         priority: number;
         /**
-         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
          */
         type: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement {
         /**
-         * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+         * Array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
          */
         countryCodes: string[];
         /**
-         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         * Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
          */
         forwardedIpConfig?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig;
     }
@@ -124176,7 +124842,7 @@ export namespace wafv2 {
          */
         arn: string;
         /**
-         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         * Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
          */
         ipSetForwardedIpConfig?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig;
     }
@@ -124198,7 +124864,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement {
         /**
-         * The string to match against.
+         * String to match against.
          */
         key: string;
         /**
@@ -124209,21 +124875,21 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatement {
         /**
-         * The statement to negate. You can use any statement that can be nested. See Statement above for details.
+         * Statement to negate. You can use any statement that can be nested. See Statement above for details.
          */
         statements: outputs.wafv2.RuleGroupRuleStatement[];
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatement {
         /**
-         * The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+         * Statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
          */
         statements: outputs.wafv2.RuleGroupRuleStatement[];
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement {
         /**
-         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         * Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatch;
         /**
@@ -124231,13 +124897,11 @@ export namespace wafv2 {
          */
         preParseTextTransformations?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformation[];
         /**
-         * The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
+         * String representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
          */
         regexString: string;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
          */
         textTransformations: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation[];
     }
@@ -124310,11 +124974,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies {
         /**
-         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         * Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
          */
         matchPatterns: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPattern[];
         /**
-         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         * Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
          */
         matchScope: string;
         /**
@@ -124325,7 +124989,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
@@ -124337,11 +125001,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader {
         /**
-         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         * Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
          */
         matchPattern: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPattern;
         /**
-         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         * Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
          */
         matchScope: string;
         /**
@@ -124352,15 +125016,15 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll;
         /**
-         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
          */
         excludedHeaders?: string[];
         /**
-         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
          */
         includedHeaders?: string[];
     }
@@ -124377,14 +125041,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
@@ -124395,11 +125059,11 @@ export namespace wafv2 {
          */
         invalidFallbackBehavior?: string;
         /**
-         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         * Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
          */
         matchPattern: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern;
         /**
-         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         * Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
          */
         matchScope: string;
         /**
@@ -124410,7 +125074,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
@@ -124427,14 +125091,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
@@ -124451,22 +125115,22 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformation {
         /**
-         * The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+         * Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
          */
         priority: number;
         /**
-         * The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+         * Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
          */
         type: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation {
         /**
-         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
          */
         priority: number;
         /**
-         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
          */
         type: string;
     }
@@ -124477,7 +125141,7 @@ export namespace wafv2 {
          */
         arn: string;
         /**
-         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         * Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch;
         /**
@@ -124485,9 +125149,7 @@ export namespace wafv2 {
          */
         preParseTextTransformations?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformation[];
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
          */
         textTransformations: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation[];
     }
@@ -124560,11 +125222,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies {
         /**
-         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         * Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
          */
         matchPatterns: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern[];
         /**
-         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         * Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
          */
         matchScope: string;
         /**
@@ -124575,7 +125237,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
@@ -124587,11 +125249,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader {
         /**
-         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         * Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
          */
         matchPattern: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern;
         /**
-         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         * Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
          */
         matchScope: string;
         /**
@@ -124602,15 +125264,15 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll;
         /**
-         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
          */
         excludedHeaders?: string[];
         /**
-         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
          */
         includedHeaders?: string[];
     }
@@ -124627,14 +125289,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
@@ -124645,11 +125307,11 @@ export namespace wafv2 {
          */
         invalidFallbackBehavior?: string;
         /**
-         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         * Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
          */
         matchPattern: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern;
         /**
-         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         * Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
          */
         matchScope: string;
         /**
@@ -124660,7 +125322,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
@@ -124677,14 +125339,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
         /**
-         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
@@ -124701,33 +125363,33 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformation {
         /**
-         * The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+         * Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
          */
         priority: number;
         /**
-         * The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+         * Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
          */
         type: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation {
         /**
-         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
          */
         priority: number;
         /**
-         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
          */
         type: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement {
         /**
-         * The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         * Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
          */
         comparisonOperator: string;
         /**
-         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         * Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch;
         /**
@@ -124735,13 +125397,11 @@ export namespace wafv2 {
          */
         preParseTextTransformations?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformation[];
         /**
-         * The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         * Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
          */
         size: number;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
          */
         textTransformations: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation[];
     }
@@ -124814,11 +125474,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies {
         /**
-         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         * Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
          */
         matchPatterns: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern[];
         /**
-         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         * Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
          */
         matchScope: string;
         /**
@@ -124829,7 +125489,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
@@ -124841,11 +125501,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader {
         /**
-         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         * Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
          */
         matchPattern: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern;
         /**
-         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         * Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
          */
         matchScope: string;
         /**
@@ -124856,15 +125516,15 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll;
         /**
-         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
          */
         excludedHeaders?: string[];
         /**
-         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
          */
         includedHeaders?: string[];
     }
@@ -124881,14 +125541,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
@@ -124899,11 +125559,11 @@ export namespace wafv2 {
          */
         invalidFallbackBehavior?: string;
         /**
-         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         * Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
          */
         matchPattern: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern;
         /**
-         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         * Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
          */
         matchScope: string;
         /**
@@ -124914,7 +125574,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
@@ -124931,14 +125591,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader {
         /**
-         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
@@ -124955,29 +125615,29 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformation {
         /**
-         * The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+         * Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
          */
         priority: number;
         /**
-         * The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+         * Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
          */
         type: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation {
         /**
-         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
          */
         priority: number;
         /**
-         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
          */
         type: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement {
         /**
-         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         * Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch;
         /**
@@ -124989,9 +125649,7 @@ export namespace wafv2 {
          */
         sensitivityLevel?: string;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
          */
         textTransformations: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation[];
     }
@@ -125064,11 +125722,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookies {
         /**
-         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         * Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
          */
         matchPatterns: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPattern[];
         /**
-         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         * Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
          */
         matchScope: string;
         /**
@@ -125079,7 +125737,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
@@ -125091,11 +125749,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader {
         /**
-         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         * Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
          */
         matchPattern: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPattern;
         /**
-         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         * Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
          */
         matchScope: string;
         /**
@@ -125106,15 +125764,15 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll;
         /**
-         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
          */
         excludedHeaders?: string[];
         /**
-         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
          */
         includedHeaders?: string[];
     }
@@ -125131,14 +125789,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
@@ -125149,11 +125807,11 @@ export namespace wafv2 {
          */
         invalidFallbackBehavior?: string;
         /**
-         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         * Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
          */
         matchPattern: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern;
         /**
-         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         * Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
          */
         matchScope: string;
         /**
@@ -125164,7 +125822,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
@@ -125181,14 +125839,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
@@ -125205,29 +125863,29 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformation {
         /**
-         * The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+         * Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
          */
         priority: number;
         /**
-         * The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+         * Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
          */
         type: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation {
         /**
-         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
          */
         priority: number;
         /**
-         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
          */
         type: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement {
         /**
-         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         * Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch;
         /**
@@ -125235,9 +125893,7 @@ export namespace wafv2 {
          */
         preParseTextTransformations?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformation[];
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
          */
         textTransformations: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation[];
     }
@@ -125310,11 +125966,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies {
         /**
-         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         * Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
          */
         matchPatterns: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern[];
         /**
-         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         * Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
          */
         matchScope: string;
         /**
@@ -125325,7 +125981,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
@@ -125337,11 +125993,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeader {
         /**
-         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         * Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
          */
         matchPattern: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern;
         /**
-         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         * Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
          */
         matchScope: string;
         /**
@@ -125352,15 +126008,15 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll;
         /**
-         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
          */
         excludedHeaders?: string[];
         /**
-         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
          */
         includedHeaders?: string[];
     }
@@ -125377,14 +126033,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa4Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
@@ -125395,11 +126051,11 @@ export namespace wafv2 {
          */
         invalidFallbackBehavior?: string;
         /**
-         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         * Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
          */
         matchPattern: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern;
         /**
-         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         * Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
          */
         matchScope: string;
         /**
@@ -125410,7 +126066,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
@@ -125427,14 +126083,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
@@ -125451,29 +126107,29 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformation {
         /**
-         * The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+         * Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
          */
         priority: number;
         /**
-         * The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+         * Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
          */
         type: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation {
         /**
-         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
          */
         priority: number;
         /**
-         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
          */
         type: string;
     }
 
     export interface RuleGroupRuleStatementRegexMatchStatement {
         /**
-         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         * Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: outputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatch;
         /**
@@ -125481,13 +126137,11 @@ export namespace wafv2 {
          */
         preParseTextTransformations?: outputs.wafv2.RuleGroupRuleStatementRegexMatchStatementPreParseTextTransformation[];
         /**
-         * The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
+         * String representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
          */
         regexString: string;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
          */
         textTransformations: outputs.wafv2.RuleGroupRuleStatementRegexMatchStatementTextTransformation[];
     }
@@ -125560,11 +126214,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookies {
         /**
-         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         * Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
          */
         matchPatterns: outputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern[];
         /**
-         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         * Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
          */
         matchScope: string;
         /**
@@ -125575,7 +126229,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: outputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
@@ -125587,11 +126241,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeader {
         /**
-         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         * Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
          */
         matchPattern: outputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern;
         /**
-         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         * Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
          */
         matchScope: string;
         /**
@@ -125602,15 +126256,15 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: outputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll;
         /**
-         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
          */
         excludedHeaders?: string[];
         /**
-         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
          */
         includedHeaders?: string[];
     }
@@ -125627,14 +126281,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
 
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa4Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
@@ -125645,11 +126299,11 @@ export namespace wafv2 {
          */
         invalidFallbackBehavior?: string;
         /**
-         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         * Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
          */
         matchPattern: outputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern;
         /**
-         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         * Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
          */
         matchScope: string;
         /**
@@ -125660,7 +126314,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: outputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
@@ -125677,14 +126331,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
 
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
@@ -125701,22 +126355,22 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexMatchStatementPreParseTextTransformation {
         /**
-         * The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+         * Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
          */
         priority: number;
         /**
-         * The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+         * Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
          */
         type: string;
     }
 
     export interface RuleGroupRuleStatementRegexMatchStatementTextTransformation {
         /**
-         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
          */
         priority: number;
         /**
-         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
          */
         type: string;
     }
@@ -125727,7 +126381,7 @@ export namespace wafv2 {
          */
         arn: string;
         /**
-         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         * Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: outputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch;
         /**
@@ -125735,9 +126389,7 @@ export namespace wafv2 {
          */
         preParseTextTransformations?: outputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformation[];
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
          */
         textTransformations: outputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformation[];
     }
@@ -125810,11 +126462,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies {
         /**
-         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         * Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
          */
         matchPatterns: outputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern[];
         /**
-         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         * Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
          */
         matchScope: string;
         /**
@@ -125825,7 +126477,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: outputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
@@ -125837,11 +126489,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader {
         /**
-         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         * Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
          */
         matchPattern: outputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern;
         /**
-         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         * Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
          */
         matchScope: string;
         /**
@@ -125852,15 +126504,15 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: outputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll;
         /**
-         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
          */
         excludedHeaders?: string[];
         /**
-         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
          */
         includedHeaders?: string[];
     }
@@ -125877,14 +126529,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
@@ -125895,11 +126547,11 @@ export namespace wafv2 {
          */
         invalidFallbackBehavior?: string;
         /**
-         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         * Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
          */
         matchPattern: outputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern;
         /**
-         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         * Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
          */
         matchScope: string;
         /**
@@ -125910,7 +126562,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: outputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
@@ -125927,14 +126579,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
         /**
-         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
@@ -125951,33 +126603,33 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformation {
         /**
-         * The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+         * Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
          */
         priority: number;
         /**
-         * The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+         * Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
          */
         type: string;
     }
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformation {
         /**
-         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
          */
         priority: number;
         /**
-         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
          */
         type: string;
     }
 
     export interface RuleGroupRuleStatementSizeConstraintStatement {
         /**
-         * The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         * Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
          */
         comparisonOperator: string;
         /**
-         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         * Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: outputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatch;
         /**
@@ -125985,13 +126637,11 @@ export namespace wafv2 {
          */
         preParseTextTransformations?: outputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementPreParseTextTransformation[];
         /**
-         * The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         * Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
          */
         size: number;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
          */
         textTransformations: outputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementTextTransformation[];
     }
@@ -126064,11 +126714,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookies {
         /**
-         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         * Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
          */
         matchPatterns: outputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern[];
         /**
-         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         * Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
          */
         matchScope: string;
         /**
@@ -126079,7 +126729,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: outputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
@@ -126091,11 +126741,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeader {
         /**
-         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         * Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
          */
         matchPattern: outputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern;
         /**
-         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         * Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
          */
         matchScope: string;
         /**
@@ -126106,15 +126756,15 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: outputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll;
         /**
-         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
          */
         excludedHeaders?: string[];
         /**
-         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
          */
         includedHeaders?: string[];
     }
@@ -126131,14 +126781,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
 
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
@@ -126149,11 +126799,11 @@ export namespace wafv2 {
          */
         invalidFallbackBehavior?: string;
         /**
-         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         * Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
          */
         matchPattern: outputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern;
         /**
-         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         * Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
          */
         matchScope: string;
         /**
@@ -126164,7 +126814,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: outputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
@@ -126181,14 +126831,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeader {
         /**
-         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
 
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
@@ -126205,29 +126855,29 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSizeConstraintStatementPreParseTextTransformation {
         /**
-         * The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+         * Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
          */
         priority: number;
         /**
-         * The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+         * Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
          */
         type: string;
     }
 
     export interface RuleGroupRuleStatementSizeConstraintStatementTextTransformation {
         /**
-         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
          */
         priority: number;
         /**
-         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
          */
         type: string;
     }
 
     export interface RuleGroupRuleStatementSqliMatchStatement {
         /**
-         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         * Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: outputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatch;
         /**
@@ -126239,9 +126889,7 @@ export namespace wafv2 {
          */
         sensitivityLevel?: string;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
          */
         textTransformations: outputs.wafv2.RuleGroupRuleStatementSqliMatchStatementTextTransformation[];
     }
@@ -126314,11 +126962,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies {
         /**
-         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         * Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
          */
         matchPatterns: outputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern[];
         /**
-         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         * Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
          */
         matchScope: string;
         /**
@@ -126329,7 +126977,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: outputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
@@ -126341,11 +126989,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeader {
         /**
-         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         * Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
          */
         matchPattern: outputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern;
         /**
-         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         * Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
          */
         matchScope: string;
         /**
@@ -126356,15 +127004,15 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: outputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll;
         /**
-         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
          */
         excludedHeaders?: string[];
         /**
-         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
          */
         includedHeaders?: string[];
     }
@@ -126381,14 +127029,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
 
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
@@ -126399,11 +127047,11 @@ export namespace wafv2 {
          */
         invalidFallbackBehavior?: string;
         /**
-         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         * Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
          */
         matchPattern: outputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern;
         /**
-         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         * Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
          */
         matchScope: string;
         /**
@@ -126414,7 +127062,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: outputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
@@ -126431,14 +127079,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
 
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
@@ -126455,29 +127103,29 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSqliMatchStatementPreParseTextTransformation {
         /**
-         * The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+         * Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
          */
         priority: number;
         /**
-         * The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+         * Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
          */
         type: string;
     }
 
     export interface RuleGroupRuleStatementSqliMatchStatementTextTransformation {
         /**
-         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
          */
         priority: number;
         /**
-         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
          */
         type: string;
     }
 
     export interface RuleGroupRuleStatementXssMatchStatement {
         /**
-         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         * Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: outputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatch;
         /**
@@ -126485,9 +127133,7 @@ export namespace wafv2 {
          */
         preParseTextTransformations?: outputs.wafv2.RuleGroupRuleStatementXssMatchStatementPreParseTextTransformation[];
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
          */
         textTransformations: outputs.wafv2.RuleGroupRuleStatementXssMatchStatementTextTransformation[];
     }
@@ -126560,11 +127206,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchCookies {
         /**
-         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         * Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
          */
         matchPatterns: outputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern[];
         /**
-         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         * Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
          */
         matchScope: string;
         /**
@@ -126575,7 +127221,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: outputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll;
         excludedCookies?: string[];
@@ -126587,11 +127233,11 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchHeader {
         /**
-         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         * Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
          */
         matchPattern: outputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern;
         /**
-         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         * Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
          */
         matchScope: string;
         /**
@@ -126602,15 +127248,15 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: outputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll;
         /**
-         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
          */
         excludedHeaders?: string[];
         /**
-         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         * Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
          */
         includedHeaders?: string[];
     }
@@ -126627,14 +127273,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint {
         /**
-         * The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+         * Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
          */
         fallbackBehavior: string;
     }
@@ -126645,11 +127291,11 @@ export namespace wafv2 {
          */
         invalidFallbackBehavior?: string;
         /**
-         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         * Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
          */
         matchPattern: outputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern;
         /**
-         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         * Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
          */
         matchScope: string;
         /**
@@ -126660,7 +127306,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern {
         /**
-         * An empty configuration block that is used for inspecting all headers.
+         * Empty configuration block that is used for inspecting all headers.
          */
         all?: outputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll;
         includedPaths?: string[];
@@ -126677,14 +127323,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+         * Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
@@ -126701,52 +127347,52 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementXssMatchStatementPreParseTextTransformation {
         /**
-         * The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+         * Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
          */
         priority: number;
         /**
-         * The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+         * Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
          */
         type: string;
     }
 
     export interface RuleGroupRuleStatementXssMatchStatementTextTransformation {
         /**
-         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
          */
         priority: number;
         /**
-         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
          */
         type: string;
     }
 
     export interface RuleGroupRuleVisibilityConfig {
         /**
-         * A boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
+         * Boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
          */
         cloudwatchMetricsEnabled: boolean;
         /**
-         * A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
+         * Friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
          */
         metricName: string;
         /**
-         * A boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
+         * Boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
          */
         sampledRequestsEnabled: boolean;
     }
 
     export interface RuleGroupVisibilityConfig {
         /**
-         * A boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
+         * Boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
          */
         cloudwatchMetricsEnabled: boolean;
         /**
-         * A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
+         * Friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
          */
         metricName: string;
         /**
-         * A boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
+         * Boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
          */
         sampledRequestsEnabled: boolean;
     }
@@ -126776,70 +127422,70 @@ export namespace wafv2 {
          */
         cognitoUserPool?: outputs.wafv2.WebAclAssociationConfigRequestBodyCognitoUserPool;
         /**
-         * Customizes the request body that your protected AWS Verfied Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verifiedAccessInstance` below for details.
+         * Customizes the request body that your protected AWS Verified Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verifiedAccessInstance` below for details.
          */
         verifiedAccessInstance?: outputs.wafv2.WebAclAssociationConfigRequestBodyVerifiedAccessInstance;
     }
 
     export interface WebAclAssociationConfigRequestBodyApiGateway {
         /**
-         * Specifies the maximum size of the web request body component that an associated Amazon API Gateway REST APIs should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+         * Maximum size of the web request body component that an associated Amazon API Gateway REST APIs should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
          */
         defaultSizeInspectionLimit: string;
     }
 
     export interface WebAclAssociationConfigRequestBodyAppRunnerService {
         /**
-         * Specifies the maximum size of the web request body component that an associated Amazon App Runner services should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+         * Maximum size of the web request body component that an associated Amazon App Runner services should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
          */
         defaultSizeInspectionLimit: string;
     }
 
     export interface WebAclAssociationConfigRequestBodyCloudfront {
         /**
-         * Specifies the maximum size of the web request body component that an associated Amazon CloudFront distribution should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+         * Maximum size of the web request body component that an associated Amazon CloudFront distribution should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
          */
         defaultSizeInspectionLimit: string;
     }
 
     export interface WebAclAssociationConfigRequestBodyCognitoUserPool {
         /**
-         * Specifies the maximum size of the web request body component that an associated Amazon Cognito user pools should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+         * Maximum size of the web request body component that an associated Amazon Cognito user pools should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
          */
         defaultSizeInspectionLimit: string;
     }
 
     export interface WebAclAssociationConfigRequestBodyVerifiedAccessInstance {
         /**
-         * Specifies the maximum size of the web request body component that an associated AWS Verified Access instances should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+         * Maximum size of the web request body component that an associated AWS Verified Access instances should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
          */
         defaultSizeInspectionLimit: string;
     }
 
     export interface WebAclCaptchaConfig {
         /**
-         * Defines custom immunity time. See `immunityTimeProperty` below for details.
+         * Custom immunity time. See `immunityTimeProperty` below for details.
          */
         immunityTimeProperty?: outputs.wafv2.WebAclCaptchaConfigImmunityTimeProperty;
     }
 
     export interface WebAclCaptchaConfigImmunityTimeProperty {
         /**
-         * The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+         * Amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
          */
         immunityTime?: number;
     }
 
     export interface WebAclChallengeConfig {
         /**
-         * Defines custom immunity time. See `immunityTimeProperty` below for details.
+         * Custom immunity time. See `immunityTimeProperty` below for details.
          */
         immunityTimeProperty?: outputs.wafv2.WebAclChallengeConfigImmunityTimeProperty;
     }
 
     export interface WebAclChallengeConfigImmunityTimeProperty {
         /**
-         * The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+         * Amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
          */
         immunityTime?: number;
     }
@@ -126861,14 +127507,14 @@ export namespace wafv2 {
 
     export interface WebAclDataProtectionConfig {
         /**
-         * A block for data protection configurations for specific web request field types. See `dataProtection` block for details.
+         * Block for data protection configurations for specific web request field types. See `dataProtection` block for details.
          */
         dataProtections?: outputs.wafv2.WebAclDataProtectionConfigDataProtection[];
     }
 
     export interface WebAclDataProtectionConfigDataProtection {
         /**
-         * Specifies how to protect the field. Valid values are `SUBSTITUTION` or `HASH`.
+         * Protection behavior to apply to the field. Valid values are `SUBSTITUTION` or `HASH`.
          */
         action: string;
         /**
@@ -126880,7 +127526,7 @@ export namespace wafv2 {
          */
         excludeRuleMatchDetails?: boolean;
         /**
-         * Specifies the field type and optional keys to apply the protection behavior to. See `field` block below for details.
+         * Field type and optional keys to apply the protection behavior to. See `field` block below for details.
          */
         field: outputs.wafv2.WebAclDataProtectionConfigDataProtectionField;
     }
@@ -126891,32 +127537,32 @@ export namespace wafv2 {
          */
         fieldKeys?: string[];
         /**
-         * Specifies the web request component type to protect. Valid Values are `SINGLE_HEADER`, `SINGLE_COOKIE`, `SINGLE_QUERY_ARGUMENT`, `QUERY_STRING`, `BODY`.
+         * Web request component type to protect. Valid Values are `SINGLE_HEADER`, `SINGLE_COOKIE`, `SINGLE_QUERY_ARGUMENT`, `QUERY_STRING`, `BODY`.
          */
         fieldType: string;
     }
 
     export interface WebAclDefaultAction {
         /**
-         * Specifies that AWS WAF should allow requests by default. See `allow` below for details.
+         * Allows requests by default. See `allow` below for details.
          */
         allow?: outputs.wafv2.WebAclDefaultActionAllow;
         /**
-         * Specifies that AWS WAF should block requests by default. See `block` below for details.
+         * Blocks requests by default. See `block` below for details.
          */
         block?: outputs.wafv2.WebAclDefaultActionBlock;
     }
 
     export interface WebAclDefaultActionAllow {
         /**
-         * Defines custom handling for the web request. See `customRequestHandling` below for details.
+         * Custom handling for the web request. See `customRequestHandling` below for details.
          */
         customRequestHandling?: outputs.wafv2.WebAclDefaultActionAllowCustomRequestHandling;
     }
 
     export interface WebAclDefaultActionAllowCustomRequestHandling {
         /**
-         * The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+         * `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
          */
         insertHeaders: outputs.wafv2.WebAclDefaultActionAllowCustomRequestHandlingInsertHeader[];
     }
@@ -126934,7 +127580,7 @@ export namespace wafv2 {
 
     export interface WebAclDefaultActionBlock {
         /**
-         * Defines a custom response for the web request. See `customResponse` below for details.
+         * Custom response for the web request. See `customResponse` below for details.
          */
         customResponse?: outputs.wafv2.WebAclDefaultActionBlockCustomResponse;
     }
@@ -126945,11 +127591,11 @@ export namespace wafv2 {
          */
         customResponseBodyKey?: string;
         /**
-         * The HTTP status code to return to the client.
+         * HTTP status code to return to the client.
          */
         responseCode: number;
         /**
-         * The `responseHeader` blocks used to define the HTTP response headers added to the response. See `responseHeader` below for details.
+         * `responseHeader` blocks used to define the HTTP response headers added to the response. See `responseHeader` below for details.
          */
         responseHeaders?: outputs.wafv2.WebAclDefaultActionBlockCustomResponseResponseHeader[];
     }
@@ -127057,11 +127703,11 @@ export namespace wafv2 {
          */
         action?: outputs.wafv2.WebAclRuleAction;
         /**
-         * Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
+         * Configuration for how AWS WAF handles CAPTCHA evaluations. See `captchaConfig` below for details.
          */
         captchaConfig?: outputs.wafv2.WebAclRuleCaptchaConfig;
         /**
-         * Specifies how AWS WAF should handle Challenge evaluations on the rule level. See `challengeConfig` below for details.
+         * Configuration for how AWS WAF handles Challenge evaluations at the rule level. See `challengeConfig` below for details.
          */
         challengeConfig?: outputs.wafv2.WebAclRuleChallengeConfig;
         /**
@@ -127081,11 +127727,11 @@ export namespace wafv2 {
          */
         ruleLabels?: outputs.wafv2.WebAclRuleRuleLabel[];
         /**
-         * The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See `statement` below for details.
+         * AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See `statement` below for details.
          */
         statement: outputs.wafv2.WebAclRuleStatement;
         /**
-         * Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
+         * Amazon CloudWatch metrics and web request sample collection configuration. See `visibilityConfig` below for details.
          */
         visibilityConfig: outputs.wafv2.WebAclRuleVisibilityConfig;
     }
@@ -133559,7 +134205,7 @@ export namespace wafv2 {
          */
         cloudwatchMetricsEnabled: boolean;
         /**
-         * A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
+         * Friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
          */
         metricName: string;
         /**

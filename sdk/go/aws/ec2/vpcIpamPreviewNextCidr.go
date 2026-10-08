@@ -80,13 +80,13 @@ import (
 type VpcIpamPreviewNextCidr struct {
 	pulumi.CustomResourceState
 
-	// The previewed CIDR from the pool.
+	// Previewed CIDR from the pool.
 	Cidr pulumi.StringOutput `pulumi:"cidr"`
 	// Exclude a particular CIDR range from being returned by the pool.
 	DisallowedCidrs pulumi.StringArrayOutput `pulumi:"disallowedCidrs"`
-	// The ID of the pool to which you want to assign a CIDR.
+	// ID of the pool to which you want to assign a CIDR.
 	IpamPoolId pulumi.StringOutput `pulumi:"ipamPoolId"`
-	// The netmask length of the CIDR you would like to preview from the IPAM pool.
+	// Netmask length of the CIDR you would like to preview from the IPAM pool.
 	NetmaskLength pulumi.IntPtrOutput `pulumi:"netmaskLength"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -125,26 +125,26 @@ func GetVpcIpamPreviewNextCidr(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcIpamPreviewNextCidr resources.
 type vpcIpamPreviewNextCidrState struct {
-	// The previewed CIDR from the pool.
+	// Previewed CIDR from the pool.
 	Cidr *string `pulumi:"cidr"`
 	// Exclude a particular CIDR range from being returned by the pool.
 	DisallowedCidrs []string `pulumi:"disallowedCidrs"`
-	// The ID of the pool to which you want to assign a CIDR.
+	// ID of the pool to which you want to assign a CIDR.
 	IpamPoolId *string `pulumi:"ipamPoolId"`
-	// The netmask length of the CIDR you would like to preview from the IPAM pool.
+	// Netmask length of the CIDR you would like to preview from the IPAM pool.
 	NetmaskLength *int `pulumi:"netmaskLength"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 type VpcIpamPreviewNextCidrState struct {
-	// The previewed CIDR from the pool.
+	// Previewed CIDR from the pool.
 	Cidr pulumi.StringPtrInput
 	// Exclude a particular CIDR range from being returned by the pool.
 	DisallowedCidrs pulumi.StringArrayInput
-	// The ID of the pool to which you want to assign a CIDR.
+	// ID of the pool to which you want to assign a CIDR.
 	IpamPoolId pulumi.StringPtrInput
-	// The netmask length of the CIDR you would like to preview from the IPAM pool.
+	// Netmask length of the CIDR you would like to preview from the IPAM pool.
 	NetmaskLength pulumi.IntPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -157,9 +157,9 @@ func (VpcIpamPreviewNextCidrState) ElementType() reflect.Type {
 type vpcIpamPreviewNextCidrArgs struct {
 	// Exclude a particular CIDR range from being returned by the pool.
 	DisallowedCidrs []string `pulumi:"disallowedCidrs"`
-	// The ID of the pool to which you want to assign a CIDR.
+	// ID of the pool to which you want to assign a CIDR.
 	IpamPoolId string `pulumi:"ipamPoolId"`
-	// The netmask length of the CIDR you would like to preview from the IPAM pool.
+	// Netmask length of the CIDR you would like to preview from the IPAM pool.
 	NetmaskLength *int `pulumi:"netmaskLength"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -169,9 +169,9 @@ type vpcIpamPreviewNextCidrArgs struct {
 type VpcIpamPreviewNextCidrArgs struct {
 	// Exclude a particular CIDR range from being returned by the pool.
 	DisallowedCidrs pulumi.StringArrayInput
-	// The ID of the pool to which you want to assign a CIDR.
+	// ID of the pool to which you want to assign a CIDR.
 	IpamPoolId pulumi.StringInput
-	// The netmask length of the CIDR you would like to preview from the IPAM pool.
+	// Netmask length of the CIDR you would like to preview from the IPAM pool.
 	NetmaskLength pulumi.IntPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -264,7 +264,7 @@ func (o VpcIpamPreviewNextCidrOutput) ToVpcIpamPreviewNextCidrOutputWithContext(
 	return o
 }
 
-// The previewed CIDR from the pool.
+// Previewed CIDR from the pool.
 func (o VpcIpamPreviewNextCidrOutput) Cidr() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamPreviewNextCidr) pulumi.StringOutput { return v.Cidr }).(pulumi.StringOutput)
 }
@@ -274,12 +274,12 @@ func (o VpcIpamPreviewNextCidrOutput) DisallowedCidrs() pulumi.StringArrayOutput
 	return o.ApplyT(func(v *VpcIpamPreviewNextCidr) pulumi.StringArrayOutput { return v.DisallowedCidrs }).(pulumi.StringArrayOutput)
 }
 
-// The ID of the pool to which you want to assign a CIDR.
+// ID of the pool to which you want to assign a CIDR.
 func (o VpcIpamPreviewNextCidrOutput) IpamPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamPreviewNextCidr) pulumi.StringOutput { return v.IpamPoolId }).(pulumi.StringOutput)
 }
 
-// The netmask length of the CIDR you would like to preview from the IPAM pool.
+// Netmask length of the CIDR you would like to preview from the IPAM pool.
 func (o VpcIpamPreviewNextCidrOutput) NetmaskLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VpcIpamPreviewNextCidr) pulumi.IntPtrOutput { return v.NetmaskLength }).(pulumi.IntPtrOutput)
 }

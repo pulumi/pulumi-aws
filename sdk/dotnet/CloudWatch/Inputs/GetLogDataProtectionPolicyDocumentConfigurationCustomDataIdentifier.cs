@@ -13,7 +13,7 @@ namespace Pulumi.Aws.CloudWatch.Inputs
     public sealed class GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the custom data idenfitier
+        /// Name of the custom data identifier
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;

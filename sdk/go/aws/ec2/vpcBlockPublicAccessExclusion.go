@@ -107,14 +107,14 @@ type VpcBlockPublicAccessExclusion struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN the excluded resource.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
-	// Id of the subnet to which this exclusion applies. Either this or the vpcId needs to be provided.
+	// ID of the subnet to which this exclusion applies. Either this or the vpcId needs to be provided.
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
-	// A map of tags to assign to the exclusion. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the exclusion. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapOutput                         `pulumi:"tagsAll"`
 	Timeouts VpcBlockPublicAccessExclusionTimeoutsPtrOutput `pulumi:"timeouts"`
-	// Id of the VPC to which this exclusion applies. Either this or the subnetId needs to be provided.
+	// ID of the VPC to which this exclusion applies. Either this or the subnetId needs to be provided.
 	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
 }
 
@@ -159,14 +159,14 @@ type vpcBlockPublicAccessExclusionState struct {
 	Region *string `pulumi:"region"`
 	// ARN the excluded resource.
 	ResourceArn *string `pulumi:"resourceArn"`
-	// Id of the subnet to which this exclusion applies. Either this or the vpcId needs to be provided.
+	// ID of the subnet to which this exclusion applies. Either this or the vpcId needs to be provided.
 	SubnetId *string `pulumi:"subnetId"`
-	// A map of tags to assign to the exclusion. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the exclusion. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  map[string]string                      `pulumi:"tagsAll"`
 	Timeouts *VpcBlockPublicAccessExclusionTimeouts `pulumi:"timeouts"`
-	// Id of the VPC to which this exclusion applies. Either this or the subnetId needs to be provided.
+	// ID of the VPC to which this exclusion applies. Either this or the subnetId needs to be provided.
 	VpcId *string `pulumi:"vpcId"`
 }
 
@@ -179,14 +179,14 @@ type VpcBlockPublicAccessExclusionState struct {
 	Region pulumi.StringPtrInput
 	// ARN the excluded resource.
 	ResourceArn pulumi.StringPtrInput
-	// Id of the subnet to which this exclusion applies. Either this or the vpcId needs to be provided.
+	// ID of the subnet to which this exclusion applies. Either this or the vpcId needs to be provided.
 	SubnetId pulumi.StringPtrInput
-	// A map of tags to assign to the exclusion. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the exclusion. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapInput
 	Timeouts VpcBlockPublicAccessExclusionTimeoutsPtrInput
-	// Id of the VPC to which this exclusion applies. Either this or the subnetId needs to be provided.
+	// ID of the VPC to which this exclusion applies. Either this or the subnetId needs to be provided.
 	VpcId pulumi.StringPtrInput
 }
 
@@ -201,12 +201,12 @@ type vpcBlockPublicAccessExclusionArgs struct {
 	InternetGatewayExclusionMode string `pulumi:"internetGatewayExclusionMode"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Id of the subnet to which this exclusion applies. Either this or the vpcId needs to be provided.
+	// ID of the subnet to which this exclusion applies. Either this or the vpcId needs to be provided.
 	SubnetId *string `pulumi:"subnetId"`
-	// A map of tags to assign to the exclusion. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the exclusion. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string                      `pulumi:"tags"`
 	Timeouts *VpcBlockPublicAccessExclusionTimeouts `pulumi:"timeouts"`
-	// Id of the VPC to which this exclusion applies. Either this or the subnetId needs to be provided.
+	// ID of the VPC to which this exclusion applies. Either this or the subnetId needs to be provided.
 	VpcId *string `pulumi:"vpcId"`
 }
 
@@ -218,12 +218,12 @@ type VpcBlockPublicAccessExclusionArgs struct {
 	InternetGatewayExclusionMode pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Id of the subnet to which this exclusion applies. Either this or the vpcId needs to be provided.
+	// ID of the subnet to which this exclusion applies. Either this or the vpcId needs to be provided.
 	SubnetId pulumi.StringPtrInput
-	// A map of tags to assign to the exclusion. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the exclusion. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts VpcBlockPublicAccessExclusionTimeoutsPtrInput
-	// Id of the VPC to which this exclusion applies. Either this or the subnetId needs to be provided.
+	// ID of the VPC to which this exclusion applies. Either this or the subnetId needs to be provided.
 	VpcId pulumi.StringPtrInput
 }
 
@@ -331,17 +331,17 @@ func (o VpcBlockPublicAccessExclusionOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcBlockPublicAccessExclusion) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
-// Id of the subnet to which this exclusion applies. Either this or the vpcId needs to be provided.
+// ID of the subnet to which this exclusion applies. Either this or the vpcId needs to be provided.
 func (o VpcBlockPublicAccessExclusionOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcBlockPublicAccessExclusion) pulumi.StringPtrOutput { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
-// A map of tags to assign to the exclusion. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the exclusion. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VpcBlockPublicAccessExclusionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcBlockPublicAccessExclusion) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VpcBlockPublicAccessExclusionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcBlockPublicAccessExclusion) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
@@ -352,7 +352,7 @@ func (o VpcBlockPublicAccessExclusionOutput) Timeouts() VpcBlockPublicAccessExcl
 	}).(VpcBlockPublicAccessExclusionTimeoutsPtrOutput)
 }
 
-// Id of the VPC to which this exclusion applies. Either this or the subnetId needs to be provided.
+// ID of the VPC to which this exclusion applies. Either this or the subnetId needs to be provided.
 func (o VpcBlockPublicAccessExclusionOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcBlockPublicAccessExclusion) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
 }

@@ -57,6 +57,9 @@ export interface GetInputResult {
      * Channels attached to Input.
      */
     readonly attachedChannels: string[];
+    /**
+     * Destination settings for PUSH type inputs.
+     */
     readonly destinations: outputs.medialive.GetInputDestination[];
     readonly id: string;
     /**

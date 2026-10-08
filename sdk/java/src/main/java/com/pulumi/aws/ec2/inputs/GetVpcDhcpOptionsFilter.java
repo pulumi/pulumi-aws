@@ -32,16 +32,12 @@ public final class GetVpcDhcpOptionsFilter extends com.pulumi.resources.InvokeAr
     /**
      * Set of values for filtering.
      * 
-     * For more information about filtering, see the [EC2 API documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeDhcpOptions.html).
-     * 
      */
     @Import(name="values", required=true)
     private List<String> values;
 
     /**
      * @return Set of values for filtering.
-     * 
-     * For more information about filtering, see the [EC2 API documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeDhcpOptions.html).
      * 
      */
     public List<String> values() {
@@ -87,8 +83,6 @@ public final class GetVpcDhcpOptionsFilter extends com.pulumi.resources.InvokeAr
         /**
          * @param values Set of values for filtering.
          * 
-         * For more information about filtering, see the [EC2 API documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeDhcpOptions.html).
-         * 
          * @return builder
          * 
          */
@@ -99,8 +93,6 @@ public final class GetVpcDhcpOptionsFilter extends com.pulumi.resources.InvokeAr
 
         /**
          * @param values Set of values for filtering.
-         * 
-         * For more information about filtering, see the [EC2 API documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeDhcpOptions.html).
          * 
          * @return builder
          * 

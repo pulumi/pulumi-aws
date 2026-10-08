@@ -18,7 +18,7 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// ## Example Usage
     /// 
-    /// &gt; **NOTE:** These examples are referencing the `aws.storagegateway.Cache` resource `GatewayArn` attribute to ensure this provider properly adds cache before creating the volume. If you are not using this method, you may need to declare an expicit dependency (e.g. via `DependsOn = [aws_storagegateway_cache.example]`) to ensure proper ordering.
+    /// &gt; **NOTE:** These examples are referencing the `aws.storagegateway.Cache` resource `GatewayArn` attribute to ensure Terraform properly adds cache before creating the volume. If you are not using this method, you may need to declare an explicit dependency (e.g., via `DependsOn = [aws_storagegateway_cache.example]`) to ensure proper ordering.
     /// 
     /// ### Create Empty Cached iSCSI Volume
     /// 

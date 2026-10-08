@@ -34,9 +34,9 @@ class VpcBlockPublicAccessExclusionArgs:
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] subnet_id: Id of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] vpc_id: Id of the VPC to which this exclusion applies. Either this or the subnet_id needs to be provided.
+        :param pulumi.Input[_builtins.str] subnet_id: ID of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC to which this exclusion applies. Either this or the subnet_id needs to be provided.
         """
         pulumi.set(__self__, "internet_gateway_exclusion_mode", internet_gateway_exclusion_mode)
         if region is not None:
@@ -80,7 +80,7 @@ class VpcBlockPublicAccessExclusionArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Id of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
+        ID of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -92,7 +92,7 @@ class VpcBlockPublicAccessExclusionArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -113,7 +113,7 @@ class VpcBlockPublicAccessExclusionArgs:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Id of the VPC to which this exclusion applies. Either this or the subnet_id needs to be provided.
+        ID of the VPC to which this exclusion applies. Either this or the subnet_id needs to be provided.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -141,10 +141,10 @@ class _VpcBlockPublicAccessExclusionState:
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_arn: ARN the excluded resource.
-        :param pulumi.Input[_builtins.str] subnet_id: Id of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_id: Id of the VPC to which this exclusion applies. Either this or the subnet_id needs to be provided.
+        :param pulumi.Input[_builtins.str] subnet_id: ID of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC to which this exclusion applies. Either this or the subnet_id needs to be provided.
         """
         if internet_gateway_exclusion_mode is not None:
             pulumi.set(__self__, "internet_gateway_exclusion_mode", internet_gateway_exclusion_mode)
@@ -205,7 +205,7 @@ class _VpcBlockPublicAccessExclusionState:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Id of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
+        ID of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -217,7 +217,7 @@ class _VpcBlockPublicAccessExclusionState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -229,7 +229,7 @@ class _VpcBlockPublicAccessExclusionState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -250,7 +250,7 @@ class _VpcBlockPublicAccessExclusionState:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Id of the VPC to which this exclusion applies. Either this or the subnet_id needs to be provided.
+        ID of the VPC to which this exclusion applies. Either this or the subnet_id needs to be provided.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -319,9 +319,9 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] subnet_id: Id of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] vpc_id: Id of the VPC to which this exclusion applies. Either this or the subnet_id needs to be provided.
+        :param pulumi.Input[_builtins.str] subnet_id: ID of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC to which this exclusion applies. Either this or the subnet_id needs to be provided.
         """
         ...
     @overload
@@ -440,10 +440,10 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_arn: ARN the excluded resource.
-        :param pulumi.Input[_builtins.str] subnet_id: Id of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_id: Id of the VPC to which this exclusion applies. Either this or the subnet_id needs to be provided.
+        :param pulumi.Input[_builtins.str] subnet_id: ID of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC to which this exclusion applies. Either this or the subnet_id needs to be provided.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -489,7 +489,7 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Id of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
+        ID of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -497,7 +497,7 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -505,7 +505,7 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -518,7 +518,7 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Id of the VPC to which this exclusion applies. Either this or the subnet_id needs to be provided.
+        ID of the VPC to which this exclusion applies. Either this or the subnet_id needs to be provided.
         """
         return pulumi.get(self, "vpc_id")
 

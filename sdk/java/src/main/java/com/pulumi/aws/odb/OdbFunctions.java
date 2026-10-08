@@ -4,6 +4,8 @@
 package com.pulumi.aws.odb;
 
 import com.pulumi.aws.Utilities;
+import com.pulumi.aws.odb.inputs.GetAutonomousDatabaseArgs;
+import com.pulumi.aws.odb.inputs.GetAutonomousDatabasePlainArgs;
 import com.pulumi.aws.odb.inputs.GetCloudAutonomousVmClusterArgs;
 import com.pulumi.aws.odb.inputs.GetCloudAutonomousVmClusterPlainArgs;
 import com.pulumi.aws.odb.inputs.GetCloudAutonomousVmClustersArgs;
@@ -38,6 +40,7 @@ import com.pulumi.aws.odb.inputs.GetNetworkPeeringConnectionsPlainArgs;
 import com.pulumi.aws.odb.inputs.GetNetworkPlainArgs;
 import com.pulumi.aws.odb.inputs.GetNetworksArgs;
 import com.pulumi.aws.odb.inputs.GetNetworksPlainArgs;
+import com.pulumi.aws.odb.outputs.GetAutonomousDatabaseResult;
 import com.pulumi.aws.odb.outputs.GetCloudAutonomousVmClusterResult;
 import com.pulumi.aws.odb.outputs.GetCloudAutonomousVmClustersResult;
 import com.pulumi.aws.odb.outputs.GetCloudExadataInfrastructureResult;
@@ -63,6 +66,206 @@ import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class OdbFunctions {
+    /**
+     * Provides details about an Oracle Database{@literal @}AWS Autonomous Database Serverless (ADB-S) instance by its unique identifier.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetAutonomousDatabaseArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getAutonomousDatabase(GetAutonomousDatabaseArgs.builder()
+     *             .id(exampleAwsOdbAutonomousDatabase.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetAutonomousDatabaseResult> getAutonomousDatabase(GetAutonomousDatabaseArgs args) {
+        return getAutonomousDatabase(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about an Oracle Database{@literal @}AWS Autonomous Database Serverless (ADB-S) instance by its unique identifier.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetAutonomousDatabaseArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getAutonomousDatabase(GetAutonomousDatabaseArgs.builder()
+     *             .id(exampleAwsOdbAutonomousDatabase.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetAutonomousDatabaseResult> getAutonomousDatabasePlain(GetAutonomousDatabasePlainArgs args) {
+        return getAutonomousDatabasePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about an Oracle Database{@literal @}AWS Autonomous Database Serverless (ADB-S) instance by its unique identifier.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetAutonomousDatabaseArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getAutonomousDatabase(GetAutonomousDatabaseArgs.builder()
+     *             .id(exampleAwsOdbAutonomousDatabase.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetAutonomousDatabaseResult> getAutonomousDatabase(GetAutonomousDatabaseArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:odb/getAutonomousDatabase:getAutonomousDatabase", TypeShape.of(GetAutonomousDatabaseResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about an Oracle Database{@literal @}AWS Autonomous Database Serverless (ADB-S) instance by its unique identifier.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetAutonomousDatabaseArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getAutonomousDatabase(GetAutonomousDatabaseArgs.builder()
+     *             .id(exampleAwsOdbAutonomousDatabase.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetAutonomousDatabaseResult> getAutonomousDatabase(GetAutonomousDatabaseArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:odb/getAutonomousDatabase:getAutonomousDatabase", TypeShape.of(GetAutonomousDatabaseResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about an Oracle Database{@literal @}AWS Autonomous Database Serverless (ADB-S) instance by its unique identifier.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.odb.OdbFunctions;
+     * import com.pulumi.aws.odb.inputs.GetAutonomousDatabaseArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OdbFunctions.getAutonomousDatabase(GetAutonomousDatabaseArgs.builder()
+     *             .id(exampleAwsOdbAutonomousDatabase.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetAutonomousDatabaseResult> getAutonomousDatabasePlain(GetAutonomousDatabasePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:odb/getAutonomousDatabase:getAutonomousDatabase", TypeShape.of(GetAutonomousDatabaseResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data source for managing cloud autonomous vm cluster resource in AWS for Oracle Database{@literal @}AWS.
      * 
@@ -1627,7 +1830,7 @@ public final class OdbFunctions {
         return Deployment.getInstance().invokeAsync("aws:odb/getCloudVmClusters:getCloudVmClusters", TypeShape.of(GetCloudVmClustersResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for manging db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
+     * Data source for managing db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
@@ -1672,7 +1875,7 @@ public final class OdbFunctions {
         return getDbNode(args, InvokeOptions.Empty);
     }
     /**
-     * Data source for manging db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
+     * Data source for managing db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
@@ -1717,7 +1920,7 @@ public final class OdbFunctions {
         return getDbNodePlain(args, InvokeOptions.Empty);
     }
     /**
-     * Data source for manging db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
+     * Data source for managing db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
@@ -1762,7 +1965,7 @@ public final class OdbFunctions {
         return Deployment.getInstance().invoke("aws:odb/getDbNode:getDbNode", TypeShape.of(GetDbNodeResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for manging db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
+     * Data source for managing db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
@@ -1807,7 +2010,7 @@ public final class OdbFunctions {
         return Deployment.getInstance().invoke("aws:odb/getDbNode:getDbNode", TypeShape.of(GetDbNodeResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for manging db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
+     * Data source for managing db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
@@ -1852,7 +2055,7 @@ public final class OdbFunctions {
         return Deployment.getInstance().invokeAsync("aws:odb/getDbNode:getDbNode", TypeShape.of(GetDbNodeResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for manging db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
+     * Data source for managing db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
@@ -1896,7 +2099,7 @@ public final class OdbFunctions {
         return getDbNodes(args, InvokeOptions.Empty);
     }
     /**
-     * Data source for manging db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
+     * Data source for managing db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
@@ -1940,7 +2143,7 @@ public final class OdbFunctions {
         return getDbNodesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Data source for manging db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
+     * Data source for managing db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
@@ -1984,7 +2187,7 @@ public final class OdbFunctions {
         return Deployment.getInstance().invoke("aws:odb/getDbNodes:getDbNodes", TypeShape.of(GetDbNodesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for manging db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
+     * Data source for managing db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
@@ -2028,7 +2231,7 @@ public final class OdbFunctions {
         return Deployment.getInstance().invoke("aws:odb/getDbNodes:getDbNodes", TypeShape.of(GetDbNodesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for manging db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
+     * Data source for managing db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
@@ -2072,7 +2275,7 @@ public final class OdbFunctions {
         return Deployment.getInstance().invokeAsync("aws:odb/getDbNodes:getDbNodes", TypeShape.of(GetDbNodesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for manging db server linked to exadata infrastructure of Oracle Database{@literal @}AWS.
+     * Data source for managing db server linked to exadata infrastructure of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
@@ -2117,7 +2320,7 @@ public final class OdbFunctions {
         return getDbServer(args, InvokeOptions.Empty);
     }
     /**
-     * Data source for manging db server linked to exadata infrastructure of Oracle Database{@literal @}AWS.
+     * Data source for managing db server linked to exadata infrastructure of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
@@ -2162,7 +2365,7 @@ public final class OdbFunctions {
         return getDbServerPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Data source for manging db server linked to exadata infrastructure of Oracle Database{@literal @}AWS.
+     * Data source for managing db server linked to exadata infrastructure of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
@@ -2207,7 +2410,7 @@ public final class OdbFunctions {
         return Deployment.getInstance().invoke("aws:odb/getDbServer:getDbServer", TypeShape.of(GetDbServerResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for manging db server linked to exadata infrastructure of Oracle Database{@literal @}AWS.
+     * Data source for managing db server linked to exadata infrastructure of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
@@ -2252,7 +2455,7 @@ public final class OdbFunctions {
         return Deployment.getInstance().invoke("aws:odb/getDbServer:getDbServer", TypeShape.of(GetDbServerResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for manging db server linked to exadata infrastructure of Oracle Database{@literal @}AWS.
+     * Data source for managing db server linked to exadata infrastructure of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
@@ -2297,7 +2500,7 @@ public final class OdbFunctions {
         return Deployment.getInstance().invokeAsync("aws:odb/getDbServer:getDbServer", TypeShape.of(GetDbServerResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for manging db servers linked to exadata infrastructure of Oracle Database{@literal @}AWS.
+     * Data source for managing db servers linked to exadata infrastructure of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
@@ -2341,7 +2544,7 @@ public final class OdbFunctions {
         return getDbServers(args, InvokeOptions.Empty);
     }
     /**
-     * Data source for manging db servers linked to exadata infrastructure of Oracle Database{@literal @}AWS.
+     * Data source for managing db servers linked to exadata infrastructure of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
@@ -2385,7 +2588,7 @@ public final class OdbFunctions {
         return getDbServersPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Data source for manging db servers linked to exadata infrastructure of Oracle Database{@literal @}AWS.
+     * Data source for managing db servers linked to exadata infrastructure of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
@@ -2429,7 +2632,7 @@ public final class OdbFunctions {
         return Deployment.getInstance().invoke("aws:odb/getDbServers:getDbServers", TypeShape.of(GetDbServersResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for manging db servers linked to exadata infrastructure of Oracle Database{@literal @}AWS.
+     * Data source for managing db servers linked to exadata infrastructure of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
@@ -2473,7 +2676,7 @@ public final class OdbFunctions {
         return Deployment.getInstance().invoke("aws:odb/getDbServers:getDbServers", TypeShape.of(GetDbServersResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for manging db servers linked to exadata infrastructure of Oracle Database{@literal @}AWS.
+     * Data source for managing db servers linked to exadata infrastructure of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 

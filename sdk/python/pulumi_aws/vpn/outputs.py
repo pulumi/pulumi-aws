@@ -56,7 +56,9 @@ class GetConnectionRouteResult(dict):
                  source: _builtins.str,
                  state: _builtins.str):
         """
-        :param _builtins.str state: Current state of the VPN connection.
+        :param _builtins.str destination_cidr_block: CIDR block associated with the local subnet of the customer data center.
+        :param _builtins.str source: How the routes were provided.
+        :param _builtins.str state: Current state of the static route.
         """
         pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
         pulumi.set(__self__, "source", source)
@@ -65,18 +67,24 @@ class GetConnectionRouteResult(dict):
     @_builtins.property
     @pulumi.getter(name="destinationCidrBlock")
     def destination_cidr_block(self) -> _builtins.str:
+        """
+        CIDR block associated with the local subnet of the customer data center.
+        """
         return pulumi.get(self, "destination_cidr_block")
 
     @_builtins.property
     @pulumi.getter
     def source(self) -> _builtins.str:
+        """
+        How the routes were provided.
+        """
         return pulumi.get(self, "source")
 
     @_builtins.property
     @pulumi.getter
     def state(self) -> _builtins.str:
         """
-        Current state of the VPN connection.
+        Current state of the static route.
         """
         return pulumi.get(self, "state")
 
@@ -89,6 +97,13 @@ class GetConnectionVgwTelemetryResult(dict):
                  outside_ip_address: _builtins.str,
                  status: _builtins.str,
                  status_message: _builtins.str):
+        """
+        :param _builtins.int accepted_route_count: Number of accepted routes.
+        :param _builtins.str last_status_change: Date and time of the last change in status.
+        :param _builtins.str outside_ip_address: IP address of the virtual private gateway tunnel endpoint.
+        :param _builtins.str status: Status of the VPN tunnel.
+        :param _builtins.str status_message: Information about the status change.
+        """
         pulumi.set(__self__, "accepted_route_count", accepted_route_count)
         pulumi.set(__self__, "last_status_change", last_status_change)
         pulumi.set(__self__, "outside_ip_address", outside_ip_address)
@@ -98,26 +113,41 @@ class GetConnectionVgwTelemetryResult(dict):
     @_builtins.property
     @pulumi.getter(name="acceptedRouteCount")
     def accepted_route_count(self) -> _builtins.int:
+        """
+        Number of accepted routes.
+        """
         return pulumi.get(self, "accepted_route_count")
 
     @_builtins.property
     @pulumi.getter(name="lastStatusChange")
     def last_status_change(self) -> _builtins.str:
+        """
+        Date and time of the last change in status.
+        """
         return pulumi.get(self, "last_status_change")
 
     @_builtins.property
     @pulumi.getter(name="outsideIpAddress")
     def outside_ip_address(self) -> _builtins.str:
+        """
+        IP address of the virtual private gateway tunnel endpoint.
+        """
         return pulumi.get(self, "outside_ip_address")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
+        """
+        Status of the VPN tunnel.
+        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> _builtins.str:
+        """
+        Information about the status change.
+        """
         return pulumi.get(self, "status_message")
 
 

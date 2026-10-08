@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `Verified`.
+        /// State of the VPC endpoint service.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }

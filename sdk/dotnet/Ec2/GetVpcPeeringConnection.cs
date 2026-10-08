@@ -15,6 +15,8 @@ namespace Pulumi.Aws.Ec2
         /// The VPC Peering Connection data source provides details about
         /// a specific VPC peering connection.
         /// 
+        /// The arguments of this data source act as filters for querying the available VPC peering connections. The given filters must match exactly one VPC peering connection whose data will be exported as attributes.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -56,6 +58,8 @@ namespace Pulumi.Aws.Ec2
         /// The VPC Peering Connection data source provides details about
         /// a specific VPC peering connection.
         /// 
+        /// The arguments of this data source act as filters for querying the available VPC peering connections. The given filters must match exactly one VPC peering connection whose data will be exported as attributes.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -96,6 +100,8 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The VPC Peering Connection data source provides details about
         /// a specific VPC peering connection.
+        /// 
+        /// The arguments of this data source act as filters for querying the available VPC peering connections. The given filters must match exactly one VPC peering connection whose data will be exported as attributes.
         /// 
         /// ## Example Usage
         /// 
@@ -196,11 +202,7 @@ namespace Pulumi.Aws.Ec2
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the desired VPC Peering Connection.
-        /// 
-        /// The arguments of this data source act as filters for querying the available VPC peering connection.
-        /// The given filters must match exactly one VPC peering connection whose data will be exported as attributes.
+        /// Map of tags, each pair of which must exactly match a pair on the desired VPC Peering Connection.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -280,11 +282,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the desired VPC Peering Connection.
-        /// 
-        /// The arguments of this data source act as filters for querying the available VPC peering connection.
-        /// The given filters must match exactly one VPC peering connection whose data will be exported as attributes.
+        /// Map of tags, each pair of which must exactly match a pair on the desired VPC Peering Connection.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -309,8 +307,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetVpcPeeringConnectionResult
     {
         /// <summary>
-        /// Configuration block that describes [VPC Peering Connection]
-        /// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
+        /// Configuration block that describes [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC. The map contains `AllowRemoteVpcDnsResolution`, which is whether a local VPC can resolve public DNS hostnames to private IP addresses when queried from instances in a peer VPC.
         /// </summary>
         public readonly ImmutableDictionary<string, bool> Accepter;
         /// <summary>
@@ -318,23 +315,23 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string CidrBlock;
         /// <summary>
-        /// List of objects with IPv4 CIDR blocks of the requester VPC.
+        /// List of objects with IPv4 CIDR blocks of the requester VPC. See `CidrBlockSet` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVpcPeeringConnectionCidrBlockSetResult> CidrBlockSets;
         public readonly ImmutableArray<Outputs.GetVpcPeeringConnectionFilterResult> Filters;
         public readonly string Id;
         /// <summary>
-        /// List of objects with IPv6 CIDR blocks of the requester VPC.
+        /// List of objects with IPv6 CIDR blocks of the requester VPC. See `Ipv6CidrBlockSet` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVpcPeeringConnectionIpv6CidrBlockSetResult> Ipv6CidrBlockSets;
         public readonly string OwnerId;
         public readonly string PeerCidrBlock;
         /// <summary>
-        /// List of objects with IPv4 CIDR blocks of the accepter VPC.
+        /// List of objects with IPv4 CIDR blocks of the accepter VPC. See `PeerCidrBlockSet` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVpcPeeringConnectionPeerCidrBlockSetResult> PeerCidrBlockSets;
         /// <summary>
-        /// List of objects with IPv6 CIDR blocks of the accepter VPC.
+        /// List of objects with IPv6 CIDR blocks of the accepter VPC. See `PeerIpv6CidrBlockSet` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVpcPeeringConnectionPeerIpv6CidrBlockSetResult> PeerIpv6CidrBlockSets;
         public readonly string PeerOwnerId;
@@ -348,8 +345,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Region;
         /// <summary>
-        /// Configuration block that describes [VPC Peering Connection]
-        /// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
+        /// Configuration block that describes [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC. The map contains `AllowRemoteVpcDnsResolution`, which is whether a local VPC can resolve public DNS hostnames to private IP addresses when queried from instances in a peer VPC.
         /// </summary>
         public readonly ImmutableDictionary<string, bool> Requester;
         /// <summary>

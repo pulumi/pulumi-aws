@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Verified Permissions Policy Store using the `policy_store_id:policy_template_id`. For example:
+ * Using `pulumi import`, import Verified Permissions Policy Template using the `policy_store_id:policy_template_id`. For example:
  *
  * ```sh
  * $ pulumi import aws:verifiedpermissions/policyTemplate:PolicyTemplate example policyStoreId:policyTemplateId
@@ -58,7 +58,7 @@ export class PolicyTemplate extends pulumi.CustomResource {
     }
 
     /**
-     * The date the Policy Store was created.
+     * Date the policy template was created.
      */
     declare public /*out*/ readonly createdDate: pulumi.Output<string>;
     /**
@@ -66,11 +66,11 @@ export class PolicyTemplate extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * The ID of the Policy Store.
+     * ID of the Policy Store.
      */
     declare public readonly policyStoreId: pulumi.Output<string>;
     /**
-     * The ID of the Policy Store.
+     * ID of the policy template.
      */
     declare public /*out*/ readonly policyTemplateId: pulumi.Output<string>;
     /**
@@ -78,7 +78,7 @@ export class PolicyTemplate extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Defines the content of the statement, written in Cedar policy language.
+     * Content of the statement, written in Cedar policy language.
      *
      * The following arguments are optional:
      */
@@ -128,7 +128,7 @@ export class PolicyTemplate extends pulumi.CustomResource {
  */
 export interface PolicyTemplateState {
     /**
-     * The date the Policy Store was created.
+     * Date the policy template was created.
      */
     createdDate?: pulumi.Input<string | undefined>;
     /**
@@ -136,11 +136,11 @@ export interface PolicyTemplateState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the Policy Store.
+     * ID of the Policy Store.
      */
     policyStoreId?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the Policy Store.
+     * ID of the policy template.
      */
     policyTemplateId?: pulumi.Input<string | undefined>;
     /**
@@ -148,7 +148,7 @@ export interface PolicyTemplateState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Defines the content of the statement, written in Cedar policy language.
+     * Content of the statement, written in Cedar policy language.
      *
      * The following arguments are optional:
      */
@@ -164,7 +164,7 @@ export interface PolicyTemplateArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the Policy Store.
+     * ID of the Policy Store.
      */
     policyStoreId: pulumi.Input<string>;
     /**
@@ -172,7 +172,7 @@ export interface PolicyTemplateArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Defines the content of the statement, written in Cedar policy language.
+     * Content of the statement, written in Cedar policy language.
      *
      * The following arguments are optional:
      */

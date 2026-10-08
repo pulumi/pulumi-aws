@@ -122,8 +122,6 @@ def get_vpc_ipams(filters: Optional[Sequence[Union['GetVpcIpamsFilterArgs', 'Get
 
 
     :param Sequence[Union['GetVpcIpamsFilterArgs', 'GetVpcIpamsFilterArgsDict', 'outputs.GetVpcIpamsFilterResult']] filters: Custom filter block as described below.
-           
-           The arguments of this data source act as filters for querying the available IPAMs.
     :param Sequence[_builtins.str] ipam_ids: IDs of the IPAM resources to query for.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
@@ -183,8 +181,6 @@ def get_vpc_ipams_output(filters: pulumi.Input[Optional[Optional[Sequence[Union[
 
 
     :param Sequence[Union['GetVpcIpamsFilterArgs', 'GetVpcIpamsFilterArgsDict', 'outputs.GetVpcIpamsFilterResult']] filters: Custom filter block as described below.
-           
-           The arguments of this data source act as filters for querying the available IPAMs.
     :param Sequence[_builtins.str] ipam_ids: IDs of the IPAM resources to query for.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """

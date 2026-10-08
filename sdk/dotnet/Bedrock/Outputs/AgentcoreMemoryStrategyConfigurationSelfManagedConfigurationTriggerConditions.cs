@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions
     {
         /// <summary>
-        /// Message-based condition. See `MessageBasedTrigger` Block below.
+        /// Message-based condition. See `configuration.self_managed_configuration.trigger_conditions.message_based_trigger` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTrigger? MessageBasedTrigger;
         /// <summary>
-        /// Idle-time condition. See `TimeBasedTrigger` Block below.
+        /// Idle-time condition. See `configuration.self_managed_configuration.trigger_conditions.time_based_trigger` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTrigger? TimeBasedTrigger;
         /// <summary>
-        /// Token-based condition. See `TokenBasedTrigger` Block below.
+        /// Token-based condition. See `configuration.self_managed_configuration.trigger_conditions.token_based_trigger` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTrigger? TokenBasedTrigger;
 

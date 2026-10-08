@@ -72,11 +72,11 @@ export class SecurityGroupAssociation extends pulumi.CustomResource {
      */
     declare public readonly replaceDefaultAssociation: pulumi.Output<boolean | undefined>;
     /**
-     * The ID of the security group to be associated with the VPC endpoint.
+     * ID of the security group to be associated with the VPC endpoint.
      */
     declare public readonly securityGroupId: pulumi.Output<string>;
     /**
-     * The ID of the VPC endpoint with which the security group will be associated.
+     * ID of the VPC endpoint with which the security group will be associated.
      */
     declare public readonly vpcEndpointId: pulumi.Output<string>;
 
@@ -128,11 +128,11 @@ export interface SecurityGroupAssociationState {
      */
     replaceDefaultAssociation?: pulumi.Input<boolean | undefined>;
     /**
-     * The ID of the security group to be associated with the VPC endpoint.
+     * ID of the security group to be associated with the VPC endpoint.
      */
     securityGroupId?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the VPC endpoint with which the security group will be associated.
+     * ID of the VPC endpoint with which the security group will be associated.
      */
     vpcEndpointId?: pulumi.Input<string | undefined>;
 }
@@ -150,11 +150,11 @@ export interface SecurityGroupAssociationArgs {
      */
     replaceDefaultAssociation?: pulumi.Input<boolean | undefined>;
     /**
-     * The ID of the security group to be associated with the VPC endpoint.
+     * ID of the security group to be associated with the VPC endpoint.
      */
     securityGroupId: pulumi.Input<string>;
     /**
-     * The ID of the VPC endpoint with which the security group will be associated.
+     * ID of the VPC endpoint with which the security group will be associated.
      */
     vpcEndpointId: pulumi.Input<string>;
 }

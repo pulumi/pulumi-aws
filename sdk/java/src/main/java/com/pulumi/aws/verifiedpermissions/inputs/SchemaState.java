@@ -18,14 +18,14 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
     public static final SchemaState Empty = new SchemaState();
 
     /**
-     * The definition of the schema.
+     * Definition of the schema. See Definition below.
      * 
      */
     @Import(name="definition")
     private @Nullable Output<SchemaDefinitionArgs> definition;
 
     /**
-     * @return The definition of the schema.
+     * @return Definition of the schema. See Definition below.
      * 
      */
     public Optional<Output<SchemaDefinitionArgs>> definition() {
@@ -33,14 +33,14 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Optional) Identifies the namespaces of the entities referenced by this schema.
+     * Namespaces of the entities referenced by this schema.
      * 
      */
     @Import(name="namespaces")
     private @Nullable Output<List<String>> namespaces;
 
     /**
-     * @return (Optional) Identifies the namespaces of the entities referenced by this schema.
+     * @return Namespaces of the entities referenced by this schema.
      * 
      */
     public Optional<Output<List<String>>> namespaces() {
@@ -48,14 +48,14 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the Policy Store.
+     * ID of the Policy Store.
      * 
      */
     @Import(name="policyStoreId")
     private @Nullable Output<String> policyStoreId;
 
     /**
-     * @return The ID of the Policy Store.
+     * @return ID of the Policy Store.
      * 
      */
     public Optional<Output<String>> policyStoreId() {
@@ -105,7 +105,7 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param definition The definition of the schema.
+         * @param definition Definition of the schema. See Definition below.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param definition The definition of the schema.
+         * @param definition Definition of the schema. See Definition below.
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namespaces (Optional) Identifies the namespaces of the entities referenced by this schema.
+         * @param namespaces Namespaces of the entities referenced by this schema.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namespaces (Optional) Identifies the namespaces of the entities referenced by this schema.
+         * @param namespaces Namespaces of the entities referenced by this schema.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namespaces (Optional) Identifies the namespaces of the entities referenced by this schema.
+         * @param namespaces Namespaces of the entities referenced by this schema.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyStoreId The ID of the Policy Store.
+         * @param policyStoreId ID of the Policy Store.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyStoreId The ID of the Policy Store.
+         * @param policyStoreId ID of the Policy Store.
          * 
          * @return builder
          * 

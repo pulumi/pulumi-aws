@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         private InputList<string>? _acceleratorNames;
 
         /// <summary>
-        /// List of accelerator names. Default is any acclerator.
+        /// List of accelerator names. Default is any accelerator.
         /// </summary>
         public InputList<string> AcceleratorNames
         {
@@ -75,7 +75,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         }
 
         /// <summary>
-        /// Indicate whether bare metal instace types should be `Included`, `Excluded`, or `Required`. Default is `Excluded`.
+        /// Indicate whether bare metal instance types should be `Included`, `Excluded`, or `Required`. Default is `Excluded`.
         /// </summary>
         [Input("bareMetal")]
         public Input<string>? BareMetal { get; set; }

@@ -99,6 +99,9 @@ class GetInputResult:
     @_builtins.property
     @pulumi.getter
     def destinations(self) -> Sequence['outputs.GetInputDestinationResult']:
+        """
+        Destination settings for PUSH type inputs.
+        """
         return pulumi.get(self, "destinations")
 
     @_builtins.property

@@ -25,7 +25,7 @@ class EndpointPrivateDnsArgs:
         """
         The set of arguments for constructing a EndpointPrivateDns resource.
 
-        :param pulumi.Input[_builtins.bool] private_dns_enabled: Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
+        :param pulumi.Input[_builtins.bool] private_dns_enabled: Whether to associate a private hosted zone with the VPC. Only applicable for `Interface` endpoints.
         :param pulumi.Input[_builtins.str] vpc_endpoint_id: VPC endpoint identifier.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -38,7 +38,7 @@ class EndpointPrivateDnsArgs:
     @pulumi.getter(name="privateDnsEnabled")
     def private_dns_enabled(self) -> pulumi.Input[_builtins.bool]:
         """
-        Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
+        Whether to associate a private hosted zone with the VPC. Only applicable for `Interface` endpoints.
         """
         return pulumi.get(self, "private_dns_enabled")
 
@@ -80,7 +80,7 @@ class _EndpointPrivateDnsState:
         """
         Input properties used for looking up and filtering EndpointPrivateDns resources.
 
-        :param pulumi.Input[_builtins.bool] private_dns_enabled: Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
+        :param pulumi.Input[_builtins.bool] private_dns_enabled: Whether to associate a private hosted zone with the VPC. Only applicable for `Interface` endpoints.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] vpc_endpoint_id: VPC endpoint identifier.
         """
@@ -95,7 +95,7 @@ class _EndpointPrivateDnsState:
     @pulumi.getter(name="privateDnsEnabled")
     def private_dns_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
+        Whether to associate a private hosted zone with the VPC. Only applicable for `Interface` endpoints.
         """
         return pulumi.get(self, "private_dns_enabled")
 
@@ -168,7 +168,7 @@ class EndpointPrivateDns(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] private_dns_enabled: Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
+        :param pulumi.Input[_builtins.bool] private_dns_enabled: Whether to associate a private hosted zone with the VPC. Only applicable for `Interface` endpoints.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] vpc_endpoint_id: VPC endpoint identifier.
         """
@@ -260,7 +260,7 @@ class EndpointPrivateDns(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] private_dns_enabled: Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
+        :param pulumi.Input[_builtins.bool] private_dns_enabled: Whether to associate a private hosted zone with the VPC. Only applicable for `Interface` endpoints.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] vpc_endpoint_id: VPC endpoint identifier.
         """
@@ -277,7 +277,7 @@ class EndpointPrivateDns(pulumi.CustomResource):
     @pulumi.getter(name="privateDnsEnabled")
     def private_dns_enabled(self) -> pulumi.Output[_builtins.bool]:
         """
-        Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
+        Whether to associate a private hosted zone with the VPC. Only applicable for `Interface` endpoints.
         """
         return pulumi.get(self, "private_dns_enabled")
 

@@ -50,16 +50,12 @@ public final class VpnConcentratorArgs extends com.pulumi.resources.ResourceArgs
     /**
      * ID of the transit gateway to attach the VPN concentrator to.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="transitGatewayId", required=true)
     private Output<String> transitGatewayId;
 
     /**
      * @return ID of the transit gateway to attach the VPN concentrator to.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<String> transitGatewayId() {
@@ -69,12 +65,16 @@ public final class VpnConcentratorArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Type of VPN concentrator. Valid value: `ipsec.1`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
      * @return Type of VPN concentrator. Valid value: `ipsec.1`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> type() {
@@ -153,8 +153,6 @@ public final class VpnConcentratorArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param transitGatewayId ID of the transit gateway to attach the VPN concentrator to.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -166,8 +164,6 @@ public final class VpnConcentratorArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param transitGatewayId ID of the transit gateway to attach the VPN concentrator to.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -177,6 +173,8 @@ public final class VpnConcentratorArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param type Type of VPN concentrator. Valid value: `ipsec.1`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -188,6 +186,8 @@ public final class VpnConcentratorArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param type Type of VPN concentrator. Valid value: `ipsec.1`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

@@ -187,7 +187,7 @@ import javax.annotation.Nullable;
  *             .connectionType("CUSTOM")
  *             .connectionProperties(Map.ofEntries(
  *                 Map.entry("CONNECTOR_CLASS_NAME", "net.snowflake.client.jdbc.SnowflakeDriver"),
- *                 Map.entry("CONNECTION_TYPE", "Jdbc"),
+ *                 Map.entry("CONNECTOR_TYPE", "Jdbc"),
  *                 Map.entry("CONNECTOR_URL", "s3://example/snowflake-jdbc.jar"),
  *                 Map.entry("JDBC_CONNECTION_URL", "[[\"default=jdbc:snowflake://example.com/?user=${user}&password=${password}\"],\",\"]")
  *             ))
@@ -200,7 +200,7 @@ import javax.annotation.Nullable;
  *             .connectionType("CUSTOM")
  *             .connectionProperties(Map.ofEntries(
  *                 Map.entry("CONNECTOR_CLASS_NAME", "net.snowflake.client.jdbc.SnowflakeDriver"),
- *                 Map.entry("CONNECTION_TYPE", "Jdbc"),
+ *                 Map.entry("CONNECTOR_TYPE", "Jdbc"),
  *                 Map.entry("CONNECTOR_URL", "s3://example/snowflake-jdbc.jar"),
  *                 Map.entry("JDBC_CONNECTION_URL", "jdbc:snowflake://example.com/?user=${user}&password=${password}"),
  *                 Map.entry("SECRET_ID", example.name())

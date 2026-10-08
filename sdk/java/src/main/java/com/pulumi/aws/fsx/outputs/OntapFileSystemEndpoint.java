@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OntapFileSystemEndpoint {
     /**
-     * @return Endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
+     * @return Endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See `endpoints.intercluster` below.
      * 
      */
     private @Nullable List<OntapFileSystemEndpointIntercluster> interclusters;
     /**
-     * @return Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+     * @return Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See `endpoints.management` below.
      * 
      */
     private @Nullable List<OntapFileSystemEndpointManagement> managements;
 
     private OntapFileSystemEndpoint() {}
     /**
-     * @return Endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
+     * @return Endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See `endpoints.intercluster` below.
      * 
      */
     public List<OntapFileSystemEndpointIntercluster> interclusters() {
         return this.interclusters == null ? List.of() : this.interclusters;
     }
     /**
-     * @return Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+     * @return Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See `endpoints.management` below.
      * 
      */
     public List<OntapFileSystemEndpointManagement> managements() {

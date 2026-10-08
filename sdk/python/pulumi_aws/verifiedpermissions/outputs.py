@@ -59,8 +59,8 @@ class IdentitySourceConfiguration(dict):
                  cognito_user_pool_configuration: Optional['outputs.IdentitySourceConfigurationCognitoUserPoolConfiguration'] = None,
                  open_id_connect_configuration: Optional['outputs.IdentitySourceConfigurationOpenIdConnectConfiguration'] = None):
         """
-        :param 'IdentitySourceConfigurationCognitoUserPoolConfigurationArgs' cognito_user_pool_configuration: Specifies the configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
-        :param 'IdentitySourceConfigurationOpenIdConnectConfigurationArgs' open_id_connect_configuration: Specifies the configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
+        :param 'IdentitySourceConfigurationCognitoUserPoolConfigurationArgs' cognito_user_pool_configuration: Configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
+        :param 'IdentitySourceConfigurationOpenIdConnectConfigurationArgs' open_id_connect_configuration: Configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
         """
         if cognito_user_pool_configuration is not None:
             pulumi.set(__self__, "cognito_user_pool_configuration", cognito_user_pool_configuration)
@@ -71,7 +71,7 @@ class IdentitySourceConfiguration(dict):
     @pulumi.getter(name="cognitoUserPoolConfiguration")
     def cognito_user_pool_configuration(self) -> Optional['outputs.IdentitySourceConfigurationCognitoUserPoolConfiguration']:
         """
-        Specifies the configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
+        Configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
         """
         return pulumi.get(self, "cognito_user_pool_configuration")
 
@@ -79,7 +79,7 @@ class IdentitySourceConfiguration(dict):
     @pulumi.getter(name="openIdConnectConfiguration")
     def open_id_connect_configuration(self) -> Optional['outputs.IdentitySourceConfigurationOpenIdConnectConfiguration']:
         """
-        Specifies the configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
+        Configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
         """
         return pulumi.get(self, "open_id_connect_configuration")
 
@@ -113,8 +113,8 @@ class IdentitySourceConfigurationCognitoUserPoolConfiguration(dict):
                  group_configuration: Optional['outputs.IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration'] = None):
         """
         :param _builtins.str user_pool_arn: ARN of the Amazon Cognito user pool that contains the identities to be authorized.
-        :param Sequence[_builtins.str] client_ids: The unique application client IDs that are associated with the specified Amazon Cognito user pool.
-        :param 'IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs' group_configuration: The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+        :param Sequence[_builtins.str] client_ids: Unique application client IDs that are associated with the specified Amazon Cognito user pool.
+        :param 'IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs' group_configuration: Type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
         """
         pulumi.set(__self__, "user_pool_arn", user_pool_arn)
         if client_ids is not None:
@@ -134,7 +134,7 @@ class IdentitySourceConfigurationCognitoUserPoolConfiguration(dict):
     @pulumi.getter(name="clientIds")
     def client_ids(self) -> Optional[Sequence[_builtins.str]]:
         """
-        The unique application client IDs that are associated with the specified Amazon Cognito user pool.
+        Unique application client IDs that are associated with the specified Amazon Cognito user pool.
         """
         return pulumi.get(self, "client_ids")
 
@@ -142,7 +142,7 @@ class IdentitySourceConfigurationCognitoUserPoolConfiguration(dict):
     @pulumi.getter(name="groupConfiguration")
     def group_configuration(self) -> Optional['outputs.IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration']:
         """
-        The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+        Type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
         """
         return pulumi.get(self, "group_configuration")
 
@@ -169,7 +169,7 @@ class IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration(
     def __init__(__self__, *,
                  group_entity_type: _builtins.str):
         """
-        :param _builtins.str group_entity_type: The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+        :param _builtins.str group_entity_type: Policy store entity type that you want to map your users' group claim to. For example, `MyCorp::UserGroup`. A group entity type is an entity that can have a user entity type as a member.
         """
         pulumi.set(__self__, "group_entity_type", group_entity_type)
 
@@ -177,7 +177,7 @@ class IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration(
     @pulumi.getter(name="groupEntityType")
     def group_entity_type(self) -> _builtins.str:
         """
-        The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+        Policy store entity type that you want to map your users' group claim to. For example, `MyCorp::UserGroup`. A group entity type is an entity that can have a user entity type as a member.
         """
         return pulumi.get(self, "group_entity_type")
 
@@ -211,10 +211,10 @@ class IdentitySourceConfigurationOpenIdConnectConfiguration(dict):
                  entity_id_prefix: Optional[_builtins.str] = None,
                  group_configuration: Optional['outputs.IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration'] = None):
         """
-        :param _builtins.str issuer: The issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
-        :param 'IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs' token_selection: The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
-        :param _builtins.str entity_id_prefix: A descriptive string that you want to prefix to user entities from your OIDC identity provider.
-        :param 'IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs' group_configuration: The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+        :param _builtins.str issuer: Issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
+        :param 'IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs' token_selection: Token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
+        :param _builtins.str entity_id_prefix: Descriptive string that you want to prefix to user entities from your OIDC identity provider.
+        :param 'IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs' group_configuration: Type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
         """
         pulumi.set(__self__, "issuer", issuer)
         pulumi.set(__self__, "token_selection", token_selection)
@@ -227,7 +227,7 @@ class IdentitySourceConfigurationOpenIdConnectConfiguration(dict):
     @pulumi.getter
     def issuer(self) -> _builtins.str:
         """
-        The issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
+        Issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
         """
         return pulumi.get(self, "issuer")
 
@@ -235,7 +235,7 @@ class IdentitySourceConfigurationOpenIdConnectConfiguration(dict):
     @pulumi.getter(name="tokenSelection")
     def token_selection(self) -> 'outputs.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection':
         """
-        The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
+        Token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
         """
         return pulumi.get(self, "token_selection")
 
@@ -243,7 +243,7 @@ class IdentitySourceConfigurationOpenIdConnectConfiguration(dict):
     @pulumi.getter(name="entityIdPrefix")
     def entity_id_prefix(self) -> Optional[_builtins.str]:
         """
-        A descriptive string that you want to prefix to user entities from your OIDC identity provider.
+        Descriptive string that you want to prefix to user entities from your OIDC identity provider.
         """
         return pulumi.get(self, "entity_id_prefix")
 
@@ -251,7 +251,7 @@ class IdentitySourceConfigurationOpenIdConnectConfiguration(dict):
     @pulumi.getter(name="groupConfiguration")
     def group_configuration(self) -> Optional['outputs.IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration']:
         """
-        The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+        Type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
         """
         return pulumi.get(self, "group_configuration")
 
@@ -281,8 +281,8 @@ class IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration(di
                  group_claim: _builtins.str,
                  group_entity_type: _builtins.str):
         """
-        :param _builtins.str group_claim: The token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
-        :param _builtins.str group_entity_type: The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+        :param _builtins.str group_claim: Token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
+        :param _builtins.str group_entity_type: Policy store entity type that you want to map your users' group claim to. For example, `MyCorp::UserGroup`. A group entity type is an entity that can have a user entity type as a member.
         """
         pulumi.set(__self__, "group_claim", group_claim)
         pulumi.set(__self__, "group_entity_type", group_entity_type)
@@ -291,7 +291,7 @@ class IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration(di
     @pulumi.getter(name="groupClaim")
     def group_claim(self) -> _builtins.str:
         """
-        The token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
+        Token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
         """
         return pulumi.get(self, "group_claim")
 
@@ -299,7 +299,7 @@ class IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration(di
     @pulumi.getter(name="groupEntityType")
     def group_entity_type(self) -> _builtins.str:
         """
-        The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+        Policy store entity type that you want to map your users' group claim to. For example, `MyCorp::UserGroup`. A group entity type is an entity that can have a user entity type as a member.
         """
         return pulumi.get(self, "group_entity_type")
 
@@ -329,8 +329,8 @@ class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection(dict):
                  access_token_only: Optional['outputs.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly'] = None,
                  identity_token_only: Optional['outputs.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly'] = None):
         """
-        :param 'IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs' access_token_only: The OIDC configuration for processing access tokens. See Access Token Only below.
-        :param 'IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs' identity_token_only: The OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
+        :param 'IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs' access_token_only: OIDC configuration for processing access tokens. See Access Token Only below.
+        :param 'IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs' identity_token_only: OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
         """
         if access_token_only is not None:
             pulumi.set(__self__, "access_token_only", access_token_only)
@@ -341,7 +341,7 @@ class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection(dict):
     @pulumi.getter(name="accessTokenOnly")
     def access_token_only(self) -> Optional['outputs.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly']:
         """
-        The OIDC configuration for processing access tokens. See Access Token Only below.
+        OIDC configuration for processing access tokens. See Access Token Only below.
         """
         return pulumi.get(self, "access_token_only")
 
@@ -349,7 +349,7 @@ class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection(dict):
     @pulumi.getter(name="identityTokenOnly")
     def identity_token_only(self) -> Optional['outputs.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly']:
         """
-        The OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
+        OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
         """
         return pulumi.get(self, "identity_token_only")
 
@@ -377,8 +377,8 @@ class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessT
                  audiences: Optional[Sequence[_builtins.str]] = None,
                  principal_id_claim: Optional[_builtins.str] = None):
         """
-        :param Sequence[_builtins.str] audiences: The access token aud claim values that you want to accept in your policy store.
-        :param _builtins.str principal_id_claim: The claim that determines the principal in OIDC access tokens.
+        :param Sequence[_builtins.str] audiences: Access token aud claim values that you want to accept in your policy store.
+        :param _builtins.str principal_id_claim: Claim that determines the principal in OIDC access tokens.
         """
         if audiences is not None:
             pulumi.set(__self__, "audiences", audiences)
@@ -389,7 +389,7 @@ class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessT
     @pulumi.getter
     def audiences(self) -> Optional[Sequence[_builtins.str]]:
         """
-        The access token aud claim values that you want to accept in your policy store.
+        Access token aud claim values that you want to accept in your policy store.
         """
         return pulumi.get(self, "audiences")
 
@@ -397,7 +397,7 @@ class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessT
     @pulumi.getter(name="principalIdClaim")
     def principal_id_claim(self) -> Optional[_builtins.str]:
         """
-        The claim that determines the principal in OIDC access tokens.
+        Claim that determines the principal in OIDC access tokens.
         """
         return pulumi.get(self, "principal_id_claim")
 
@@ -427,8 +427,8 @@ class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentit
                  client_ids: Optional[Sequence[_builtins.str]] = None,
                  principal_id_claim: Optional[_builtins.str] = None):
         """
-        :param Sequence[_builtins.str] client_ids: The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
-        :param _builtins.str principal_id_claim: The claim that determines the principal in OIDC identity tokens.
+        :param Sequence[_builtins.str] client_ids: ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
+        :param _builtins.str principal_id_claim: Claim that determines the principal in OIDC identity tokens.
         """
         if client_ids is not None:
             pulumi.set(__self__, "client_ids", client_ids)
@@ -439,7 +439,7 @@ class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentit
     @pulumi.getter(name="clientIds")
     def client_ids(self) -> Optional[Sequence[_builtins.str]]:
         """
-        The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
+        ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
         """
         return pulumi.get(self, "client_ids")
 
@@ -447,7 +447,7 @@ class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentit
     @pulumi.getter(name="principalIdClaim")
     def principal_id_claim(self) -> Optional[_builtins.str]:
         """
-        The claim that determines the principal in OIDC identity tokens.
+        Claim that determines the principal in OIDC identity tokens.
         """
         return pulumi.get(self, "principal_id_claim")
 
@@ -475,8 +475,8 @@ class PolicyDefinition(dict):
                  static: Optional['outputs.PolicyDefinitionStatic'] = None,
                  template_linked: Optional['outputs.PolicyDefinitionTemplateLinked'] = None):
         """
-        :param 'PolicyDefinitionStaticArgs' static: The static policy statement. See Static below.
-        :param 'PolicyDefinitionTemplateLinkedArgs' template_linked: The template linked policy. See Template Linked below.
+        :param 'PolicyDefinitionStaticArgs' static: Static policy statement. See Static below.
+        :param 'PolicyDefinitionTemplateLinkedArgs' template_linked: Template linked policy. See Template Linked below.
         """
         if static is not None:
             pulumi.set(__self__, "static", static)
@@ -487,7 +487,7 @@ class PolicyDefinition(dict):
     @pulumi.getter
     def static(self) -> Optional['outputs.PolicyDefinitionStatic']:
         """
-        The static policy statement. See Static below.
+        Static policy statement. See Static below.
         """
         return pulumi.get(self, "static")
 
@@ -495,7 +495,7 @@ class PolicyDefinition(dict):
     @pulumi.getter(name="templateLinked")
     def template_linked(self) -> Optional['outputs.PolicyDefinitionTemplateLinked']:
         """
-        The template linked policy. See Template Linked below.
+        Template linked policy. See Template Linked below.
         """
         return pulumi.get(self, "template_linked")
 
@@ -506,8 +506,8 @@ class PolicyDefinitionStatic(dict):
                  statement: _builtins.str,
                  description: Optional[_builtins.str] = None):
         """
-        :param _builtins.str statement: The statement of the static policy.
-        :param _builtins.str description: The description of the static policy.
+        :param _builtins.str statement: Statement of the static policy.
+        :param _builtins.str description: Description of the static policy.
         """
         pulumi.set(__self__, "statement", statement)
         if description is not None:
@@ -517,7 +517,7 @@ class PolicyDefinitionStatic(dict):
     @pulumi.getter
     def statement(self) -> _builtins.str:
         """
-        The statement of the static policy.
+        Statement of the static policy.
         """
         return pulumi.get(self, "statement")
 
@@ -525,7 +525,7 @@ class PolicyDefinitionStatic(dict):
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
         """
-        The description of the static policy.
+        Description of the static policy.
         """
         return pulumi.get(self, "description")
 
@@ -554,9 +554,9 @@ class PolicyDefinitionTemplateLinked(dict):
                  principal: Optional['outputs.PolicyDefinitionTemplateLinkedPrincipal'] = None,
                  resource: Optional['outputs.PolicyDefinitionTemplateLinkedResource'] = None):
         """
-        :param _builtins.str policy_template_id: The ID of the template.
-        :param 'PolicyDefinitionTemplateLinkedPrincipalArgs' principal: The principal of the template linked policy.
-        :param 'PolicyDefinitionTemplateLinkedResourceArgs' resource: The resource of the template linked policy.
+        :param _builtins.str policy_template_id: ID of the template.
+        :param 'PolicyDefinitionTemplateLinkedPrincipalArgs' principal: Principal of the template linked policy. See Principal below.
+        :param 'PolicyDefinitionTemplateLinkedResourceArgs' resource: Resource of the template linked policy. See Resource below.
         """
         pulumi.set(__self__, "policy_template_id", policy_template_id)
         if principal is not None:
@@ -568,7 +568,7 @@ class PolicyDefinitionTemplateLinked(dict):
     @pulumi.getter(name="policyTemplateId")
     def policy_template_id(self) -> _builtins.str:
         """
-        The ID of the template.
+        ID of the template.
         """
         return pulumi.get(self, "policy_template_id")
 
@@ -576,7 +576,7 @@ class PolicyDefinitionTemplateLinked(dict):
     @pulumi.getter
     def principal(self) -> Optional['outputs.PolicyDefinitionTemplateLinkedPrincipal']:
         """
-        The principal of the template linked policy.
+        Principal of the template linked policy. See Principal below.
         """
         return pulumi.get(self, "principal")
 
@@ -584,7 +584,7 @@ class PolicyDefinitionTemplateLinked(dict):
     @pulumi.getter
     def resource(self) -> Optional['outputs.PolicyDefinitionTemplateLinkedResource']:
         """
-        The resource of the template linked policy.
+        Resource of the template linked policy. See Resource below.
         """
         return pulumi.get(self, "resource")
 
@@ -614,8 +614,8 @@ class PolicyDefinitionTemplateLinkedPrincipal(dict):
                  entity_id: _builtins.str,
                  entity_type: _builtins.str):
         """
-        :param _builtins.str entity_id: The entity ID of the principal.
-        :param _builtins.str entity_type: The entity type of the principal.
+        :param _builtins.str entity_id: Entity ID of the principal.
+        :param _builtins.str entity_type: Entity type of the principal.
         """
         pulumi.set(__self__, "entity_id", entity_id)
         pulumi.set(__self__, "entity_type", entity_type)
@@ -624,7 +624,7 @@ class PolicyDefinitionTemplateLinkedPrincipal(dict):
     @pulumi.getter(name="entityId")
     def entity_id(self) -> _builtins.str:
         """
-        The entity ID of the principal.
+        Entity ID of the principal.
         """
         return pulumi.get(self, "entity_id")
 
@@ -632,7 +632,7 @@ class PolicyDefinitionTemplateLinkedPrincipal(dict):
     @pulumi.getter(name="entityType")
     def entity_type(self) -> _builtins.str:
         """
-        The entity type of the principal.
+        Entity type of the principal.
         """
         return pulumi.get(self, "entity_type")
 
@@ -662,8 +662,8 @@ class PolicyDefinitionTemplateLinkedResource(dict):
                  entity_id: _builtins.str,
                  entity_type: _builtins.str):
         """
-        :param _builtins.str entity_id: The entity ID of the resource.
-        :param _builtins.str entity_type: The entity type of the resource.
+        :param _builtins.str entity_id: Entity ID of the resource.
+        :param _builtins.str entity_type: Entity type of the resource.
         """
         pulumi.set(__self__, "entity_id", entity_id)
         pulumi.set(__self__, "entity_type", entity_type)
@@ -672,7 +672,7 @@ class PolicyDefinitionTemplateLinkedResource(dict):
     @pulumi.getter(name="entityId")
     def entity_id(self) -> _builtins.str:
         """
-        The entity ID of the resource.
+        Entity ID of the resource.
         """
         return pulumi.get(self, "entity_id")
 
@@ -680,7 +680,7 @@ class PolicyDefinitionTemplateLinkedResource(dict):
     @pulumi.getter(name="entityType")
     def entity_type(self) -> _builtins.str:
         """
-        The entity type of the resource.
+        Entity type of the resource.
         """
         return pulumi.get(self, "entity_type")
 
@@ -690,9 +690,7 @@ class PolicyStoreValidationSettings(dict):
     def __init__(__self__, *,
                  mode: _builtins.str):
         """
-        :param _builtins.str mode: The mode for the validation settings. Valid values: `OFF`, `STRICT`.
-               
-               The following arguments are optional:
+        :param _builtins.str mode: Mode for the validation settings. Valid values: `OFF`, `STRICT`.
         """
         pulumi.set(__self__, "mode", mode)
 
@@ -700,9 +698,7 @@ class PolicyStoreValidationSettings(dict):
     @pulumi.getter
     def mode(self) -> _builtins.str:
         """
-        The mode for the validation settings. Valid values: `OFF`, `STRICT`.
-
-        The following arguments are optional:
+        Mode for the validation settings. Valid values: `OFF`, `STRICT`.
         """
         return pulumi.get(self, "mode")
 
@@ -712,7 +708,7 @@ class SchemaDefinition(dict):
     def __init__(__self__, *,
                  value: _builtins.str):
         """
-        :param _builtins.str value: A JSON string representation of the schema.
+        :param _builtins.str value: JSON string representation of the schema.
         """
         pulumi.set(__self__, "value", value)
 
@@ -720,7 +716,7 @@ class SchemaDefinition(dict):
     @pulumi.getter
     def value(self) -> _builtins.str:
         """
-        A JSON string representation of the schema.
+        JSON string representation of the schema.
         """
         return pulumi.get(self, "value")
 
@@ -729,11 +725,17 @@ class SchemaDefinition(dict):
 class GetPolicyStoreValidationSettingResult(dict):
     def __init__(__self__, *,
                  mode: _builtins.str):
+        """
+        :param _builtins.str mode: Mode for the validation settings.
+        """
         pulumi.set(__self__, "mode", mode)
 
     @_builtins.property
     @pulumi.getter
     def mode(self) -> _builtins.str:
+        """
+        Mode for the validation settings.
+        """
         return pulumi.get(self, "mode")
 
 

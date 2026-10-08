@@ -69,11 +69,11 @@ export class VpnGatewayAttachment extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The ID of the VPC.
+     * ID of the VPC.
      */
     declare public readonly vpcId: pulumi.Output<string>;
     /**
-     * The ID of the Virtual Private Gateway.
+     * ID of the Virtual Private Gateway.
      */
     declare public readonly vpnGatewayId: pulumi.Output<string>;
 
@@ -119,11 +119,11 @@ export interface VpnGatewayAttachmentState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the VPC.
+     * ID of the VPC.
      */
     vpcId?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the Virtual Private Gateway.
+     * ID of the Virtual Private Gateway.
      */
     vpnGatewayId?: pulumi.Input<string | undefined>;
 }
@@ -137,11 +137,11 @@ export interface VpnGatewayAttachmentArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the VPC.
+     * ID of the VPC.
      */
     vpcId: pulumi.Input<string>;
     /**
-     * The ID of the Virtual Private Gateway.
+     * ID of the Virtual Private Gateway.
      */
     vpnGatewayId: pulumi.Input<string>;
 }

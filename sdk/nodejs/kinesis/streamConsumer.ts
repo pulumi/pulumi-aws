@@ -18,8 +18,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.kinesis.Stream("example", {
+ *     streamModeDetails: {
+ *         streamMode: "ON_DEMAND",
+ *     },
  *     name: "example-stream",
- *     shardCount: 1,
  * });
  * const exampleStreamConsumer = new aws.kinesis.StreamConsumer("example", {
  *     name: "example-consumer",

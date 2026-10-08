@@ -14,23 +14,23 @@ namespace Pulumi.Aws.VerifiedAccess.Outputs
     public sealed class InstanceLoggingConfigurationAccessLogs
     {
         /// <summary>
-        /// A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
+        /// Block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
         /// </summary>
         public readonly Outputs.InstanceLoggingConfigurationAccessLogsCloudwatchLogs? CloudwatchLogs;
         /// <summary>
-        /// Include trust data sent by trust providers into the logs.
+        /// Whether to include trust data sent by trust providers in the logs.
         /// </summary>
         public readonly bool? IncludeTrustContext;
         /// <summary>
-        /// A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
+        /// Block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
         /// </summary>
         public readonly Outputs.InstanceLoggingConfigurationAccessLogsKinesisDataFirehose? KinesisDataFirehose;
         /// <summary>
-        /// The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
+        /// Logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
         /// </summary>
         public readonly string? LogVersion;
         /// <summary>
-        /// A block that specifies configures sending Verified Access logs to S3. Detailed below.
+        /// Block that specifies configures sending Verified Access logs to S3. Detailed below.
         /// </summary>
         public readonly Outputs.InstanceLoggingConfigurationAccessLogsS3? S3;
 

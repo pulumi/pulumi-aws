@@ -120,19 +120,19 @@ export class Endpoint extends pulumi.CustomResource {
     }
 
     /**
-     * The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
+     * DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
      */
     declare public readonly applicationDomain: pulumi.Output<string | undefined>;
     /**
-     * The type of attachment. Currently, only `vpc` is supported.
+     * Type of attachment. Currently, only `vpc` is supported.
      */
     declare public readonly attachmentType: pulumi.Output<string>;
     /**
-     * The CIDR block details. This parameter is required if the endpoint type is `cidr`.
+     * CIDR block details. This parameter is required if the endpoint type is `cidr`. See below.
      */
     declare public readonly cidrOptions: pulumi.Output<outputs.verifiedaccess.EndpointCidrOptions | undefined>;
     /**
-     * A description for the Verified Access endpoint.
+     * Description for the Verified Access endpoint.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
@@ -140,44 +140,47 @@ export class Endpoint extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly deviceValidationDomain: pulumi.Output<string>;
     /**
-     * The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
+     * ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
      */
     declare public readonly domainCertificateArn: pulumi.Output<string | undefined>;
     /**
-     * A DNS name that is generated for the endpoint.
+     * DNS name that is generated for the endpoint.
      */
     declare public /*out*/ readonly endpointDomain: pulumi.Output<string>;
     /**
-     * A custom identifier that is prepended to the DNS name that is generated for the endpoint.
+     * Custom identifier that is prepended to the DNS name that is generated for the endpoint.
      */
     declare public readonly endpointDomainPrefix: pulumi.Output<string | undefined>;
     /**
-     * The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
+     * Type of Verified Access endpoint to create. Valid values are `load-balancer`, `network-interface`, `cidr`, and `rds`.
      */
     declare public readonly endpointType: pulumi.Output<string>;
     /**
-     * The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
+     * Load balancer details. This parameter is required if the endpoint type is `load-balancer`. See below.
      */
     declare public readonly loadBalancerOptions: pulumi.Output<outputs.verifiedaccess.EndpointLoadBalancerOptions | undefined>;
     /**
-     * The network interface details. This parameter is required if the endpoint type is `network-interface`.
+     * Network interface details. This parameter is required if the endpoint type is `network-interface`. See below.
      */
     declare public readonly networkInterfaceOptions: pulumi.Output<outputs.verifiedaccess.EndpointNetworkInterfaceOptions | undefined>;
     /**
-     * The policy document that is associated with this resource.
+     * Policy document that is associated with this resource.
      */
     declare public readonly policyDocument: pulumi.Output<string | undefined>;
+    /**
+     * RDS details. This parameter is required if the endpoint type is `rds`. See below.
+     */
     declare public readonly rdsOptions: pulumi.Output<outputs.verifiedaccess.EndpointRdsOptions | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * List of the the security groups IDs to associate with the Verified Access endpoint.
+     * List of the security groups IDs to associate with the Verified Access endpoint.
      */
     declare public readonly securityGroupIds: pulumi.Output<string[] | undefined>;
     /**
-     * The options in use for server side encryption.
+     * Options in use for server side encryption. See below.
      */
     declare public readonly sseSpecification: pulumi.Output<outputs.verifiedaccess.EndpointSseSpecification>;
     /**
@@ -186,11 +189,14 @@ export class Endpoint extends pulumi.CustomResource {
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The ID of the Verified Access group to associate the endpoint with.
+     * ID of the Verified Access group to associate the endpoint with.
      *
      * The following arguments are optional:
      */
     declare public readonly verifiedAccessGroupId: pulumi.Output<string>;
+    /**
+     * ID of the Verified Access instance.
+     */
     declare public /*out*/ readonly verifiedAccessInstanceId: pulumi.Output<string>;
 
     /**
@@ -268,19 +274,19 @@ export class Endpoint extends pulumi.CustomResource {
  */
 export interface EndpointState {
     /**
-     * The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
+     * DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
      */
     applicationDomain?: pulumi.Input<string | undefined>;
     /**
-     * The type of attachment. Currently, only `vpc` is supported.
+     * Type of attachment. Currently, only `vpc` is supported.
      */
     attachmentType?: pulumi.Input<string | undefined>;
     /**
-     * The CIDR block details. This parameter is required if the endpoint type is `cidr`.
+     * CIDR block details. This parameter is required if the endpoint type is `cidr`. See below.
      */
     cidrOptions?: pulumi.Input<inputs.verifiedaccess.EndpointCidrOptions | undefined>;
     /**
-     * A description for the Verified Access endpoint.
+     * Description for the Verified Access endpoint.
      */
     description?: pulumi.Input<string | undefined>;
     /**
@@ -288,44 +294,47 @@ export interface EndpointState {
      */
     deviceValidationDomain?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
+     * ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
      */
     domainCertificateArn?: pulumi.Input<string | undefined>;
     /**
-     * A DNS name that is generated for the endpoint.
+     * DNS name that is generated for the endpoint.
      */
     endpointDomain?: pulumi.Input<string | undefined>;
     /**
-     * A custom identifier that is prepended to the DNS name that is generated for the endpoint.
+     * Custom identifier that is prepended to the DNS name that is generated for the endpoint.
      */
     endpointDomainPrefix?: pulumi.Input<string | undefined>;
     /**
-     * The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
+     * Type of Verified Access endpoint to create. Valid values are `load-balancer`, `network-interface`, `cidr`, and `rds`.
      */
     endpointType?: pulumi.Input<string | undefined>;
     /**
-     * The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
+     * Load balancer details. This parameter is required if the endpoint type is `load-balancer`. See below.
      */
     loadBalancerOptions?: pulumi.Input<inputs.verifiedaccess.EndpointLoadBalancerOptions | undefined>;
     /**
-     * The network interface details. This parameter is required if the endpoint type is `network-interface`.
+     * Network interface details. This parameter is required if the endpoint type is `network-interface`. See below.
      */
     networkInterfaceOptions?: pulumi.Input<inputs.verifiedaccess.EndpointNetworkInterfaceOptions | undefined>;
     /**
-     * The policy document that is associated with this resource.
+     * Policy document that is associated with this resource.
      */
     policyDocument?: pulumi.Input<string | undefined>;
+    /**
+     * RDS details. This parameter is required if the endpoint type is `rds`. See below.
+     */
     rdsOptions?: pulumi.Input<inputs.verifiedaccess.EndpointRdsOptions | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * List of the the security groups IDs to associate with the Verified Access endpoint.
+     * List of the security groups IDs to associate with the Verified Access endpoint.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The options in use for server side encryption.
+     * Options in use for server side encryption. See below.
      */
     sseSpecification?: pulumi.Input<inputs.verifiedaccess.EndpointSseSpecification | undefined>;
     /**
@@ -334,11 +343,14 @@ export interface EndpointState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The ID of the Verified Access group to associate the endpoint with.
+     * ID of the Verified Access group to associate the endpoint with.
      *
      * The following arguments are optional:
      */
     verifiedAccessGroupId?: pulumi.Input<string | undefined>;
+    /**
+     * ID of the Verified Access instance.
+     */
     verifiedAccessInstanceId?: pulumi.Input<string | undefined>;
 }
 
@@ -347,56 +359,59 @@ export interface EndpointState {
  */
 export interface EndpointArgs {
     /**
-     * The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
+     * DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
      */
     applicationDomain?: pulumi.Input<string | undefined>;
     /**
-     * The type of attachment. Currently, only `vpc` is supported.
+     * Type of attachment. Currently, only `vpc` is supported.
      */
     attachmentType: pulumi.Input<string>;
     /**
-     * The CIDR block details. This parameter is required if the endpoint type is `cidr`.
+     * CIDR block details. This parameter is required if the endpoint type is `cidr`. See below.
      */
     cidrOptions?: pulumi.Input<inputs.verifiedaccess.EndpointCidrOptions | undefined>;
     /**
-     * A description for the Verified Access endpoint.
+     * Description for the Verified Access endpoint.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
+     * ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
      */
     domainCertificateArn?: pulumi.Input<string | undefined>;
     /**
-     * A custom identifier that is prepended to the DNS name that is generated for the endpoint.
+     * Custom identifier that is prepended to the DNS name that is generated for the endpoint.
      */
     endpointDomainPrefix?: pulumi.Input<string | undefined>;
     /**
-     * The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
+     * Type of Verified Access endpoint to create. Valid values are `load-balancer`, `network-interface`, `cidr`, and `rds`.
      */
     endpointType: pulumi.Input<string>;
     /**
-     * The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
+     * Load balancer details. This parameter is required if the endpoint type is `load-balancer`. See below.
      */
     loadBalancerOptions?: pulumi.Input<inputs.verifiedaccess.EndpointLoadBalancerOptions | undefined>;
     /**
-     * The network interface details. This parameter is required if the endpoint type is `network-interface`.
+     * Network interface details. This parameter is required if the endpoint type is `network-interface`. See below.
      */
     networkInterfaceOptions?: pulumi.Input<inputs.verifiedaccess.EndpointNetworkInterfaceOptions | undefined>;
     /**
-     * The policy document that is associated with this resource.
+     * Policy document that is associated with this resource.
      */
     policyDocument?: pulumi.Input<string | undefined>;
+    /**
+     * RDS details. This parameter is required if the endpoint type is `rds`. See below.
+     */
     rdsOptions?: pulumi.Input<inputs.verifiedaccess.EndpointRdsOptions | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * List of the the security groups IDs to associate with the Verified Access endpoint.
+     * List of the security groups IDs to associate with the Verified Access endpoint.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The options in use for server side encryption.
+     * Options in use for server side encryption. See below.
      */
     sseSpecification?: pulumi.Input<inputs.verifiedaccess.EndpointSseSpecification | undefined>;
     /**
@@ -404,7 +419,7 @@ export interface EndpointArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The ID of the Verified Access group to associate the endpoint with.
+     * ID of the Verified Access group to associate the endpoint with.
      *
      * The following arguments are optional:
      */

@@ -130,14 +130,14 @@ public class CaCertificate extends com.pulumi.resources.CustomResource {
         return this.active;
     }
     /**
-     * Boolean flag to indicate if the certificate should be active for device regisration.
+     * Boolean flag to indicate if the certificate should be active for device registration.
      * 
      */
     @Export(name="allowAutoRegistration", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> allowAutoRegistration;
 
     /**
-     * @return Boolean flag to indicate if the certificate should be active for device regisration.
+     * @return Boolean flag to indicate if the certificate should be active for device registration.
      * 
      */
     public Output<Boolean> allowAutoRegistration() {

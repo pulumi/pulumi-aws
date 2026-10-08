@@ -92,14 +92,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/vpcIpamPreviewNextCidr:VpcIpamPreviewNextCidr")
 public class VpcIpamPreviewNextCidr extends com.pulumi.resources.CustomResource {
     /**
-     * The previewed CIDR from the pool.
+     * Previewed CIDR from the pool.
      * 
      */
     @Export(name="cidr", refs={String.class}, tree="[0]")
     private Output<String> cidr;
 
     /**
-     * @return The previewed CIDR from the pool.
+     * @return Previewed CIDR from the pool.
      * 
      */
     public Output<String> cidr() {
@@ -120,28 +120,28 @@ public class VpcIpamPreviewNextCidr extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.disallowedCidrs);
     }
     /**
-     * The ID of the pool to which you want to assign a CIDR.
+     * ID of the pool to which you want to assign a CIDR.
      * 
      */
     @Export(name="ipamPoolId", refs={String.class}, tree="[0]")
     private Output<String> ipamPoolId;
 
     /**
-     * @return The ID of the pool to which you want to assign a CIDR.
+     * @return ID of the pool to which you want to assign a CIDR.
      * 
      */
     public Output<String> ipamPoolId() {
         return this.ipamPoolId;
     }
     /**
-     * The netmask length of the CIDR you would like to preview from the IPAM pool.
+     * Netmask length of the CIDR you would like to preview from the IPAM pool.
      * 
      */
     @Export(name="netmaskLength", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> netmaskLength;
 
     /**
-     * @return The netmask length of the CIDR you would like to preview from the IPAM pool.
+     * @return Netmask length of the CIDR you would like to preview from the IPAM pool.
      * 
      */
     public Output<Optional<Integer>> netmaskLength() {

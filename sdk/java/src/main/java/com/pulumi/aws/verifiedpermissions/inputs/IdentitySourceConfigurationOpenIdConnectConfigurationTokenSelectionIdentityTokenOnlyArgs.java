@@ -17,14 +17,14 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSel
     public static final IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs Empty = new IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs();
 
     /**
-     * The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
+     * ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
      * 
      */
     @Import(name="clientIds")
     private @Nullable Output<List<String>> clientIds;
 
     /**
-     * @return The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
+     * @return ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
      * 
      */
     public Optional<Output<List<String>>> clientIds() {
@@ -32,14 +32,14 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSel
     }
 
     /**
-     * The claim that determines the principal in OIDC identity tokens.
+     * Claim that determines the principal in OIDC identity tokens.
      * 
      */
     @Import(name="principalIdClaim")
     private @Nullable Output<String> principalIdClaim;
 
     /**
-     * @return The claim that determines the principal in OIDC identity tokens.
+     * @return Claim that determines the principal in OIDC identity tokens.
      * 
      */
     public Optional<Output<String>> principalIdClaim() {
@@ -72,7 +72,7 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSel
         }
 
         /**
-         * @param clientIds The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
+         * @param clientIds ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSel
         }
 
         /**
-         * @param clientIds The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
+         * @param clientIds ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSel
         }
 
         /**
-         * @param clientIds The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
+         * @param clientIds ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSel
         }
 
         /**
-         * @param principalIdClaim The claim that determines the principal in OIDC identity tokens.
+         * @param principalIdClaim Claim that determines the principal in OIDC identity tokens.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSel
         }
 
         /**
-         * @param principalIdClaim The claim that determines the principal in OIDC identity tokens.
+         * @param principalIdClaim Claim that determines the principal in OIDC identity tokens.
          * 
          * @return builder
          * 

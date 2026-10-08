@@ -235,6 +235,18 @@ class Route(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `destination_cidr_block` (String) IPv4 or IPv6 CIDR block used for destination matches.
+        * `transit_gateway_route_table_id` (String) Identifier of EC2 Transit Gateway Route Table.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import `ec2transitgateway.Route` using the EC2 Transit Gateway Route Table, an underscore, and the destination. For example:
 
         ```sh
@@ -286,6 +298,18 @@ class Route(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `destination_cidr_block` (String) IPv4 or IPv6 CIDR block used for destination matches.
+        * `transit_gateway_route_table_id` (String) Identifier of EC2 Transit Gateway Route Table.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import `ec2transitgateway.Route` using the EC2 Transit Gateway Route Table, an underscore, and the destination. For example:
 

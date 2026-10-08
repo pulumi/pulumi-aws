@@ -13,6 +13,9 @@ namespace Pulumi.Aws.VerifiedPermissions.Outputs
     [OutputType]
     public sealed class GetPolicyStoreValidationSettingResult
     {
+        /// <summary>
+        /// Mode for the validation settings.
+        /// </summary>
         public readonly string Mode;
 
         [OutputConstructor]

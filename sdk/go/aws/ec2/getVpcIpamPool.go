@@ -96,11 +96,11 @@ type LookupVpcIpamPoolArgs struct {
 type LookupVpcIpamPoolResult struct {
 	// IP protocol assigned to this pool.
 	AddressFamily string `pulumi:"addressFamily"`
-	// A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
+	// Default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
 	AllocationDefaultNetmaskLength int `pulumi:"allocationDefaultNetmaskLength"`
-	// The maximum netmask length that will be required for CIDR allocations in this pool.
+	// Maximum netmask length that will be required for CIDR allocations in this pool.
 	AllocationMaxNetmaskLength int `pulumi:"allocationMaxNetmaskLength"`
-	// The minimum netmask length that will be required for CIDR allocations in this pool.
+	// Minimum netmask length that will be required for CIDR allocations in this pool.
 	AllocationMinNetmaskLength int `pulumi:"allocationMinNetmaskLength"`
 	// Tags that are required to create resources in using this pool.
 	AllocationResourceTags map[string]string `pulumi:"allocationResourceTags"`
@@ -117,19 +117,22 @@ type LookupVpcIpamPoolResult struct {
 	Id         *string `pulumi:"id"`
 	IpamPoolId *string `pulumi:"ipamPoolId"`
 	// ID of the scope the pool belongs to.
-	IpamScopeId   string `pulumi:"ipamScopeId"`
+	IpamScopeId string `pulumi:"ipamScopeId"`
+	// Type of the scope the pool belongs to.
 	IpamScopeType string `pulumi:"ipamScopeType"`
 	// Locale is the Region where your pool is available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region.
-	Locale    string `pulumi:"locale"`
-	PoolDepth int    `pulumi:"poolDepth"`
-	// Defines whether or not IPv6 pool space is publicly advertisable over the internet.
+	Locale string `pulumi:"locale"`
+	// Depth of pools in your IPAM pool.
+	PoolDepth int `pulumi:"poolDepth"`
+	// Whether IPv6 pool space is publicly advertisable over the internet.
 	PubliclyAdvertisable bool   `pulumi:"publiclyAdvertisable"`
 	Region               string `pulumi:"region"`
 	// ID of the source IPAM pool.
 	SourceIpamPoolId string `pulumi:"sourceIpamPoolId"`
 	// Resource used to create the resource planning pool.
 	SourceResources []GetVpcIpamPoolSourceResource `pulumi:"sourceResources"`
-	State           string                         `pulumi:"state"`
+	// State of the IPAM pool.
+	State string `pulumi:"state"`
 	// Map of tags to assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -179,17 +182,17 @@ func (o LookupVpcIpamPoolResultOutput) AddressFamily() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcIpamPoolResult) string { return v.AddressFamily }).(pulumi.StringOutput)
 }
 
-// A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
+// Default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
 func (o LookupVpcIpamPoolResultOutput) AllocationDefaultNetmaskLength() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupVpcIpamPoolResult) int { return v.AllocationDefaultNetmaskLength }).(pulumi.IntOutput)
 }
 
-// The maximum netmask length that will be required for CIDR allocations in this pool.
+// Maximum netmask length that will be required for CIDR allocations in this pool.
 func (o LookupVpcIpamPoolResultOutput) AllocationMaxNetmaskLength() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupVpcIpamPoolResult) int { return v.AllocationMaxNetmaskLength }).(pulumi.IntOutput)
 }
 
-// The minimum netmask length that will be required for CIDR allocations in this pool.
+// Minimum netmask length that will be required for CIDR allocations in this pool.
 func (o LookupVpcIpamPoolResultOutput) AllocationMinNetmaskLength() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupVpcIpamPoolResult) int { return v.AllocationMinNetmaskLength }).(pulumi.IntOutput)
 }
@@ -237,6 +240,7 @@ func (o LookupVpcIpamPoolResultOutput) IpamScopeId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcIpamPoolResult) string { return v.IpamScopeId }).(pulumi.StringOutput)
 }
 
+// Type of the scope the pool belongs to.
 func (o LookupVpcIpamPoolResultOutput) IpamScopeType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcIpamPoolResult) string { return v.IpamScopeType }).(pulumi.StringOutput)
 }
@@ -246,11 +250,12 @@ func (o LookupVpcIpamPoolResultOutput) Locale() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcIpamPoolResult) string { return v.Locale }).(pulumi.StringOutput)
 }
 
+// Depth of pools in your IPAM pool.
 func (o LookupVpcIpamPoolResultOutput) PoolDepth() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupVpcIpamPoolResult) int { return v.PoolDepth }).(pulumi.IntOutput)
 }
 
-// Defines whether or not IPv6 pool space is publicly advertisable over the internet.
+// Whether IPv6 pool space is publicly advertisable over the internet.
 func (o LookupVpcIpamPoolResultOutput) PubliclyAdvertisable() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupVpcIpamPoolResult) bool { return v.PubliclyAdvertisable }).(pulumi.BoolOutput)
 }
@@ -269,6 +274,7 @@ func (o LookupVpcIpamPoolResultOutput) SourceResources() GetVpcIpamPoolSourceRes
 	return o.ApplyT(func(v LookupVpcIpamPoolResult) []GetVpcIpamPoolSourceResource { return v.SourceResources }).(GetVpcIpamPoolSourceResourceArrayOutput)
 }
 
+// State of the IPAM pool.
 func (o LookupVpcIpamPoolResultOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcIpamPoolResult) string { return v.State }).(pulumi.StringOutput)
 }

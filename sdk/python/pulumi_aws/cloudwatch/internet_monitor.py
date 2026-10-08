@@ -388,7 +388,7 @@ class InternetMonitor(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudwatch.InternetMonitor("example", monitor_name="exmple")
+        example = aws.cloudwatch.InternetMonitor("example", monitor_name="example")
         ```
 
         ## Import
@@ -429,7 +429,7 @@ class InternetMonitor(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudwatch.InternetMonitor("example", monitor_name="exmple")
+        example = aws.cloudwatch.InternetMonitor("example", monitor_name="example")
         ```
 
         ## Import

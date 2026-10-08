@@ -25,8 +25,8 @@ class InstanceTrustProviderAttachmentArgs:
         """
         The set of arguments for constructing a InstanceTrustProviderAttachment resource.
 
-        :param pulumi.Input[_builtins.str] verifiedaccess_instance_id: The ID of the Verified Access instance to attach the Trust Provider to.
-        :param pulumi.Input[_builtins.str] verifiedaccess_trust_provider_id: The ID of the Verified Access trust provider.
+        :param pulumi.Input[_builtins.str] verifiedaccess_instance_id: ID of the Verified Access instance to attach the Trust Provider to.
+        :param pulumi.Input[_builtins.str] verifiedaccess_trust_provider_id: ID of the Verified Access trust provider.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "verifiedaccess_instance_id", verifiedaccess_instance_id)
@@ -38,7 +38,7 @@ class InstanceTrustProviderAttachmentArgs:
     @pulumi.getter(name="verifiedaccessInstanceId")
     def verifiedaccess_instance_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the Verified Access instance to attach the Trust Provider to.
+        ID of the Verified Access instance to attach the Trust Provider to.
         """
         return pulumi.get(self, "verifiedaccess_instance_id")
 
@@ -50,7 +50,7 @@ class InstanceTrustProviderAttachmentArgs:
     @pulumi.getter(name="verifiedaccessTrustProviderId")
     def verifiedaccess_trust_provider_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the Verified Access trust provider.
+        ID of the Verified Access trust provider.
         """
         return pulumi.get(self, "verifiedaccess_trust_provider_id")
 
@@ -81,8 +81,8 @@ class _InstanceTrustProviderAttachmentState:
         Input properties used for looking up and filtering InstanceTrustProviderAttachment resources.
 
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] verifiedaccess_instance_id: The ID of the Verified Access instance to attach the Trust Provider to.
-        :param pulumi.Input[_builtins.str] verifiedaccess_trust_provider_id: The ID of the Verified Access trust provider.
+        :param pulumi.Input[_builtins.str] verifiedaccess_instance_id: ID of the Verified Access instance to attach the Trust Provider to.
+        :param pulumi.Input[_builtins.str] verifiedaccess_trust_provider_id: ID of the Verified Access trust provider.
         """
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -107,7 +107,7 @@ class _InstanceTrustProviderAttachmentState:
     @pulumi.getter(name="verifiedaccessInstanceId")
     def verifiedaccess_instance_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the Verified Access instance to attach the Trust Provider to.
+        ID of the Verified Access instance to attach the Trust Provider to.
         """
         return pulumi.get(self, "verifiedaccess_instance_id")
 
@@ -119,7 +119,7 @@ class _InstanceTrustProviderAttachmentState:
     @pulumi.getter(name="verifiedaccessTrustProviderId")
     def verifiedaccess_trust_provider_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the Verified Access trust provider.
+        ID of the Verified Access trust provider.
         """
         return pulumi.get(self, "verifiedaccess_trust_provider_id")
 
@@ -172,8 +172,8 @@ class InstanceTrustProviderAttachment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] verifiedaccess_instance_id: The ID of the Verified Access instance to attach the Trust Provider to.
-        :param pulumi.Input[_builtins.str] verifiedaccess_trust_provider_id: The ID of the Verified Access trust provider.
+        :param pulumi.Input[_builtins.str] verifiedaccess_instance_id: ID of the Verified Access instance to attach the Trust Provider to.
+        :param pulumi.Input[_builtins.str] verifiedaccess_trust_provider_id: ID of the Verified Access trust provider.
         """
         ...
     @overload
@@ -267,8 +267,8 @@ class InstanceTrustProviderAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] verifiedaccess_instance_id: The ID of the Verified Access instance to attach the Trust Provider to.
-        :param pulumi.Input[_builtins.str] verifiedaccess_trust_provider_id: The ID of the Verified Access trust provider.
+        :param pulumi.Input[_builtins.str] verifiedaccess_instance_id: ID of the Verified Access instance to attach the Trust Provider to.
+        :param pulumi.Input[_builtins.str] verifiedaccess_trust_provider_id: ID of the Verified Access trust provider.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -291,7 +291,7 @@ class InstanceTrustProviderAttachment(pulumi.CustomResource):
     @pulumi.getter(name="verifiedaccessInstanceId")
     def verifiedaccess_instance_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the Verified Access instance to attach the Trust Provider to.
+        ID of the Verified Access instance to attach the Trust Provider to.
         """
         return pulumi.get(self, "verifiedaccess_instance_id")
 
@@ -299,7 +299,7 @@ class InstanceTrustProviderAttachment(pulumi.CustomResource):
     @pulumi.getter(name="verifiedaccessTrustProviderId")
     def verifiedaccess_trust_provider_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the Verified Access trust provider.
+        ID of the Verified Access trust provider.
         """
         return pulumi.get(self, "verifiedaccess_trust_provider_id")
 

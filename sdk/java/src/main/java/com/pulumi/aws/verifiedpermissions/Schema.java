@@ -80,42 +80,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:verifiedpermissions/schema:Schema")
 public class Schema extends com.pulumi.resources.CustomResource {
     /**
-     * The definition of the schema.
+     * Definition of the schema. See Definition below.
      * 
      */
     @Export(name="definition", refs={SchemaDefinition.class}, tree="[0]")
     private Output<SchemaDefinition> definition;
 
     /**
-     * @return The definition of the schema.
+     * @return Definition of the schema. See Definition below.
      * 
      */
     public Output<SchemaDefinition> definition() {
         return this.definition;
     }
     /**
-     * (Optional) Identifies the namespaces of the entities referenced by this schema.
+     * Namespaces of the entities referenced by this schema.
      * 
      */
     @Export(name="namespaces", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> namespaces;
 
     /**
-     * @return (Optional) Identifies the namespaces of the entities referenced by this schema.
+     * @return Namespaces of the entities referenced by this schema.
      * 
      */
     public Output<List<String>> namespaces() {
         return this.namespaces;
     }
     /**
-     * The ID of the Policy Store.
+     * ID of the Policy Store.
      * 
      */
     @Export(name="policyStoreId", refs={String.class}, tree="[0]")
     private Output<String> policyStoreId;
 
     /**
-     * @return The ID of the Policy Store.
+     * @return ID of the Policy Store.
      * 
      */
     public Output<String> policyStoreId() {

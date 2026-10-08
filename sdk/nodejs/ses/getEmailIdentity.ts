@@ -48,9 +48,6 @@ export interface GetEmailIdentityResult {
      * ARN of the email identity.
      */
     readonly arn: string;
-    /**
-     * Email identity.
-     */
     readonly email: string;
     /**
      * The provider-assigned unique ID for this managed resource.

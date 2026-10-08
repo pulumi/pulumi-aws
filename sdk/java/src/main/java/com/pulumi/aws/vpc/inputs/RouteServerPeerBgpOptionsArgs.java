@@ -18,14 +18,14 @@ public final class RouteServerPeerBgpOptionsArgs extends com.pulumi.resources.Re
     public static final RouteServerPeerBgpOptionsArgs Empty = new RouteServerPeerBgpOptionsArgs();
 
     /**
-     * The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
+     * Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
      * 
      */
     @Import(name="peerAsn", required=true)
     private Output<Integer> peerAsn;
 
     /**
-     * @return The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
+     * @return Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
      * 
      */
     public Output<Integer> peerAsn() {
@@ -33,14 +33,14 @@ public final class RouteServerPeerBgpOptionsArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
+     * Requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
      * 
      */
     @Import(name="peerLivenessDetection")
     private @Nullable Output<String> peerLivenessDetection;
 
     /**
-     * @return The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
+     * @return Requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
      * 
      */
     public Optional<Output<String>> peerLivenessDetection() {
@@ -73,7 +73,7 @@ public final class RouteServerPeerBgpOptionsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param peerAsn The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
+         * @param peerAsn Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class RouteServerPeerBgpOptionsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param peerAsn The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
+         * @param peerAsn Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class RouteServerPeerBgpOptionsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param peerLivenessDetection The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
+         * @param peerLivenessDetection Requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class RouteServerPeerBgpOptionsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param peerLivenessDetection The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
+         * @param peerLivenessDetection Requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
          * 
          * @return builder
          * 

@@ -14,25 +14,65 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EndpointLoadBalancerOptions {
+    /**
+     * @return ARN of the load balancer.
+     * 
+     */
     private @Nullable String loadBalancerArn;
+    /**
+     * @return IP port number.
+     * 
+     */
     private @Nullable Integer port;
+    /**
+     * @return Port ranges. See below.
+     * 
+     */
     private @Nullable List<EndpointLoadBalancerOptionsPortRange> portRanges;
+    /**
+     * @return IP protocol.
+     * 
+     */
     private @Nullable String protocol;
+    /**
+     * @return IDs of the subnets.
+     * 
+     */
     private @Nullable List<String> subnetIds;
 
     private EndpointLoadBalancerOptions() {}
+    /**
+     * @return ARN of the load balancer.
+     * 
+     */
     public Optional<String> loadBalancerArn() {
         return Optional.ofNullable(this.loadBalancerArn);
     }
+    /**
+     * @return IP port number.
+     * 
+     */
     public Optional<Integer> port() {
         return Optional.ofNullable(this.port);
     }
+    /**
+     * @return Port ranges. See below.
+     * 
+     */
     public List<EndpointLoadBalancerOptionsPortRange> portRanges() {
         return this.portRanges == null ? List.of() : this.portRanges;
     }
+    /**
+     * @return IP protocol.
+     * 
+     */
     public Optional<String> protocol() {
         return Optional.ofNullable(this.protocol);
     }
+    /**
+     * @return IDs of the subnets.
+     * 
+     */
     public List<String> subnetIds() {
         return this.subnetIds == null ? List.of() : this.subnetIds;
     }

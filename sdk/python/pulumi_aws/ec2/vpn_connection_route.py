@@ -25,8 +25,8 @@ class VpnConnectionRouteInitArgs:
         """
         The set of arguments for constructing a VpnConnectionRoute resource.
 
-        :param pulumi.Input[_builtins.str] destination_cidr_block: The CIDR block associated with the local subnet of the customer network.
-        :param pulumi.Input[_builtins.str] vpn_connection_id: The ID of the VPN connection.
+        :param pulumi.Input[_builtins.str] destination_cidr_block: CIDR block associated with the local subnet of the customer network.
+        :param pulumi.Input[_builtins.str] vpn_connection_id: ID of the VPN connection.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
@@ -38,7 +38,7 @@ class VpnConnectionRouteInitArgs:
     @pulumi.getter(name="destinationCidrBlock")
     def destination_cidr_block(self) -> pulumi.Input[_builtins.str]:
         """
-        The CIDR block associated with the local subnet of the customer network.
+        CIDR block associated with the local subnet of the customer network.
         """
         return pulumi.get(self, "destination_cidr_block")
 
@@ -50,7 +50,7 @@ class VpnConnectionRouteInitArgs:
     @pulumi.getter(name="vpnConnectionId")
     def vpn_connection_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the VPN connection.
+        ID of the VPN connection.
         """
         return pulumi.get(self, "vpn_connection_id")
 
@@ -80,9 +80,9 @@ class _VpnConnectionRouteState:
         """
         Input properties used for looking up and filtering VpnConnectionRoute resources.
 
-        :param pulumi.Input[_builtins.str] destination_cidr_block: The CIDR block associated with the local subnet of the customer network.
+        :param pulumi.Input[_builtins.str] destination_cidr_block: CIDR block associated with the local subnet of the customer network.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] vpn_connection_id: The ID of the VPN connection.
+        :param pulumi.Input[_builtins.str] vpn_connection_id: ID of the VPN connection.
         """
         if destination_cidr_block is not None:
             pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
@@ -95,7 +95,7 @@ class _VpnConnectionRouteState:
     @pulumi.getter(name="destinationCidrBlock")
     def destination_cidr_block(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The CIDR block associated with the local subnet of the customer network.
+        CIDR block associated with the local subnet of the customer network.
         """
         return pulumi.get(self, "destination_cidr_block")
 
@@ -119,7 +119,7 @@ class _VpnConnectionRouteState:
     @pulumi.getter(name="vpnConnectionId")
     def vpn_connection_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the VPN connection.
+        ID of the VPN connection.
         """
         return pulumi.get(self, "vpn_connection_id")
 
@@ -166,9 +166,9 @@ class VpnConnectionRoute(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] destination_cidr_block: The CIDR block associated with the local subnet of the customer network.
+        :param pulumi.Input[_builtins.str] destination_cidr_block: CIDR block associated with the local subnet of the customer network.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] vpn_connection_id: The ID of the VPN connection.
+        :param pulumi.Input[_builtins.str] vpn_connection_id: ID of the VPN connection.
         """
         ...
     @overload
@@ -256,9 +256,9 @@ class VpnConnectionRoute(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] destination_cidr_block: The CIDR block associated with the local subnet of the customer network.
+        :param pulumi.Input[_builtins.str] destination_cidr_block: CIDR block associated with the local subnet of the customer network.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] vpn_connection_id: The ID of the VPN connection.
+        :param pulumi.Input[_builtins.str] vpn_connection_id: ID of the VPN connection.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -273,7 +273,7 @@ class VpnConnectionRoute(pulumi.CustomResource):
     @pulumi.getter(name="destinationCidrBlock")
     def destination_cidr_block(self) -> pulumi.Output[_builtins.str]:
         """
-        The CIDR block associated with the local subnet of the customer network.
+        CIDR block associated with the local subnet of the customer network.
         """
         return pulumi.get(self, "destination_cidr_block")
 
@@ -289,7 +289,7 @@ class VpnConnectionRoute(pulumi.CustomResource):
     @pulumi.getter(name="vpnConnectionId")
     def vpn_connection_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the VPN connection.
+        ID of the VPN connection.
         """
         return pulumi.get(self, "vpn_connection_id")
 

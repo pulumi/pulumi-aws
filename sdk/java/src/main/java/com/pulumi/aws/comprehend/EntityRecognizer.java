@@ -178,7 +178,7 @@ public class EntityRecognizer extends com.pulumi.resources.CustomResource {
     /**
      * Name for the Entity Recognizer.
      * Has a maximum length of 63 characters.
-     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
      * 
      * The following arguments are optional:
      * 
@@ -189,7 +189,7 @@ public class EntityRecognizer extends com.pulumi.resources.CustomResource {
     /**
      * @return Name for the Entity Recognizer.
      * Has a maximum length of 63 characters.
-     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
      * 
      * The following arguments are optional:
      * 
@@ -245,7 +245,7 @@ public class EntityRecognizer extends com.pulumi.resources.CustomResource {
      * If omitted, the provider will assign a random, unique version name.
      * If explicitly set to `&#34;&#34;`, no version name will be set.
      * Has a maximum length of 63 characters.
-     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
      * Conflicts with `versionNamePrefix`.
      * 
      */
@@ -258,7 +258,7 @@ public class EntityRecognizer extends com.pulumi.resources.CustomResource {
      * If omitted, the provider will assign a random, unique version name.
      * If explicitly set to `&#34;&#34;`, no version name will be set.
      * Has a maximum length of 63 characters.
-     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
      * Conflicts with `versionNamePrefix`.
      * 
      */
@@ -268,7 +268,7 @@ public class EntityRecognizer extends com.pulumi.resources.CustomResource {
     /**
      * Creates a unique version name beginning with the specified prefix.
      * Has a maximum length of 37 characters.
-     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
      * Conflicts with `versionName`.
      * 
      */
@@ -278,7 +278,7 @@ public class EntityRecognizer extends com.pulumi.resources.CustomResource {
     /**
      * @return Creates a unique version name beginning with the specified prefix.
      * Has a maximum length of 37 characters.
-     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
      * Conflicts with `versionName`.
      * 
      */

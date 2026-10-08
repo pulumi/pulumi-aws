@@ -72,7 +72,7 @@ export interface GetTableResult {
      */
     readonly lastUpdatedTime: string;
     /**
-     * Object containing the following attributes to desribe magnetic store writes.
+     * Object containing the following attributes to describe magnetic store writes.
      */
     readonly magneticStoreWriteProperties: outputs.timestreamwrite.GetTableMagneticStoreWriteProperty[];
     /**

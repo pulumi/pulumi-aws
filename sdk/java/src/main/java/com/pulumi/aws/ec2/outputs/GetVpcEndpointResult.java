@@ -39,6 +39,10 @@ public final class GetVpcEndpointResult {
     private List<GetVpcEndpointDnsOption> dnsOptions;
     private @Nullable List<GetVpcEndpointFilter> filters;
     private String id;
+    /**
+     * @return IP address type for the VPC Endpoint.
+     * 
+     */
     private String ipAddressType;
     /**
      * @return One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
@@ -128,6 +132,10 @@ public final class GetVpcEndpointResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return IP address type for the VPC Endpoint.
+     * 
+     */
     public String ipAddressType() {
         return this.ipAddressType;
     }

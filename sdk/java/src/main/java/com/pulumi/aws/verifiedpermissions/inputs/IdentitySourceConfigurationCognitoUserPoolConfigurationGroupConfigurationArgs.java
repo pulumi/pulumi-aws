@@ -15,14 +15,14 @@ public final class IdentitySourceConfigurationCognitoUserPoolConfigurationGroupC
     public static final IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs Empty = new IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs();
 
     /**
-     * The name of the schema entity type that&#39;s mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+     * Policy store entity type that you want to map your users&#39; group claim to. For example, `MyCorp::UserGroup`. A group entity type is an entity that can have a user entity type as a member.
      * 
      */
     @Import(name="groupEntityType", required=true)
     private Output<String> groupEntityType;
 
     /**
-     * @return The name of the schema entity type that&#39;s mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+     * @return Policy store entity type that you want to map your users&#39; group claim to. For example, `MyCorp::UserGroup`. A group entity type is an entity that can have a user entity type as a member.
      * 
      */
     public Output<String> groupEntityType() {
@@ -54,7 +54,7 @@ public final class IdentitySourceConfigurationCognitoUserPoolConfigurationGroupC
         }
 
         /**
-         * @param groupEntityType The name of the schema entity type that&#39;s mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+         * @param groupEntityType Policy store entity type that you want to map your users&#39; group claim to. For example, `MyCorp::UserGroup`. A group entity type is an entity that can have a user entity type as a member.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class IdentitySourceConfigurationCognitoUserPoolConfigurationGroupC
         }
 
         /**
-         * @param groupEntityType The name of the schema entity type that&#39;s mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+         * @param groupEntityType Policy store entity type that you want to map your users&#39; group claim to. For example, `MyCorp::UserGroup`. A group entity type is an entity that can have a user entity type as a member.
          * 
          * @return builder
          * 

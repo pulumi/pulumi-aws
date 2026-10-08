@@ -51,7 +51,7 @@ public final class PlanWorkflowStep {
      */
     private @Nullable List<PlanWorkflowStepCustomActionLambdaConfig> customActionLambdaConfigs;
     /**
-     * @return Description of the step.
+     * @return Description of the plan.
      * 
      */
     private @Nullable String description;
@@ -96,7 +96,7 @@ public final class PlanWorkflowStep {
      */
     private @Nullable List<PlanWorkflowStepLambdaEventSourceMappingConfig> lambdaEventSourceMappingConfigs;
     /**
-     * @return Name of the step.
+     * @return Name of the plan. Must be unique within the account.
      * 
      */
     private String name;
@@ -161,7 +161,7 @@ public final class PlanWorkflowStep {
         return this.customActionLambdaConfigs == null ? List.of() : this.customActionLambdaConfigs;
     }
     /**
-     * @return Description of the step.
+     * @return Description of the plan.
      * 
      */
     public Optional<String> description() {
@@ -224,7 +224,7 @@ public final class PlanWorkflowStep {
         return this.lambdaEventSourceMappingConfigs == null ? List.of() : this.lambdaEventSourceMappingConfigs;
     }
     /**
-     * @return Name of the step.
+     * @return Name of the plan. Must be unique within the account.
      * 
      */
     public String name() {

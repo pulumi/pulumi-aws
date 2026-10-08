@@ -37,8 +37,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			testStream, err := kinesis.NewStream(ctx, "test_stream", &kinesis.StreamArgs{
-//				Name:       pulumi.String("kinesis-test"),
-//				ShardCount: pulumi.Int(1),
+//				StreamModeDetails: &kinesis.StreamStreamModeDetailsArgs{
+//					StreamMode: pulumi.String("ON_DEMAND"),
+//				},
+//				Name: pulumi.String("pulumi-kinesis-test"),
 //			})
 //			if err != nil {
 //				return err
@@ -111,8 +113,10 @@ import (
 //				return err
 //			}
 //			exampleStream, err := kinesis.NewStream(ctx, "example", &kinesis.StreamArgs{
-//				Name:       pulumi.String("example-kinesis-stream"),
-//				ShardCount: pulumi.Int(1),
+//				StreamModeDetails: &kinesis.StreamStreamModeDetailsArgs{
+//					StreamMode: pulumi.String("ON_DEMAND"),
+//				},
+//				Name: pulumi.String("example-kinesis-stream"),
 //			})
 //			if err != nil {
 //				return err

@@ -68,11 +68,11 @@ export class VpcEndpointSubnetAssociation extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The ID of the subnet to be associated with the VPC endpoint.
+     * ID of the subnet to be associated with the VPC endpoint.
      */
     declare public readonly subnetId: pulumi.Output<string>;
     /**
-     * The ID of the VPC endpoint with which the subnet will be associated.
+     * ID of the VPC endpoint with which the subnet will be associated.
      */
     declare public readonly vpcEndpointId: pulumi.Output<string>;
 
@@ -118,11 +118,11 @@ export interface VpcEndpointSubnetAssociationState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the subnet to be associated with the VPC endpoint.
+     * ID of the subnet to be associated with the VPC endpoint.
      */
     subnetId?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the VPC endpoint with which the subnet will be associated.
+     * ID of the VPC endpoint with which the subnet will be associated.
      */
     vpcEndpointId?: pulumi.Input<string | undefined>;
 }
@@ -136,11 +136,11 @@ export interface VpcEndpointSubnetAssociationArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the subnet to be associated with the VPC endpoint.
+     * ID of the subnet to be associated with the VPC endpoint.
      */
     subnetId: pulumi.Input<string>;
     /**
-     * The ID of the VPC endpoint with which the subnet will be associated.
+     * ID of the VPC endpoint with which the subnet will be associated.
      */
     vpcEndpointId: pulumi.Input<string>;
 }

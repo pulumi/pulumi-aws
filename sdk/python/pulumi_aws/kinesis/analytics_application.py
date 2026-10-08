@@ -488,8 +488,10 @@ class AnalyticsApplication(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_stream = aws.kinesis.Stream("test_stream",
-            name="kinesis-test",
-            shard_count=1)
+            stream_mode_details={
+                "stream_mode": "ON_DEMAND",
+            },
+            name="pulumi-kinesis-test")
         test_application = aws.kinesis.AnalyticsApplication("test_application",
             inputs={
                 "kinesis_stream": {
@@ -530,8 +532,10 @@ class AnalyticsApplication(pulumi.CustomResource):
             name="example-kinesis-application",
             log_group_name=example.name)
         example_stream = aws.kinesis.Stream("example",
-            name="example-kinesis-stream",
-            shard_count=1)
+            stream_mode_details={
+                "stream_mode": "ON_DEMAND",
+            },
+            name="example-kinesis-stream")
         example_firehose_delivery_stream = aws.kinesis.FirehoseDeliveryStream("example",
             extended_s3_configuration={
                 "bucket_arn": example_aws_s3_bucket["arn"],
@@ -629,8 +633,10 @@ class AnalyticsApplication(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_stream = aws.kinesis.Stream("test_stream",
-            name="kinesis-test",
-            shard_count=1)
+            stream_mode_details={
+                "stream_mode": "ON_DEMAND",
+            },
+            name="pulumi-kinesis-test")
         test_application = aws.kinesis.AnalyticsApplication("test_application",
             inputs={
                 "kinesis_stream": {
@@ -671,8 +677,10 @@ class AnalyticsApplication(pulumi.CustomResource):
             name="example-kinesis-application",
             log_group_name=example.name)
         example_stream = aws.kinesis.Stream("example",
-            name="example-kinesis-stream",
-            shard_count=1)
+            stream_mode_details={
+                "stream_mode": "ON_DEMAND",
+            },
+            name="example-kinesis-stream")
         example_firehose_delivery_stream = aws.kinesis.FirehoseDeliveryStream("example",
             extended_s3_configuration={
                 "bucket_arn": example_aws_s3_bucket["arn"],

@@ -31,7 +31,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         }
 
         /// <summary>
-        /// The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
+        /// Amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
         /// 
         /// **NOTE:** This setting doesn't determine how often AWS WAF checks the rate, but how far back it looks each time it checks. AWS WAF checks the rate about every 10 seconds.
         /// </summary>
@@ -39,7 +39,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<int>? EvaluationWindowSec { get; set; }
 
         /// <summary>
-        /// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `AggregateKeyType` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
+        /// Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `AggregateKeyType` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
         /// </summary>
         [Input("forwardedIpConfig")]
         public Input<Inputs.RuleGroupRuleStatementRateBasedStatementForwardedIpConfigGetArgs>? ForwardedIpConfig { get; set; }
@@ -51,7 +51,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<int> Limit { get; set; } = null!;
 
         /// <summary>
-        /// An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details. If `AggregateKeyType` is set to `CONSTANT`, this block is required.
+        /// Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details. If `AggregateKeyType` is set to `CONSTANT`, this block is required.
         /// </summary>
         [Input("scopeDownStatement")]
         public Input<Inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementGetArgs>? ScopeDownStatement { get; set; }

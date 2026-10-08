@@ -16,14 +16,14 @@ public final class GetVpcIpamPoolsFilterArgs extends com.pulumi.resources.Resour
     public static final GetVpcIpamPoolsFilterArgs Empty = new GetVpcIpamPoolsFilterArgs();
 
     /**
-     * The name of the filter. Filter names are case-sensitive.
+     * Name of the filter. Filter names are case-sensitive.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the filter. Filter names are case-sensitive.
+     * @return Name of the filter. Filter names are case-sensitive.
      * 
      */
     public Output<String> name() {
@@ -31,14 +31,14 @@ public final class GetVpcIpamPoolsFilterArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The filter values. Filter values are case-sensitive.
+     * Filter values. Filter values are case-sensitive.
      * 
      */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
     /**
-     * @return The filter values. Filter values are case-sensitive.
+     * @return Filter values. Filter values are case-sensitive.
      * 
      */
     public Output<List<String>> values() {
@@ -71,7 +71,7 @@ public final class GetVpcIpamPoolsFilterArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name The name of the filter. Filter names are case-sensitive.
+         * @param name Name of the filter. Filter names are case-sensitive.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GetVpcIpamPoolsFilterArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name The name of the filter. Filter names are case-sensitive.
+         * @param name Name of the filter. Filter names are case-sensitive.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class GetVpcIpamPoolsFilterArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param values The filter values. Filter values are case-sensitive.
+         * @param values Filter values. Filter values are case-sensitive.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class GetVpcIpamPoolsFilterArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param values The filter values. Filter values are case-sensitive.
+         * @param values Filter values. Filter values are case-sensitive.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class GetVpcIpamPoolsFilterArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param values The filter values. Filter values are case-sensitive.
+         * @param values Filter values. Filter values are case-sensitive.
          * 
          * @return builder
          * 

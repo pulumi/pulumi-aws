@@ -1684,7 +1684,7 @@ func (o FormTypeTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
 }
 
 type GlossaryTermTermRelations struct {
-	// String array that calssifies the term relations.
+	// String array that classifies the term relations.
 	Classifies []string `pulumi:"classifies"`
 	IsAs       []string `pulumi:"isAs"`
 }
@@ -1701,7 +1701,7 @@ type GlossaryTermTermRelationsInput interface {
 }
 
 type GlossaryTermTermRelationsArgs struct {
-	// String array that calssifies the term relations.
+	// String array that classifies the term relations.
 	Classifies pulumi.StringArrayInput `pulumi:"classifies"`
 	IsAs       pulumi.StringArrayInput `pulumi:"isAs"`
 }
@@ -1783,7 +1783,7 @@ func (o GlossaryTermTermRelationsOutput) ToGlossaryTermTermRelationsPtrOutputWit
 	}).(GlossaryTermTermRelationsPtrOutput)
 }
 
-// String array that calssifies the term relations.
+// String array that classifies the term relations.
 func (o GlossaryTermTermRelationsOutput) Classifies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GlossaryTermTermRelations) []string { return v.Classifies }).(pulumi.StringArrayOutput)
 }
@@ -1816,7 +1816,7 @@ func (o GlossaryTermTermRelationsPtrOutput) Elem() GlossaryTermTermRelationsOutp
 	}).(GlossaryTermTermRelationsOutput)
 }
 
-// String array that calssifies the term relations.
+// String array that classifies the term relations.
 func (o GlossaryTermTermRelationsPtrOutput) Classifies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GlossaryTermTermRelations) []string {
 		if v == nil {

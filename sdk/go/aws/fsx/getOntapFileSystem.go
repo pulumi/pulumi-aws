@@ -70,7 +70,7 @@ type LookupOntapFileSystemResult struct {
 	DailyAutomaticBackupStartTime string `pulumi:"dailyAutomaticBackupStartTime"`
 	// File system deployment type.
 	DeploymentType string `pulumi:"deploymentType"`
-	// SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system, specifying the number of provisioned IOPS and the provision mode. See Disk IOPS Below.
+	// SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system, specifying the number of provisioned IOPS and the provision mode. See `diskIopsConfiguration` below.
 	DiskIopsConfigurations []GetOntapFileSystemDiskIopsConfiguration `pulumi:"diskIopsConfigurations"`
 	// File system's DNS name. You can mount your file system using its DNS name.
 	DnsName string `pulumi:"dnsName"`
@@ -167,7 +167,7 @@ func (o LookupOntapFileSystemResultOutput) DeploymentType() pulumi.StringOutput 
 	return o.ApplyT(func(v LookupOntapFileSystemResult) string { return v.DeploymentType }).(pulumi.StringOutput)
 }
 
-// SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system, specifying the number of provisioned IOPS and the provision mode. See Disk IOPS Below.
+// SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system, specifying the number of provisioned IOPS and the provision mode. See `diskIopsConfiguration` below.
 func (o LookupOntapFileSystemResultOutput) DiskIopsConfigurations() GetOntapFileSystemDiskIopsConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupOntapFileSystemResult) []GetOntapFileSystemDiskIopsConfiguration {
 		return v.DiskIopsConfigurations

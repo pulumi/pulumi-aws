@@ -180,14 +180,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/peeringConnectionOptions:PeeringConnectionOptions")
 public class PeeringConnectionOptions extends com.pulumi.resources.CustomResource {
     /**
-     * An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts the peering connection (a maximum of one).
+     * Configuration block for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to set for the VPC that accepts the peering connection (a maximum of one). See `accepter` Block below.
      * 
      */
     @Export(name="accepter", refs={PeeringConnectionOptionsAccepter.class}, tree="[0]")
     private Output<PeeringConnectionOptionsAccepter> accepter;
 
     /**
-     * @return An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts the peering connection (a maximum of one).
+     * @return Configuration block for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to set for the VPC that accepts the peering connection (a maximum of one). See `accepter` Block below.
      * 
      */
     public Output<PeeringConnectionOptionsAccepter> accepter() {
@@ -208,28 +208,28 @@ public class PeeringConnectionOptions extends com.pulumi.resources.CustomResourc
         return this.region;
     }
     /**
-     * A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests the peering connection (a maximum of one).
+     * Configuration block for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to set for the VPC that requests the peering connection (a maximum of one). See `requester` Block below.
      * 
      */
     @Export(name="requester", refs={PeeringConnectionOptionsRequester.class}, tree="[0]")
     private Output<PeeringConnectionOptionsRequester> requester;
 
     /**
-     * @return A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests the peering connection (a maximum of one).
+     * @return Configuration block for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to set for the VPC that requests the peering connection (a maximum of one). See `requester` Block below.
      * 
      */
     public Output<PeeringConnectionOptionsRequester> requester() {
         return this.requester;
     }
     /**
-     * The ID of the requester VPC peering connection.
+     * ID of the requester VPC peering connection.
      * 
      */
     @Export(name="vpcPeeringConnectionId", refs={String.class}, tree="[0]")
     private Output<String> vpcPeeringConnectionId;
 
     /**
-     * @return The ID of the requester VPC peering connection.
+     * @return ID of the requester VPC peering connection.
      * 
      */
     public Output<String> vpcPeeringConnectionId() {

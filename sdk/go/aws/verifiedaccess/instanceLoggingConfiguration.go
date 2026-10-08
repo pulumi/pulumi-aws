@@ -223,11 +223,11 @@ import (
 type InstanceLoggingConfiguration struct {
 	pulumi.CustomResourceState
 
-	// A block that specifies the configuration options for Verified Access instances. Detailed below.
+	// Block that specifies the configuration options for Verified Access instances. Detailed below.
 	AccessLogs InstanceLoggingConfigurationAccessLogsOutput `pulumi:"accessLogs"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The ID of the Verified Access instance.
+	// ID of the Verified Access instance.
 	VerifiedaccessInstanceId pulumi.StringOutput `pulumi:"verifiedaccessInstanceId"`
 }
 
@@ -267,20 +267,20 @@ func GetInstanceLoggingConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InstanceLoggingConfiguration resources.
 type instanceLoggingConfigurationState struct {
-	// A block that specifies the configuration options for Verified Access instances. Detailed below.
+	// Block that specifies the configuration options for Verified Access instances. Detailed below.
 	AccessLogs *InstanceLoggingConfigurationAccessLogs `pulumi:"accessLogs"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The ID of the Verified Access instance.
+	// ID of the Verified Access instance.
 	VerifiedaccessInstanceId *string `pulumi:"verifiedaccessInstanceId"`
 }
 
 type InstanceLoggingConfigurationState struct {
-	// A block that specifies the configuration options for Verified Access instances. Detailed below.
+	// Block that specifies the configuration options for Verified Access instances. Detailed below.
 	AccessLogs InstanceLoggingConfigurationAccessLogsPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The ID of the Verified Access instance.
+	// ID of the Verified Access instance.
 	VerifiedaccessInstanceId pulumi.StringPtrInput
 }
 
@@ -289,21 +289,21 @@ func (InstanceLoggingConfigurationState) ElementType() reflect.Type {
 }
 
 type instanceLoggingConfigurationArgs struct {
-	// A block that specifies the configuration options for Verified Access instances. Detailed below.
+	// Block that specifies the configuration options for Verified Access instances. Detailed below.
 	AccessLogs InstanceLoggingConfigurationAccessLogs `pulumi:"accessLogs"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The ID of the Verified Access instance.
+	// ID of the Verified Access instance.
 	VerifiedaccessInstanceId string `pulumi:"verifiedaccessInstanceId"`
 }
 
 // The set of arguments for constructing a InstanceLoggingConfiguration resource.
 type InstanceLoggingConfigurationArgs struct {
-	// A block that specifies the configuration options for Verified Access instances. Detailed below.
+	// Block that specifies the configuration options for Verified Access instances. Detailed below.
 	AccessLogs InstanceLoggingConfigurationAccessLogsInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The ID of the Verified Access instance.
+	// ID of the Verified Access instance.
 	VerifiedaccessInstanceId pulumi.StringInput
 }
 
@@ -394,7 +394,7 @@ func (o InstanceLoggingConfigurationOutput) ToInstanceLoggingConfigurationOutput
 	return o
 }
 
-// A block that specifies the configuration options for Verified Access instances. Detailed below.
+// Block that specifies the configuration options for Verified Access instances. Detailed below.
 func (o InstanceLoggingConfigurationOutput) AccessLogs() InstanceLoggingConfigurationAccessLogsOutput {
 	return o.ApplyT(func(v *InstanceLoggingConfiguration) InstanceLoggingConfigurationAccessLogsOutput {
 		return v.AccessLogs
@@ -406,7 +406,7 @@ func (o InstanceLoggingConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceLoggingConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The ID of the Verified Access instance.
+// ID of the Verified Access instance.
 func (o InstanceLoggingConfigurationOutput) VerifiedaccessInstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceLoggingConfiguration) pulumi.StringOutput { return v.VerifiedaccessInstanceId }).(pulumi.StringOutput)
 }

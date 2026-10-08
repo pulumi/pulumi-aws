@@ -14,11 +14,11 @@ namespace Pulumi.Aws.VerifiedPermissions.Outputs
     public sealed class PolicyDefinitionStatic
     {
         /// <summary>
-        /// The description of the static policy.
+        /// Description of the static policy.
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The statement of the static policy.
+        /// Statement of the static policy.
         /// </summary>
         public readonly string Statement;
 

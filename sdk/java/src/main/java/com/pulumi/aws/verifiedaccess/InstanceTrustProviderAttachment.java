@@ -91,28 +91,28 @@ public class InstanceTrustProviderAttachment extends com.pulumi.resources.Custom
         return this.region;
     }
     /**
-     * The ID of the Verified Access instance to attach the Trust Provider to.
+     * ID of the Verified Access instance to attach the Trust Provider to.
      * 
      */
     @Export(name="verifiedaccessInstanceId", refs={String.class}, tree="[0]")
     private Output<String> verifiedaccessInstanceId;
 
     /**
-     * @return The ID of the Verified Access instance to attach the Trust Provider to.
+     * @return ID of the Verified Access instance to attach the Trust Provider to.
      * 
      */
     public Output<String> verifiedaccessInstanceId() {
         return this.verifiedaccessInstanceId;
     }
     /**
-     * The ID of the Verified Access trust provider.
+     * ID of the Verified Access trust provider.
      * 
      */
     @Export(name="verifiedaccessTrustProviderId", refs={String.class}, tree="[0]")
     private Output<String> verifiedaccessTrustProviderId;
 
     /**
-     * @return The ID of the Verified Access trust provider.
+     * @return ID of the Verified Access trust provider.
      * 
      */
     public Output<String> verifiedaccessTrustProviderId() {

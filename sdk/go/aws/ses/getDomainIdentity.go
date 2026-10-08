@@ -50,7 +50,7 @@ func LookupDomainIdentity(ctx *pulumi.Context, args *LookupDomainIdentityArgs, o
 
 // A collection of arguments for invoking getDomainIdentity.
 type LookupDomainIdentityArgs struct {
-	// Name of the domain
+	// Name of the domain.
 	Domain string `pulumi:"domain"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -59,8 +59,7 @@ type LookupDomainIdentityArgs struct {
 // A collection of values returned by getDomainIdentity.
 type LookupDomainIdentityResult struct {
 	// ARN of the domain identity.
-	Arn string `pulumi:"arn"`
-	// Name of the domain
+	Arn    string `pulumi:"arn"`
 	Domain string `pulumi:"domain"`
 	// The provider-assigned unique ID for this managed resource.
 	Id     string `pulumi:"id"`
@@ -76,7 +75,7 @@ func LookupDomainIdentityOutput(ctx *pulumi.Context, args LookupDomainIdentityOu
 
 // A collection of arguments for invoking getDomainIdentity.
 type LookupDomainIdentityOutputArgs struct {
-	// Name of the domain
+	// Name of the domain.
 	Domain pulumi.StringInput `pulumi:"domain"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
@@ -106,7 +105,6 @@ func (o LookupDomainIdentityResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainIdentityResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Name of the domain
 func (o LookupDomainIdentityResultOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainIdentityResult) string { return v.Domain }).(pulumi.StringOutput)
 }

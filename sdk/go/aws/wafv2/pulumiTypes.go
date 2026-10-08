@@ -111,11 +111,11 @@ func (o RegexPatternSetRegularExpressionArrayOutput) Index(i pulumi.IntInput) Re
 }
 
 type RuleGroupCustomResponseBody struct {
-	// The payload of the custom response.
+	// Payload of the custom response.
 	Content string `pulumi:"content"`
-	// The type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
+	// Type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
 	ContentType string `pulumi:"contentType"`
-	// A unique key identifying the custom response body. This is referenced by the `customResponseBodyKey` argument in the Custom Response block.
+	// Unique key identifying the custom response body. This is referenced by the `customResponseBodyKey` argument in the Custom Response block.
 	Key string `pulumi:"key"`
 }
 
@@ -131,11 +131,11 @@ type RuleGroupCustomResponseBodyInput interface {
 }
 
 type RuleGroupCustomResponseBodyArgs struct {
-	// The payload of the custom response.
+	// Payload of the custom response.
 	Content pulumi.StringInput `pulumi:"content"`
-	// The type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
+	// Type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
 	ContentType pulumi.StringInput `pulumi:"contentType"`
-	// A unique key identifying the custom response body. This is referenced by the `customResponseBodyKey` argument in the Custom Response block.
+	// Unique key identifying the custom response body. This is referenced by the `customResponseBodyKey` argument in the Custom Response block.
 	Key pulumi.StringInput `pulumi:"key"`
 }
 
@@ -190,17 +190,17 @@ func (o RuleGroupCustomResponseBodyOutput) ToRuleGroupCustomResponseBodyOutputWi
 	return o
 }
 
-// The payload of the custom response.
+// Payload of the custom response.
 func (o RuleGroupCustomResponseBodyOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupCustomResponseBody) string { return v.Content }).(pulumi.StringOutput)
 }
 
-// The type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
+// Type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
 func (o RuleGroupCustomResponseBodyOutput) ContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupCustomResponseBody) string { return v.ContentType }).(pulumi.StringOutput)
 }
 
-// A unique key identifying the custom response body. This is referenced by the `customResponseBodyKey` argument in the Custom Response block.
+// Unique key identifying the custom response body. This is referenced by the `customResponseBodyKey` argument in the Custom Response block.
 func (o RuleGroupCustomResponseBodyOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupCustomResponseBody) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -226,19 +226,19 @@ func (o RuleGroupCustomResponseBodyArrayOutput) Index(i pulumi.IntInput) RuleGro
 }
 
 type RuleGroupRule struct {
-	// The action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the `wafv2.WebAcl` level can override the rule action setting. See Action below for details.
+	// Action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the `wafv2.WebAcl` level can override the rule action setting. See Action below for details.
 	Action RuleGroupRuleAction `pulumi:"action"`
-	// Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+	// Configuration for how AWS WAF handles CAPTCHA evaluations. See Captcha Configuration below for details.
 	CaptchaConfig *RuleGroupRuleCaptchaConfig `pulumi:"captchaConfig"`
-	// A friendly name of the rule.
+	// Friendly name of the rule.
 	Name string `pulumi:"name"`
 	// If you define more than one Rule in a WebACL, AWS WAF evaluates each request against the `rules` in order based on the value of `priority`. AWS WAF processes rules with lower priority first.
 	Priority int `pulumi:"priority"`
 	// Labels to apply to web requests that match the rule match statement. See Rule Label below for details.
 	RuleLabels []RuleGroupRuleRuleLabel `pulumi:"ruleLabels"`
-	// The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See Statement below for details.
+	// AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See Statement below for details.
 	Statement RuleGroupRuleStatement `pulumi:"statement"`
-	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+	// Amazon CloudWatch metrics and web request sample collection configuration. See Visibility Configuration below for details.
 	VisibilityConfig RuleGroupRuleVisibilityConfig `pulumi:"visibilityConfig"`
 }
 
@@ -254,19 +254,19 @@ type RuleGroupRuleInput interface {
 }
 
 type RuleGroupRuleArgs struct {
-	// The action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the `wafv2.WebAcl` level can override the rule action setting. See Action below for details.
+	// Action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the `wafv2.WebAcl` level can override the rule action setting. See Action below for details.
 	Action RuleGroupRuleActionInput `pulumi:"action"`
-	// Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+	// Configuration for how AWS WAF handles CAPTCHA evaluations. See Captcha Configuration below for details.
 	CaptchaConfig RuleGroupRuleCaptchaConfigPtrInput `pulumi:"captchaConfig"`
-	// A friendly name of the rule.
+	// Friendly name of the rule.
 	Name pulumi.StringInput `pulumi:"name"`
 	// If you define more than one Rule in a WebACL, AWS WAF evaluates each request against the `rules` in order based on the value of `priority`. AWS WAF processes rules with lower priority first.
 	Priority pulumi.IntInput `pulumi:"priority"`
 	// Labels to apply to web requests that match the rule match statement. See Rule Label below for details.
 	RuleLabels RuleGroupRuleRuleLabelArrayInput `pulumi:"ruleLabels"`
-	// The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See Statement below for details.
+	// AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See Statement below for details.
 	Statement RuleGroupRuleStatementInput `pulumi:"statement"`
-	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+	// Amazon CloudWatch metrics and web request sample collection configuration. See Visibility Configuration below for details.
 	VisibilityConfig RuleGroupRuleVisibilityConfigInput `pulumi:"visibilityConfig"`
 }
 
@@ -321,17 +321,17 @@ func (o RuleGroupRuleOutput) ToRuleGroupRuleOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the `wafv2.WebAcl` level can override the rule action setting. See Action below for details.
+// Action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the `wafv2.WebAcl` level can override the rule action setting. See Action below for details.
 func (o RuleGroupRuleOutput) Action() RuleGroupRuleActionOutput {
 	return o.ApplyT(func(v RuleGroupRule) RuleGroupRuleAction { return v.Action }).(RuleGroupRuleActionOutput)
 }
 
-// Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+// Configuration for how AWS WAF handles CAPTCHA evaluations. See Captcha Configuration below for details.
 func (o RuleGroupRuleOutput) CaptchaConfig() RuleGroupRuleCaptchaConfigPtrOutput {
 	return o.ApplyT(func(v RuleGroupRule) *RuleGroupRuleCaptchaConfig { return v.CaptchaConfig }).(RuleGroupRuleCaptchaConfigPtrOutput)
 }
 
-// A friendly name of the rule.
+// Friendly name of the rule.
 func (o RuleGroupRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRule) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -346,12 +346,12 @@ func (o RuleGroupRuleOutput) RuleLabels() RuleGroupRuleRuleLabelArrayOutput {
 	return o.ApplyT(func(v RuleGroupRule) []RuleGroupRuleRuleLabel { return v.RuleLabels }).(RuleGroupRuleRuleLabelArrayOutput)
 }
 
-// The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See Statement below for details.
+// AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See Statement below for details.
 func (o RuleGroupRuleOutput) Statement() RuleGroupRuleStatementOutput {
 	return o.ApplyT(func(v RuleGroupRule) RuleGroupRuleStatement { return v.Statement }).(RuleGroupRuleStatementOutput)
 }
 
-// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+// Amazon CloudWatch metrics and web request sample collection configuration. See Visibility Configuration below for details.
 func (o RuleGroupRuleOutput) VisibilityConfig() RuleGroupRuleVisibilityConfigOutput {
 	return o.ApplyT(func(v RuleGroupRule) RuleGroupRuleVisibilityConfig { return v.VisibilityConfig }).(RuleGroupRuleVisibilityConfigOutput)
 }
@@ -465,7 +465,7 @@ func (o RuleGroupRuleActionOutput) Count() RuleGroupRuleActionCountPtrOutput {
 }
 
 type RuleGroupRuleActionAllow struct {
-	// Defines custom handling for the web request. See Custom Request Handling below for details.
+	// Custom handling for the web request. See Custom Request Handling below for details.
 	CustomRequestHandling *RuleGroupRuleActionAllowCustomRequestHandling `pulumi:"customRequestHandling"`
 }
 
@@ -481,7 +481,7 @@ type RuleGroupRuleActionAllowInput interface {
 }
 
 type RuleGroupRuleActionAllowArgs struct {
-	// Defines custom handling for the web request. See Custom Request Handling below for details.
+	// Custom handling for the web request. See Custom Request Handling below for details.
 	CustomRequestHandling RuleGroupRuleActionAllowCustomRequestHandlingPtrInput `pulumi:"customRequestHandling"`
 }
 
@@ -562,7 +562,7 @@ func (o RuleGroupRuleActionAllowOutput) ToRuleGroupRuleActionAllowPtrOutputWithC
 	}).(RuleGroupRuleActionAllowPtrOutput)
 }
 
-// Defines custom handling for the web request. See Custom Request Handling below for details.
+// Custom handling for the web request. See Custom Request Handling below for details.
 func (o RuleGroupRuleActionAllowOutput) CustomRequestHandling() RuleGroupRuleActionAllowCustomRequestHandlingPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleActionAllow) *RuleGroupRuleActionAllowCustomRequestHandling {
 		return v.CustomRequestHandling
@@ -593,7 +593,7 @@ func (o RuleGroupRuleActionAllowPtrOutput) Elem() RuleGroupRuleActionAllowOutput
 	}).(RuleGroupRuleActionAllowOutput)
 }
 
-// Defines custom handling for the web request. See Custom Request Handling below for details.
+// Custom handling for the web request. See Custom Request Handling below for details.
 func (o RuleGroupRuleActionAllowPtrOutput) CustomRequestHandling() RuleGroupRuleActionAllowCustomRequestHandlingPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleActionAllow) *RuleGroupRuleActionAllowCustomRequestHandling {
 		if v == nil {
@@ -604,7 +604,7 @@ func (o RuleGroupRuleActionAllowPtrOutput) CustomRequestHandling() RuleGroupRule
 }
 
 type RuleGroupRuleActionAllowCustomRequestHandling struct {
-	// The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+	// `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
 	InsertHeaders []RuleGroupRuleActionAllowCustomRequestHandlingInsertHeader `pulumi:"insertHeaders"`
 }
 
@@ -620,7 +620,7 @@ type RuleGroupRuleActionAllowCustomRequestHandlingInput interface {
 }
 
 type RuleGroupRuleActionAllowCustomRequestHandlingArgs struct {
-	// The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+	// `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
 	InsertHeaders RuleGroupRuleActionAllowCustomRequestHandlingInsertHeaderArrayInput `pulumi:"insertHeaders"`
 }
 
@@ -701,7 +701,7 @@ func (o RuleGroupRuleActionAllowCustomRequestHandlingOutput) ToRuleGroupRuleActi
 	}).(RuleGroupRuleActionAllowCustomRequestHandlingPtrOutput)
 }
 
-// The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+// `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
 func (o RuleGroupRuleActionAllowCustomRequestHandlingOutput) InsertHeaders() RuleGroupRuleActionAllowCustomRequestHandlingInsertHeaderArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleActionAllowCustomRequestHandling) []RuleGroupRuleActionAllowCustomRequestHandlingInsertHeader {
 		return v.InsertHeaders
@@ -732,7 +732,7 @@ func (o RuleGroupRuleActionAllowCustomRequestHandlingPtrOutput) Elem() RuleGroup
 	}).(RuleGroupRuleActionAllowCustomRequestHandlingOutput)
 }
 
-// The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+// `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
 func (o RuleGroupRuleActionAllowCustomRequestHandlingPtrOutput) InsertHeaders() RuleGroupRuleActionAllowCustomRequestHandlingInsertHeaderArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleActionAllowCustomRequestHandling) []RuleGroupRuleActionAllowCustomRequestHandlingInsertHeader {
 		if v == nil {
@@ -743,9 +743,9 @@ func (o RuleGroupRuleActionAllowCustomRequestHandlingPtrOutput) InsertHeaders() 
 }
 
 type RuleGroupRuleActionAllowCustomRequestHandlingInsertHeader struct {
-	// A friendly name of the rule group.
+	// Friendly name of the rule group.
 	Name string `pulumi:"name"`
-	// The value of the custom header.
+	// Value of the custom header.
 	Value string `pulumi:"value"`
 }
 
@@ -761,9 +761,9 @@ type RuleGroupRuleActionAllowCustomRequestHandlingInsertHeaderInput interface {
 }
 
 type RuleGroupRuleActionAllowCustomRequestHandlingInsertHeaderArgs struct {
-	// A friendly name of the rule group.
+	// Friendly name of the rule group.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The value of the custom header.
+	// Value of the custom header.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -818,12 +818,12 @@ func (o RuleGroupRuleActionAllowCustomRequestHandlingInsertHeaderOutput) ToRuleG
 	return o
 }
 
-// A friendly name of the rule group.
+// Friendly name of the rule group.
 func (o RuleGroupRuleActionAllowCustomRequestHandlingInsertHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleActionAllowCustomRequestHandlingInsertHeader) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value of the custom header.
+// Value of the custom header.
 func (o RuleGroupRuleActionAllowCustomRequestHandlingInsertHeaderOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleActionAllowCustomRequestHandlingInsertHeader) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -849,7 +849,7 @@ func (o RuleGroupRuleActionAllowCustomRequestHandlingInsertHeaderArrayOutput) In
 }
 
 type RuleGroupRuleActionBlock struct {
-	// Defines a custom response for the web request. See Custom Response below for details.
+	// Custom response for the web request. See Custom Response below for details.
 	CustomResponse *RuleGroupRuleActionBlockCustomResponse `pulumi:"customResponse"`
 }
 
@@ -865,7 +865,7 @@ type RuleGroupRuleActionBlockInput interface {
 }
 
 type RuleGroupRuleActionBlockArgs struct {
-	// Defines a custom response for the web request. See Custom Response below for details.
+	// Custom response for the web request. See Custom Response below for details.
 	CustomResponse RuleGroupRuleActionBlockCustomResponsePtrInput `pulumi:"customResponse"`
 }
 
@@ -946,7 +946,7 @@ func (o RuleGroupRuleActionBlockOutput) ToRuleGroupRuleActionBlockPtrOutputWithC
 	}).(RuleGroupRuleActionBlockPtrOutput)
 }
 
-// Defines a custom response for the web request. See Custom Response below for details.
+// Custom response for the web request. See Custom Response below for details.
 func (o RuleGroupRuleActionBlockOutput) CustomResponse() RuleGroupRuleActionBlockCustomResponsePtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleActionBlock) *RuleGroupRuleActionBlockCustomResponse { return v.CustomResponse }).(RuleGroupRuleActionBlockCustomResponsePtrOutput)
 }
@@ -975,7 +975,7 @@ func (o RuleGroupRuleActionBlockPtrOutput) Elem() RuleGroupRuleActionBlockOutput
 	}).(RuleGroupRuleActionBlockOutput)
 }
 
-// Defines a custom response for the web request. See Custom Response below for details.
+// Custom response for the web request. See Custom Response below for details.
 func (o RuleGroupRuleActionBlockPtrOutput) CustomResponse() RuleGroupRuleActionBlockCustomResponsePtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleActionBlock) *RuleGroupRuleActionBlockCustomResponse {
 		if v == nil {
@@ -988,9 +988,9 @@ func (o RuleGroupRuleActionBlockPtrOutput) CustomResponse() RuleGroupRuleActionB
 type RuleGroupRuleActionBlockCustomResponse struct {
 	// References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `customResponseBody` block of this resource.
 	CustomResponseBodyKey *string `pulumi:"customResponseBodyKey"`
-	// The HTTP status code to return to the client.
+	// HTTP status code to return to the client.
 	ResponseCode int `pulumi:"responseCode"`
-	// The `responseHeader` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
+	// `responseHeader` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
 	ResponseHeaders []RuleGroupRuleActionBlockCustomResponseResponseHeader `pulumi:"responseHeaders"`
 }
 
@@ -1008,9 +1008,9 @@ type RuleGroupRuleActionBlockCustomResponseInput interface {
 type RuleGroupRuleActionBlockCustomResponseArgs struct {
 	// References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `customResponseBody` block of this resource.
 	CustomResponseBodyKey pulumi.StringPtrInput `pulumi:"customResponseBodyKey"`
-	// The HTTP status code to return to the client.
+	// HTTP status code to return to the client.
 	ResponseCode pulumi.IntInput `pulumi:"responseCode"`
-	// The `responseHeader` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
+	// `responseHeader` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
 	ResponseHeaders RuleGroupRuleActionBlockCustomResponseResponseHeaderArrayInput `pulumi:"responseHeaders"`
 }
 
@@ -1096,12 +1096,12 @@ func (o RuleGroupRuleActionBlockCustomResponseOutput) CustomResponseBodyKey() pu
 	return o.ApplyT(func(v RuleGroupRuleActionBlockCustomResponse) *string { return v.CustomResponseBodyKey }).(pulumi.StringPtrOutput)
 }
 
-// The HTTP status code to return to the client.
+// HTTP status code to return to the client.
 func (o RuleGroupRuleActionBlockCustomResponseOutput) ResponseCode() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupRuleActionBlockCustomResponse) int { return v.ResponseCode }).(pulumi.IntOutput)
 }
 
-// The `responseHeader` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
+// `responseHeader` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
 func (o RuleGroupRuleActionBlockCustomResponseOutput) ResponseHeaders() RuleGroupRuleActionBlockCustomResponseResponseHeaderArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleActionBlockCustomResponse) []RuleGroupRuleActionBlockCustomResponseResponseHeader {
 		return v.ResponseHeaders
@@ -1142,7 +1142,7 @@ func (o RuleGroupRuleActionBlockCustomResponsePtrOutput) CustomResponseBodyKey()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The HTTP status code to return to the client.
+// HTTP status code to return to the client.
 func (o RuleGroupRuleActionBlockCustomResponsePtrOutput) ResponseCode() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleActionBlockCustomResponse) *int {
 		if v == nil {
@@ -1152,7 +1152,7 @@ func (o RuleGroupRuleActionBlockCustomResponsePtrOutput) ResponseCode() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-// The `responseHeader` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
+// `responseHeader` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
 func (o RuleGroupRuleActionBlockCustomResponsePtrOutput) ResponseHeaders() RuleGroupRuleActionBlockCustomResponseResponseHeaderArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleActionBlockCustomResponse) []RuleGroupRuleActionBlockCustomResponseResponseHeader {
 		if v == nil {
@@ -1163,9 +1163,9 @@ func (o RuleGroupRuleActionBlockCustomResponsePtrOutput) ResponseHeaders() RuleG
 }
 
 type RuleGroupRuleActionBlockCustomResponseResponseHeader struct {
-	// A friendly name of the rule group.
+	// Friendly name of the rule group.
 	Name string `pulumi:"name"`
-	// The value of the custom header.
+	// Value of the custom header.
 	Value string `pulumi:"value"`
 }
 
@@ -1181,9 +1181,9 @@ type RuleGroupRuleActionBlockCustomResponseResponseHeaderInput interface {
 }
 
 type RuleGroupRuleActionBlockCustomResponseResponseHeaderArgs struct {
-	// A friendly name of the rule group.
+	// Friendly name of the rule group.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The value of the custom header.
+	// Value of the custom header.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1238,12 +1238,12 @@ func (o RuleGroupRuleActionBlockCustomResponseResponseHeaderOutput) ToRuleGroupR
 	return o
 }
 
-// A friendly name of the rule group.
+// Friendly name of the rule group.
 func (o RuleGroupRuleActionBlockCustomResponseResponseHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleActionBlockCustomResponseResponseHeader) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value of the custom header.
+// Value of the custom header.
 func (o RuleGroupRuleActionBlockCustomResponseResponseHeaderOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleActionBlockCustomResponseResponseHeader) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1269,7 +1269,7 @@ func (o RuleGroupRuleActionBlockCustomResponseResponseHeaderArrayOutput) Index(i
 }
 
 type RuleGroupRuleActionCaptcha struct {
-	// Defines custom handling for the web request. See Custom Request Handling below for details.
+	// Custom handling for the web request. See Custom Request Handling below for details.
 	CustomRequestHandling *RuleGroupRuleActionCaptchaCustomRequestHandling `pulumi:"customRequestHandling"`
 }
 
@@ -1285,7 +1285,7 @@ type RuleGroupRuleActionCaptchaInput interface {
 }
 
 type RuleGroupRuleActionCaptchaArgs struct {
-	// Defines custom handling for the web request. See Custom Request Handling below for details.
+	// Custom handling for the web request. See Custom Request Handling below for details.
 	CustomRequestHandling RuleGroupRuleActionCaptchaCustomRequestHandlingPtrInput `pulumi:"customRequestHandling"`
 }
 
@@ -1366,7 +1366,7 @@ func (o RuleGroupRuleActionCaptchaOutput) ToRuleGroupRuleActionCaptchaPtrOutputW
 	}).(RuleGroupRuleActionCaptchaPtrOutput)
 }
 
-// Defines custom handling for the web request. See Custom Request Handling below for details.
+// Custom handling for the web request. See Custom Request Handling below for details.
 func (o RuleGroupRuleActionCaptchaOutput) CustomRequestHandling() RuleGroupRuleActionCaptchaCustomRequestHandlingPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleActionCaptcha) *RuleGroupRuleActionCaptchaCustomRequestHandling {
 		return v.CustomRequestHandling
@@ -1397,7 +1397,7 @@ func (o RuleGroupRuleActionCaptchaPtrOutput) Elem() RuleGroupRuleActionCaptchaOu
 	}).(RuleGroupRuleActionCaptchaOutput)
 }
 
-// Defines custom handling for the web request. See Custom Request Handling below for details.
+// Custom handling for the web request. See Custom Request Handling below for details.
 func (o RuleGroupRuleActionCaptchaPtrOutput) CustomRequestHandling() RuleGroupRuleActionCaptchaCustomRequestHandlingPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleActionCaptcha) *RuleGroupRuleActionCaptchaCustomRequestHandling {
 		if v == nil {
@@ -1408,7 +1408,7 @@ func (o RuleGroupRuleActionCaptchaPtrOutput) CustomRequestHandling() RuleGroupRu
 }
 
 type RuleGroupRuleActionCaptchaCustomRequestHandling struct {
-	// The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+	// `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
 	InsertHeaders []RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader `pulumi:"insertHeaders"`
 }
 
@@ -1424,7 +1424,7 @@ type RuleGroupRuleActionCaptchaCustomRequestHandlingInput interface {
 }
 
 type RuleGroupRuleActionCaptchaCustomRequestHandlingArgs struct {
-	// The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+	// `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
 	InsertHeaders RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeaderArrayInput `pulumi:"insertHeaders"`
 }
 
@@ -1505,7 +1505,7 @@ func (o RuleGroupRuleActionCaptchaCustomRequestHandlingOutput) ToRuleGroupRuleAc
 	}).(RuleGroupRuleActionCaptchaCustomRequestHandlingPtrOutput)
 }
 
-// The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+// `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
 func (o RuleGroupRuleActionCaptchaCustomRequestHandlingOutput) InsertHeaders() RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeaderArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleActionCaptchaCustomRequestHandling) []RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader {
 		return v.InsertHeaders
@@ -1536,7 +1536,7 @@ func (o RuleGroupRuleActionCaptchaCustomRequestHandlingPtrOutput) Elem() RuleGro
 	}).(RuleGroupRuleActionCaptchaCustomRequestHandlingOutput)
 }
 
-// The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+// `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
 func (o RuleGroupRuleActionCaptchaCustomRequestHandlingPtrOutput) InsertHeaders() RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeaderArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleActionCaptchaCustomRequestHandling) []RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader {
 		if v == nil {
@@ -1547,9 +1547,9 @@ func (o RuleGroupRuleActionCaptchaCustomRequestHandlingPtrOutput) InsertHeaders(
 }
 
 type RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader struct {
-	// A friendly name of the rule group.
+	// Friendly name of the rule group.
 	Name string `pulumi:"name"`
-	// The value of the custom header.
+	// Value of the custom header.
 	Value string `pulumi:"value"`
 }
 
@@ -1565,9 +1565,9 @@ type RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeaderInput interface 
 }
 
 type RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeaderArgs struct {
-	// A friendly name of the rule group.
+	// Friendly name of the rule group.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The value of the custom header.
+	// Value of the custom header.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1622,12 +1622,12 @@ func (o RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeaderOutput) ToRul
 	return o
 }
 
-// A friendly name of the rule group.
+// Friendly name of the rule group.
 func (o RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value of the custom header.
+// Value of the custom header.
 func (o RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeaderOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1653,7 +1653,7 @@ func (o RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeaderArrayOutput) 
 }
 
 type RuleGroupRuleActionChallenge struct {
-	// Defines custom handling for the web request. See Custom Request Handling below for details.
+	// Custom handling for the web request. See Custom Request Handling below for details.
 	CustomRequestHandling *RuleGroupRuleActionChallengeCustomRequestHandling `pulumi:"customRequestHandling"`
 }
 
@@ -1669,7 +1669,7 @@ type RuleGroupRuleActionChallengeInput interface {
 }
 
 type RuleGroupRuleActionChallengeArgs struct {
-	// Defines custom handling for the web request. See Custom Request Handling below for details.
+	// Custom handling for the web request. See Custom Request Handling below for details.
 	CustomRequestHandling RuleGroupRuleActionChallengeCustomRequestHandlingPtrInput `pulumi:"customRequestHandling"`
 }
 
@@ -1750,7 +1750,7 @@ func (o RuleGroupRuleActionChallengeOutput) ToRuleGroupRuleActionChallengePtrOut
 	}).(RuleGroupRuleActionChallengePtrOutput)
 }
 
-// Defines custom handling for the web request. See Custom Request Handling below for details.
+// Custom handling for the web request. See Custom Request Handling below for details.
 func (o RuleGroupRuleActionChallengeOutput) CustomRequestHandling() RuleGroupRuleActionChallengeCustomRequestHandlingPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleActionChallenge) *RuleGroupRuleActionChallengeCustomRequestHandling {
 		return v.CustomRequestHandling
@@ -1781,7 +1781,7 @@ func (o RuleGroupRuleActionChallengePtrOutput) Elem() RuleGroupRuleActionChallen
 	}).(RuleGroupRuleActionChallengeOutput)
 }
 
-// Defines custom handling for the web request. See Custom Request Handling below for details.
+// Custom handling for the web request. See Custom Request Handling below for details.
 func (o RuleGroupRuleActionChallengePtrOutput) CustomRequestHandling() RuleGroupRuleActionChallengeCustomRequestHandlingPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleActionChallenge) *RuleGroupRuleActionChallengeCustomRequestHandling {
 		if v == nil {
@@ -1792,7 +1792,7 @@ func (o RuleGroupRuleActionChallengePtrOutput) CustomRequestHandling() RuleGroup
 }
 
 type RuleGroupRuleActionChallengeCustomRequestHandling struct {
-	// The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+	// `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
 	InsertHeaders []RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader `pulumi:"insertHeaders"`
 }
 
@@ -1808,7 +1808,7 @@ type RuleGroupRuleActionChallengeCustomRequestHandlingInput interface {
 }
 
 type RuleGroupRuleActionChallengeCustomRequestHandlingArgs struct {
-	// The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+	// `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
 	InsertHeaders RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeaderArrayInput `pulumi:"insertHeaders"`
 }
 
@@ -1889,7 +1889,7 @@ func (o RuleGroupRuleActionChallengeCustomRequestHandlingOutput) ToRuleGroupRule
 	}).(RuleGroupRuleActionChallengeCustomRequestHandlingPtrOutput)
 }
 
-// The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+// `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
 func (o RuleGroupRuleActionChallengeCustomRequestHandlingOutput) InsertHeaders() RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeaderArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleActionChallengeCustomRequestHandling) []RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader {
 		return v.InsertHeaders
@@ -1920,7 +1920,7 @@ func (o RuleGroupRuleActionChallengeCustomRequestHandlingPtrOutput) Elem() RuleG
 	}).(RuleGroupRuleActionChallengeCustomRequestHandlingOutput)
 }
 
-// The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+// `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
 func (o RuleGroupRuleActionChallengeCustomRequestHandlingPtrOutput) InsertHeaders() RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeaderArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleActionChallengeCustomRequestHandling) []RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader {
 		if v == nil {
@@ -1931,9 +1931,9 @@ func (o RuleGroupRuleActionChallengeCustomRequestHandlingPtrOutput) InsertHeader
 }
 
 type RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader struct {
-	// A friendly name of the rule group.
+	// Friendly name of the rule group.
 	Name string `pulumi:"name"`
-	// The value of the custom header.
+	// Value of the custom header.
 	Value string `pulumi:"value"`
 }
 
@@ -1949,9 +1949,9 @@ type RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeaderInput interfac
 }
 
 type RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeaderArgs struct {
-	// A friendly name of the rule group.
+	// Friendly name of the rule group.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The value of the custom header.
+	// Value of the custom header.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2006,12 +2006,12 @@ func (o RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeaderOutput) ToR
 	return o
 }
 
-// A friendly name of the rule group.
+// Friendly name of the rule group.
 func (o RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value of the custom header.
+// Value of the custom header.
 func (o RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeaderOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2037,7 +2037,7 @@ func (o RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeaderArrayOutput
 }
 
 type RuleGroupRuleActionCount struct {
-	// Defines custom handling for the web request. See Custom Request Handling below for details.
+	// Custom handling for the web request. See Custom Request Handling below for details.
 	CustomRequestHandling *RuleGroupRuleActionCountCustomRequestHandling `pulumi:"customRequestHandling"`
 }
 
@@ -2053,7 +2053,7 @@ type RuleGroupRuleActionCountInput interface {
 }
 
 type RuleGroupRuleActionCountArgs struct {
-	// Defines custom handling for the web request. See Custom Request Handling below for details.
+	// Custom handling for the web request. See Custom Request Handling below for details.
 	CustomRequestHandling RuleGroupRuleActionCountCustomRequestHandlingPtrInput `pulumi:"customRequestHandling"`
 }
 
@@ -2134,7 +2134,7 @@ func (o RuleGroupRuleActionCountOutput) ToRuleGroupRuleActionCountPtrOutputWithC
 	}).(RuleGroupRuleActionCountPtrOutput)
 }
 
-// Defines custom handling for the web request. See Custom Request Handling below for details.
+// Custom handling for the web request. See Custom Request Handling below for details.
 func (o RuleGroupRuleActionCountOutput) CustomRequestHandling() RuleGroupRuleActionCountCustomRequestHandlingPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleActionCount) *RuleGroupRuleActionCountCustomRequestHandling {
 		return v.CustomRequestHandling
@@ -2165,7 +2165,7 @@ func (o RuleGroupRuleActionCountPtrOutput) Elem() RuleGroupRuleActionCountOutput
 	}).(RuleGroupRuleActionCountOutput)
 }
 
-// Defines custom handling for the web request. See Custom Request Handling below for details.
+// Custom handling for the web request. See Custom Request Handling below for details.
 func (o RuleGroupRuleActionCountPtrOutput) CustomRequestHandling() RuleGroupRuleActionCountCustomRequestHandlingPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleActionCount) *RuleGroupRuleActionCountCustomRequestHandling {
 		if v == nil {
@@ -2176,7 +2176,7 @@ func (o RuleGroupRuleActionCountPtrOutput) CustomRequestHandling() RuleGroupRule
 }
 
 type RuleGroupRuleActionCountCustomRequestHandling struct {
-	// The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+	// `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
 	InsertHeaders []RuleGroupRuleActionCountCustomRequestHandlingInsertHeader `pulumi:"insertHeaders"`
 }
 
@@ -2192,7 +2192,7 @@ type RuleGroupRuleActionCountCustomRequestHandlingInput interface {
 }
 
 type RuleGroupRuleActionCountCustomRequestHandlingArgs struct {
-	// The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+	// `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
 	InsertHeaders RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderArrayInput `pulumi:"insertHeaders"`
 }
 
@@ -2273,7 +2273,7 @@ func (o RuleGroupRuleActionCountCustomRequestHandlingOutput) ToRuleGroupRuleActi
 	}).(RuleGroupRuleActionCountCustomRequestHandlingPtrOutput)
 }
 
-// The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+// `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
 func (o RuleGroupRuleActionCountCustomRequestHandlingOutput) InsertHeaders() RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleActionCountCustomRequestHandling) []RuleGroupRuleActionCountCustomRequestHandlingInsertHeader {
 		return v.InsertHeaders
@@ -2304,7 +2304,7 @@ func (o RuleGroupRuleActionCountCustomRequestHandlingPtrOutput) Elem() RuleGroup
 	}).(RuleGroupRuleActionCountCustomRequestHandlingOutput)
 }
 
-// The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+// `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
 func (o RuleGroupRuleActionCountCustomRequestHandlingPtrOutput) InsertHeaders() RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleActionCountCustomRequestHandling) []RuleGroupRuleActionCountCustomRequestHandlingInsertHeader {
 		if v == nil {
@@ -2315,9 +2315,9 @@ func (o RuleGroupRuleActionCountCustomRequestHandlingPtrOutput) InsertHeaders() 
 }
 
 type RuleGroupRuleActionCountCustomRequestHandlingInsertHeader struct {
-	// A friendly name of the rule group.
+	// Friendly name of the rule group.
 	Name string `pulumi:"name"`
-	// The value of the custom header.
+	// Value of the custom header.
 	Value string `pulumi:"value"`
 }
 
@@ -2333,9 +2333,9 @@ type RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderInput interface {
 }
 
 type RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderArgs struct {
-	// A friendly name of the rule group.
+	// Friendly name of the rule group.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The value of the custom header.
+	// Value of the custom header.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2390,12 +2390,12 @@ func (o RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderOutput) ToRuleG
 	return o
 }
 
-// A friendly name of the rule group.
+// Friendly name of the rule group.
 func (o RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleActionCountCustomRequestHandlingInsertHeader) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value of the custom header.
+// Value of the custom header.
 func (o RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleActionCountCustomRequestHandlingInsertHeader) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2421,7 +2421,7 @@ func (o RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderArrayOutput) In
 }
 
 type RuleGroupRuleCaptchaConfig struct {
-	// Defines custom immunity time. See Immunity Time Property below for details.
+	// Custom immunity time. See Immunity Time Property below for details.
 	ImmunityTimeProperty *RuleGroupRuleCaptchaConfigImmunityTimeProperty `pulumi:"immunityTimeProperty"`
 }
 
@@ -2437,7 +2437,7 @@ type RuleGroupRuleCaptchaConfigInput interface {
 }
 
 type RuleGroupRuleCaptchaConfigArgs struct {
-	// Defines custom immunity time. See Immunity Time Property below for details.
+	// Custom immunity time. See Immunity Time Property below for details.
 	ImmunityTimeProperty RuleGroupRuleCaptchaConfigImmunityTimePropertyPtrInput `pulumi:"immunityTimeProperty"`
 }
 
@@ -2518,7 +2518,7 @@ func (o RuleGroupRuleCaptchaConfigOutput) ToRuleGroupRuleCaptchaConfigPtrOutputW
 	}).(RuleGroupRuleCaptchaConfigPtrOutput)
 }
 
-// Defines custom immunity time. See Immunity Time Property below for details.
+// Custom immunity time. See Immunity Time Property below for details.
 func (o RuleGroupRuleCaptchaConfigOutput) ImmunityTimeProperty() RuleGroupRuleCaptchaConfigImmunityTimePropertyPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleCaptchaConfig) *RuleGroupRuleCaptchaConfigImmunityTimeProperty {
 		return v.ImmunityTimeProperty
@@ -2549,7 +2549,7 @@ func (o RuleGroupRuleCaptchaConfigPtrOutput) Elem() RuleGroupRuleCaptchaConfigOu
 	}).(RuleGroupRuleCaptchaConfigOutput)
 }
 
-// Defines custom immunity time. See Immunity Time Property below for details.
+// Custom immunity time. See Immunity Time Property below for details.
 func (o RuleGroupRuleCaptchaConfigPtrOutput) ImmunityTimeProperty() RuleGroupRuleCaptchaConfigImmunityTimePropertyPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleCaptchaConfig) *RuleGroupRuleCaptchaConfigImmunityTimeProperty {
 		if v == nil {
@@ -2560,7 +2560,7 @@ func (o RuleGroupRuleCaptchaConfigPtrOutput) ImmunityTimeProperty() RuleGroupRul
 }
 
 type RuleGroupRuleCaptchaConfigImmunityTimeProperty struct {
-	// The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+	// Amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
 	ImmunityTime *int `pulumi:"immunityTime"`
 }
 
@@ -2576,7 +2576,7 @@ type RuleGroupRuleCaptchaConfigImmunityTimePropertyInput interface {
 }
 
 type RuleGroupRuleCaptchaConfigImmunityTimePropertyArgs struct {
-	// The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+	// Amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
 	ImmunityTime pulumi.IntPtrInput `pulumi:"immunityTime"`
 }
 
@@ -2657,7 +2657,7 @@ func (o RuleGroupRuleCaptchaConfigImmunityTimePropertyOutput) ToRuleGroupRuleCap
 	}).(RuleGroupRuleCaptchaConfigImmunityTimePropertyPtrOutput)
 }
 
-// The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+// Amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
 func (o RuleGroupRuleCaptchaConfigImmunityTimePropertyOutput) ImmunityTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleCaptchaConfigImmunityTimeProperty) *int { return v.ImmunityTime }).(pulumi.IntPtrOutput)
 }
@@ -2686,7 +2686,7 @@ func (o RuleGroupRuleCaptchaConfigImmunityTimePropertyPtrOutput) Elem() RuleGrou
 	}).(RuleGroupRuleCaptchaConfigImmunityTimePropertyOutput)
 }
 
-// The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+// Amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
 func (o RuleGroupRuleCaptchaConfigImmunityTimePropertyPtrOutput) ImmunityTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleCaptchaConfigImmunityTimeProperty) *int {
 		if v == nil {
@@ -2697,7 +2697,7 @@ func (o RuleGroupRuleCaptchaConfigImmunityTimePropertyPtrOutput) ImmunityTime() 
 }
 
 type RuleGroupRuleRuleLabel struct {
-	// The label string.
+	// Label string.
 	Name string `pulumi:"name"`
 }
 
@@ -2713,7 +2713,7 @@ type RuleGroupRuleRuleLabelInput interface {
 }
 
 type RuleGroupRuleRuleLabelArgs struct {
-	// The label string.
+	// Label string.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -2768,7 +2768,7 @@ func (o RuleGroupRuleRuleLabelOutput) ToRuleGroupRuleRuleLabelOutputWithContext(
 	return o
 }
 
-// The label string.
+// Label string.
 func (o RuleGroupRuleRuleLabelOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleRuleLabel) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2794,33 +2794,33 @@ func (o RuleGroupRuleRuleLabelArrayOutput) Index(i pulumi.IntInput) RuleGroupRul
 }
 
 type RuleGroupRuleStatement struct {
-	// A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+	// Logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
 	AndStatement *RuleGroupRuleStatementAndStatement `pulumi:"andStatement"`
 	// Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See ASN Match Statement below for details.
 	AsnMatchStatement *RuleGroupRuleStatementAsnMatchStatement `pulumi:"asnMatchStatement"`
-	// A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+	// Rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
 	ByteMatchStatement *RuleGroupRuleStatementByteMatchStatement `pulumi:"byteMatchStatement"`
-	// A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+	// Rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
 	GeoMatchStatement *RuleGroupRuleStatementGeoMatchStatement `pulumi:"geoMatchStatement"`
-	// A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+	// Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
 	IpSetReferenceStatement *RuleGroupRuleStatementIpSetReferenceStatement `pulumi:"ipSetReferenceStatement"`
-	// A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+	// Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
 	LabelMatchStatement *RuleGroupRuleStatementLabelMatchStatement `pulumi:"labelMatchStatement"`
-	// A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
+	// Logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
 	NotStatement *RuleGroupRuleStatementNotStatement `pulumi:"notStatement"`
-	// A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
+	// Logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
 	OrStatement *RuleGroupRuleStatementOrStatement `pulumi:"orStatement"`
-	// A rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See Rate Based Statement below for details.
+	// Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See Rate Based Statement below for details.
 	RateBasedStatement *RuleGroupRuleStatementRateBasedStatement `pulumi:"rateBasedStatement"`
-	// A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+	// Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
 	RegexMatchStatement *RuleGroupRuleStatementRegexMatchStatement `pulumi:"regexMatchStatement"`
-	// A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+	// Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
 	RegexPatternSetReferenceStatement *RuleGroupRuleStatementRegexPatternSetReferenceStatement `pulumi:"regexPatternSetReferenceStatement"`
-	// A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+	// Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
 	SizeConstraintStatement *RuleGroupRuleStatementSizeConstraintStatement `pulumi:"sizeConstraintStatement"`
-	// An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+	// SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
 	SqliMatchStatement *RuleGroupRuleStatementSqliMatchStatement `pulumi:"sqliMatchStatement"`
-	// A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+	// Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
 	XssMatchStatement *RuleGroupRuleStatementXssMatchStatement `pulumi:"xssMatchStatement"`
 }
 
@@ -2836,33 +2836,33 @@ type RuleGroupRuleStatementInput interface {
 }
 
 type RuleGroupRuleStatementArgs struct {
-	// A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+	// Logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
 	AndStatement RuleGroupRuleStatementAndStatementPtrInput `pulumi:"andStatement"`
 	// Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See ASN Match Statement below for details.
 	AsnMatchStatement RuleGroupRuleStatementAsnMatchStatementPtrInput `pulumi:"asnMatchStatement"`
-	// A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+	// Rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
 	ByteMatchStatement RuleGroupRuleStatementByteMatchStatementPtrInput `pulumi:"byteMatchStatement"`
-	// A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+	// Rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
 	GeoMatchStatement RuleGroupRuleStatementGeoMatchStatementPtrInput `pulumi:"geoMatchStatement"`
-	// A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+	// Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
 	IpSetReferenceStatement RuleGroupRuleStatementIpSetReferenceStatementPtrInput `pulumi:"ipSetReferenceStatement"`
-	// A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+	// Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
 	LabelMatchStatement RuleGroupRuleStatementLabelMatchStatementPtrInput `pulumi:"labelMatchStatement"`
-	// A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
+	// Logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
 	NotStatement RuleGroupRuleStatementNotStatementPtrInput `pulumi:"notStatement"`
-	// A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
+	// Logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
 	OrStatement RuleGroupRuleStatementOrStatementPtrInput `pulumi:"orStatement"`
-	// A rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See Rate Based Statement below for details.
+	// Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See Rate Based Statement below for details.
 	RateBasedStatement RuleGroupRuleStatementRateBasedStatementPtrInput `pulumi:"rateBasedStatement"`
-	// A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+	// Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
 	RegexMatchStatement RuleGroupRuleStatementRegexMatchStatementPtrInput `pulumi:"regexMatchStatement"`
-	// A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+	// Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
 	RegexPatternSetReferenceStatement RuleGroupRuleStatementRegexPatternSetReferenceStatementPtrInput `pulumi:"regexPatternSetReferenceStatement"`
-	// A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+	// Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
 	SizeConstraintStatement RuleGroupRuleStatementSizeConstraintStatementPtrInput `pulumi:"sizeConstraintStatement"`
-	// An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+	// SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
 	SqliMatchStatement RuleGroupRuleStatementSqliMatchStatementPtrInput `pulumi:"sqliMatchStatement"`
-	// A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+	// Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
 	XssMatchStatement RuleGroupRuleStatementXssMatchStatementPtrInput `pulumi:"xssMatchStatement"`
 }
 
@@ -2917,7 +2917,7 @@ func (o RuleGroupRuleStatementOutput) ToRuleGroupRuleStatementOutputWithContext(
 	return o
 }
 
-// A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+// Logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
 func (o RuleGroupRuleStatementOutput) AndStatement() RuleGroupRuleStatementAndStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatement) *RuleGroupRuleStatementAndStatement { return v.AndStatement }).(RuleGroupRuleStatementAndStatementPtrOutput)
 }
@@ -2927,72 +2927,72 @@ func (o RuleGroupRuleStatementOutput) AsnMatchStatement() RuleGroupRuleStatement
 	return o.ApplyT(func(v RuleGroupRuleStatement) *RuleGroupRuleStatementAsnMatchStatement { return v.AsnMatchStatement }).(RuleGroupRuleStatementAsnMatchStatementPtrOutput)
 }
 
-// A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+// Rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
 func (o RuleGroupRuleStatementOutput) ByteMatchStatement() RuleGroupRuleStatementByteMatchStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatement) *RuleGroupRuleStatementByteMatchStatement { return v.ByteMatchStatement }).(RuleGroupRuleStatementByteMatchStatementPtrOutput)
 }
 
-// A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+// Rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
 func (o RuleGroupRuleStatementOutput) GeoMatchStatement() RuleGroupRuleStatementGeoMatchStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatement) *RuleGroupRuleStatementGeoMatchStatement { return v.GeoMatchStatement }).(RuleGroupRuleStatementGeoMatchStatementPtrOutput)
 }
 
-// A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+// Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
 func (o RuleGroupRuleStatementOutput) IpSetReferenceStatement() RuleGroupRuleStatementIpSetReferenceStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatement) *RuleGroupRuleStatementIpSetReferenceStatement {
 		return v.IpSetReferenceStatement
 	}).(RuleGroupRuleStatementIpSetReferenceStatementPtrOutput)
 }
 
-// A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+// Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
 func (o RuleGroupRuleStatementOutput) LabelMatchStatement() RuleGroupRuleStatementLabelMatchStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatement) *RuleGroupRuleStatementLabelMatchStatement {
 		return v.LabelMatchStatement
 	}).(RuleGroupRuleStatementLabelMatchStatementPtrOutput)
 }
 
-// A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
+// Logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
 func (o RuleGroupRuleStatementOutput) NotStatement() RuleGroupRuleStatementNotStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatement) *RuleGroupRuleStatementNotStatement { return v.NotStatement }).(RuleGroupRuleStatementNotStatementPtrOutput)
 }
 
-// A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
+// Logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
 func (o RuleGroupRuleStatementOutput) OrStatement() RuleGroupRuleStatementOrStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatement) *RuleGroupRuleStatementOrStatement { return v.OrStatement }).(RuleGroupRuleStatementOrStatementPtrOutput)
 }
 
-// A rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See Rate Based Statement below for details.
+// Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See Rate Based Statement below for details.
 func (o RuleGroupRuleStatementOutput) RateBasedStatement() RuleGroupRuleStatementRateBasedStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatement) *RuleGroupRuleStatementRateBasedStatement { return v.RateBasedStatement }).(RuleGroupRuleStatementRateBasedStatementPtrOutput)
 }
 
-// A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+// Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
 func (o RuleGroupRuleStatementOutput) RegexMatchStatement() RuleGroupRuleStatementRegexMatchStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatement) *RuleGroupRuleStatementRegexMatchStatement {
 		return v.RegexMatchStatement
 	}).(RuleGroupRuleStatementRegexMatchStatementPtrOutput)
 }
 
-// A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+// Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
 func (o RuleGroupRuleStatementOutput) RegexPatternSetReferenceStatement() RuleGroupRuleStatementRegexPatternSetReferenceStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatement) *RuleGroupRuleStatementRegexPatternSetReferenceStatement {
 		return v.RegexPatternSetReferenceStatement
 	}).(RuleGroupRuleStatementRegexPatternSetReferenceStatementPtrOutput)
 }
 
-// A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+// Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
 func (o RuleGroupRuleStatementOutput) SizeConstraintStatement() RuleGroupRuleStatementSizeConstraintStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatement) *RuleGroupRuleStatementSizeConstraintStatement {
 		return v.SizeConstraintStatement
 	}).(RuleGroupRuleStatementSizeConstraintStatementPtrOutput)
 }
 
-// An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+// SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
 func (o RuleGroupRuleStatementOutput) SqliMatchStatement() RuleGroupRuleStatementSqliMatchStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatement) *RuleGroupRuleStatementSqliMatchStatement { return v.SqliMatchStatement }).(RuleGroupRuleStatementSqliMatchStatementPtrOutput)
 }
 
-// A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+// Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
 func (o RuleGroupRuleStatementOutput) XssMatchStatement() RuleGroupRuleStatementXssMatchStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatement) *RuleGroupRuleStatementXssMatchStatement { return v.XssMatchStatement }).(RuleGroupRuleStatementXssMatchStatementPtrOutput)
 }
@@ -3018,7 +3018,7 @@ func (o RuleGroupRuleStatementArrayOutput) Index(i pulumi.IntInput) RuleGroupRul
 }
 
 type RuleGroupRuleStatementAndStatement struct {
-	// The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+	// Statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
 	Statements []RuleGroupRuleStatement `pulumi:"statements"`
 }
 
@@ -3034,7 +3034,7 @@ type RuleGroupRuleStatementAndStatementInput interface {
 }
 
 type RuleGroupRuleStatementAndStatementArgs struct {
-	// The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+	// Statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
 	Statements RuleGroupRuleStatementArrayInput `pulumi:"statements"`
 }
 
@@ -3115,7 +3115,7 @@ func (o RuleGroupRuleStatementAndStatementOutput) ToRuleGroupRuleStatementAndSta
 	}).(RuleGroupRuleStatementAndStatementPtrOutput)
 }
 
-// The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+// Statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
 func (o RuleGroupRuleStatementAndStatementOutput) Statements() RuleGroupRuleStatementArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementAndStatement) []RuleGroupRuleStatement { return v.Statements }).(RuleGroupRuleStatementArrayOutput)
 }
@@ -3144,7 +3144,7 @@ func (o RuleGroupRuleStatementAndStatementPtrOutput) Elem() RuleGroupRuleStateme
 	}).(RuleGroupRuleStatementAndStatementOutput)
 }
 
-// The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+// Statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
 func (o RuleGroupRuleStatementAndStatementPtrOutput) Statements() RuleGroupRuleStatementArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementAndStatement) []RuleGroupRuleStatement {
 		if v == nil {
@@ -3469,17 +3469,15 @@ func (o RuleGroupRuleStatementAsnMatchStatementForwardedIpConfigPtrOutput) Heade
 }
 
 type RuleGroupRuleStatementByteMatchStatement struct {
-	// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+	// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 	FieldToMatch *RuleGroupRuleStatementByteMatchStatementFieldToMatch `pulumi:"fieldToMatch"`
-	// The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+	// Area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
 	PositionalConstraint string `pulumi:"positionalConstraint"`
 	// Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
 	PreParseTextTransformations []RuleGroupRuleStatementByteMatchStatementPreParseTextTransformation `pulumi:"preParseTextTransformations"`
-	// A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+	// String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
 	SearchString string `pulumi:"searchString"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See Text Transformation below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 	TextTransformations []RuleGroupRuleStatementByteMatchStatementTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -3495,17 +3493,15 @@ type RuleGroupRuleStatementByteMatchStatementInput interface {
 }
 
 type RuleGroupRuleStatementByteMatchStatementArgs struct {
-	// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+	// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 	FieldToMatch RuleGroupRuleStatementByteMatchStatementFieldToMatchPtrInput `pulumi:"fieldToMatch"`
-	// The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+	// Area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
 	PositionalConstraint pulumi.StringInput `pulumi:"positionalConstraint"`
 	// Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
 	PreParseTextTransformations RuleGroupRuleStatementByteMatchStatementPreParseTextTransformationArrayInput `pulumi:"preParseTextTransformations"`
-	// A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+	// String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
 	SearchString pulumi.StringInput `pulumi:"searchString"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See Text Transformation below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 	TextTransformations RuleGroupRuleStatementByteMatchStatementTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -3586,14 +3582,14 @@ func (o RuleGroupRuleStatementByteMatchStatementOutput) ToRuleGroupRuleStatement
 	}).(RuleGroupRuleStatementByteMatchStatementPtrOutput)
 }
 
-// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 func (o RuleGroupRuleStatementByteMatchStatementOutput) FieldToMatch() RuleGroupRuleStatementByteMatchStatementFieldToMatchPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementByteMatchStatement) *RuleGroupRuleStatementByteMatchStatementFieldToMatch {
 		return v.FieldToMatch
 	}).(RuleGroupRuleStatementByteMatchStatementFieldToMatchPtrOutput)
 }
 
-// The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+// Area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
 func (o RuleGroupRuleStatementByteMatchStatementOutput) PositionalConstraint() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementByteMatchStatement) string { return v.PositionalConstraint }).(pulumi.StringOutput)
 }
@@ -3605,14 +3601,12 @@ func (o RuleGroupRuleStatementByteMatchStatementOutput) PreParseTextTransformati
 	}).(RuleGroupRuleStatementByteMatchStatementPreParseTextTransformationArrayOutput)
 }
 
-// A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+// String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
 func (o RuleGroupRuleStatementByteMatchStatementOutput) SearchString() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementByteMatchStatement) string { return v.SearchString }).(pulumi.StringOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See Text Transformation below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 func (o RuleGroupRuleStatementByteMatchStatementOutput) TextTransformations() RuleGroupRuleStatementByteMatchStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementByteMatchStatement) []RuleGroupRuleStatementByteMatchStatementTextTransformation {
 		return v.TextTransformations
@@ -3643,7 +3637,7 @@ func (o RuleGroupRuleStatementByteMatchStatementPtrOutput) Elem() RuleGroupRuleS
 	}).(RuleGroupRuleStatementByteMatchStatementOutput)
 }
 
-// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 func (o RuleGroupRuleStatementByteMatchStatementPtrOutput) FieldToMatch() RuleGroupRuleStatementByteMatchStatementFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementByteMatchStatement) *RuleGroupRuleStatementByteMatchStatementFieldToMatch {
 		if v == nil {
@@ -3653,7 +3647,7 @@ func (o RuleGroupRuleStatementByteMatchStatementPtrOutput) FieldToMatch() RuleGr
 	}).(RuleGroupRuleStatementByteMatchStatementFieldToMatchPtrOutput)
 }
 
-// The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+// Area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
 func (o RuleGroupRuleStatementByteMatchStatementPtrOutput) PositionalConstraint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementByteMatchStatement) *string {
 		if v == nil {
@@ -3673,7 +3667,7 @@ func (o RuleGroupRuleStatementByteMatchStatementPtrOutput) PreParseTextTransform
 	}).(RuleGroupRuleStatementByteMatchStatementPreParseTextTransformationArrayOutput)
 }
 
-// A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+// String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
 func (o RuleGroupRuleStatementByteMatchStatementPtrOutput) SearchString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementByteMatchStatement) *string {
 		if v == nil {
@@ -3683,9 +3677,7 @@ func (o RuleGroupRuleStatementByteMatchStatementPtrOutput) SearchString() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See Text Transformation below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 func (o RuleGroupRuleStatementByteMatchStatementPtrOutput) TextTransformations() RuleGroupRuleStatementByteMatchStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementByteMatchStatement) []RuleGroupRuleStatementByteMatchStatementTextTransformation {
 		if v == nil {
@@ -4359,9 +4351,9 @@ func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchBodyPtrOutput) Overs
 }
 
 type RuleGroupRuleStatementByteMatchStatementFieldToMatchCookies struct {
-	// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+	// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 	MatchPatterns []RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern `pulumi:"matchPatterns"`
-	// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+	// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 	MatchScope string `pulumi:"matchScope"`
 	// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
 	OversizeHandling string `pulumi:"oversizeHandling"`
@@ -4379,9 +4371,9 @@ type RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesInput interface 
 }
 
 type RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesArgs struct {
-	// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+	// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 	MatchPatterns RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternArrayInput `pulumi:"matchPatterns"`
-	// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+	// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 	MatchScope pulumi.StringInput `pulumi:"matchScope"`
 	// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
 	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
@@ -4464,14 +4456,14 @@ func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesOutput) ToRul
 	}).(RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesPtrOutput)
 }
 
-// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesOutput) MatchPatterns() RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementByteMatchStatementFieldToMatchCookies) []RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern {
 		return v.MatchPatterns
 	}).(RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternArrayOutput)
 }
 
-// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementByteMatchStatementFieldToMatchCookies) string { return v.MatchScope }).(pulumi.StringOutput)
 }
@@ -4505,7 +4497,7 @@ func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesPtrOutput) El
 	}).(RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesOutput)
 }
 
-// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesPtrOutput) MatchPatterns() RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementByteMatchStatementFieldToMatchCookies) []RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern {
 		if v == nil {
@@ -4515,7 +4507,7 @@ func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesPtrOutput) Ma
 	}).(RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternArrayOutput)
 }
 
-// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementByteMatchStatementFieldToMatchCookies) *string {
 		if v == nil {
@@ -4536,7 +4528,7 @@ func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesPtrOutput) Ov
 }
 
 type RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All             *RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll `pulumi:"all"`
 	ExcludedCookies []string                                                                    `pulumi:"excludedCookies"`
 	IncludedCookies []string                                                                    `pulumi:"includedCookies"`
@@ -4554,7 +4546,7 @@ type RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternInpu
 }
 
 type RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternArgs struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All             RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllPtrInput `pulumi:"all"`
 	ExcludedCookies pulumi.StringArrayInput                                                            `pulumi:"excludedCookies"`
 	IncludedCookies pulumi.StringArrayInput                                                            `pulumi:"includedCookies"`
@@ -4611,7 +4603,7 @@ func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternO
 	return o
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternOutput) All() RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern) *RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll {
 		return v.All
@@ -4769,9 +4761,9 @@ func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternA
 }
 
 type RuleGroupRuleStatementByteMatchStatementFieldToMatchHeader struct {
-	// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+	// Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
 	MatchPattern RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern `pulumi:"matchPattern"`
-	// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+	// Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 	MatchScope string `pulumi:"matchScope"`
 	// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
 	OversizeHandling string `pulumi:"oversizeHandling"`
@@ -4789,9 +4781,9 @@ type RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderInput interface {
 }
 
 type RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderArgs struct {
-	// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+	// Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
 	MatchPattern RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternInput `pulumi:"matchPattern"`
-	// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+	// Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 	MatchScope pulumi.StringInput `pulumi:"matchScope"`
 	// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
 	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
@@ -4848,14 +4840,14 @@ func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderOutput) ToRule
 	return o
 }
 
-// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+// Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
 func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderOutput) MatchPattern() RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementByteMatchStatementFieldToMatchHeader) RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern {
 		return v.MatchPattern
 	}).(RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternOutput)
 }
 
-// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+// Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementByteMatchStatementFieldToMatchHeader) string { return v.MatchScope }).(pulumi.StringOutput)
 }
@@ -4886,11 +4878,11 @@ func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderArrayOutput) I
 }
 
 type RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All *RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll `pulumi:"all"`
-	// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 	ExcludedHeaders []string `pulumi:"excludedHeaders"`
-	// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 	IncludedHeaders []string `pulumi:"includedHeaders"`
 }
 
@@ -4906,11 +4898,11 @@ type RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternInput
 }
 
 type RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternArgs struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAllPtrInput `pulumi:"all"`
-	// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 	ExcludedHeaders pulumi.StringArrayInput `pulumi:"excludedHeaders"`
-	// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 	IncludedHeaders pulumi.StringArrayInput `pulumi:"includedHeaders"`
 }
 
@@ -4940,21 +4932,21 @@ func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternOu
 	return o
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternOutput) All() RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern) *RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll {
 		return v.All
 	}).(RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput)
 }
 
-// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+// Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternOutput) ExcludedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern) []string {
 		return v.ExcludedHeaders
 	}).(pulumi.StringArrayOutput)
 }
 
-// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+// Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternOutput) IncludedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern) []string {
 		return v.IncludedHeaders
@@ -5179,7 +5171,7 @@ func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutp
 }
 
 type RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint struct {
-	// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior string `pulumi:"fallbackBehavior"`
 }
 
@@ -5195,7 +5187,7 @@ type RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3FingerprintInput int
 }
 
 type RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs struct {
-	// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
 }
 
@@ -5276,7 +5268,7 @@ func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput
 	}).(RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput) FallbackBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint) string {
 		return v.FallbackBehavior
@@ -5307,7 +5299,7 @@ func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOut
 	}).(RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint) *string {
 		if v == nil {
@@ -5318,7 +5310,7 @@ func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOut
 }
 
 type RuleGroupRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint struct {
-	// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior string `pulumi:"fallbackBehavior"`
 }
 
@@ -5334,7 +5326,7 @@ type RuleGroupRuleStatementByteMatchStatementFieldToMatchJa4FingerprintInput int
 }
 
 type RuleGroupRuleStatementByteMatchStatementFieldToMatchJa4FingerprintArgs struct {
-	// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
 }
 
@@ -5415,7 +5407,7 @@ func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput
 	}).(RuleGroupRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput) FallbackBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint) string {
 		return v.FallbackBehavior
@@ -5446,7 +5438,7 @@ func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOut
 	}).(RuleGroupRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint) *string {
 		if v == nil {
@@ -5459,9 +5451,9 @@ func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOut
 type RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBody struct {
 	// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
 	InvalidFallbackBehavior *string `pulumi:"invalidFallbackBehavior"`
-	// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+	// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 	MatchPattern RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern `pulumi:"matchPattern"`
-	// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+	// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 	MatchScope string `pulumi:"matchScope"`
 	// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
 	OversizeHandling *string `pulumi:"oversizeHandling"`
@@ -5481,9 +5473,9 @@ type RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyInput interface
 type RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs struct {
 	// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
 	InvalidFallbackBehavior pulumi.StringPtrInput `pulumi:"invalidFallbackBehavior"`
-	// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+	// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 	MatchPattern RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternInput `pulumi:"matchPattern"`
-	// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+	// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 	MatchScope pulumi.StringInput `pulumi:"matchScope"`
 	// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
 	OversizeHandling pulumi.StringPtrInput `pulumi:"oversizeHandling"`
@@ -5573,14 +5565,14 @@ func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput) Inva
 	}).(pulumi.StringPtrOutput)
 }
 
-// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput) MatchPattern() RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBody) RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern {
 		return v.MatchPattern
 	}).(RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput)
 }
 
-// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBody) string { return v.MatchScope }).(pulumi.StringOutput)
 }
@@ -5626,7 +5618,7 @@ func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput) I
 	}).(pulumi.StringPtrOutput)
 }
 
-// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput) MatchPattern() RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBody) *RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern {
 		if v == nil {
@@ -5636,7 +5628,7 @@ func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput) M
 	}).(RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
 }
 
-// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBody) *string {
 		if v == nil {
@@ -5657,7 +5649,7 @@ func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput) O
 }
 
 type RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All           *RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll `pulumi:"all"`
 	IncludedPaths []string                                                                     `pulumi:"includedPaths"`
 }
@@ -5674,7 +5666,7 @@ type RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternInp
 }
 
 type RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All           RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrInput `pulumi:"all"`
 	IncludedPaths pulumi.StringArrayInput                                                             `pulumi:"includedPaths"`
 }
@@ -5756,7 +5748,7 @@ func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern
 	}).(RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput) All() RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern) *RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll {
 		return v.All
@@ -5793,7 +5785,7 @@ func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern
 	}).(RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput)
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput) All() RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern) *RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll {
 		if v == nil {
@@ -6167,7 +6159,7 @@ func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput
 }
 
 type RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader struct {
-	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -6183,7 +6175,7 @@ type RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeaderInput inter
 }
 
 type RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs struct {
-	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -6264,7 +6256,7 @@ func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput) 
 	}).(RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
-// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -6293,7 +6285,7 @@ func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutpu
 	}).(RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput)
 }
 
-// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader) *string {
 		if v == nil {
@@ -6304,7 +6296,7 @@ func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutpu
 }
 
 type RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument struct {
-	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -6320,7 +6312,7 @@ type RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentInpu
 }
 
 type RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs struct {
-	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -6401,7 +6393,7 @@ func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentO
 	}).(RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
-// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -6430,7 +6422,7 @@ func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentP
 	}).(RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput)
 }
 
-// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument) *string {
 		if v == nil {
@@ -6698,9 +6690,9 @@ func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchUriPathPtrOutput) El
 }
 
 type RuleGroupRuleStatementByteMatchStatementPreParseTextTransformation struct {
-	// The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
 	Priority int `pulumi:"priority"`
-	// The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
 	Type string `pulumi:"type"`
 }
 
@@ -6716,9 +6708,9 @@ type RuleGroupRuleStatementByteMatchStatementPreParseTextTransformationInput int
 }
 
 type RuleGroupRuleStatementByteMatchStatementPreParseTextTransformationArgs struct {
-	// The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -6773,12 +6765,12 @@ func (o RuleGroupRuleStatementByteMatchStatementPreParseTextTransformationOutput
 	return o
 }
 
-// The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
 func (o RuleGroupRuleStatementByteMatchStatementPreParseTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementByteMatchStatementPreParseTextTransformation) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
 func (o RuleGroupRuleStatementByteMatchStatementPreParseTextTransformationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementByteMatchStatementPreParseTextTransformation) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -6804,9 +6796,9 @@ func (o RuleGroupRuleStatementByteMatchStatementPreParseTextTransformationArrayO
 }
 
 type RuleGroupRuleStatementByteMatchStatementTextTransformation struct {
-	// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 	Priority int `pulumi:"priority"`
-	// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 	Type string `pulumi:"type"`
 }
 
@@ -6822,9 +6814,9 @@ type RuleGroupRuleStatementByteMatchStatementTextTransformationInput interface {
 }
 
 type RuleGroupRuleStatementByteMatchStatementTextTransformationArgs struct {
-	// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -6879,12 +6871,12 @@ func (o RuleGroupRuleStatementByteMatchStatementTextTransformationOutput) ToRule
 	return o
 }
 
-// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 func (o RuleGroupRuleStatementByteMatchStatementTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementByteMatchStatementTextTransformation) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 func (o RuleGroupRuleStatementByteMatchStatementTextTransformationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementByteMatchStatementTextTransformation) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -6910,9 +6902,9 @@ func (o RuleGroupRuleStatementByteMatchStatementTextTransformationArrayOutput) I
 }
 
 type RuleGroupRuleStatementGeoMatchStatement struct {
-	// An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+	// Array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
 	CountryCodes []string `pulumi:"countryCodes"`
-	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+	// Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
 	ForwardedIpConfig *RuleGroupRuleStatementGeoMatchStatementForwardedIpConfig `pulumi:"forwardedIpConfig"`
 }
 
@@ -6928,9 +6920,9 @@ type RuleGroupRuleStatementGeoMatchStatementInput interface {
 }
 
 type RuleGroupRuleStatementGeoMatchStatementArgs struct {
-	// An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+	// Array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
 	CountryCodes pulumi.StringArrayInput `pulumi:"countryCodes"`
-	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+	// Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
 	ForwardedIpConfig RuleGroupRuleStatementGeoMatchStatementForwardedIpConfigPtrInput `pulumi:"forwardedIpConfig"`
 }
 
@@ -7011,12 +7003,12 @@ func (o RuleGroupRuleStatementGeoMatchStatementOutput) ToRuleGroupRuleStatementG
 	}).(RuleGroupRuleStatementGeoMatchStatementPtrOutput)
 }
 
-// An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+// Array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
 func (o RuleGroupRuleStatementGeoMatchStatementOutput) CountryCodes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementGeoMatchStatement) []string { return v.CountryCodes }).(pulumi.StringArrayOutput)
 }
 
-// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+// Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
 func (o RuleGroupRuleStatementGeoMatchStatementOutput) ForwardedIpConfig() RuleGroupRuleStatementGeoMatchStatementForwardedIpConfigPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementGeoMatchStatement) *RuleGroupRuleStatementGeoMatchStatementForwardedIpConfig {
 		return v.ForwardedIpConfig
@@ -7047,7 +7039,7 @@ func (o RuleGroupRuleStatementGeoMatchStatementPtrOutput) Elem() RuleGroupRuleSt
 	}).(RuleGroupRuleStatementGeoMatchStatementOutput)
 }
 
-// An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+// Array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
 func (o RuleGroupRuleStatementGeoMatchStatementPtrOutput) CountryCodes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementGeoMatchStatement) []string {
 		if v == nil {
@@ -7057,7 +7049,7 @@ func (o RuleGroupRuleStatementGeoMatchStatementPtrOutput) CountryCodes() pulumi.
 	}).(pulumi.StringArrayOutput)
 }
 
-// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+// Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
 func (o RuleGroupRuleStatementGeoMatchStatementPtrOutput) ForwardedIpConfig() RuleGroupRuleStatementGeoMatchStatementForwardedIpConfigPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementGeoMatchStatement) *RuleGroupRuleStatementGeoMatchStatementForwardedIpConfig {
 		if v == nil {
@@ -7226,7 +7218,7 @@ func (o RuleGroupRuleStatementGeoMatchStatementForwardedIpConfigPtrOutput) Heade
 type RuleGroupRuleStatementIpSetReferenceStatement struct {
 	// ARN of the IP Set that this statement references.
 	Arn string `pulumi:"arn"`
-	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+	// Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
 	IpSetForwardedIpConfig *RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig `pulumi:"ipSetForwardedIpConfig"`
 }
 
@@ -7244,7 +7236,7 @@ type RuleGroupRuleStatementIpSetReferenceStatementInput interface {
 type RuleGroupRuleStatementIpSetReferenceStatementArgs struct {
 	// ARN of the IP Set that this statement references.
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+	// Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
 	IpSetForwardedIpConfig RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrInput `pulumi:"ipSetForwardedIpConfig"`
 }
 
@@ -7330,7 +7322,7 @@ func (o RuleGroupRuleStatementIpSetReferenceStatementOutput) Arn() pulumi.String
 	return o.ApplyT(func(v RuleGroupRuleStatementIpSetReferenceStatement) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+// Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
 func (o RuleGroupRuleStatementIpSetReferenceStatementOutput) IpSetForwardedIpConfig() RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementIpSetReferenceStatement) *RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig {
 		return v.IpSetForwardedIpConfig
@@ -7371,7 +7363,7 @@ func (o RuleGroupRuleStatementIpSetReferenceStatementPtrOutput) Arn() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+// Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
 func (o RuleGroupRuleStatementIpSetReferenceStatementPtrOutput) IpSetForwardedIpConfig() RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementIpSetReferenceStatement) *RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig {
 		if v == nil {
@@ -7561,7 +7553,7 @@ func (o RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOu
 }
 
 type RuleGroupRuleStatementLabelMatchStatement struct {
-	// The string to match against.
+	// String to match against.
 	Key string `pulumi:"key"`
 	// Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
 	Scope string `pulumi:"scope"`
@@ -7579,7 +7571,7 @@ type RuleGroupRuleStatementLabelMatchStatementInput interface {
 }
 
 type RuleGroupRuleStatementLabelMatchStatementArgs struct {
-	// The string to match against.
+	// String to match against.
 	Key pulumi.StringInput `pulumi:"key"`
 	// Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
 	Scope pulumi.StringInput `pulumi:"scope"`
@@ -7662,7 +7654,7 @@ func (o RuleGroupRuleStatementLabelMatchStatementOutput) ToRuleGroupRuleStatemen
 	}).(RuleGroupRuleStatementLabelMatchStatementPtrOutput)
 }
 
-// The string to match against.
+// String to match against.
 func (o RuleGroupRuleStatementLabelMatchStatementOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementLabelMatchStatement) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -7696,7 +7688,7 @@ func (o RuleGroupRuleStatementLabelMatchStatementPtrOutput) Elem() RuleGroupRule
 	}).(RuleGroupRuleStatementLabelMatchStatementOutput)
 }
 
-// The string to match against.
+// String to match against.
 func (o RuleGroupRuleStatementLabelMatchStatementPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementLabelMatchStatement) *string {
 		if v == nil {
@@ -7717,7 +7709,7 @@ func (o RuleGroupRuleStatementLabelMatchStatementPtrOutput) Scope() pulumi.Strin
 }
 
 type RuleGroupRuleStatementNotStatement struct {
-	// The statement to negate. You can use any statement that can be nested. See Statement above for details.
+	// Statement to negate. You can use any statement that can be nested. See Statement above for details.
 	Statements []RuleGroupRuleStatement `pulumi:"statements"`
 }
 
@@ -7733,7 +7725,7 @@ type RuleGroupRuleStatementNotStatementInput interface {
 }
 
 type RuleGroupRuleStatementNotStatementArgs struct {
-	// The statement to negate. You can use any statement that can be nested. See Statement above for details.
+	// Statement to negate. You can use any statement that can be nested. See Statement above for details.
 	Statements RuleGroupRuleStatementArrayInput `pulumi:"statements"`
 }
 
@@ -7814,7 +7806,7 @@ func (o RuleGroupRuleStatementNotStatementOutput) ToRuleGroupRuleStatementNotSta
 	}).(RuleGroupRuleStatementNotStatementPtrOutput)
 }
 
-// The statement to negate. You can use any statement that can be nested. See Statement above for details.
+// Statement to negate. You can use any statement that can be nested. See Statement above for details.
 func (o RuleGroupRuleStatementNotStatementOutput) Statements() RuleGroupRuleStatementArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementNotStatement) []RuleGroupRuleStatement { return v.Statements }).(RuleGroupRuleStatementArrayOutput)
 }
@@ -7843,7 +7835,7 @@ func (o RuleGroupRuleStatementNotStatementPtrOutput) Elem() RuleGroupRuleStateme
 	}).(RuleGroupRuleStatementNotStatementOutput)
 }
 
-// The statement to negate. You can use any statement that can be nested. See Statement above for details.
+// Statement to negate. You can use any statement that can be nested. See Statement above for details.
 func (o RuleGroupRuleStatementNotStatementPtrOutput) Statements() RuleGroupRuleStatementArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementNotStatement) []RuleGroupRuleStatement {
 		if v == nil {
@@ -7854,7 +7846,7 @@ func (o RuleGroupRuleStatementNotStatementPtrOutput) Statements() RuleGroupRuleS
 }
 
 type RuleGroupRuleStatementOrStatement struct {
-	// The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+	// Statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
 	Statements []RuleGroupRuleStatement `pulumi:"statements"`
 }
 
@@ -7870,7 +7862,7 @@ type RuleGroupRuleStatementOrStatementInput interface {
 }
 
 type RuleGroupRuleStatementOrStatementArgs struct {
-	// The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+	// Statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
 	Statements RuleGroupRuleStatementArrayInput `pulumi:"statements"`
 }
 
@@ -7951,7 +7943,7 @@ func (o RuleGroupRuleStatementOrStatementOutput) ToRuleGroupRuleStatementOrState
 	}).(RuleGroupRuleStatementOrStatementPtrOutput)
 }
 
-// The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+// Statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
 func (o RuleGroupRuleStatementOrStatementOutput) Statements() RuleGroupRuleStatementArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementOrStatement) []RuleGroupRuleStatement { return v.Statements }).(RuleGroupRuleStatementArrayOutput)
 }
@@ -7980,7 +7972,7 @@ func (o RuleGroupRuleStatementOrStatementPtrOutput) Elem() RuleGroupRuleStatemen
 	}).(RuleGroupRuleStatementOrStatementOutput)
 }
 
-// The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+// Statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
 func (o RuleGroupRuleStatementOrStatementPtrOutput) Statements() RuleGroupRuleStatementArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementOrStatement) []RuleGroupRuleStatement {
 		if v == nil {
@@ -7995,15 +7987,15 @@ type RuleGroupRuleStatementRateBasedStatement struct {
 	AggregateKeyType *string `pulumi:"aggregateKeyType"`
 	// Aggregate the request counts using one or more web request components as the aggregate keys. See `customKey` below for details.
 	CustomKeys []RuleGroupRuleStatementRateBasedStatementCustomKey `pulumi:"customKeys"`
-	// The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
+	// Amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
 	//
 	// **NOTE:** This setting doesn't determine how often AWS WAF checks the rate, but how far back it looks each time it checks. AWS WAF checks the rate about every 10 seconds.
 	EvaluationWindowSec *int `pulumi:"evaluationWindowSec"`
-	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregateKeyType` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
+	// Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregateKeyType` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
 	ForwardedIpConfig *RuleGroupRuleStatementRateBasedStatementForwardedIpConfig `pulumi:"forwardedIpConfig"`
 	// Limit on requests per 5-minute (or `evaluationWindowSec`) period for a single originating IP address (or for other aggregate key, depending on `aggregateKeyType` and `customKey`).
 	Limit int `pulumi:"limit"`
-	// An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details. If `aggregateKeyType` is set to `CONSTANT`, this block is required.
+	// Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details. If `aggregateKeyType` is set to `CONSTANT`, this block is required.
 	ScopeDownStatement *RuleGroupRuleStatementRateBasedStatementScopeDownStatement `pulumi:"scopeDownStatement"`
 }
 
@@ -8023,15 +8015,15 @@ type RuleGroupRuleStatementRateBasedStatementArgs struct {
 	AggregateKeyType pulumi.StringPtrInput `pulumi:"aggregateKeyType"`
 	// Aggregate the request counts using one or more web request components as the aggregate keys. See `customKey` below for details.
 	CustomKeys RuleGroupRuleStatementRateBasedStatementCustomKeyArrayInput `pulumi:"customKeys"`
-	// The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
+	// Amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
 	//
 	// **NOTE:** This setting doesn't determine how often AWS WAF checks the rate, but how far back it looks each time it checks. AWS WAF checks the rate about every 10 seconds.
 	EvaluationWindowSec pulumi.IntPtrInput `pulumi:"evaluationWindowSec"`
-	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregateKeyType` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
+	// Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregateKeyType` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
 	ForwardedIpConfig RuleGroupRuleStatementRateBasedStatementForwardedIpConfigPtrInput `pulumi:"forwardedIpConfig"`
 	// Limit on requests per 5-minute (or `evaluationWindowSec`) period for a single originating IP address (or for other aggregate key, depending on `aggregateKeyType` and `customKey`).
 	Limit pulumi.IntInput `pulumi:"limit"`
-	// An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details. If `aggregateKeyType` is set to `CONSTANT`, this block is required.
+	// Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details. If `aggregateKeyType` is set to `CONSTANT`, this block is required.
 	ScopeDownStatement RuleGroupRuleStatementRateBasedStatementScopeDownStatementPtrInput `pulumi:"scopeDownStatement"`
 }
 
@@ -8124,14 +8116,14 @@ func (o RuleGroupRuleStatementRateBasedStatementOutput) CustomKeys() RuleGroupRu
 	}).(RuleGroupRuleStatementRateBasedStatementCustomKeyArrayOutput)
 }
 
-// The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
+// Amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
 //
 // **NOTE:** This setting doesn't determine how often AWS WAF checks the rate, but how far back it looks each time it checks. AWS WAF checks the rate about every 10 seconds.
 func (o RuleGroupRuleStatementRateBasedStatementOutput) EvaluationWindowSec() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatement) *int { return v.EvaluationWindowSec }).(pulumi.IntPtrOutput)
 }
 
-// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregateKeyType` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
+// Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregateKeyType` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
 func (o RuleGroupRuleStatementRateBasedStatementOutput) ForwardedIpConfig() RuleGroupRuleStatementRateBasedStatementForwardedIpConfigPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatement) *RuleGroupRuleStatementRateBasedStatementForwardedIpConfig {
 		return v.ForwardedIpConfig
@@ -8143,7 +8135,7 @@ func (o RuleGroupRuleStatementRateBasedStatementOutput) Limit() pulumi.IntOutput
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatement) int { return v.Limit }).(pulumi.IntOutput)
 }
 
-// An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details. If `aggregateKeyType` is set to `CONSTANT`, this block is required.
+// Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details. If `aggregateKeyType` is set to `CONSTANT`, this block is required.
 func (o RuleGroupRuleStatementRateBasedStatementOutput) ScopeDownStatement() RuleGroupRuleStatementRateBasedStatementScopeDownStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatement {
 		return v.ScopeDownStatement
@@ -8194,7 +8186,7 @@ func (o RuleGroupRuleStatementRateBasedStatementPtrOutput) CustomKeys() RuleGrou
 	}).(RuleGroupRuleStatementRateBasedStatementCustomKeyArrayOutput)
 }
 
-// The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
+// Amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
 //
 // **NOTE:** This setting doesn't determine how often AWS WAF checks the rate, but how far back it looks each time it checks. AWS WAF checks the rate about every 10 seconds.
 func (o RuleGroupRuleStatementRateBasedStatementPtrOutput) EvaluationWindowSec() pulumi.IntPtrOutput {
@@ -8206,7 +8198,7 @@ func (o RuleGroupRuleStatementRateBasedStatementPtrOutput) EvaluationWindowSec()
 	}).(pulumi.IntPtrOutput)
 }
 
-// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregateKeyType` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
+// Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregateKeyType` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
 func (o RuleGroupRuleStatementRateBasedStatementPtrOutput) ForwardedIpConfig() RuleGroupRuleStatementRateBasedStatementForwardedIpConfigPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatement) *RuleGroupRuleStatementRateBasedStatementForwardedIpConfig {
 		if v == nil {
@@ -8226,7 +8218,7 @@ func (o RuleGroupRuleStatementRateBasedStatementPtrOutput) Limit() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-// An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details. If `aggregateKeyType` is set to `CONSTANT`, this block is required.
+// Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details. If `aggregateKeyType` is set to `CONSTANT`, this block is required.
 func (o RuleGroupRuleStatementRateBasedStatementPtrOutput) ScopeDownStatement() RuleGroupRuleStatementRateBasedStatementScopeDownStatementPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatement {
 		if v == nil {
@@ -8238,27 +8230,27 @@ func (o RuleGroupRuleStatementRateBasedStatementPtrOutput) ScopeDownStatement() 
 
 type RuleGroupRuleStatementRateBasedStatementCustomKey struct {
 	Asn *RuleGroupRuleStatementRateBasedStatementCustomKeyAsn `pulumi:"asn"`
-	// (Optional) Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
+	// Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
 	Cookie *RuleGroupRuleStatementRateBasedStatementCustomKeyCookie `pulumi:"cookie"`
-	// (Optional) Use the first IP address in an HTTP header as an aggregate key. See `forwardedIp` below for details.
+	// Use the first IP address in an HTTP header as an aggregate key. See `forwardedIp` below for details.
 	ForwardedIp *RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIp `pulumi:"forwardedIp"`
-	// (Optional) Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
+	// Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
 	Header *RuleGroupRuleStatementRateBasedStatementCustomKeyHeader `pulumi:"header"`
-	// (Optional) Use the request's HTTP method as an aggregate key. See RateLimit `httpMethod` below for details.
+	// Use the request's HTTP method as an aggregate key. See RateLimit `httpMethod` below for details.
 	HttpMethod *RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethod `pulumi:"httpMethod"`
-	// (Optional) Use the request's originating IP address as an aggregate key. See `RateLimit ip` below for details.
+	// Use the request's originating IP address as an aggregate key. See `RateLimit ip` below for details.
 	Ip *RuleGroupRuleStatementRateBasedStatementCustomKeyIp `pulumi:"ip"`
-	// (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+	// Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ja3Fingerprint` below for details.
 	Ja3Fingerprint *RuleGroupRuleStatementRateBasedStatementCustomKeyJa3Fingerprint `pulumi:"ja3Fingerprint"`
-	// (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+	// Use the JA4 fingerprint in the request as an aggregate key. See `RateLimit ja4Fingerprint` below for details.
 	Ja4Fingerprint *RuleGroupRuleStatementRateBasedStatementCustomKeyJa4Fingerprint `pulumi:"ja4Fingerprint"`
-	// (Optional) Use the specified label namespace as an aggregate key. See RateLimit `labelNamespace` below for details.
+	// Use the specified label namespace as an aggregate key. See RateLimit `labelNamespace` below for details.
 	LabelNamespace *RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespace `pulumi:"labelNamespace"`
-	// (Optional) Use the specified query argument as an aggregate key. See RateLimit `queryArgument` below for details.
+	// Use the specified query argument as an aggregate key. See RateLimit `queryArgument` below for details.
 	QueryArgument *RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument `pulumi:"queryArgument"`
-	// (Optional) Use the request's query string as an aggregate key. See RateLimit `queryString` below for details.
+	// Use the request's query string as an aggregate key. See RateLimit `queryString` below for details.
 	QueryString *RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString `pulumi:"queryString"`
-	// (Optional) Use the request's URI path as an aggregate key. See RateLimit `uriPath` below for details.
+	// Use the request's URI path as an aggregate key. See RateLimit `uriPath` below for details.
 	UriPath *RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath `pulumi:"uriPath"`
 }
 
@@ -8275,27 +8267,27 @@ type RuleGroupRuleStatementRateBasedStatementCustomKeyInput interface {
 
 type RuleGroupRuleStatementRateBasedStatementCustomKeyArgs struct {
 	Asn RuleGroupRuleStatementRateBasedStatementCustomKeyAsnPtrInput `pulumi:"asn"`
-	// (Optional) Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
+	// Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
 	Cookie RuleGroupRuleStatementRateBasedStatementCustomKeyCookiePtrInput `pulumi:"cookie"`
-	// (Optional) Use the first IP address in an HTTP header as an aggregate key. See `forwardedIp` below for details.
+	// Use the first IP address in an HTTP header as an aggregate key. See `forwardedIp` below for details.
 	ForwardedIp RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIpPtrInput `pulumi:"forwardedIp"`
-	// (Optional) Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
+	// Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
 	Header RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderPtrInput `pulumi:"header"`
-	// (Optional) Use the request's HTTP method as an aggregate key. See RateLimit `httpMethod` below for details.
+	// Use the request's HTTP method as an aggregate key. See RateLimit `httpMethod` below for details.
 	HttpMethod RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethodPtrInput `pulumi:"httpMethod"`
-	// (Optional) Use the request's originating IP address as an aggregate key. See `RateLimit ip` below for details.
+	// Use the request's originating IP address as an aggregate key. See `RateLimit ip` below for details.
 	Ip RuleGroupRuleStatementRateBasedStatementCustomKeyIpPtrInput `pulumi:"ip"`
-	// (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+	// Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ja3Fingerprint` below for details.
 	Ja3Fingerprint RuleGroupRuleStatementRateBasedStatementCustomKeyJa3FingerprintPtrInput `pulumi:"ja3Fingerprint"`
-	// (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+	// Use the JA4 fingerprint in the request as an aggregate key. See `RateLimit ja4Fingerprint` below for details.
 	Ja4Fingerprint RuleGroupRuleStatementRateBasedStatementCustomKeyJa4FingerprintPtrInput `pulumi:"ja4Fingerprint"`
-	// (Optional) Use the specified label namespace as an aggregate key. See RateLimit `labelNamespace` below for details.
+	// Use the specified label namespace as an aggregate key. See RateLimit `labelNamespace` below for details.
 	LabelNamespace RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespacePtrInput `pulumi:"labelNamespace"`
-	// (Optional) Use the specified query argument as an aggregate key. See RateLimit `queryArgument` below for details.
+	// Use the specified query argument as an aggregate key. See RateLimit `queryArgument` below for details.
 	QueryArgument RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentPtrInput `pulumi:"queryArgument"`
-	// (Optional) Use the request's query string as an aggregate key. See RateLimit `queryString` below for details.
+	// Use the request's query string as an aggregate key. See RateLimit `queryString` below for details.
 	QueryString RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringPtrInput `pulumi:"queryString"`
-	// (Optional) Use the request's URI path as an aggregate key. See RateLimit `uriPath` below for details.
+	// Use the request's URI path as an aggregate key. See RateLimit `uriPath` below for details.
 	UriPath RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathPtrInput `pulumi:"uriPath"`
 }
 
@@ -8356,77 +8348,77 @@ func (o RuleGroupRuleStatementRateBasedStatementCustomKeyOutput) Asn() RuleGroup
 	}).(RuleGroupRuleStatementRateBasedStatementCustomKeyAsnPtrOutput)
 }
 
-// (Optional) Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
+// Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
 func (o RuleGroupRuleStatementRateBasedStatementCustomKeyOutput) Cookie() RuleGroupRuleStatementRateBasedStatementCustomKeyCookiePtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementCustomKey) *RuleGroupRuleStatementRateBasedStatementCustomKeyCookie {
 		return v.Cookie
 	}).(RuleGroupRuleStatementRateBasedStatementCustomKeyCookiePtrOutput)
 }
 
-// (Optional) Use the first IP address in an HTTP header as an aggregate key. See `forwardedIp` below for details.
+// Use the first IP address in an HTTP header as an aggregate key. See `forwardedIp` below for details.
 func (o RuleGroupRuleStatementRateBasedStatementCustomKeyOutput) ForwardedIp() RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIpPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementCustomKey) *RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIp {
 		return v.ForwardedIp
 	}).(RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIpPtrOutput)
 }
 
-// (Optional) Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
+// Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
 func (o RuleGroupRuleStatementRateBasedStatementCustomKeyOutput) Header() RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementCustomKey) *RuleGroupRuleStatementRateBasedStatementCustomKeyHeader {
 		return v.Header
 	}).(RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderPtrOutput)
 }
 
-// (Optional) Use the request's HTTP method as an aggregate key. See RateLimit `httpMethod` below for details.
+// Use the request's HTTP method as an aggregate key. See RateLimit `httpMethod` below for details.
 func (o RuleGroupRuleStatementRateBasedStatementCustomKeyOutput) HttpMethod() RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethodPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementCustomKey) *RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethod {
 		return v.HttpMethod
 	}).(RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethodPtrOutput)
 }
 
-// (Optional) Use the request's originating IP address as an aggregate key. See `RateLimit ip` below for details.
+// Use the request's originating IP address as an aggregate key. See `RateLimit ip` below for details.
 func (o RuleGroupRuleStatementRateBasedStatementCustomKeyOutput) Ip() RuleGroupRuleStatementRateBasedStatementCustomKeyIpPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementCustomKey) *RuleGroupRuleStatementRateBasedStatementCustomKeyIp {
 		return v.Ip
 	}).(RuleGroupRuleStatementRateBasedStatementCustomKeyIpPtrOutput)
 }
 
-// (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+// Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ja3Fingerprint` below for details.
 func (o RuleGroupRuleStatementRateBasedStatementCustomKeyOutput) Ja3Fingerprint() RuleGroupRuleStatementRateBasedStatementCustomKeyJa3FingerprintPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementCustomKey) *RuleGroupRuleStatementRateBasedStatementCustomKeyJa3Fingerprint {
 		return v.Ja3Fingerprint
 	}).(RuleGroupRuleStatementRateBasedStatementCustomKeyJa3FingerprintPtrOutput)
 }
 
-// (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+// Use the JA4 fingerprint in the request as an aggregate key. See `RateLimit ja4Fingerprint` below for details.
 func (o RuleGroupRuleStatementRateBasedStatementCustomKeyOutput) Ja4Fingerprint() RuleGroupRuleStatementRateBasedStatementCustomKeyJa4FingerprintPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementCustomKey) *RuleGroupRuleStatementRateBasedStatementCustomKeyJa4Fingerprint {
 		return v.Ja4Fingerprint
 	}).(RuleGroupRuleStatementRateBasedStatementCustomKeyJa4FingerprintPtrOutput)
 }
 
-// (Optional) Use the specified label namespace as an aggregate key. See RateLimit `labelNamespace` below for details.
+// Use the specified label namespace as an aggregate key. See RateLimit `labelNamespace` below for details.
 func (o RuleGroupRuleStatementRateBasedStatementCustomKeyOutput) LabelNamespace() RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespacePtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementCustomKey) *RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespace {
 		return v.LabelNamespace
 	}).(RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespacePtrOutput)
 }
 
-// (Optional) Use the specified query argument as an aggregate key. See RateLimit `queryArgument` below for details.
+// Use the specified query argument as an aggregate key. See RateLimit `queryArgument` below for details.
 func (o RuleGroupRuleStatementRateBasedStatementCustomKeyOutput) QueryArgument() RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementCustomKey) *RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument {
 		return v.QueryArgument
 	}).(RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentPtrOutput)
 }
 
-// (Optional) Use the request's query string as an aggregate key. See RateLimit `queryString` below for details.
+// Use the request's query string as an aggregate key. See RateLimit `queryString` below for details.
 func (o RuleGroupRuleStatementRateBasedStatementCustomKeyOutput) QueryString() RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementCustomKey) *RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString {
 		return v.QueryString
 	}).(RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringPtrOutput)
 }
 
-// (Optional) Use the request's URI path as an aggregate key. See RateLimit `uriPath` below for details.
+// Use the request's URI path as an aggregate key. See RateLimit `uriPath` below for details.
 func (o RuleGroupRuleStatementRateBasedStatementCustomKeyOutput) UriPath() RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementCustomKey) *RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath {
 		return v.UriPath
@@ -8572,9 +8564,9 @@ func (o RuleGroupRuleStatementRateBasedStatementCustomKeyAsnPtrOutput) Elem() Ru
 }
 
 type RuleGroupRuleStatementRateBasedStatementCustomKeyCookie struct {
-	// A friendly name of the rule group.
+	// The name of the cookie to use.
 	Name string `pulumi:"name"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required.  See Text Transformation above for details.
 	TextTransformations []RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -8590,9 +8582,9 @@ type RuleGroupRuleStatementRateBasedStatementCustomKeyCookieInput interface {
 }
 
 type RuleGroupRuleStatementRateBasedStatementCustomKeyCookieArgs struct {
-	// A friendly name of the rule group.
+	// The name of the cookie to use.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required.  See Text Transformation above for details.
 	TextTransformations RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -8673,12 +8665,12 @@ func (o RuleGroupRuleStatementRateBasedStatementCustomKeyCookieOutput) ToRuleGro
 	}).(RuleGroupRuleStatementRateBasedStatementCustomKeyCookiePtrOutput)
 }
 
-// A friendly name of the rule group.
+// The name of the cookie to use.
 func (o RuleGroupRuleStatementRateBasedStatementCustomKeyCookieOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementCustomKeyCookie) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required.  See Text Transformation above for details.
 func (o RuleGroupRuleStatementRateBasedStatementCustomKeyCookieOutput) TextTransformations() RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformationArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementCustomKeyCookie) []RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformation {
 		return v.TextTransformations
@@ -8709,7 +8701,7 @@ func (o RuleGroupRuleStatementRateBasedStatementCustomKeyCookiePtrOutput) Elem()
 	}).(RuleGroupRuleStatementRateBasedStatementCustomKeyCookieOutput)
 }
 
-// A friendly name of the rule group.
+// The name of the cookie to use.
 func (o RuleGroupRuleStatementRateBasedStatementCustomKeyCookiePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementCustomKeyCookie) *string {
 		if v == nil {
@@ -8719,7 +8711,7 @@ func (o RuleGroupRuleStatementRateBasedStatementCustomKeyCookiePtrOutput) Name()
 	}).(pulumi.StringPtrOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required.  See Text Transformation above for details.
 func (o RuleGroupRuleStatementRateBasedStatementCustomKeyCookiePtrOutput) TextTransformations() RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformationArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementCustomKeyCookie) []RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformation {
 		if v == nil {
@@ -8730,9 +8722,9 @@ func (o RuleGroupRuleStatementRateBasedStatementCustomKeyCookiePtrOutput) TextTr
 }
 
 type RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformation struct {
-	// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 	Priority int `pulumi:"priority"`
-	// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 	Type string `pulumi:"type"`
 }
 
@@ -8748,9 +8740,9 @@ type RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformationIn
 }
 
 type RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformationArgs struct {
-	// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -8805,14 +8797,14 @@ func (o RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformatio
 	return o
 }
 
-// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 func (o RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformation) int {
 		return v.Priority
 	}).(pulumi.IntOutput)
 }
 
-// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 func (o RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformation) string {
 		return v.Type
@@ -8958,9 +8950,9 @@ func (o RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIpPtrOutput) E
 }
 
 type RuleGroupRuleStatementRateBasedStatementCustomKeyHeader struct {
-	// A friendly name of the rule group.
+	// The name of the header to use.
 	Name string `pulumi:"name"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required.  See Text Transformation above for details.
 	TextTransformations []RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -8976,9 +8968,9 @@ type RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderInput interface {
 }
 
 type RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderArgs struct {
-	// A friendly name of the rule group.
+	// The name of the header to use.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required.  See Text Transformation above for details.
 	TextTransformations RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -9059,12 +9051,12 @@ func (o RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderOutput) ToRuleGro
 	}).(RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderPtrOutput)
 }
 
-// A friendly name of the rule group.
+// The name of the header to use.
 func (o RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementCustomKeyHeader) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required.  See Text Transformation above for details.
 func (o RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderOutput) TextTransformations() RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementCustomKeyHeader) []RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation {
 		return v.TextTransformations
@@ -9095,7 +9087,7 @@ func (o RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderPtrOutput) Elem()
 	}).(RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderOutput)
 }
 
-// A friendly name of the rule group.
+// The name of the header to use.
 func (o RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementCustomKeyHeader) *string {
 		if v == nil {
@@ -9105,7 +9097,7 @@ func (o RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderPtrOutput) Name()
 	}).(pulumi.StringPtrOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required.  See Text Transformation above for details.
 func (o RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderPtrOutput) TextTransformations() RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementCustomKeyHeader) []RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation {
 		if v == nil {
@@ -9116,9 +9108,9 @@ func (o RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderPtrOutput) TextTr
 }
 
 type RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation struct {
-	// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 	Priority int `pulumi:"priority"`
-	// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 	Type string `pulumi:"type"`
 }
 
@@ -9134,9 +9126,9 @@ type RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationIn
 }
 
 type RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationArgs struct {
-	// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -9191,14 +9183,14 @@ func (o RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformatio
 	return o
 }
 
-// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 func (o RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation) int {
 		return v.Priority
 	}).(pulumi.IntOutput)
 }
 
-// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 func (o RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation) string {
 		return v.Type
@@ -9462,7 +9454,7 @@ func (o RuleGroupRuleStatementRateBasedStatementCustomKeyIpPtrOutput) Elem() Rul
 }
 
 type RuleGroupRuleStatementRateBasedStatementCustomKeyJa3Fingerprint struct {
-	// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior string `pulumi:"fallbackBehavior"`
 }
 
@@ -9478,7 +9470,7 @@ type RuleGroupRuleStatementRateBasedStatementCustomKeyJa3FingerprintInput interf
 }
 
 type RuleGroupRuleStatementRateBasedStatementCustomKeyJa3FingerprintArgs struct {
-	// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
 }
 
@@ -9559,7 +9551,7 @@ func (o RuleGroupRuleStatementRateBasedStatementCustomKeyJa3FingerprintOutput) T
 	}).(RuleGroupRuleStatementRateBasedStatementCustomKeyJa3FingerprintPtrOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementRateBasedStatementCustomKeyJa3FingerprintOutput) FallbackBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementCustomKeyJa3Fingerprint) string {
 		return v.FallbackBehavior
@@ -9590,7 +9582,7 @@ func (o RuleGroupRuleStatementRateBasedStatementCustomKeyJa3FingerprintPtrOutput
 	}).(RuleGroupRuleStatementRateBasedStatementCustomKeyJa3FingerprintOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementRateBasedStatementCustomKeyJa3FingerprintPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementCustomKeyJa3Fingerprint) *string {
 		if v == nil {
@@ -9601,7 +9593,7 @@ func (o RuleGroupRuleStatementRateBasedStatementCustomKeyJa3FingerprintPtrOutput
 }
 
 type RuleGroupRuleStatementRateBasedStatementCustomKeyJa4Fingerprint struct {
-	// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior string `pulumi:"fallbackBehavior"`
 }
 
@@ -9617,7 +9609,7 @@ type RuleGroupRuleStatementRateBasedStatementCustomKeyJa4FingerprintInput interf
 }
 
 type RuleGroupRuleStatementRateBasedStatementCustomKeyJa4FingerprintArgs struct {
-	// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
 }
 
@@ -9698,7 +9690,7 @@ func (o RuleGroupRuleStatementRateBasedStatementCustomKeyJa4FingerprintOutput) T
 	}).(RuleGroupRuleStatementRateBasedStatementCustomKeyJa4FingerprintPtrOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementRateBasedStatementCustomKeyJa4FingerprintOutput) FallbackBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementCustomKeyJa4Fingerprint) string {
 		return v.FallbackBehavior
@@ -9729,7 +9721,7 @@ func (o RuleGroupRuleStatementRateBasedStatementCustomKeyJa4FingerprintPtrOutput
 	}).(RuleGroupRuleStatementRateBasedStatementCustomKeyJa4FingerprintOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementRateBasedStatementCustomKeyJa4FingerprintPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementCustomKeyJa4Fingerprint) *string {
 		if v == nil {
@@ -9877,7 +9869,7 @@ func (o RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespacePtrOutput
 }
 
 type RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument struct {
-	// A friendly name of the rule group.
+	// The name of the query argument to use.
 	Name string `pulumi:"name"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
 	TextTransformations []RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformation `pulumi:"textTransformations"`
@@ -9895,7 +9887,7 @@ type RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentInput interfa
 }
 
 type RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs struct {
-	// A friendly name of the rule group.
+	// The name of the query argument to use.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
 	TextTransformations RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformationArrayInput `pulumi:"textTransformations"`
@@ -9978,7 +9970,7 @@ func (o RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentOutput) To
 	}).(RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentPtrOutput)
 }
 
-// A friendly name of the rule group.
+// The name of the query argument to use.
 func (o RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -10014,7 +10006,7 @@ func (o RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentPtrOutput)
 	}).(RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentOutput)
 }
 
-// A friendly name of the rule group.
+// The name of the query argument to use.
 func (o RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument) *string {
 		if v == nil {
@@ -10035,9 +10027,9 @@ func (o RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentPtrOutput)
 }
 
 type RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformation struct {
-	// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 	Priority int `pulumi:"priority"`
-	// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 	Type string `pulumi:"type"`
 }
 
@@ -10053,9 +10045,9 @@ type RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransform
 }
 
 type RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformationArgs struct {
-	// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -10110,14 +10102,14 @@ func (o RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransf
 	return o
 }
 
-// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 func (o RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformation) int {
 		return v.Priority
 	}).(pulumi.IntOutput)
 }
 
-// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 func (o RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformation) string {
 		return v.Type
@@ -10284,9 +10276,9 @@ func (o RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringPtrOutput) T
 }
 
 type RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformation struct {
-	// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 	Priority int `pulumi:"priority"`
-	// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 	Type string `pulumi:"type"`
 }
 
@@ -10302,9 +10294,9 @@ type RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformat
 }
 
 type RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationArgs struct {
-	// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -10359,14 +10351,14 @@ func (o RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransfor
 	return o
 }
 
-// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 func (o RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformation) int {
 		return v.Priority
 	}).(pulumi.IntOutput)
 }
 
-// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 func (o RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformation) string {
 		return v.Type
@@ -10533,9 +10525,9 @@ func (o RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathPtrOutput) TextT
 }
 
 type RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation struct {
-	// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 	Priority int `pulumi:"priority"`
-	// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 	Type string `pulumi:"type"`
 }
 
@@ -10551,9 +10543,9 @@ type RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformationI
 }
 
 type RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformationArgs struct {
-	// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -10608,14 +10600,14 @@ func (o RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformati
 	return o
 }
 
-// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 func (o RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation) int {
 		return v.Priority
 	}).(pulumi.IntOutput)
 }
 
-// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 func (o RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation) string {
 		return v.Type
@@ -10799,31 +10791,31 @@ func (o RuleGroupRuleStatementRateBasedStatementForwardedIpConfigPtrOutput) Head
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatement struct {
-	// A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+	// Logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
 	AndStatement *RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement `pulumi:"andStatement"`
 	// Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See ASN Match Statement below for details.
 	AsnMatchStatement *RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement `pulumi:"asnMatchStatement"`
-	// A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+	// Rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
 	ByteMatchStatement *RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement `pulumi:"byteMatchStatement"`
-	// A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+	// Rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
 	GeoMatchStatement *RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement `pulumi:"geoMatchStatement"`
-	// A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+	// Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
 	IpSetReferenceStatement *RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement `pulumi:"ipSetReferenceStatement"`
-	// A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+	// Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
 	LabelMatchStatement *RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement `pulumi:"labelMatchStatement"`
-	// A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
+	// Logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
 	NotStatement *RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatement `pulumi:"notStatement"`
-	// A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
+	// Logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
 	OrStatement *RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatement `pulumi:"orStatement"`
-	// A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+	// Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
 	RegexMatchStatement *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement `pulumi:"regexMatchStatement"`
-	// A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+	// Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
 	RegexPatternSetReferenceStatement *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement `pulumi:"regexPatternSetReferenceStatement"`
-	// A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+	// Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
 	SizeConstraintStatement *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement `pulumi:"sizeConstraintStatement"`
-	// An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+	// SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
 	SqliMatchStatement *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement `pulumi:"sqliMatchStatement"`
-	// A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+	// Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
 	XssMatchStatement *RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement `pulumi:"xssMatchStatement"`
 }
 
@@ -10839,31 +10831,31 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementInput interface {
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs struct {
-	// A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+	// Logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
 	AndStatement RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrInput `pulumi:"andStatement"`
 	// Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See ASN Match Statement below for details.
 	AsnMatchStatement RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementPtrInput `pulumi:"asnMatchStatement"`
-	// A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+	// Rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
 	ByteMatchStatement RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrInput `pulumi:"byteMatchStatement"`
-	// A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+	// Rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
 	GeoMatchStatement RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementPtrInput `pulumi:"geoMatchStatement"`
-	// A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+	// Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
 	IpSetReferenceStatement RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementPtrInput `pulumi:"ipSetReferenceStatement"`
-	// A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+	// Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
 	LabelMatchStatement RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementPtrInput `pulumi:"labelMatchStatement"`
-	// A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
+	// Logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
 	NotStatement RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementPtrInput `pulumi:"notStatement"`
-	// A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
+	// Logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
 	OrStatement RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatementPtrInput `pulumi:"orStatement"`
-	// A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+	// Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
 	RegexMatchStatement RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPtrInput `pulumi:"regexMatchStatement"`
-	// A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+	// Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
 	RegexPatternSetReferenceStatement RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPtrInput `pulumi:"regexPatternSetReferenceStatement"`
-	// A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+	// Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
 	SizeConstraintStatement RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPtrInput `pulumi:"sizeConstraintStatement"`
-	// An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+	// SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
 	SqliMatchStatement RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPtrInput `pulumi:"sqliMatchStatement"`
-	// A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+	// Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
 	XssMatchStatement RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPtrInput `pulumi:"xssMatchStatement"`
 }
 
@@ -10944,7 +10936,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementOutput) ToRule
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementPtrOutput)
 }
 
-// A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+// Logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementOutput) AndStatement() RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement {
 		return v.AndStatement
@@ -10958,77 +10950,77 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementOutput) AsnMat
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementPtrOutput)
 }
 
-// A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+// Rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementOutput) ByteMatchStatement() RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement {
 		return v.ByteMatchStatement
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput)
 }
 
-// A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+// Rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementOutput) GeoMatchStatement() RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement {
 		return v.GeoMatchStatement
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementPtrOutput)
 }
 
-// A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+// Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementOutput) IpSetReferenceStatement() RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement {
 		return v.IpSetReferenceStatement
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementPtrOutput)
 }
 
-// A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+// Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementOutput) LabelMatchStatement() RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement {
 		return v.LabelMatchStatement
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementPtrOutput)
 }
 
-// A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
+// Logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementOutput) NotStatement() RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatement {
 		return v.NotStatement
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementPtrOutput)
 }
 
-// A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
+// Logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementOutput) OrStatement() RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatement {
 		return v.OrStatement
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatementPtrOutput)
 }
 
-// A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+// Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementOutput) RegexMatchStatement() RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement {
 		return v.RegexMatchStatement
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPtrOutput)
 }
 
-// A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+// Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementOutput) RegexPatternSetReferenceStatement() RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement {
 		return v.RegexPatternSetReferenceStatement
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPtrOutput)
 }
 
-// A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+// Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementOutput) SizeConstraintStatement() RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement {
 		return v.SizeConstraintStatement
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPtrOutput)
 }
 
-// An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+// SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementOutput) SqliMatchStatement() RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement {
 		return v.SqliMatchStatement
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPtrOutput)
 }
 
-// A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+// Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementOutput) XssMatchStatement() RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement {
 		return v.XssMatchStatement
@@ -11059,7 +11051,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementPtrOutput) Ele
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementOutput)
 }
 
-// A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+// Logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementPtrOutput) AndStatement() RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement {
 		if v == nil {
@@ -11079,7 +11071,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementPtrOutput) Asn
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementPtrOutput)
 }
 
-// A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+// Rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementPtrOutput) ByteMatchStatement() RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement {
 		if v == nil {
@@ -11089,7 +11081,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementPtrOutput) Byt
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput)
 }
 
-// A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+// Rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementPtrOutput) GeoMatchStatement() RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement {
 		if v == nil {
@@ -11099,7 +11091,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementPtrOutput) Geo
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementPtrOutput)
 }
 
-// A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+// Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementPtrOutput) IpSetReferenceStatement() RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement {
 		if v == nil {
@@ -11109,7 +11101,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementPtrOutput) IpS
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementPtrOutput)
 }
 
-// A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+// Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementPtrOutput) LabelMatchStatement() RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement {
 		if v == nil {
@@ -11119,7 +11111,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementPtrOutput) Lab
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementPtrOutput)
 }
 
-// A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
+// Logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementPtrOutput) NotStatement() RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatement {
 		if v == nil {
@@ -11129,7 +11121,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementPtrOutput) Not
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementPtrOutput)
 }
 
-// A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
+// Logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementPtrOutput) OrStatement() RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatementPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatement {
 		if v == nil {
@@ -11139,7 +11131,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementPtrOutput) OrS
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatementPtrOutput)
 }
 
-// A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+// Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementPtrOutput) RegexMatchStatement() RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement {
 		if v == nil {
@@ -11149,7 +11141,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementPtrOutput) Reg
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPtrOutput)
 }
 
-// A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+// Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementPtrOutput) RegexPatternSetReferenceStatement() RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement {
 		if v == nil {
@@ -11159,7 +11151,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementPtrOutput) Reg
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPtrOutput)
 }
 
-// A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+// Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementPtrOutput) SizeConstraintStatement() RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement {
 		if v == nil {
@@ -11169,7 +11161,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementPtrOutput) Siz
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPtrOutput)
 }
 
-// An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+// SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementPtrOutput) SqliMatchStatement() RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement {
 		if v == nil {
@@ -11179,7 +11171,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementPtrOutput) Sql
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPtrOutput)
 }
 
-// A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+// Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementPtrOutput) XssMatchStatement() RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement {
 		if v == nil {
@@ -11190,7 +11182,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementPtrOutput) Xss
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement struct {
-	// The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+	// Statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
 	Statements []RuleGroupRuleStatement `pulumi:"statements"`
 }
 
@@ -11206,7 +11198,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementInput
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs struct {
-	// The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+	// Statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
 	Statements RuleGroupRuleStatementArrayInput `pulumi:"statements"`
 }
 
@@ -11287,7 +11279,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementOu
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutput)
 }
 
-// The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+// Statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementOutput) Statements() RuleGroupRuleStatementArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement) []RuleGroupRuleStatement {
 		return v.Statements
@@ -11318,7 +11310,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementPt
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementOutput)
 }
 
-// The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+// Statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutput) Statements() RuleGroupRuleStatementArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement) []RuleGroupRuleStatement {
 		if v == nil {
@@ -11649,17 +11641,15 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatem
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement struct {
-	// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+	// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 	FieldToMatch *RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch `pulumi:"fieldToMatch"`
-	// The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+	// Area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
 	PositionalConstraint string `pulumi:"positionalConstraint"`
 	// Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
 	PreParseTextTransformations []RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformation `pulumi:"preParseTextTransformations"`
-	// A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+	// String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
 	SearchString string `pulumi:"searchString"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See Text Transformation below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 	TextTransformations []RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -11675,17 +11665,15 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatemen
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs struct {
-	// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+	// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 	FieldToMatch RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrInput `pulumi:"fieldToMatch"`
-	// The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+	// Area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
 	PositionalConstraint pulumi.StringInput `pulumi:"positionalConstraint"`
 	// Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
 	PreParseTextTransformations RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationArrayInput `pulumi:"preParseTextTransformations"`
-	// A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+	// String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
 	SearchString pulumi.StringInput `pulumi:"searchString"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See Text Transformation below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 	TextTransformations RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -11766,14 +11754,14 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput)
 }
 
-// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementOutput) FieldToMatch() RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch {
 		return v.FieldToMatch
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput)
 }
 
-// The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+// Area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementOutput) PositionalConstraint() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement) string {
 		return v.PositionalConstraint
@@ -11787,16 +11775,14 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationArrayOutput)
 }
 
-// A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+// String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementOutput) SearchString() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement) string {
 		return v.SearchString
 	}).(pulumi.StringOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See Text Transformation below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementOutput) TextTransformations() RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement) []RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation {
 		return v.TextTransformations
@@ -11827,7 +11813,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementOutput)
 }
 
-// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput) FieldToMatch() RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch {
 		if v == nil {
@@ -11837,7 +11823,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput)
 }
 
-// The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+// Area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput) PositionalConstraint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement) *string {
 		if v == nil {
@@ -11857,7 +11843,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationArrayOutput)
 }
 
-// A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+// String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput) SearchString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement) *string {
 		if v == nil {
@@ -11867,9 +11853,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 	}).(pulumi.StringPtrOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See Text Transformation below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput) TextTransformations() RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement) []RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation {
 		if v == nil {
@@ -12545,9 +12529,9 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookies struct {
-	// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+	// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 	MatchPatterns []RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPattern `pulumi:"matchPatterns"`
-	// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+	// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 	MatchScope string `pulumi:"matchScope"`
 	// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
 	OversizeHandling string `pulumi:"oversizeHandling"`
@@ -12565,9 +12549,9 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatemen
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesArgs struct {
-	// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+	// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 	MatchPatterns RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternArrayInput `pulumi:"matchPatterns"`
-	// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+	// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 	MatchScope pulumi.StringInput `pulumi:"matchScope"`
 	// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
 	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
@@ -12650,14 +12634,14 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesPtrOutput)
 }
 
-// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesOutput) MatchPatterns() RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookies) []RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPattern {
 		return v.MatchPatterns
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternArrayOutput)
 }
 
-// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookies) string {
 		return v.MatchScope
@@ -12695,7 +12679,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesOutput)
 }
 
-// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesPtrOutput) MatchPatterns() RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookies) []RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPattern {
 		if v == nil {
@@ -12705,7 +12689,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternArrayOutput)
 }
 
-// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookies) *string {
 		if v == nil {
@@ -12726,7 +12710,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPattern struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All             *RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll `pulumi:"all"`
 	ExcludedCookies []string                                                                                                        `pulumi:"excludedCookies"`
 	IncludedCookies []string                                                                                                        `pulumi:"includedCookies"`
@@ -12744,7 +12728,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatemen
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternArgs struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All             RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllPtrInput `pulumi:"all"`
 	ExcludedCookies pulumi.StringArrayInput                                                                                                `pulumi:"excludedCookies"`
 	IncludedCookies pulumi.StringArrayInput                                                                                                `pulumi:"includedCookies"`
@@ -12801,7 +12785,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 	return o
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternOutput) All() RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPattern) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll {
 		return v.All
@@ -12959,9 +12943,9 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeader struct {
-	// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+	// Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
 	MatchPattern RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPattern `pulumi:"matchPattern"`
-	// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+	// Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 	MatchScope string `pulumi:"matchScope"`
 	// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
 	OversizeHandling string `pulumi:"oversizeHandling"`
@@ -12979,9 +12963,9 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatemen
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderArgs struct {
-	// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+	// Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
 	MatchPattern RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternInput `pulumi:"matchPattern"`
-	// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+	// Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 	MatchScope pulumi.StringInput `pulumi:"matchScope"`
 	// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
 	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
@@ -13038,14 +13022,14 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 	return o
 }
 
-// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+// Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOutput) MatchPattern() RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeader) RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPattern {
 		return v.MatchPattern
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternOutput)
 }
 
-// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+// Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeader) string {
 		return v.MatchScope
@@ -13080,11 +13064,11 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPattern struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All *RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll `pulumi:"all"`
-	// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 	ExcludedHeaders []string `pulumi:"excludedHeaders"`
-	// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 	IncludedHeaders []string `pulumi:"includedHeaders"`
 }
 
@@ -13100,11 +13084,11 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatemen
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternArgs struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAllPtrInput `pulumi:"all"`
-	// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 	ExcludedHeaders pulumi.StringArrayInput `pulumi:"excludedHeaders"`
-	// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 	IncludedHeaders pulumi.StringArrayInput `pulumi:"includedHeaders"`
 }
 
@@ -13134,21 +13118,21 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 	return o
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternOutput) All() RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPattern) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll {
 		return v.All
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput)
 }
 
-// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+// Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternOutput) ExcludedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPattern) []string {
 		return v.ExcludedHeaders
 	}).(pulumi.StringArrayOutput)
 }
 
-// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+// Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternOutput) IncludedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPattern) []string {
 		return v.IncludedHeaders
@@ -13373,7 +13357,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint struct {
-	// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior string `pulumi:"fallbackBehavior"`
 }
 
@@ -13389,7 +13373,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatemen
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3FingerprintArgs struct {
-	// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
 }
 
@@ -13470,7 +13454,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3FingerprintOutput) FallbackBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint) string {
 		return v.FallbackBehavior
@@ -13501,7 +13485,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3FingerprintOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint) *string {
 		if v == nil {
@@ -13512,7 +13496,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4Fingerprint struct {
-	// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior string `pulumi:"fallbackBehavior"`
 }
 
@@ -13528,7 +13512,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatemen
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4FingerprintArgs struct {
-	// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
 }
 
@@ -13609,7 +13593,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4FingerprintOutput) FallbackBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4Fingerprint) string {
 		return v.FallbackBehavior
@@ -13640,7 +13624,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4FingerprintOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa4Fingerprint) *string {
 		if v == nil {
@@ -13653,9 +13637,9 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody struct {
 	// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
 	InvalidFallbackBehavior *string `pulumi:"invalidFallbackBehavior"`
-	// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+	// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 	MatchPattern RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern `pulumi:"matchPattern"`
-	// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+	// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 	MatchScope string `pulumi:"matchScope"`
 	// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
 	OversizeHandling *string `pulumi:"oversizeHandling"`
@@ -13675,9 +13659,9 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatemen
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyArgs struct {
 	// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
 	InvalidFallbackBehavior pulumi.StringPtrInput `pulumi:"invalidFallbackBehavior"`
-	// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+	// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 	MatchPattern RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternInput `pulumi:"matchPattern"`
-	// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+	// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 	MatchScope pulumi.StringInput `pulumi:"matchScope"`
 	// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
 	OversizeHandling pulumi.StringPtrInput `pulumi:"oversizeHandling"`
@@ -13767,14 +13751,14 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 	}).(pulumi.StringPtrOutput)
 }
 
-// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyOutput) MatchPattern() RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody) RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern {
 		return v.MatchPattern
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput)
 }
 
-// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody) string {
 		return v.MatchScope
@@ -13822,7 +13806,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 	}).(pulumi.StringPtrOutput)
 }
 
-// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput) MatchPattern() RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern {
 		if v == nil {
@@ -13832,7 +13816,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
 }
 
-// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody) *string {
 		if v == nil {
@@ -13853,7 +13837,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All           *RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll `pulumi:"all"`
 	IncludedPaths []string                                                                                                         `pulumi:"includedPaths"`
 }
@@ -13870,7 +13854,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatemen
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All           RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrInput `pulumi:"all"`
 	IncludedPaths pulumi.StringArrayInput                                                                                                 `pulumi:"includedPaths"`
 }
@@ -13952,7 +13936,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput) All() RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll {
 		return v.All
@@ -13989,7 +13973,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput)
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput) All() RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll {
 		if v == nil {
@@ -14363,7 +14347,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeader struct {
-	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -14379,7 +14363,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatemen
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeaderArgs struct {
-	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -14460,7 +14444,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
-// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeader) string {
 		return v.Name
@@ -14491,7 +14475,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeaderOutput)
 }
 
-// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeader) *string {
 		if v == nil {
@@ -14502,7 +14486,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument struct {
-	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -14518,7 +14502,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatemen
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs struct {
-	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -14599,7 +14583,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
-// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument) string {
 		return v.Name
@@ -14630,7 +14614,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput)
 }
 
-// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument) *string {
 		if v == nil {
@@ -14898,9 +14882,9 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformation struct {
-	// The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
 	Priority int `pulumi:"priority"`
-	// The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
 	Type string `pulumi:"type"`
 }
 
@@ -14916,9 +14900,9 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatemen
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationArgs struct {
-	// The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -14973,14 +14957,14 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 	return o
 }
 
-// The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformation) int {
 		return v.Priority
 	}).(pulumi.IntOutput)
 }
 
-// The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformation) string {
 		return v.Type
@@ -15008,9 +14992,9 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation struct {
-	// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 	Priority int `pulumi:"priority"`
-	// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 	Type string `pulumi:"type"`
 }
 
@@ -15026,9 +15010,9 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatemen
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformationArgs struct {
-	// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -15083,14 +15067,14 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 	return o
 }
 
-// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation) int {
 		return v.Priority
 	}).(pulumi.IntOutput)
 }
 
-// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation) string {
 		return v.Type
@@ -15118,9 +15102,9 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement struct {
-	// An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+	// Array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
 	CountryCodes []string `pulumi:"countryCodes"`
-	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+	// Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
 	ForwardedIpConfig *RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig `pulumi:"forwardedIpConfig"`
 }
 
@@ -15136,9 +15120,9 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs struct {
-	// An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+	// Array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
 	CountryCodes pulumi.StringArrayInput `pulumi:"countryCodes"`
-	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+	// Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
 	ForwardedIpConfig RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfigPtrInput `pulumi:"forwardedIpConfig"`
 }
 
@@ -15219,14 +15203,14 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatem
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementPtrOutput)
 }
 
-// An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+// Array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementOutput) CountryCodes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement) []string {
 		return v.CountryCodes
 	}).(pulumi.StringArrayOutput)
 }
 
-// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+// Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementOutput) ForwardedIpConfig() RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfigPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig {
 		return v.ForwardedIpConfig
@@ -15257,7 +15241,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatem
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementOutput)
 }
 
-// An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+// Array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementPtrOutput) CountryCodes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement) []string {
 		if v == nil {
@@ -15267,7 +15251,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatem
 	}).(pulumi.StringArrayOutput)
 }
 
-// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+// Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementPtrOutput) ForwardedIpConfig() RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfigPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig {
 		if v == nil {
@@ -15440,7 +15424,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatem
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement struct {
 	// ARN of the IP Set that this statement references.
 	Arn string `pulumi:"arn"`
-	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+	// Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
 	IpSetForwardedIpConfig *RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig `pulumi:"ipSetForwardedIpConfig"`
 }
 
@@ -15458,7 +15442,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceSta
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementArgs struct {
 	// ARN of the IP Set that this statement references.
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+	// Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
 	IpSetForwardedIpConfig RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrInput `pulumi:"ipSetForwardedIpConfig"`
 }
 
@@ -15546,7 +15530,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReference
 	}).(pulumi.StringOutput)
 }
 
-// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+// Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementOutput) IpSetForwardedIpConfig() RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig {
 		return v.IpSetForwardedIpConfig
@@ -15587,7 +15571,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReference
 	}).(pulumi.StringPtrOutput)
 }
 
-// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+// Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementPtrOutput) IpSetForwardedIpConfig() RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig {
 		if v == nil {
@@ -15779,7 +15763,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReference
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement struct {
-	// The string to match against.
+	// String to match against.
 	Key string `pulumi:"key"`
 	// Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
 	Scope string `pulumi:"scope"`
@@ -15797,7 +15781,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStateme
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementArgs struct {
-	// The string to match against.
+	// String to match against.
 	Key pulumi.StringInput `pulumi:"key"`
 	// Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
 	Scope pulumi.StringInput `pulumi:"scope"`
@@ -15880,7 +15864,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStat
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementPtrOutput)
 }
 
-// The string to match against.
+// String to match against.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement) string {
 		return v.Key
@@ -15918,7 +15902,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStat
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementOutput)
 }
 
-// The string to match against.
+// String to match against.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement) *string {
 		if v == nil {
@@ -15939,7 +15923,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStat
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatement struct {
-	// The statement to negate. You can use any statement that can be nested. See Statement above for details.
+	// Statement to negate. You can use any statement that can be nested. See Statement above for details.
 	Statements []RuleGroupRuleStatement `pulumi:"statements"`
 }
 
@@ -15955,7 +15939,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementInput
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs struct {
-	// The statement to negate. You can use any statement that can be nested. See Statement above for details.
+	// Statement to negate. You can use any statement that can be nested. See Statement above for details.
 	Statements RuleGroupRuleStatementArrayInput `pulumi:"statements"`
 }
 
@@ -16036,7 +16020,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementOu
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementPtrOutput)
 }
 
-// The statement to negate. You can use any statement that can be nested. See Statement above for details.
+// Statement to negate. You can use any statement that can be nested. See Statement above for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementOutput) Statements() RuleGroupRuleStatementArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatement) []RuleGroupRuleStatement {
 		return v.Statements
@@ -16067,7 +16051,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementPt
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementOutput)
 }
 
-// The statement to negate. You can use any statement that can be nested. See Statement above for details.
+// Statement to negate. You can use any statement that can be nested. See Statement above for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementPtrOutput) Statements() RuleGroupRuleStatementArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatement) []RuleGroupRuleStatement {
 		if v == nil {
@@ -16078,7 +16062,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementPt
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatement struct {
-	// The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+	// Statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
 	Statements []RuleGroupRuleStatement `pulumi:"statements"`
 }
 
@@ -16094,7 +16078,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatementInput 
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatementArgs struct {
-	// The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+	// Statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
 	Statements RuleGroupRuleStatementArrayInput `pulumi:"statements"`
 }
 
@@ -16175,7 +16159,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatementOut
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatementPtrOutput)
 }
 
-// The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+// Statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatementOutput) Statements() RuleGroupRuleStatementArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatement) []RuleGroupRuleStatement {
 		return v.Statements
@@ -16206,7 +16190,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatementPtr
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatementOutput)
 }
 
-// The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+// Statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatementPtrOutput) Statements() RuleGroupRuleStatementArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatement) []RuleGroupRuleStatement {
 		if v == nil {
@@ -16217,15 +16201,13 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatementPtr
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement struct {
-	// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+	// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 	FieldToMatch *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatch `pulumi:"fieldToMatch"`
 	// Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
 	PreParseTextTransformations []RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformation `pulumi:"preParseTextTransformations"`
-	// The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
+	// String representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
 	RegexString string `pulumi:"regexString"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See Text Transformation below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 	TextTransformations []RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -16241,15 +16223,13 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStateme
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementArgs struct {
-	// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+	// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 	FieldToMatch RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchPtrInput `pulumi:"fieldToMatch"`
 	// Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
 	PreParseTextTransformations RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationArrayInput `pulumi:"preParseTextTransformations"`
-	// The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
+	// String representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
 	RegexString pulumi.StringInput `pulumi:"regexString"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See Text Transformation below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 	TextTransformations RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -16330,7 +16310,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPtrOutput)
 }
 
-// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementOutput) FieldToMatch() RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatch {
 		return v.FieldToMatch
@@ -16344,16 +16324,14 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationArrayOutput)
 }
 
-// The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
+// String representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementOutput) RegexString() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement) string {
 		return v.RegexString
 	}).(pulumi.StringOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See Text Transformation below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementOutput) TextTransformations() RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement) []RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation {
 		return v.TextTransformations
@@ -16384,7 +16362,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementOutput)
 }
 
-// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPtrOutput) FieldToMatch() RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatch {
 		if v == nil {
@@ -16404,7 +16382,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationArrayOutput)
 }
 
-// The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
+// String representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPtrOutput) RegexString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement) *string {
 		if v == nil {
@@ -16414,9 +16392,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 	}).(pulumi.StringPtrOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See Text Transformation below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPtrOutput) TextTransformations() RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement) []RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation {
 		if v == nil {
@@ -17092,9 +17068,9 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies struct {
-	// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+	// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 	MatchPatterns []RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPattern `pulumi:"matchPatterns"`
-	// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+	// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 	MatchScope string `pulumi:"matchScope"`
 	// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
 	OversizeHandling string `pulumi:"oversizeHandling"`
@@ -17112,9 +17088,9 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStateme
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesArgs struct {
-	// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+	// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 	MatchPatterns RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArrayInput `pulumi:"matchPatterns"`
-	// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+	// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 	MatchScope pulumi.StringInput `pulumi:"matchScope"`
 	// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
 	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
@@ -17197,14 +17173,14 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesPtrOutput)
 }
 
-// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesOutput) MatchPatterns() RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies) []RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPattern {
 		return v.MatchPatterns
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArrayOutput)
 }
 
-// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies) string {
 		return v.MatchScope
@@ -17242,7 +17218,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesOutput)
 }
 
-// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesPtrOutput) MatchPatterns() RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies) []RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPattern {
 		if v == nil {
@@ -17252,7 +17228,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArrayOutput)
 }
 
-// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies) *string {
 		if v == nil {
@@ -17273,7 +17249,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPattern struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All             *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll `pulumi:"all"`
 	ExcludedCookies []string                                                                                                         `pulumi:"excludedCookies"`
 	IncludedCookies []string                                                                                                         `pulumi:"includedCookies"`
@@ -17291,7 +17267,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStateme
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArgs struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All             RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllPtrInput `pulumi:"all"`
 	ExcludedCookies pulumi.StringArrayInput                                                                                                 `pulumi:"excludedCookies"`
 	IncludedCookies pulumi.StringArrayInput                                                                                                 `pulumi:"includedCookies"`
@@ -17348,7 +17324,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 	return o
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternOutput) All() RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPattern) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll {
 		return v.All
@@ -17506,9 +17482,9 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader struct {
-	// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+	// Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
 	MatchPattern RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPattern `pulumi:"matchPattern"`
-	// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+	// Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 	MatchScope string `pulumi:"matchScope"`
 	// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
 	OversizeHandling string `pulumi:"oversizeHandling"`
@@ -17526,9 +17502,9 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStateme
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderArgs struct {
-	// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+	// Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
 	MatchPattern RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternInput `pulumi:"matchPattern"`
-	// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+	// Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 	MatchScope pulumi.StringInput `pulumi:"matchScope"`
 	// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
 	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
@@ -17585,14 +17561,14 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 	return o
 }
 
-// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+// Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOutput) MatchPattern() RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader) RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPattern {
 		return v.MatchPattern
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternOutput)
 }
 
-// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+// Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader) string {
 		return v.MatchScope
@@ -17627,11 +17603,11 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPattern struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll `pulumi:"all"`
-	// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 	ExcludedHeaders []string `pulumi:"excludedHeaders"`
-	// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 	IncludedHeaders []string `pulumi:"includedHeaders"`
 }
 
@@ -17647,11 +17623,11 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStateme
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternArgs struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAllPtrInput `pulumi:"all"`
-	// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 	ExcludedHeaders pulumi.StringArrayInput `pulumi:"excludedHeaders"`
-	// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 	IncludedHeaders pulumi.StringArrayInput `pulumi:"includedHeaders"`
 }
 
@@ -17681,21 +17657,21 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 	return o
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternOutput) All() RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPattern) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll {
 		return v.All
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput)
 }
 
-// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+// Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternOutput) ExcludedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPattern) []string {
 		return v.ExcludedHeaders
 	}).(pulumi.StringArrayOutput)
 }
 
-// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+// Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternOutput) IncludedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPattern) []string {
 		return v.IncludedHeaders
@@ -17920,7 +17896,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint struct {
-	// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior string `pulumi:"fallbackBehavior"`
 }
 
@@ -17936,7 +17912,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStateme
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs struct {
-	// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
 }
 
@@ -18017,7 +17993,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3FingerprintPtrOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3FingerprintOutput) FallbackBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint) string {
 		return v.FallbackBehavior
@@ -18048,7 +18024,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3FingerprintOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3FingerprintPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint) *string {
 		if v == nil {
@@ -18059,7 +18035,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4Fingerprint struct {
-	// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior string `pulumi:"fallbackBehavior"`
 }
 
@@ -18075,7 +18051,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStateme
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4FingerprintArgs struct {
-	// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
 }
 
@@ -18156,7 +18132,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4FingerprintPtrOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4FingerprintOutput) FallbackBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4Fingerprint) string {
 		return v.FallbackBehavior
@@ -18187,7 +18163,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4FingerprintOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4FingerprintPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa4Fingerprint) *string {
 		if v == nil {
@@ -18200,9 +18176,9 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody struct {
 	// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
 	InvalidFallbackBehavior *string `pulumi:"invalidFallbackBehavior"`
-	// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+	// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 	MatchPattern RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern `pulumi:"matchPattern"`
-	// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+	// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 	MatchScope string `pulumi:"matchScope"`
 	// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
 	OversizeHandling *string `pulumi:"oversizeHandling"`
@@ -18222,9 +18198,9 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStateme
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyArgs struct {
 	// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
 	InvalidFallbackBehavior pulumi.StringPtrInput `pulumi:"invalidFallbackBehavior"`
-	// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+	// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 	MatchPattern RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternInput `pulumi:"matchPattern"`
-	// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+	// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 	MatchScope pulumi.StringInput `pulumi:"matchScope"`
 	// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
 	OversizeHandling pulumi.StringPtrInput `pulumi:"oversizeHandling"`
@@ -18314,14 +18290,14 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 	}).(pulumi.StringPtrOutput)
 }
 
-// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyOutput) MatchPattern() RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody) RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern {
 		return v.MatchPattern
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternOutput)
 }
 
-// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody) string {
 		return v.MatchScope
@@ -18369,7 +18345,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 	}).(pulumi.StringPtrOutput)
 }
 
-// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyPtrOutput) MatchPattern() RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern {
 		if v == nil {
@@ -18379,7 +18355,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
 }
 
-// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody) *string {
 		if v == nil {
@@ -18400,7 +18376,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All           *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll `pulumi:"all"`
 	IncludedPaths []string                                                                                                          `pulumi:"includedPaths"`
 }
@@ -18417,7 +18393,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStateme
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternArgs struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All           RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrInput `pulumi:"all"`
 	IncludedPaths pulumi.StringArrayInput                                                                                                  `pulumi:"includedPaths"`
 }
@@ -18499,7 +18475,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternOutput) All() RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll {
 		return v.All
@@ -18536,7 +18512,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternOutput)
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput) All() RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll {
 		if v == nil {
@@ -18910,7 +18886,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeader struct {
-	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -18926,7 +18902,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStateme
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeaderArgs struct {
-	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -19007,7 +18983,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
-// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeader) string {
 		return v.Name
@@ -19038,7 +19014,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeaderOutput)
 }
 
-// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeaderPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeader) *string {
 		if v == nil {
@@ -19049,7 +19025,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgument struct {
-	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -19065,7 +19041,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStateme
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs struct {
-	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -19146,7 +19122,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
-// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgument) string {
 		return v.Name
@@ -19177,7 +19153,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgumentOutput)
 }
 
-// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgument) *string {
 		if v == nil {
@@ -19445,9 +19421,9 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformation struct {
-	// The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
 	Priority int `pulumi:"priority"`
-	// The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
 	Type string `pulumi:"type"`
 }
 
@@ -19463,9 +19439,9 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStateme
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationArgs struct {
-	// The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -19520,14 +19496,14 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 	return o
 }
 
-// The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformation) int {
 		return v.Priority
 	}).(pulumi.IntOutput)
 }
 
-// The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformation) string {
 		return v.Type
@@ -19555,9 +19531,9 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation struct {
-	// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 	Priority int `pulumi:"priority"`
-	// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 	Type string `pulumi:"type"`
 }
 
@@ -19573,9 +19549,9 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStateme
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationArgs struct {
-	// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -19630,14 +19606,14 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 	return o
 }
 
-// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation) int {
 		return v.Priority
 	}).(pulumi.IntOutput)
 }
 
-// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation) string {
 		return v.Type
@@ -19667,13 +19643,11 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement struct {
 	// ARN of the Regex Pattern Set that this statement references.
 	Arn string `pulumi:"arn"`
-	// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+	// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 	FieldToMatch *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch `pulumi:"fieldToMatch"`
 	// Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
 	PreParseTextTransformations []RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformation `pulumi:"preParseTextTransformations"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See Text Transformation below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 	TextTransformations []RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -19691,13 +19665,11 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRe
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementArgs struct {
 	// ARN of the Regex Pattern Set that this statement references.
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+	// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 	FieldToMatch RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchPtrInput `pulumi:"fieldToMatch"`
 	// Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
 	PreParseTextTransformations RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationArrayInput `pulumi:"preParseTextTransformations"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See Text Transformation below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 	TextTransformations RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -19785,7 +19757,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 	}).(pulumi.StringOutput)
 }
 
-// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementOutput) FieldToMatch() RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch {
 		return v.FieldToMatch
@@ -19799,9 +19771,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationArrayOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See Text Transformation below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementOutput) TextTransformations() RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement) []RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation {
 		return v.TextTransformations
@@ -19842,7 +19812,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 	}).(pulumi.StringPtrOutput)
 }
 
-// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPtrOutput) FieldToMatch() RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch {
 		if v == nil {
@@ -19862,9 +19832,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationArrayOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See Text Transformation below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPtrOutput) TextTransformations() RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement) []RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation {
 		if v == nil {
@@ -20540,9 +20508,9 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies struct {
-	// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+	// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 	MatchPatterns []RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern `pulumi:"matchPatterns"`
-	// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+	// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 	MatchScope string `pulumi:"matchScope"`
 	// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
 	OversizeHandling string `pulumi:"oversizeHandling"`
@@ -20560,9 +20528,9 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRe
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArgs struct {
-	// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+	// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 	MatchPatterns RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArrayInput `pulumi:"matchPatterns"`
-	// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+	// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 	MatchScope pulumi.StringInput `pulumi:"matchScope"`
 	// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
 	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
@@ -20645,14 +20613,14 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesPtrOutput)
 }
 
-// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesOutput) MatchPatterns() RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies) []RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern {
 		return v.MatchPatterns
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArrayOutput)
 }
 
-// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies) string {
 		return v.MatchScope
@@ -20690,7 +20658,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesOutput)
 }
 
-// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesPtrOutput) MatchPatterns() RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies) []RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern {
 		if v == nil {
@@ -20700,7 +20668,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArrayOutput)
 }
 
-// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies) *string {
 		if v == nil {
@@ -20721,7 +20689,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All             *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll `pulumi:"all"`
 	ExcludedCookies []string                                                                                                                       `pulumi:"excludedCookies"`
 	IncludedCookies []string                                                                                                                       `pulumi:"includedCookies"`
@@ -20739,7 +20707,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRe
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArgs struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All             RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllPtrInput `pulumi:"all"`
 	ExcludedCookies pulumi.StringArrayInput                                                                                                               `pulumi:"excludedCookies"`
 	IncludedCookies pulumi.StringArrayInput                                                                                                               `pulumi:"includedCookies"`
@@ -20796,7 +20764,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 	return o
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternOutput) All() RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll {
 		return v.All
@@ -20954,9 +20922,9 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader struct {
-	// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+	// Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
 	MatchPattern RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern `pulumi:"matchPattern"`
-	// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+	// Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 	MatchScope string `pulumi:"matchScope"`
 	// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
 	OversizeHandling string `pulumi:"oversizeHandling"`
@@ -20974,9 +20942,9 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRe
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs struct {
-	// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+	// Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
 	MatchPattern RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternInput `pulumi:"matchPattern"`
-	// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+	// Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 	MatchScope pulumi.StringInput `pulumi:"matchScope"`
 	// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
 	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
@@ -21033,14 +21001,14 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 	return o
 }
 
-// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+// Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOutput) MatchPattern() RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader) RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern {
 		return v.MatchPattern
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternOutput)
 }
 
-// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+// Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader) string {
 		return v.MatchScope
@@ -21075,11 +21043,11 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll `pulumi:"all"`
-	// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 	ExcludedHeaders []string `pulumi:"excludedHeaders"`
-	// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 	IncludedHeaders []string `pulumi:"includedHeaders"`
 }
 
@@ -21095,11 +21063,11 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRe
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAllPtrInput `pulumi:"all"`
-	// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 	ExcludedHeaders pulumi.StringArrayInput `pulumi:"excludedHeaders"`
-	// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 	IncludedHeaders pulumi.StringArrayInput `pulumi:"includedHeaders"`
 }
 
@@ -21129,21 +21097,21 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 	return o
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternOutput) All() RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll {
 		return v.All
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAllPtrOutput)
 }
 
-// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+// Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternOutput) ExcludedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern) []string {
 		return v.ExcludedHeaders
 	}).(pulumi.StringArrayOutput)
 }
 
-// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+// Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternOutput) IncludedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern) []string {
 		return v.IncludedHeaders
@@ -21368,7 +21336,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint struct {
-	// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior string `pulumi:"fallbackBehavior"`
 }
 
@@ -21384,7 +21352,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRe
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3FingerprintArgs struct {
-	// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
 }
 
@@ -21465,7 +21433,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3FingerprintPtrOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3FingerprintOutput) FallbackBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint) string {
 		return v.FallbackBehavior
@@ -21496,7 +21464,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3FingerprintOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3FingerprintPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint) *string {
 		if v == nil {
@@ -21507,7 +21475,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint struct {
-	// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior string `pulumi:"fallbackBehavior"`
 }
 
@@ -21523,7 +21491,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRe
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4FingerprintArgs struct {
-	// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
 }
 
@@ -21604,7 +21572,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4FingerprintPtrOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4FingerprintOutput) FallbackBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint) string {
 		return v.FallbackBehavior
@@ -21635,7 +21603,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4FingerprintOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4FingerprintPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint) *string {
 		if v == nil {
@@ -21648,9 +21616,9 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody struct {
 	// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
 	InvalidFallbackBehavior *string `pulumi:"invalidFallbackBehavior"`
-	// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+	// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 	MatchPattern RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern `pulumi:"matchPattern"`
-	// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+	// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 	MatchScope string `pulumi:"matchScope"`
 	// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
 	OversizeHandling *string `pulumi:"oversizeHandling"`
@@ -21670,9 +21638,9 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRe
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgs struct {
 	// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
 	InvalidFallbackBehavior pulumi.StringPtrInput `pulumi:"invalidFallbackBehavior"`
-	// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+	// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 	MatchPattern RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternInput `pulumi:"matchPattern"`
-	// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+	// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 	MatchScope pulumi.StringInput `pulumi:"matchScope"`
 	// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
 	OversizeHandling pulumi.StringPtrInput `pulumi:"oversizeHandling"`
@@ -21762,14 +21730,14 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 	}).(pulumi.StringPtrOutput)
 }
 
-// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyOutput) MatchPattern() RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody) RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern {
 		return v.MatchPattern
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternOutput)
 }
 
-// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody) string {
 		return v.MatchScope
@@ -21817,7 +21785,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 	}).(pulumi.StringPtrOutput)
 }
 
-// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyPtrOutput) MatchPattern() RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern {
 		if v == nil {
@@ -21827,7 +21795,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
 }
 
-// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody) *string {
 		if v == nil {
@@ -21848,7 +21816,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All           *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll `pulumi:"all"`
 	IncludedPaths []string                                                                                                                        `pulumi:"includedPaths"`
 }
@@ -21865,7 +21833,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRe
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternArgs struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All           RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllPtrInput `pulumi:"all"`
 	IncludedPaths pulumi.StringArrayInput                                                                                                                `pulumi:"includedPaths"`
 }
@@ -21947,7 +21915,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternOutput) All() RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll {
 		return v.All
@@ -21984,7 +21952,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternOutput)
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternPtrOutput) All() RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll {
 		if v == nil {
@@ -22358,7 +22326,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader struct {
-	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -22374,7 +22342,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRe
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs struct {
-	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -22455,7 +22423,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
-// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader) string {
 		return v.Name
@@ -22486,7 +22454,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderOutput)
 }
 
-// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader) *string {
 		if v == nil {
@@ -22497,7 +22465,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument struct {
-	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -22513,7 +22481,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRe
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs struct {
-	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -22594,7 +22562,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
-// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument) string {
 		return v.Name
@@ -22625,7 +22593,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentOutput)
 }
 
-// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument) *string {
 		if v == nil {
@@ -22893,9 +22861,9 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformation struct {
-	// The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
 	Priority int `pulumi:"priority"`
-	// The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
 	Type string `pulumi:"type"`
 }
 
@@ -22911,9 +22879,9 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRe
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationArgs struct {
-	// The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -22968,14 +22936,14 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 	return o
 }
 
-// The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformation) int {
 		return v.Priority
 	}).(pulumi.IntOutput)
 }
 
-// The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformation) string {
 		return v.Type
@@ -23003,9 +22971,9 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation struct {
-	// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 	Priority int `pulumi:"priority"`
-	// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 	Type string `pulumi:"type"`
 }
 
@@ -23021,9 +22989,9 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRe
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationArgs struct {
-	// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -23078,14 +23046,14 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 	return o
 }
 
-// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation) int {
 		return v.Priority
 	}).(pulumi.IntOutput)
 }
 
-// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation) string {
 		return v.Type
@@ -23113,17 +23081,15 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement struct {
-	// The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+	// Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
 	ComparisonOperator string `pulumi:"comparisonOperator"`
-	// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+	// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 	FieldToMatch *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch `pulumi:"fieldToMatch"`
 	// Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
 	PreParseTextTransformations []RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformation `pulumi:"preParseTextTransformations"`
-	// The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+	// Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
 	Size int `pulumi:"size"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See Text Transformation below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 	TextTransformations []RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -23139,17 +23105,15 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSta
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementArgs struct {
-	// The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+	// Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
 	ComparisonOperator pulumi.StringInput `pulumi:"comparisonOperator"`
-	// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+	// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 	FieldToMatch RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchPtrInput `pulumi:"fieldToMatch"`
 	// Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
 	PreParseTextTransformations RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationArrayInput `pulumi:"preParseTextTransformations"`
-	// The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+	// Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
 	Size pulumi.IntInput `pulumi:"size"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See Text Transformation below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 	TextTransformations RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -23230,14 +23194,14 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPtrOutput)
 }
 
-// The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+// Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementOutput) ComparisonOperator() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement) string {
 		return v.ComparisonOperator
 	}).(pulumi.StringOutput)
 }
 
-// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementOutput) FieldToMatch() RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch {
 		return v.FieldToMatch
@@ -23251,16 +23215,14 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationArrayOutput)
 }
 
-// The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+// Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement) int {
 		return v.Size
 	}).(pulumi.IntOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See Text Transformation below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementOutput) TextTransformations() RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement) []RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation {
 		return v.TextTransformations
@@ -23291,7 +23253,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementOutput)
 }
 
-// The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+// Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPtrOutput) ComparisonOperator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement) *string {
 		if v == nil {
@@ -23301,7 +23263,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 	}).(pulumi.StringPtrOutput)
 }
 
-// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPtrOutput) FieldToMatch() RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch {
 		if v == nil {
@@ -23321,7 +23283,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationArrayOutput)
 }
 
-// The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+// Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPtrOutput) Size() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement) *int {
 		if v == nil {
@@ -23331,9 +23293,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 	}).(pulumi.IntPtrOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See Text Transformation below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPtrOutput) TextTransformations() RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement) []RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation {
 		if v == nil {
@@ -24009,9 +23969,9 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies struct {
-	// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+	// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 	MatchPatterns []RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern `pulumi:"matchPatterns"`
-	// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+	// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 	MatchScope string `pulumi:"matchScope"`
 	// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
 	OversizeHandling string `pulumi:"oversizeHandling"`
@@ -24029,9 +23989,9 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSta
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesArgs struct {
-	// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+	// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 	MatchPatterns RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArrayInput `pulumi:"matchPatterns"`
-	// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+	// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 	MatchScope pulumi.StringInput `pulumi:"matchScope"`
 	// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
 	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
@@ -24114,14 +24074,14 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesPtrOutput)
 }
 
-// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesOutput) MatchPatterns() RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies) []RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern {
 		return v.MatchPatterns
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArrayOutput)
 }
 
-// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies) string {
 		return v.MatchScope
@@ -24159,7 +24119,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesOutput)
 }
 
-// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesPtrOutput) MatchPatterns() RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies) []RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern {
 		if v == nil {
@@ -24169,7 +24129,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArrayOutput)
 }
 
-// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies) *string {
 		if v == nil {
@@ -24190,7 +24150,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All             *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll `pulumi:"all"`
 	ExcludedCookies []string                                                                                                             `pulumi:"excludedCookies"`
 	IncludedCookies []string                                                                                                             `pulumi:"includedCookies"`
@@ -24208,7 +24168,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSta
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArgs struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All             RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllPtrInput `pulumi:"all"`
 	ExcludedCookies pulumi.StringArrayInput                                                                                                     `pulumi:"excludedCookies"`
 	IncludedCookies pulumi.StringArrayInput                                                                                                     `pulumi:"includedCookies"`
@@ -24265,7 +24225,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 	return o
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternOutput) All() RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll {
 		return v.All
@@ -24423,9 +24383,9 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader struct {
-	// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+	// Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
 	MatchPattern RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern `pulumi:"matchPattern"`
-	// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+	// Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 	MatchScope string `pulumi:"matchScope"`
 	// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
 	OversizeHandling string `pulumi:"oversizeHandling"`
@@ -24443,9 +24403,9 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSta
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderArgs struct {
-	// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+	// Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
 	MatchPattern RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternInput `pulumi:"matchPattern"`
-	// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+	// Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 	MatchScope pulumi.StringInput `pulumi:"matchScope"`
 	// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
 	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
@@ -24502,14 +24462,14 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 	return o
 }
 
-// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+// Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOutput) MatchPattern() RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader) RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern {
 		return v.MatchPattern
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternOutput)
 }
 
-// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+// Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader) string {
 		return v.MatchScope
@@ -24544,11 +24504,11 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll `pulumi:"all"`
-	// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 	ExcludedHeaders []string `pulumi:"excludedHeaders"`
-	// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 	IncludedHeaders []string `pulumi:"includedHeaders"`
 }
 
@@ -24564,11 +24524,11 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSta
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternArgs struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAllPtrInput `pulumi:"all"`
-	// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 	ExcludedHeaders pulumi.StringArrayInput `pulumi:"excludedHeaders"`
-	// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 	IncludedHeaders pulumi.StringArrayInput `pulumi:"includedHeaders"`
 }
 
@@ -24598,21 +24558,21 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 	return o
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternOutput) All() RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll {
 		return v.All
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAllPtrOutput)
 }
 
-// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+// Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternOutput) ExcludedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern) []string {
 		return v.ExcludedHeaders
 	}).(pulumi.StringArrayOutput)
 }
 
-// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+// Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternOutput) IncludedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern) []string {
 		return v.IncludedHeaders
@@ -24837,7 +24797,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint struct {
-	// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior string `pulumi:"fallbackBehavior"`
 }
 
@@ -24853,7 +24813,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSta
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3FingerprintArgs struct {
-	// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
 }
 
@@ -24934,7 +24894,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3FingerprintPtrOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3FingerprintOutput) FallbackBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint) string {
 		return v.FallbackBehavior
@@ -24965,7 +24925,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3FingerprintOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3FingerprintPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint) *string {
 		if v == nil {
@@ -24976,7 +24936,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4Fingerprint struct {
-	// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior string `pulumi:"fallbackBehavior"`
 }
 
@@ -24992,7 +24952,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSta
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4FingerprintArgs struct {
-	// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
 }
 
@@ -25073,7 +25033,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4FingerprintPtrOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4FingerprintOutput) FallbackBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4Fingerprint) string {
 		return v.FallbackBehavior
@@ -25104,7 +25064,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4FingerprintOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4FingerprintPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4Fingerprint) *string {
 		if v == nil {
@@ -25117,9 +25077,9 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody struct {
 	// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
 	InvalidFallbackBehavior *string `pulumi:"invalidFallbackBehavior"`
-	// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+	// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 	MatchPattern RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern `pulumi:"matchPattern"`
-	// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+	// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 	MatchScope string `pulumi:"matchScope"`
 	// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
 	OversizeHandling *string `pulumi:"oversizeHandling"`
@@ -25139,9 +25099,9 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSta
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyArgs struct {
 	// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
 	InvalidFallbackBehavior pulumi.StringPtrInput `pulumi:"invalidFallbackBehavior"`
-	// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+	// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 	MatchPattern RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternInput `pulumi:"matchPattern"`
-	// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+	// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 	MatchScope pulumi.StringInput `pulumi:"matchScope"`
 	// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
 	OversizeHandling pulumi.StringPtrInput `pulumi:"oversizeHandling"`
@@ -25231,14 +25191,14 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 	}).(pulumi.StringPtrOutput)
 }
 
-// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyOutput) MatchPattern() RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody) RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern {
 		return v.MatchPattern
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternOutput)
 }
 
-// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody) string {
 		return v.MatchScope
@@ -25286,7 +25246,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 	}).(pulumi.StringPtrOutput)
 }
 
-// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyPtrOutput) MatchPattern() RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern {
 		if v == nil {
@@ -25296,7 +25256,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
 }
 
-// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody) *string {
 		if v == nil {
@@ -25317,7 +25277,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All           *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll `pulumi:"all"`
 	IncludedPaths []string                                                                                                              `pulumi:"includedPaths"`
 }
@@ -25334,7 +25294,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSta
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternArgs struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All           RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllPtrInput `pulumi:"all"`
 	IncludedPaths pulumi.StringArrayInput                                                                                                      `pulumi:"includedPaths"`
 }
@@ -25416,7 +25376,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternOutput) All() RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll {
 		return v.All
@@ -25453,7 +25413,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternOutput)
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternPtrOutput) All() RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll {
 		if v == nil {
@@ -25827,7 +25787,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader struct {
-	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -25843,7 +25803,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSta
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeaderArgs struct {
-	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -25924,7 +25884,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
-// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader) string {
 		return v.Name
@@ -25955,7 +25915,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeaderOutput)
 }
 
-// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeaderPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader) *string {
 		if v == nil {
@@ -25966,7 +25926,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument struct {
-	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -25982,7 +25942,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSta
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs struct {
-	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -26063,7 +26023,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
-// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument) string {
 		return v.Name
@@ -26094,7 +26054,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentOutput)
 }
 
-// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument) *string {
 		if v == nil {
@@ -26362,9 +26322,9 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformation struct {
-	// The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
 	Priority int `pulumi:"priority"`
-	// The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
 	Type string `pulumi:"type"`
 }
 
@@ -26380,9 +26340,9 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSta
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationArgs struct {
-	// The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -26437,14 +26397,14 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 	return o
 }
 
-// The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformation) int {
 		return v.Priority
 	}).(pulumi.IntOutput)
 }
 
-// The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformation) string {
 		return v.Type
@@ -26472,9 +26432,9 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation struct {
-	// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 	Priority int `pulumi:"priority"`
-	// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 	Type string `pulumi:"type"`
 }
 
@@ -26490,9 +26450,9 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSta
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformationArgs struct {
-	// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -26547,14 +26507,14 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 	return o
 }
 
-// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation) int {
 		return v.Priority
 	}).(pulumi.IntOutput)
 }
 
-// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation) string {
 		return v.Type
@@ -26582,15 +26542,13 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement struct {
-	// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+	// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 	FieldToMatch *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch `pulumi:"fieldToMatch"`
 	// Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
 	PreParseTextTransformations []RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformation `pulumi:"preParseTextTransformations"`
 	// Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
 	SensitivityLevel *string `pulumi:"sensitivityLevel"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See Text Transformation below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 	TextTransformations []RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -26606,15 +26564,13 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatemen
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementArgs struct {
-	// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+	// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 	FieldToMatch RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchPtrInput `pulumi:"fieldToMatch"`
 	// Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
 	PreParseTextTransformations RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationArrayInput `pulumi:"preParseTextTransformations"`
 	// Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
 	SensitivityLevel pulumi.StringPtrInput `pulumi:"sensitivityLevel"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See Text Transformation below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 	TextTransformations RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -26695,7 +26651,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPtrOutput)
 }
 
-// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementOutput) FieldToMatch() RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch {
 		return v.FieldToMatch
@@ -26716,9 +26672,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 	}).(pulumi.StringPtrOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See Text Transformation below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementOutput) TextTransformations() RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement) []RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation {
 		return v.TextTransformations
@@ -26749,7 +26703,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementOutput)
 }
 
-// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPtrOutput) FieldToMatch() RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch {
 		if v == nil {
@@ -26779,9 +26733,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 	}).(pulumi.StringPtrOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See Text Transformation below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPtrOutput) TextTransformations() RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement) []RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation {
 		if v == nil {
@@ -27457,9 +27409,9 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookies struct {
-	// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+	// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 	MatchPatterns []RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPattern `pulumi:"matchPatterns"`
-	// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+	// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 	MatchScope string `pulumi:"matchScope"`
 	// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
 	OversizeHandling string `pulumi:"oversizeHandling"`
@@ -27477,9 +27429,9 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatemen
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesArgs struct {
-	// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+	// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 	MatchPatterns RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArrayInput `pulumi:"matchPatterns"`
-	// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+	// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 	MatchScope pulumi.StringInput `pulumi:"matchScope"`
 	// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
 	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
@@ -27562,14 +27514,14 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesPtrOutput)
 }
 
-// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesOutput) MatchPatterns() RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookies) []RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPattern {
 		return v.MatchPatterns
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArrayOutput)
 }
 
-// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookies) string {
 		return v.MatchScope
@@ -27607,7 +27559,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesOutput)
 }
 
-// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesPtrOutput) MatchPatterns() RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookies) []RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPattern {
 		if v == nil {
@@ -27617,7 +27569,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArrayOutput)
 }
 
-// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookies) *string {
 		if v == nil {
@@ -27638,7 +27590,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPattern struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All             *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll `pulumi:"all"`
 	ExcludedCookies []string                                                                                                        `pulumi:"excludedCookies"`
 	IncludedCookies []string                                                                                                        `pulumi:"includedCookies"`
@@ -27656,7 +27608,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatemen
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArgs struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All             RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllPtrInput `pulumi:"all"`
 	ExcludedCookies pulumi.StringArrayInput                                                                                                `pulumi:"excludedCookies"`
 	IncludedCookies pulumi.StringArrayInput                                                                                                `pulumi:"includedCookies"`
@@ -27713,7 +27665,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 	return o
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternOutput) All() RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPattern) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll {
 		return v.All
@@ -27871,9 +27823,9 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader struct {
-	// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+	// Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
 	MatchPattern RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPattern `pulumi:"matchPattern"`
-	// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+	// Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 	MatchScope string `pulumi:"matchScope"`
 	// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
 	OversizeHandling string `pulumi:"oversizeHandling"`
@@ -27891,9 +27843,9 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatemen
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderArgs struct {
-	// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+	// Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
 	MatchPattern RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternInput `pulumi:"matchPattern"`
-	// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+	// Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 	MatchScope pulumi.StringInput `pulumi:"matchScope"`
 	// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
 	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
@@ -27950,14 +27902,14 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 	return o
 }
 
-// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+// Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOutput) MatchPattern() RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader) RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPattern {
 		return v.MatchPattern
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternOutput)
 }
 
-// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+// Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader) string {
 		return v.MatchScope
@@ -27992,11 +27944,11 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPattern struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll `pulumi:"all"`
-	// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 	ExcludedHeaders []string `pulumi:"excludedHeaders"`
-	// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 	IncludedHeaders []string `pulumi:"includedHeaders"`
 }
 
@@ -28012,11 +27964,11 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatemen
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternArgs struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAllPtrInput `pulumi:"all"`
-	// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 	ExcludedHeaders pulumi.StringArrayInput `pulumi:"excludedHeaders"`
-	// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 	IncludedHeaders pulumi.StringArrayInput `pulumi:"includedHeaders"`
 }
 
@@ -28046,21 +27998,21 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 	return o
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternOutput) All() RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPattern) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll {
 		return v.All
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput)
 }
 
-// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+// Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternOutput) ExcludedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPattern) []string {
 		return v.ExcludedHeaders
 	}).(pulumi.StringArrayOutput)
 }
 
-// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+// Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternOutput) IncludedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPattern) []string {
 		return v.IncludedHeaders
@@ -28285,7 +28237,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint struct {
-	// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior string `pulumi:"fallbackBehavior"`
 }
 
@@ -28301,7 +28253,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatemen
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs struct {
-	// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
 }
 
@@ -28382,7 +28334,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3FingerprintOutput) FallbackBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint) string {
 		return v.FallbackBehavior
@@ -28413,7 +28365,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3FingerprintOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint) *string {
 		if v == nil {
@@ -28424,7 +28376,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4Fingerprint struct {
-	// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior string `pulumi:"fallbackBehavior"`
 }
 
@@ -28440,7 +28392,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatemen
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4FingerprintArgs struct {
-	// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
 }
 
@@ -28521,7 +28473,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4FingerprintOutput) FallbackBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4Fingerprint) string {
 		return v.FallbackBehavior
@@ -28552,7 +28504,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4FingerprintOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4Fingerprint) *string {
 		if v == nil {
@@ -28565,9 +28517,9 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody struct {
 	// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
 	InvalidFallbackBehavior *string `pulumi:"invalidFallbackBehavior"`
-	// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+	// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 	MatchPattern RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern `pulumi:"matchPattern"`
-	// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+	// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 	MatchScope string `pulumi:"matchScope"`
 	// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
 	OversizeHandling *string `pulumi:"oversizeHandling"`
@@ -28587,9 +28539,9 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatemen
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyArgs struct {
 	// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
 	InvalidFallbackBehavior pulumi.StringPtrInput `pulumi:"invalidFallbackBehavior"`
-	// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+	// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 	MatchPattern RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternInput `pulumi:"matchPattern"`
-	// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+	// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 	MatchScope pulumi.StringInput `pulumi:"matchScope"`
 	// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
 	OversizeHandling pulumi.StringPtrInput `pulumi:"oversizeHandling"`
@@ -28679,14 +28631,14 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 	}).(pulumi.StringPtrOutput)
 }
 
-// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyOutput) MatchPattern() RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody) RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern {
 		return v.MatchPattern
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput)
 }
 
-// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody) string {
 		return v.MatchScope
@@ -28734,7 +28686,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 	}).(pulumi.StringPtrOutput)
 }
 
-// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput) MatchPattern() RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern {
 		if v == nil {
@@ -28744,7 +28696,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
 }
 
-// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody) *string {
 		if v == nil {
@@ -28765,7 +28717,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All           *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll `pulumi:"all"`
 	IncludedPaths []string                                                                                                         `pulumi:"includedPaths"`
 }
@@ -28782,7 +28734,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatemen
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All           RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrInput `pulumi:"all"`
 	IncludedPaths pulumi.StringArrayInput                                                                                                 `pulumi:"includedPaths"`
 }
@@ -28864,7 +28816,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput) All() RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll {
 		return v.All
@@ -28901,7 +28853,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput)
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput) All() RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll {
 		if v == nil {
@@ -29275,7 +29227,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader struct {
-	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -29291,7 +29243,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatemen
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeaderArgs struct {
-	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -29372,7 +29324,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
-// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader) string {
 		return v.Name
@@ -29403,7 +29355,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeaderOutput)
 }
 
-// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader) *string {
 		if v == nil {
@@ -29414,7 +29366,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument struct {
-	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -29430,7 +29382,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatemen
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs struct {
-	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -29511,7 +29463,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
-// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument) string {
 		return v.Name
@@ -29542,7 +29494,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutput)
 }
 
-// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument) *string {
 		if v == nil {
@@ -29810,9 +29762,9 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformation struct {
-	// The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
 	Priority int `pulumi:"priority"`
-	// The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
 	Type string `pulumi:"type"`
 }
 
@@ -29828,9 +29780,9 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatemen
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationArgs struct {
-	// The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -29885,14 +29837,14 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 	return o
 }
 
-// The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformation) int {
 		return v.Priority
 	}).(pulumi.IntOutput)
 }
 
-// The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformation) string {
 		return v.Type
@@ -29920,9 +29872,9 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation struct {
-	// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 	Priority int `pulumi:"priority"`
-	// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 	Type string `pulumi:"type"`
 }
 
@@ -29938,9 +29890,9 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatemen
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationArgs struct {
-	// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -29995,14 +29947,14 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 	return o
 }
 
-// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation) int {
 		return v.Priority
 	}).(pulumi.IntOutput)
 }
 
-// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation) string {
 		return v.Type
@@ -30030,13 +29982,11 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement struct {
-	// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+	// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 	FieldToMatch *RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch `pulumi:"fieldToMatch"`
 	// Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
 	PreParseTextTransformations []RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformation `pulumi:"preParseTextTransformations"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See Text Transformation below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 	TextTransformations []RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -30052,13 +30002,11 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementArgs struct {
-	// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+	// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 	FieldToMatch RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchPtrInput `pulumi:"fieldToMatch"`
 	// Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
 	PreParseTextTransformations RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationArrayInput `pulumi:"preParseTextTransformations"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See Text Transformation below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 	TextTransformations RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -30139,7 +30087,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPtrOutput)
 }
 
-// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementOutput) FieldToMatch() RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch {
 		return v.FieldToMatch
@@ -30153,9 +30101,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationArrayOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See Text Transformation below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementOutput) TextTransformations() RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement) []RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation {
 		return v.TextTransformations
@@ -30186,7 +30132,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementOutput)
 }
 
-// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPtrOutput) FieldToMatch() RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch {
 		if v == nil {
@@ -30206,9 +30152,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationArrayOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See Text Transformation below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPtrOutput) TextTransformations() RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement) []RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation {
 		if v == nil {
@@ -30884,9 +30828,9 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies struct {
-	// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+	// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 	MatchPatterns []RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern `pulumi:"matchPatterns"`
-	// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+	// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 	MatchScope string `pulumi:"matchScope"`
 	// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
 	OversizeHandling string `pulumi:"oversizeHandling"`
@@ -30904,9 +30848,9 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesArgs struct {
-	// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+	// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 	MatchPatterns RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayInput `pulumi:"matchPatterns"`
-	// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+	// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 	MatchScope pulumi.StringInput `pulumi:"matchScope"`
 	// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
 	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
@@ -30989,14 +30933,14 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesPtrOutput)
 }
 
-// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesOutput) MatchPatterns() RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies) []RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern {
 		return v.MatchPatterns
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutput)
 }
 
-// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies) string {
 		return v.MatchScope
@@ -31034,7 +30978,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesOutput)
 }
 
-// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesPtrOutput) MatchPatterns() RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies) []RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern {
 		if v == nil {
@@ -31044,7 +30988,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutput)
 }
 
-// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies) *string {
 		if v == nil {
@@ -31065,7 +31009,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All             *RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll `pulumi:"all"`
 	ExcludedCookies []string                                                                                                       `pulumi:"excludedCookies"`
 	IncludedCookies []string                                                                                                       `pulumi:"includedCookies"`
@@ -31083,7 +31027,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternArgs struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All             RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrInput `pulumi:"all"`
 	ExcludedCookies pulumi.StringArrayInput                                                                                               `pulumi:"excludedCookies"`
 	IncludedCookies pulumi.StringArrayInput                                                                                               `pulumi:"includedCookies"`
@@ -31140,7 +31084,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 	return o
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternOutput) All() RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll {
 		return v.All
@@ -31298,9 +31242,9 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeader struct {
-	// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+	// Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
 	MatchPattern RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern `pulumi:"matchPattern"`
-	// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+	// Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 	MatchScope string `pulumi:"matchScope"`
 	// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
 	OversizeHandling string `pulumi:"oversizeHandling"`
@@ -31318,9 +31262,9 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderArgs struct {
-	// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+	// Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
 	MatchPattern RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternInput `pulumi:"matchPattern"`
-	// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+	// Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 	MatchScope pulumi.StringInput `pulumi:"matchScope"`
 	// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
 	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
@@ -31377,14 +31321,14 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 	return o
 }
 
-// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+// Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOutput) MatchPattern() RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeader) RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern {
 		return v.MatchPattern
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput)
 }
 
-// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+// Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeader) string {
 		return v.MatchScope
@@ -31419,11 +31363,11 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All *RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll `pulumi:"all"`
-	// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 	ExcludedHeaders []string `pulumi:"excludedHeaders"`
-	// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 	IncludedHeaders []string `pulumi:"includedHeaders"`
 }
 
@@ -31439,11 +31383,11 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrInput `pulumi:"all"`
-	// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 	ExcludedHeaders pulumi.StringArrayInput `pulumi:"excludedHeaders"`
-	// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 	IncludedHeaders pulumi.StringArrayInput `pulumi:"includedHeaders"`
 }
 
@@ -31473,21 +31417,21 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 	return o
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput) All() RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll {
 		return v.All
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput)
 }
 
-// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+// Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput) ExcludedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern) []string {
 		return v.ExcludedHeaders
 	}).(pulumi.StringArrayOutput)
 }
 
-// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+// Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput) IncludedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern) []string {
 		return v.IncludedHeaders
@@ -31712,7 +31656,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint struct {
-	// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior string `pulumi:"fallbackBehavior"`
 }
 
@@ -31728,7 +31672,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3FingerprintArgs struct {
-	// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
 }
 
@@ -31809,7 +31753,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3FingerprintOutput) FallbackBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint) string {
 		return v.FallbackBehavior
@@ -31840,7 +31784,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3FingerprintOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint) *string {
 		if v == nil {
@@ -31851,7 +31795,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa4Fingerprint struct {
-	// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior string `pulumi:"fallbackBehavior"`
 }
 
@@ -31867,7 +31811,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa4FingerprintArgs struct {
-	// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
 }
 
@@ -31948,7 +31892,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa4FingerprintOutput) FallbackBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa4Fingerprint) string {
 		return v.FallbackBehavior
@@ -31979,7 +31923,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa4FingerprintOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa4Fingerprint) *string {
 		if v == nil {
@@ -31992,9 +31936,9 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody struct {
 	// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
 	InvalidFallbackBehavior *string `pulumi:"invalidFallbackBehavior"`
-	// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+	// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 	MatchPattern RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern `pulumi:"matchPattern"`
-	// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+	// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 	MatchScope string `pulumi:"matchScope"`
 	// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
 	OversizeHandling *string `pulumi:"oversizeHandling"`
@@ -32014,9 +31958,9 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyArgs struct {
 	// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
 	InvalidFallbackBehavior pulumi.StringPtrInput `pulumi:"invalidFallbackBehavior"`
-	// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+	// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 	MatchPattern RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternInput `pulumi:"matchPattern"`
-	// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+	// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 	MatchScope pulumi.StringInput `pulumi:"matchScope"`
 	// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
 	OversizeHandling pulumi.StringPtrInput `pulumi:"oversizeHandling"`
@@ -32106,14 +32050,14 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 	}).(pulumi.StringPtrOutput)
 }
 
-// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyOutput) MatchPattern() RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody) RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern {
 		return v.MatchPattern
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput)
 }
 
-// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody) string {
 		return v.MatchScope
@@ -32161,7 +32105,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 	}).(pulumi.StringPtrOutput)
 }
 
-// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput) MatchPattern() RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern {
 		if v == nil {
@@ -32171,7 +32115,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
 }
 
-// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody) *string {
 		if v == nil {
@@ -32192,7 +32136,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All           *RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll `pulumi:"all"`
 	IncludedPaths []string                                                                                                        `pulumi:"includedPaths"`
 }
@@ -32209,7 +32153,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgs struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All           RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrInput `pulumi:"all"`
 	IncludedPaths pulumi.StringArrayInput                                                                                                `pulumi:"includedPaths"`
 }
@@ -32291,7 +32235,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput) All() RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll {
 		return v.All
@@ -32328,7 +32272,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput)
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput) All() RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern) *RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll {
 		if v == nil {
@@ -32702,7 +32646,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader struct {
-	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -32718,7 +32662,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeaderArgs struct {
-	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -32799,7 +32743,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
-// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader) string {
 		return v.Name
@@ -32830,7 +32774,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeaderOutput)
 }
 
-// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader) *string {
 		if v == nil {
@@ -32841,7 +32785,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument struct {
-	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -32857,7 +32801,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs struct {
-	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -32938,7 +32882,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
-// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument) string {
 		return v.Name
@@ -32969,7 +32913,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutput)
 }
 
-// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument) *string {
 		if v == nil {
@@ -33237,9 +33181,9 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformation struct {
-	// The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
 	Priority int `pulumi:"priority"`
-	// The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
 	Type string `pulumi:"type"`
 }
 
@@ -33255,9 +33199,9 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationArgs struct {
-	// The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -33312,14 +33256,14 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 	return o
 }
 
-// The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformation) int {
 		return v.Priority
 	}).(pulumi.IntOutput)
 }
 
-// The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformation) string {
 		return v.Type
@@ -33347,9 +33291,9 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation struct {
-	// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 	Priority int `pulumi:"priority"`
-	// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 	Type string `pulumi:"type"`
 }
 
@@ -33365,9 +33309,9 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformationArgs struct {
-	// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -33422,14 +33366,14 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 	return o
 }
 
-// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation) int {
 		return v.Priority
 	}).(pulumi.IntOutput)
 }
 
-// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation) string {
 		return v.Type
@@ -33457,15 +33401,13 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 }
 
 type RuleGroupRuleStatementRegexMatchStatement struct {
-	// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+	// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 	FieldToMatch *RuleGroupRuleStatementRegexMatchStatementFieldToMatch `pulumi:"fieldToMatch"`
 	// Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
 	PreParseTextTransformations []RuleGroupRuleStatementRegexMatchStatementPreParseTextTransformation `pulumi:"preParseTextTransformations"`
-	// The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
+	// String representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
 	RegexString string `pulumi:"regexString"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See Text Transformation below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 	TextTransformations []RuleGroupRuleStatementRegexMatchStatementTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -33481,15 +33423,13 @@ type RuleGroupRuleStatementRegexMatchStatementInput interface {
 }
 
 type RuleGroupRuleStatementRegexMatchStatementArgs struct {
-	// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+	// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 	FieldToMatch RuleGroupRuleStatementRegexMatchStatementFieldToMatchPtrInput `pulumi:"fieldToMatch"`
 	// Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
 	PreParseTextTransformations RuleGroupRuleStatementRegexMatchStatementPreParseTextTransformationArrayInput `pulumi:"preParseTextTransformations"`
-	// The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
+	// String representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
 	RegexString pulumi.StringInput `pulumi:"regexString"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See Text Transformation below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 	TextTransformations RuleGroupRuleStatementRegexMatchStatementTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -33570,7 +33510,7 @@ func (o RuleGroupRuleStatementRegexMatchStatementOutput) ToRuleGroupRuleStatemen
 	}).(RuleGroupRuleStatementRegexMatchStatementPtrOutput)
 }
 
-// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 func (o RuleGroupRuleStatementRegexMatchStatementOutput) FieldToMatch() RuleGroupRuleStatementRegexMatchStatementFieldToMatchPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexMatchStatement) *RuleGroupRuleStatementRegexMatchStatementFieldToMatch {
 		return v.FieldToMatch
@@ -33584,14 +33524,12 @@ func (o RuleGroupRuleStatementRegexMatchStatementOutput) PreParseTextTransformat
 	}).(RuleGroupRuleStatementRegexMatchStatementPreParseTextTransformationArrayOutput)
 }
 
-// The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
+// String representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
 func (o RuleGroupRuleStatementRegexMatchStatementOutput) RegexString() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexMatchStatement) string { return v.RegexString }).(pulumi.StringOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See Text Transformation below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 func (o RuleGroupRuleStatementRegexMatchStatementOutput) TextTransformations() RuleGroupRuleStatementRegexMatchStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexMatchStatement) []RuleGroupRuleStatementRegexMatchStatementTextTransformation {
 		return v.TextTransformations
@@ -33622,7 +33560,7 @@ func (o RuleGroupRuleStatementRegexMatchStatementPtrOutput) Elem() RuleGroupRule
 	}).(RuleGroupRuleStatementRegexMatchStatementOutput)
 }
 
-// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 func (o RuleGroupRuleStatementRegexMatchStatementPtrOutput) FieldToMatch() RuleGroupRuleStatementRegexMatchStatementFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRegexMatchStatement) *RuleGroupRuleStatementRegexMatchStatementFieldToMatch {
 		if v == nil {
@@ -33642,7 +33580,7 @@ func (o RuleGroupRuleStatementRegexMatchStatementPtrOutput) PreParseTextTransfor
 	}).(RuleGroupRuleStatementRegexMatchStatementPreParseTextTransformationArrayOutput)
 }
 
-// The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
+// String representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
 func (o RuleGroupRuleStatementRegexMatchStatementPtrOutput) RegexString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRegexMatchStatement) *string {
 		if v == nil {
@@ -33652,9 +33590,7 @@ func (o RuleGroupRuleStatementRegexMatchStatementPtrOutput) RegexString() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See Text Transformation below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 func (o RuleGroupRuleStatementRegexMatchStatementPtrOutput) TextTransformations() RuleGroupRuleStatementRegexMatchStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRegexMatchStatement) []RuleGroupRuleStatementRegexMatchStatementTextTransformation {
 		if v == nil {
@@ -34328,9 +34264,9 @@ func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchBodyPtrOutput) Over
 }
 
 type RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookies struct {
-	// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+	// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 	MatchPatterns []RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern `pulumi:"matchPatterns"`
-	// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+	// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 	MatchScope string `pulumi:"matchScope"`
 	// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
 	OversizeHandling string `pulumi:"oversizeHandling"`
@@ -34348,9 +34284,9 @@ type RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesInput interface
 }
 
 type RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesArgs struct {
-	// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+	// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 	MatchPatterns RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArrayInput `pulumi:"matchPatterns"`
-	// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+	// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 	MatchScope pulumi.StringInput `pulumi:"matchScope"`
 	// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
 	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
@@ -34433,14 +34369,14 @@ func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesOutput) ToRu
 	}).(RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesPtrOutput)
 }
 
-// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesOutput) MatchPatterns() RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookies) []RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern {
 		return v.MatchPatterns
 	}).(RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArrayOutput)
 }
 
-// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookies) string { return v.MatchScope }).(pulumi.StringOutput)
 }
@@ -34474,7 +34410,7 @@ func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesPtrOutput) E
 	}).(RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesOutput)
 }
 
-// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesPtrOutput) MatchPatterns() RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookies) []RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern {
 		if v == nil {
@@ -34484,7 +34420,7 @@ func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesPtrOutput) M
 	}).(RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArrayOutput)
 }
 
-// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookies) *string {
 		if v == nil {
@@ -34505,7 +34441,7 @@ func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesPtrOutput) O
 }
 
 type RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All             *RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll `pulumi:"all"`
 	ExcludedCookies []string                                                                     `pulumi:"excludedCookies"`
 	IncludedCookies []string                                                                     `pulumi:"includedCookies"`
@@ -34523,7 +34459,7 @@ type RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternInp
 }
 
 type RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArgs struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All             RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllPtrInput `pulumi:"all"`
 	ExcludedCookies pulumi.StringArrayInput                                                             `pulumi:"excludedCookies"`
 	IncludedCookies pulumi.StringArrayInput                                                             `pulumi:"includedCookies"`
@@ -34580,7 +34516,7 @@ func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern
 	return o
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternOutput) All() RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern) *RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll {
 		return v.All
@@ -34738,9 +34674,9 @@ func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern
 }
 
 type RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeader struct {
-	// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+	// Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
 	MatchPattern RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern `pulumi:"matchPattern"`
-	// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+	// Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 	MatchScope string `pulumi:"matchScope"`
 	// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
 	OversizeHandling string `pulumi:"oversizeHandling"`
@@ -34758,9 +34694,9 @@ type RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderInput interface 
 }
 
 type RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderArgs struct {
-	// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+	// Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
 	MatchPattern RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternInput `pulumi:"matchPattern"`
-	// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+	// Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 	MatchScope pulumi.StringInput `pulumi:"matchScope"`
 	// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
 	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
@@ -34817,14 +34753,14 @@ func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderOutput) ToRul
 	return o
 }
 
-// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+// Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
 func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderOutput) MatchPattern() RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeader) RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern {
 		return v.MatchPattern
 	}).(RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternOutput)
 }
 
-// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+// Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeader) string { return v.MatchScope }).(pulumi.StringOutput)
 }
@@ -34855,11 +34791,11 @@ func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderArrayOutput) 
 }
 
 type RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All *RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll `pulumi:"all"`
-	// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 	ExcludedHeaders []string `pulumi:"excludedHeaders"`
-	// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 	IncludedHeaders []string `pulumi:"includedHeaders"`
 }
 
@@ -34875,11 +34811,11 @@ type RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternInpu
 }
 
 type RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternArgs struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAllPtrInput `pulumi:"all"`
-	// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 	ExcludedHeaders pulumi.StringArrayInput `pulumi:"excludedHeaders"`
-	// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 	IncludedHeaders pulumi.StringArrayInput `pulumi:"includedHeaders"`
 }
 
@@ -34909,21 +34845,21 @@ func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternO
 	return o
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternOutput) All() RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern) *RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll {
 		return v.All
 	}).(RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput)
 }
 
-// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+// Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternOutput) ExcludedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern) []string {
 		return v.ExcludedHeaders
 	}).(pulumi.StringArrayOutput)
 }
 
-// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+// Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternOutput) IncludedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern) []string {
 		return v.IncludedHeaders
@@ -35148,7 +35084,7 @@ func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderOrderArrayOut
 }
 
 type RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint struct {
-	// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior string `pulumi:"fallbackBehavior"`
 }
 
@@ -35164,7 +35100,7 @@ type RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3FingerprintInput in
 }
 
 type RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs struct {
-	// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
 }
 
@@ -35245,7 +35181,7 @@ func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3FingerprintOutpu
 	}).(RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3FingerprintPtrOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3FingerprintOutput) FallbackBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint) string {
 		return v.FallbackBehavior
@@ -35276,7 +35212,7 @@ func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3FingerprintPtrOu
 	}).(RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3FingerprintOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3FingerprintPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint) *string {
 		if v == nil {
@@ -35287,7 +35223,7 @@ func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3FingerprintPtrOu
 }
 
 type RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa4Fingerprint struct {
-	// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior string `pulumi:"fallbackBehavior"`
 }
 
@@ -35303,7 +35239,7 @@ type RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa4FingerprintInput in
 }
 
 type RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa4FingerprintArgs struct {
-	// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
 }
 
@@ -35384,7 +35320,7 @@ func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa4FingerprintOutpu
 	}).(RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa4FingerprintPtrOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa4FingerprintOutput) FallbackBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa4Fingerprint) string {
 		return v.FallbackBehavior
@@ -35415,7 +35351,7 @@ func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa4FingerprintPtrOu
 	}).(RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa4FingerprintOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa4FingerprintPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa4Fingerprint) *string {
 		if v == nil {
@@ -35428,9 +35364,9 @@ func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa4FingerprintPtrOu
 type RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBody struct {
 	// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
 	InvalidFallbackBehavior *string `pulumi:"invalidFallbackBehavior"`
-	// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+	// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 	MatchPattern RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern `pulumi:"matchPattern"`
-	// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+	// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 	MatchScope string `pulumi:"matchScope"`
 	// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
 	OversizeHandling *string `pulumi:"oversizeHandling"`
@@ -35450,9 +35386,9 @@ type RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyInput interfac
 type RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyArgs struct {
 	// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
 	InvalidFallbackBehavior pulumi.StringPtrInput `pulumi:"invalidFallbackBehavior"`
-	// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+	// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 	MatchPattern RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternInput `pulumi:"matchPattern"`
-	// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+	// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 	MatchScope pulumi.StringInput `pulumi:"matchScope"`
 	// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
 	OversizeHandling pulumi.StringPtrInput `pulumi:"oversizeHandling"`
@@ -35542,14 +35478,14 @@ func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyOutput) Inv
 	}).(pulumi.StringPtrOutput)
 }
 
-// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyOutput) MatchPattern() RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBody) RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern {
 		return v.MatchPattern
 	}).(RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternOutput)
 }
 
-// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBody) string { return v.MatchScope }).(pulumi.StringOutput)
 }
@@ -35595,7 +35531,7 @@ func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyPtrOutput) MatchPattern() RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBody) *RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern {
 		if v == nil {
@@ -35605,7 +35541,7 @@ func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyPtrOutput) 
 	}).(RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
 }
 
-// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBody) *string {
 		if v == nil {
@@ -35626,7 +35562,7 @@ func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyPtrOutput) 
 }
 
 type RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All           *RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll `pulumi:"all"`
 	IncludedPaths []string                                                                      `pulumi:"includedPaths"`
 }
@@ -35643,7 +35579,7 @@ type RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternIn
 }
 
 type RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternArgs struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All           RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrInput `pulumi:"all"`
 	IncludedPaths pulumi.StringArrayInput                                                              `pulumi:"includedPaths"`
 }
@@ -35725,7 +35661,7 @@ func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatter
 	}).(RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternOutput) All() RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern) *RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll {
 		return v.All
@@ -35762,7 +35698,7 @@ func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatter
 	}).(RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternOutput)
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput) All() RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern) *RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll {
 		if v == nil {
@@ -36136,7 +36072,7 @@ func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchQueryStringPtrOutpu
 }
 
 type RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeader struct {
-	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -36152,7 +36088,7 @@ type RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeaderInput inte
 }
 
 type RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeaderArgs struct {
-	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -36233,7 +36169,7 @@ func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeaderOutput)
 	}).(RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
-// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeader) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -36262,7 +36198,7 @@ func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeaderPtrOutp
 	}).(RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeaderOutput)
 }
 
-// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeaderPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeader) *string {
 		if v == nil {
@@ -36273,7 +36209,7 @@ func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeaderPtrOutp
 }
 
 type RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument struct {
-	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -36289,7 +36225,7 @@ type RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentInp
 }
 
 type RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs struct {
-	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -36370,7 +36306,7 @@ func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument
 	}).(RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
-// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -36399,7 +36335,7 @@ func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument
 	}).(RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentOutput)
 }
 
-// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument) *string {
 		if v == nil {
@@ -36667,9 +36603,9 @@ func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriPathPtrOutput) E
 }
 
 type RuleGroupRuleStatementRegexMatchStatementPreParseTextTransformation struct {
-	// The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
 	Priority int `pulumi:"priority"`
-	// The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
 	Type string `pulumi:"type"`
 }
 
@@ -36685,9 +36621,9 @@ type RuleGroupRuleStatementRegexMatchStatementPreParseTextTransformationInput in
 }
 
 type RuleGroupRuleStatementRegexMatchStatementPreParseTextTransformationArgs struct {
-	// The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -36742,12 +36678,12 @@ func (o RuleGroupRuleStatementRegexMatchStatementPreParseTextTransformationOutpu
 	return o
 }
 
-// The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
 func (o RuleGroupRuleStatementRegexMatchStatementPreParseTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexMatchStatementPreParseTextTransformation) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
 func (o RuleGroupRuleStatementRegexMatchStatementPreParseTextTransformationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexMatchStatementPreParseTextTransformation) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -36773,9 +36709,9 @@ func (o RuleGroupRuleStatementRegexMatchStatementPreParseTextTransformationArray
 }
 
 type RuleGroupRuleStatementRegexMatchStatementTextTransformation struct {
-	// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 	Priority int `pulumi:"priority"`
-	// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 	Type string `pulumi:"type"`
 }
 
@@ -36791,9 +36727,9 @@ type RuleGroupRuleStatementRegexMatchStatementTextTransformationInput interface 
 }
 
 type RuleGroupRuleStatementRegexMatchStatementTextTransformationArgs struct {
-	// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -36848,12 +36784,12 @@ func (o RuleGroupRuleStatementRegexMatchStatementTextTransformationOutput) ToRul
 	return o
 }
 
-// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 func (o RuleGroupRuleStatementRegexMatchStatementTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexMatchStatementTextTransformation) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 func (o RuleGroupRuleStatementRegexMatchStatementTextTransformationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexMatchStatementTextTransformation) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -36881,13 +36817,11 @@ func (o RuleGroupRuleStatementRegexMatchStatementTextTransformationArrayOutput) 
 type RuleGroupRuleStatementRegexPatternSetReferenceStatement struct {
 	// ARN of the Regex Pattern Set that this statement references.
 	Arn string `pulumi:"arn"`
-	// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+	// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 	FieldToMatch *RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch `pulumi:"fieldToMatch"`
 	// Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
 	PreParseTextTransformations []RuleGroupRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformation `pulumi:"preParseTextTransformations"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See Text Transformation below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 	TextTransformations []RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -36905,13 +36839,11 @@ type RuleGroupRuleStatementRegexPatternSetReferenceStatementInput interface {
 type RuleGroupRuleStatementRegexPatternSetReferenceStatementArgs struct {
 	// ARN of the Regex Pattern Set that this statement references.
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+	// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 	FieldToMatch RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchPtrInput `pulumi:"fieldToMatch"`
 	// Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
 	PreParseTextTransformations RuleGroupRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationArrayInput `pulumi:"preParseTextTransformations"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See Text Transformation below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 	TextTransformations RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -36997,7 +36929,7 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementOutput) Arn() pul
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexPatternSetReferenceStatement) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementOutput) FieldToMatch() RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexPatternSetReferenceStatement) *RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch {
 		return v.FieldToMatch
@@ -37011,9 +36943,7 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementOutput) PreParseT
 	}).(RuleGroupRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationArrayOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See Text Transformation below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementOutput) TextTransformations() RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexPatternSetReferenceStatement) []RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformation {
 		return v.TextTransformations
@@ -37054,7 +36984,7 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementPtrOutput) Arn() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementPtrOutput) FieldToMatch() RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRegexPatternSetReferenceStatement) *RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch {
 		if v == nil {
@@ -37074,9 +37004,7 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementPtrOutput) PrePar
 	}).(RuleGroupRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationArrayOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See Text Transformation below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementPtrOutput) TextTransformations() RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRegexPatternSetReferenceStatement) []RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformation {
 		if v == nil {
@@ -37752,9 +37680,9 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchBodyP
 }
 
 type RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies struct {
-	// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+	// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 	MatchPatterns []RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern `pulumi:"matchPatterns"`
-	// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+	// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 	MatchScope string `pulumi:"matchScope"`
 	// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
 	OversizeHandling string `pulumi:"oversizeHandling"`
@@ -37772,9 +37700,9 @@ type RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesI
 }
 
 type RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArgs struct {
-	// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+	// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 	MatchPatterns RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArrayInput `pulumi:"matchPatterns"`
-	// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+	// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 	MatchScope pulumi.StringInput `pulumi:"matchScope"`
 	// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
 	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
@@ -37857,14 +37785,14 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCooki
 	}).(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesPtrOutput)
 }
 
-// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesOutput) MatchPatterns() RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies) []RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern {
 		return v.MatchPatterns
 	}).(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArrayOutput)
 }
 
-// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies) string {
 		return v.MatchScope
@@ -37902,7 +37830,7 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCooki
 	}).(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesOutput)
 }
 
-// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesPtrOutput) MatchPatterns() RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies) []RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern {
 		if v == nil {
@@ -37912,7 +37840,7 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCooki
 	}).(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArrayOutput)
 }
 
-// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies) *string {
 		if v == nil {
@@ -37933,7 +37861,7 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCooki
 }
 
 type RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All             *RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll `pulumi:"all"`
 	ExcludedCookies []string                                                                                   `pulumi:"excludedCookies"`
 	IncludedCookies []string                                                                                   `pulumi:"includedCookies"`
@@ -37951,7 +37879,7 @@ type RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesM
 }
 
 type RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArgs struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All             RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllPtrInput `pulumi:"all"`
 	ExcludedCookies pulumi.StringArrayInput                                                                           `pulumi:"excludedCookies"`
 	IncludedCookies pulumi.StringArrayInput                                                                           `pulumi:"includedCookies"`
@@ -38008,7 +37936,7 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCooki
 	return o
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternOutput) All() RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern) *RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll {
 		return v.All
@@ -38166,9 +38094,9 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCooki
 }
 
 type RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader struct {
-	// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+	// Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
 	MatchPattern RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern `pulumi:"matchPattern"`
-	// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+	// Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 	MatchScope string `pulumi:"matchScope"`
 	// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
 	OversizeHandling string `pulumi:"oversizeHandling"`
@@ -38186,9 +38114,9 @@ type RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderIn
 }
 
 type RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs struct {
-	// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+	// Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
 	MatchPattern RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternInput `pulumi:"matchPattern"`
-	// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+	// Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 	MatchScope pulumi.StringInput `pulumi:"matchScope"`
 	// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
 	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
@@ -38245,14 +38173,14 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeade
 	return o
 }
 
-// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+// Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOutput) MatchPattern() RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader) RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern {
 		return v.MatchPattern
 	}).(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternOutput)
 }
 
-// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+// Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader) string {
 		return v.MatchScope
@@ -38287,11 +38215,11 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeade
 }
 
 type RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All *RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll `pulumi:"all"`
-	// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 	ExcludedHeaders []string `pulumi:"excludedHeaders"`
-	// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 	IncludedHeaders []string `pulumi:"includedHeaders"`
 }
 
@@ -38307,11 +38235,11 @@ type RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMa
 }
 
 type RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAllPtrInput `pulumi:"all"`
-	// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 	ExcludedHeaders pulumi.StringArrayInput `pulumi:"excludedHeaders"`
-	// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 	IncludedHeaders pulumi.StringArrayInput `pulumi:"includedHeaders"`
 }
 
@@ -38341,21 +38269,21 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeade
 	return o
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternOutput) All() RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern) *RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll {
 		return v.All
 	}).(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAllPtrOutput)
 }
 
-// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+// Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternOutput) ExcludedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern) []string {
 		return v.ExcludedHeaders
 	}).(pulumi.StringArrayOutput)
 }
 
-// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+// Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternOutput) IncludedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern) []string {
 		return v.IncludedHeaders
@@ -38580,7 +38508,7 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeade
 }
 
 type RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint struct {
-	// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior string `pulumi:"fallbackBehavior"`
 }
 
@@ -38596,7 +38524,7 @@ type RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Finge
 }
 
 type RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3FingerprintArgs struct {
-	// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
 }
 
@@ -38677,7 +38605,7 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fi
 	}).(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3FingerprintPtrOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3FingerprintOutput) FallbackBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint) string {
 		return v.FallbackBehavior
@@ -38708,7 +38636,7 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fi
 	}).(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3FingerprintOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3FingerprintPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint) *string {
 		if v == nil {
@@ -38719,7 +38647,7 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fi
 }
 
 type RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint struct {
-	// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior string `pulumi:"fallbackBehavior"`
 }
 
@@ -38735,7 +38663,7 @@ type RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4Finge
 }
 
 type RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4FingerprintArgs struct {
-	// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
 }
 
@@ -38816,7 +38744,7 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fi
 	}).(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4FingerprintPtrOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4FingerprintOutput) FallbackBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint) string {
 		return v.FallbackBehavior
@@ -38847,7 +38775,7 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fi
 	}).(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4FingerprintOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4FingerprintPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint) *string {
 		if v == nil {
@@ -38860,9 +38788,9 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fi
 type RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody struct {
 	// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
 	InvalidFallbackBehavior *string `pulumi:"invalidFallbackBehavior"`
-	// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+	// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 	MatchPattern RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern `pulumi:"matchPattern"`
-	// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+	// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 	MatchScope string `pulumi:"matchScope"`
 	// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
 	OversizeHandling *string `pulumi:"oversizeHandling"`
@@ -38882,9 +38810,9 @@ type RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody
 type RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgs struct {
 	// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
 	InvalidFallbackBehavior pulumi.StringPtrInput `pulumi:"invalidFallbackBehavior"`
-	// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+	// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 	MatchPattern RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternInput `pulumi:"matchPattern"`
-	// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+	// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 	MatchScope pulumi.StringInput `pulumi:"matchScope"`
 	// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
 	OversizeHandling pulumi.StringPtrInput `pulumi:"oversizeHandling"`
@@ -38974,14 +38902,14 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonB
 	}).(pulumi.StringPtrOutput)
 }
 
-// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyOutput) MatchPattern() RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody) RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern {
 		return v.MatchPattern
 	}).(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternOutput)
 }
 
-// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody) string {
 		return v.MatchScope
@@ -39029,7 +38957,7 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonB
 	}).(pulumi.StringPtrOutput)
 }
 
-// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyPtrOutput) MatchPattern() RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody) *RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern {
 		if v == nil {
@@ -39039,7 +38967,7 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonB
 	}).(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
 }
 
-// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody) *string {
 		if v == nil {
@@ -39060,7 +38988,7 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonB
 }
 
 type RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All           *RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll `pulumi:"all"`
 	IncludedPaths []string                                                                                    `pulumi:"includedPaths"`
 }
@@ -39077,7 +39005,7 @@ type RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody
 }
 
 type RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternArgs struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All           RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllPtrInput `pulumi:"all"`
 	IncludedPaths pulumi.StringArrayInput                                                                            `pulumi:"includedPaths"`
 }
@@ -39159,7 +39087,7 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonB
 	}).(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternOutput) All() RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern) *RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll {
 		return v.All
@@ -39196,7 +39124,7 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonB
 	}).(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternOutput)
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternPtrOutput) All() RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern) *RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll {
 		if v == nil {
@@ -39570,7 +39498,7 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchQuery
 }
 
 type RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader struct {
-	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -39586,7 +39514,7 @@ type RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHe
 }
 
 type RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs struct {
-	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -39667,7 +39595,7 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingl
 	}).(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
-// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader) string {
 		return v.Name
@@ -39698,7 +39626,7 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingl
 	}).(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderOutput)
 }
 
-// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader) *string {
 		if v == nil {
@@ -39709,7 +39637,7 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingl
 }
 
 type RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument struct {
-	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -39725,7 +39653,7 @@ type RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQu
 }
 
 type RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs struct {
-	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -39806,7 +39734,7 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingl
 	}).(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
-// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument) string {
 		return v.Name
@@ -39837,7 +39765,7 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingl
 	}).(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentOutput)
 }
 
-// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument) *string {
 		if v == nil {
@@ -40105,9 +40033,9 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPa
 }
 
 type RuleGroupRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformation struct {
-	// The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
 	Priority int `pulumi:"priority"`
-	// The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
 	Type string `pulumi:"type"`
 }
 
@@ -40123,9 +40051,9 @@ type RuleGroupRuleStatementRegexPatternSetReferenceStatementPreParseTextTransfor
 }
 
 type RuleGroupRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationArgs struct {
-	// The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -40180,14 +40108,14 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementPreParseTextTrans
 	return o
 }
 
-// The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformation) int {
 		return v.Priority
 	}).(pulumi.IntOutput)
 }
 
-// The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformation) string {
 		return v.Type
@@ -40215,9 +40143,9 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementPreParseTextTrans
 }
 
 type RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformation struct {
-	// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 	Priority int `pulumi:"priority"`
-	// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 	Type string `pulumi:"type"`
 }
 
@@ -40233,9 +40161,9 @@ type RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformationIn
 }
 
 type RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformationArgs struct {
-	// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -40290,14 +40218,14 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformatio
 	return o
 }
 
-// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformation) int {
 		return v.Priority
 	}).(pulumi.IntOutput)
 }
 
-// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformation) string {
 		return v.Type
@@ -40325,17 +40253,15 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformatio
 }
 
 type RuleGroupRuleStatementSizeConstraintStatement struct {
-	// The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+	// Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
 	ComparisonOperator string `pulumi:"comparisonOperator"`
-	// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+	// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 	FieldToMatch *RuleGroupRuleStatementSizeConstraintStatementFieldToMatch `pulumi:"fieldToMatch"`
 	// Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
 	PreParseTextTransformations []RuleGroupRuleStatementSizeConstraintStatementPreParseTextTransformation `pulumi:"preParseTextTransformations"`
-	// The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+	// Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
 	Size int `pulumi:"size"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See Text Transformation below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 	TextTransformations []RuleGroupRuleStatementSizeConstraintStatementTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -40351,17 +40277,15 @@ type RuleGroupRuleStatementSizeConstraintStatementInput interface {
 }
 
 type RuleGroupRuleStatementSizeConstraintStatementArgs struct {
-	// The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+	// Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
 	ComparisonOperator pulumi.StringInput `pulumi:"comparisonOperator"`
-	// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+	// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 	FieldToMatch RuleGroupRuleStatementSizeConstraintStatementFieldToMatchPtrInput `pulumi:"fieldToMatch"`
 	// Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
 	PreParseTextTransformations RuleGroupRuleStatementSizeConstraintStatementPreParseTextTransformationArrayInput `pulumi:"preParseTextTransformations"`
-	// The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+	// Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
 	Size pulumi.IntInput `pulumi:"size"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See Text Transformation below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 	TextTransformations RuleGroupRuleStatementSizeConstraintStatementTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -40442,12 +40366,12 @@ func (o RuleGroupRuleStatementSizeConstraintStatementOutput) ToRuleGroupRuleStat
 	}).(RuleGroupRuleStatementSizeConstraintStatementPtrOutput)
 }
 
-// The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+// Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
 func (o RuleGroupRuleStatementSizeConstraintStatementOutput) ComparisonOperator() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSizeConstraintStatement) string { return v.ComparisonOperator }).(pulumi.StringOutput)
 }
 
-// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 func (o RuleGroupRuleStatementSizeConstraintStatementOutput) FieldToMatch() RuleGroupRuleStatementSizeConstraintStatementFieldToMatchPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSizeConstraintStatement) *RuleGroupRuleStatementSizeConstraintStatementFieldToMatch {
 		return v.FieldToMatch
@@ -40461,14 +40385,12 @@ func (o RuleGroupRuleStatementSizeConstraintStatementOutput) PreParseTextTransfo
 	}).(RuleGroupRuleStatementSizeConstraintStatementPreParseTextTransformationArrayOutput)
 }
 
-// The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+// Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
 func (o RuleGroupRuleStatementSizeConstraintStatementOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSizeConstraintStatement) int { return v.Size }).(pulumi.IntOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See Text Transformation below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 func (o RuleGroupRuleStatementSizeConstraintStatementOutput) TextTransformations() RuleGroupRuleStatementSizeConstraintStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSizeConstraintStatement) []RuleGroupRuleStatementSizeConstraintStatementTextTransformation {
 		return v.TextTransformations
@@ -40499,7 +40421,7 @@ func (o RuleGroupRuleStatementSizeConstraintStatementPtrOutput) Elem() RuleGroup
 	}).(RuleGroupRuleStatementSizeConstraintStatementOutput)
 }
 
-// The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+// Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
 func (o RuleGroupRuleStatementSizeConstraintStatementPtrOutput) ComparisonOperator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementSizeConstraintStatement) *string {
 		if v == nil {
@@ -40509,7 +40431,7 @@ func (o RuleGroupRuleStatementSizeConstraintStatementPtrOutput) ComparisonOperat
 	}).(pulumi.StringPtrOutput)
 }
 
-// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 func (o RuleGroupRuleStatementSizeConstraintStatementPtrOutput) FieldToMatch() RuleGroupRuleStatementSizeConstraintStatementFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementSizeConstraintStatement) *RuleGroupRuleStatementSizeConstraintStatementFieldToMatch {
 		if v == nil {
@@ -40529,7 +40451,7 @@ func (o RuleGroupRuleStatementSizeConstraintStatementPtrOutput) PreParseTextTran
 	}).(RuleGroupRuleStatementSizeConstraintStatementPreParseTextTransformationArrayOutput)
 }
 
-// The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+// Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
 func (o RuleGroupRuleStatementSizeConstraintStatementPtrOutput) Size() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementSizeConstraintStatement) *int {
 		if v == nil {
@@ -40539,9 +40461,7 @@ func (o RuleGroupRuleStatementSizeConstraintStatementPtrOutput) Size() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See Text Transformation below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 func (o RuleGroupRuleStatementSizeConstraintStatementPtrOutput) TextTransformations() RuleGroupRuleStatementSizeConstraintStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementSizeConstraintStatement) []RuleGroupRuleStatementSizeConstraintStatementTextTransformation {
 		if v == nil {
@@ -41217,9 +41137,9 @@ func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchBodyPtrOutput) 
 }
 
 type RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookies struct {
-	// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+	// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 	MatchPatterns []RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern `pulumi:"matchPatterns"`
-	// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+	// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 	MatchScope string `pulumi:"matchScope"`
 	// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
 	OversizeHandling string `pulumi:"oversizeHandling"`
@@ -41237,9 +41157,9 @@ type RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesInput inter
 }
 
 type RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesArgs struct {
-	// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+	// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 	MatchPatterns RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArrayInput `pulumi:"matchPatterns"`
-	// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+	// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 	MatchScope pulumi.StringInput `pulumi:"matchScope"`
 	// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
 	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
@@ -41322,14 +41242,14 @@ func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesOutput) 
 	}).(RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesPtrOutput)
 }
 
-// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesOutput) MatchPatterns() RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookies) []RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern {
 		return v.MatchPatterns
 	}).(RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArrayOutput)
 }
 
-// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookies) string { return v.MatchScope }).(pulumi.StringOutput)
 }
@@ -41365,7 +41285,7 @@ func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesPtrOutpu
 	}).(RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesOutput)
 }
 
-// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesPtrOutput) MatchPatterns() RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookies) []RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern {
 		if v == nil {
@@ -41375,7 +41295,7 @@ func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesPtrOutpu
 	}).(RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArrayOutput)
 }
 
-// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookies) *string {
 		if v == nil {
@@ -41396,7 +41316,7 @@ func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesPtrOutpu
 }
 
 type RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All             *RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll `pulumi:"all"`
 	ExcludedCookies []string                                                                         `pulumi:"excludedCookies"`
 	IncludedCookies []string                                                                         `pulumi:"includedCookies"`
@@ -41414,7 +41334,7 @@ type RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatter
 }
 
 type RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArgs struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All             RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllPtrInput `pulumi:"all"`
 	ExcludedCookies pulumi.StringArrayInput                                                                 `pulumi:"excludedCookies"`
 	IncludedCookies pulumi.StringArrayInput                                                                 `pulumi:"includedCookies"`
@@ -41471,7 +41391,7 @@ func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPat
 	return o
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternOutput) All() RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern) *RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll {
 		return v.All
@@ -41629,9 +41549,9 @@ func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPat
 }
 
 type RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeader struct {
-	// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+	// Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
 	MatchPattern RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern `pulumi:"matchPattern"`
-	// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+	// Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 	MatchScope string `pulumi:"matchScope"`
 	// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
 	OversizeHandling string `pulumi:"oversizeHandling"`
@@ -41649,9 +41569,9 @@ type RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderInput interf
 }
 
 type RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderArgs struct {
-	// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+	// Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
 	MatchPattern RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternInput `pulumi:"matchPattern"`
-	// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+	// Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 	MatchScope pulumi.StringInput `pulumi:"matchScope"`
 	// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
 	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
@@ -41708,14 +41628,14 @@ func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderOutput) T
 	return o
 }
 
-// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+// Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
 func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderOutput) MatchPattern() RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeader) RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern {
 		return v.MatchPattern
 	}).(RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternOutput)
 }
 
-// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+// Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeader) string { return v.MatchScope }).(pulumi.StringOutput)
 }
@@ -41748,11 +41668,11 @@ func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderArrayOutp
 }
 
 type RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All *RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll `pulumi:"all"`
-	// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 	ExcludedHeaders []string `pulumi:"excludedHeaders"`
-	// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 	IncludedHeaders []string `pulumi:"includedHeaders"`
 }
 
@@ -41768,11 +41688,11 @@ type RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern
 }
 
 type RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternArgs struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAllPtrInput `pulumi:"all"`
-	// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 	ExcludedHeaders pulumi.StringArrayInput `pulumi:"excludedHeaders"`
-	// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 	IncludedHeaders pulumi.StringArrayInput `pulumi:"includedHeaders"`
 }
 
@@ -41802,21 +41722,21 @@ func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatt
 	return o
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternOutput) All() RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern) *RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll {
 		return v.All
 	}).(RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAllPtrOutput)
 }
 
-// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+// Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternOutput) ExcludedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern) []string {
 		return v.ExcludedHeaders
 	}).(pulumi.StringArrayOutput)
 }
 
-// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+// Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternOutput) IncludedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern) []string {
 		return v.IncludedHeaders
@@ -42041,7 +41961,7 @@ func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderOrderArra
 }
 
 type RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint struct {
-	// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior string `pulumi:"fallbackBehavior"`
 }
 
@@ -42057,7 +41977,7 @@ type RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3FingerprintInpu
 }
 
 type RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3FingerprintArgs struct {
-	// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
 }
 
@@ -42138,7 +42058,7 @@ func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3FingerprintO
 	}).(RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3FingerprintPtrOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3FingerprintOutput) FallbackBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint) string {
 		return v.FallbackBehavior
@@ -42169,7 +42089,7 @@ func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3FingerprintP
 	}).(RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3FingerprintOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3FingerprintPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint) *string {
 		if v == nil {
@@ -42180,7 +42100,7 @@ func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3FingerprintP
 }
 
 type RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4Fingerprint struct {
-	// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior string `pulumi:"fallbackBehavior"`
 }
 
@@ -42196,7 +42116,7 @@ type RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4FingerprintInpu
 }
 
 type RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4FingerprintArgs struct {
-	// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
 }
 
@@ -42277,7 +42197,7 @@ func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4FingerprintO
 	}).(RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4FingerprintPtrOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4FingerprintOutput) FallbackBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4Fingerprint) string {
 		return v.FallbackBehavior
@@ -42308,7 +42228,7 @@ func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4FingerprintP
 	}).(RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4FingerprintOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4FingerprintPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4Fingerprint) *string {
 		if v == nil {
@@ -42321,9 +42241,9 @@ func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4FingerprintP
 type RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBody struct {
 	// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
 	InvalidFallbackBehavior *string `pulumi:"invalidFallbackBehavior"`
-	// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+	// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 	MatchPattern RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern `pulumi:"matchPattern"`
-	// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+	// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 	MatchScope string `pulumi:"matchScope"`
 	// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
 	OversizeHandling *string `pulumi:"oversizeHandling"`
@@ -42343,9 +42263,9 @@ type RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyInput inte
 type RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyArgs struct {
 	// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
 	InvalidFallbackBehavior pulumi.StringPtrInput `pulumi:"invalidFallbackBehavior"`
-	// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+	// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 	MatchPattern RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternInput `pulumi:"matchPattern"`
-	// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+	// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 	MatchScope pulumi.StringInput `pulumi:"matchScope"`
 	// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
 	OversizeHandling pulumi.StringPtrInput `pulumi:"oversizeHandling"`
@@ -42435,14 +42355,14 @@ func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyOutput) MatchPattern() RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBody) RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern {
 		return v.MatchPattern
 	}).(RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternOutput)
 }
 
-// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBody) string { return v.MatchScope }).(pulumi.StringOutput)
 }
@@ -42488,7 +42408,7 @@ func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyPtrOutput) MatchPattern() RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBody) *RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern {
 		if v == nil {
@@ -42498,7 +42418,7 @@ func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyPtrOutp
 	}).(RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
 }
 
-// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBody) *string {
 		if v == nil {
@@ -42519,7 +42439,7 @@ func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyPtrOutp
 }
 
 type RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All           *RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll `pulumi:"all"`
 	IncludedPaths []string                                                                          `pulumi:"includedPaths"`
 }
@@ -42536,7 +42456,7 @@ type RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatte
 }
 
 type RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternArgs struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All           RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllPtrInput `pulumi:"all"`
 	IncludedPaths pulumi.StringArrayInput                                                                  `pulumi:"includedPaths"`
 }
@@ -42618,7 +42538,7 @@ func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPa
 	}).(RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternOutput) All() RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern) *RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll {
 		return v.All
@@ -42655,7 +42575,7 @@ func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPa
 	}).(RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternOutput)
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternPtrOutput) All() RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern) *RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll {
 		if v == nil {
@@ -43029,7 +42949,7 @@ func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchQueryStringPtrO
 }
 
 type RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeader struct {
-	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -43045,7 +42965,7 @@ type RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderInput 
 }
 
 type RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderArgs struct {
-	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -43126,7 +43046,7 @@ func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderOut
 	}).(RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
-// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeader) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -43155,7 +43075,7 @@ func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderPtr
 	}).(RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderOutput)
 }
 
-// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeader) *string {
 		if v == nil {
@@ -43166,7 +43086,7 @@ func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderPtr
 }
 
 type RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument struct {
-	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -43182,7 +43102,7 @@ type RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumen
 }
 
 type RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs struct {
-	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -43263,7 +43183,7 @@ func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgu
 	}).(RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
-// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument) string {
 		return v.Name
@@ -43294,7 +43214,7 @@ func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgu
 	}).(RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentOutput)
 }
 
-// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument) *string {
 		if v == nil {
@@ -43562,9 +43482,9 @@ func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriPathPtrOutpu
 }
 
 type RuleGroupRuleStatementSizeConstraintStatementPreParseTextTransformation struct {
-	// The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
 	Priority int `pulumi:"priority"`
-	// The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
 	Type string `pulumi:"type"`
 }
 
@@ -43580,9 +43500,9 @@ type RuleGroupRuleStatementSizeConstraintStatementPreParseTextTransformationInpu
 }
 
 type RuleGroupRuleStatementSizeConstraintStatementPreParseTextTransformationArgs struct {
-	// The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -43637,12 +43557,12 @@ func (o RuleGroupRuleStatementSizeConstraintStatementPreParseTextTransformationO
 	return o
 }
 
-// The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
 func (o RuleGroupRuleStatementSizeConstraintStatementPreParseTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSizeConstraintStatementPreParseTextTransformation) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
 func (o RuleGroupRuleStatementSizeConstraintStatementPreParseTextTransformationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSizeConstraintStatementPreParseTextTransformation) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -43668,9 +43588,9 @@ func (o RuleGroupRuleStatementSizeConstraintStatementPreParseTextTransformationA
 }
 
 type RuleGroupRuleStatementSizeConstraintStatementTextTransformation struct {
-	// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 	Priority int `pulumi:"priority"`
-	// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 	Type string `pulumi:"type"`
 }
 
@@ -43686,9 +43606,9 @@ type RuleGroupRuleStatementSizeConstraintStatementTextTransformationInput interf
 }
 
 type RuleGroupRuleStatementSizeConstraintStatementTextTransformationArgs struct {
-	// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -43743,12 +43663,12 @@ func (o RuleGroupRuleStatementSizeConstraintStatementTextTransformationOutput) T
 	return o
 }
 
-// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 func (o RuleGroupRuleStatementSizeConstraintStatementTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSizeConstraintStatementTextTransformation) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 func (o RuleGroupRuleStatementSizeConstraintStatementTextTransformationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSizeConstraintStatementTextTransformation) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -43774,15 +43694,13 @@ func (o RuleGroupRuleStatementSizeConstraintStatementTextTransformationArrayOutp
 }
 
 type RuleGroupRuleStatementSqliMatchStatement struct {
-	// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+	// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 	FieldToMatch *RuleGroupRuleStatementSqliMatchStatementFieldToMatch `pulumi:"fieldToMatch"`
 	// Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
 	PreParseTextTransformations []RuleGroupRuleStatementSqliMatchStatementPreParseTextTransformation `pulumi:"preParseTextTransformations"`
 	// Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
 	SensitivityLevel *string `pulumi:"sensitivityLevel"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See Text Transformation below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 	TextTransformations []RuleGroupRuleStatementSqliMatchStatementTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -43798,15 +43716,13 @@ type RuleGroupRuleStatementSqliMatchStatementInput interface {
 }
 
 type RuleGroupRuleStatementSqliMatchStatementArgs struct {
-	// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+	// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 	FieldToMatch RuleGroupRuleStatementSqliMatchStatementFieldToMatchPtrInput `pulumi:"fieldToMatch"`
 	// Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
 	PreParseTextTransformations RuleGroupRuleStatementSqliMatchStatementPreParseTextTransformationArrayInput `pulumi:"preParseTextTransformations"`
 	// Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
 	SensitivityLevel pulumi.StringPtrInput `pulumi:"sensitivityLevel"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See Text Transformation below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 	TextTransformations RuleGroupRuleStatementSqliMatchStatementTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -43887,7 +43803,7 @@ func (o RuleGroupRuleStatementSqliMatchStatementOutput) ToRuleGroupRuleStatement
 	}).(RuleGroupRuleStatementSqliMatchStatementPtrOutput)
 }
 
-// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 func (o RuleGroupRuleStatementSqliMatchStatementOutput) FieldToMatch() RuleGroupRuleStatementSqliMatchStatementFieldToMatchPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSqliMatchStatement) *RuleGroupRuleStatementSqliMatchStatementFieldToMatch {
 		return v.FieldToMatch
@@ -43906,9 +43822,7 @@ func (o RuleGroupRuleStatementSqliMatchStatementOutput) SensitivityLevel() pulum
 	return o.ApplyT(func(v RuleGroupRuleStatementSqliMatchStatement) *string { return v.SensitivityLevel }).(pulumi.StringPtrOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See Text Transformation below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 func (o RuleGroupRuleStatementSqliMatchStatementOutput) TextTransformations() RuleGroupRuleStatementSqliMatchStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSqliMatchStatement) []RuleGroupRuleStatementSqliMatchStatementTextTransformation {
 		return v.TextTransformations
@@ -43939,7 +43853,7 @@ func (o RuleGroupRuleStatementSqliMatchStatementPtrOutput) Elem() RuleGroupRuleS
 	}).(RuleGroupRuleStatementSqliMatchStatementOutput)
 }
 
-// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 func (o RuleGroupRuleStatementSqliMatchStatementPtrOutput) FieldToMatch() RuleGroupRuleStatementSqliMatchStatementFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementSqliMatchStatement) *RuleGroupRuleStatementSqliMatchStatementFieldToMatch {
 		if v == nil {
@@ -43969,9 +43883,7 @@ func (o RuleGroupRuleStatementSqliMatchStatementPtrOutput) SensitivityLevel() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See Text Transformation below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 func (o RuleGroupRuleStatementSqliMatchStatementPtrOutput) TextTransformations() RuleGroupRuleStatementSqliMatchStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementSqliMatchStatement) []RuleGroupRuleStatementSqliMatchStatementTextTransformation {
 		if v == nil {
@@ -44645,9 +44557,9 @@ func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchBodyPtrOutput) Overs
 }
 
 type RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies struct {
-	// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+	// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 	MatchPatterns []RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern `pulumi:"matchPatterns"`
-	// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+	// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 	MatchScope string `pulumi:"matchScope"`
 	// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
 	OversizeHandling string `pulumi:"oversizeHandling"`
@@ -44665,9 +44577,9 @@ type RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesInput interface 
 }
 
 type RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesArgs struct {
-	// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+	// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 	MatchPatterns RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArrayInput `pulumi:"matchPatterns"`
-	// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+	// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 	MatchScope pulumi.StringInput `pulumi:"matchScope"`
 	// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
 	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
@@ -44750,14 +44662,14 @@ func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesOutput) ToRul
 	}).(RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesPtrOutput)
 }
 
-// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesOutput) MatchPatterns() RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies) []RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern {
 		return v.MatchPatterns
 	}).(RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArrayOutput)
 }
 
-// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies) string { return v.MatchScope }).(pulumi.StringOutput)
 }
@@ -44791,7 +44703,7 @@ func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesPtrOutput) El
 	}).(RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesOutput)
 }
 
-// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesPtrOutput) MatchPatterns() RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies) []RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern {
 		if v == nil {
@@ -44801,7 +44713,7 @@ func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesPtrOutput) Ma
 	}).(RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArrayOutput)
 }
 
-// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies) *string {
 		if v == nil {
@@ -44822,7 +44734,7 @@ func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesPtrOutput) Ov
 }
 
 type RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All             *RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll `pulumi:"all"`
 	ExcludedCookies []string                                                                    `pulumi:"excludedCookies"`
 	IncludedCookies []string                                                                    `pulumi:"includedCookies"`
@@ -44840,7 +44752,7 @@ type RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternInpu
 }
 
 type RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArgs struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All             RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllPtrInput `pulumi:"all"`
 	ExcludedCookies pulumi.StringArrayInput                                                            `pulumi:"excludedCookies"`
 	IncludedCookies pulumi.StringArrayInput                                                            `pulumi:"includedCookies"`
@@ -44897,7 +44809,7 @@ func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternO
 	return o
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternOutput) All() RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern) *RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll {
 		return v.All
@@ -45055,9 +44967,9 @@ func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternA
 }
 
 type RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeader struct {
-	// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+	// Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
 	MatchPattern RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern `pulumi:"matchPattern"`
-	// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+	// Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 	MatchScope string `pulumi:"matchScope"`
 	// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
 	OversizeHandling string `pulumi:"oversizeHandling"`
@@ -45075,9 +44987,9 @@ type RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderInput interface {
 }
 
 type RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderArgs struct {
-	// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+	// Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
 	MatchPattern RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternInput `pulumi:"matchPattern"`
-	// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+	// Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 	MatchScope pulumi.StringInput `pulumi:"matchScope"`
 	// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
 	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
@@ -45134,14 +45046,14 @@ func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderOutput) ToRule
 	return o
 }
 
-// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+// Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
 func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderOutput) MatchPattern() RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeader) RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern {
 		return v.MatchPattern
 	}).(RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternOutput)
 }
 
-// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+// Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeader) string { return v.MatchScope }).(pulumi.StringOutput)
 }
@@ -45172,11 +45084,11 @@ func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderArrayOutput) I
 }
 
 type RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All *RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll `pulumi:"all"`
-	// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 	ExcludedHeaders []string `pulumi:"excludedHeaders"`
-	// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 	IncludedHeaders []string `pulumi:"includedHeaders"`
 }
 
@@ -45192,11 +45104,11 @@ type RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternInput
 }
 
 type RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternArgs struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAllPtrInput `pulumi:"all"`
-	// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 	ExcludedHeaders pulumi.StringArrayInput `pulumi:"excludedHeaders"`
-	// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 	IncludedHeaders pulumi.StringArrayInput `pulumi:"includedHeaders"`
 }
 
@@ -45226,21 +45138,21 @@ func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternOu
 	return o
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternOutput) All() RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern) *RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll {
 		return v.All
 	}).(RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput)
 }
 
-// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+// Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternOutput) ExcludedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern) []string {
 		return v.ExcludedHeaders
 	}).(pulumi.StringArrayOutput)
 }
 
-// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+// Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternOutput) IncludedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern) []string {
 		return v.IncludedHeaders
@@ -45465,7 +45377,7 @@ func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderOrderArrayOutp
 }
 
 type RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint struct {
-	// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior string `pulumi:"fallbackBehavior"`
 }
 
@@ -45481,7 +45393,7 @@ type RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintInput int
 }
 
 type RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs struct {
-	// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
 }
 
@@ -45562,7 +45474,7 @@ func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintOutput
 	}).(RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintOutput) FallbackBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint) string {
 		return v.FallbackBehavior
@@ -45593,7 +45505,7 @@ func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOut
 	}).(RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint) *string {
 		if v == nil {
@@ -45604,7 +45516,7 @@ func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOut
 }
 
 type RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint struct {
-	// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior string `pulumi:"fallbackBehavior"`
 }
 
@@ -45620,7 +45532,7 @@ type RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintInput int
 }
 
 type RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintArgs struct {
-	// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
 }
 
@@ -45701,7 +45613,7 @@ func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintOutput
 	}).(RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintOutput) FallbackBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint) string {
 		return v.FallbackBehavior
@@ -45732,7 +45644,7 @@ func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOut
 	}).(RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint) *string {
 		if v == nil {
@@ -45745,9 +45657,9 @@ func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOut
 type RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBody struct {
 	// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
 	InvalidFallbackBehavior *string `pulumi:"invalidFallbackBehavior"`
-	// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+	// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 	MatchPattern RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern `pulumi:"matchPattern"`
-	// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+	// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 	MatchScope string `pulumi:"matchScope"`
 	// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
 	OversizeHandling *string `pulumi:"oversizeHandling"`
@@ -45767,9 +45679,9 @@ type RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyInput interface
 type RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyArgs struct {
 	// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
 	InvalidFallbackBehavior pulumi.StringPtrInput `pulumi:"invalidFallbackBehavior"`
-	// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+	// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 	MatchPattern RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternInput `pulumi:"matchPattern"`
-	// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+	// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 	MatchScope pulumi.StringInput `pulumi:"matchScope"`
 	// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
 	OversizeHandling pulumi.StringPtrInput `pulumi:"oversizeHandling"`
@@ -45859,14 +45771,14 @@ func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutput) Inva
 	}).(pulumi.StringPtrOutput)
 }
 
-// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutput) MatchPattern() RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBody) RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern {
 		return v.MatchPattern
 	}).(RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput)
 }
 
-// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBody) string { return v.MatchScope }).(pulumi.StringOutput)
 }
@@ -45912,7 +45824,7 @@ func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput) I
 	}).(pulumi.StringPtrOutput)
 }
 
-// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput) MatchPattern() RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBody) *RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern {
 		if v == nil {
@@ -45922,7 +45834,7 @@ func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput) M
 	}).(RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
 }
 
-// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBody) *string {
 		if v == nil {
@@ -45943,7 +45855,7 @@ func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput) O
 }
 
 type RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All           *RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll `pulumi:"all"`
 	IncludedPaths []string                                                                     `pulumi:"includedPaths"`
 }
@@ -45960,7 +45872,7 @@ type RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternInp
 }
 
 type RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All           RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrInput `pulumi:"all"`
 	IncludedPaths pulumi.StringArrayInput                                                             `pulumi:"includedPaths"`
 }
@@ -46042,7 +45954,7 @@ func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern
 	}).(RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput) All() RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern) *RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll {
 		return v.All
@@ -46079,7 +45991,7 @@ func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern
 	}).(RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput)
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput) All() RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern) *RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll {
 		if v == nil {
@@ -46453,7 +46365,7 @@ func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutput
 }
 
 type RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeader struct {
-	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -46469,7 +46381,7 @@ type RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeaderInput inter
 }
 
 type RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeaderArgs struct {
-	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -46550,7 +46462,7 @@ func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeaderOutput) 
 	}).(RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
-// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeader) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -46579,7 +46491,7 @@ func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutpu
 	}).(RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeaderOutput)
 }
 
-// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeader) *string {
 		if v == nil {
@@ -46590,7 +46502,7 @@ func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutpu
 }
 
 type RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument struct {
-	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -46606,7 +46518,7 @@ type RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentInpu
 }
 
 type RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs struct {
-	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -46687,7 +46599,7 @@ func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentO
 	}).(RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
-// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -46716,7 +46628,7 @@ func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentP
 	}).(RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutput)
 }
 
-// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument) *string {
 		if v == nil {
@@ -46984,9 +46896,9 @@ func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriPathPtrOutput) El
 }
 
 type RuleGroupRuleStatementSqliMatchStatementPreParseTextTransformation struct {
-	// The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
 	Priority int `pulumi:"priority"`
-	// The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
 	Type string `pulumi:"type"`
 }
 
@@ -47002,9 +46914,9 @@ type RuleGroupRuleStatementSqliMatchStatementPreParseTextTransformationInput int
 }
 
 type RuleGroupRuleStatementSqliMatchStatementPreParseTextTransformationArgs struct {
-	// The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -47059,12 +46971,12 @@ func (o RuleGroupRuleStatementSqliMatchStatementPreParseTextTransformationOutput
 	return o
 }
 
-// The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
 func (o RuleGroupRuleStatementSqliMatchStatementPreParseTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSqliMatchStatementPreParseTextTransformation) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
 func (o RuleGroupRuleStatementSqliMatchStatementPreParseTextTransformationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSqliMatchStatementPreParseTextTransformation) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -47090,9 +47002,9 @@ func (o RuleGroupRuleStatementSqliMatchStatementPreParseTextTransformationArrayO
 }
 
 type RuleGroupRuleStatementSqliMatchStatementTextTransformation struct {
-	// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 	Priority int `pulumi:"priority"`
-	// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 	Type string `pulumi:"type"`
 }
 
@@ -47108,9 +47020,9 @@ type RuleGroupRuleStatementSqliMatchStatementTextTransformationInput interface {
 }
 
 type RuleGroupRuleStatementSqliMatchStatementTextTransformationArgs struct {
-	// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -47165,12 +47077,12 @@ func (o RuleGroupRuleStatementSqliMatchStatementTextTransformationOutput) ToRule
 	return o
 }
 
-// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 func (o RuleGroupRuleStatementSqliMatchStatementTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSqliMatchStatementTextTransformation) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 func (o RuleGroupRuleStatementSqliMatchStatementTextTransformationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSqliMatchStatementTextTransformation) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -47196,13 +47108,11 @@ func (o RuleGroupRuleStatementSqliMatchStatementTextTransformationArrayOutput) I
 }
 
 type RuleGroupRuleStatementXssMatchStatement struct {
-	// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+	// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 	FieldToMatch *RuleGroupRuleStatementXssMatchStatementFieldToMatch `pulumi:"fieldToMatch"`
 	// Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
 	PreParseTextTransformations []RuleGroupRuleStatementXssMatchStatementPreParseTextTransformation `pulumi:"preParseTextTransformations"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See Text Transformation below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 	TextTransformations []RuleGroupRuleStatementXssMatchStatementTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -47218,13 +47128,11 @@ type RuleGroupRuleStatementXssMatchStatementInput interface {
 }
 
 type RuleGroupRuleStatementXssMatchStatementArgs struct {
-	// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+	// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 	FieldToMatch RuleGroupRuleStatementXssMatchStatementFieldToMatchPtrInput `pulumi:"fieldToMatch"`
 	// Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
 	PreParseTextTransformations RuleGroupRuleStatementXssMatchStatementPreParseTextTransformationArrayInput `pulumi:"preParseTextTransformations"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See Text Transformation below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 	TextTransformations RuleGroupRuleStatementXssMatchStatementTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -47305,7 +47213,7 @@ func (o RuleGroupRuleStatementXssMatchStatementOutput) ToRuleGroupRuleStatementX
 	}).(RuleGroupRuleStatementXssMatchStatementPtrOutput)
 }
 
-// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 func (o RuleGroupRuleStatementXssMatchStatementOutput) FieldToMatch() RuleGroupRuleStatementXssMatchStatementFieldToMatchPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementXssMatchStatement) *RuleGroupRuleStatementXssMatchStatementFieldToMatch {
 		return v.FieldToMatch
@@ -47319,9 +47227,7 @@ func (o RuleGroupRuleStatementXssMatchStatementOutput) PreParseTextTransformatio
 	}).(RuleGroupRuleStatementXssMatchStatementPreParseTextTransformationArrayOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See Text Transformation below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 func (o RuleGroupRuleStatementXssMatchStatementOutput) TextTransformations() RuleGroupRuleStatementXssMatchStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementXssMatchStatement) []RuleGroupRuleStatementXssMatchStatementTextTransformation {
 		return v.TextTransformations
@@ -47352,7 +47258,7 @@ func (o RuleGroupRuleStatementXssMatchStatementPtrOutput) Elem() RuleGroupRuleSt
 	}).(RuleGroupRuleStatementXssMatchStatementOutput)
 }
 
-// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 func (o RuleGroupRuleStatementXssMatchStatementPtrOutput) FieldToMatch() RuleGroupRuleStatementXssMatchStatementFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementXssMatchStatement) *RuleGroupRuleStatementXssMatchStatementFieldToMatch {
 		if v == nil {
@@ -47372,9 +47278,7 @@ func (o RuleGroupRuleStatementXssMatchStatementPtrOutput) PreParseTextTransforma
 	}).(RuleGroupRuleStatementXssMatchStatementPreParseTextTransformationArrayOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See Text Transformation below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
 func (o RuleGroupRuleStatementXssMatchStatementPtrOutput) TextTransformations() RuleGroupRuleStatementXssMatchStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementXssMatchStatement) []RuleGroupRuleStatementXssMatchStatementTextTransformation {
 		if v == nil {
@@ -48048,9 +47952,9 @@ func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchBodyPtrOutput) Oversi
 }
 
 type RuleGroupRuleStatementXssMatchStatementFieldToMatchCookies struct {
-	// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+	// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 	MatchPatterns []RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern `pulumi:"matchPatterns"`
-	// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+	// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 	MatchScope string `pulumi:"matchScope"`
 	// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
 	OversizeHandling string `pulumi:"oversizeHandling"`
@@ -48068,9 +47972,9 @@ type RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesInput interface {
 }
 
 type RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesArgs struct {
-	// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+	// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 	MatchPatterns RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayInput `pulumi:"matchPatterns"`
-	// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+	// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 	MatchScope pulumi.StringInput `pulumi:"matchScope"`
 	// What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
 	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
@@ -48153,14 +48057,14 @@ func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesOutput) ToRule
 	}).(RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput)
 }
 
-// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesOutput) MatchPatterns() RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementXssMatchStatementFieldToMatchCookies) []RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern {
 		return v.MatchPatterns
 	}).(RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutput)
 }
 
-// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementXssMatchStatementFieldToMatchCookies) string { return v.MatchScope }).(pulumi.StringOutput)
 }
@@ -48194,7 +48098,7 @@ func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput) Ele
 	}).(RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesOutput)
 }
 
-// The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+// Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
 func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput) MatchPatterns() RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementXssMatchStatementFieldToMatchCookies) []RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern {
 		if v == nil {
@@ -48204,7 +48108,7 @@ func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput) Mat
 	}).(RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrayOutput)
 }
 
-// The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+// Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
 func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementXssMatchStatementFieldToMatchCookies) *string {
 		if v == nil {
@@ -48225,7 +48129,7 @@ func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesPtrOutput) Ove
 }
 
 type RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All             *RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll `pulumi:"all"`
 	ExcludedCookies []string                                                                   `pulumi:"excludedCookies"`
 	IncludedCookies []string                                                                   `pulumi:"includedCookies"`
@@ -48243,7 +48147,7 @@ type RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternInput
 }
 
 type RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArgs struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All             RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrInput `pulumi:"all"`
 	ExcludedCookies pulumi.StringArrayInput                                                           `pulumi:"excludedCookies"`
 	IncludedCookies pulumi.StringArrayInput                                                           `pulumi:"includedCookies"`
@@ -48300,7 +48204,7 @@ func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternOu
 	return o
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternOutput) All() RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern) *RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll {
 		return v.All
@@ -48458,9 +48362,9 @@ func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAl
 }
 
 type RuleGroupRuleStatementXssMatchStatementFieldToMatchHeader struct {
-	// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+	// Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
 	MatchPattern RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern `pulumi:"matchPattern"`
-	// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+	// Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 	MatchScope string `pulumi:"matchScope"`
 	// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
 	OversizeHandling string `pulumi:"oversizeHandling"`
@@ -48478,9 +48382,9 @@ type RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderInput interface {
 }
 
 type RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderArgs struct {
-	// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+	// Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
 	MatchPattern RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternInput `pulumi:"matchPattern"`
-	// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+	// Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 	MatchScope pulumi.StringInput `pulumi:"matchScope"`
 	// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
 	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
@@ -48537,14 +48441,14 @@ func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderOutput) ToRuleG
 	return o
 }
 
-// The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+// Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
 func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderOutput) MatchPattern() RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementXssMatchStatementFieldToMatchHeader) RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern {
 		return v.MatchPattern
 	}).(RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput)
 }
 
-// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+// Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
 func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementXssMatchStatementFieldToMatchHeader) string { return v.MatchScope }).(pulumi.StringOutput)
 }
@@ -48575,11 +48479,11 @@ func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderArrayOutput) In
 }
 
 type RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All *RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll `pulumi:"all"`
-	// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 	ExcludedHeaders []string `pulumi:"excludedHeaders"`
-	// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 	IncludedHeaders []string `pulumi:"includedHeaders"`
 }
 
@@ -48595,11 +48499,11 @@ type RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternInput 
 }
 
 type RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrInput `pulumi:"all"`
-	// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 	ExcludedHeaders pulumi.StringArrayInput `pulumi:"excludedHeaders"`
-	// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+	// Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 	IncludedHeaders pulumi.StringArrayInput `pulumi:"includedHeaders"`
 }
 
@@ -48629,21 +48533,21 @@ func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOut
 	return o
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput) All() RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern) *RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll {
 		return v.All
 	}).(RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput)
 }
 
-// An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+// Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
 func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput) ExcludedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern) []string {
 		return v.ExcludedHeaders
 	}).(pulumi.StringArrayOutput)
 }
 
-// An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+// Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
 func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternOutput) IncludedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern) []string {
 		return v.IncludedHeaders
@@ -48868,7 +48772,7 @@ func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderOrderArrayOutpu
 }
 
 type RuleGroupRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint struct {
-	// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior string `pulumi:"fallbackBehavior"`
 }
 
@@ -48884,7 +48788,7 @@ type RuleGroupRuleStatementXssMatchStatementFieldToMatchJa3FingerprintInput inte
 }
 
 type RuleGroupRuleStatementXssMatchStatementFieldToMatchJa3FingerprintArgs struct {
-	// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
 }
 
@@ -48965,7 +48869,7 @@ func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchJa3FingerprintOutput)
 	}).(RuleGroupRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchJa3FingerprintOutput) FallbackBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint) string {
 		return v.FallbackBehavior
@@ -48996,7 +48900,7 @@ func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutp
 	}).(RuleGroupRuleStatementXssMatchStatementFieldToMatchJa3FingerprintOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint) *string {
 		if v == nil {
@@ -49007,7 +48911,7 @@ func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchJa3FingerprintPtrOutp
 }
 
 type RuleGroupRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint struct {
-	// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior string `pulumi:"fallbackBehavior"`
 }
 
@@ -49023,7 +48927,7 @@ type RuleGroupRuleStatementXssMatchStatementFieldToMatchJa4FingerprintInput inte
 }
 
 type RuleGroupRuleStatementXssMatchStatementFieldToMatchJa4FingerprintArgs struct {
-	// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+	// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
 }
 
@@ -49104,7 +49008,7 @@ func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchJa4FingerprintOutput)
 	}).(RuleGroupRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchJa4FingerprintOutput) FallbackBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint) string {
 		return v.FallbackBehavior
@@ -49135,7 +49039,7 @@ func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutp
 	}).(RuleGroupRuleStatementXssMatchStatementFieldToMatchJa4FingerprintOutput)
 }
 
-// The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+// Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
 func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint) *string {
 		if v == nil {
@@ -49148,9 +49052,9 @@ func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchJa4FingerprintPtrOutp
 type RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBody struct {
 	// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
 	InvalidFallbackBehavior *string `pulumi:"invalidFallbackBehavior"`
-	// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+	// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 	MatchPattern RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern `pulumi:"matchPattern"`
-	// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+	// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 	MatchScope string `pulumi:"matchScope"`
 	// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
 	OversizeHandling *string `pulumi:"oversizeHandling"`
@@ -49170,9 +49074,9 @@ type RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyInput interface 
 type RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyArgs struct {
 	// What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
 	InvalidFallbackBehavior pulumi.StringPtrInput `pulumi:"invalidFallbackBehavior"`
-	// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+	// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 	MatchPattern RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternInput `pulumi:"matchPattern"`
-	// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+	// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 	MatchScope pulumi.StringInput `pulumi:"matchScope"`
 	// What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
 	OversizeHandling pulumi.StringPtrInput `pulumi:"oversizeHandling"`
@@ -49262,14 +49166,14 @@ func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyOutput) Inval
 	}).(pulumi.StringPtrOutput)
 }
 
-// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyOutput) MatchPattern() RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBody) RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern {
 		return v.MatchPattern
 	}).(RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput)
 }
 
-// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBody) string { return v.MatchScope }).(pulumi.StringOutput)
 }
@@ -49313,7 +49217,7 @@ func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput) In
 	}).(pulumi.StringPtrOutput)
 }
 
-// The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+// Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
 func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput) MatchPattern() RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBody) *RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern {
 		if v == nil {
@@ -49323,7 +49227,7 @@ func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput) Ma
 	}).(RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
 }
 
-// The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+// Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
 func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBody) *string {
 		if v == nil {
@@ -49344,7 +49248,7 @@ func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyPtrOutput) Ov
 }
 
 type RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All           *RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll `pulumi:"all"`
 	IncludedPaths []string                                                                    `pulumi:"includedPaths"`
 }
@@ -49361,7 +49265,7 @@ type RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternInpu
 }
 
 type RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgs struct {
-	// An empty configuration block that is used for inspecting all headers.
+	// Empty configuration block that is used for inspecting all headers.
 	All           RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrInput `pulumi:"all"`
 	IncludedPaths pulumi.StringArrayInput                                                            `pulumi:"includedPaths"`
 }
@@ -49443,7 +49347,7 @@ func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternO
 	}).(RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput) All() RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern) *RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll {
 		return v.All
@@ -49480,7 +49384,7 @@ func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternP
 	}).(RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternOutput)
 }
 
-// An empty configuration block that is used for inspecting all headers.
+// Empty configuration block that is used for inspecting all headers.
 func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput) All() RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern) *RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll {
 		if v == nil {
@@ -49854,7 +49758,7 @@ func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutput)
 }
 
 type RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeader struct {
-	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -49870,7 +49774,7 @@ type RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeaderInput interf
 }
 
 type RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeaderArgs struct {
-	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -49951,7 +49855,7 @@ func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeaderOutput) T
 	}).(RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
-// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeader) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -49980,7 +49884,7 @@ func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput
 	}).(RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeaderOutput)
 }
 
-// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeader) *string {
 		if v == nil {
@@ -49991,7 +49895,7 @@ func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput
 }
 
 type RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument struct {
-	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -50007,7 +49911,7 @@ type RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentInput
 }
 
 type RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs struct {
-	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+	// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -50088,7 +49992,7 @@ func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentOu
 	}).(RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
-// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -50117,7 +50021,7 @@ func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPt
 	}).(RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutput)
 }
 
-// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+// Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument) *string {
 		if v == nil {
@@ -50385,9 +50289,9 @@ func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchUriPathPtrOutput) Ele
 }
 
 type RuleGroupRuleStatementXssMatchStatementPreParseTextTransformation struct {
-	// The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
 	Priority int `pulumi:"priority"`
-	// The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
 	Type string `pulumi:"type"`
 }
 
@@ -50403,9 +50307,9 @@ type RuleGroupRuleStatementXssMatchStatementPreParseTextTransformationInput inte
 }
 
 type RuleGroupRuleStatementXssMatchStatementPreParseTextTransformationArgs struct {
-	// The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+	// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+	// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -50460,12 +50364,12 @@ func (o RuleGroupRuleStatementXssMatchStatementPreParseTextTransformationOutput)
 	return o
 }
 
-// The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+// Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
 func (o RuleGroupRuleStatementXssMatchStatementPreParseTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementXssMatchStatementPreParseTextTransformation) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+// Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
 func (o RuleGroupRuleStatementXssMatchStatementPreParseTextTransformationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementXssMatchStatementPreParseTextTransformation) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -50491,9 +50395,9 @@ func (o RuleGroupRuleStatementXssMatchStatementPreParseTextTransformationArrayOu
 }
 
 type RuleGroupRuleStatementXssMatchStatementTextTransformation struct {
-	// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 	Priority int `pulumi:"priority"`
-	// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 	Type string `pulumi:"type"`
 }
 
@@ -50509,9 +50413,9 @@ type RuleGroupRuleStatementXssMatchStatementTextTransformationInput interface {
 }
 
 type RuleGroupRuleStatementXssMatchStatementTextTransformationArgs struct {
-	// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+	// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+	// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -50566,12 +50470,12 @@ func (o RuleGroupRuleStatementXssMatchStatementTextTransformationOutput) ToRuleG
 	return o
 }
 
-// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
 func (o RuleGroupRuleStatementXssMatchStatementTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementXssMatchStatementTextTransformation) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+// Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
 func (o RuleGroupRuleStatementXssMatchStatementTextTransformationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementXssMatchStatementTextTransformation) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -50597,11 +50501,11 @@ func (o RuleGroupRuleStatementXssMatchStatementTextTransformationArrayOutput) In
 }
 
 type RuleGroupRuleVisibilityConfig struct {
-	// A boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
+	// Boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
 	CloudwatchMetricsEnabled bool `pulumi:"cloudwatchMetricsEnabled"`
-	// A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
+	// Friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
 	MetricName string `pulumi:"metricName"`
-	// A boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
+	// Boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
 	SampledRequestsEnabled bool `pulumi:"sampledRequestsEnabled"`
 }
 
@@ -50617,11 +50521,11 @@ type RuleGroupRuleVisibilityConfigInput interface {
 }
 
 type RuleGroupRuleVisibilityConfigArgs struct {
-	// A boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
+	// Boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
 	CloudwatchMetricsEnabled pulumi.BoolInput `pulumi:"cloudwatchMetricsEnabled"`
-	// A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
+	// Friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
 	MetricName pulumi.StringInput `pulumi:"metricName"`
-	// A boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
+	// Boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
 	SampledRequestsEnabled pulumi.BoolInput `pulumi:"sampledRequestsEnabled"`
 }
 
@@ -50651,27 +50555,27 @@ func (o RuleGroupRuleVisibilityConfigOutput) ToRuleGroupRuleVisibilityConfigOutp
 	return o
 }
 
-// A boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
+// Boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
 func (o RuleGroupRuleVisibilityConfigOutput) CloudwatchMetricsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v RuleGroupRuleVisibilityConfig) bool { return v.CloudwatchMetricsEnabled }).(pulumi.BoolOutput)
 }
 
-// A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
+// Friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
 func (o RuleGroupRuleVisibilityConfigOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleVisibilityConfig) string { return v.MetricName }).(pulumi.StringOutput)
 }
 
-// A boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
+// Boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
 func (o RuleGroupRuleVisibilityConfigOutput) SampledRequestsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v RuleGroupRuleVisibilityConfig) bool { return v.SampledRequestsEnabled }).(pulumi.BoolOutput)
 }
 
 type RuleGroupVisibilityConfig struct {
-	// A boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
+	// Boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
 	CloudwatchMetricsEnabled bool `pulumi:"cloudwatchMetricsEnabled"`
-	// A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
+	// Friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
 	MetricName string `pulumi:"metricName"`
-	// A boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
+	// Boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
 	SampledRequestsEnabled bool `pulumi:"sampledRequestsEnabled"`
 }
 
@@ -50687,11 +50591,11 @@ type RuleGroupVisibilityConfigInput interface {
 }
 
 type RuleGroupVisibilityConfigArgs struct {
-	// A boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
+	// Boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
 	CloudwatchMetricsEnabled pulumi.BoolInput `pulumi:"cloudwatchMetricsEnabled"`
-	// A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
+	// Friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
 	MetricName pulumi.StringInput `pulumi:"metricName"`
-	// A boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
+	// Boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
 	SampledRequestsEnabled pulumi.BoolInput `pulumi:"sampledRequestsEnabled"`
 }
 
@@ -50772,17 +50676,17 @@ func (o RuleGroupVisibilityConfigOutput) ToRuleGroupVisibilityConfigPtrOutputWit
 	}).(RuleGroupVisibilityConfigPtrOutput)
 }
 
-// A boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
+// Boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
 func (o RuleGroupVisibilityConfigOutput) CloudwatchMetricsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v RuleGroupVisibilityConfig) bool { return v.CloudwatchMetricsEnabled }).(pulumi.BoolOutput)
 }
 
-// A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
+// Friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
 func (o RuleGroupVisibilityConfigOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupVisibilityConfig) string { return v.MetricName }).(pulumi.StringOutput)
 }
 
-// A boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
+// Boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
 func (o RuleGroupVisibilityConfigOutput) SampledRequestsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v RuleGroupVisibilityConfig) bool { return v.SampledRequestsEnabled }).(pulumi.BoolOutput)
 }
@@ -50811,7 +50715,7 @@ func (o RuleGroupVisibilityConfigPtrOutput) Elem() RuleGroupVisibilityConfigOutp
 	}).(RuleGroupVisibilityConfigOutput)
 }
 
-// A boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
+// Boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
 func (o RuleGroupVisibilityConfigPtrOutput) CloudwatchMetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RuleGroupVisibilityConfig) *bool {
 		if v == nil {
@@ -50821,7 +50725,7 @@ func (o RuleGroupVisibilityConfigPtrOutput) CloudwatchMetricsEnabled() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
+// Friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
 func (o RuleGroupVisibilityConfigPtrOutput) MetricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupVisibilityConfig) *string {
 		if v == nil {
@@ -50831,7 +50735,7 @@ func (o RuleGroupVisibilityConfigPtrOutput) MetricName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// A boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
+// Boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
 func (o RuleGroupVisibilityConfigPtrOutput) SampledRequestsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RuleGroupVisibilityConfig) *bool {
 		if v == nil {
@@ -50987,7 +50891,7 @@ type WebAclAssociationConfigRequestBody struct {
 	Cloudfront *WebAclAssociationConfigRequestBodyCloudfront `pulumi:"cloudfront"`
 	// Customizes the request body that your protected Amazon Cognito user pools forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cognitoUserPool` below for details.
 	CognitoUserPool *WebAclAssociationConfigRequestBodyCognitoUserPool `pulumi:"cognitoUserPool"`
-	// Customizes the request body that your protected AWS Verfied Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verifiedAccessInstance` below for details.
+	// Customizes the request body that your protected AWS Verified Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verifiedAccessInstance` below for details.
 	VerifiedAccessInstance *WebAclAssociationConfigRequestBodyVerifiedAccessInstance `pulumi:"verifiedAccessInstance"`
 }
 
@@ -51011,7 +50915,7 @@ type WebAclAssociationConfigRequestBodyArgs struct {
 	Cloudfront WebAclAssociationConfigRequestBodyCloudfrontPtrInput `pulumi:"cloudfront"`
 	// Customizes the request body that your protected Amazon Cognito user pools forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cognitoUserPool` below for details.
 	CognitoUserPool WebAclAssociationConfigRequestBodyCognitoUserPoolPtrInput `pulumi:"cognitoUserPool"`
-	// Customizes the request body that your protected AWS Verfied Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verifiedAccessInstance` below for details.
+	// Customizes the request body that your protected AWS Verified Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verifiedAccessInstance` below for details.
 	VerifiedAccessInstance WebAclAssociationConfigRequestBodyVerifiedAccessInstancePtrInput `pulumi:"verifiedAccessInstance"`
 }
 
@@ -51094,7 +50998,7 @@ func (o WebAclAssociationConfigRequestBodyOutput) CognitoUserPool() WebAclAssoci
 	}).(WebAclAssociationConfigRequestBodyCognitoUserPoolPtrOutput)
 }
 
-// Customizes the request body that your protected AWS Verfied Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verifiedAccessInstance` below for details.
+// Customizes the request body that your protected AWS Verified Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verifiedAccessInstance` below for details.
 func (o WebAclAssociationConfigRequestBodyOutput) VerifiedAccessInstance() WebAclAssociationConfigRequestBodyVerifiedAccessInstancePtrOutput {
 	return o.ApplyT(func(v WebAclAssociationConfigRequestBody) *WebAclAssociationConfigRequestBodyVerifiedAccessInstance {
 		return v.VerifiedAccessInstance
@@ -51122,7 +51026,7 @@ func (o WebAclAssociationConfigRequestBodyArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type WebAclAssociationConfigRequestBodyApiGateway struct {
-	// Specifies the maximum size of the web request body component that an associated Amazon API Gateway REST APIs should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+	// Maximum size of the web request body component that an associated Amazon API Gateway REST APIs should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
 	DefaultSizeInspectionLimit string `pulumi:"defaultSizeInspectionLimit"`
 }
 
@@ -51138,7 +51042,7 @@ type WebAclAssociationConfigRequestBodyApiGatewayInput interface {
 }
 
 type WebAclAssociationConfigRequestBodyApiGatewayArgs struct {
-	// Specifies the maximum size of the web request body component that an associated Amazon API Gateway REST APIs should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+	// Maximum size of the web request body component that an associated Amazon API Gateway REST APIs should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
 	DefaultSizeInspectionLimit pulumi.StringInput `pulumi:"defaultSizeInspectionLimit"`
 }
 
@@ -51219,7 +51123,7 @@ func (o WebAclAssociationConfigRequestBodyApiGatewayOutput) ToWebAclAssociationC
 	}).(WebAclAssociationConfigRequestBodyApiGatewayPtrOutput)
 }
 
-// Specifies the maximum size of the web request body component that an associated Amazon API Gateway REST APIs should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+// Maximum size of the web request body component that an associated Amazon API Gateway REST APIs should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
 func (o WebAclAssociationConfigRequestBodyApiGatewayOutput) DefaultSizeInspectionLimit() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclAssociationConfigRequestBodyApiGateway) string { return v.DefaultSizeInspectionLimit }).(pulumi.StringOutput)
 }
@@ -51248,7 +51152,7 @@ func (o WebAclAssociationConfigRequestBodyApiGatewayPtrOutput) Elem() WebAclAsso
 	}).(WebAclAssociationConfigRequestBodyApiGatewayOutput)
 }
 
-// Specifies the maximum size of the web request body component that an associated Amazon API Gateway REST APIs should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+// Maximum size of the web request body component that an associated Amazon API Gateway REST APIs should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
 func (o WebAclAssociationConfigRequestBodyApiGatewayPtrOutput) DefaultSizeInspectionLimit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclAssociationConfigRequestBodyApiGateway) *string {
 		if v == nil {
@@ -51259,7 +51163,7 @@ func (o WebAclAssociationConfigRequestBodyApiGatewayPtrOutput) DefaultSizeInspec
 }
 
 type WebAclAssociationConfigRequestBodyAppRunnerService struct {
-	// Specifies the maximum size of the web request body component that an associated Amazon App Runner services should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+	// Maximum size of the web request body component that an associated Amazon App Runner services should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
 	DefaultSizeInspectionLimit string `pulumi:"defaultSizeInspectionLimit"`
 }
 
@@ -51275,7 +51179,7 @@ type WebAclAssociationConfigRequestBodyAppRunnerServiceInput interface {
 }
 
 type WebAclAssociationConfigRequestBodyAppRunnerServiceArgs struct {
-	// Specifies the maximum size of the web request body component that an associated Amazon App Runner services should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+	// Maximum size of the web request body component that an associated Amazon App Runner services should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
 	DefaultSizeInspectionLimit pulumi.StringInput `pulumi:"defaultSizeInspectionLimit"`
 }
 
@@ -51356,7 +51260,7 @@ func (o WebAclAssociationConfigRequestBodyAppRunnerServiceOutput) ToWebAclAssoci
 	}).(WebAclAssociationConfigRequestBodyAppRunnerServicePtrOutput)
 }
 
-// Specifies the maximum size of the web request body component that an associated Amazon App Runner services should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+// Maximum size of the web request body component that an associated Amazon App Runner services should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
 func (o WebAclAssociationConfigRequestBodyAppRunnerServiceOutput) DefaultSizeInspectionLimit() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclAssociationConfigRequestBodyAppRunnerService) string { return v.DefaultSizeInspectionLimit }).(pulumi.StringOutput)
 }
@@ -51385,7 +51289,7 @@ func (o WebAclAssociationConfigRequestBodyAppRunnerServicePtrOutput) Elem() WebA
 	}).(WebAclAssociationConfigRequestBodyAppRunnerServiceOutput)
 }
 
-// Specifies the maximum size of the web request body component that an associated Amazon App Runner services should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+// Maximum size of the web request body component that an associated Amazon App Runner services should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
 func (o WebAclAssociationConfigRequestBodyAppRunnerServicePtrOutput) DefaultSizeInspectionLimit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclAssociationConfigRequestBodyAppRunnerService) *string {
 		if v == nil {
@@ -51396,7 +51300,7 @@ func (o WebAclAssociationConfigRequestBodyAppRunnerServicePtrOutput) DefaultSize
 }
 
 type WebAclAssociationConfigRequestBodyCloudfront struct {
-	// Specifies the maximum size of the web request body component that an associated Amazon CloudFront distribution should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+	// Maximum size of the web request body component that an associated Amazon CloudFront distribution should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
 	DefaultSizeInspectionLimit string `pulumi:"defaultSizeInspectionLimit"`
 }
 
@@ -51412,7 +51316,7 @@ type WebAclAssociationConfigRequestBodyCloudfrontInput interface {
 }
 
 type WebAclAssociationConfigRequestBodyCloudfrontArgs struct {
-	// Specifies the maximum size of the web request body component that an associated Amazon CloudFront distribution should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+	// Maximum size of the web request body component that an associated Amazon CloudFront distribution should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
 	DefaultSizeInspectionLimit pulumi.StringInput `pulumi:"defaultSizeInspectionLimit"`
 }
 
@@ -51493,7 +51397,7 @@ func (o WebAclAssociationConfigRequestBodyCloudfrontOutput) ToWebAclAssociationC
 	}).(WebAclAssociationConfigRequestBodyCloudfrontPtrOutput)
 }
 
-// Specifies the maximum size of the web request body component that an associated Amazon CloudFront distribution should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+// Maximum size of the web request body component that an associated Amazon CloudFront distribution should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
 func (o WebAclAssociationConfigRequestBodyCloudfrontOutput) DefaultSizeInspectionLimit() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclAssociationConfigRequestBodyCloudfront) string { return v.DefaultSizeInspectionLimit }).(pulumi.StringOutput)
 }
@@ -51522,7 +51426,7 @@ func (o WebAclAssociationConfigRequestBodyCloudfrontPtrOutput) Elem() WebAclAsso
 	}).(WebAclAssociationConfigRequestBodyCloudfrontOutput)
 }
 
-// Specifies the maximum size of the web request body component that an associated Amazon CloudFront distribution should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+// Maximum size of the web request body component that an associated Amazon CloudFront distribution should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
 func (o WebAclAssociationConfigRequestBodyCloudfrontPtrOutput) DefaultSizeInspectionLimit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclAssociationConfigRequestBodyCloudfront) *string {
 		if v == nil {
@@ -51533,7 +51437,7 @@ func (o WebAclAssociationConfigRequestBodyCloudfrontPtrOutput) DefaultSizeInspec
 }
 
 type WebAclAssociationConfigRequestBodyCognitoUserPool struct {
-	// Specifies the maximum size of the web request body component that an associated Amazon Cognito user pools should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+	// Maximum size of the web request body component that an associated Amazon Cognito user pools should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
 	DefaultSizeInspectionLimit string `pulumi:"defaultSizeInspectionLimit"`
 }
 
@@ -51549,7 +51453,7 @@ type WebAclAssociationConfigRequestBodyCognitoUserPoolInput interface {
 }
 
 type WebAclAssociationConfigRequestBodyCognitoUserPoolArgs struct {
-	// Specifies the maximum size of the web request body component that an associated Amazon Cognito user pools should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+	// Maximum size of the web request body component that an associated Amazon Cognito user pools should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
 	DefaultSizeInspectionLimit pulumi.StringInput `pulumi:"defaultSizeInspectionLimit"`
 }
 
@@ -51630,7 +51534,7 @@ func (o WebAclAssociationConfigRequestBodyCognitoUserPoolOutput) ToWebAclAssocia
 	}).(WebAclAssociationConfigRequestBodyCognitoUserPoolPtrOutput)
 }
 
-// Specifies the maximum size of the web request body component that an associated Amazon Cognito user pools should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+// Maximum size of the web request body component that an associated Amazon Cognito user pools should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
 func (o WebAclAssociationConfigRequestBodyCognitoUserPoolOutput) DefaultSizeInspectionLimit() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclAssociationConfigRequestBodyCognitoUserPool) string { return v.DefaultSizeInspectionLimit }).(pulumi.StringOutput)
 }
@@ -51659,7 +51563,7 @@ func (o WebAclAssociationConfigRequestBodyCognitoUserPoolPtrOutput) Elem() WebAc
 	}).(WebAclAssociationConfigRequestBodyCognitoUserPoolOutput)
 }
 
-// Specifies the maximum size of the web request body component that an associated Amazon Cognito user pools should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+// Maximum size of the web request body component that an associated Amazon Cognito user pools should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
 func (o WebAclAssociationConfigRequestBodyCognitoUserPoolPtrOutput) DefaultSizeInspectionLimit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclAssociationConfigRequestBodyCognitoUserPool) *string {
 		if v == nil {
@@ -51670,7 +51574,7 @@ func (o WebAclAssociationConfigRequestBodyCognitoUserPoolPtrOutput) DefaultSizeI
 }
 
 type WebAclAssociationConfigRequestBodyVerifiedAccessInstance struct {
-	// Specifies the maximum size of the web request body component that an associated AWS Verified Access instances should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+	// Maximum size of the web request body component that an associated AWS Verified Access instances should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
 	DefaultSizeInspectionLimit string `pulumi:"defaultSizeInspectionLimit"`
 }
 
@@ -51686,7 +51590,7 @@ type WebAclAssociationConfigRequestBodyVerifiedAccessInstanceInput interface {
 }
 
 type WebAclAssociationConfigRequestBodyVerifiedAccessInstanceArgs struct {
-	// Specifies the maximum size of the web request body component that an associated AWS Verified Access instances should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+	// Maximum size of the web request body component that an associated AWS Verified Access instances should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
 	DefaultSizeInspectionLimit pulumi.StringInput `pulumi:"defaultSizeInspectionLimit"`
 }
 
@@ -51767,7 +51671,7 @@ func (o WebAclAssociationConfigRequestBodyVerifiedAccessInstanceOutput) ToWebAcl
 	}).(WebAclAssociationConfigRequestBodyVerifiedAccessInstancePtrOutput)
 }
 
-// Specifies the maximum size of the web request body component that an associated AWS Verified Access instances should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+// Maximum size of the web request body component that an associated AWS Verified Access instances should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
 func (o WebAclAssociationConfigRequestBodyVerifiedAccessInstanceOutput) DefaultSizeInspectionLimit() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclAssociationConfigRequestBodyVerifiedAccessInstance) string {
 		return v.DefaultSizeInspectionLimit
@@ -51798,7 +51702,7 @@ func (o WebAclAssociationConfigRequestBodyVerifiedAccessInstancePtrOutput) Elem(
 	}).(WebAclAssociationConfigRequestBodyVerifiedAccessInstanceOutput)
 }
 
-// Specifies the maximum size of the web request body component that an associated AWS Verified Access instances should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+// Maximum size of the web request body component that an associated AWS Verified Access instances should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
 func (o WebAclAssociationConfigRequestBodyVerifiedAccessInstancePtrOutput) DefaultSizeInspectionLimit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclAssociationConfigRequestBodyVerifiedAccessInstance) *string {
 		if v == nil {
@@ -51809,7 +51713,7 @@ func (o WebAclAssociationConfigRequestBodyVerifiedAccessInstancePtrOutput) Defau
 }
 
 type WebAclCaptchaConfig struct {
-	// Defines custom immunity time. See `immunityTimeProperty` below for details.
+	// Custom immunity time. See `immunityTimeProperty` below for details.
 	ImmunityTimeProperty *WebAclCaptchaConfigImmunityTimeProperty `pulumi:"immunityTimeProperty"`
 }
 
@@ -51825,7 +51729,7 @@ type WebAclCaptchaConfigInput interface {
 }
 
 type WebAclCaptchaConfigArgs struct {
-	// Defines custom immunity time. See `immunityTimeProperty` below for details.
+	// Custom immunity time. See `immunityTimeProperty` below for details.
 	ImmunityTimeProperty WebAclCaptchaConfigImmunityTimePropertyPtrInput `pulumi:"immunityTimeProperty"`
 }
 
@@ -51906,7 +51810,7 @@ func (o WebAclCaptchaConfigOutput) ToWebAclCaptchaConfigPtrOutputWithContext(ctx
 	}).(WebAclCaptchaConfigPtrOutput)
 }
 
-// Defines custom immunity time. See `immunityTimeProperty` below for details.
+// Custom immunity time. See `immunityTimeProperty` below for details.
 func (o WebAclCaptchaConfigOutput) ImmunityTimeProperty() WebAclCaptchaConfigImmunityTimePropertyPtrOutput {
 	return o.ApplyT(func(v WebAclCaptchaConfig) *WebAclCaptchaConfigImmunityTimeProperty { return v.ImmunityTimeProperty }).(WebAclCaptchaConfigImmunityTimePropertyPtrOutput)
 }
@@ -51935,7 +51839,7 @@ func (o WebAclCaptchaConfigPtrOutput) Elem() WebAclCaptchaConfigOutput {
 	}).(WebAclCaptchaConfigOutput)
 }
 
-// Defines custom immunity time. See `immunityTimeProperty` below for details.
+// Custom immunity time. See `immunityTimeProperty` below for details.
 func (o WebAclCaptchaConfigPtrOutput) ImmunityTimeProperty() WebAclCaptchaConfigImmunityTimePropertyPtrOutput {
 	return o.ApplyT(func(v *WebAclCaptchaConfig) *WebAclCaptchaConfigImmunityTimeProperty {
 		if v == nil {
@@ -51946,7 +51850,7 @@ func (o WebAclCaptchaConfigPtrOutput) ImmunityTimeProperty() WebAclCaptchaConfig
 }
 
 type WebAclCaptchaConfigImmunityTimeProperty struct {
-	// The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+	// Amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
 	ImmunityTime *int `pulumi:"immunityTime"`
 }
 
@@ -51962,7 +51866,7 @@ type WebAclCaptchaConfigImmunityTimePropertyInput interface {
 }
 
 type WebAclCaptchaConfigImmunityTimePropertyArgs struct {
-	// The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+	// Amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
 	ImmunityTime pulumi.IntPtrInput `pulumi:"immunityTime"`
 }
 
@@ -52043,7 +51947,7 @@ func (o WebAclCaptchaConfigImmunityTimePropertyOutput) ToWebAclCaptchaConfigImmu
 	}).(WebAclCaptchaConfigImmunityTimePropertyPtrOutput)
 }
 
-// The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+// Amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
 func (o WebAclCaptchaConfigImmunityTimePropertyOutput) ImmunityTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WebAclCaptchaConfigImmunityTimeProperty) *int { return v.ImmunityTime }).(pulumi.IntPtrOutput)
 }
@@ -52072,7 +51976,7 @@ func (o WebAclCaptchaConfigImmunityTimePropertyPtrOutput) Elem() WebAclCaptchaCo
 	}).(WebAclCaptchaConfigImmunityTimePropertyOutput)
 }
 
-// The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+// Amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
 func (o WebAclCaptchaConfigImmunityTimePropertyPtrOutput) ImmunityTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WebAclCaptchaConfigImmunityTimeProperty) *int {
 		if v == nil {
@@ -52083,7 +51987,7 @@ func (o WebAclCaptchaConfigImmunityTimePropertyPtrOutput) ImmunityTime() pulumi.
 }
 
 type WebAclChallengeConfig struct {
-	// Defines custom immunity time. See `immunityTimeProperty` below for details.
+	// Custom immunity time. See `immunityTimeProperty` below for details.
 	ImmunityTimeProperty *WebAclChallengeConfigImmunityTimeProperty `pulumi:"immunityTimeProperty"`
 }
 
@@ -52099,7 +52003,7 @@ type WebAclChallengeConfigInput interface {
 }
 
 type WebAclChallengeConfigArgs struct {
-	// Defines custom immunity time. See `immunityTimeProperty` below for details.
+	// Custom immunity time. See `immunityTimeProperty` below for details.
 	ImmunityTimeProperty WebAclChallengeConfigImmunityTimePropertyPtrInput `pulumi:"immunityTimeProperty"`
 }
 
@@ -52180,7 +52084,7 @@ func (o WebAclChallengeConfigOutput) ToWebAclChallengeConfigPtrOutputWithContext
 	}).(WebAclChallengeConfigPtrOutput)
 }
 
-// Defines custom immunity time. See `immunityTimeProperty` below for details.
+// Custom immunity time. See `immunityTimeProperty` below for details.
 func (o WebAclChallengeConfigOutput) ImmunityTimeProperty() WebAclChallengeConfigImmunityTimePropertyPtrOutput {
 	return o.ApplyT(func(v WebAclChallengeConfig) *WebAclChallengeConfigImmunityTimeProperty {
 		return v.ImmunityTimeProperty
@@ -52211,7 +52115,7 @@ func (o WebAclChallengeConfigPtrOutput) Elem() WebAclChallengeConfigOutput {
 	}).(WebAclChallengeConfigOutput)
 }
 
-// Defines custom immunity time. See `immunityTimeProperty` below for details.
+// Custom immunity time. See `immunityTimeProperty` below for details.
 func (o WebAclChallengeConfigPtrOutput) ImmunityTimeProperty() WebAclChallengeConfigImmunityTimePropertyPtrOutput {
 	return o.ApplyT(func(v *WebAclChallengeConfig) *WebAclChallengeConfigImmunityTimeProperty {
 		if v == nil {
@@ -52222,7 +52126,7 @@ func (o WebAclChallengeConfigPtrOutput) ImmunityTimeProperty() WebAclChallengeCo
 }
 
 type WebAclChallengeConfigImmunityTimeProperty struct {
-	// The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+	// Amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
 	ImmunityTime *int `pulumi:"immunityTime"`
 }
 
@@ -52238,7 +52142,7 @@ type WebAclChallengeConfigImmunityTimePropertyInput interface {
 }
 
 type WebAclChallengeConfigImmunityTimePropertyArgs struct {
-	// The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+	// Amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
 	ImmunityTime pulumi.IntPtrInput `pulumi:"immunityTime"`
 }
 
@@ -52319,7 +52223,7 @@ func (o WebAclChallengeConfigImmunityTimePropertyOutput) ToWebAclChallengeConfig
 	}).(WebAclChallengeConfigImmunityTimePropertyPtrOutput)
 }
 
-// The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+// Amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
 func (o WebAclChallengeConfigImmunityTimePropertyOutput) ImmunityTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WebAclChallengeConfigImmunityTimeProperty) *int { return v.ImmunityTime }).(pulumi.IntPtrOutput)
 }
@@ -52348,7 +52252,7 @@ func (o WebAclChallengeConfigImmunityTimePropertyPtrOutput) Elem() WebAclChallen
 	}).(WebAclChallengeConfigImmunityTimePropertyOutput)
 }
 
-// The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+// Amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
 func (o WebAclChallengeConfigImmunityTimePropertyPtrOutput) ImmunityTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WebAclChallengeConfigImmunityTimeProperty) *int {
 		if v == nil {
@@ -52474,7 +52378,7 @@ func (o WebAclCustomResponseBodyArrayOutput) Index(i pulumi.IntInput) WebAclCust
 }
 
 type WebAclDataProtectionConfig struct {
-	// A block for data protection configurations for specific web request field types. See `dataProtection` block for details.
+	// Block for data protection configurations for specific web request field types. See `dataProtection` block for details.
 	DataProtections []WebAclDataProtectionConfigDataProtection `pulumi:"dataProtections"`
 }
 
@@ -52490,7 +52394,7 @@ type WebAclDataProtectionConfigInput interface {
 }
 
 type WebAclDataProtectionConfigArgs struct {
-	// A block for data protection configurations for specific web request field types. See `dataProtection` block for details.
+	// Block for data protection configurations for specific web request field types. See `dataProtection` block for details.
 	DataProtections WebAclDataProtectionConfigDataProtectionArrayInput `pulumi:"dataProtections"`
 }
 
@@ -52571,7 +52475,7 @@ func (o WebAclDataProtectionConfigOutput) ToWebAclDataProtectionConfigPtrOutputW
 	}).(WebAclDataProtectionConfigPtrOutput)
 }
 
-// A block for data protection configurations for specific web request field types. See `dataProtection` block for details.
+// Block for data protection configurations for specific web request field types. See `dataProtection` block for details.
 func (o WebAclDataProtectionConfigOutput) DataProtections() WebAclDataProtectionConfigDataProtectionArrayOutput {
 	return o.ApplyT(func(v WebAclDataProtectionConfig) []WebAclDataProtectionConfigDataProtection {
 		return v.DataProtections
@@ -52602,7 +52506,7 @@ func (o WebAclDataProtectionConfigPtrOutput) Elem() WebAclDataProtectionConfigOu
 	}).(WebAclDataProtectionConfigOutput)
 }
 
-// A block for data protection configurations for specific web request field types. See `dataProtection` block for details.
+// Block for data protection configurations for specific web request field types. See `dataProtection` block for details.
 func (o WebAclDataProtectionConfigPtrOutput) DataProtections() WebAclDataProtectionConfigDataProtectionArrayOutput {
 	return o.ApplyT(func(v *WebAclDataProtectionConfig) []WebAclDataProtectionConfigDataProtection {
 		if v == nil {
@@ -52613,13 +52517,13 @@ func (o WebAclDataProtectionConfigPtrOutput) DataProtections() WebAclDataProtect
 }
 
 type WebAclDataProtectionConfigDataProtection struct {
-	// Specifies how to protect the field. Valid values are `SUBSTITUTION` or `HASH`.
+	// Protection behavior to apply to the field. Valid values are `SUBSTITUTION` or `HASH`.
 	Action string `pulumi:"action"`
 	// Boolean to specify whether to also exclude any rate-based rule details from the data protection you have enabled for a given field.
 	ExcludeRateBasedDetails *bool `pulumi:"excludeRateBasedDetails"`
 	// Boolean to specify whether to also exclude any rule match details from the data protection you have enabled for a given field. AWS WAF logs these details for non-terminating matching rules and for the terminating matching rule.
 	ExcludeRuleMatchDetails *bool `pulumi:"excludeRuleMatchDetails"`
-	// Specifies the field type and optional keys to apply the protection behavior to. See `field` block below for details.
+	// Field type and optional keys to apply the protection behavior to. See `field` block below for details.
 	Field WebAclDataProtectionConfigDataProtectionField `pulumi:"field"`
 }
 
@@ -52635,13 +52539,13 @@ type WebAclDataProtectionConfigDataProtectionInput interface {
 }
 
 type WebAclDataProtectionConfigDataProtectionArgs struct {
-	// Specifies how to protect the field. Valid values are `SUBSTITUTION` or `HASH`.
+	// Protection behavior to apply to the field. Valid values are `SUBSTITUTION` or `HASH`.
 	Action pulumi.StringInput `pulumi:"action"`
 	// Boolean to specify whether to also exclude any rate-based rule details from the data protection you have enabled for a given field.
 	ExcludeRateBasedDetails pulumi.BoolPtrInput `pulumi:"excludeRateBasedDetails"`
 	// Boolean to specify whether to also exclude any rule match details from the data protection you have enabled for a given field. AWS WAF logs these details for non-terminating matching rules and for the terminating matching rule.
 	ExcludeRuleMatchDetails pulumi.BoolPtrInput `pulumi:"excludeRuleMatchDetails"`
-	// Specifies the field type and optional keys to apply the protection behavior to. See `field` block below for details.
+	// Field type and optional keys to apply the protection behavior to. See `field` block below for details.
 	Field WebAclDataProtectionConfigDataProtectionFieldInput `pulumi:"field"`
 }
 
@@ -52696,7 +52600,7 @@ func (o WebAclDataProtectionConfigDataProtectionOutput) ToWebAclDataProtectionCo
 	return o
 }
 
-// Specifies how to protect the field. Valid values are `SUBSTITUTION` or `HASH`.
+// Protection behavior to apply to the field. Valid values are `SUBSTITUTION` or `HASH`.
 func (o WebAclDataProtectionConfigDataProtectionOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclDataProtectionConfigDataProtection) string { return v.Action }).(pulumi.StringOutput)
 }
@@ -52711,7 +52615,7 @@ func (o WebAclDataProtectionConfigDataProtectionOutput) ExcludeRuleMatchDetails(
 	return o.ApplyT(func(v WebAclDataProtectionConfigDataProtection) *bool { return v.ExcludeRuleMatchDetails }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the field type and optional keys to apply the protection behavior to. See `field` block below for details.
+// Field type and optional keys to apply the protection behavior to. See `field` block below for details.
 func (o WebAclDataProtectionConfigDataProtectionOutput) Field() WebAclDataProtectionConfigDataProtectionFieldOutput {
 	return o.ApplyT(func(v WebAclDataProtectionConfigDataProtection) WebAclDataProtectionConfigDataProtectionField {
 		return v.Field
@@ -52741,7 +52645,7 @@ func (o WebAclDataProtectionConfigDataProtectionArrayOutput) Index(i pulumi.IntI
 type WebAclDataProtectionConfigDataProtectionField struct {
 	// Array of strings to specify the keys to protect for the specified field type. If you don't specify any key, then all keys for the field type are protected.
 	FieldKeys []string `pulumi:"fieldKeys"`
-	// Specifies the web request component type to protect. Valid Values are `SINGLE_HEADER`, `SINGLE_COOKIE`, `SINGLE_QUERY_ARGUMENT`, `QUERY_STRING`, `BODY`.
+	// Web request component type to protect. Valid Values are `SINGLE_HEADER`, `SINGLE_COOKIE`, `SINGLE_QUERY_ARGUMENT`, `QUERY_STRING`, `BODY`.
 	FieldType string `pulumi:"fieldType"`
 }
 
@@ -52759,7 +52663,7 @@ type WebAclDataProtectionConfigDataProtectionFieldInput interface {
 type WebAclDataProtectionConfigDataProtectionFieldArgs struct {
 	// Array of strings to specify the keys to protect for the specified field type. If you don't specify any key, then all keys for the field type are protected.
 	FieldKeys pulumi.StringArrayInput `pulumi:"fieldKeys"`
-	// Specifies the web request component type to protect. Valid Values are `SINGLE_HEADER`, `SINGLE_COOKIE`, `SINGLE_QUERY_ARGUMENT`, `QUERY_STRING`, `BODY`.
+	// Web request component type to protect. Valid Values are `SINGLE_HEADER`, `SINGLE_COOKIE`, `SINGLE_QUERY_ARGUMENT`, `QUERY_STRING`, `BODY`.
 	FieldType pulumi.StringInput `pulumi:"fieldType"`
 }
 
@@ -52794,15 +52698,15 @@ func (o WebAclDataProtectionConfigDataProtectionFieldOutput) FieldKeys() pulumi.
 	return o.ApplyT(func(v WebAclDataProtectionConfigDataProtectionField) []string { return v.FieldKeys }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the web request component type to protect. Valid Values are `SINGLE_HEADER`, `SINGLE_COOKIE`, `SINGLE_QUERY_ARGUMENT`, `QUERY_STRING`, `BODY`.
+// Web request component type to protect. Valid Values are `SINGLE_HEADER`, `SINGLE_COOKIE`, `SINGLE_QUERY_ARGUMENT`, `QUERY_STRING`, `BODY`.
 func (o WebAclDataProtectionConfigDataProtectionFieldOutput) FieldType() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclDataProtectionConfigDataProtectionField) string { return v.FieldType }).(pulumi.StringOutput)
 }
 
 type WebAclDefaultAction struct {
-	// Specifies that AWS WAF should allow requests by default. See `allow` below for details.
+	// Allows requests by default. See `allow` below for details.
 	Allow *WebAclDefaultActionAllow `pulumi:"allow"`
-	// Specifies that AWS WAF should block requests by default. See `block` below for details.
+	// Blocks requests by default. See `block` below for details.
 	Block *WebAclDefaultActionBlock `pulumi:"block"`
 }
 
@@ -52818,9 +52722,9 @@ type WebAclDefaultActionInput interface {
 }
 
 type WebAclDefaultActionArgs struct {
-	// Specifies that AWS WAF should allow requests by default. See `allow` below for details.
+	// Allows requests by default. See `allow` below for details.
 	Allow WebAclDefaultActionAllowPtrInput `pulumi:"allow"`
-	// Specifies that AWS WAF should block requests by default. See `block` below for details.
+	// Blocks requests by default. See `block` below for details.
 	Block WebAclDefaultActionBlockPtrInput `pulumi:"block"`
 }
 
@@ -52901,12 +52805,12 @@ func (o WebAclDefaultActionOutput) ToWebAclDefaultActionPtrOutputWithContext(ctx
 	}).(WebAclDefaultActionPtrOutput)
 }
 
-// Specifies that AWS WAF should allow requests by default. See `allow` below for details.
+// Allows requests by default. See `allow` below for details.
 func (o WebAclDefaultActionOutput) Allow() WebAclDefaultActionAllowPtrOutput {
 	return o.ApplyT(func(v WebAclDefaultAction) *WebAclDefaultActionAllow { return v.Allow }).(WebAclDefaultActionAllowPtrOutput)
 }
 
-// Specifies that AWS WAF should block requests by default. See `block` below for details.
+// Blocks requests by default. See `block` below for details.
 func (o WebAclDefaultActionOutput) Block() WebAclDefaultActionBlockPtrOutput {
 	return o.ApplyT(func(v WebAclDefaultAction) *WebAclDefaultActionBlock { return v.Block }).(WebAclDefaultActionBlockPtrOutput)
 }
@@ -52935,7 +52839,7 @@ func (o WebAclDefaultActionPtrOutput) Elem() WebAclDefaultActionOutput {
 	}).(WebAclDefaultActionOutput)
 }
 
-// Specifies that AWS WAF should allow requests by default. See `allow` below for details.
+// Allows requests by default. See `allow` below for details.
 func (o WebAclDefaultActionPtrOutput) Allow() WebAclDefaultActionAllowPtrOutput {
 	return o.ApplyT(func(v *WebAclDefaultAction) *WebAclDefaultActionAllow {
 		if v == nil {
@@ -52945,7 +52849,7 @@ func (o WebAclDefaultActionPtrOutput) Allow() WebAclDefaultActionAllowPtrOutput 
 	}).(WebAclDefaultActionAllowPtrOutput)
 }
 
-// Specifies that AWS WAF should block requests by default. See `block` below for details.
+// Blocks requests by default. See `block` below for details.
 func (o WebAclDefaultActionPtrOutput) Block() WebAclDefaultActionBlockPtrOutput {
 	return o.ApplyT(func(v *WebAclDefaultAction) *WebAclDefaultActionBlock {
 		if v == nil {
@@ -52956,7 +52860,7 @@ func (o WebAclDefaultActionPtrOutput) Block() WebAclDefaultActionBlockPtrOutput 
 }
 
 type WebAclDefaultActionAllow struct {
-	// Defines custom handling for the web request. See `customRequestHandling` below for details.
+	// Custom handling for the web request. See `customRequestHandling` below for details.
 	CustomRequestHandling *WebAclDefaultActionAllowCustomRequestHandling `pulumi:"customRequestHandling"`
 }
 
@@ -52972,7 +52876,7 @@ type WebAclDefaultActionAllowInput interface {
 }
 
 type WebAclDefaultActionAllowArgs struct {
-	// Defines custom handling for the web request. See `customRequestHandling` below for details.
+	// Custom handling for the web request. See `customRequestHandling` below for details.
 	CustomRequestHandling WebAclDefaultActionAllowCustomRequestHandlingPtrInput `pulumi:"customRequestHandling"`
 }
 
@@ -53053,7 +52957,7 @@ func (o WebAclDefaultActionAllowOutput) ToWebAclDefaultActionAllowPtrOutputWithC
 	}).(WebAclDefaultActionAllowPtrOutput)
 }
 
-// Defines custom handling for the web request. See `customRequestHandling` below for details.
+// Custom handling for the web request. See `customRequestHandling` below for details.
 func (o WebAclDefaultActionAllowOutput) CustomRequestHandling() WebAclDefaultActionAllowCustomRequestHandlingPtrOutput {
 	return o.ApplyT(func(v WebAclDefaultActionAllow) *WebAclDefaultActionAllowCustomRequestHandling {
 		return v.CustomRequestHandling
@@ -53084,7 +52988,7 @@ func (o WebAclDefaultActionAllowPtrOutput) Elem() WebAclDefaultActionAllowOutput
 	}).(WebAclDefaultActionAllowOutput)
 }
 
-// Defines custom handling for the web request. See `customRequestHandling` below for details.
+// Custom handling for the web request. See `customRequestHandling` below for details.
 func (o WebAclDefaultActionAllowPtrOutput) CustomRequestHandling() WebAclDefaultActionAllowCustomRequestHandlingPtrOutput {
 	return o.ApplyT(func(v *WebAclDefaultActionAllow) *WebAclDefaultActionAllowCustomRequestHandling {
 		if v == nil {
@@ -53095,7 +52999,7 @@ func (o WebAclDefaultActionAllowPtrOutput) CustomRequestHandling() WebAclDefault
 }
 
 type WebAclDefaultActionAllowCustomRequestHandling struct {
-	// The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+	// `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
 	InsertHeaders []WebAclDefaultActionAllowCustomRequestHandlingInsertHeader `pulumi:"insertHeaders"`
 }
 
@@ -53111,7 +53015,7 @@ type WebAclDefaultActionAllowCustomRequestHandlingInput interface {
 }
 
 type WebAclDefaultActionAllowCustomRequestHandlingArgs struct {
-	// The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+	// `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
 	InsertHeaders WebAclDefaultActionAllowCustomRequestHandlingInsertHeaderArrayInput `pulumi:"insertHeaders"`
 }
 
@@ -53192,7 +53096,7 @@ func (o WebAclDefaultActionAllowCustomRequestHandlingOutput) ToWebAclDefaultActi
 	}).(WebAclDefaultActionAllowCustomRequestHandlingPtrOutput)
 }
 
-// The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+// `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
 func (o WebAclDefaultActionAllowCustomRequestHandlingOutput) InsertHeaders() WebAclDefaultActionAllowCustomRequestHandlingInsertHeaderArrayOutput {
 	return o.ApplyT(func(v WebAclDefaultActionAllowCustomRequestHandling) []WebAclDefaultActionAllowCustomRequestHandlingInsertHeader {
 		return v.InsertHeaders
@@ -53223,7 +53127,7 @@ func (o WebAclDefaultActionAllowCustomRequestHandlingPtrOutput) Elem() WebAclDef
 	}).(WebAclDefaultActionAllowCustomRequestHandlingOutput)
 }
 
-// The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+// `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
 func (o WebAclDefaultActionAllowCustomRequestHandlingPtrOutput) InsertHeaders() WebAclDefaultActionAllowCustomRequestHandlingInsertHeaderArrayOutput {
 	return o.ApplyT(func(v *WebAclDefaultActionAllowCustomRequestHandling) []WebAclDefaultActionAllowCustomRequestHandlingInsertHeader {
 		if v == nil {
@@ -53340,7 +53244,7 @@ func (o WebAclDefaultActionAllowCustomRequestHandlingInsertHeaderArrayOutput) In
 }
 
 type WebAclDefaultActionBlock struct {
-	// Defines a custom response for the web request. See `customResponse` below for details.
+	// Custom response for the web request. See `customResponse` below for details.
 	CustomResponse *WebAclDefaultActionBlockCustomResponse `pulumi:"customResponse"`
 }
 
@@ -53356,7 +53260,7 @@ type WebAclDefaultActionBlockInput interface {
 }
 
 type WebAclDefaultActionBlockArgs struct {
-	// Defines a custom response for the web request. See `customResponse` below for details.
+	// Custom response for the web request. See `customResponse` below for details.
 	CustomResponse WebAclDefaultActionBlockCustomResponsePtrInput `pulumi:"customResponse"`
 }
 
@@ -53437,7 +53341,7 @@ func (o WebAclDefaultActionBlockOutput) ToWebAclDefaultActionBlockPtrOutputWithC
 	}).(WebAclDefaultActionBlockPtrOutput)
 }
 
-// Defines a custom response for the web request. See `customResponse` below for details.
+// Custom response for the web request. See `customResponse` below for details.
 func (o WebAclDefaultActionBlockOutput) CustomResponse() WebAclDefaultActionBlockCustomResponsePtrOutput {
 	return o.ApplyT(func(v WebAclDefaultActionBlock) *WebAclDefaultActionBlockCustomResponse { return v.CustomResponse }).(WebAclDefaultActionBlockCustomResponsePtrOutput)
 }
@@ -53466,7 +53370,7 @@ func (o WebAclDefaultActionBlockPtrOutput) Elem() WebAclDefaultActionBlockOutput
 	}).(WebAclDefaultActionBlockOutput)
 }
 
-// Defines a custom response for the web request. See `customResponse` below for details.
+// Custom response for the web request. See `customResponse` below for details.
 func (o WebAclDefaultActionBlockPtrOutput) CustomResponse() WebAclDefaultActionBlockCustomResponsePtrOutput {
 	return o.ApplyT(func(v *WebAclDefaultActionBlock) *WebAclDefaultActionBlockCustomResponse {
 		if v == nil {
@@ -53479,9 +53383,9 @@ func (o WebAclDefaultActionBlockPtrOutput) CustomResponse() WebAclDefaultActionB
 type WebAclDefaultActionBlockCustomResponse struct {
 	// References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `customResponseBody` block of this resource.
 	CustomResponseBodyKey *string `pulumi:"customResponseBodyKey"`
-	// The HTTP status code to return to the client.
+	// HTTP status code to return to the client.
 	ResponseCode int `pulumi:"responseCode"`
-	// The `responseHeader` blocks used to define the HTTP response headers added to the response. See `responseHeader` below for details.
+	// `responseHeader` blocks used to define the HTTP response headers added to the response. See `responseHeader` below for details.
 	ResponseHeaders []WebAclDefaultActionBlockCustomResponseResponseHeader `pulumi:"responseHeaders"`
 }
 
@@ -53499,9 +53403,9 @@ type WebAclDefaultActionBlockCustomResponseInput interface {
 type WebAclDefaultActionBlockCustomResponseArgs struct {
 	// References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `customResponseBody` block of this resource.
 	CustomResponseBodyKey pulumi.StringPtrInput `pulumi:"customResponseBodyKey"`
-	// The HTTP status code to return to the client.
+	// HTTP status code to return to the client.
 	ResponseCode pulumi.IntInput `pulumi:"responseCode"`
-	// The `responseHeader` blocks used to define the HTTP response headers added to the response. See `responseHeader` below for details.
+	// `responseHeader` blocks used to define the HTTP response headers added to the response. See `responseHeader` below for details.
 	ResponseHeaders WebAclDefaultActionBlockCustomResponseResponseHeaderArrayInput `pulumi:"responseHeaders"`
 }
 
@@ -53587,12 +53491,12 @@ func (o WebAclDefaultActionBlockCustomResponseOutput) CustomResponseBodyKey() pu
 	return o.ApplyT(func(v WebAclDefaultActionBlockCustomResponse) *string { return v.CustomResponseBodyKey }).(pulumi.StringPtrOutput)
 }
 
-// The HTTP status code to return to the client.
+// HTTP status code to return to the client.
 func (o WebAclDefaultActionBlockCustomResponseOutput) ResponseCode() pulumi.IntOutput {
 	return o.ApplyT(func(v WebAclDefaultActionBlockCustomResponse) int { return v.ResponseCode }).(pulumi.IntOutput)
 }
 
-// The `responseHeader` blocks used to define the HTTP response headers added to the response. See `responseHeader` below for details.
+// `responseHeader` blocks used to define the HTTP response headers added to the response. See `responseHeader` below for details.
 func (o WebAclDefaultActionBlockCustomResponseOutput) ResponseHeaders() WebAclDefaultActionBlockCustomResponseResponseHeaderArrayOutput {
 	return o.ApplyT(func(v WebAclDefaultActionBlockCustomResponse) []WebAclDefaultActionBlockCustomResponseResponseHeader {
 		return v.ResponseHeaders
@@ -53633,7 +53537,7 @@ func (o WebAclDefaultActionBlockCustomResponsePtrOutput) CustomResponseBodyKey()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The HTTP status code to return to the client.
+// HTTP status code to return to the client.
 func (o WebAclDefaultActionBlockCustomResponsePtrOutput) ResponseCode() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WebAclDefaultActionBlockCustomResponse) *int {
 		if v == nil {
@@ -53643,7 +53547,7 @@ func (o WebAclDefaultActionBlockCustomResponsePtrOutput) ResponseCode() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-// The `responseHeader` blocks used to define the HTTP response headers added to the response. See `responseHeader` below for details.
+// `responseHeader` blocks used to define the HTTP response headers added to the response. See `responseHeader` below for details.
 func (o WebAclDefaultActionBlockCustomResponsePtrOutput) ResponseHeaders() WebAclDefaultActionBlockCustomResponseResponseHeaderArrayOutput {
 	return o.ApplyT(func(v *WebAclDefaultActionBlockCustomResponse) []WebAclDefaultActionBlockCustomResponseResponseHeader {
 		if v == nil {
@@ -55046,9 +54950,9 @@ func (o WebAclLoggingConfigurationRedactedFieldUriPathPtrOutput) Elem() WebAclLo
 type WebAclRuleType struct {
 	// Action that AWS WAF should take on a web request when it matches the rule's statement. This is used only for rules whose **statements do not reference a rule group**. See `action` for details.
 	Action *WebAclRuleAction `pulumi:"action"`
-	// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
+	// Configuration for how AWS WAF handles CAPTCHA evaluations. See `captchaConfig` below for details.
 	CaptchaConfig *WebAclRuleCaptchaConfig `pulumi:"captchaConfig"`
-	// Specifies how AWS WAF should handle Challenge evaluations on the rule level. See `challengeConfig` below for details.
+	// Configuration for how AWS WAF handles Challenge evaluations at the rule level. See `challengeConfig` below for details.
 	ChallengeConfig *WebAclRuleChallengeConfig `pulumi:"challengeConfig"`
 	// Friendly name of the rule. Note that the provider assumes that rules with names matching this pattern, `^ShieldMitigationRuleGroup_<account-id>_<web-acl-guid>_.*`, are AWS-added for [automatic application layer DDoS mitigation activities](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-automatic-app-layer-response-rg.html). Such rules will be ignored by the provider unless you explicitly include them in your configuration (for example, by using the AWS CLI to discover their properties and creating matching configuration). However, since these rules are owned and managed by AWS, you may get permission errors.
 	Name string `pulumi:"name"`
@@ -55058,9 +54962,9 @@ type WebAclRuleType struct {
 	Priority int `pulumi:"priority"`
 	// Labels to apply to web requests that match the rule match statement. See `ruleLabel` below for details.
 	RuleLabels []WebAclRuleRuleLabel `pulumi:"ruleLabels"`
-	// The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See `statement` below for details.
+	// AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See `statement` below for details.
 	Statement WebAclRuleStatement `pulumi:"statement"`
-	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
+	// Amazon CloudWatch metrics and web request sample collection configuration. See `visibilityConfig` below for details.
 	VisibilityConfig WebAclRuleVisibilityConfig `pulumi:"visibilityConfig"`
 }
 
@@ -55078,9 +54982,9 @@ type WebAclRuleTypeInput interface {
 type WebAclRuleTypeArgs struct {
 	// Action that AWS WAF should take on a web request when it matches the rule's statement. This is used only for rules whose **statements do not reference a rule group**. See `action` for details.
 	Action WebAclRuleActionPtrInput `pulumi:"action"`
-	// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
+	// Configuration for how AWS WAF handles CAPTCHA evaluations. See `captchaConfig` below for details.
 	CaptchaConfig WebAclRuleCaptchaConfigPtrInput `pulumi:"captchaConfig"`
-	// Specifies how AWS WAF should handle Challenge evaluations on the rule level. See `challengeConfig` below for details.
+	// Configuration for how AWS WAF handles Challenge evaluations at the rule level. See `challengeConfig` below for details.
 	ChallengeConfig WebAclRuleChallengeConfigPtrInput `pulumi:"challengeConfig"`
 	// Friendly name of the rule. Note that the provider assumes that rules with names matching this pattern, `^ShieldMitigationRuleGroup_<account-id>_<web-acl-guid>_.*`, are AWS-added for [automatic application layer DDoS mitigation activities](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-automatic-app-layer-response-rg.html). Such rules will be ignored by the provider unless you explicitly include them in your configuration (for example, by using the AWS CLI to discover their properties and creating matching configuration). However, since these rules are owned and managed by AWS, you may get permission errors.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -55090,9 +54994,9 @@ type WebAclRuleTypeArgs struct {
 	Priority pulumi.IntInput `pulumi:"priority"`
 	// Labels to apply to web requests that match the rule match statement. See `ruleLabel` below for details.
 	RuleLabels WebAclRuleRuleLabelArrayInput `pulumi:"ruleLabels"`
-	// The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See `statement` below for details.
+	// AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See `statement` below for details.
 	Statement WebAclRuleStatementInput `pulumi:"statement"`
-	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
+	// Amazon CloudWatch metrics and web request sample collection configuration. See `visibilityConfig` below for details.
 	VisibilityConfig WebAclRuleVisibilityConfigInput `pulumi:"visibilityConfig"`
 }
 
@@ -55152,12 +55056,12 @@ func (o WebAclRuleTypeOutput) Action() WebAclRuleActionPtrOutput {
 	return o.ApplyT(func(v WebAclRuleType) *WebAclRuleAction { return v.Action }).(WebAclRuleActionPtrOutput)
 }
 
-// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
+// Configuration for how AWS WAF handles CAPTCHA evaluations. See `captchaConfig` below for details.
 func (o WebAclRuleTypeOutput) CaptchaConfig() WebAclRuleCaptchaConfigPtrOutput {
 	return o.ApplyT(func(v WebAclRuleType) *WebAclRuleCaptchaConfig { return v.CaptchaConfig }).(WebAclRuleCaptchaConfigPtrOutput)
 }
 
-// Specifies how AWS WAF should handle Challenge evaluations on the rule level. See `challengeConfig` below for details.
+// Configuration for how AWS WAF handles Challenge evaluations at the rule level. See `challengeConfig` below for details.
 func (o WebAclRuleTypeOutput) ChallengeConfig() WebAclRuleChallengeConfigPtrOutput {
 	return o.ApplyT(func(v WebAclRuleType) *WebAclRuleChallengeConfig { return v.ChallengeConfig }).(WebAclRuleChallengeConfigPtrOutput)
 }
@@ -55182,12 +55086,12 @@ func (o WebAclRuleTypeOutput) RuleLabels() WebAclRuleRuleLabelArrayOutput {
 	return o.ApplyT(func(v WebAclRuleType) []WebAclRuleRuleLabel { return v.RuleLabels }).(WebAclRuleRuleLabelArrayOutput)
 }
 
-// The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See `statement` below for details.
+// AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See `statement` below for details.
 func (o WebAclRuleTypeOutput) Statement() WebAclRuleStatementOutput {
 	return o.ApplyT(func(v WebAclRuleType) WebAclRuleStatement { return v.Statement }).(WebAclRuleStatementOutput)
 }
 
-// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
+// Amazon CloudWatch metrics and web request sample collection configuration. See `visibilityConfig` below for details.
 func (o WebAclRuleTypeOutput) VisibilityConfig() WebAclRuleVisibilityConfigOutput {
 	return o.ApplyT(func(v WebAclRuleType) WebAclRuleVisibilityConfig { return v.VisibilityConfig }).(WebAclRuleVisibilityConfigOutput)
 }

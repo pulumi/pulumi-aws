@@ -64,7 +64,7 @@ type DevEnvironment struct {
 	Ides DevEnvironmentIdesOutput `pulumi:"ides"`
 	// The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
 	InactivityTimeoutMinutes pulumi.IntPtrOutput `pulumi:"inactivityTimeoutMinutes"`
-	// The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
+	// The Amazon EC2 instance type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
 	//
 	// The following arguments are optional:
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
@@ -130,7 +130,7 @@ type devEnvironmentState struct {
 	Ides *DevEnvironmentIdes `pulumi:"ides"`
 	// The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
 	InactivityTimeoutMinutes *int `pulumi:"inactivityTimeoutMinutes"`
-	// The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
+	// The Amazon EC2 instance type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
 	//
 	// The following arguments are optional:
 	InstanceType *string `pulumi:"instanceType"`
@@ -152,7 +152,7 @@ type DevEnvironmentState struct {
 	Ides DevEnvironmentIdesPtrInput
 	// The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
 	InactivityTimeoutMinutes pulumi.IntPtrInput
-	// The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
+	// The Amazon EC2 instance type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
 	//
 	// The following arguments are optional:
 	InstanceType pulumi.StringPtrInput
@@ -178,7 +178,7 @@ type devEnvironmentArgs struct {
 	Ides DevEnvironmentIdes `pulumi:"ides"`
 	// The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
 	InactivityTimeoutMinutes *int `pulumi:"inactivityTimeoutMinutes"`
-	// The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
+	// The Amazon EC2 instance type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
 	//
 	// The following arguments are optional:
 	InstanceType string `pulumi:"instanceType"`
@@ -201,7 +201,7 @@ type DevEnvironmentArgs struct {
 	Ides DevEnvironmentIdesInput
 	// The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
 	InactivityTimeoutMinutes pulumi.IntPtrInput
-	// The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
+	// The Amazon EC2 instance type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
 	//
 	// The following arguments are optional:
 	InstanceType pulumi.StringInput
@@ -318,7 +318,7 @@ func (o DevEnvironmentOutput) InactivityTimeoutMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DevEnvironment) pulumi.IntPtrOutput { return v.InactivityTimeoutMinutes }).(pulumi.IntPtrOutput)
 }
 
-// The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
+// The Amazon EC2 instance type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
 //
 // The following arguments are optional:
 func (o DevEnvironmentOutput) InstanceType() pulumi.StringOutput {

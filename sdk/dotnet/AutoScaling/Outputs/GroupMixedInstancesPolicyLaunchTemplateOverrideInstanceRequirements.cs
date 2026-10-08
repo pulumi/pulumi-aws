@@ -30,7 +30,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AcceleratorManufacturers;
         /// <summary>
-        /// List of accelerator names. Default is any acclerator.
+        /// List of accelerator names. Default is any accelerator.
         /// 
         /// ```
         /// Valid names:
@@ -66,7 +66,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AllowedInstanceTypes;
         /// <summary>
-        /// Indicate whether bare metal instace types should be `Included`, `Excluded`, or `Required`. Default is `Excluded`.
+        /// Indicate whether bare metal instance types should be `Included`, `Excluded`, or `Required`. Default is `Excluded`.
         /// </summary>
         public readonly string? BareMetal;
         /// <summary>

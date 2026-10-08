@@ -30,6 +30,7 @@ class AgentcoreAgentRuntimeArgs:
                  environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  filesystem_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreAgentRuntimeFilesystemConfigurationArgs']]]] = None,
                  lifecycle_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreAgentRuntimeLifecycleConfigurationArgs']]]] = None,
+                 platform_version: pulumi.Input[Optional[_builtins.str]] = None,
                  protocol_configuration: pulumi.Input[Optional['AgentcoreAgentRuntimeProtocolConfigurationArgs']] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  request_header_configuration: pulumi.Input[Optional['AgentcoreAgentRuntimeRequestHeaderConfigurationArgs']] = None,
@@ -49,6 +50,7 @@ class AgentcoreAgentRuntimeArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Map of environment variables to pass to the container.
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreAgentRuntimeFilesystemConfigurationArgs']]] filesystem_configurations: List of filesystems to mount into the agent runtime. Up to 5 entries are supported. Each entry is one of session storage, Amazon S3 Files access point, or Amazon EFS access point. See `filesystem_configuration` below.
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreAgentRuntimeLifecycleConfigurationArgs']]] lifecycle_configurations: Runtime session and resource lifecycle configuration for the agent runtime. See `lifecycle_configuration` below.
+        :param pulumi.Input[_builtins.str] platform_version: Platform version that controls how the agent runtime starts your agent. Valid values: `V1`, `V2`. When omitted, a new agent runtime uses `V1` and an existing agent runtime keeps its current platform version. `V2` restores each instance from a prepared snapshot, which keeps cold starts consistent regardless of image size. On `V2`, creates and updates take minutes rather than seconds, `environment_variables` has a smaller total size limit, and availability is limited to a subset of Regions. See [Platform versions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-how-it-works.html#runtime-platform-versions) for details.
         :param pulumi.Input['AgentcoreAgentRuntimeProtocolConfigurationArgs'] protocol_configuration: Protocol configuration for the agent runtime. See `protocol_configuration` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['AgentcoreAgentRuntimeRequestHeaderConfigurationArgs'] request_header_configuration: Configuration for HTTP request headers that will be passed through to the runtime. See `request_header_configuration` below.
@@ -68,6 +70,8 @@ class AgentcoreAgentRuntimeArgs:
             pulumi.set(__self__, "filesystem_configurations", filesystem_configurations)
         if lifecycle_configurations is not None:
             pulumi.set(__self__, "lifecycle_configurations", lifecycle_configurations)
+        if platform_version is not None:
+            pulumi.set(__self__, "platform_version", platform_version)
         if protocol_configuration is not None:
             pulumi.set(__self__, "protocol_configuration", protocol_configuration)
         if region is not None:
@@ -190,6 +194,18 @@ class AgentcoreAgentRuntimeArgs:
         pulumi.set(self, "lifecycle_configurations", value)
 
     @_builtins.property
+    @pulumi.getter(name="platformVersion")
+    def platform_version(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Platform version that controls how the agent runtime starts your agent. Valid values: `V1`, `V2`. When omitted, a new agent runtime uses `V1` and an existing agent runtime keeps its current platform version. `V2` restores each instance from a prepared snapshot, which keeps cold starts consistent regardless of image size. On `V2`, creates and updates take minutes rather than seconds, `environment_variables` has a smaller total size limit, and availability is limited to a subset of Regions. See [Platform versions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-how-it-works.html#runtime-platform-versions) for details.
+        """
+        return pulumi.get(self, "platform_version")
+
+    @platform_version.setter
+    def platform_version(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "platform_version", value)
+
+    @_builtins.property
     @pulumi.getter(name="protocolConfiguration")
     def protocol_configuration(self) -> pulumi.Input[Optional['AgentcoreAgentRuntimeProtocolConfigurationArgs']]:
         """
@@ -261,6 +277,7 @@ class _AgentcoreAgentRuntimeState:
                  filesystem_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreAgentRuntimeFilesystemConfigurationArgs']]]] = None,
                  lifecycle_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreAgentRuntimeLifecycleConfigurationArgs']]]] = None,
                  network_configuration: pulumi.Input[Optional['AgentcoreAgentRuntimeNetworkConfigurationArgs']] = None,
+                 platform_version: pulumi.Input[Optional[_builtins.str]] = None,
                  protocol_configuration: pulumi.Input[Optional['AgentcoreAgentRuntimeProtocolConfigurationArgs']] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  request_header_configuration: pulumi.Input[Optional['AgentcoreAgentRuntimeRequestHeaderConfigurationArgs']] = None,
@@ -283,6 +300,7 @@ class _AgentcoreAgentRuntimeState:
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreAgentRuntimeFilesystemConfigurationArgs']]] filesystem_configurations: List of filesystems to mount into the agent runtime. Up to 5 entries are supported. Each entry is one of session storage, Amazon S3 Files access point, or Amazon EFS access point. See `filesystem_configuration` below.
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreAgentRuntimeLifecycleConfigurationArgs']]] lifecycle_configurations: Runtime session and resource lifecycle configuration for the agent runtime. See `lifecycle_configuration` below.
         :param pulumi.Input['AgentcoreAgentRuntimeNetworkConfigurationArgs'] network_configuration: Network configuration for the agent runtime. See `network_configuration` below.
+        :param pulumi.Input[_builtins.str] platform_version: Platform version that controls how the agent runtime starts your agent. Valid values: `V1`, `V2`. When omitted, a new agent runtime uses `V1` and an existing agent runtime keeps its current platform version. `V2` restores each instance from a prepared snapshot, which keeps cold starts consistent regardless of image size. On `V2`, creates and updates take minutes rather than seconds, `environment_variables` has a smaller total size limit, and availability is limited to a subset of Regions. See [Platform versions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-how-it-works.html#runtime-platform-versions) for details.
         :param pulumi.Input['AgentcoreAgentRuntimeProtocolConfigurationArgs'] protocol_configuration: Protocol configuration for the agent runtime. See `protocol_configuration` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['AgentcoreAgentRuntimeRequestHeaderConfigurationArgs'] request_header_configuration: Configuration for HTTP request headers that will be passed through to the runtime. See `request_header_configuration` below.
@@ -315,6 +333,8 @@ class _AgentcoreAgentRuntimeState:
             pulumi.set(__self__, "lifecycle_configurations", lifecycle_configurations)
         if network_configuration is not None:
             pulumi.set(__self__, "network_configuration", network_configuration)
+        if platform_version is not None:
+            pulumi.set(__self__, "platform_version", platform_version)
         if protocol_configuration is not None:
             pulumi.set(__self__, "protocol_configuration", protocol_configuration)
         if region is not None:
@@ -465,6 +485,18 @@ class _AgentcoreAgentRuntimeState:
         pulumi.set(self, "network_configuration", value)
 
     @_builtins.property
+    @pulumi.getter(name="platformVersion")
+    def platform_version(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Platform version that controls how the agent runtime starts your agent. Valid values: `V1`, `V2`. When omitted, a new agent runtime uses `V1` and an existing agent runtime keeps its current platform version. `V2` restores each instance from a prepared snapshot, which keeps cold starts consistent regardless of image size. On `V2`, creates and updates take minutes rather than seconds, `environment_variables` has a smaller total size limit, and availability is limited to a subset of Regions. See [Platform versions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-how-it-works.html#runtime-platform-versions) for details.
+        """
+        return pulumi.get(self, "platform_version")
+
+    @platform_version.setter
+    def platform_version(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "platform_version", value)
+
+    @_builtins.property
     @pulumi.getter(name="protocolConfiguration")
     def protocol_configuration(self) -> pulumi.Input[Optional['AgentcoreAgentRuntimeProtocolConfigurationArgs']]:
         """
@@ -574,6 +606,7 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
                  filesystem_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreAgentRuntimeFilesystemConfigurationArgs', 'AgentcoreAgentRuntimeFilesystemConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeFilesystemConfiguration']]]]] = None,
                  lifecycle_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreAgentRuntimeLifecycleConfigurationArgs', 'AgentcoreAgentRuntimeLifecycleConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeLifecycleConfiguration']]]]] = None,
                  network_configuration: pulumi.Input[Optional[Union['AgentcoreAgentRuntimeNetworkConfigurationArgs', 'AgentcoreAgentRuntimeNetworkConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeNetworkConfiguration']]] = None,
+                 platform_version: pulumi.Input[Optional[_builtins.str]] = None,
                  protocol_configuration: pulumi.Input[Optional[Union['AgentcoreAgentRuntimeProtocolConfigurationArgs', 'AgentcoreAgentRuntimeProtocolConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeProtocolConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  request_header_configuration: pulumi.Input[Optional[Union['AgentcoreAgentRuntimeRequestHeaderConfigurationArgs', 'AgentcoreAgentRuntimeRequestHeaderConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeRequestHeaderConfiguration']]] = None,
@@ -746,6 +779,7 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreAgentRuntimeFilesystemConfigurationArgs', 'AgentcoreAgentRuntimeFilesystemConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeFilesystemConfiguration']]]] filesystem_configurations: List of filesystems to mount into the agent runtime. Up to 5 entries are supported. Each entry is one of session storage, Amazon S3 Files access point, or Amazon EFS access point. See `filesystem_configuration` below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreAgentRuntimeLifecycleConfigurationArgs', 'AgentcoreAgentRuntimeLifecycleConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeLifecycleConfiguration']]]] lifecycle_configurations: Runtime session and resource lifecycle configuration for the agent runtime. See `lifecycle_configuration` below.
         :param pulumi.Input[Union['AgentcoreAgentRuntimeNetworkConfigurationArgs', 'AgentcoreAgentRuntimeNetworkConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeNetworkConfiguration']] network_configuration: Network configuration for the agent runtime. See `network_configuration` below.
+        :param pulumi.Input[_builtins.str] platform_version: Platform version that controls how the agent runtime starts your agent. Valid values: `V1`, `V2`. When omitted, a new agent runtime uses `V1` and an existing agent runtime keeps its current platform version. `V2` restores each instance from a prepared snapshot, which keeps cold starts consistent regardless of image size. On `V2`, creates and updates take minutes rather than seconds, `environment_variables` has a smaller total size limit, and availability is limited to a subset of Regions. See [Platform versions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-how-it-works.html#runtime-platform-versions) for details.
         :param pulumi.Input[Union['AgentcoreAgentRuntimeProtocolConfigurationArgs', 'AgentcoreAgentRuntimeProtocolConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeProtocolConfiguration']] protocol_configuration: Protocol configuration for the agent runtime. See `protocol_configuration` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['AgentcoreAgentRuntimeRequestHeaderConfigurationArgs', 'AgentcoreAgentRuntimeRequestHeaderConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeRequestHeaderConfiguration']] request_header_configuration: Configuration for HTTP request headers that will be passed through to the runtime. See `request_header_configuration` below.
@@ -938,6 +972,7 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
                  filesystem_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreAgentRuntimeFilesystemConfigurationArgs', 'AgentcoreAgentRuntimeFilesystemConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeFilesystemConfiguration']]]]] = None,
                  lifecycle_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreAgentRuntimeLifecycleConfigurationArgs', 'AgentcoreAgentRuntimeLifecycleConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeLifecycleConfiguration']]]]] = None,
                  network_configuration: pulumi.Input[Optional[Union['AgentcoreAgentRuntimeNetworkConfigurationArgs', 'AgentcoreAgentRuntimeNetworkConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeNetworkConfiguration']]] = None,
+                 platform_version: pulumi.Input[Optional[_builtins.str]] = None,
                  protocol_configuration: pulumi.Input[Optional[Union['AgentcoreAgentRuntimeProtocolConfigurationArgs', 'AgentcoreAgentRuntimeProtocolConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeProtocolConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  request_header_configuration: pulumi.Input[Optional[Union['AgentcoreAgentRuntimeRequestHeaderConfigurationArgs', 'AgentcoreAgentRuntimeRequestHeaderConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeRequestHeaderConfiguration']]] = None,
@@ -967,6 +1002,7 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
             if network_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'network_configuration'")
             __props__.__dict__["network_configuration"] = network_configuration
+            __props__.__dict__["platform_version"] = platform_version
             __props__.__dict__["protocol_configuration"] = protocol_configuration
             __props__.__dict__["region"] = region
             __props__.__dict__["request_header_configuration"] = request_header_configuration
@@ -1001,6 +1037,7 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
             filesystem_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreAgentRuntimeFilesystemConfigurationArgs', 'AgentcoreAgentRuntimeFilesystemConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeFilesystemConfiguration']]]]] = None,
             lifecycle_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreAgentRuntimeLifecycleConfigurationArgs', 'AgentcoreAgentRuntimeLifecycleConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeLifecycleConfiguration']]]]] = None,
             network_configuration: pulumi.Input[Optional[Union['AgentcoreAgentRuntimeNetworkConfigurationArgs', 'AgentcoreAgentRuntimeNetworkConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeNetworkConfiguration']]] = None,
+            platform_version: pulumi.Input[Optional[_builtins.str]] = None,
             protocol_configuration: pulumi.Input[Optional[Union['AgentcoreAgentRuntimeProtocolConfigurationArgs', 'AgentcoreAgentRuntimeProtocolConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeProtocolConfiguration']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             request_header_configuration: pulumi.Input[Optional[Union['AgentcoreAgentRuntimeRequestHeaderConfigurationArgs', 'AgentcoreAgentRuntimeRequestHeaderConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeRequestHeaderConfiguration']]] = None,
@@ -1027,6 +1064,7 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreAgentRuntimeFilesystemConfigurationArgs', 'AgentcoreAgentRuntimeFilesystemConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeFilesystemConfiguration']]]] filesystem_configurations: List of filesystems to mount into the agent runtime. Up to 5 entries are supported. Each entry is one of session storage, Amazon S3 Files access point, or Amazon EFS access point. See `filesystem_configuration` below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreAgentRuntimeLifecycleConfigurationArgs', 'AgentcoreAgentRuntimeLifecycleConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeLifecycleConfiguration']]]] lifecycle_configurations: Runtime session and resource lifecycle configuration for the agent runtime. See `lifecycle_configuration` below.
         :param pulumi.Input[Union['AgentcoreAgentRuntimeNetworkConfigurationArgs', 'AgentcoreAgentRuntimeNetworkConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeNetworkConfiguration']] network_configuration: Network configuration for the agent runtime. See `network_configuration` below.
+        :param pulumi.Input[_builtins.str] platform_version: Platform version that controls how the agent runtime starts your agent. Valid values: `V1`, `V2`. When omitted, a new agent runtime uses `V1` and an existing agent runtime keeps its current platform version. `V2` restores each instance from a prepared snapshot, which keeps cold starts consistent regardless of image size. On `V2`, creates and updates take minutes rather than seconds, `environment_variables` has a smaller total size limit, and availability is limited to a subset of Regions. See [Platform versions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-how-it-works.html#runtime-platform-versions) for details.
         :param pulumi.Input[Union['AgentcoreAgentRuntimeProtocolConfigurationArgs', 'AgentcoreAgentRuntimeProtocolConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeProtocolConfiguration']] protocol_configuration: Protocol configuration for the agent runtime. See `protocol_configuration` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['AgentcoreAgentRuntimeRequestHeaderConfigurationArgs', 'AgentcoreAgentRuntimeRequestHeaderConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeRequestHeaderConfiguration']] request_header_configuration: Configuration for HTTP request headers that will be passed through to the runtime. See `request_header_configuration` below.
@@ -1052,6 +1090,7 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
         __props__.__dict__["filesystem_configurations"] = filesystem_configurations
         __props__.__dict__["lifecycle_configurations"] = lifecycle_configurations
         __props__.__dict__["network_configuration"] = network_configuration
+        __props__.__dict__["platform_version"] = platform_version
         __props__.__dict__["protocol_configuration"] = protocol_configuration
         __props__.__dict__["region"] = region
         __props__.__dict__["request_header_configuration"] = request_header_configuration
@@ -1149,6 +1188,14 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
         Network configuration for the agent runtime. See `network_configuration` below.
         """
         return pulumi.get(self, "network_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="platformVersion")
+    def platform_version(self) -> pulumi.Output[_builtins.str]:
+        """
+        Platform version that controls how the agent runtime starts your agent. Valid values: `V1`, `V2`. When omitted, a new agent runtime uses `V1` and an existing agent runtime keeps its current platform version. `V2` restores each instance from a prepared snapshot, which keeps cold starts consistent regardless of image size. On `V2`, creates and updates take minutes rather than seconds, `environment_variables` has a smaller total size limit, and availability is limited to a subset of Regions. See [Platform versions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-how-it-works.html#runtime-platform-versions) for details.
+        """
+        return pulumi.get(self, "platform_version")
 
     @_builtins.property
     @pulumi.getter(name="protocolConfiguration")

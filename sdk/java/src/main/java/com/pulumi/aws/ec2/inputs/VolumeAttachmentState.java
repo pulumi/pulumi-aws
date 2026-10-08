@@ -17,16 +17,14 @@ public final class VolumeAttachmentState extends com.pulumi.resources.ResourceAr
     public static final VolumeAttachmentState Empty = new VolumeAttachmentState();
 
     /**
-     * The device name to expose to the instance (for
-     * example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
+     * Device name to expose to the instance (for example, `/dev/sdh` or `xvdh`). See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
      * 
      */
     @Import(name="deviceName")
     private @Nullable Output<String> deviceName;
 
     /**
-     * @return The device name to expose to the instance (for
-     * example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
+     * @return Device name to expose to the instance (for example, `/dev/sdh` or `xvdh`). See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
      * 
      */
     public Optional<Output<String>> deviceName() {
@@ -34,20 +32,14 @@ public final class VolumeAttachmentState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Set to `true` if you want to force the
-     * volume to detach. Useful if previous attempts failed, but use this option only
-     * as a last resort, as this can result in **data loss**. See
-     * [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
+     * Whether to force the volume to detach. Useful if previous attempts failed, but use this option only as a last resort, as this can result in **data loss**. See [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
      * 
      */
     @Import(name="forceDetach")
     private @Nullable Output<Boolean> forceDetach;
 
     /**
-     * @return Set to `true` if you want to force the
-     * volume to detach. Useful if previous attempts failed, but use this option only
-     * as a last resort, as this can result in **data loss**. See
-     * [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
+     * @return Whether to force the volume to detach. Useful if previous attempts failed, but use this option only as a last resort, as this can result in **data loss**. See [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
      * 
      */
     public Optional<Output<Boolean>> forceDetach() {
@@ -55,14 +47,14 @@ public final class VolumeAttachmentState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * ID of the Instance to attach to
+     * ID of the Instance to attach to.
      * 
      */
     @Import(name="instanceId")
     private @Nullable Output<String> instanceId;
 
     /**
-     * @return ID of the Instance to attach to
+     * @return ID of the Instance to attach to.
      * 
      */
     public Optional<Output<String>> instanceId() {
@@ -85,22 +77,14 @@ public final class VolumeAttachmentState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Set this to true if you do not wish
-     * to detach the volume from the instance to which it is attached at destroy
-     * time, and instead just remove the attachment from this provider state. This is
-     * useful when destroying an instance which has volumes created by some other
-     * means attached.
+     * Whether to skip detaching the volume from the instance to which it is attached at destroy time, and instead just remove the attachment from this provider state. This is useful when destroying an instance which has volumes created by some other means attached.
      * 
      */
     @Import(name="skipDestroy")
     private @Nullable Output<Boolean> skipDestroy;
 
     /**
-     * @return Set this to true if you do not wish
-     * to detach the volume from the instance to which it is attached at destroy
-     * time, and instead just remove the attachment from this provider state. This is
-     * useful when destroying an instance which has volumes created by some other
-     * means attached.
+     * @return Whether to skip detaching the volume from the instance to which it is attached at destroy time, and instead just remove the attachment from this provider state. This is useful when destroying an instance which has volumes created by some other means attached.
      * 
      */
     public Optional<Output<Boolean>> skipDestroy() {
@@ -108,16 +92,14 @@ public final class VolumeAttachmentState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Set this to true to ensure that the target instance is stopped
-     * before trying to detach the volume. Stops the instance, if it is not already stopped.
+     * Whether to ensure that the target instance is stopped before trying to detach the volume. Stops the instance, if it is not already stopped.
      * 
      */
     @Import(name="stopInstanceBeforeDetaching")
     private @Nullable Output<Boolean> stopInstanceBeforeDetaching;
 
     /**
-     * @return Set this to true to ensure that the target instance is stopped
-     * before trying to detach the volume. Stops the instance, if it is not already stopped.
+     * @return Whether to ensure that the target instance is stopped before trying to detach the volume. Stops the instance, if it is not already stopped.
      * 
      */
     public Optional<Output<Boolean>> stopInstanceBeforeDetaching() {
@@ -125,14 +107,14 @@ public final class VolumeAttachmentState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * ID of the Volume to be attached
+     * ID of the Volume to be attached.
      * 
      */
     @Import(name="volumeId")
     private @Nullable Output<String> volumeId;
 
     /**
-     * @return ID of the Volume to be attached
+     * @return ID of the Volume to be attached.
      * 
      */
     public Optional<Output<String>> volumeId() {
@@ -170,8 +152,7 @@ public final class VolumeAttachmentState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param deviceName The device name to expose to the instance (for
-         * example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
+         * @param deviceName Device name to expose to the instance (for example, `/dev/sdh` or `xvdh`). See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
          * 
          * @return builder
          * 
@@ -182,8 +163,7 @@ public final class VolumeAttachmentState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param deviceName The device name to expose to the instance (for
-         * example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
+         * @param deviceName Device name to expose to the instance (for example, `/dev/sdh` or `xvdh`). See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
          * 
          * @return builder
          * 
@@ -193,10 +173,7 @@ public final class VolumeAttachmentState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param forceDetach Set to `true` if you want to force the
-         * volume to detach. Useful if previous attempts failed, but use this option only
-         * as a last resort, as this can result in **data loss**. See
-         * [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
+         * @param forceDetach Whether to force the volume to detach. Useful if previous attempts failed, but use this option only as a last resort, as this can result in **data loss**. See [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
          * 
          * @return builder
          * 
@@ -207,10 +184,7 @@ public final class VolumeAttachmentState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param forceDetach Set to `true` if you want to force the
-         * volume to detach. Useful if previous attempts failed, but use this option only
-         * as a last resort, as this can result in **data loss**. See
-         * [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
+         * @param forceDetach Whether to force the volume to detach. Useful if previous attempts failed, but use this option only as a last resort, as this can result in **data loss**. See [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
          * 
          * @return builder
          * 
@@ -220,7 +194,7 @@ public final class VolumeAttachmentState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param instanceId ID of the Instance to attach to
+         * @param instanceId ID of the Instance to attach to.
          * 
          * @return builder
          * 
@@ -231,7 +205,7 @@ public final class VolumeAttachmentState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param instanceId ID of the Instance to attach to
+         * @param instanceId ID of the Instance to attach to.
          * 
          * @return builder
          * 
@@ -262,11 +236,7 @@ public final class VolumeAttachmentState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param skipDestroy Set this to true if you do not wish
-         * to detach the volume from the instance to which it is attached at destroy
-         * time, and instead just remove the attachment from this provider state. This is
-         * useful when destroying an instance which has volumes created by some other
-         * means attached.
+         * @param skipDestroy Whether to skip detaching the volume from the instance to which it is attached at destroy time, and instead just remove the attachment from this provider state. This is useful when destroying an instance which has volumes created by some other means attached.
          * 
          * @return builder
          * 
@@ -277,11 +247,7 @@ public final class VolumeAttachmentState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param skipDestroy Set this to true if you do not wish
-         * to detach the volume from the instance to which it is attached at destroy
-         * time, and instead just remove the attachment from this provider state. This is
-         * useful when destroying an instance which has volumes created by some other
-         * means attached.
+         * @param skipDestroy Whether to skip detaching the volume from the instance to which it is attached at destroy time, and instead just remove the attachment from this provider state. This is useful when destroying an instance which has volumes created by some other means attached.
          * 
          * @return builder
          * 
@@ -291,8 +257,7 @@ public final class VolumeAttachmentState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param stopInstanceBeforeDetaching Set this to true to ensure that the target instance is stopped
-         * before trying to detach the volume. Stops the instance, if it is not already stopped.
+         * @param stopInstanceBeforeDetaching Whether to ensure that the target instance is stopped before trying to detach the volume. Stops the instance, if it is not already stopped.
          * 
          * @return builder
          * 
@@ -303,8 +268,7 @@ public final class VolumeAttachmentState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param stopInstanceBeforeDetaching Set this to true to ensure that the target instance is stopped
-         * before trying to detach the volume. Stops the instance, if it is not already stopped.
+         * @param stopInstanceBeforeDetaching Whether to ensure that the target instance is stopped before trying to detach the volume. Stops the instance, if it is not already stopped.
          * 
          * @return builder
          * 
@@ -314,7 +278,7 @@ public final class VolumeAttachmentState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param volumeId ID of the Volume to be attached
+         * @param volumeId ID of the Volume to be attached.
          * 
          * @return builder
          * 
@@ -325,7 +289,7 @@ public final class VolumeAttachmentState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param volumeId ID of the Volume to be attached
+         * @param volumeId ID of the Volume to be attached.
          * 
          * @return builder
          * 

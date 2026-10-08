@@ -81,14 +81,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.
     }
 
     /**
-     * OpenAPI schema-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `s3` Block).
+     * OpenAPI schema-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `target_configuration.mcp.open_api_schema.s3` Block).
      * 
      */
     @Import(name="openApiSchema")
     private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs> openApiSchema;
 
     /**
-     * @return OpenAPI schema-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `s3` Block).
+     * @return OpenAPI schema-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `target_configuration.mcp.open_api_schema.s3` Block).
      * 
      */
     public Optional<Output<AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs>> openApiSchema() {
@@ -96,14 +96,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.
     }
 
     /**
-     * Smithy model-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `s3` Block).
+     * Smithy model-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `target_configuration.mcp.smithy_model.s3` Block).
      * 
      */
     @Import(name="smithyModel")
     private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs> smithyModel;
 
     /**
-     * @return Smithy model-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `s3` Block).
+     * @return Smithy model-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `target_configuration.mcp.smithy_model.s3` Block).
      * 
      */
     public Optional<Output<AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs>> smithyModel() {
@@ -224,7 +224,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.
         }
 
         /**
-         * @param openApiSchema OpenAPI schema-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `s3` Block).
+         * @param openApiSchema OpenAPI schema-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `target_configuration.mcp.open_api_schema.s3` Block).
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.
         }
 
         /**
-         * @param openApiSchema OpenAPI schema-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `s3` Block).
+         * @param openApiSchema OpenAPI schema-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.open_api_schema.inline_payload` Block) or `s3` (see `target_configuration.mcp.open_api_schema.s3` Block).
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.
         }
 
         /**
-         * @param smithyModel Smithy model-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `s3` Block).
+         * @param smithyModel Smithy model-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `target_configuration.mcp.smithy_model.s3` Block).
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.
         }
 
         /**
-         * @param smithyModel Smithy model-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `s3` Block).
+         * @param smithyModel Smithy model-based target configuration. Supports exactly one of `inlinePayload` (see `target_configuration.mcp.smithy_model.inline_payload` Block) or `s3` (see `target_configuration.mcp.smithy_model.s3` Block).
          * 
          * @return builder
          * 

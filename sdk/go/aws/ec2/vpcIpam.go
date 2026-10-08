@@ -69,32 +69,31 @@ type VpcIpam struct {
 
 	// ARN of IPAM
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
+	// Whether to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
 	Cascade pulumi.BoolPtrOutput `pulumi:"cascade"`
-	// The IPAM's default resource discovery association ID.
+	// IPAM's default resource discovery association ID.
 	DefaultResourceDiscoveryAssociationId pulumi.StringOutput `pulumi:"defaultResourceDiscoveryAssociationId"`
-	// The IPAM's default resource discovery ID.
+	// IPAM's default resource discovery ID.
 	DefaultResourceDiscoveryId pulumi.StringOutput `pulumi:"defaultResourceDiscoveryId"`
-	// A description for the IPAM.
+	// Description for the IPAM.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
+	// Whether to use your own GUA ranges as private IPv6 addresses. Default: `false`.
 	EnablePrivateGua pulumi.BoolPtrOutput `pulumi:"enablePrivateGua"`
 	// AWS account that is charged for active IP addresses managed in IPAM. Valid values are `ipam-owner` (default) and `resource-owner`.
 	MeteredAccount pulumi.StringOutput `pulumi:"meteredAccount"`
-	// Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
+	// Locales that can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
 	OperatingRegions VpcIpamOperatingRegionArrayOutput `pulumi:"operatingRegions"`
-	// The ID of the IPAM's private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
+	// ID of the IPAM's private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
 	PrivateDefaultScopeId pulumi.StringOutput `pulumi:"privateDefaultScopeId"`
-	// The ID of the IPAM's public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private
-	// IP space. The public scope is intended for all internet-routable IP space.
+	// ID of the IPAM's public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
 	PublicDefaultScopeId pulumi.StringOutput `pulumi:"publicDefaultScopeId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The number of scopes in the IPAM.
+	// Number of scopes in the IPAM.
 	ScopeCount pulumi.IntOutput `pulumi:"scopeCount"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// specifies the IPAM tier. Valid options include `free` and `advanced`. Default is `advanced`.
 	Tier pulumi.StringPtrOutput `pulumi:"tier"`
@@ -135,32 +134,31 @@ func GetVpcIpam(ctx *pulumi.Context,
 type vpcIpamState struct {
 	// ARN of IPAM
 	Arn *string `pulumi:"arn"`
-	// Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
+	// Whether to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
 	Cascade *bool `pulumi:"cascade"`
-	// The IPAM's default resource discovery association ID.
+	// IPAM's default resource discovery association ID.
 	DefaultResourceDiscoveryAssociationId *string `pulumi:"defaultResourceDiscoveryAssociationId"`
-	// The IPAM's default resource discovery ID.
+	// IPAM's default resource discovery ID.
 	DefaultResourceDiscoveryId *string `pulumi:"defaultResourceDiscoveryId"`
-	// A description for the IPAM.
+	// Description for the IPAM.
 	Description *string `pulumi:"description"`
-	// Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
+	// Whether to use your own GUA ranges as private IPv6 addresses. Default: `false`.
 	EnablePrivateGua *bool `pulumi:"enablePrivateGua"`
 	// AWS account that is charged for active IP addresses managed in IPAM. Valid values are `ipam-owner` (default) and `resource-owner`.
 	MeteredAccount *string `pulumi:"meteredAccount"`
-	// Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
+	// Locales that can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
 	OperatingRegions []VpcIpamOperatingRegion `pulumi:"operatingRegions"`
-	// The ID of the IPAM's private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
+	// ID of the IPAM's private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
 	PrivateDefaultScopeId *string `pulumi:"privateDefaultScopeId"`
-	// The ID of the IPAM's public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private
-	// IP space. The public scope is intended for all internet-routable IP space.
+	// ID of the IPAM's public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
 	PublicDefaultScopeId *string `pulumi:"publicDefaultScopeId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The number of scopes in the IPAM.
+	// Number of scopes in the IPAM.
 	ScopeCount *int `pulumi:"scopeCount"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// specifies the IPAM tier. Valid options include `free` and `advanced`. Default is `advanced`.
 	Tier *string `pulumi:"tier"`
@@ -169,32 +167,31 @@ type vpcIpamState struct {
 type VpcIpamState struct {
 	// ARN of IPAM
 	Arn pulumi.StringPtrInput
-	// Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
+	// Whether to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
 	Cascade pulumi.BoolPtrInput
-	// The IPAM's default resource discovery association ID.
+	// IPAM's default resource discovery association ID.
 	DefaultResourceDiscoveryAssociationId pulumi.StringPtrInput
-	// The IPAM's default resource discovery ID.
+	// IPAM's default resource discovery ID.
 	DefaultResourceDiscoveryId pulumi.StringPtrInput
-	// A description for the IPAM.
+	// Description for the IPAM.
 	Description pulumi.StringPtrInput
-	// Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
+	// Whether to use your own GUA ranges as private IPv6 addresses. Default: `false`.
 	EnablePrivateGua pulumi.BoolPtrInput
 	// AWS account that is charged for active IP addresses managed in IPAM. Valid values are `ipam-owner` (default) and `resource-owner`.
 	MeteredAccount pulumi.StringPtrInput
-	// Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
+	// Locales that can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
 	OperatingRegions VpcIpamOperatingRegionArrayInput
-	// The ID of the IPAM's private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
+	// ID of the IPAM's private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
 	PrivateDefaultScopeId pulumi.StringPtrInput
-	// The ID of the IPAM's public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private
-	// IP space. The public scope is intended for all internet-routable IP space.
+	// ID of the IPAM's public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
 	PublicDefaultScopeId pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The number of scopes in the IPAM.
+	// Number of scopes in the IPAM.
 	ScopeCount pulumi.IntPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// specifies the IPAM tier. Valid options include `free` and `advanced`. Default is `advanced`.
 	Tier pulumi.StringPtrInput
@@ -205,19 +202,19 @@ func (VpcIpamState) ElementType() reflect.Type {
 }
 
 type vpcIpamArgs struct {
-	// Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
+	// Whether to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
 	Cascade *bool `pulumi:"cascade"`
-	// A description for the IPAM.
+	// Description for the IPAM.
 	Description *string `pulumi:"description"`
-	// Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
+	// Whether to use your own GUA ranges as private IPv6 addresses. Default: `false`.
 	EnablePrivateGua *bool `pulumi:"enablePrivateGua"`
 	// AWS account that is charged for active IP addresses managed in IPAM. Valid values are `ipam-owner` (default) and `resource-owner`.
 	MeteredAccount *string `pulumi:"meteredAccount"`
-	// Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
+	// Locales that can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
 	OperatingRegions []VpcIpamOperatingRegion `pulumi:"operatingRegions"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// specifies the IPAM tier. Valid options include `free` and `advanced`. Default is `advanced`.
 	Tier *string `pulumi:"tier"`
@@ -225,19 +222,19 @@ type vpcIpamArgs struct {
 
 // The set of arguments for constructing a VpcIpam resource.
 type VpcIpamArgs struct {
-	// Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
+	// Whether to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
 	Cascade pulumi.BoolPtrInput
-	// A description for the IPAM.
+	// Description for the IPAM.
 	Description pulumi.StringPtrInput
-	// Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
+	// Whether to use your own GUA ranges as private IPv6 addresses. Default: `false`.
 	EnablePrivateGua pulumi.BoolPtrInput
 	// AWS account that is charged for active IP addresses managed in IPAM. Valid values are `ipam-owner` (default) and `resource-owner`.
 	MeteredAccount pulumi.StringPtrInput
-	// Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
+	// Locales that can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
 	OperatingRegions VpcIpamOperatingRegionArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// specifies the IPAM tier. Valid options include `free` and `advanced`. Default is `advanced`.
 	Tier pulumi.StringPtrInput
@@ -335,27 +332,27 @@ func (o VpcIpamOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpam) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
+// Whether to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
 func (o VpcIpamOutput) Cascade() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpcIpam) pulumi.BoolPtrOutput { return v.Cascade }).(pulumi.BoolPtrOutput)
 }
 
-// The IPAM's default resource discovery association ID.
+// IPAM's default resource discovery association ID.
 func (o VpcIpamOutput) DefaultResourceDiscoveryAssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpam) pulumi.StringOutput { return v.DefaultResourceDiscoveryAssociationId }).(pulumi.StringOutput)
 }
 
-// The IPAM's default resource discovery ID.
+// IPAM's default resource discovery ID.
 func (o VpcIpamOutput) DefaultResourceDiscoveryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpam) pulumi.StringOutput { return v.DefaultResourceDiscoveryId }).(pulumi.StringOutput)
 }
 
-// A description for the IPAM.
+// Description for the IPAM.
 func (o VpcIpamOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcIpam) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
+// Whether to use your own GUA ranges as private IPv6 addresses. Default: `false`.
 func (o VpcIpamOutput) EnablePrivateGua() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpcIpam) pulumi.BoolPtrOutput { return v.EnablePrivateGua }).(pulumi.BoolPtrOutput)
 }
@@ -365,18 +362,17 @@ func (o VpcIpamOutput) MeteredAccount() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpam) pulumi.StringOutput { return v.MeteredAccount }).(pulumi.StringOutput)
 }
 
-// Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
+// Locales that can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
 func (o VpcIpamOutput) OperatingRegions() VpcIpamOperatingRegionArrayOutput {
 	return o.ApplyT(func(v *VpcIpam) VpcIpamOperatingRegionArrayOutput { return v.OperatingRegions }).(VpcIpamOperatingRegionArrayOutput)
 }
 
-// The ID of the IPAM's private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
+// ID of the IPAM's private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
 func (o VpcIpamOutput) PrivateDefaultScopeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpam) pulumi.StringOutput { return v.PrivateDefaultScopeId }).(pulumi.StringOutput)
 }
 
-// The ID of the IPAM's public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private
-// IP space. The public scope is intended for all internet-routable IP space.
+// ID of the IPAM's public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
 func (o VpcIpamOutput) PublicDefaultScopeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpam) pulumi.StringOutput { return v.PublicDefaultScopeId }).(pulumi.StringOutput)
 }
@@ -386,17 +382,17 @@ func (o VpcIpamOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpam) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The number of scopes in the IPAM.
+// Number of scopes in the IPAM.
 func (o VpcIpamOutput) ScopeCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *VpcIpam) pulumi.IntOutput { return v.ScopeCount }).(pulumi.IntOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VpcIpamOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcIpam) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VpcIpamOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcIpam) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

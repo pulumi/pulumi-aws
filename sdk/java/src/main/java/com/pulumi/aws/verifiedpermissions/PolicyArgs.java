@@ -18,14 +18,14 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     public static final PolicyArgs Empty = new PolicyArgs();
 
     /**
-     * The definition of the policy. See Definition below.
+     * Definition of the policy. See Definition below.
      * 
      */
     @Import(name="definition", required=true)
     private Output<PolicyDefinitionArgs> definition;
 
     /**
-     * @return The definition of the policy. See Definition below.
+     * @return Definition of the policy. See Definition below.
      * 
      */
     public Output<PolicyDefinitionArgs> definition() {
@@ -33,14 +33,14 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Policy Store ID of the policy store.
+     * Policy Store ID of the policy store.
      * 
      */
     @Import(name="policyStoreId", required=true)
     private Output<String> policyStoreId;
 
     /**
-     * @return The Policy Store ID of the policy store.
+     * @return Policy Store ID of the policy store.
      * 
      */
     public Output<String> policyStoreId() {
@@ -89,7 +89,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param definition The definition of the policy. See Definition below.
+         * @param definition Definition of the policy. See Definition below.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param definition The definition of the policy. See Definition below.
+         * @param definition Definition of the policy. See Definition below.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyStoreId The Policy Store ID of the policy store.
+         * @param policyStoreId Policy Store ID of the policy store.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyStoreId The Policy Store ID of the policy store.
+         * @param policyStoreId Policy Store ID of the policy store.
          * 
          * @return builder
          * 

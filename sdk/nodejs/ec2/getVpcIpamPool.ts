@@ -94,15 +94,15 @@ export interface GetVpcIpamPoolResult {
      */
     readonly addressFamily: string;
     /**
-     * A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
+     * Default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
      */
     readonly allocationDefaultNetmaskLength: number;
     /**
-     * The maximum netmask length that will be required for CIDR allocations in this pool.
+     * Maximum netmask length that will be required for CIDR allocations in this pool.
      */
     readonly allocationMaxNetmaskLength: number;
     /**
-     * The minimum netmask length that will be required for CIDR allocations in this pool.
+     * Minimum netmask length that will be required for CIDR allocations in this pool.
      */
     readonly allocationMinNetmaskLength: number;
     /**
@@ -135,14 +135,20 @@ export interface GetVpcIpamPoolResult {
      * ID of the scope the pool belongs to.
      */
     readonly ipamScopeId: string;
+    /**
+     * Type of the scope the pool belongs to.
+     */
     readonly ipamScopeType: string;
     /**
      * Locale is the Region where your pool is available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region.
      */
     readonly locale: string;
+    /**
+     * Depth of pools in your IPAM pool.
+     */
     readonly poolDepth: number;
     /**
-     * Defines whether or not IPv6 pool space is publicly advertisable over the internet.
+     * Whether IPv6 pool space is publicly advertisable over the internet.
      */
     readonly publiclyAdvertisable: boolean;
     readonly region: string;
@@ -154,6 +160,9 @@ export interface GetVpcIpamPoolResult {
      * Resource used to create the resource planning pool.
      */
     readonly sourceResources: outputs.ec2.GetVpcIpamPoolSourceResource[];
+    /**
+     * State of the IPAM pool.
+     */
     readonly state: string;
     /**
      * Map of tags to assigned to the resource.

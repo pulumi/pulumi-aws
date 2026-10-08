@@ -14,6 +14,8 @@ import (
 // The VPC Peering Connection data source provides details about
 // a specific VPC peering connection.
 //
+// The arguments of this data source act as filters for querying the available VPC peering connections. The given filters must match exactly one VPC peering connection whose data will be exported as attributes.
+//
 // ## Example Usage
 //
 // ```go
@@ -85,11 +87,7 @@ type LookupVpcPeeringConnectionArgs struct {
 	PeerVpcId *string `pulumi:"peerVpcId"`
 	// Status of the specific VPC Peering Connection to retrieve.
 	Status *string `pulumi:"status"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired VPC Peering Connection.
-	//
-	// The arguments of this data source act as filters for querying the available VPC peering connection.
-	// The given filters must match exactly one VPC peering connection whose data will be exported as attributes.
+	// Map of tags, each pair of which must exactly match a pair on the desired VPC Peering Connection.
 	Tags map[string]string `pulumi:"tags"`
 	// ID of the requester VPC of the specific VPC Peering Connection to retrieve.
 	VpcId *string `pulumi:"vpcId"`
@@ -97,22 +95,21 @@ type LookupVpcPeeringConnectionArgs struct {
 
 // A collection of values returned by getVpcPeeringConnection.
 type LookupVpcPeeringConnectionResult struct {
-	// Configuration block that describes [VPC Peering Connection]
-	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
+	// Configuration block that describes [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC. The map contains `allowRemoteVpcDnsResolution`, which is whether a local VPC can resolve public DNS hostnames to private IP addresses when queried from instances in a peer VPC.
 	Accepter map[string]bool `pulumi:"accepter"`
 	// CIDR block associated to the VPC of the specific VPC Peering Connection.
 	CidrBlock string `pulumi:"cidrBlock"`
-	// List of objects with IPv4 CIDR blocks of the requester VPC.
+	// List of objects with IPv4 CIDR blocks of the requester VPC. See `cidrBlockSet` Block below.
 	CidrBlockSets []GetVpcPeeringConnectionCidrBlockSet `pulumi:"cidrBlockSets"`
 	Filters       []GetVpcPeeringConnectionFilter       `pulumi:"filters"`
 	Id            string                                `pulumi:"id"`
-	// List of objects with IPv6 CIDR blocks of the requester VPC.
+	// List of objects with IPv6 CIDR blocks of the requester VPC. See `ipv6CidrBlockSet` Block below.
 	Ipv6CidrBlockSets []GetVpcPeeringConnectionIpv6CidrBlockSet `pulumi:"ipv6CidrBlockSets"`
 	OwnerId           string                                    `pulumi:"ownerId"`
 	PeerCidrBlock     string                                    `pulumi:"peerCidrBlock"`
-	// List of objects with IPv4 CIDR blocks of the accepter VPC.
+	// List of objects with IPv4 CIDR blocks of the accepter VPC. See `peerCidrBlockSet` Block below.
 	PeerCidrBlockSets []GetVpcPeeringConnectionPeerCidrBlockSet `pulumi:"peerCidrBlockSets"`
-	// List of objects with IPv6 CIDR blocks of the accepter VPC.
+	// List of objects with IPv6 CIDR blocks of the accepter VPC. See `peerIpv6CidrBlockSet` Block below.
 	PeerIpv6CidrBlockSets []GetVpcPeeringConnectionPeerIpv6CidrBlockSet `pulumi:"peerIpv6CidrBlockSets"`
 	PeerOwnerId           string                                        `pulumi:"peerOwnerId"`
 	// Region of the accepter VPC.
@@ -122,8 +119,7 @@ type LookupVpcPeeringConnectionResult struct {
 	//
 	// Deprecated: region is deprecated. Use requesterRegion instead.
 	Region string `pulumi:"region"`
-	// Configuration block that describes [VPC Peering Connection]
-	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
+	// Configuration block that describes [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC. The map contains `allowRemoteVpcDnsResolution`, which is whether a local VPC can resolve public DNS hostnames to private IP addresses when queried from instances in a peer VPC.
 	Requester map[string]bool `pulumi:"requester"`
 	// Region of the requester VPC.
 	RequesterRegion string            `pulumi:"requesterRegion"`
@@ -155,11 +151,7 @@ type LookupVpcPeeringConnectionOutputArgs struct {
 	PeerVpcId pulumi.StringPtrInput `pulumi:"peerVpcId"`
 	// Status of the specific VPC Peering Connection to retrieve.
 	Status pulumi.StringPtrInput `pulumi:"status"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired VPC Peering Connection.
-	//
-	// The arguments of this data source act as filters for querying the available VPC peering connection.
-	// The given filters must match exactly one VPC peering connection whose data will be exported as attributes.
+	// Map of tags, each pair of which must exactly match a pair on the desired VPC Peering Connection.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// ID of the requester VPC of the specific VPC Peering Connection to retrieve.
 	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
@@ -184,8 +176,7 @@ func (o LookupVpcPeeringConnectionResultOutput) ToLookupVpcPeeringConnectionResu
 	return o
 }
 
-// Configuration block that describes [VPC Peering Connection]
-// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
+// Configuration block that describes [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC. The map contains `allowRemoteVpcDnsResolution`, which is whether a local VPC can resolve public DNS hostnames to private IP addresses when queried from instances in a peer VPC.
 func (o LookupVpcPeeringConnectionResultOutput) Accepter() pulumi.BoolMapOutput {
 	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) map[string]bool { return v.Accepter }).(pulumi.BoolMapOutput)
 }
@@ -195,7 +186,7 @@ func (o LookupVpcPeeringConnectionResultOutput) CidrBlock() pulumi.StringOutput 
 	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) string { return v.CidrBlock }).(pulumi.StringOutput)
 }
 
-// List of objects with IPv4 CIDR blocks of the requester VPC.
+// List of objects with IPv4 CIDR blocks of the requester VPC. See `cidrBlockSet` Block below.
 func (o LookupVpcPeeringConnectionResultOutput) CidrBlockSets() GetVpcPeeringConnectionCidrBlockSetArrayOutput {
 	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) []GetVpcPeeringConnectionCidrBlockSet { return v.CidrBlockSets }).(GetVpcPeeringConnectionCidrBlockSetArrayOutput)
 }
@@ -208,7 +199,7 @@ func (o LookupVpcPeeringConnectionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of objects with IPv6 CIDR blocks of the requester VPC.
+// List of objects with IPv6 CIDR blocks of the requester VPC. See `ipv6CidrBlockSet` Block below.
 func (o LookupVpcPeeringConnectionResultOutput) Ipv6CidrBlockSets() GetVpcPeeringConnectionIpv6CidrBlockSetArrayOutput {
 	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) []GetVpcPeeringConnectionIpv6CidrBlockSet {
 		return v.Ipv6CidrBlockSets
@@ -223,14 +214,14 @@ func (o LookupVpcPeeringConnectionResultOutput) PeerCidrBlock() pulumi.StringOut
 	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) string { return v.PeerCidrBlock }).(pulumi.StringOutput)
 }
 
-// List of objects with IPv4 CIDR blocks of the accepter VPC.
+// List of objects with IPv4 CIDR blocks of the accepter VPC. See `peerCidrBlockSet` Block below.
 func (o LookupVpcPeeringConnectionResultOutput) PeerCidrBlockSets() GetVpcPeeringConnectionPeerCidrBlockSetArrayOutput {
 	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) []GetVpcPeeringConnectionPeerCidrBlockSet {
 		return v.PeerCidrBlockSets
 	}).(GetVpcPeeringConnectionPeerCidrBlockSetArrayOutput)
 }
 
-// List of objects with IPv6 CIDR blocks of the accepter VPC.
+// List of objects with IPv6 CIDR blocks of the accepter VPC. See `peerIpv6CidrBlockSet` Block below.
 func (o LookupVpcPeeringConnectionResultOutput) PeerIpv6CidrBlockSets() GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutput {
 	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) []GetVpcPeeringConnectionPeerIpv6CidrBlockSet {
 		return v.PeerIpv6CidrBlockSets
@@ -257,8 +248,7 @@ func (o LookupVpcPeeringConnectionResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Configuration block that describes [VPC Peering Connection]
-// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
+// Configuration block that describes [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC. The map contains `allowRemoteVpcDnsResolution`, which is whether a local VPC can resolve public DNS hostnames to private IP addresses when queried from instances in a peer VPC.
 func (o LookupVpcPeeringConnectionResultOutput) Requester() pulumi.BoolMapOutput {
 	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) map[string]bool { return v.Requester }).(pulumi.BoolMapOutput)
 }

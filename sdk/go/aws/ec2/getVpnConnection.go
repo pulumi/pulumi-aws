@@ -113,9 +113,9 @@ type LookupVpnConnectionResult struct {
 	// (ARN) of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection.
 	PreSharedKeyArn string `pulumi:"preSharedKeyArn"`
 	Region          string `pulumi:"region"`
-	// List of static routes associated with the VPN connection.
+	// List of static routes associated with the VPN connection. See below.
 	Routes []GetVpnConnectionRouteType `pulumi:"routes"`
-	// Current state of the VPN connection.
+	// Current state of the static route.
 	State string `pulumi:"state"`
 	// Tags associated to the VPN Connection.
 	Tags map[string]string `pulumi:"tags"`
@@ -123,7 +123,7 @@ type LookupVpnConnectionResult struct {
 	TransitGatewayId string `pulumi:"transitGatewayId"`
 	// Type of VPN connection. Currently the only supported type is ipsec.1.
 	Type string `pulumi:"type"`
-	// List of objects containing information about the VPN tunnel.
+	// List of objects containing information about the VPN tunnel. See below.
 	VgwTelemetries []GetVpnConnectionVgwTelemetry `pulumi:"vgwTelemetries"`
 	// ID of a VPN concentrator associated with the VPN connection.
 	VpnConcentratorId string `pulumi:"vpnConcentratorId"`
@@ -209,12 +209,12 @@ func (o LookupVpnConnectionResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpnConnectionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// List of static routes associated with the VPN connection.
+// List of static routes associated with the VPN connection. See below.
 func (o LookupVpnConnectionResultOutput) Routes() GetVpnConnectionRouteTypeArrayOutput {
 	return o.ApplyT(func(v LookupVpnConnectionResult) []GetVpnConnectionRouteType { return v.Routes }).(GetVpnConnectionRouteTypeArrayOutput)
 }
 
-// Current state of the VPN connection.
+// Current state of the static route.
 func (o LookupVpnConnectionResultOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpnConnectionResult) string { return v.State }).(pulumi.StringOutput)
 }
@@ -234,7 +234,7 @@ func (o LookupVpnConnectionResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpnConnectionResult) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// List of objects containing information about the VPN tunnel.
+// List of objects containing information about the VPN tunnel. See below.
 func (o LookupVpnConnectionResultOutput) VgwTelemetries() GetVpnConnectionVgwTelemetryArrayOutput {
 	return o.ApplyT(func(v LookupVpnConnectionResult) []GetVpnConnectionVgwTelemetry { return v.VgwTelemetries }).(GetVpnConnectionVgwTelemetryArrayOutput)
 }

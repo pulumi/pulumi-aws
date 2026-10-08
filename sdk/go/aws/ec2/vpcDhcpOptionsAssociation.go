@@ -51,13 +51,13 @@ import (
 type VpcDhcpOptionsAssociation struct {
 	pulumi.CustomResourceState
 
-	// The ID of the DHCP Options Set to associate to the VPC.
-	//
-	// > **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS's `default` DHCP Options Set to the VPC.
+	// ID of the DHCP Options Set to associate to the VPC.
 	DhcpOptionsId pulumi.StringOutput `pulumi:"dhcpOptionsId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The ID of the VPC to which we would like to associate a DHCP Options Set.
+	// ID of the VPC to which we would like to associate a DHCP Options Set.
+	//
+	// > **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS's `default` DHCP Options Set to the VPC.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
@@ -97,24 +97,24 @@ func GetVpcDhcpOptionsAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcDhcpOptionsAssociation resources.
 type vpcDhcpOptionsAssociationState struct {
-	// The ID of the DHCP Options Set to associate to the VPC.
-	//
-	// > **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS's `default` DHCP Options Set to the VPC.
+	// ID of the DHCP Options Set to associate to the VPC.
 	DhcpOptionsId *string `pulumi:"dhcpOptionsId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The ID of the VPC to which we would like to associate a DHCP Options Set.
+	// ID of the VPC to which we would like to associate a DHCP Options Set.
+	//
+	// > **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS's `default` DHCP Options Set to the VPC.
 	VpcId *string `pulumi:"vpcId"`
 }
 
 type VpcDhcpOptionsAssociationState struct {
-	// The ID of the DHCP Options Set to associate to the VPC.
-	//
-	// > **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS's `default` DHCP Options Set to the VPC.
+	// ID of the DHCP Options Set to associate to the VPC.
 	DhcpOptionsId pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The ID of the VPC to which we would like to associate a DHCP Options Set.
+	// ID of the VPC to which we would like to associate a DHCP Options Set.
+	//
+	// > **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS's `default` DHCP Options Set to the VPC.
 	VpcId pulumi.StringPtrInput
 }
 
@@ -123,25 +123,25 @@ func (VpcDhcpOptionsAssociationState) ElementType() reflect.Type {
 }
 
 type vpcDhcpOptionsAssociationArgs struct {
-	// The ID of the DHCP Options Set to associate to the VPC.
-	//
-	// > **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS's `default` DHCP Options Set to the VPC.
+	// ID of the DHCP Options Set to associate to the VPC.
 	DhcpOptionsId string `pulumi:"dhcpOptionsId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The ID of the VPC to which we would like to associate a DHCP Options Set.
+	// ID of the VPC to which we would like to associate a DHCP Options Set.
+	//
+	// > **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS's `default` DHCP Options Set to the VPC.
 	VpcId string `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a VpcDhcpOptionsAssociation resource.
 type VpcDhcpOptionsAssociationArgs struct {
-	// The ID of the DHCP Options Set to associate to the VPC.
-	//
-	// > **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS's `default` DHCP Options Set to the VPC.
+	// ID of the DHCP Options Set to associate to the VPC.
 	DhcpOptionsId pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The ID of the VPC to which we would like to associate a DHCP Options Set.
+	// ID of the VPC to which we would like to associate a DHCP Options Set.
+	//
+	// > **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS's `default` DHCP Options Set to the VPC.
 	VpcId pulumi.StringInput
 }
 
@@ -232,9 +232,7 @@ func (o VpcDhcpOptionsAssociationOutput) ToVpcDhcpOptionsAssociationOutputWithCo
 	return o
 }
 
-// The ID of the DHCP Options Set to associate to the VPC.
-//
-// > **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS's `default` DHCP Options Set to the VPC.
+// ID of the DHCP Options Set to associate to the VPC.
 func (o VpcDhcpOptionsAssociationOutput) DhcpOptionsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcDhcpOptionsAssociation) pulumi.StringOutput { return v.DhcpOptionsId }).(pulumi.StringOutput)
 }
@@ -244,7 +242,9 @@ func (o VpcDhcpOptionsAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcDhcpOptionsAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The ID of the VPC to which we would like to associate a DHCP Options Set.
+// ID of the VPC to which we would like to associate a DHCP Options Set.
+//
+// > **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS's `default` DHCP Options Set to the VPC.
 func (o VpcDhcpOptionsAssociationOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcDhcpOptionsAssociation) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

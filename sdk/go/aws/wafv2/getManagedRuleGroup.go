@@ -66,11 +66,11 @@ type GetManagedRuleGroupArgs struct {
 
 // A collection of values returned by getManagedRuleGroup.
 type GetManagedRuleGroupResult struct {
-	// Labels that one or more rules in this rule group add to matching web requests. See Labels below for details.
+	// Labels that one or more rules in this rule group add to matching web requests. See `availableLabels` Block below for details.
 	AvailableLabels []GetManagedRuleGroupAvailableLabel `pulumi:"availableLabels"`
 	// WCUs required for this rule group.
 	Capacity int `pulumi:"capacity"`
-	// Labels that one or more rules in this rule group match against in label match statements. See Labels below for details.
+	// Labels that one or more rules in this rule group match against in label match statements. See `consumedLabels` Block below for details.
 	ConsumedLabels []GetManagedRuleGroupConsumedLabel `pulumi:"consumedLabels"`
 	// Label namespace prefix for this rule group. All labels added by rules in this rule group have this prefix.
 	LabelNamespace string `pulumi:"labelNamespace"`
@@ -124,7 +124,7 @@ func (o GetManagedRuleGroupResultOutput) ToGetManagedRuleGroupResultOutputWithCo
 	return o
 }
 
-// Labels that one or more rules in this rule group add to matching web requests. See Labels below for details.
+// Labels that one or more rules in this rule group add to matching web requests. See `availableLabels` Block below for details.
 func (o GetManagedRuleGroupResultOutput) AvailableLabels() GetManagedRuleGroupAvailableLabelArrayOutput {
 	return o.ApplyT(func(v GetManagedRuleGroupResult) []GetManagedRuleGroupAvailableLabel { return v.AvailableLabels }).(GetManagedRuleGroupAvailableLabelArrayOutput)
 }
@@ -134,7 +134,7 @@ func (o GetManagedRuleGroupResultOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v GetManagedRuleGroupResult) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// Labels that one or more rules in this rule group match against in label match statements. See Labels below for details.
+// Labels that one or more rules in this rule group match against in label match statements. See `consumedLabels` Block below for details.
 func (o GetManagedRuleGroupResultOutput) ConsumedLabels() GetManagedRuleGroupConsumedLabelArrayOutput {
 	return o.ApplyT(func(v GetManagedRuleGroupResult) []GetManagedRuleGroupConsumedLabel { return v.ConsumedLabels }).(GetManagedRuleGroupConsumedLabelArrayOutput)
 }

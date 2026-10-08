@@ -98,70 +98,70 @@ public class VpcIpamResourceDiscoveryAssociation extends com.pulumi.resources.Cu
         return this.ipamArn;
     }
     /**
-     * The ID of the IPAM to associate.
+     * ID of the IPAM to associate.
      * 
      */
     @Export(name="ipamId", refs={String.class}, tree="[0]")
     private Output<String> ipamId;
 
     /**
-     * @return The ID of the IPAM to associate.
+     * @return ID of the IPAM to associate.
      * 
      */
     public Output<String> ipamId() {
         return this.ipamId;
     }
     /**
-     * The home region of the IPAM.
+     * Home region of the IPAM.
      * 
      */
     @Export(name="ipamRegion", refs={String.class}, tree="[0]")
     private Output<String> ipamRegion;
 
     /**
-     * @return The home region of the IPAM.
+     * @return Home region of the IPAM.
      * 
      */
     public Output<String> ipamRegion() {
         return this.ipamRegion;
     }
     /**
-     * The ID of the Resource Discovery to associate.
+     * ID of the Resource Discovery to associate.
      * 
      */
     @Export(name="ipamResourceDiscoveryId", refs={String.class}, tree="[0]")
     private Output<String> ipamResourceDiscoveryId;
 
     /**
-     * @return The ID of the Resource Discovery to associate.
+     * @return ID of the Resource Discovery to associate.
      * 
      */
     public Output<String> ipamResourceDiscoveryId() {
         return this.ipamResourceDiscoveryId;
     }
     /**
-     * A boolean to identify if the Resource Discovery is the accounts default resource discovery.
+     * Boolean to identify if the Resource Discovery is the accounts default resource discovery.
      * 
      */
     @Export(name="isDefault", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> isDefault;
 
     /**
-     * @return A boolean to identify if the Resource Discovery is the accounts default resource discovery.
+     * @return Boolean to identify if the Resource Discovery is the accounts default resource discovery.
      * 
      */
     public Output<Boolean> isDefault() {
         return this.isDefault;
     }
     /**
-     * The account ID for the account that manages the Resource Discovery
+     * Account ID for the account that manages the Resource Discovery
      * 
      */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
     /**
-     * @return The account ID for the account that manages the Resource Discovery
+     * @return Account ID for the account that manages the Resource Discovery
      * 
      */
     public Output<String> ownerId() {
@@ -182,42 +182,42 @@ public class VpcIpamResourceDiscoveryAssociation extends com.pulumi.resources.Cu
         return this.region;
     }
     /**
-     * The lifecycle state of the association when you associate or disassociate a resource discovery.
+     * Lifecycle state of the association when you associate or disassociate a resource discovery.
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
-     * @return The lifecycle state of the association when you associate or disassociate a resource discovery.
+     * @return Lifecycle state of the association when you associate or disassociate a resource discovery.
      * 
      */
     public Output<String> state() {
         return this.state;
     }
     /**
-     * A map of tags to add to the IPAM resource discovery association resource.
+     * Map of tags to add to the IPAM resource discovery association resource.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to add to the IPAM resource discovery association resource.
+     * @return Map of tags to add to the IPAM resource discovery association resource.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

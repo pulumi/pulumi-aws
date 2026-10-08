@@ -15,14 +15,14 @@ public final class RuleGroupRuleRuleLabelArgs extends com.pulumi.resources.Resou
     public static final RuleGroupRuleRuleLabelArgs Empty = new RuleGroupRuleRuleLabelArgs();
 
     /**
-     * The label string.
+     * Label string.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The label string.
+     * @return Label string.
      * 
      */
     public Output<String> name() {
@@ -54,7 +54,7 @@ public final class RuleGroupRuleRuleLabelArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param name The label string.
+         * @param name Label string.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class RuleGroupRuleRuleLabelArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param name The label string.
+         * @param name Label string.
          * 
          * @return builder
          * 

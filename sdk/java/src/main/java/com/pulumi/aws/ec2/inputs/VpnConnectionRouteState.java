@@ -16,14 +16,14 @@ public final class VpnConnectionRouteState extends com.pulumi.resources.Resource
     public static final VpnConnectionRouteState Empty = new VpnConnectionRouteState();
 
     /**
-     * The CIDR block associated with the local subnet of the customer network.
+     * CIDR block associated with the local subnet of the customer network.
      * 
      */
     @Import(name="destinationCidrBlock")
     private @Nullable Output<String> destinationCidrBlock;
 
     /**
-     * @return The CIDR block associated with the local subnet of the customer network.
+     * @return CIDR block associated with the local subnet of the customer network.
      * 
      */
     public Optional<Output<String>> destinationCidrBlock() {
@@ -46,14 +46,14 @@ public final class VpnConnectionRouteState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The ID of the VPN connection.
+     * ID of the VPN connection.
      * 
      */
     @Import(name="vpnConnectionId")
     private @Nullable Output<String> vpnConnectionId;
 
     /**
-     * @return The ID of the VPN connection.
+     * @return ID of the VPN connection.
      * 
      */
     public Optional<Output<String>> vpnConnectionId() {
@@ -87,7 +87,7 @@ public final class VpnConnectionRouteState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param destinationCidrBlock The CIDR block associated with the local subnet of the customer network.
+         * @param destinationCidrBlock CIDR block associated with the local subnet of the customer network.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class VpnConnectionRouteState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param destinationCidrBlock The CIDR block associated with the local subnet of the customer network.
+         * @param destinationCidrBlock CIDR block associated with the local subnet of the customer network.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class VpnConnectionRouteState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param vpnConnectionId The ID of the VPN connection.
+         * @param vpnConnectionId ID of the VPN connection.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class VpnConnectionRouteState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param vpnConnectionId The ID of the VPN connection.
+         * @param vpnConnectionId ID of the VPN connection.
          * 
          * @return builder
          * 

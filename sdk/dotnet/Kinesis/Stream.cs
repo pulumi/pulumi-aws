@@ -17,6 +17,40 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// ## Example Usage
     /// 
+    /// ### On-Demand Mode
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var testStream = new Aws.Kinesis.Stream("test_stream", new()
+    ///     {
+    ///         StreamModeDetails = new Aws.Kinesis.Inputs.StreamStreamModeDetailsArgs
+    ///         {
+    ///             StreamMode = "ON_DEMAND",
+    ///         },
+    ///         Name = "kinesis-test",
+    ///         RetentionPeriod = 48,
+    ///         ShardLevelMetrics = new[]
+    ///         {
+    ///             "IncomingBytes",
+    ///             "OutgoingBytes",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "test" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Provisioned Mode
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

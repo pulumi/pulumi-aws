@@ -15,12 +15,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class IdentitySourceConfigurationCognitoUserPoolConfiguration {
     /**
-     * @return The unique application client IDs that are associated with the specified Amazon Cognito user pool.
+     * @return Unique application client IDs that are associated with the specified Amazon Cognito user pool.
      * 
      */
     private @Nullable List<String> clientIds;
     /**
-     * @return The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+     * @return Type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
      * 
      */
     private @Nullable IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration groupConfiguration;
@@ -32,14 +32,14 @@ public final class IdentitySourceConfigurationCognitoUserPoolConfiguration {
 
     private IdentitySourceConfigurationCognitoUserPoolConfiguration() {}
     /**
-     * @return The unique application client IDs that are associated with the specified Amazon Cognito user pool.
+     * @return Unique application client IDs that are associated with the specified Amazon Cognito user pool.
      * 
      */
     public List<String> clientIds() {
         return this.clientIds == null ? List.of() : this.clientIds;
     }
     /**
-     * @return The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+     * @return Type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
      * 
      */
     public Optional<IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration> groupConfiguration() {

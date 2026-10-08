@@ -20,14 +20,14 @@ public final class VpcPeeringConnectionAccepterState extends com.pulumi.resource
     public static final VpcPeeringConnectionAccepterState Empty = new VpcPeeringConnectionAccepterState();
 
     /**
-     * The status of the VPC Peering Connection request.
+     * Status of the VPC Peering Connection request.
      * 
      */
     @Import(name="acceptStatus")
     private @Nullable Output<String> acceptStatus;
 
     /**
-     * @return The status of the VPC Peering Connection request.
+     * @return Status of the VPC Peering Connection request.
      * 
      */
     public Optional<Output<String>> acceptStatus() {
@@ -35,16 +35,14 @@ public final class VpcPeeringConnectionAccepterState extends com.pulumi.resource
     }
 
     /**
-     * A configuration block that describes [VPC Peering Connection]
-     * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
+     * Configuration block for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to set for the VPC that accepts the peering connection (a maximum of one). See `accepter` Block below.
      * 
      */
     @Import(name="accepter")
     private @Nullable Output<VpcPeeringConnectionAccepterAccepterArgs> accepter;
 
     /**
-     * @return A configuration block that describes [VPC Peering Connection]
-     * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
+     * @return Configuration block for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to set for the VPC that accepts the peering connection (a maximum of one). See `accepter` Block below.
      * 
      */
     public Optional<Output<VpcPeeringConnectionAccepterAccepterArgs>> accepter() {
@@ -67,14 +65,14 @@ public final class VpcPeeringConnectionAccepterState extends com.pulumi.resource
     }
 
     /**
-     * The AWS account ID of the owner of the requester VPC.
+     * AWS account ID of the owner of the requester VPC.
      * 
      */
     @Import(name="peerOwnerId")
     private @Nullable Output<String> peerOwnerId;
 
     /**
-     * @return The AWS account ID of the owner of the requester VPC.
+     * @return AWS account ID of the owner of the requester VPC.
      * 
      */
     public Optional<Output<String>> peerOwnerId() {
@@ -82,14 +80,14 @@ public final class VpcPeeringConnectionAccepterState extends com.pulumi.resource
     }
 
     /**
-     * The region of the accepter VPC.
+     * Region of the accepter VPC.
      * 
      */
     @Import(name="peerRegion")
     private @Nullable Output<String> peerRegion;
 
     /**
-     * @return The region of the accepter VPC.
+     * @return Region of the accepter VPC.
      * 
      */
     public Optional<Output<String>> peerRegion() {
@@ -97,14 +95,14 @@ public final class VpcPeeringConnectionAccepterState extends com.pulumi.resource
     }
 
     /**
-     * The ID of the requester VPC.
+     * ID of the requester VPC.
      * 
      */
     @Import(name="peerVpcId")
     private @Nullable Output<String> peerVpcId;
 
     /**
-     * @return The ID of the requester VPC.
+     * @return ID of the requester VPC.
      * 
      */
     public Optional<Output<String>> peerVpcId() {
@@ -127,16 +125,14 @@ public final class VpcPeeringConnectionAccepterState extends com.pulumi.resource
     }
 
     /**
-     * A configuration block that describes [VPC Peering Connection]
-     * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
+     * Configuration block for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to set for the VPC that requests the peering connection (a maximum of one). See `requester` Block below.
      * 
      */
     @Import(name="requester")
     private @Nullable Output<VpcPeeringConnectionAccepterRequesterArgs> requester;
 
     /**
-     * @return A configuration block that describes [VPC Peering Connection]
-     * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
+     * @return Configuration block for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to set for the VPC that requests the peering connection (a maximum of one). See `requester` Block below.
      * 
      */
     public Optional<Output<VpcPeeringConnectionAccepterRequesterArgs>> requester() {
@@ -144,14 +140,14 @@ public final class VpcPeeringConnectionAccepterState extends com.pulumi.resource
     }
 
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -159,14 +155,14 @@ public final class VpcPeeringConnectionAccepterState extends com.pulumi.resource
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -174,14 +170,14 @@ public final class VpcPeeringConnectionAccepterState extends com.pulumi.resource
     }
 
     /**
-     * The ID of the accepter VPC.
+     * ID of the accepter VPC.
      * 
      */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
     /**
-     * @return The ID of the accepter VPC.
+     * @return ID of the accepter VPC.
      * 
      */
     public Optional<Output<String>> vpcId() {
@@ -189,14 +185,14 @@ public final class VpcPeeringConnectionAccepterState extends com.pulumi.resource
     }
 
     /**
-     * The VPC Peering Connection ID to manage.
+     * VPC Peering Connection ID to manage.
      * 
      */
     @Import(name="vpcPeeringConnectionId")
     private @Nullable Output<String> vpcPeeringConnectionId;
 
     /**
-     * @return The VPC Peering Connection ID to manage.
+     * @return VPC Peering Connection ID to manage.
      * 
      */
     public Optional<Output<String>> vpcPeeringConnectionId() {
@@ -239,7 +235,7 @@ public final class VpcPeeringConnectionAccepterState extends com.pulumi.resource
         }
 
         /**
-         * @param acceptStatus The status of the VPC Peering Connection request.
+         * @param acceptStatus Status of the VPC Peering Connection request.
          * 
          * @return builder
          * 
@@ -250,7 +246,7 @@ public final class VpcPeeringConnectionAccepterState extends com.pulumi.resource
         }
 
         /**
-         * @param acceptStatus The status of the VPC Peering Connection request.
+         * @param acceptStatus Status of the VPC Peering Connection request.
          * 
          * @return builder
          * 
@@ -260,8 +256,7 @@ public final class VpcPeeringConnectionAccepterState extends com.pulumi.resource
         }
 
         /**
-         * @param accepter A configuration block that describes [VPC Peering Connection]
-         * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
+         * @param accepter Configuration block for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to set for the VPC that accepts the peering connection (a maximum of one). See `accepter` Block below.
          * 
          * @return builder
          * 
@@ -272,8 +267,7 @@ public final class VpcPeeringConnectionAccepterState extends com.pulumi.resource
         }
 
         /**
-         * @param accepter A configuration block that describes [VPC Peering Connection]
-         * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
+         * @param accepter Configuration block for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to set for the VPC that accepts the peering connection (a maximum of one). See `accepter` Block below.
          * 
          * @return builder
          * 
@@ -304,7 +298,7 @@ public final class VpcPeeringConnectionAccepterState extends com.pulumi.resource
         }
 
         /**
-         * @param peerOwnerId The AWS account ID of the owner of the requester VPC.
+         * @param peerOwnerId AWS account ID of the owner of the requester VPC.
          * 
          * @return builder
          * 
@@ -315,7 +309,7 @@ public final class VpcPeeringConnectionAccepterState extends com.pulumi.resource
         }
 
         /**
-         * @param peerOwnerId The AWS account ID of the owner of the requester VPC.
+         * @param peerOwnerId AWS account ID of the owner of the requester VPC.
          * 
          * @return builder
          * 
@@ -325,7 +319,7 @@ public final class VpcPeeringConnectionAccepterState extends com.pulumi.resource
         }
 
         /**
-         * @param peerRegion The region of the accepter VPC.
+         * @param peerRegion Region of the accepter VPC.
          * 
          * @return builder
          * 
@@ -336,7 +330,7 @@ public final class VpcPeeringConnectionAccepterState extends com.pulumi.resource
         }
 
         /**
-         * @param peerRegion The region of the accepter VPC.
+         * @param peerRegion Region of the accepter VPC.
          * 
          * @return builder
          * 
@@ -346,7 +340,7 @@ public final class VpcPeeringConnectionAccepterState extends com.pulumi.resource
         }
 
         /**
-         * @param peerVpcId The ID of the requester VPC.
+         * @param peerVpcId ID of the requester VPC.
          * 
          * @return builder
          * 
@@ -357,7 +351,7 @@ public final class VpcPeeringConnectionAccepterState extends com.pulumi.resource
         }
 
         /**
-         * @param peerVpcId The ID of the requester VPC.
+         * @param peerVpcId ID of the requester VPC.
          * 
          * @return builder
          * 
@@ -388,8 +382,7 @@ public final class VpcPeeringConnectionAccepterState extends com.pulumi.resource
         }
 
         /**
-         * @param requester A configuration block that describes [VPC Peering Connection]
-         * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
+         * @param requester Configuration block for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to set for the VPC that requests the peering connection (a maximum of one). See `requester` Block below.
          * 
          * @return builder
          * 
@@ -400,8 +393,7 @@ public final class VpcPeeringConnectionAccepterState extends com.pulumi.resource
         }
 
         /**
-         * @param requester A configuration block that describes [VPC Peering Connection]
-         * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
+         * @param requester Configuration block for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to set for the VPC that requests the peering connection (a maximum of one). See `requester` Block below.
          * 
          * @return builder
          * 
@@ -411,7 +403,7 @@ public final class VpcPeeringConnectionAccepterState extends com.pulumi.resource
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -422,7 +414,7 @@ public final class VpcPeeringConnectionAccepterState extends com.pulumi.resource
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -432,7 +424,7 @@ public final class VpcPeeringConnectionAccepterState extends com.pulumi.resource
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -443,7 +435,7 @@ public final class VpcPeeringConnectionAccepterState extends com.pulumi.resource
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -453,7 +445,7 @@ public final class VpcPeeringConnectionAccepterState extends com.pulumi.resource
         }
 
         /**
-         * @param vpcId The ID of the accepter VPC.
+         * @param vpcId ID of the accepter VPC.
          * 
          * @return builder
          * 
@@ -464,7 +456,7 @@ public final class VpcPeeringConnectionAccepterState extends com.pulumi.resource
         }
 
         /**
-         * @param vpcId The ID of the accepter VPC.
+         * @param vpcId ID of the accepter VPC.
          * 
          * @return builder
          * 
@@ -474,7 +466,7 @@ public final class VpcPeeringConnectionAccepterState extends com.pulumi.resource
         }
 
         /**
-         * @param vpcPeeringConnectionId The VPC Peering Connection ID to manage.
+         * @param vpcPeeringConnectionId VPC Peering Connection ID to manage.
          * 
          * @return builder
          * 
@@ -485,7 +477,7 @@ public final class VpcPeeringConnectionAccepterState extends com.pulumi.resource
         }
 
         /**
-         * @param vpcPeeringConnectionId The VPC Peering Connection ID to manage.
+         * @param vpcPeeringConnectionId VPC Peering Connection ID to manage.
          * 
          * @return builder
          * 

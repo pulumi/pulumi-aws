@@ -33,14 +33,14 @@ public final class WebAclDataProtectionConfigDataProtectionFieldArgs extends com
     }
 
     /**
-     * Specifies the web request component type to protect. Valid Values are `SINGLE_HEADER`, `SINGLE_COOKIE`, `SINGLE_QUERY_ARGUMENT`, `QUERY_STRING`, `BODY`.
+     * Web request component type to protect. Valid Values are `SINGLE_HEADER`, `SINGLE_COOKIE`, `SINGLE_QUERY_ARGUMENT`, `QUERY_STRING`, `BODY`.
      * 
      */
     @Import(name="fieldType", required=true)
     private Output<String> fieldType;
 
     /**
-     * @return Specifies the web request component type to protect. Valid Values are `SINGLE_HEADER`, `SINGLE_COOKIE`, `SINGLE_QUERY_ARGUMENT`, `QUERY_STRING`, `BODY`.
+     * @return Web request component type to protect. Valid Values are `SINGLE_HEADER`, `SINGLE_COOKIE`, `SINGLE_QUERY_ARGUMENT`, `QUERY_STRING`, `BODY`.
      * 
      */
     public Output<String> fieldType() {
@@ -104,7 +104,7 @@ public final class WebAclDataProtectionConfigDataProtectionFieldArgs extends com
         }
 
         /**
-         * @param fieldType Specifies the web request component type to protect. Valid Values are `SINGLE_HEADER`, `SINGLE_COOKIE`, `SINGLE_QUERY_ARGUMENT`, `QUERY_STRING`, `BODY`.
+         * @param fieldType Web request component type to protect. Valid Values are `SINGLE_HEADER`, `SINGLE_COOKIE`, `SINGLE_QUERY_ARGUMENT`, `QUERY_STRING`, `BODY`.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class WebAclDataProtectionConfigDataProtectionFieldArgs extends com
         }
 
         /**
-         * @param fieldType Specifies the web request component type to protect. Valid Values are `SINGLE_HEADER`, `SINGLE_COOKIE`, `SINGLE_QUERY_ARGUMENT`, `QUERY_STRING`, `BODY`.
+         * @param fieldType Web request component type to protect. Valid Values are `SINGLE_HEADER`, `SINGLE_COOKIE`, `SINGLE_QUERY_ARGUMENT`, `QUERY_STRING`, `BODY`.
          * 
          * @return builder
          * 

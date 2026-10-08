@@ -30,7 +30,7 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclAssociationConfigRequestBodyCognitoUserPool? CognitoUserPool;
         /// <summary>
-        /// Customizes the request body that your protected AWS Verfied Access instances forward to AWS WAF for inspection. Applicable only when `Scope` is set to `REGIONAL`. See `VerifiedAccessInstance` below for details.
+        /// Customizes the request body that your protected AWS Verified Access instances forward to AWS WAF for inspection. Applicable only when `Scope` is set to `REGIONAL`. See `VerifiedAccessInstance` below for details.
         /// </summary>
         public readonly Outputs.WebAclAssociationConfigRequestBodyVerifiedAccessInstance? VerifiedAccessInstance;
 

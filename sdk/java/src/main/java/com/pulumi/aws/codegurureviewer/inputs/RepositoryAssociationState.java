@@ -66,14 +66,14 @@ public final class RepositoryAssociationState extends com.pulumi.resources.Resou
     }
 
     /**
-     * An object describing the KMS key to asssociate. Block is documented below.
+     * An object describing the KMS key to associate. Block is documented below.
      * 
      */
     @Import(name="kmsKeyDetails")
     private @Nullable Output<RepositoryAssociationKmsKeyDetailsArgs> kmsKeyDetails;
 
     /**
-     * @return An object describing the KMS key to asssociate. Block is documented below.
+     * @return An object describing the KMS key to associate. Block is documented below.
      * 
      */
     public Optional<Output<RepositoryAssociationKmsKeyDetailsArgs>> kmsKeyDetails() {
@@ -311,7 +311,7 @@ public final class RepositoryAssociationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param kmsKeyDetails An object describing the KMS key to asssociate. Block is documented below.
+         * @param kmsKeyDetails An object describing the KMS key to associate. Block is documented below.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class RepositoryAssociationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param kmsKeyDetails An object describing the KMS key to asssociate. Block is documented below.
+         * @param kmsKeyDetails An object describing the KMS key to associate. Block is documented below.
          * 
          * @return builder
          * 

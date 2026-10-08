@@ -15,14 +15,14 @@ public final class RuleGroupCustomResponseBodyArgs extends com.pulumi.resources.
     public static final RuleGroupCustomResponseBodyArgs Empty = new RuleGroupCustomResponseBodyArgs();
 
     /**
-     * The payload of the custom response.
+     * Payload of the custom response.
      * 
      */
     @Import(name="content", required=true)
     private Output<String> content;
 
     /**
-     * @return The payload of the custom response.
+     * @return Payload of the custom response.
      * 
      */
     public Output<String> content() {
@@ -30,14 +30,14 @@ public final class RuleGroupCustomResponseBodyArgs extends com.pulumi.resources.
     }
 
     /**
-     * The type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
+     * Type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
      * 
      */
     @Import(name="contentType", required=true)
     private Output<String> contentType;
 
     /**
-     * @return The type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
+     * @return Type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
      * 
      */
     public Output<String> contentType() {
@@ -45,14 +45,14 @@ public final class RuleGroupCustomResponseBodyArgs extends com.pulumi.resources.
     }
 
     /**
-     * A unique key identifying the custom response body. This is referenced by the `customResponseBodyKey` argument in the Custom Response block.
+     * Unique key identifying the custom response body. This is referenced by the `customResponseBodyKey` argument in the Custom Response block.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return A unique key identifying the custom response body. This is referenced by the `customResponseBodyKey` argument in the Custom Response block.
+     * @return Unique key identifying the custom response body. This is referenced by the `customResponseBodyKey` argument in the Custom Response block.
      * 
      */
     public Output<String> key() {
@@ -86,7 +86,7 @@ public final class RuleGroupCustomResponseBodyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param content The payload of the custom response.
+         * @param content Payload of the custom response.
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class RuleGroupCustomResponseBodyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param content The payload of the custom response.
+         * @param content Payload of the custom response.
          * 
          * @return builder
          * 
@@ -107,7 +107,7 @@ public final class RuleGroupCustomResponseBodyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param contentType The type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
+         * @param contentType Type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class RuleGroupCustomResponseBodyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param contentType The type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
+         * @param contentType Type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class RuleGroupCustomResponseBodyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param key A unique key identifying the custom response body. This is referenced by the `customResponseBodyKey` argument in the Custom Response block.
+         * @param key Unique key identifying the custom response body. This is referenced by the `customResponseBodyKey` argument in the Custom Response block.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class RuleGroupCustomResponseBodyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param key A unique key identifying the custom response body. This is referenced by the `customResponseBodyKey` argument in the Custom Response block.
+         * @param key Unique key identifying the custom response body. This is referenced by the `customResponseBodyKey` argument in the Custom Response block.
          * 
          * @return builder
          * 

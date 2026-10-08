@@ -159,8 +159,10 @@ class UserAccessLoggingSettingsAssociation(pulumi.CustomResource):
 
         example = aws.workspacesweb.Portal("example", display_name="example")
         example_stream = aws.kinesis.Stream("example",
-            name="amazon-workspaces-web-example",
-            shard_count=1)
+            stream_mode_details={
+                "stream_mode": "ON_DEMAND",
+            },
+            name="amazon-workspaces-web-example")
         example_user_access_logging_settings = aws.workspacesweb.UserAccessLoggingSettings("example", kinesis_stream_arn=example_stream.arn)
         example_user_access_logging_settings_association = aws.workspacesweb.UserAccessLoggingSettingsAssociation("example",
             user_access_logging_settings_arn=example_user_access_logging_settings.user_access_logging_settings_arn,
@@ -195,8 +197,10 @@ class UserAccessLoggingSettingsAssociation(pulumi.CustomResource):
 
         example = aws.workspacesweb.Portal("example", display_name="example")
         example_stream = aws.kinesis.Stream("example",
-            name="amazon-workspaces-web-example",
-            shard_count=1)
+            stream_mode_details={
+                "stream_mode": "ON_DEMAND",
+            },
+            name="amazon-workspaces-web-example")
         example_user_access_logging_settings = aws.workspacesweb.UserAccessLoggingSettings("example", kinesis_stream_arn=example_stream.arn)
         example_user_access_logging_settings_association = aws.workspacesweb.UserAccessLoggingSettingsAssociation("example",
             user_access_logging_settings_arn=example_user_access_logging_settings.user_access_logging_settings_arn,

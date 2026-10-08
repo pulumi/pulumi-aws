@@ -15,14 +15,14 @@ public final class WebAclAssociationConfigRequestBodyVerifiedAccessInstanceArgs 
     public static final WebAclAssociationConfigRequestBodyVerifiedAccessInstanceArgs Empty = new WebAclAssociationConfigRequestBodyVerifiedAccessInstanceArgs();
 
     /**
-     * Specifies the maximum size of the web request body component that an associated AWS Verified Access instances should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+     * Maximum size of the web request body component that an associated AWS Verified Access instances should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
      * 
      */
     @Import(name="defaultSizeInspectionLimit", required=true)
     private Output<String> defaultSizeInspectionLimit;
 
     /**
-     * @return Specifies the maximum size of the web request body component that an associated AWS Verified Access instances should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+     * @return Maximum size of the web request body component that an associated AWS Verified Access instances should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
      * 
      */
     public Output<String> defaultSizeInspectionLimit() {
@@ -54,7 +54,7 @@ public final class WebAclAssociationConfigRequestBodyVerifiedAccessInstanceArgs 
         }
 
         /**
-         * @param defaultSizeInspectionLimit Specifies the maximum size of the web request body component that an associated AWS Verified Access instances should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+         * @param defaultSizeInspectionLimit Maximum size of the web request body component that an associated AWS Verified Access instances should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class WebAclAssociationConfigRequestBodyVerifiedAccessInstanceArgs 
         }
 
         /**
-         * @param defaultSizeInspectionLimit Specifies the maximum size of the web request body component that an associated AWS Verified Access instances should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+         * @param defaultSizeInspectionLimit Maximum size of the web request body component that an associated AWS Verified Access instances should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
          * 
          * @return builder
          * 

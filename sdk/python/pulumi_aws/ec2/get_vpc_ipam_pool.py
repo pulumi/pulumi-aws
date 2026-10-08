@@ -108,7 +108,7 @@ class GetVpcIpamPoolResult:
     @pulumi.getter(name="allocationDefaultNetmaskLength")
     def allocation_default_netmask_length(self) -> _builtins.int:
         """
-        A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
+        Default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
         """
         return pulumi.get(self, "allocation_default_netmask_length")
 
@@ -116,7 +116,7 @@ class GetVpcIpamPoolResult:
     @pulumi.getter(name="allocationMaxNetmaskLength")
     def allocation_max_netmask_length(self) -> _builtins.int:
         """
-        The maximum netmask length that will be required for CIDR allocations in this pool.
+        Maximum netmask length that will be required for CIDR allocations in this pool.
         """
         return pulumi.get(self, "allocation_max_netmask_length")
 
@@ -124,7 +124,7 @@ class GetVpcIpamPoolResult:
     @pulumi.getter(name="allocationMinNetmaskLength")
     def allocation_min_netmask_length(self) -> _builtins.int:
         """
-        The minimum netmask length that will be required for CIDR allocations in this pool.
+        Minimum netmask length that will be required for CIDR allocations in this pool.
         """
         return pulumi.get(self, "allocation_min_netmask_length")
 
@@ -197,6 +197,9 @@ class GetVpcIpamPoolResult:
     @_builtins.property
     @pulumi.getter(name="ipamScopeType")
     def ipam_scope_type(self) -> _builtins.str:
+        """
+        Type of the scope the pool belongs to.
+        """
         return pulumi.get(self, "ipam_scope_type")
 
     @_builtins.property
@@ -210,13 +213,16 @@ class GetVpcIpamPoolResult:
     @_builtins.property
     @pulumi.getter(name="poolDepth")
     def pool_depth(self) -> _builtins.int:
+        """
+        Depth of pools in your IPAM pool.
+        """
         return pulumi.get(self, "pool_depth")
 
     @_builtins.property
     @pulumi.getter(name="publiclyAdvertisable")
     def publicly_advertisable(self) -> _builtins.bool:
         """
-        Defines whether or not IPv6 pool space is publicly advertisable over the internet.
+        Whether IPv6 pool space is publicly advertisable over the internet.
         """
         return pulumi.get(self, "publicly_advertisable")
 
@@ -244,6 +250,9 @@ class GetVpcIpamPoolResult:
     @_builtins.property
     @pulumi.getter
     def state(self) -> _builtins.str:
+        """
+        State of the IPAM pool.
+        """
         return pulumi.get(self, "state")
 
     @_builtins.property

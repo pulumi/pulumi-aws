@@ -32,14 +32,14 @@ public final class VpnGatewayAttachmentArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The ID of the VPC.
+     * ID of the VPC.
      * 
      */
     @Import(name="vpcId", required=true)
     private Output<String> vpcId;
 
     /**
-     * @return The ID of the VPC.
+     * @return ID of the VPC.
      * 
      */
     public Output<String> vpcId() {
@@ -47,14 +47,14 @@ public final class VpnGatewayAttachmentArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The ID of the Virtual Private Gateway.
+     * ID of the Virtual Private Gateway.
      * 
      */
     @Import(name="vpnGatewayId", required=true)
     private Output<String> vpnGatewayId;
 
     /**
-     * @return The ID of the Virtual Private Gateway.
+     * @return ID of the Virtual Private Gateway.
      * 
      */
     public Output<String> vpnGatewayId() {
@@ -109,7 +109,7 @@ public final class VpnGatewayAttachmentArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param vpcId The ID of the VPC.
+         * @param vpcId ID of the VPC.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class VpnGatewayAttachmentArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param vpcId The ID of the VPC.
+         * @param vpcId ID of the VPC.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class VpnGatewayAttachmentArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param vpnGatewayId The ID of the Virtual Private Gateway.
+         * @param vpnGatewayId ID of the Virtual Private Gateway.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class VpnGatewayAttachmentArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param vpnGatewayId The ID of the Virtual Private Gateway.
+         * @param vpnGatewayId ID of the Virtual Private Gateway.
          * 
          * @return builder
          * 

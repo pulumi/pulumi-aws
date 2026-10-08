@@ -18,14 +18,14 @@ public final class PolicyStoreState extends com.pulumi.resources.ResourceArgs {
     public static final PolicyStoreState Empty = new PolicyStoreState();
 
     /**
-     * The ARN of the Policy Store.
+     * ARN of the Policy Store.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the Policy Store.
+     * @return ARN of the Policy Store.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -33,14 +33,14 @@ public final class PolicyStoreState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether the policy store can be deleted. If enabled, the policy store can&#39;t be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+     * Whether the policy store can be deleted. If enabled, the policy store can&#39;t be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
      * 
      */
     @Import(name="deletionProtection")
     private @Nullable Output<String> deletionProtection;
 
     /**
-     * @return Specifies whether the policy store can be deleted. If enabled, the policy store can&#39;t be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+     * @return Whether the policy store can be deleted. If enabled, the policy store can&#39;t be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
      * 
      */
     public Optional<Output<String>> deletionProtection() {
@@ -48,14 +48,14 @@ public final class PolicyStoreState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A description of the Policy Store.
+     * Description of the Policy Store.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description of the Policy Store.
+     * @return Description of the Policy Store.
      * 
      */
     public Optional<Output<String>> description() {
@@ -63,14 +63,14 @@ public final class PolicyStoreState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the Policy Store.
+     * ID of the Policy Store.
      * 
      */
     @Import(name="policyStoreId")
     private @Nullable Output<String> policyStoreId;
 
     /**
-     * @return The ID of the Policy Store.
+     * @return ID of the Policy Store.
      * 
      */
     public Optional<Output<String>> policyStoreId() {
@@ -123,14 +123,18 @@ public final class PolicyStoreState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Validation settings for the policy store.
+     * Validation settings for the policy store. See Validation Settings below.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="validationSettings")
     private @Nullable Output<PolicyStoreValidationSettingsArgs> validationSettings;
 
     /**
-     * @return Validation settings for the policy store.
+     * @return Validation settings for the policy store. See Validation Settings below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<PolicyStoreValidationSettingsArgs>> validationSettings() {
@@ -169,7 +173,7 @@ public final class PolicyStoreState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the Policy Store.
+         * @param arn ARN of the Policy Store.
          * 
          * @return builder
          * 
@@ -180,7 +184,7 @@ public final class PolicyStoreState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the Policy Store.
+         * @param arn ARN of the Policy Store.
          * 
          * @return builder
          * 
@@ -190,7 +194,7 @@ public final class PolicyStoreState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deletionProtection Specifies whether the policy store can be deleted. If enabled, the policy store can&#39;t be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+         * @param deletionProtection Whether the policy store can be deleted. If enabled, the policy store can&#39;t be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
          * 
          * @return builder
          * 
@@ -201,7 +205,7 @@ public final class PolicyStoreState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deletionProtection Specifies whether the policy store can be deleted. If enabled, the policy store can&#39;t be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+         * @param deletionProtection Whether the policy store can be deleted. If enabled, the policy store can&#39;t be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
          * 
          * @return builder
          * 
@@ -211,7 +215,7 @@ public final class PolicyStoreState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the Policy Store.
+         * @param description Description of the Policy Store.
          * 
          * @return builder
          * 
@@ -222,7 +226,7 @@ public final class PolicyStoreState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the Policy Store.
+         * @param description Description of the Policy Store.
          * 
          * @return builder
          * 
@@ -232,7 +236,7 @@ public final class PolicyStoreState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyStoreId The ID of the Policy Store.
+         * @param policyStoreId ID of the Policy Store.
          * 
          * @return builder
          * 
@@ -243,7 +247,7 @@ public final class PolicyStoreState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyStoreId The ID of the Policy Store.
+         * @param policyStoreId ID of the Policy Store.
          * 
          * @return builder
          * 
@@ -316,7 +320,9 @@ public final class PolicyStoreState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param validationSettings Validation settings for the policy store.
+         * @param validationSettings Validation settings for the policy store. See Validation Settings below.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -327,7 +333,9 @@ public final class PolicyStoreState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param validationSettings Validation settings for the policy store.
+         * @param validationSettings Validation settings for the policy store. See Validation Settings below.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

@@ -14,9 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type IdentitySourceConfiguration struct {
-	// Specifies the configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
+	// Configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
 	CognitoUserPoolConfiguration *IdentitySourceConfigurationCognitoUserPoolConfiguration `pulumi:"cognitoUserPoolConfiguration"`
-	// Specifies the configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
+	// Configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
 	OpenIdConnectConfiguration *IdentitySourceConfigurationOpenIdConnectConfiguration `pulumi:"openIdConnectConfiguration"`
 }
 
@@ -32,9 +32,9 @@ type IdentitySourceConfigurationInput interface {
 }
 
 type IdentitySourceConfigurationArgs struct {
-	// Specifies the configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
+	// Configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
 	CognitoUserPoolConfiguration IdentitySourceConfigurationCognitoUserPoolConfigurationPtrInput `pulumi:"cognitoUserPoolConfiguration"`
-	// Specifies the configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
+	// Configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
 	OpenIdConnectConfiguration IdentitySourceConfigurationOpenIdConnectConfigurationPtrInput `pulumi:"openIdConnectConfiguration"`
 }
 
@@ -115,14 +115,14 @@ func (o IdentitySourceConfigurationOutput) ToIdentitySourceConfigurationPtrOutpu
 	}).(IdentitySourceConfigurationPtrOutput)
 }
 
-// Specifies the configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
+// Configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
 func (o IdentitySourceConfigurationOutput) CognitoUserPoolConfiguration() IdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput {
 	return o.ApplyT(func(v IdentitySourceConfiguration) *IdentitySourceConfigurationCognitoUserPoolConfiguration {
 		return v.CognitoUserPoolConfiguration
 	}).(IdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput)
 }
 
-// Specifies the configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
+// Configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
 func (o IdentitySourceConfigurationOutput) OpenIdConnectConfiguration() IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput {
 	return o.ApplyT(func(v IdentitySourceConfiguration) *IdentitySourceConfigurationOpenIdConnectConfiguration {
 		return v.OpenIdConnectConfiguration
@@ -153,7 +153,7 @@ func (o IdentitySourceConfigurationPtrOutput) Elem() IdentitySourceConfiguration
 	}).(IdentitySourceConfigurationOutput)
 }
 
-// Specifies the configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
+// Configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
 func (o IdentitySourceConfigurationPtrOutput) CognitoUserPoolConfiguration() IdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput {
 	return o.ApplyT(func(v *IdentitySourceConfiguration) *IdentitySourceConfigurationCognitoUserPoolConfiguration {
 		if v == nil {
@@ -163,7 +163,7 @@ func (o IdentitySourceConfigurationPtrOutput) CognitoUserPoolConfiguration() Ide
 	}).(IdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput)
 }
 
-// Specifies the configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
+// Configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
 func (o IdentitySourceConfigurationPtrOutput) OpenIdConnectConfiguration() IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput {
 	return o.ApplyT(func(v *IdentitySourceConfiguration) *IdentitySourceConfigurationOpenIdConnectConfiguration {
 		if v == nil {
@@ -174,9 +174,9 @@ func (o IdentitySourceConfigurationPtrOutput) OpenIdConnectConfiguration() Ident
 }
 
 type IdentitySourceConfigurationCognitoUserPoolConfiguration struct {
-	// The unique application client IDs that are associated with the specified Amazon Cognito user pool.
+	// Unique application client IDs that are associated with the specified Amazon Cognito user pool.
 	ClientIds []string `pulumi:"clientIds"`
-	// The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+	// Type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
 	GroupConfiguration *IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration `pulumi:"groupConfiguration"`
 	// ARN of the Amazon Cognito user pool that contains the identities to be authorized.
 	UserPoolArn string `pulumi:"userPoolArn"`
@@ -194,9 +194,9 @@ type IdentitySourceConfigurationCognitoUserPoolConfigurationInput interface {
 }
 
 type IdentitySourceConfigurationCognitoUserPoolConfigurationArgs struct {
-	// The unique application client IDs that are associated with the specified Amazon Cognito user pool.
+	// Unique application client IDs that are associated with the specified Amazon Cognito user pool.
 	ClientIds pulumi.StringArrayInput `pulumi:"clientIds"`
-	// The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+	// Type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
 	GroupConfiguration IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrInput `pulumi:"groupConfiguration"`
 	// ARN of the Amazon Cognito user pool that contains the identities to be authorized.
 	UserPoolArn pulumi.StringInput `pulumi:"userPoolArn"`
@@ -279,12 +279,12 @@ func (o IdentitySourceConfigurationCognitoUserPoolConfigurationOutput) ToIdentit
 	}).(IdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput)
 }
 
-// The unique application client IDs that are associated with the specified Amazon Cognito user pool.
+// Unique application client IDs that are associated with the specified Amazon Cognito user pool.
 func (o IdentitySourceConfigurationCognitoUserPoolConfigurationOutput) ClientIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IdentitySourceConfigurationCognitoUserPoolConfiguration) []string { return v.ClientIds }).(pulumi.StringArrayOutput)
 }
 
-// The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+// Type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
 func (o IdentitySourceConfigurationCognitoUserPoolConfigurationOutput) GroupConfiguration() IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutput {
 	return o.ApplyT(func(v IdentitySourceConfigurationCognitoUserPoolConfiguration) *IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration {
 		return v.GroupConfiguration
@@ -320,7 +320,7 @@ func (o IdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput) Elem()
 	}).(IdentitySourceConfigurationCognitoUserPoolConfigurationOutput)
 }
 
-// The unique application client IDs that are associated with the specified Amazon Cognito user pool.
+// Unique application client IDs that are associated with the specified Amazon Cognito user pool.
 func (o IdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput) ClientIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IdentitySourceConfigurationCognitoUserPoolConfiguration) []string {
 		if v == nil {
@@ -330,7 +330,7 @@ func (o IdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput) Client
 	}).(pulumi.StringArrayOutput)
 }
 
-// The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+// Type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
 func (o IdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput) GroupConfiguration() IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutput {
 	return o.ApplyT(func(v *IdentitySourceConfigurationCognitoUserPoolConfiguration) *IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration {
 		if v == nil {
@@ -351,7 +351,7 @@ func (o IdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput) UserPo
 }
 
 type IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration struct {
-	// The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+	// Policy store entity type that you want to map your users' group claim to. For example, `MyCorp::UserGroup`. A group entity type is an entity that can have a user entity type as a member.
 	GroupEntityType string `pulumi:"groupEntityType"`
 }
 
@@ -367,7 +367,7 @@ type IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationIn
 }
 
 type IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs struct {
-	// The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+	// Policy store entity type that you want to map your users' group claim to. For example, `MyCorp::UserGroup`. A group entity type is an entity that can have a user entity type as a member.
 	GroupEntityType pulumi.StringInput `pulumi:"groupEntityType"`
 }
 
@@ -448,7 +448,7 @@ func (o IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguratio
 	}).(IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutput)
 }
 
-// The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+// Policy store entity type that you want to map your users' group claim to. For example, `MyCorp::UserGroup`. A group entity type is an entity that can have a user entity type as a member.
 func (o IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationOutput) GroupEntityType() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration) string {
 		return v.GroupEntityType
@@ -479,7 +479,7 @@ func (o IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguratio
 	}).(IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationOutput)
 }
 
-// The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+// Policy store entity type that you want to map your users' group claim to. For example, `MyCorp::UserGroup`. A group entity type is an entity that can have a user entity type as a member.
 func (o IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutput) GroupEntityType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration) *string {
 		if v == nil {
@@ -490,13 +490,13 @@ func (o IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguratio
 }
 
 type IdentitySourceConfigurationOpenIdConnectConfiguration struct {
-	// A descriptive string that you want to prefix to user entities from your OIDC identity provider.
+	// Descriptive string that you want to prefix to user entities from your OIDC identity provider.
 	EntityIdPrefix *string `pulumi:"entityIdPrefix"`
-	// The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+	// Type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
 	GroupConfiguration *IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration `pulumi:"groupConfiguration"`
-	// The issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
+	// Issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
 	Issuer string `pulumi:"issuer"`
-	// The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
+	// Token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
 	TokenSelection IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection `pulumi:"tokenSelection"`
 }
 
@@ -512,13 +512,13 @@ type IdentitySourceConfigurationOpenIdConnectConfigurationInput interface {
 }
 
 type IdentitySourceConfigurationOpenIdConnectConfigurationArgs struct {
-	// A descriptive string that you want to prefix to user entities from your OIDC identity provider.
+	// Descriptive string that you want to prefix to user entities from your OIDC identity provider.
 	EntityIdPrefix pulumi.StringPtrInput `pulumi:"entityIdPrefix"`
-	// The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+	// Type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
 	GroupConfiguration IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrInput `pulumi:"groupConfiguration"`
-	// The issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
+	// Issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
 	Issuer pulumi.StringInput `pulumi:"issuer"`
-	// The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
+	// Token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
 	TokenSelection IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionInput `pulumi:"tokenSelection"`
 }
 
@@ -599,24 +599,24 @@ func (o IdentitySourceConfigurationOpenIdConnectConfigurationOutput) ToIdentityS
 	}).(IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput)
 }
 
-// A descriptive string that you want to prefix to user entities from your OIDC identity provider.
+// Descriptive string that you want to prefix to user entities from your OIDC identity provider.
 func (o IdentitySourceConfigurationOpenIdConnectConfigurationOutput) EntityIdPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentitySourceConfigurationOpenIdConnectConfiguration) *string { return v.EntityIdPrefix }).(pulumi.StringPtrOutput)
 }
 
-// The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+// Type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
 func (o IdentitySourceConfigurationOpenIdConnectConfigurationOutput) GroupConfiguration() IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput {
 	return o.ApplyT(func(v IdentitySourceConfigurationOpenIdConnectConfiguration) *IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration {
 		return v.GroupConfiguration
 	}).(IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput)
 }
 
-// The issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
+// Issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
 func (o IdentitySourceConfigurationOpenIdConnectConfigurationOutput) Issuer() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentitySourceConfigurationOpenIdConnectConfiguration) string { return v.Issuer }).(pulumi.StringOutput)
 }
 
-// The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
+// Token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
 func (o IdentitySourceConfigurationOpenIdConnectConfigurationOutput) TokenSelection() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionOutput {
 	return o.ApplyT(func(v IdentitySourceConfigurationOpenIdConnectConfiguration) IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection {
 		return v.TokenSelection
@@ -647,7 +647,7 @@ func (o IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput) Elem() I
 	}).(IdentitySourceConfigurationOpenIdConnectConfigurationOutput)
 }
 
-// A descriptive string that you want to prefix to user entities from your OIDC identity provider.
+// Descriptive string that you want to prefix to user entities from your OIDC identity provider.
 func (o IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput) EntityIdPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentitySourceConfigurationOpenIdConnectConfiguration) *string {
 		if v == nil {
@@ -657,7 +657,7 @@ func (o IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput) EntityId
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+// Type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
 func (o IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput) GroupConfiguration() IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput {
 	return o.ApplyT(func(v *IdentitySourceConfigurationOpenIdConnectConfiguration) *IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration {
 		if v == nil {
@@ -667,7 +667,7 @@ func (o IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput) GroupCon
 	}).(IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput)
 }
 
-// The issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
+// Issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
 func (o IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentitySourceConfigurationOpenIdConnectConfiguration) *string {
 		if v == nil {
@@ -677,7 +677,7 @@ func (o IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput) Issuer()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
+// Token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
 func (o IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput) TokenSelection() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutput {
 	return o.ApplyT(func(v *IdentitySourceConfigurationOpenIdConnectConfiguration) *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection {
 		if v == nil {
@@ -688,9 +688,9 @@ func (o IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput) TokenSel
 }
 
 type IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration struct {
-	// The token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
+	// Token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
 	GroupClaim string `pulumi:"groupClaim"`
-	// The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+	// Policy store entity type that you want to map your users' group claim to. For example, `MyCorp::UserGroup`. A group entity type is an entity that can have a user entity type as a member.
 	GroupEntityType string `pulumi:"groupEntityType"`
 }
 
@@ -706,9 +706,9 @@ type IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationInpu
 }
 
 type IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs struct {
-	// The token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
+	// Token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
 	GroupClaim pulumi.StringInput `pulumi:"groupClaim"`
-	// The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+	// Policy store entity type that you want to map your users' group claim to. For example, `MyCorp::UserGroup`. A group entity type is an entity that can have a user entity type as a member.
 	GroupEntityType pulumi.StringInput `pulumi:"groupEntityType"`
 }
 
@@ -789,14 +789,14 @@ func (o IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationO
 	}).(IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput)
 }
 
-// The token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
+// Token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
 func (o IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationOutput) GroupClaim() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration) string {
 		return v.GroupClaim
 	}).(pulumi.StringOutput)
 }
 
-// The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+// Policy store entity type that you want to map your users' group claim to. For example, `MyCorp::UserGroup`. A group entity type is an entity that can have a user entity type as a member.
 func (o IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationOutput) GroupEntityType() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration) string {
 		return v.GroupEntityType
@@ -827,7 +827,7 @@ func (o IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationP
 	}).(IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationOutput)
 }
 
-// The token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
+// Token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
 func (o IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput) GroupClaim() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration) *string {
 		if v == nil {
@@ -837,7 +837,7 @@ func (o IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+// Policy store entity type that you want to map your users' group claim to. For example, `MyCorp::UserGroup`. A group entity type is an entity that can have a user entity type as a member.
 func (o IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput) GroupEntityType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration) *string {
 		if v == nil {
@@ -848,9 +848,9 @@ func (o IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationP
 }
 
 type IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection struct {
-	// The OIDC configuration for processing access tokens. See Access Token Only below.
+	// OIDC configuration for processing access tokens. See Access Token Only below.
 	AccessTokenOnly *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly `pulumi:"accessTokenOnly"`
-	// The OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
+	// OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
 	IdentityTokenOnly *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly `pulumi:"identityTokenOnly"`
 }
 
@@ -866,9 +866,9 @@ type IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionInput in
 }
 
 type IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs struct {
-	// The OIDC configuration for processing access tokens. See Access Token Only below.
+	// OIDC configuration for processing access tokens. See Access Token Only below.
 	AccessTokenOnly IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrInput `pulumi:"accessTokenOnly"`
-	// The OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
+	// OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
 	IdentityTokenOnly IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrInput `pulumi:"identityTokenOnly"`
 }
 
@@ -949,14 +949,14 @@ func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionOutpu
 	}).(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutput)
 }
 
-// The OIDC configuration for processing access tokens. See Access Token Only below.
+// OIDC configuration for processing access tokens. See Access Token Only below.
 func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionOutput) AccessTokenOnly() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutput {
 	return o.ApplyT(func(v IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection) *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly {
 		return v.AccessTokenOnly
 	}).(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutput)
 }
 
-// The OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
+// OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
 func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionOutput) IdentityTokenOnly() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutput {
 	return o.ApplyT(func(v IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection) *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly {
 		return v.IdentityTokenOnly
@@ -987,7 +987,7 @@ func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOu
 	}).(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionOutput)
 }
 
-// The OIDC configuration for processing access tokens. See Access Token Only below.
+// OIDC configuration for processing access tokens. See Access Token Only below.
 func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutput) AccessTokenOnly() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutput {
 	return o.ApplyT(func(v *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection) *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly {
 		if v == nil {
@@ -997,7 +997,7 @@ func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOu
 	}).(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutput)
 }
 
-// The OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
+// OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
 func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutput) IdentityTokenOnly() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutput {
 	return o.ApplyT(func(v *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection) *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly {
 		if v == nil {
@@ -1008,9 +1008,9 @@ func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOu
 }
 
 type IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly struct {
-	// The access token aud claim values that you want to accept in your policy store.
+	// Access token aud claim values that you want to accept in your policy store.
 	Audiences []string `pulumi:"audiences"`
-	// The claim that determines the principal in OIDC access tokens.
+	// Claim that determines the principal in OIDC access tokens.
 	PrincipalIdClaim *string `pulumi:"principalIdClaim"`
 }
 
@@ -1026,9 +1026,9 @@ type IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTo
 }
 
 type IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs struct {
-	// The access token aud claim values that you want to accept in your policy store.
+	// Access token aud claim values that you want to accept in your policy store.
 	Audiences pulumi.StringArrayInput `pulumi:"audiences"`
-	// The claim that determines the principal in OIDC access tokens.
+	// Claim that determines the principal in OIDC access tokens.
 	PrincipalIdClaim pulumi.StringPtrInput `pulumi:"principalIdClaim"`
 }
 
@@ -1109,14 +1109,14 @@ func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAcces
 	}).(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutput)
 }
 
-// The access token aud claim values that you want to accept in your policy store.
+// Access token aud claim values that you want to accept in your policy store.
 func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyOutput) Audiences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly) []string {
 		return v.Audiences
 	}).(pulumi.StringArrayOutput)
 }
 
-// The claim that determines the principal in OIDC access tokens.
+// Claim that determines the principal in OIDC access tokens.
 func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyOutput) PrincipalIdClaim() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly) *string {
 		return v.PrincipalIdClaim
@@ -1147,7 +1147,7 @@ func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAcces
 	}).(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyOutput)
 }
 
-// The access token aud claim values that you want to accept in your policy store.
+// Access token aud claim values that you want to accept in your policy store.
 func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutput) Audiences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly) []string {
 		if v == nil {
@@ -1157,7 +1157,7 @@ func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAcces
 	}).(pulumi.StringArrayOutput)
 }
 
-// The claim that determines the principal in OIDC access tokens.
+// Claim that determines the principal in OIDC access tokens.
 func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutput) PrincipalIdClaim() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly) *string {
 		if v == nil {
@@ -1168,9 +1168,9 @@ func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAcces
 }
 
 type IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly struct {
-	// The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
+	// ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
 	ClientIds []string `pulumi:"clientIds"`
-	// The claim that determines the principal in OIDC identity tokens.
+	// Claim that determines the principal in OIDC identity tokens.
 	PrincipalIdClaim *string `pulumi:"principalIdClaim"`
 }
 
@@ -1186,9 +1186,9 @@ type IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentity
 }
 
 type IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs struct {
-	// The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
+	// ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
 	ClientIds pulumi.StringArrayInput `pulumi:"clientIds"`
-	// The claim that determines the principal in OIDC identity tokens.
+	// Claim that determines the principal in OIDC identity tokens.
 	PrincipalIdClaim pulumi.StringPtrInput `pulumi:"principalIdClaim"`
 }
 
@@ -1269,14 +1269,14 @@ func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdent
 	}).(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutput)
 }
 
-// The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
+// ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
 func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyOutput) ClientIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly) []string {
 		return v.ClientIds
 	}).(pulumi.StringArrayOutput)
 }
 
-// The claim that determines the principal in OIDC identity tokens.
+// Claim that determines the principal in OIDC identity tokens.
 func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyOutput) PrincipalIdClaim() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly) *string {
 		return v.PrincipalIdClaim
@@ -1307,7 +1307,7 @@ func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdent
 	}).(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyOutput)
 }
 
-// The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
+// ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
 func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutput) ClientIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly) []string {
 		if v == nil {
@@ -1317,7 +1317,7 @@ func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdent
 	}).(pulumi.StringArrayOutput)
 }
 
-// The claim that determines the principal in OIDC identity tokens.
+// Claim that determines the principal in OIDC identity tokens.
 func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutput) PrincipalIdClaim() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly) *string {
 		if v == nil {
@@ -1328,9 +1328,9 @@ func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdent
 }
 
 type PolicyDefinition struct {
-	// The static policy statement. See Static below.
+	// Static policy statement. See Static below.
 	Static *PolicyDefinitionStatic `pulumi:"static"`
-	// The template linked policy. See Template Linked below.
+	// Template linked policy. See Template Linked below.
 	TemplateLinked *PolicyDefinitionTemplateLinked `pulumi:"templateLinked"`
 }
 
@@ -1346,9 +1346,9 @@ type PolicyDefinitionInput interface {
 }
 
 type PolicyDefinitionArgs struct {
-	// The static policy statement. See Static below.
+	// Static policy statement. See Static below.
 	Static PolicyDefinitionStaticPtrInput `pulumi:"static"`
-	// The template linked policy. See Template Linked below.
+	// Template linked policy. See Template Linked below.
 	TemplateLinked PolicyDefinitionTemplateLinkedPtrInput `pulumi:"templateLinked"`
 }
 
@@ -1429,12 +1429,12 @@ func (o PolicyDefinitionOutput) ToPolicyDefinitionPtrOutputWithContext(ctx conte
 	}).(PolicyDefinitionPtrOutput)
 }
 
-// The static policy statement. See Static below.
+// Static policy statement. See Static below.
 func (o PolicyDefinitionOutput) Static() PolicyDefinitionStaticPtrOutput {
 	return o.ApplyT(func(v PolicyDefinition) *PolicyDefinitionStatic { return v.Static }).(PolicyDefinitionStaticPtrOutput)
 }
 
-// The template linked policy. See Template Linked below.
+// Template linked policy. See Template Linked below.
 func (o PolicyDefinitionOutput) TemplateLinked() PolicyDefinitionTemplateLinkedPtrOutput {
 	return o.ApplyT(func(v PolicyDefinition) *PolicyDefinitionTemplateLinked { return v.TemplateLinked }).(PolicyDefinitionTemplateLinkedPtrOutput)
 }
@@ -1463,7 +1463,7 @@ func (o PolicyDefinitionPtrOutput) Elem() PolicyDefinitionOutput {
 	}).(PolicyDefinitionOutput)
 }
 
-// The static policy statement. See Static below.
+// Static policy statement. See Static below.
 func (o PolicyDefinitionPtrOutput) Static() PolicyDefinitionStaticPtrOutput {
 	return o.ApplyT(func(v *PolicyDefinition) *PolicyDefinitionStatic {
 		if v == nil {
@@ -1473,7 +1473,7 @@ func (o PolicyDefinitionPtrOutput) Static() PolicyDefinitionStaticPtrOutput {
 	}).(PolicyDefinitionStaticPtrOutput)
 }
 
-// The template linked policy. See Template Linked below.
+// Template linked policy. See Template Linked below.
 func (o PolicyDefinitionPtrOutput) TemplateLinked() PolicyDefinitionTemplateLinkedPtrOutput {
 	return o.ApplyT(func(v *PolicyDefinition) *PolicyDefinitionTemplateLinked {
 		if v == nil {
@@ -1484,9 +1484,9 @@ func (o PolicyDefinitionPtrOutput) TemplateLinked() PolicyDefinitionTemplateLink
 }
 
 type PolicyDefinitionStatic struct {
-	// The description of the static policy.
+	// Description of the static policy.
 	Description *string `pulumi:"description"`
-	// The statement of the static policy.
+	// Statement of the static policy.
 	Statement string `pulumi:"statement"`
 }
 
@@ -1502,9 +1502,9 @@ type PolicyDefinitionStaticInput interface {
 }
 
 type PolicyDefinitionStaticArgs struct {
-	// The description of the static policy.
+	// Description of the static policy.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The statement of the static policy.
+	// Statement of the static policy.
 	Statement pulumi.StringInput `pulumi:"statement"`
 }
 
@@ -1585,12 +1585,12 @@ func (o PolicyDefinitionStaticOutput) ToPolicyDefinitionStaticPtrOutputWithConte
 	}).(PolicyDefinitionStaticPtrOutput)
 }
 
-// The description of the static policy.
+// Description of the static policy.
 func (o PolicyDefinitionStaticOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyDefinitionStatic) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The statement of the static policy.
+// Statement of the static policy.
 func (o PolicyDefinitionStaticOutput) Statement() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyDefinitionStatic) string { return v.Statement }).(pulumi.StringOutput)
 }
@@ -1619,7 +1619,7 @@ func (o PolicyDefinitionStaticPtrOutput) Elem() PolicyDefinitionStaticOutput {
 	}).(PolicyDefinitionStaticOutput)
 }
 
-// The description of the static policy.
+// Description of the static policy.
 func (o PolicyDefinitionStaticPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyDefinitionStatic) *string {
 		if v == nil {
@@ -1629,7 +1629,7 @@ func (o PolicyDefinitionStaticPtrOutput) Description() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The statement of the static policy.
+// Statement of the static policy.
 func (o PolicyDefinitionStaticPtrOutput) Statement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyDefinitionStatic) *string {
 		if v == nil {
@@ -1640,11 +1640,11 @@ func (o PolicyDefinitionStaticPtrOutput) Statement() pulumi.StringPtrOutput {
 }
 
 type PolicyDefinitionTemplateLinked struct {
-	// The ID of the template.
+	// ID of the template.
 	PolicyTemplateId string `pulumi:"policyTemplateId"`
-	// The principal of the template linked policy.
+	// Principal of the template linked policy. See Principal below.
 	Principal *PolicyDefinitionTemplateLinkedPrincipal `pulumi:"principal"`
-	// The resource of the template linked policy.
+	// Resource of the template linked policy. See Resource below.
 	Resource *PolicyDefinitionTemplateLinkedResource `pulumi:"resource"`
 }
 
@@ -1660,11 +1660,11 @@ type PolicyDefinitionTemplateLinkedInput interface {
 }
 
 type PolicyDefinitionTemplateLinkedArgs struct {
-	// The ID of the template.
+	// ID of the template.
 	PolicyTemplateId pulumi.StringInput `pulumi:"policyTemplateId"`
-	// The principal of the template linked policy.
+	// Principal of the template linked policy. See Principal below.
 	Principal PolicyDefinitionTemplateLinkedPrincipalPtrInput `pulumi:"principal"`
-	// The resource of the template linked policy.
+	// Resource of the template linked policy. See Resource below.
 	Resource PolicyDefinitionTemplateLinkedResourcePtrInput `pulumi:"resource"`
 }
 
@@ -1745,17 +1745,17 @@ func (o PolicyDefinitionTemplateLinkedOutput) ToPolicyDefinitionTemplateLinkedPt
 	}).(PolicyDefinitionTemplateLinkedPtrOutput)
 }
 
-// The ID of the template.
+// ID of the template.
 func (o PolicyDefinitionTemplateLinkedOutput) PolicyTemplateId() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyDefinitionTemplateLinked) string { return v.PolicyTemplateId }).(pulumi.StringOutput)
 }
 
-// The principal of the template linked policy.
+// Principal of the template linked policy. See Principal below.
 func (o PolicyDefinitionTemplateLinkedOutput) Principal() PolicyDefinitionTemplateLinkedPrincipalPtrOutput {
 	return o.ApplyT(func(v PolicyDefinitionTemplateLinked) *PolicyDefinitionTemplateLinkedPrincipal { return v.Principal }).(PolicyDefinitionTemplateLinkedPrincipalPtrOutput)
 }
 
-// The resource of the template linked policy.
+// Resource of the template linked policy. See Resource below.
 func (o PolicyDefinitionTemplateLinkedOutput) Resource() PolicyDefinitionTemplateLinkedResourcePtrOutput {
 	return o.ApplyT(func(v PolicyDefinitionTemplateLinked) *PolicyDefinitionTemplateLinkedResource { return v.Resource }).(PolicyDefinitionTemplateLinkedResourcePtrOutput)
 }
@@ -1784,7 +1784,7 @@ func (o PolicyDefinitionTemplateLinkedPtrOutput) Elem() PolicyDefinitionTemplate
 	}).(PolicyDefinitionTemplateLinkedOutput)
 }
 
-// The ID of the template.
+// ID of the template.
 func (o PolicyDefinitionTemplateLinkedPtrOutput) PolicyTemplateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyDefinitionTemplateLinked) *string {
 		if v == nil {
@@ -1794,7 +1794,7 @@ func (o PolicyDefinitionTemplateLinkedPtrOutput) PolicyTemplateId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The principal of the template linked policy.
+// Principal of the template linked policy. See Principal below.
 func (o PolicyDefinitionTemplateLinkedPtrOutput) Principal() PolicyDefinitionTemplateLinkedPrincipalPtrOutput {
 	return o.ApplyT(func(v *PolicyDefinitionTemplateLinked) *PolicyDefinitionTemplateLinkedPrincipal {
 		if v == nil {
@@ -1804,7 +1804,7 @@ func (o PolicyDefinitionTemplateLinkedPtrOutput) Principal() PolicyDefinitionTem
 	}).(PolicyDefinitionTemplateLinkedPrincipalPtrOutput)
 }
 
-// The resource of the template linked policy.
+// Resource of the template linked policy. See Resource below.
 func (o PolicyDefinitionTemplateLinkedPtrOutput) Resource() PolicyDefinitionTemplateLinkedResourcePtrOutput {
 	return o.ApplyT(func(v *PolicyDefinitionTemplateLinked) *PolicyDefinitionTemplateLinkedResource {
 		if v == nil {
@@ -1815,9 +1815,9 @@ func (o PolicyDefinitionTemplateLinkedPtrOutput) Resource() PolicyDefinitionTemp
 }
 
 type PolicyDefinitionTemplateLinkedPrincipal struct {
-	// The entity ID of the principal.
+	// Entity ID of the principal.
 	EntityId string `pulumi:"entityId"`
-	// The entity type of the principal.
+	// Entity type of the principal.
 	EntityType string `pulumi:"entityType"`
 }
 
@@ -1833,9 +1833,9 @@ type PolicyDefinitionTemplateLinkedPrincipalInput interface {
 }
 
 type PolicyDefinitionTemplateLinkedPrincipalArgs struct {
-	// The entity ID of the principal.
+	// Entity ID of the principal.
 	EntityId pulumi.StringInput `pulumi:"entityId"`
-	// The entity type of the principal.
+	// Entity type of the principal.
 	EntityType pulumi.StringInput `pulumi:"entityType"`
 }
 
@@ -1916,12 +1916,12 @@ func (o PolicyDefinitionTemplateLinkedPrincipalOutput) ToPolicyDefinitionTemplat
 	}).(PolicyDefinitionTemplateLinkedPrincipalPtrOutput)
 }
 
-// The entity ID of the principal.
+// Entity ID of the principal.
 func (o PolicyDefinitionTemplateLinkedPrincipalOutput) EntityId() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyDefinitionTemplateLinkedPrincipal) string { return v.EntityId }).(pulumi.StringOutput)
 }
 
-// The entity type of the principal.
+// Entity type of the principal.
 func (o PolicyDefinitionTemplateLinkedPrincipalOutput) EntityType() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyDefinitionTemplateLinkedPrincipal) string { return v.EntityType }).(pulumi.StringOutput)
 }
@@ -1950,7 +1950,7 @@ func (o PolicyDefinitionTemplateLinkedPrincipalPtrOutput) Elem() PolicyDefinitio
 	}).(PolicyDefinitionTemplateLinkedPrincipalOutput)
 }
 
-// The entity ID of the principal.
+// Entity ID of the principal.
 func (o PolicyDefinitionTemplateLinkedPrincipalPtrOutput) EntityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyDefinitionTemplateLinkedPrincipal) *string {
 		if v == nil {
@@ -1960,7 +1960,7 @@ func (o PolicyDefinitionTemplateLinkedPrincipalPtrOutput) EntityId() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The entity type of the principal.
+// Entity type of the principal.
 func (o PolicyDefinitionTemplateLinkedPrincipalPtrOutput) EntityType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyDefinitionTemplateLinkedPrincipal) *string {
 		if v == nil {
@@ -1971,9 +1971,9 @@ func (o PolicyDefinitionTemplateLinkedPrincipalPtrOutput) EntityType() pulumi.St
 }
 
 type PolicyDefinitionTemplateLinkedResource struct {
-	// The entity ID of the resource.
+	// Entity ID of the resource.
 	EntityId string `pulumi:"entityId"`
-	// The entity type of the resource.
+	// Entity type of the resource.
 	EntityType string `pulumi:"entityType"`
 }
 
@@ -1989,9 +1989,9 @@ type PolicyDefinitionTemplateLinkedResourceInput interface {
 }
 
 type PolicyDefinitionTemplateLinkedResourceArgs struct {
-	// The entity ID of the resource.
+	// Entity ID of the resource.
 	EntityId pulumi.StringInput `pulumi:"entityId"`
-	// The entity type of the resource.
+	// Entity type of the resource.
 	EntityType pulumi.StringInput `pulumi:"entityType"`
 }
 
@@ -2072,12 +2072,12 @@ func (o PolicyDefinitionTemplateLinkedResourceOutput) ToPolicyDefinitionTemplate
 	}).(PolicyDefinitionTemplateLinkedResourcePtrOutput)
 }
 
-// The entity ID of the resource.
+// Entity ID of the resource.
 func (o PolicyDefinitionTemplateLinkedResourceOutput) EntityId() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyDefinitionTemplateLinkedResource) string { return v.EntityId }).(pulumi.StringOutput)
 }
 
-// The entity type of the resource.
+// Entity type of the resource.
 func (o PolicyDefinitionTemplateLinkedResourceOutput) EntityType() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyDefinitionTemplateLinkedResource) string { return v.EntityType }).(pulumi.StringOutput)
 }
@@ -2106,7 +2106,7 @@ func (o PolicyDefinitionTemplateLinkedResourcePtrOutput) Elem() PolicyDefinition
 	}).(PolicyDefinitionTemplateLinkedResourceOutput)
 }
 
-// The entity ID of the resource.
+// Entity ID of the resource.
 func (o PolicyDefinitionTemplateLinkedResourcePtrOutput) EntityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyDefinitionTemplateLinkedResource) *string {
 		if v == nil {
@@ -2116,7 +2116,7 @@ func (o PolicyDefinitionTemplateLinkedResourcePtrOutput) EntityId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The entity type of the resource.
+// Entity type of the resource.
 func (o PolicyDefinitionTemplateLinkedResourcePtrOutput) EntityType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyDefinitionTemplateLinkedResource) *string {
 		if v == nil {
@@ -2127,9 +2127,7 @@ func (o PolicyDefinitionTemplateLinkedResourcePtrOutput) EntityType() pulumi.Str
 }
 
 type PolicyStoreValidationSettings struct {
-	// The mode for the validation settings. Valid values: `OFF`, `STRICT`.
-	//
-	// The following arguments are optional:
+	// Mode for the validation settings. Valid values: `OFF`, `STRICT`.
 	Mode string `pulumi:"mode"`
 }
 
@@ -2145,9 +2143,7 @@ type PolicyStoreValidationSettingsInput interface {
 }
 
 type PolicyStoreValidationSettingsArgs struct {
-	// The mode for the validation settings. Valid values: `OFF`, `STRICT`.
-	//
-	// The following arguments are optional:
+	// Mode for the validation settings. Valid values: `OFF`, `STRICT`.
 	Mode pulumi.StringInput `pulumi:"mode"`
 }
 
@@ -2228,9 +2224,7 @@ func (o PolicyStoreValidationSettingsOutput) ToPolicyStoreValidationSettingsPtrO
 	}).(PolicyStoreValidationSettingsPtrOutput)
 }
 
-// The mode for the validation settings. Valid values: `OFF`, `STRICT`.
-//
-// The following arguments are optional:
+// Mode for the validation settings. Valid values: `OFF`, `STRICT`.
 func (o PolicyStoreValidationSettingsOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyStoreValidationSettings) string { return v.Mode }).(pulumi.StringOutput)
 }
@@ -2259,9 +2253,7 @@ func (o PolicyStoreValidationSettingsPtrOutput) Elem() PolicyStoreValidationSett
 	}).(PolicyStoreValidationSettingsOutput)
 }
 
-// The mode for the validation settings. Valid values: `OFF`, `STRICT`.
-//
-// The following arguments are optional:
+// Mode for the validation settings. Valid values: `OFF`, `STRICT`.
 func (o PolicyStoreValidationSettingsPtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyStoreValidationSettings) *string {
 		if v == nil {
@@ -2272,7 +2264,7 @@ func (o PolicyStoreValidationSettingsPtrOutput) Mode() pulumi.StringPtrOutput {
 }
 
 type SchemaDefinition struct {
-	// A JSON string representation of the schema.
+	// JSON string representation of the schema.
 	Value string `pulumi:"value"`
 }
 
@@ -2288,7 +2280,7 @@ type SchemaDefinitionInput interface {
 }
 
 type SchemaDefinitionArgs struct {
-	// A JSON string representation of the schema.
+	// JSON string representation of the schema.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2369,7 +2361,7 @@ func (o SchemaDefinitionOutput) ToSchemaDefinitionPtrOutputWithContext(ctx conte
 	}).(SchemaDefinitionPtrOutput)
 }
 
-// A JSON string representation of the schema.
+// JSON string representation of the schema.
 func (o SchemaDefinitionOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v SchemaDefinition) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2398,7 +2390,7 @@ func (o SchemaDefinitionPtrOutput) Elem() SchemaDefinitionOutput {
 	}).(SchemaDefinitionOutput)
 }
 
-// A JSON string representation of the schema.
+// JSON string representation of the schema.
 func (o SchemaDefinitionPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SchemaDefinition) *string {
 		if v == nil {
@@ -2409,6 +2401,7 @@ func (o SchemaDefinitionPtrOutput) Value() pulumi.StringPtrOutput {
 }
 
 type GetPolicyStoreValidationSetting struct {
+	// Mode for the validation settings.
 	Mode string `pulumi:"mode"`
 }
 
@@ -2424,6 +2417,7 @@ type GetPolicyStoreValidationSettingInput interface {
 }
 
 type GetPolicyStoreValidationSettingArgs struct {
+	// Mode for the validation settings.
 	Mode pulumi.StringInput `pulumi:"mode"`
 }
 
@@ -2478,6 +2472,7 @@ func (o GetPolicyStoreValidationSettingOutput) ToGetPolicyStoreValidationSetting
 	return o
 }
 
+// Mode for the validation settings.
 func (o GetPolicyStoreValidationSettingOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPolicyStoreValidationSetting) string { return v.Mode }).(pulumi.StringOutput)
 }

@@ -67,14 +67,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/vpcEndpointServiceAllowedPrinciple:VpcEndpointServiceAllowedPrinciple")
 public class VpcEndpointServiceAllowedPrinciple extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the principal to allow permissions.
+     * ARN of the principal to allow permissions.
      * 
      */
     @Export(name="principalArn", refs={String.class}, tree="[0]")
     private Output<String> principalArn;
 
     /**
-     * @return The ARN of the principal to allow permissions.
+     * @return ARN of the principal to allow permissions.
      * 
      */
     public Output<String> principalArn() {
@@ -95,14 +95,14 @@ public class VpcEndpointServiceAllowedPrinciple extends com.pulumi.resources.Cus
         return this.region;
     }
     /**
-     * The ID of the VPC endpoint service to allow permission.
+     * ID of the VPC endpoint service to allow permission.
      * 
      */
     @Export(name="vpcEndpointServiceId", refs={String.class}, tree="[0]")
     private Output<String> vpcEndpointServiceId;
 
     /**
-     * @return The ID of the VPC endpoint service to allow permission.
+     * @return ID of the VPC endpoint service to allow permission.
      * 
      */
     public Output<String> vpcEndpointServiceId() {

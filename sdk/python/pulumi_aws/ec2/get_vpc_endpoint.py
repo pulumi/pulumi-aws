@@ -144,6 +144,9 @@ class GetVpcEndpointResult:
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> _builtins.str:
+        """
+        IP address type for the VPC Endpoint.
+        """
         return pulumi.get(self, "ip_address_type")
 
     @_builtins.property
@@ -320,13 +323,9 @@ def get_vpc_endpoint(filters: Optional[Sequence[Union['GetVpcEndpointFilterArgs'
     :param _builtins.str service_name: Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
     :param _builtins.str service_region: AWS region of the VPC Endpoint Service. Applicable for endpoints of type `Interface`.
     :param _builtins.str state: State of the specific VPC Endpoint to retrieve.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the specific VPC Endpoint to retrieve.
+    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the specific VPC Endpoint to retrieve.
     :param _builtins.str vpc_endpoint_type: VPC Endpoint type. Valid values are `Interface`, `Gateway`, `GatewayLoadBalancer`, `Resource`, and `ServiceNetwork`.
     :param _builtins.str vpc_id: ID of the VPC in which the specific VPC Endpoint is used.
-           
-           The arguments of this data source act as filters for querying the available VPC endpoints.
-           The given filters must match exactly one VPC endpoint whose data will be exported as attributes.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -400,13 +399,9 @@ def get_vpc_endpoint_output(filters: pulumi.Input[Optional[Optional[Sequence[Uni
     :param _builtins.str service_name: Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
     :param _builtins.str service_region: AWS region of the VPC Endpoint Service. Applicable for endpoints of type `Interface`.
     :param _builtins.str state: State of the specific VPC Endpoint to retrieve.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the specific VPC Endpoint to retrieve.
+    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the specific VPC Endpoint to retrieve.
     :param _builtins.str vpc_endpoint_type: VPC Endpoint type. Valid values are `Interface`, `Gateway`, `GatewayLoadBalancer`, `Resource`, and `ServiceNetwork`.
     :param _builtins.str vpc_id: ID of the VPC in which the specific VPC Endpoint is used.
-           
-           The arguments of this data source act as filters for querying the available VPC endpoints.
-           The given filters must match exactly one VPC endpoint whose data will be exported as attributes.
     """
     __args__ = dict()
     __args__['filters'] = filters

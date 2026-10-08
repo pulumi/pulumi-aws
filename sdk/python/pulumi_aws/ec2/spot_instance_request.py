@@ -79,7 +79,7 @@ class SpotInstanceRequestArgs:
         """
         The set of arguments for constructing a SpotInstanceRequest resource.
 
-        :param pulumi.Input[_builtins.str] ami: AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
+        :param pulumi.Input[_builtins.str] ami: AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
         :param pulumi.Input[_builtins.bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
         :param pulumi.Input[_builtins.str] availability_zone: AZ to start the instance in.
         :param pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationArgs'] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
@@ -261,7 +261,7 @@ class SpotInstanceRequestArgs:
     @pulumi.getter
     def ami(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
+        AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
         """
         return pulumi.get(self, "ami")
 
@@ -1001,7 +1001,7 @@ class _SpotInstanceRequestState:
         """
         Input properties used for looking up and filtering SpotInstanceRequest resources.
 
-        :param pulumi.Input[_builtins.str] ami: AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
+        :param pulumi.Input[_builtins.str] ami: AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
         :param pulumi.Input[_builtins.bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
         :param pulumi.Input[_builtins.str] availability_zone: AZ to start the instance in.
         :param pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationArgs'] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
@@ -1225,7 +1225,7 @@ class _SpotInstanceRequestState:
     @pulumi.getter
     def ami(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
+        AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
         """
         return pulumi.get(self, "ami")
 
@@ -2148,7 +2148,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] ami: AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
+        :param pulumi.Input[_builtins.str] ami: AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
         :param pulumi.Input[_builtins.bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
         :param pulumi.Input[_builtins.str] availability_zone: AZ to start the instance in.
         :param pulumi.Input[Union['SpotInstanceRequestCapacityReservationSpecificationArgs', 'SpotInstanceRequestCapacityReservationSpecificationArgsDict', 'outputs.SpotInstanceRequestCapacityReservationSpecification']] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
@@ -2494,7 +2494,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] ami: AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
+        :param pulumi.Input[_builtins.str] ami: AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
         :param pulumi.Input[_builtins.bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
         :param pulumi.Input[_builtins.str] availability_zone: AZ to start the instance in.
         :param pulumi.Input[Union['SpotInstanceRequestCapacityReservationSpecificationArgs', 'SpotInstanceRequestCapacityReservationSpecificationArgsDict', 'outputs.SpotInstanceRequestCapacityReservationSpecification']] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
@@ -2652,7 +2652,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
     @pulumi.getter
     def ami(self) -> pulumi.Output[_builtins.str]:
         """
-        AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
+        AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
         """
         return pulumi.get(self, "ami")
 

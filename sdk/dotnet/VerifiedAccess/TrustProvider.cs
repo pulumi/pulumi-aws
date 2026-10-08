@@ -44,37 +44,37 @@ namespace Pulumi.Aws.VerifiedAccess
     public partial class TrustProvider : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A description for the AWS Verified Access trust provider.
+        /// Description for the AWS Verified Access trust provider.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// A block of options for device identity based trust providers.
+        /// Block of options for device identity based trust providers. See below.
         /// </summary>
         [Output("deviceOptions")]
         public Output<Outputs.TrustProviderDeviceOptions?> DeviceOptions { get; private set; } = null!;
 
         /// <summary>
-        /// The type of device-based trust provider.
+        /// Type of device-based trust provider.
         /// </summary>
         [Output("deviceTrustProviderType")]
         public Output<string?> DeviceTrustProviderType { get; private set; } = null!;
 
         /// <summary>
-        /// The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
+        /// OpenID Connect details for a Native Application OIDC, user-identity based trust provider. See below.
         /// </summary>
         [Output("nativeApplicationOidcOptions")]
         public Output<Outputs.TrustProviderNativeApplicationOidcOptions?> NativeApplicationOidcOptions { get; private set; } = null!;
 
         /// <summary>
-        /// The OpenID Connect details for an oidc-type, user-identity based trust provider.
+        /// OpenID Connect details for an oidc-type, user-identity based trust provider. See below.
         /// </summary>
         [Output("oidcOptions")]
         public Output<Outputs.TrustProviderOidcOptions?> OidcOptions { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier to be used when working with policy rules.
+        /// Identifier to be used when working with policy rules.
         /// </summary>
         [Output("policyReferenceName")]
         public Output<string> PolicyReferenceName { get; private set; } = null!;
@@ -85,6 +85,9 @@ namespace Pulumi.Aws.VerifiedAccess
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
+        /// <summary>
+        /// Block of options in use for server side encryption. See below.
+        /// </summary>
         [Output("sseSpecification")]
         public Output<Outputs.TrustProviderSseSpecification> SseSpecification { get; private set; } = null!;
 
@@ -98,7 +101,7 @@ namespace Pulumi.Aws.VerifiedAccess
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The type of trust provider can be either user or device-based.
+        /// Type of trust provider can be either user or device-based.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -106,7 +109,7 @@ namespace Pulumi.Aws.VerifiedAccess
         public Output<string> TrustProviderType { get; private set; } = null!;
 
         /// <summary>
-        /// The type of user-based trust provider.
+        /// Type of user-based trust provider.
         /// </summary>
         [Output("userTrustProviderType")]
         public Output<string?> UserTrustProviderType { get; private set; } = null!;
@@ -158,37 +161,37 @@ namespace Pulumi.Aws.VerifiedAccess
     public sealed class TrustProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A description for the AWS Verified Access trust provider.
+        /// Description for the AWS Verified Access trust provider.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A block of options for device identity based trust providers.
+        /// Block of options for device identity based trust providers. See below.
         /// </summary>
         [Input("deviceOptions")]
         public Input<Inputs.TrustProviderDeviceOptionsArgs>? DeviceOptions { get; set; }
 
         /// <summary>
-        /// The type of device-based trust provider.
+        /// Type of device-based trust provider.
         /// </summary>
         [Input("deviceTrustProviderType")]
         public Input<string>? DeviceTrustProviderType { get; set; }
 
         /// <summary>
-        /// The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
+        /// OpenID Connect details for a Native Application OIDC, user-identity based trust provider. See below.
         /// </summary>
         [Input("nativeApplicationOidcOptions")]
         public Input<Inputs.TrustProviderNativeApplicationOidcOptionsArgs>? NativeApplicationOidcOptions { get; set; }
 
         /// <summary>
-        /// The OpenID Connect details for an oidc-type, user-identity based trust provider.
+        /// OpenID Connect details for an oidc-type, user-identity based trust provider. See below.
         /// </summary>
         [Input("oidcOptions")]
         public Input<Inputs.TrustProviderOidcOptionsArgs>? OidcOptions { get; set; }
 
         /// <summary>
-        /// The identifier to be used when working with policy rules.
+        /// Identifier to be used when working with policy rules.
         /// </summary>
         [Input("policyReferenceName", required: true)]
         public Input<string> PolicyReferenceName { get; set; } = null!;
@@ -199,6 +202,9 @@ namespace Pulumi.Aws.VerifiedAccess
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        /// <summary>
+        /// Block of options in use for server side encryption. See below.
+        /// </summary>
         [Input("sseSpecification")]
         public Input<Inputs.TrustProviderSseSpecificationArgs>? SseSpecification { get; set; }
 
@@ -215,7 +221,7 @@ namespace Pulumi.Aws.VerifiedAccess
         }
 
         /// <summary>
-        /// The type of trust provider can be either user or device-based.
+        /// Type of trust provider can be either user or device-based.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -223,7 +229,7 @@ namespace Pulumi.Aws.VerifiedAccess
         public Input<string> TrustProviderType { get; set; } = null!;
 
         /// <summary>
-        /// The type of user-based trust provider.
+        /// Type of user-based trust provider.
         /// </summary>
         [Input("userTrustProviderType")]
         public Input<string>? UserTrustProviderType { get; set; }
@@ -237,37 +243,37 @@ namespace Pulumi.Aws.VerifiedAccess
     public sealed class TrustProviderState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A description for the AWS Verified Access trust provider.
+        /// Description for the AWS Verified Access trust provider.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A block of options for device identity based trust providers.
+        /// Block of options for device identity based trust providers. See below.
         /// </summary>
         [Input("deviceOptions")]
         public Input<Inputs.TrustProviderDeviceOptionsGetArgs>? DeviceOptions { get; set; }
 
         /// <summary>
-        /// The type of device-based trust provider.
+        /// Type of device-based trust provider.
         /// </summary>
         [Input("deviceTrustProviderType")]
         public Input<string>? DeviceTrustProviderType { get; set; }
 
         /// <summary>
-        /// The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
+        /// OpenID Connect details for a Native Application OIDC, user-identity based trust provider. See below.
         /// </summary>
         [Input("nativeApplicationOidcOptions")]
         public Input<Inputs.TrustProviderNativeApplicationOidcOptionsGetArgs>? NativeApplicationOidcOptions { get; set; }
 
         /// <summary>
-        /// The OpenID Connect details for an oidc-type, user-identity based trust provider.
+        /// OpenID Connect details for an oidc-type, user-identity based trust provider. See below.
         /// </summary>
         [Input("oidcOptions")]
         public Input<Inputs.TrustProviderOidcOptionsGetArgs>? OidcOptions { get; set; }
 
         /// <summary>
-        /// The identifier to be used when working with policy rules.
+        /// Identifier to be used when working with policy rules.
         /// </summary>
         [Input("policyReferenceName")]
         public Input<string>? PolicyReferenceName { get; set; }
@@ -278,6 +284,9 @@ namespace Pulumi.Aws.VerifiedAccess
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        /// <summary>
+        /// Block of options in use for server side encryption. See below.
+        /// </summary>
         [Input("sseSpecification")]
         public Input<Inputs.TrustProviderSseSpecificationGetArgs>? SseSpecification { get; set; }
 
@@ -302,7 +311,7 @@ namespace Pulumi.Aws.VerifiedAccess
         }
 
         /// <summary>
-        /// The type of trust provider can be either user or device-based.
+        /// Type of trust provider can be either user or device-based.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -310,7 +319,7 @@ namespace Pulumi.Aws.VerifiedAccess
         public Input<string>? TrustProviderType { get; set; }
 
         /// <summary>
-        /// The type of user-based trust provider.
+        /// Type of user-based trust provider.
         /// </summary>
         [Input("userTrustProviderType")]
         public Input<string>? UserTrustProviderType { get; set; }

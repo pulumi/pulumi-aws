@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Vpc
     public partial class EndpointPrivateDns : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
+        /// Whether to associate a private hosted zone with the VPC. Only applicable for `Interface` endpoints.
         /// </summary>
         [Output("privateDnsEnabled")]
         public Output<bool> PrivateDnsEnabled { get; private set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.Aws.Vpc
     public sealed class EndpointPrivateDnsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
+        /// Whether to associate a private hosted zone with the VPC. Only applicable for `Interface` endpoints.
         /// </summary>
         [Input("privateDnsEnabled", required: true)]
         public Input<bool> PrivateDnsEnabled { get; set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.Aws.Vpc
     public sealed class EndpointPrivateDnsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
+        /// Whether to associate a private hosted zone with the VPC. Only applicable for `Interface` endpoints.
         /// </summary>
         [Input("privateDnsEnabled")]
         public Input<bool>? PrivateDnsEnabled { get; set; }

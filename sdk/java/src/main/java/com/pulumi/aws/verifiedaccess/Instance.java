@@ -135,78 +135,86 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:verifiedaccess/instance:Instance")
 public class Instance extends com.pulumi.resources.CustomResource {
     /**
-     * The custom subdomain for the CIDR endpoints.
+     * Custom subdomain for the CIDR endpoints.
      * 
      */
     @Export(name="cidrEndpointsCustomSubdomain", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cidrEndpointsCustomSubdomain;
 
     /**
-     * @return The custom subdomain for the CIDR endpoints.
+     * @return Custom subdomain for the CIDR endpoints.
      * 
      */
     public Output<Optional<String>> cidrEndpointsCustomSubdomain() {
         return Codegen.optional(this.cidrEndpointsCustomSubdomain);
     }
     /**
-     * The time that the Verified Access Instance was created.
+     * Time that the Verified Access Instance was created.
      * 
      */
     @Export(name="creationTime", refs={String.class}, tree="[0]")
     private Output<String> creationTime;
 
     /**
-     * @return The time that the Verified Access Instance was created.
+     * @return Time that the Verified Access Instance was created.
      * 
      */
     public Output<String> creationTime() {
         return this.creationTime;
     }
     /**
-     * A description for the AWS Verified Access Instance.
+     * Description for the AWS Verified Access Instance.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A description for the AWS Verified Access Instance.
+     * @return Description for the AWS Verified Access Instance.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+     * Whether to enable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
      * 
      */
     @Export(name="fipsEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> fipsEnabled;
 
     /**
-     * @return Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+     * @return Whether to enable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
      * 
      */
     public Output<Optional<Boolean>> fipsEnabled() {
         return Codegen.optional(this.fipsEnabled);
     }
     /**
-     * The time that the Verified Access Instance was last updated.
+     * Time that the Verified Access Instance was last updated.
      * 
      */
     @Export(name="lastUpdatedTime", refs={String.class}, tree="[0]")
     private Output<String> lastUpdatedTime;
 
     /**
-     * @return The time that the Verified Access Instance was last updated.
+     * @return Time that the Verified Access Instance was last updated.
      * 
      */
     public Output<String> lastUpdatedTime() {
         return this.lastUpdatedTime;
     }
+    /**
+     * List of DNS names servers that clients can use to connect to the Verified Access Instance.
+     * 
+     */
     @Export(name="nameServers", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> nameServers;
 
+    /**
+     * @return List of DNS names servers that clients can use to connect to the Verified Access Instance.
+     * 
+     */
     public Output<List<String>> nameServers() {
         return this.nameServers;
     }
@@ -245,14 +253,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * One or more blocks of providing information about the AWS Verified Access Trust Providers. See verifiedAccessTrustProviders below for details.One or more blocks
+     * One or more blocks providing information about the AWS Verified Access Trust Providers. See verifiedAccessTrustProviders below for details.
      * 
      */
     @Export(name="verifiedAccessTrustProviders", refs={List.class,InstanceVerifiedAccessTrustProvider.class}, tree="[0,1]")
     private Output<List<InstanceVerifiedAccessTrustProvider>> verifiedAccessTrustProviders;
 
     /**
-     * @return One or more blocks of providing information about the AWS Verified Access Trust Providers. See verifiedAccessTrustProviders below for details.One or more blocks
+     * @return One or more blocks providing information about the AWS Verified Access Trust Providers. See verifiedAccessTrustProviders below for details.
      * 
      */
     public Output<List<InstanceVerifiedAccessTrustProvider>> verifiedAccessTrustProviders() {

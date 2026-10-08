@@ -51,25 +51,25 @@ namespace Pulumi.Aws.VerifiedPermissions
     public partial class Policy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The date the policy was created.
+        /// Date the policy was created.
         /// </summary>
         [Output("createdDate")]
         public Output<string> CreatedDate { get; private set; } = null!;
 
         /// <summary>
-        /// The definition of the policy. See Definition below.
+        /// Definition of the policy. See Definition below.
         /// </summary>
         [Output("definition")]
         public Output<Outputs.PolicyDefinition> Definition { get; private set; } = null!;
 
         /// <summary>
-        /// The Policy ID of the policy.
+        /// Policy ID of the policy.
         /// </summary>
         [Output("policyId")]
         public Output<string> PolicyId { get; private set; } = null!;
 
         /// <summary>
-        /// The Policy Store ID of the policy store.
+        /// Policy Store ID of the policy store.
         /// </summary>
         [Output("policyStoreId")]
         public Output<string> PolicyStoreId { get; private set; } = null!;
@@ -127,13 +127,13 @@ namespace Pulumi.Aws.VerifiedPermissions
     public sealed class PolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The definition of the policy. See Definition below.
+        /// Definition of the policy. See Definition below.
         /// </summary>
         [Input("definition", required: true)]
         public Input<Inputs.PolicyDefinitionArgs> Definition { get; set; } = null!;
 
         /// <summary>
-        /// The Policy Store ID of the policy store.
+        /// Policy Store ID of the policy store.
         /// </summary>
         [Input("policyStoreId", required: true)]
         public Input<string> PolicyStoreId { get; set; } = null!;
@@ -153,25 +153,25 @@ namespace Pulumi.Aws.VerifiedPermissions
     public sealed class PolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The date the policy was created.
+        /// Date the policy was created.
         /// </summary>
         [Input("createdDate")]
         public Input<string>? CreatedDate { get; set; }
 
         /// <summary>
-        /// The definition of the policy. See Definition below.
+        /// Definition of the policy. See Definition below.
         /// </summary>
         [Input("definition")]
         public Input<Inputs.PolicyDefinitionGetArgs>? Definition { get; set; }
 
         /// <summary>
-        /// The Policy ID of the policy.
+        /// Policy ID of the policy.
         /// </summary>
         [Input("policyId")]
         public Input<string>? PolicyId { get; set; }
 
         /// <summary>
-        /// The Policy Store ID of the policy store.
+        /// Policy Store ID of the policy store.
         /// </summary>
         [Input("policyStoreId")]
         public Input<string>? PolicyStoreId { get; set; }

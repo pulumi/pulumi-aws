@@ -94,6 +94,8 @@ type NetworkInterface struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Configuration block to define the attachment of the ENI. See Attachment below for more details!
 	Attachments NetworkInterfaceAttachmentTypeArrayOutput `pulumi:"attachments"`
+	// Configures the [connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) for the network interface. See Connection Tracking Specification below for more details.
+	ConnectionTrackingSpecification NetworkInterfaceConnectionTrackingSpecificationOutput `pulumi:"connectionTrackingSpecification"`
 	// Description for the network interface.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Configures ENA Express for the network interface. The ENI must be attached to an instance to configure ENA Express. See ENA SRD Specification below for more details.
@@ -132,7 +134,7 @@ type NetworkInterface struct {
 	PrivateIpLists pulumi.StringArrayOutput `pulumi:"privateIpLists"`
 	// List of private IPs to assign to the ENI without regard to order.
 	PrivateIps pulumi.StringArrayOutput `pulumi:"privateIps"`
-	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
+	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assigned to an ENI by default.
 	PrivateIpsCount pulumi.IntOutput `pulumi:"privateIpsCount"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -187,6 +189,8 @@ type networkInterfaceState struct {
 	Arn *string `pulumi:"arn"`
 	// Configuration block to define the attachment of the ENI. See Attachment below for more details!
 	Attachments []NetworkInterfaceAttachmentType `pulumi:"attachments"`
+	// Configures the [connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) for the network interface. See Connection Tracking Specification below for more details.
+	ConnectionTrackingSpecification *NetworkInterfaceConnectionTrackingSpecification `pulumi:"connectionTrackingSpecification"`
 	// Description for the network interface.
 	Description *string `pulumi:"description"`
 	// Configures ENA Express for the network interface. The ENI must be attached to an instance to configure ENA Express. See ENA SRD Specification below for more details.
@@ -225,7 +229,7 @@ type networkInterfaceState struct {
 	PrivateIpLists []string `pulumi:"privateIpLists"`
 	// List of private IPs to assign to the ENI without regard to order.
 	PrivateIps []string `pulumi:"privateIps"`
-	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
+	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assigned to an ENI by default.
 	PrivateIpsCount *int `pulumi:"privateIpsCount"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -248,6 +252,8 @@ type NetworkInterfaceState struct {
 	Arn pulumi.StringPtrInput
 	// Configuration block to define the attachment of the ENI. See Attachment below for more details!
 	Attachments NetworkInterfaceAttachmentTypeArrayInput
+	// Configures the [connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) for the network interface. See Connection Tracking Specification below for more details.
+	ConnectionTrackingSpecification NetworkInterfaceConnectionTrackingSpecificationPtrInput
 	// Description for the network interface.
 	Description pulumi.StringPtrInput
 	// Configures ENA Express for the network interface. The ENI must be attached to an instance to configure ENA Express. See ENA SRD Specification below for more details.
@@ -286,7 +292,7 @@ type NetworkInterfaceState struct {
 	PrivateIpLists pulumi.StringArrayInput
 	// List of private IPs to assign to the ENI without regard to order.
 	PrivateIps pulumi.StringArrayInput
-	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
+	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assigned to an ENI by default.
 	PrivateIpsCount pulumi.IntPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -311,6 +317,8 @@ func (NetworkInterfaceState) ElementType() reflect.Type {
 type networkInterfaceArgs struct {
 	// Configuration block to define the attachment of the ENI. See Attachment below for more details!
 	Attachments []NetworkInterfaceAttachmentType `pulumi:"attachments"`
+	// Configures the [connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) for the network interface. See Connection Tracking Specification below for more details.
+	ConnectionTrackingSpecification *NetworkInterfaceConnectionTrackingSpecification `pulumi:"connectionTrackingSpecification"`
 	// Description for the network interface.
 	Description *string `pulumi:"description"`
 	// Configures ENA Express for the network interface. The ENI must be attached to an instance to configure ENA Express. See ENA SRD Specification below for more details.
@@ -342,7 +350,7 @@ type networkInterfaceArgs struct {
 	PrivateIpLists []string `pulumi:"privateIpLists"`
 	// List of private IPs to assign to the ENI without regard to order.
 	PrivateIps []string `pulumi:"privateIps"`
-	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
+	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assigned to an ENI by default.
 	PrivateIpsCount *int `pulumi:"privateIpsCount"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -362,6 +370,8 @@ type networkInterfaceArgs struct {
 type NetworkInterfaceArgs struct {
 	// Configuration block to define the attachment of the ENI. See Attachment below for more details!
 	Attachments NetworkInterfaceAttachmentTypeArrayInput
+	// Configures the [connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) for the network interface. See Connection Tracking Specification below for more details.
+	ConnectionTrackingSpecification NetworkInterfaceConnectionTrackingSpecificationPtrInput
 	// Description for the network interface.
 	Description pulumi.StringPtrInput
 	// Configures ENA Express for the network interface. The ENI must be attached to an instance to configure ENA Express. See ENA SRD Specification below for more details.
@@ -393,7 +403,7 @@ type NetworkInterfaceArgs struct {
 	PrivateIpLists pulumi.StringArrayInput
 	// List of private IPs to assign to the ENI without regard to order.
 	PrivateIps pulumi.StringArrayInput
-	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
+	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assigned to an ENI by default.
 	PrivateIpsCount pulumi.IntPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -506,6 +516,13 @@ func (o NetworkInterfaceOutput) Attachments() NetworkInterfaceAttachmentTypeArra
 	return o.ApplyT(func(v *NetworkInterface) NetworkInterfaceAttachmentTypeArrayOutput { return v.Attachments }).(NetworkInterfaceAttachmentTypeArrayOutput)
 }
 
+// Configures the [connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) for the network interface. See Connection Tracking Specification below for more details.
+func (o NetworkInterfaceOutput) ConnectionTrackingSpecification() NetworkInterfaceConnectionTrackingSpecificationOutput {
+	return o.ApplyT(func(v *NetworkInterface) NetworkInterfaceConnectionTrackingSpecificationOutput {
+		return v.ConnectionTrackingSpecification
+	}).(NetworkInterfaceConnectionTrackingSpecificationOutput)
+}
+
 // Description for the network interface.
 func (o NetworkInterfaceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInterface) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
@@ -604,7 +621,7 @@ func (o NetworkInterfaceOutput) PrivateIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkInterface) pulumi.StringArrayOutput { return v.PrivateIps }).(pulumi.StringArrayOutput)
 }
 
-// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
+// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assigned to an ENI by default.
 func (o NetworkInterfaceOutput) PrivateIpsCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *NetworkInterface) pulumi.IntOutput { return v.PrivateIpsCount }).(pulumi.IntOutput)
 }

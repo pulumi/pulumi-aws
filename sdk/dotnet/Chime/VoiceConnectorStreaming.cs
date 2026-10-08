@@ -93,8 +93,11 @@ namespace Pulumi.Aws.Chime
     /// 
     ///     var exampleStream = new Aws.Kinesis.Stream("example", new()
     ///     {
+    ///         StreamModeDetails = new Aws.Kinesis.Inputs.StreamStreamModeDetailsArgs
+    ///         {
+    ///             StreamMode = "ON_DEMAND",
+    ///         },
     ///         Name = "ExampleStream",
-    ///         ShardCount = 2,
     ///     });
     /// 
     ///     var example = new Aws.ChimeSDKMediaPipelines.MediaInsightsPipelineConfiguration("example", new()

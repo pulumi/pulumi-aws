@@ -18,6 +18,45 @@ import (
 //
 // ## Example Usage
 //
+// ### On-Demand Mode
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kinesis"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := kinesis.NewStream(ctx, "test_stream", &kinesis.StreamArgs{
+//				StreamModeDetails: &kinesis.StreamStreamModeDetailsArgs{
+//					StreamMode: pulumi.String("ON_DEMAND"),
+//				},
+//				Name:            pulumi.String("kinesis-test"),
+//				RetentionPeriod: pulumi.Int(48),
+//				ShardLevelMetrics: pulumi.StringArray{
+//					pulumi.String("IncomingBytes"),
+//					pulumi.String("OutgoingBytes"),
+//				},
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("test"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Provisioned Mode
+//
 // ```go
 // package main
 //

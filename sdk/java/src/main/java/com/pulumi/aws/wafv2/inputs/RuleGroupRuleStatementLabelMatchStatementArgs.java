@@ -15,14 +15,14 @@ public final class RuleGroupRuleStatementLabelMatchStatementArgs extends com.pul
     public static final RuleGroupRuleStatementLabelMatchStatementArgs Empty = new RuleGroupRuleStatementLabelMatchStatementArgs();
 
     /**
-     * The string to match against.
+     * String to match against.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return The string to match against.
+     * @return String to match against.
      * 
      */
     public Output<String> key() {
@@ -70,7 +70,7 @@ public final class RuleGroupRuleStatementLabelMatchStatementArgs extends com.pul
         }
 
         /**
-         * @param key The string to match against.
+         * @param key String to match against.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class RuleGroupRuleStatementLabelMatchStatementArgs extends com.pul
         }
 
         /**
-         * @param key The string to match against.
+         * @param key String to match against.
          * 
          * @return builder
          * 

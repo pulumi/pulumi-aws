@@ -21,12 +21,12 @@ public final class WebAclDefaultActionBlockCustomResponse {
      */
     private @Nullable String customResponseBodyKey;
     /**
-     * @return The HTTP status code to return to the client.
+     * @return HTTP status code to return to the client.
      * 
      */
     private Integer responseCode;
     /**
-     * @return The `responseHeader` blocks used to define the HTTP response headers added to the response. See `responseHeader` below for details.
+     * @return `responseHeader` blocks used to define the HTTP response headers added to the response. See `responseHeader` below for details.
      * 
      */
     private @Nullable List<WebAclDefaultActionBlockCustomResponseResponseHeader> responseHeaders;
@@ -40,14 +40,14 @@ public final class WebAclDefaultActionBlockCustomResponse {
         return Optional.ofNullable(this.customResponseBodyKey);
     }
     /**
-     * @return The HTTP status code to return to the client.
+     * @return HTTP status code to return to the client.
      * 
      */
     public Integer responseCode() {
         return this.responseCode;
     }
     /**
-     * @return The `responseHeader` blocks used to define the HTTP response headers added to the response. See `responseHeader` below for details.
+     * @return `responseHeader` blocks used to define the HTTP response headers added to the response. See `responseHeader` below for details.
      * 
      */
     public List<WebAclDefaultActionBlockCustomResponseResponseHeader> responseHeaders() {

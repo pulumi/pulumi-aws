@@ -13,7 +13,7 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class RuleGroupRuleCaptchaConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defines custom immunity time. See Immunity Time Property below for details.
+        /// Custom immunity time. See Immunity Time Property below for details.
         /// </summary>
         [Input("immunityTimeProperty")]
         public Input<Inputs.RuleGroupRuleCaptchaConfigImmunityTimePropertyGetArgs>? ImmunityTimeProperty { get; set; }

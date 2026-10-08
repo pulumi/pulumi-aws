@@ -733,7 +733,7 @@ class FormTypeTimeoutsArgs:
 class GlossaryTermTermRelationsArgsDict(TypedDict):
     classifies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    String array that calssifies the term relations.
+    String array that classifies the term relations.
     """
     is_as: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
@@ -743,7 +743,7 @@ class GlossaryTermTermRelationsArgs:
                  classifies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  is_as: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] classifies: String array that calssifies the term relations.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] classifies: String array that classifies the term relations.
         """
         if classifies is not None:
             pulumi.set(__self__, "classifies", classifies)
@@ -754,7 +754,7 @@ class GlossaryTermTermRelationsArgs:
     @pulumi.getter
     def classifies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        String array that calssifies the term relations.
+        String array that classifies the term relations.
         """
         return pulumi.get(self, "classifies")
 

@@ -17,14 +17,14 @@ public final class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs extend
     public static final VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs Empty = new VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs();
 
     /**
-     * Enable or disable BGP logging feature. The default is `false`.
+     * Whether to enable the BGP logging feature. The default is `false`.
      * 
      */
     @Import(name="bgpLogEnabled")
     private @Nullable Output<Boolean> bgpLogEnabled;
 
     /**
-     * @return Enable or disable BGP logging feature. The default is `false`.
+     * @return Whether to enable the BGP logging feature. The default is `false`.
      * 
      */
     public Optional<Output<Boolean>> bgpLogEnabled() {
@@ -62,14 +62,14 @@ public final class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs extend
     }
 
     /**
-     * Enable or disable VPN tunnel logging feature. The default is `false`.
+     * Whether to enable the VPN tunnel logging feature. The default is `false`.
      * 
      */
     @Import(name="logEnabled")
     private @Nullable Output<Boolean> logEnabled;
 
     /**
-     * @return Enable or disable VPN tunnel logging feature. The default is `false`.
+     * @return Whether to enable the VPN tunnel logging feature. The default is `false`.
      * 
      */
     public Optional<Output<Boolean>> logEnabled() {
@@ -136,7 +136,7 @@ public final class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs extend
         }
 
         /**
-         * @param bgpLogEnabled Enable or disable BGP logging feature. The default is `false`.
+         * @param bgpLogEnabled Whether to enable the BGP logging feature. The default is `false`.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs extend
         }
 
         /**
-         * @param bgpLogEnabled Enable or disable BGP logging feature. The default is `false`.
+         * @param bgpLogEnabled Whether to enable the BGP logging feature. The default is `false`.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs extend
         }
 
         /**
-         * @param logEnabled Enable or disable VPN tunnel logging feature. The default is `false`.
+         * @param logEnabled Whether to enable the VPN tunnel logging feature. The default is `false`.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs extend
         }
 
         /**
-         * @param logEnabled Enable or disable VPN tunnel logging feature. The default is `false`.
+         * @param logEnabled Whether to enable the VPN tunnel logging feature. The default is `false`.
          * 
          * @return builder
          * 

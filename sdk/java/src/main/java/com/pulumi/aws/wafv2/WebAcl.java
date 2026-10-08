@@ -44,42 +44,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:wafv2/webAcl:WebAcl")
 public class WebAcl extends com.pulumi.resources.CustomResource {
     /**
-     * The URL to use in SDK integrations with managed rule groups.
+     * URL to use in SDK integrations with managed rule groups.
      * 
      */
     @Export(name="applicationIntegrationUrl", refs={String.class}, tree="[0]")
     private Output<String> applicationIntegrationUrl;
 
     /**
-     * @return The URL to use in SDK integrations with managed rule groups.
+     * @return URL to use in SDK integrations with managed rule groups.
      * 
      */
     public Output<String> applicationIntegrationUrl() {
         return this.applicationIntegrationUrl;
     }
     /**
-     * The ARN of the WAF WebACL.
+     * ARN of the WAF WebACL.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the WAF WebACL.
+     * @return ARN of the WAF WebACL.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
+     * Custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
      * 
      */
     @Export(name="associationConfig", refs={WebAclAssociationConfig.class}, tree="[0]")
     private Output</* @Nullable */ WebAclAssociationConfig> associationConfig;
 
     /**
-     * @return Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
+     * @return Custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
      * 
      */
     public Output<Optional<WebAclAssociationConfig>> associationConfig() {
@@ -100,56 +100,56 @@ public class WebAcl extends com.pulumi.resources.CustomResource {
         return this.capacity;
     }
     /**
-     * Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captchaConfig` below for details.
+     * Configuration for how AWS WAF handles CAPTCHA evaluations at the web ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captchaConfig` below for details.
      * 
      */
     @Export(name="captchaConfig", refs={WebAclCaptchaConfig.class}, tree="[0]")
     private Output</* @Nullable */ WebAclCaptchaConfig> captchaConfig;
 
     /**
-     * @return Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captchaConfig` below for details.
+     * @return Configuration for how AWS WAF handles CAPTCHA evaluations at the web ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captchaConfig` below for details.
      * 
      */
     public Output<Optional<WebAclCaptchaConfig>> captchaConfig() {
         return Codegen.optional(this.captchaConfig);
     }
     /**
-     * Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challengeConfig` below for details.
+     * Configuration for how AWS WAF handles Challenge evaluations at the web ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challengeConfig` below for details.
      * 
      */
     @Export(name="challengeConfig", refs={WebAclChallengeConfig.class}, tree="[0]")
     private Output</* @Nullable */ WebAclChallengeConfig> challengeConfig;
 
     /**
-     * @return Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challengeConfig` below for details.
+     * @return Configuration for how AWS WAF handles Challenge evaluations at the web ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challengeConfig` below for details.
      * 
      */
     public Output<Optional<WebAclChallengeConfig>> challengeConfig() {
         return Codegen.optional(this.challengeConfig);
     }
     /**
-     * Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
+     * Custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
      * 
      */
     @Export(name="customResponseBodies", refs={List.class,WebAclCustomResponseBody.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WebAclCustomResponseBody>> customResponseBodies;
 
     /**
-     * @return Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
+     * @return Custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
      * 
      */
     public Output<Optional<List<WebAclCustomResponseBody>>> customResponseBodies() {
         return Codegen.optional(this.customResponseBodies);
     }
     /**
-     * Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `dataProtectionConfig` below for details.
+     * Data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `dataProtectionConfig` below for details.
      * 
      */
     @Export(name="dataProtectionConfig", refs={WebAclDataProtectionConfig.class}, tree="[0]")
     private Output</* @Nullable */ WebAclDataProtectionConfig> dataProtectionConfig;
 
     /**
-     * @return Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `dataProtectionConfig` below for details.
+     * @return Data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `dataProtectionConfig` below for details.
      * 
      */
     public Output<Optional<WebAclDataProtectionConfig>> dataProtectionConfig() {
@@ -260,14 +260,14 @@ public class WebAcl extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.rules);
     }
     /**
-     * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+     * Scope of the web ACL, either an AWS CloudFront distribution or a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      * 
      */
     @Export(name="scope", refs={String.class}, tree="[0]")
     private Output<String> scope;
 
     /**
-     * @return Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+     * @return Scope of the web ACL, either an AWS CloudFront distribution or a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      * 
      */
     public Output<String> scope() {
@@ -302,28 +302,28 @@ public class WebAcl extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don&#39;t specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource&#39;s host domain plus all domains in the token domain list, including their prefixed subdomains.
+     * Domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don&#39;t specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource&#39;s host domain plus all domains in the token domain list, including their prefixed subdomains.
      * 
      */
     @Export(name="tokenDomains", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> tokenDomains;
 
     /**
-     * @return Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don&#39;t specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource&#39;s host domain plus all domains in the token domain list, including their prefixed subdomains.
+     * @return Domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don&#39;t specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource&#39;s host domain plus all domains in the token domain list, including their prefixed subdomains.
      * 
      */
     public Output<Optional<List<String>>> tokenDomains() {
         return Codegen.optional(this.tokenDomains);
     }
     /**
-     * Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
+     * Amazon CloudWatch metrics and web request sample collection configuration. See `visibilityConfig` below for details.
      * 
      */
     @Export(name="visibilityConfig", refs={WebAclVisibilityConfig.class}, tree="[0]")
     private Output<WebAclVisibilityConfig> visibilityConfig;
 
     /**
-     * @return Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
+     * @return Amazon CloudWatch metrics and web request sample collection configuration. See `visibilityConfig` below for details.
      * 
      */
     public Output<WebAclVisibilityConfig> visibilityConfig() {

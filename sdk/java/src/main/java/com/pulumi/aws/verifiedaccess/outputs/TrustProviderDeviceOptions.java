@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TrustProviderDeviceOptions {
+    /**
+     * @return ID of the tenant application with the device-identity provider.
+     * 
+     */
     private @Nullable String tenantId;
 
     private TrustProviderDeviceOptions() {}
+    /**
+     * @return ID of the tenant application with the device-identity provider.
+     * 
+     */
     public Optional<String> tenantId() {
         return Optional.ofNullable(this.tenantId);
     }

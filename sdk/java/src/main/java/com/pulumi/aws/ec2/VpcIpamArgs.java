@@ -21,14 +21,14 @@ public final class VpcIpamArgs extends com.pulumi.resources.ResourceArgs {
     public static final VpcIpamArgs Empty = new VpcIpamArgs();
 
     /**
-     * Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
+     * Whether to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
      * 
      */
     @Import(name="cascade")
     private @Nullable Output<Boolean> cascade;
 
     /**
-     * @return Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
+     * @return Whether to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
      * 
      */
     public Optional<Output<Boolean>> cascade() {
@@ -36,14 +36,14 @@ public final class VpcIpamArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A description for the IPAM.
+     * Description for the IPAM.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description for the IPAM.
+     * @return Description for the IPAM.
      * 
      */
     public Optional<Output<String>> description() {
@@ -51,14 +51,14 @@ public final class VpcIpamArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
+     * Whether to use your own GUA ranges as private IPv6 addresses. Default: `false`.
      * 
      */
     @Import(name="enablePrivateGua")
     private @Nullable Output<Boolean> enablePrivateGua;
 
     /**
-     * @return Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
+     * @return Whether to use your own GUA ranges as private IPv6 addresses. Default: `false`.
      * 
      */
     public Optional<Output<Boolean>> enablePrivateGua() {
@@ -81,14 +81,14 @@ public final class VpcIpamArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
+     * Locales that can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
      * 
      */
     @Import(name="operatingRegions", required=true)
     private Output<List<VpcIpamOperatingRegionArgs>> operatingRegions;
 
     /**
-     * @return Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
+     * @return Locales that can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
      * 
      */
     public Output<List<VpcIpamOperatingRegionArgs>> operatingRegions() {
@@ -111,14 +111,14 @@ public final class VpcIpamArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -172,7 +172,7 @@ public final class VpcIpamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cascade Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
+         * @param cascade Whether to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class VpcIpamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cascade Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
+         * @param cascade Whether to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class VpcIpamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description for the IPAM.
+         * @param description Description for the IPAM.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class VpcIpamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description for the IPAM.
+         * @param description Description for the IPAM.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class VpcIpamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enablePrivateGua Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
+         * @param enablePrivateGua Whether to use your own GUA ranges as private IPv6 addresses. Default: `false`.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class VpcIpamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enablePrivateGua Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
+         * @param enablePrivateGua Whether to use your own GUA ranges as private IPv6 addresses. Default: `false`.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class VpcIpamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param operatingRegions Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
+         * @param operatingRegions Locales that can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class VpcIpamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param operatingRegions Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
+         * @param operatingRegions Locales that can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
          * 
          * @return builder
          * 
@@ -277,7 +277,7 @@ public final class VpcIpamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param operatingRegions Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
+         * @param operatingRegions Locales that can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
          * 
          * @return builder
          * 
@@ -308,7 +308,7 @@ public final class VpcIpamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -319,7 +319,7 @@ public final class VpcIpamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

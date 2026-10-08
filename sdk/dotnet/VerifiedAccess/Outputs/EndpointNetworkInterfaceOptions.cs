@@ -13,9 +13,21 @@ namespace Pulumi.Aws.VerifiedAccess.Outputs
     [OutputType]
     public sealed class EndpointNetworkInterfaceOptions
     {
+        /// <summary>
+        /// ID of the network interface.
+        /// </summary>
         public readonly string? NetworkInterfaceId;
+        /// <summary>
+        /// IP port number.
+        /// </summary>
         public readonly int? Port;
+        /// <summary>
+        /// Port ranges. See below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.EndpointNetworkInterfaceOptionsPortRange> PortRanges;
+        /// <summary>
+        /// IP protocol.
+        /// </summary>
         public readonly string? Protocol;
 
         [OutputConstructor]

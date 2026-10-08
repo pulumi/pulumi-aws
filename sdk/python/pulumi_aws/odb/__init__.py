@@ -6,9 +6,12 @@ import builtins as _builtins
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .autonomous_database import *
+from .autonomous_database_secrets_manager_integration import *
 from .cloud_autonomous_vm_cluster import *
 from .cloud_exadata_infrastructure import *
 from .cloud_vm_cluster import *
+from .get_autonomous_database import *
 from .get_cloud_autonomous_vm_cluster import *
 from .get_cloud_autonomous_vm_clusters import *
 from .get_cloud_exadata_infrastructure import *

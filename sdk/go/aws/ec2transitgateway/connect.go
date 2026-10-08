@@ -75,7 +75,7 @@ type Connect struct {
 	TransitGatewayDefaultRouteTablePropagation pulumi.BoolPtrOutput `pulumi:"transitGatewayDefaultRouteTablePropagation"`
 	// Identifier of EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringOutput `pulumi:"transitGatewayId"`
-	// The underlaying VPC attachment
+	// The underlying VPC attachment
 	TransportAttachmentId pulumi.StringOutput `pulumi:"transportAttachmentId"`
 }
 
@@ -129,7 +129,7 @@ type connectState struct {
 	TransitGatewayDefaultRouteTablePropagation *bool `pulumi:"transitGatewayDefaultRouteTablePropagation"`
 	// Identifier of EC2 Transit Gateway.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
-	// The underlaying VPC attachment
+	// The underlying VPC attachment
 	TransportAttachmentId *string `pulumi:"transportAttachmentId"`
 }
 
@@ -148,7 +148,7 @@ type ConnectState struct {
 	TransitGatewayDefaultRouteTablePropagation pulumi.BoolPtrInput
 	// Identifier of EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringPtrInput
-	// The underlaying VPC attachment
+	// The underlying VPC attachment
 	TransportAttachmentId pulumi.StringPtrInput
 }
 
@@ -169,7 +169,7 @@ type connectArgs struct {
 	TransitGatewayDefaultRouteTablePropagation *bool `pulumi:"transitGatewayDefaultRouteTablePropagation"`
 	// Identifier of EC2 Transit Gateway.
 	TransitGatewayId string `pulumi:"transitGatewayId"`
-	// The underlaying VPC attachment
+	// The underlying VPC attachment
 	TransportAttachmentId string `pulumi:"transportAttachmentId"`
 }
 
@@ -187,7 +187,7 @@ type ConnectArgs struct {
 	TransitGatewayDefaultRouteTablePropagation pulumi.BoolPtrInput
 	// Identifier of EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringInput
-	// The underlaying VPC attachment
+	// The underlying VPC attachment
 	TransportAttachmentId pulumi.StringInput
 }
 
@@ -313,7 +313,7 @@ func (o ConnectOutput) TransitGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connect) pulumi.StringOutput { return v.TransitGatewayId }).(pulumi.StringOutput)
 }
 
-// The underlaying VPC attachment
+// The underlying VPC attachment
 func (o ConnectOutput) TransportAttachmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connect) pulumi.StringOutput { return v.TransportAttachmentId }).(pulumi.StringOutput)
 }

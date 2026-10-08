@@ -27,12 +27,12 @@ public final class WebAclRule {
      */
     private @Nullable WebAclRuleAction action;
     /**
-     * @return Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
+     * @return Configuration for how AWS WAF handles CAPTCHA evaluations. See `captchaConfig` below for details.
      * 
      */
     private @Nullable WebAclRuleCaptchaConfig captchaConfig;
     /**
-     * @return Specifies how AWS WAF should handle Challenge evaluations on the rule level. See `challengeConfig` below for details.
+     * @return Configuration for how AWS WAF handles Challenge evaluations at the rule level. See `challengeConfig` below for details.
      * 
      */
     private @Nullable WebAclRuleChallengeConfig challengeConfig;
@@ -57,12 +57,12 @@ public final class WebAclRule {
      */
     private @Nullable List<WebAclRuleRuleLabel> ruleLabels;
     /**
-     * @return The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See `statement` below for details.
+     * @return AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See `statement` below for details.
      * 
      */
     private WebAclRuleStatement statement;
     /**
-     * @return Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
+     * @return Amazon CloudWatch metrics and web request sample collection configuration. See `visibilityConfig` below for details.
      * 
      */
     private WebAclRuleVisibilityConfig visibilityConfig;
@@ -76,14 +76,14 @@ public final class WebAclRule {
         return Optional.ofNullable(this.action);
     }
     /**
-     * @return Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
+     * @return Configuration for how AWS WAF handles CAPTCHA evaluations. See `captchaConfig` below for details.
      * 
      */
     public Optional<WebAclRuleCaptchaConfig> captchaConfig() {
         return Optional.ofNullable(this.captchaConfig);
     }
     /**
-     * @return Specifies how AWS WAF should handle Challenge evaluations on the rule level. See `challengeConfig` below for details.
+     * @return Configuration for how AWS WAF handles Challenge evaluations at the rule level. See `challengeConfig` below for details.
      * 
      */
     public Optional<WebAclRuleChallengeConfig> challengeConfig() {
@@ -118,14 +118,14 @@ public final class WebAclRule {
         return this.ruleLabels == null ? List.of() : this.ruleLabels;
     }
     /**
-     * @return The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See `statement` below for details.
+     * @return AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See `statement` below for details.
      * 
      */
     public WebAclRuleStatement statement() {
         return this.statement;
     }
     /**
-     * @return Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
+     * @return Amazon CloudWatch metrics and web request sample collection configuration. See `visibilityConfig` below for details.
      * 
      */
     public WebAclRuleVisibilityConfig visibilityConfig() {

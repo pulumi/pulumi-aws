@@ -89,7 +89,7 @@ export class Connect extends pulumi.CustomResource {
      */
     declare public readonly transitGatewayId: pulumi.Output<string>;
     /**
-     * The underlaying VPC attachment
+     * The underlying VPC attachment
      */
     declare public readonly transportAttachmentId: pulumi.Output<string>;
 
@@ -169,7 +169,7 @@ export interface ConnectState {
      */
     transitGatewayId?: pulumi.Input<string | undefined>;
     /**
-     * The underlaying VPC attachment
+     * The underlying VPC attachment
      */
     transportAttachmentId?: pulumi.Input<string | undefined>;
 }
@@ -203,7 +203,7 @@ export interface ConnectArgs {
      */
     transitGatewayId: pulumi.Input<string>;
     /**
-     * The underlaying VPC attachment
+     * The underlying VPC attachment
      */
     transportAttachmentId: pulumi.Input<string>;
 }

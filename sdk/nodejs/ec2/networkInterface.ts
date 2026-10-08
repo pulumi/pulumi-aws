@@ -100,6 +100,10 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     declare public readonly attachments: pulumi.Output<outputs.ec2.NetworkInterfaceAttachment[]>;
     /**
+     * Configures the [connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) for the network interface. See Connection Tracking Specification below for more details.
+     */
+    declare public readonly connectionTrackingSpecification: pulumi.Output<outputs.ec2.NetworkInterfaceConnectionTrackingSpecification>;
+    /**
      * Description for the network interface.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
@@ -174,7 +178,7 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     declare public readonly privateIps: pulumi.Output<string[]>;
     /**
-     * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
+     * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assigned to an ENI by default.
      */
     declare public readonly privateIpsCount: pulumi.Output<number>;
     /**
@@ -219,6 +223,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             const state = argsOrState as NetworkInterfaceState | undefined;
             resourceInputs["arn"] = state?.arn;
             resourceInputs["attachments"] = state?.attachments;
+            resourceInputs["connectionTrackingSpecification"] = state?.connectionTrackingSpecification;
             resourceInputs["description"] = state?.description;
             resourceInputs["enaSrdSpecification"] = state?.enaSrdSpecification;
             resourceInputs["enablePrimaryIpv6"] = state?.enablePrimaryIpv6;
@@ -252,6 +257,7 @@ export class NetworkInterface extends pulumi.CustomResource {
                 throw new Error("Missing required property 'subnetId'");
             }
             resourceInputs["attachments"] = args?.attachments;
+            resourceInputs["connectionTrackingSpecification"] = args?.connectionTrackingSpecification;
             resourceInputs["description"] = args?.description;
             resourceInputs["enaSrdSpecification"] = args?.enaSrdSpecification;
             resourceInputs["enablePrimaryIpv6"] = args?.enablePrimaryIpv6;
@@ -298,6 +304,10 @@ export interface NetworkInterfaceState {
      * Configuration block to define the attachment of the ENI. See Attachment below for more details!
      */
     attachments?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInterfaceAttachment>[] | undefined>;
+    /**
+     * Configures the [connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) for the network interface. See Connection Tracking Specification below for more details.
+     */
+    connectionTrackingSpecification?: pulumi.Input<inputs.ec2.NetworkInterfaceConnectionTrackingSpecification | undefined>;
     /**
      * Description for the network interface.
      */
@@ -373,7 +383,7 @@ export interface NetworkInterfaceState {
      */
     privateIps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
+     * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assigned to an ENI by default.
      */
     privateIpsCount?: pulumi.Input<number | undefined>;
     /**
@@ -412,6 +422,10 @@ export interface NetworkInterfaceArgs {
      * Configuration block to define the attachment of the ENI. See Attachment below for more details!
      */
     attachments?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInterfaceAttachment>[] | undefined>;
+    /**
+     * Configures the [connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) for the network interface. See Connection Tracking Specification below for more details.
+     */
+    connectionTrackingSpecification?: pulumi.Input<inputs.ec2.NetworkInterfaceConnectionTrackingSpecification | undefined>;
     /**
      * Description for the network interface.
      */
@@ -474,7 +488,7 @@ export interface NetworkInterfaceArgs {
      */
     privateIps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assiged to an ENI by default.
+     * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `privateIpsCount`, as a primary private IP will be assigned to an ENI by default.
      */
     privateIpsCount?: pulumi.Input<number | undefined>;
     /**

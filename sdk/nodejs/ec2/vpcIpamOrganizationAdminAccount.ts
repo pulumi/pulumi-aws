@@ -56,20 +56,20 @@ export class VpcIpamOrganizationAdminAccount extends pulumi.CustomResource {
     }
 
     /**
-     * The Organizations ARN for the delegate account.
+     * Organizations ARN for the delegate account.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     declare public readonly delegatedAdminAccountId: pulumi.Output<string>;
     /**
-     * The Organizations email for the delegate account.
+     * Organizations email for the delegate account.
      */
     declare public /*out*/ readonly email: pulumi.Output<string>;
     /**
-     * The Organizations name for the delegate account.
+     * Organizations name for the delegate account.
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
-     * The AWS service principal.
+     * AWS service principal.
      */
     declare public /*out*/ readonly servicePrincipal: pulumi.Output<string>;
 
@@ -112,20 +112,20 @@ export class VpcIpamOrganizationAdminAccount extends pulumi.CustomResource {
  */
 export interface VpcIpamOrganizationAdminAccountState {
     /**
-     * The Organizations ARN for the delegate account.
+     * Organizations ARN for the delegate account.
      */
     arn?: pulumi.Input<string | undefined>;
     delegatedAdminAccountId?: pulumi.Input<string | undefined>;
     /**
-     * The Organizations email for the delegate account.
+     * Organizations email for the delegate account.
      */
     email?: pulumi.Input<string | undefined>;
     /**
-     * The Organizations name for the delegate account.
+     * Organizations name for the delegate account.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The AWS service principal.
+     * AWS service principal.
      */
     servicePrincipal?: pulumi.Input<string | undefined>;
 }

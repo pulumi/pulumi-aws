@@ -98,6 +98,12 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<Outputs.NetworkInterfaceAttachment>> Attachments { get; private set; } = null!;
 
         /// <summary>
+        /// Configures the [connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) for the network interface. See Connection Tracking Specification below for more details.
+        /// </summary>
+        [Output("connectionTrackingSpecification")]
+        public Output<Outputs.NetworkInterfaceConnectionTrackingSpecification> ConnectionTrackingSpecification { get; private set; } = null!;
+
+        /// <summary>
         /// Description for the network interface.
         /// </summary>
         [Output("description")]
@@ -212,7 +218,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<string>> PrivateIps { get; private set; } = null!;
 
         /// <summary>
-        /// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `PrivateIpsCount`, as a primary private IP will be assiged to an ENI by default.
+        /// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `PrivateIpsCount`, as a primary private IP will be assigned to an ENI by default.
         /// </summary>
         [Output("privateIpsCount")]
         public Output<int> PrivateIpsCount { get; private set; } = null!;
@@ -312,6 +318,12 @@ namespace Pulumi.Aws.Ec2
             get => _attachments ?? (_attachments = new InputList<Inputs.NetworkInterfaceAttachmentArgs>());
             set => _attachments = value;
         }
+
+        /// <summary>
+        /// Configures the [connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) for the network interface. See Connection Tracking Specification below for more details.
+        /// </summary>
+        [Input("connectionTrackingSpecification")]
+        public Input<Inputs.NetworkInterfaceConnectionTrackingSpecificationArgs>? ConnectionTrackingSpecification { get; set; }
 
         /// <summary>
         /// Description for the network interface.
@@ -443,7 +455,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `PrivateIpsCount`, as a primary private IP will be assiged to an ENI by default.
+        /// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `PrivateIpsCount`, as a primary private IP will be assigned to an ENI by default.
         /// </summary>
         [Input("privateIpsCount")]
         public Input<int>? PrivateIpsCount { get; set; }
@@ -517,6 +529,12 @@ namespace Pulumi.Aws.Ec2
             get => _attachments ?? (_attachments = new InputList<Inputs.NetworkInterfaceAttachmentGetArgs>());
             set => _attachments = value;
         }
+
+        /// <summary>
+        /// Configures the [connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) for the network interface. See Connection Tracking Specification below for more details.
+        /// </summary>
+        [Input("connectionTrackingSpecification")]
+        public Input<Inputs.NetworkInterfaceConnectionTrackingSpecificationGetArgs>? ConnectionTrackingSpecification { get; set; }
 
         /// <summary>
         /// Description for the network interface.
@@ -669,7 +687,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `PrivateIpsCount`, as a primary private IP will be assiged to an ENI by default.
+        /// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `PrivateIpsCount`, as a primary private IP will be assigned to an ENI by default.
         /// </summary>
         [Input("privateIpsCount")]
         public Input<int>? PrivateIpsCount { get; set; }

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ec2.Inputs
     public sealed class VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enable or disable BGP logging feature. The default is `False`.
+        /// Whether to enable the BGP logging feature. The default is `False`.
         /// </summary>
         [Input("bgpLogEnabled")]
         public Input<bool>? BgpLogEnabled { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string>? BgpLogOutputFormat { get; set; }
 
         /// <summary>
-        /// Enable or disable VPN tunnel logging feature. The default is `False`.
+        /// Whether to enable the VPN tunnel logging feature. The default is `False`.
         /// </summary>
         [Input("logEnabled")]
         public Input<bool>? LogEnabled { get; set; }

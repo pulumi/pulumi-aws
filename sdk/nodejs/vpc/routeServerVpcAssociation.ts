@@ -65,12 +65,12 @@ export class RouteServerVpcAssociation extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The unique identifier for the route server to be associated.
+     * Unique identifier for the route server to be associated.
      */
     declare public readonly routeServerId: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.vpc.RouteServerVpcAssociationTimeouts | undefined>;
     /**
-     * The ID of the VPC to associate with the route server.
+     * ID of the VPC to associate with the route server.
      *
      * The following arguments are optional:
      */
@@ -120,12 +120,12 @@ export interface RouteServerVpcAssociationState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The unique identifier for the route server to be associated.
+     * Unique identifier for the route server to be associated.
      */
     routeServerId?: pulumi.Input<string | undefined>;
     timeouts?: pulumi.Input<inputs.vpc.RouteServerVpcAssociationTimeouts | undefined>;
     /**
-     * The ID of the VPC to associate with the route server.
+     * ID of the VPC to associate with the route server.
      *
      * The following arguments are optional:
      */
@@ -141,12 +141,12 @@ export interface RouteServerVpcAssociationArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The unique identifier for the route server to be associated.
+     * Unique identifier for the route server to be associated.
      */
     routeServerId: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.vpc.RouteServerVpcAssociationTimeouts | undefined>;
     /**
-     * The ID of the VPC to associate with the route server.
+     * ID of the VPC to associate with the route server.
      *
      * The following arguments are optional:
      */

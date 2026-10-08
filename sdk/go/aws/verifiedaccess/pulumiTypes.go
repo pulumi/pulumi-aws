@@ -14,10 +14,14 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type EndpointCidrOptions struct {
-	Cidr       string                         `pulumi:"cidr"`
+	// CIDR block to send traffic to.
+	Cidr string `pulumi:"cidr"`
+	// Port ranges. See below.
 	PortRanges []EndpointCidrOptionsPortRange `pulumi:"portRanges"`
-	Protocol   *string                        `pulumi:"protocol"`
-	SubnetIds  []string                       `pulumi:"subnetIds"`
+	// Protocol. Currently `tcp` is supported.
+	Protocol *string `pulumi:"protocol"`
+	// IDs of the subnets.
+	SubnetIds []string `pulumi:"subnetIds"`
 }
 
 // EndpointCidrOptionsInput is an input type that accepts EndpointCidrOptionsArgs and EndpointCidrOptionsOutput values.
@@ -32,10 +36,14 @@ type EndpointCidrOptionsInput interface {
 }
 
 type EndpointCidrOptionsArgs struct {
-	Cidr       pulumi.StringInput                     `pulumi:"cidr"`
+	// CIDR block to send traffic to.
+	Cidr pulumi.StringInput `pulumi:"cidr"`
+	// Port ranges. See below.
 	PortRanges EndpointCidrOptionsPortRangeArrayInput `pulumi:"portRanges"`
-	Protocol   pulumi.StringPtrInput                  `pulumi:"protocol"`
-	SubnetIds  pulumi.StringArrayInput                `pulumi:"subnetIds"`
+	// Protocol. Currently `tcp` is supported.
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+	// IDs of the subnets.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 }
 
 func (EndpointCidrOptionsArgs) ElementType() reflect.Type {
@@ -115,18 +123,22 @@ func (o EndpointCidrOptionsOutput) ToEndpointCidrOptionsPtrOutputWithContext(ctx
 	}).(EndpointCidrOptionsPtrOutput)
 }
 
+// CIDR block to send traffic to.
 func (o EndpointCidrOptionsOutput) Cidr() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointCidrOptions) string { return v.Cidr }).(pulumi.StringOutput)
 }
 
+// Port ranges. See below.
 func (o EndpointCidrOptionsOutput) PortRanges() EndpointCidrOptionsPortRangeArrayOutput {
 	return o.ApplyT(func(v EndpointCidrOptions) []EndpointCidrOptionsPortRange { return v.PortRanges }).(EndpointCidrOptionsPortRangeArrayOutput)
 }
 
+// Protocol. Currently `tcp` is supported.
 func (o EndpointCidrOptionsOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointCidrOptions) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
+// IDs of the subnets.
 func (o EndpointCidrOptionsOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EndpointCidrOptions) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -155,6 +167,7 @@ func (o EndpointCidrOptionsPtrOutput) Elem() EndpointCidrOptionsOutput {
 	}).(EndpointCidrOptionsOutput)
 }
 
+// CIDR block to send traffic to.
 func (o EndpointCidrOptionsPtrOutput) Cidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointCidrOptions) *string {
 		if v == nil {
@@ -164,6 +177,7 @@ func (o EndpointCidrOptionsPtrOutput) Cidr() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Port ranges. See below.
 func (o EndpointCidrOptionsPtrOutput) PortRanges() EndpointCidrOptionsPortRangeArrayOutput {
 	return o.ApplyT(func(v *EndpointCidrOptions) []EndpointCidrOptionsPortRange {
 		if v == nil {
@@ -173,6 +187,7 @@ func (o EndpointCidrOptionsPtrOutput) PortRanges() EndpointCidrOptionsPortRangeA
 	}).(EndpointCidrOptionsPortRangeArrayOutput)
 }
 
+// Protocol. Currently `tcp` is supported.
 func (o EndpointCidrOptionsPtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointCidrOptions) *string {
 		if v == nil {
@@ -182,6 +197,7 @@ func (o EndpointCidrOptionsPtrOutput) Protocol() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// IDs of the subnets.
 func (o EndpointCidrOptionsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EndpointCidrOptions) []string {
 		if v == nil {
@@ -292,11 +308,16 @@ func (o EndpointCidrOptionsPortRangeArrayOutput) Index(i pulumi.IntInput) Endpoi
 }
 
 type EndpointLoadBalancerOptions struct {
-	LoadBalancerArn *string                                `pulumi:"loadBalancerArn"`
-	Port            *int                                   `pulumi:"port"`
-	PortRanges      []EndpointLoadBalancerOptionsPortRange `pulumi:"portRanges"`
-	Protocol        *string                                `pulumi:"protocol"`
-	SubnetIds       []string                               `pulumi:"subnetIds"`
+	// ARN of the load balancer.
+	LoadBalancerArn *string `pulumi:"loadBalancerArn"`
+	// IP port number.
+	Port *int `pulumi:"port"`
+	// Port ranges. See below.
+	PortRanges []EndpointLoadBalancerOptionsPortRange `pulumi:"portRanges"`
+	// IP protocol.
+	Protocol *string `pulumi:"protocol"`
+	// IDs of the subnets.
+	SubnetIds []string `pulumi:"subnetIds"`
 }
 
 // EndpointLoadBalancerOptionsInput is an input type that accepts EndpointLoadBalancerOptionsArgs and EndpointLoadBalancerOptionsOutput values.
@@ -311,11 +332,16 @@ type EndpointLoadBalancerOptionsInput interface {
 }
 
 type EndpointLoadBalancerOptionsArgs struct {
-	LoadBalancerArn pulumi.StringPtrInput                          `pulumi:"loadBalancerArn"`
-	Port            pulumi.IntPtrInput                             `pulumi:"port"`
-	PortRanges      EndpointLoadBalancerOptionsPortRangeArrayInput `pulumi:"portRanges"`
-	Protocol        pulumi.StringPtrInput                          `pulumi:"protocol"`
-	SubnetIds       pulumi.StringArrayInput                        `pulumi:"subnetIds"`
+	// ARN of the load balancer.
+	LoadBalancerArn pulumi.StringPtrInput `pulumi:"loadBalancerArn"`
+	// IP port number.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// Port ranges. See below.
+	PortRanges EndpointLoadBalancerOptionsPortRangeArrayInput `pulumi:"portRanges"`
+	// IP protocol.
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+	// IDs of the subnets.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 }
 
 func (EndpointLoadBalancerOptionsArgs) ElementType() reflect.Type {
@@ -395,22 +421,27 @@ func (o EndpointLoadBalancerOptionsOutput) ToEndpointLoadBalancerOptionsPtrOutpu
 	}).(EndpointLoadBalancerOptionsPtrOutput)
 }
 
+// ARN of the load balancer.
 func (o EndpointLoadBalancerOptionsOutput) LoadBalancerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointLoadBalancerOptions) *string { return v.LoadBalancerArn }).(pulumi.StringPtrOutput)
 }
 
+// IP port number.
 func (o EndpointLoadBalancerOptionsOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointLoadBalancerOptions) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
+// Port ranges. See below.
 func (o EndpointLoadBalancerOptionsOutput) PortRanges() EndpointLoadBalancerOptionsPortRangeArrayOutput {
 	return o.ApplyT(func(v EndpointLoadBalancerOptions) []EndpointLoadBalancerOptionsPortRange { return v.PortRanges }).(EndpointLoadBalancerOptionsPortRangeArrayOutput)
 }
 
+// IP protocol.
 func (o EndpointLoadBalancerOptionsOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointLoadBalancerOptions) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
+// IDs of the subnets.
 func (o EndpointLoadBalancerOptionsOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EndpointLoadBalancerOptions) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -439,6 +470,7 @@ func (o EndpointLoadBalancerOptionsPtrOutput) Elem() EndpointLoadBalancerOptions
 	}).(EndpointLoadBalancerOptionsOutput)
 }
 
+// ARN of the load balancer.
 func (o EndpointLoadBalancerOptionsPtrOutput) LoadBalancerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointLoadBalancerOptions) *string {
 		if v == nil {
@@ -448,6 +480,7 @@ func (o EndpointLoadBalancerOptionsPtrOutput) LoadBalancerArn() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// IP port number.
 func (o EndpointLoadBalancerOptionsPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointLoadBalancerOptions) *int {
 		if v == nil {
@@ -457,6 +490,7 @@ func (o EndpointLoadBalancerOptionsPtrOutput) Port() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Port ranges. See below.
 func (o EndpointLoadBalancerOptionsPtrOutput) PortRanges() EndpointLoadBalancerOptionsPortRangeArrayOutput {
 	return o.ApplyT(func(v *EndpointLoadBalancerOptions) []EndpointLoadBalancerOptionsPortRange {
 		if v == nil {
@@ -466,6 +500,7 @@ func (o EndpointLoadBalancerOptionsPtrOutput) PortRanges() EndpointLoadBalancerO
 	}).(EndpointLoadBalancerOptionsPortRangeArrayOutput)
 }
 
+// IP protocol.
 func (o EndpointLoadBalancerOptionsPtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointLoadBalancerOptions) *string {
 		if v == nil {
@@ -475,6 +510,7 @@ func (o EndpointLoadBalancerOptionsPtrOutput) Protocol() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// IDs of the subnets.
 func (o EndpointLoadBalancerOptionsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EndpointLoadBalancerOptions) []string {
 		if v == nil {
@@ -585,10 +621,14 @@ func (o EndpointLoadBalancerOptionsPortRangeArrayOutput) Index(i pulumi.IntInput
 }
 
 type EndpointNetworkInterfaceOptions struct {
-	NetworkInterfaceId *string                                    `pulumi:"networkInterfaceId"`
-	Port               *int                                       `pulumi:"port"`
-	PortRanges         []EndpointNetworkInterfaceOptionsPortRange `pulumi:"portRanges"`
-	Protocol           *string                                    `pulumi:"protocol"`
+	// ID of the network interface.
+	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
+	// IP port number.
+	Port *int `pulumi:"port"`
+	// Port ranges. See below.
+	PortRanges []EndpointNetworkInterfaceOptionsPortRange `pulumi:"portRanges"`
+	// IP protocol.
+	Protocol *string `pulumi:"protocol"`
 }
 
 // EndpointNetworkInterfaceOptionsInput is an input type that accepts EndpointNetworkInterfaceOptionsArgs and EndpointNetworkInterfaceOptionsOutput values.
@@ -603,10 +643,14 @@ type EndpointNetworkInterfaceOptionsInput interface {
 }
 
 type EndpointNetworkInterfaceOptionsArgs struct {
-	NetworkInterfaceId pulumi.StringPtrInput                              `pulumi:"networkInterfaceId"`
-	Port               pulumi.IntPtrInput                                 `pulumi:"port"`
-	PortRanges         EndpointNetworkInterfaceOptionsPortRangeArrayInput `pulumi:"portRanges"`
-	Protocol           pulumi.StringPtrInput                              `pulumi:"protocol"`
+	// ID of the network interface.
+	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
+	// IP port number.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// Port ranges. See below.
+	PortRanges EndpointNetworkInterfaceOptionsPortRangeArrayInput `pulumi:"portRanges"`
+	// IP protocol.
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 }
 
 func (EndpointNetworkInterfaceOptionsArgs) ElementType() reflect.Type {
@@ -686,20 +730,24 @@ func (o EndpointNetworkInterfaceOptionsOutput) ToEndpointNetworkInterfaceOptions
 	}).(EndpointNetworkInterfaceOptionsPtrOutput)
 }
 
+// ID of the network interface.
 func (o EndpointNetworkInterfaceOptionsOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointNetworkInterfaceOptions) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
 }
 
+// IP port number.
 func (o EndpointNetworkInterfaceOptionsOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointNetworkInterfaceOptions) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
+// Port ranges. See below.
 func (o EndpointNetworkInterfaceOptionsOutput) PortRanges() EndpointNetworkInterfaceOptionsPortRangeArrayOutput {
 	return o.ApplyT(func(v EndpointNetworkInterfaceOptions) []EndpointNetworkInterfaceOptionsPortRange {
 		return v.PortRanges
 	}).(EndpointNetworkInterfaceOptionsPortRangeArrayOutput)
 }
 
+// IP protocol.
 func (o EndpointNetworkInterfaceOptionsOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointNetworkInterfaceOptions) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
@@ -728,6 +776,7 @@ func (o EndpointNetworkInterfaceOptionsPtrOutput) Elem() EndpointNetworkInterfac
 	}).(EndpointNetworkInterfaceOptionsOutput)
 }
 
+// ID of the network interface.
 func (o EndpointNetworkInterfaceOptionsPtrOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointNetworkInterfaceOptions) *string {
 		if v == nil {
@@ -737,6 +786,7 @@ func (o EndpointNetworkInterfaceOptionsPtrOutput) NetworkInterfaceId() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// IP port number.
 func (o EndpointNetworkInterfaceOptionsPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointNetworkInterfaceOptions) *int {
 		if v == nil {
@@ -746,6 +796,7 @@ func (o EndpointNetworkInterfaceOptionsPtrOutput) Port() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Port ranges. See below.
 func (o EndpointNetworkInterfaceOptionsPtrOutput) PortRanges() EndpointNetworkInterfaceOptionsPortRangeArrayOutput {
 	return o.ApplyT(func(v *EndpointNetworkInterfaceOptions) []EndpointNetworkInterfaceOptionsPortRange {
 		if v == nil {
@@ -755,6 +806,7 @@ func (o EndpointNetworkInterfaceOptionsPtrOutput) PortRanges() EndpointNetworkIn
 	}).(EndpointNetworkInterfaceOptionsPortRangeArrayOutput)
 }
 
+// IP protocol.
 func (o EndpointNetworkInterfaceOptionsPtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointNetworkInterfaceOptions) *string {
 		if v == nil {
@@ -865,13 +917,20 @@ func (o EndpointNetworkInterfaceOptionsPortRangeArrayOutput) Index(i pulumi.IntI
 }
 
 type EndpointRdsOptions struct {
-	Port             *int     `pulumi:"port"`
-	Protocol         *string  `pulumi:"protocol"`
-	RdsDbClusterArn  *string  `pulumi:"rdsDbClusterArn"`
-	RdsDbInstanceArn *string  `pulumi:"rdsDbInstanceArn"`
-	RdsDbProxyArn    *string  `pulumi:"rdsDbProxyArn"`
-	RdsEndpoint      *string  `pulumi:"rdsEndpoint"`
-	SubnetIds        []string `pulumi:"subnetIds"`
+	// IP port number.
+	Port *int `pulumi:"port"`
+	// Protocol. Currently `tcp` is supported.
+	Protocol *string `pulumi:"protocol"`
+	// ARN of the RDS cluster.
+	RdsDbClusterArn *string `pulumi:"rdsDbClusterArn"`
+	// ARN of the RDS instance.
+	RdsDbInstanceArn *string `pulumi:"rdsDbInstanceArn"`
+	// ARN of the RDS proxy.
+	RdsDbProxyArn *string `pulumi:"rdsDbProxyArn"`
+	// RDS endpoint.
+	RdsEndpoint *string `pulumi:"rdsEndpoint"`
+	// IDs of the subnets.
+	SubnetIds []string `pulumi:"subnetIds"`
 }
 
 // EndpointRdsOptionsInput is an input type that accepts EndpointRdsOptionsArgs and EndpointRdsOptionsOutput values.
@@ -886,13 +945,20 @@ type EndpointRdsOptionsInput interface {
 }
 
 type EndpointRdsOptionsArgs struct {
-	Port             pulumi.IntPtrInput      `pulumi:"port"`
-	Protocol         pulumi.StringPtrInput   `pulumi:"protocol"`
-	RdsDbClusterArn  pulumi.StringPtrInput   `pulumi:"rdsDbClusterArn"`
-	RdsDbInstanceArn pulumi.StringPtrInput   `pulumi:"rdsDbInstanceArn"`
-	RdsDbProxyArn    pulumi.StringPtrInput   `pulumi:"rdsDbProxyArn"`
-	RdsEndpoint      pulumi.StringPtrInput   `pulumi:"rdsEndpoint"`
-	SubnetIds        pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// IP port number.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// Protocol. Currently `tcp` is supported.
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+	// ARN of the RDS cluster.
+	RdsDbClusterArn pulumi.StringPtrInput `pulumi:"rdsDbClusterArn"`
+	// ARN of the RDS instance.
+	RdsDbInstanceArn pulumi.StringPtrInput `pulumi:"rdsDbInstanceArn"`
+	// ARN of the RDS proxy.
+	RdsDbProxyArn pulumi.StringPtrInput `pulumi:"rdsDbProxyArn"`
+	// RDS endpoint.
+	RdsEndpoint pulumi.StringPtrInput `pulumi:"rdsEndpoint"`
+	// IDs of the subnets.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 }
 
 func (EndpointRdsOptionsArgs) ElementType() reflect.Type {
@@ -972,30 +1038,37 @@ func (o EndpointRdsOptionsOutput) ToEndpointRdsOptionsPtrOutputWithContext(ctx c
 	}).(EndpointRdsOptionsPtrOutput)
 }
 
+// IP port number.
 func (o EndpointRdsOptionsOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointRdsOptions) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
+// Protocol. Currently `tcp` is supported.
 func (o EndpointRdsOptionsOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointRdsOptions) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
+// ARN of the RDS cluster.
 func (o EndpointRdsOptionsOutput) RdsDbClusterArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointRdsOptions) *string { return v.RdsDbClusterArn }).(pulumi.StringPtrOutput)
 }
 
+// ARN of the RDS instance.
 func (o EndpointRdsOptionsOutput) RdsDbInstanceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointRdsOptions) *string { return v.RdsDbInstanceArn }).(pulumi.StringPtrOutput)
 }
 
+// ARN of the RDS proxy.
 func (o EndpointRdsOptionsOutput) RdsDbProxyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointRdsOptions) *string { return v.RdsDbProxyArn }).(pulumi.StringPtrOutput)
 }
 
+// RDS endpoint.
 func (o EndpointRdsOptionsOutput) RdsEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointRdsOptions) *string { return v.RdsEndpoint }).(pulumi.StringPtrOutput)
 }
 
+// IDs of the subnets.
 func (o EndpointRdsOptionsOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EndpointRdsOptions) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -1024,6 +1097,7 @@ func (o EndpointRdsOptionsPtrOutput) Elem() EndpointRdsOptionsOutput {
 	}).(EndpointRdsOptionsOutput)
 }
 
+// IP port number.
 func (o EndpointRdsOptionsPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointRdsOptions) *int {
 		if v == nil {
@@ -1033,6 +1107,7 @@ func (o EndpointRdsOptionsPtrOutput) Port() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Protocol. Currently `tcp` is supported.
 func (o EndpointRdsOptionsPtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointRdsOptions) *string {
 		if v == nil {
@@ -1042,6 +1117,7 @@ func (o EndpointRdsOptionsPtrOutput) Protocol() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// ARN of the RDS cluster.
 func (o EndpointRdsOptionsPtrOutput) RdsDbClusterArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointRdsOptions) *string {
 		if v == nil {
@@ -1051,6 +1127,7 @@ func (o EndpointRdsOptionsPtrOutput) RdsDbClusterArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// ARN of the RDS instance.
 func (o EndpointRdsOptionsPtrOutput) RdsDbInstanceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointRdsOptions) *string {
 		if v == nil {
@@ -1060,6 +1137,7 @@ func (o EndpointRdsOptionsPtrOutput) RdsDbInstanceArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// ARN of the RDS proxy.
 func (o EndpointRdsOptionsPtrOutput) RdsDbProxyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointRdsOptions) *string {
 		if v == nil {
@@ -1069,6 +1147,7 @@ func (o EndpointRdsOptionsPtrOutput) RdsDbProxyArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// RDS endpoint.
 func (o EndpointRdsOptionsPtrOutput) RdsEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointRdsOptions) *string {
 		if v == nil {
@@ -1078,6 +1157,7 @@ func (o EndpointRdsOptionsPtrOutput) RdsEndpoint() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// IDs of the subnets.
 func (o EndpointRdsOptionsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EndpointRdsOptions) []string {
 		if v == nil {
@@ -1088,8 +1168,10 @@ func (o EndpointRdsOptionsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 }
 
 type EndpointSseSpecification struct {
-	CustomerManagedKeyEnabled *bool   `pulumi:"customerManagedKeyEnabled"`
-	KmsKeyArn                 *string `pulumi:"kmsKeyArn"`
+	// Whether to encrypt the policy using a customer managed key.
+	CustomerManagedKeyEnabled *bool `pulumi:"customerManagedKeyEnabled"`
+	// ARN of the KMS key.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 }
 
 // EndpointSseSpecificationInput is an input type that accepts EndpointSseSpecificationArgs and EndpointSseSpecificationOutput values.
@@ -1104,8 +1186,10 @@ type EndpointSseSpecificationInput interface {
 }
 
 type EndpointSseSpecificationArgs struct {
-	CustomerManagedKeyEnabled pulumi.BoolPtrInput   `pulumi:"customerManagedKeyEnabled"`
-	KmsKeyArn                 pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+	// Whether to encrypt the policy using a customer managed key.
+	CustomerManagedKeyEnabled pulumi.BoolPtrInput `pulumi:"customerManagedKeyEnabled"`
+	// ARN of the KMS key.
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 }
 
 func (EndpointSseSpecificationArgs) ElementType() reflect.Type {
@@ -1185,10 +1269,12 @@ func (o EndpointSseSpecificationOutput) ToEndpointSseSpecificationPtrOutputWithC
 	}).(EndpointSseSpecificationPtrOutput)
 }
 
+// Whether to encrypt the policy using a customer managed key.
 func (o EndpointSseSpecificationOutput) CustomerManagedKeyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointSseSpecification) *bool { return v.CustomerManagedKeyEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// ARN of the KMS key.
 func (o EndpointSseSpecificationOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointSseSpecification) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
@@ -1217,6 +1303,7 @@ func (o EndpointSseSpecificationPtrOutput) Elem() EndpointSseSpecificationOutput
 	}).(EndpointSseSpecificationOutput)
 }
 
+// Whether to encrypt the policy using a customer managed key.
 func (o EndpointSseSpecificationPtrOutput) CustomerManagedKeyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointSseSpecification) *bool {
 		if v == nil {
@@ -1226,6 +1313,7 @@ func (o EndpointSseSpecificationPtrOutput) CustomerManagedKeyEnabled() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// ARN of the KMS key.
 func (o EndpointSseSpecificationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointSseSpecification) *string {
 		if v == nil {
@@ -1236,7 +1324,7 @@ func (o EndpointSseSpecificationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 }
 
 type GroupSseConfiguration struct {
-	// Boolean flag to indicate that the CMK should be used.
+	// Whether the CMK should be used.
 	CustomerManagedKeyEnabled *bool `pulumi:"customerManagedKeyEnabled"`
 	// ARN of the KMS key to use.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
@@ -1254,7 +1342,7 @@ type GroupSseConfigurationInput interface {
 }
 
 type GroupSseConfigurationArgs struct {
-	// Boolean flag to indicate that the CMK should be used.
+	// Whether the CMK should be used.
 	CustomerManagedKeyEnabled pulumi.BoolPtrInput `pulumi:"customerManagedKeyEnabled"`
 	// ARN of the KMS key to use.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
@@ -1337,7 +1425,7 @@ func (o GroupSseConfigurationOutput) ToGroupSseConfigurationPtrOutputWithContext
 	}).(GroupSseConfigurationPtrOutput)
 }
 
-// Boolean flag to indicate that the CMK should be used.
+// Whether the CMK should be used.
 func (o GroupSseConfigurationOutput) CustomerManagedKeyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GroupSseConfiguration) *bool { return v.CustomerManagedKeyEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -1371,7 +1459,7 @@ func (o GroupSseConfigurationPtrOutput) Elem() GroupSseConfigurationOutput {
 	}).(GroupSseConfigurationOutput)
 }
 
-// Boolean flag to indicate that the CMK should be used.
+// Whether the CMK should be used.
 func (o GroupSseConfigurationPtrOutput) CustomerManagedKeyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GroupSseConfiguration) *bool {
 		if v == nil {
@@ -1392,15 +1480,15 @@ func (o GroupSseConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 }
 
 type InstanceLoggingConfigurationAccessLogs struct {
-	// A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
+	// Block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
 	CloudwatchLogs *InstanceLoggingConfigurationAccessLogsCloudwatchLogs `pulumi:"cloudwatchLogs"`
-	// Include trust data sent by trust providers into the logs.
+	// Whether to include trust data sent by trust providers in the logs.
 	IncludeTrustContext *bool `pulumi:"includeTrustContext"`
-	// A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
+	// Block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
 	KinesisDataFirehose *InstanceLoggingConfigurationAccessLogsKinesisDataFirehose `pulumi:"kinesisDataFirehose"`
-	// The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
+	// Logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
 	LogVersion *string `pulumi:"logVersion"`
-	// A block that specifies configures sending Verified Access logs to S3. Detailed below.
+	// Block that specifies configures sending Verified Access logs to S3. Detailed below.
 	S3 *InstanceLoggingConfigurationAccessLogsS3 `pulumi:"s3"`
 }
 
@@ -1416,15 +1504,15 @@ type InstanceLoggingConfigurationAccessLogsInput interface {
 }
 
 type InstanceLoggingConfigurationAccessLogsArgs struct {
-	// A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
+	// Block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
 	CloudwatchLogs InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrInput `pulumi:"cloudwatchLogs"`
-	// Include trust data sent by trust providers into the logs.
+	// Whether to include trust data sent by trust providers in the logs.
 	IncludeTrustContext pulumi.BoolPtrInput `pulumi:"includeTrustContext"`
-	// A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
+	// Block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
 	KinesisDataFirehose InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrInput `pulumi:"kinesisDataFirehose"`
-	// The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
+	// Logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
 	LogVersion pulumi.StringPtrInput `pulumi:"logVersion"`
-	// A block that specifies configures sending Verified Access logs to S3. Detailed below.
+	// Block that specifies configures sending Verified Access logs to S3. Detailed below.
 	S3 InstanceLoggingConfigurationAccessLogsS3PtrInput `pulumi:"s3"`
 }
 
@@ -1505,31 +1593,31 @@ func (o InstanceLoggingConfigurationAccessLogsOutput) ToInstanceLoggingConfigura
 	}).(InstanceLoggingConfigurationAccessLogsPtrOutput)
 }
 
-// A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
+// Block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
 func (o InstanceLoggingConfigurationAccessLogsOutput) CloudwatchLogs() InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput {
 	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogs) *InstanceLoggingConfigurationAccessLogsCloudwatchLogs {
 		return v.CloudwatchLogs
 	}).(InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput)
 }
 
-// Include trust data sent by trust providers into the logs.
+// Whether to include trust data sent by trust providers in the logs.
 func (o InstanceLoggingConfigurationAccessLogsOutput) IncludeTrustContext() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogs) *bool { return v.IncludeTrustContext }).(pulumi.BoolPtrOutput)
 }
 
-// A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
+// Block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
 func (o InstanceLoggingConfigurationAccessLogsOutput) KinesisDataFirehose() InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput {
 	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogs) *InstanceLoggingConfigurationAccessLogsKinesisDataFirehose {
 		return v.KinesisDataFirehose
 	}).(InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput)
 }
 
-// The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
+// Logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
 func (o InstanceLoggingConfigurationAccessLogsOutput) LogVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogs) *string { return v.LogVersion }).(pulumi.StringPtrOutput)
 }
 
-// A block that specifies configures sending Verified Access logs to S3. Detailed below.
+// Block that specifies configures sending Verified Access logs to S3. Detailed below.
 func (o InstanceLoggingConfigurationAccessLogsOutput) S3() InstanceLoggingConfigurationAccessLogsS3PtrOutput {
 	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogs) *InstanceLoggingConfigurationAccessLogsS3 { return v.S3 }).(InstanceLoggingConfigurationAccessLogsS3PtrOutput)
 }
@@ -1558,7 +1646,7 @@ func (o InstanceLoggingConfigurationAccessLogsPtrOutput) Elem() InstanceLoggingC
 	}).(InstanceLoggingConfigurationAccessLogsOutput)
 }
 
-// A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
+// Block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
 func (o InstanceLoggingConfigurationAccessLogsPtrOutput) CloudwatchLogs() InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput {
 	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogs) *InstanceLoggingConfigurationAccessLogsCloudwatchLogs {
 		if v == nil {
@@ -1568,7 +1656,7 @@ func (o InstanceLoggingConfigurationAccessLogsPtrOutput) CloudwatchLogs() Instan
 	}).(InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput)
 }
 
-// Include trust data sent by trust providers into the logs.
+// Whether to include trust data sent by trust providers in the logs.
 func (o InstanceLoggingConfigurationAccessLogsPtrOutput) IncludeTrustContext() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogs) *bool {
 		if v == nil {
@@ -1578,7 +1666,7 @@ func (o InstanceLoggingConfigurationAccessLogsPtrOutput) IncludeTrustContext() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
+// Block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
 func (o InstanceLoggingConfigurationAccessLogsPtrOutput) KinesisDataFirehose() InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput {
 	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogs) *InstanceLoggingConfigurationAccessLogsKinesisDataFirehose {
 		if v == nil {
@@ -1588,7 +1676,7 @@ func (o InstanceLoggingConfigurationAccessLogsPtrOutput) KinesisDataFirehose() I
 	}).(InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput)
 }
 
-// The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
+// Logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
 func (o InstanceLoggingConfigurationAccessLogsPtrOutput) LogVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogs) *string {
 		if v == nil {
@@ -1598,7 +1686,7 @@ func (o InstanceLoggingConfigurationAccessLogsPtrOutput) LogVersion() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// A block that specifies configures sending Verified Access logs to S3. Detailed below.
+// Block that specifies configures sending Verified Access logs to S3. Detailed below.
 func (o InstanceLoggingConfigurationAccessLogsPtrOutput) S3() InstanceLoggingConfigurationAccessLogsS3PtrOutput {
 	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogs) *InstanceLoggingConfigurationAccessLogsS3 {
 		if v == nil {
@@ -1609,9 +1697,9 @@ func (o InstanceLoggingConfigurationAccessLogsPtrOutput) S3() InstanceLoggingCon
 }
 
 type InstanceLoggingConfigurationAccessLogsCloudwatchLogs struct {
-	// Indicates whether logging is enabled.
+	// Whether logging is enabled.
 	Enabled bool `pulumi:"enabled"`
-	// The name of the CloudWatch Logs Log Group.
+	// Name of the CloudWatch Logs Log Group.
 	LogGroup *string `pulumi:"logGroup"`
 }
 
@@ -1627,9 +1715,9 @@ type InstanceLoggingConfigurationAccessLogsCloudwatchLogsInput interface {
 }
 
 type InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs struct {
-	// Indicates whether logging is enabled.
+	// Whether logging is enabled.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The name of the CloudWatch Logs Log Group.
+	// Name of the CloudWatch Logs Log Group.
 	LogGroup pulumi.StringPtrInput `pulumi:"logGroup"`
 }
 
@@ -1710,12 +1798,12 @@ func (o InstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput) ToInstanceLo
 	}).(InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput)
 }
 
-// Indicates whether logging is enabled.
+// Whether logging is enabled.
 func (o InstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogsCloudwatchLogs) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// The name of the CloudWatch Logs Log Group.
+// Name of the CloudWatch Logs Log Group.
 func (o InstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput) LogGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogsCloudwatchLogs) *string { return v.LogGroup }).(pulumi.StringPtrOutput)
 }
@@ -1744,7 +1832,7 @@ func (o InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput) Elem() In
 	}).(InstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput)
 }
 
-// Indicates whether logging is enabled.
+// Whether logging is enabled.
 func (o InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogsCloudwatchLogs) *bool {
 		if v == nil {
@@ -1754,7 +1842,7 @@ func (o InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput) Enabled()
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The name of the CloudWatch Logs Log Group.
+// Name of the CloudWatch Logs Log Group.
 func (o InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput) LogGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogsCloudwatchLogs) *string {
 		if v == nil {
@@ -1765,9 +1853,9 @@ func (o InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput) LogGroup(
 }
 
 type InstanceLoggingConfigurationAccessLogsKinesisDataFirehose struct {
-	// The name of the delivery stream.
+	// Name of the delivery stream.
 	DeliveryStream *string `pulumi:"deliveryStream"`
-	// Indicates whether logging is enabled.
+	// Whether logging is enabled.
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -1783,9 +1871,9 @@ type InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseInput interface {
 }
 
 type InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs struct {
-	// The name of the delivery stream.
+	// Name of the delivery stream.
 	DeliveryStream pulumi.StringPtrInput `pulumi:"deliveryStream"`
-	// Indicates whether logging is enabled.
+	// Whether logging is enabled.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
@@ -1866,12 +1954,12 @@ func (o InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput) ToInsta
 	}).(InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput)
 }
 
-// The name of the delivery stream.
+// Name of the delivery stream.
 func (o InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput) DeliveryStream() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogsKinesisDataFirehose) *string { return v.DeliveryStream }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether logging is enabled.
+// Whether logging is enabled.
 func (o InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogsKinesisDataFirehose) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -1900,7 +1988,7 @@ func (o InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput) Elem
 	}).(InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput)
 }
 
-// The name of the delivery stream.
+// Name of the delivery stream.
 func (o InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput) DeliveryStream() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogsKinesisDataFirehose) *string {
 		if v == nil {
@@ -1910,7 +1998,7 @@ func (o InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput) Deli
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether logging is enabled.
+// Whether logging is enabled.
 func (o InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogsKinesisDataFirehose) *bool {
 		if v == nil {
@@ -1921,13 +2009,13 @@ func (o InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput) Enab
 }
 
 type InstanceLoggingConfigurationAccessLogsS3 struct {
-	// The name of S3 bucket.
+	// Name of S3 bucket.
 	BucketName *string `pulumi:"bucketName"`
-	// The ID of the AWS account that owns the Amazon S3 bucket.
+	// ID of the AWS account that owns the Amazon S3 bucket.
 	BucketOwner *string `pulumi:"bucketOwner"`
-	// Indicates whether logging is enabled.
+	// Whether logging is enabled.
 	Enabled bool `pulumi:"enabled"`
-	// The bucket prefix.
+	// Bucket prefix.
 	Prefix *string `pulumi:"prefix"`
 }
 
@@ -1943,13 +2031,13 @@ type InstanceLoggingConfigurationAccessLogsS3Input interface {
 }
 
 type InstanceLoggingConfigurationAccessLogsS3Args struct {
-	// The name of S3 bucket.
+	// Name of S3 bucket.
 	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
-	// The ID of the AWS account that owns the Amazon S3 bucket.
+	// ID of the AWS account that owns the Amazon S3 bucket.
 	BucketOwner pulumi.StringPtrInput `pulumi:"bucketOwner"`
-	// Indicates whether logging is enabled.
+	// Whether logging is enabled.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The bucket prefix.
+	// Bucket prefix.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 }
 
@@ -2030,22 +2118,22 @@ func (o InstanceLoggingConfigurationAccessLogsS3Output) ToInstanceLoggingConfigu
 	}).(InstanceLoggingConfigurationAccessLogsS3PtrOutput)
 }
 
-// The name of S3 bucket.
+// Name of S3 bucket.
 func (o InstanceLoggingConfigurationAccessLogsS3Output) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogsS3) *string { return v.BucketName }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the AWS account that owns the Amazon S3 bucket.
+// ID of the AWS account that owns the Amazon S3 bucket.
 func (o InstanceLoggingConfigurationAccessLogsS3Output) BucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogsS3) *string { return v.BucketOwner }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether logging is enabled.
+// Whether logging is enabled.
 func (o InstanceLoggingConfigurationAccessLogsS3Output) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogsS3) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// The bucket prefix.
+// Bucket prefix.
 func (o InstanceLoggingConfigurationAccessLogsS3Output) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogsS3) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
@@ -2074,7 +2162,7 @@ func (o InstanceLoggingConfigurationAccessLogsS3PtrOutput) Elem() InstanceLoggin
 	}).(InstanceLoggingConfigurationAccessLogsS3Output)
 }
 
-// The name of S3 bucket.
+// Name of S3 bucket.
 func (o InstanceLoggingConfigurationAccessLogsS3PtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogsS3) *string {
 		if v == nil {
@@ -2084,7 +2172,7 @@ func (o InstanceLoggingConfigurationAccessLogsS3PtrOutput) BucketName() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the AWS account that owns the Amazon S3 bucket.
+// ID of the AWS account that owns the Amazon S3 bucket.
 func (o InstanceLoggingConfigurationAccessLogsS3PtrOutput) BucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogsS3) *string {
 		if v == nil {
@@ -2094,7 +2182,7 @@ func (o InstanceLoggingConfigurationAccessLogsS3PtrOutput) BucketOwner() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether logging is enabled.
+// Whether logging is enabled.
 func (o InstanceLoggingConfigurationAccessLogsS3PtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogsS3) *bool {
 		if v == nil {
@@ -2104,7 +2192,7 @@ func (o InstanceLoggingConfigurationAccessLogsS3PtrOutput) Enabled() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The bucket prefix.
+// Bucket prefix.
 func (o InstanceLoggingConfigurationAccessLogsS3PtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogsS3) *string {
 		if v == nil {
@@ -2115,15 +2203,15 @@ func (o InstanceLoggingConfigurationAccessLogsS3PtrOutput) Prefix() pulumi.Strin
 }
 
 type InstanceVerifiedAccessTrustProvider struct {
-	// A description for the AWS Verified Access Instance.
+	// Description for the AWS Verified Access Instance.
 	Description *string `pulumi:"description"`
-	// The type of device-based trust provider.
+	// Type of device-based trust provider.
 	DeviceTrustProviderType *string `pulumi:"deviceTrustProviderType"`
-	// The type of trust provider (user- or device-based).
+	// Type of trust provider (user- or device-based).
 	TrustProviderType *string `pulumi:"trustProviderType"`
-	// The type of user-based trust provider.
+	// Type of user-based trust provider.
 	UserTrustProviderType *string `pulumi:"userTrustProviderType"`
-	// The ID of the trust provider.
+	// ID of the trust provider.
 	VerifiedAccessTrustProviderId *string `pulumi:"verifiedAccessTrustProviderId"`
 }
 
@@ -2139,15 +2227,15 @@ type InstanceVerifiedAccessTrustProviderInput interface {
 }
 
 type InstanceVerifiedAccessTrustProviderArgs struct {
-	// A description for the AWS Verified Access Instance.
+	// Description for the AWS Verified Access Instance.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The type of device-based trust provider.
+	// Type of device-based trust provider.
 	DeviceTrustProviderType pulumi.StringPtrInput `pulumi:"deviceTrustProviderType"`
-	// The type of trust provider (user- or device-based).
+	// Type of trust provider (user- or device-based).
 	TrustProviderType pulumi.StringPtrInput `pulumi:"trustProviderType"`
-	// The type of user-based trust provider.
+	// Type of user-based trust provider.
 	UserTrustProviderType pulumi.StringPtrInput `pulumi:"userTrustProviderType"`
-	// The ID of the trust provider.
+	// ID of the trust provider.
 	VerifiedAccessTrustProviderId pulumi.StringPtrInput `pulumi:"verifiedAccessTrustProviderId"`
 }
 
@@ -2202,27 +2290,27 @@ func (o InstanceVerifiedAccessTrustProviderOutput) ToInstanceVerifiedAccessTrust
 	return o
 }
 
-// A description for the AWS Verified Access Instance.
+// Description for the AWS Verified Access Instance.
 func (o InstanceVerifiedAccessTrustProviderOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceVerifiedAccessTrustProvider) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The type of device-based trust provider.
+// Type of device-based trust provider.
 func (o InstanceVerifiedAccessTrustProviderOutput) DeviceTrustProviderType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceVerifiedAccessTrustProvider) *string { return v.DeviceTrustProviderType }).(pulumi.StringPtrOutput)
 }
 
-// The type of trust provider (user- or device-based).
+// Type of trust provider (user- or device-based).
 func (o InstanceVerifiedAccessTrustProviderOutput) TrustProviderType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceVerifiedAccessTrustProvider) *string { return v.TrustProviderType }).(pulumi.StringPtrOutput)
 }
 
-// The type of user-based trust provider.
+// Type of user-based trust provider.
 func (o InstanceVerifiedAccessTrustProviderOutput) UserTrustProviderType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceVerifiedAccessTrustProvider) *string { return v.UserTrustProviderType }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the trust provider.
+// ID of the trust provider.
 func (o InstanceVerifiedAccessTrustProviderOutput) VerifiedAccessTrustProviderId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceVerifiedAccessTrustProvider) *string { return v.VerifiedAccessTrustProviderId }).(pulumi.StringPtrOutput)
 }
@@ -2248,6 +2336,7 @@ func (o InstanceVerifiedAccessTrustProviderArrayOutput) Index(i pulumi.IntInput)
 }
 
 type TrustProviderDeviceOptions struct {
+	// ID of the tenant application with the device-identity provider.
 	TenantId *string `pulumi:"tenantId"`
 }
 
@@ -2263,6 +2352,7 @@ type TrustProviderDeviceOptionsInput interface {
 }
 
 type TrustProviderDeviceOptionsArgs struct {
+	// ID of the tenant application with the device-identity provider.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
@@ -2343,6 +2433,7 @@ func (o TrustProviderDeviceOptionsOutput) ToTrustProviderDeviceOptionsPtrOutputW
 	}).(TrustProviderDeviceOptionsPtrOutput)
 }
 
+// ID of the tenant application with the device-identity provider.
 func (o TrustProviderDeviceOptionsOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrustProviderDeviceOptions) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -2371,6 +2462,7 @@ func (o TrustProviderDeviceOptionsPtrOutput) Elem() TrustProviderDeviceOptionsOu
 	}).(TrustProviderDeviceOptionsOutput)
 }
 
+// ID of the tenant application with the device-identity provider.
 func (o TrustProviderDeviceOptionsPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrustProviderDeviceOptions) *string {
 		if v == nil {
@@ -2381,14 +2473,22 @@ func (o TrustProviderDeviceOptionsPtrOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 type TrustProviderNativeApplicationOidcOptions struct {
-	AuthorizationEndpoint    *string `pulumi:"authorizationEndpoint"`
-	ClientId                 *string `pulumi:"clientId"`
-	ClientSecret             string  `pulumi:"clientSecret"`
-	Issuer                   *string `pulumi:"issuer"`
+	// OIDC authorization endpoint.
+	AuthorizationEndpoint *string `pulumi:"authorizationEndpoint"`
+	// OAuth 2.0 client identifier.
+	ClientId *string `pulumi:"clientId"`
+	// OAuth 2.0 client secret.
+	ClientSecret string `pulumi:"clientSecret"`
+	// OIDC issuer identifier of the IdP.
+	Issuer *string `pulumi:"issuer"`
+	// OIDC public signing key endpoint.
 	PublicSigningKeyEndpoint *string `pulumi:"publicSigningKeyEndpoint"`
-	Scope                    *string `pulumi:"scope"`
-	TokenEndpoint            *string `pulumi:"tokenEndpoint"`
-	UserInfoEndpoint         *string `pulumi:"userInfoEndpoint"`
+	// OpenID Connect (OIDC) scope specified.
+	Scope *string `pulumi:"scope"`
+	// OIDC token endpoint.
+	TokenEndpoint *string `pulumi:"tokenEndpoint"`
+	// OIDC user info endpoint.
+	UserInfoEndpoint *string `pulumi:"userInfoEndpoint"`
 }
 
 // TrustProviderNativeApplicationOidcOptionsInput is an input type that accepts TrustProviderNativeApplicationOidcOptionsArgs and TrustProviderNativeApplicationOidcOptionsOutput values.
@@ -2403,14 +2503,22 @@ type TrustProviderNativeApplicationOidcOptionsInput interface {
 }
 
 type TrustProviderNativeApplicationOidcOptionsArgs struct {
-	AuthorizationEndpoint    pulumi.StringPtrInput `pulumi:"authorizationEndpoint"`
-	ClientId                 pulumi.StringPtrInput `pulumi:"clientId"`
-	ClientSecret             pulumi.StringInput    `pulumi:"clientSecret"`
-	Issuer                   pulumi.StringPtrInput `pulumi:"issuer"`
+	// OIDC authorization endpoint.
+	AuthorizationEndpoint pulumi.StringPtrInput `pulumi:"authorizationEndpoint"`
+	// OAuth 2.0 client identifier.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// OAuth 2.0 client secret.
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	// OIDC issuer identifier of the IdP.
+	Issuer pulumi.StringPtrInput `pulumi:"issuer"`
+	// OIDC public signing key endpoint.
 	PublicSigningKeyEndpoint pulumi.StringPtrInput `pulumi:"publicSigningKeyEndpoint"`
-	Scope                    pulumi.StringPtrInput `pulumi:"scope"`
-	TokenEndpoint            pulumi.StringPtrInput `pulumi:"tokenEndpoint"`
-	UserInfoEndpoint         pulumi.StringPtrInput `pulumi:"userInfoEndpoint"`
+	// OpenID Connect (OIDC) scope specified.
+	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	// OIDC token endpoint.
+	TokenEndpoint pulumi.StringPtrInput `pulumi:"tokenEndpoint"`
+	// OIDC user info endpoint.
+	UserInfoEndpoint pulumi.StringPtrInput `pulumi:"userInfoEndpoint"`
 }
 
 func (TrustProviderNativeApplicationOidcOptionsArgs) ElementType() reflect.Type {
@@ -2490,34 +2598,42 @@ func (o TrustProviderNativeApplicationOidcOptionsOutput) ToTrustProviderNativeAp
 	}).(TrustProviderNativeApplicationOidcOptionsPtrOutput)
 }
 
+// OIDC authorization endpoint.
 func (o TrustProviderNativeApplicationOidcOptionsOutput) AuthorizationEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrustProviderNativeApplicationOidcOptions) *string { return v.AuthorizationEndpoint }).(pulumi.StringPtrOutput)
 }
 
+// OAuth 2.0 client identifier.
 func (o TrustProviderNativeApplicationOidcOptionsOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrustProviderNativeApplicationOidcOptions) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
+// OAuth 2.0 client secret.
 func (o TrustProviderNativeApplicationOidcOptionsOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v TrustProviderNativeApplicationOidcOptions) string { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
+// OIDC issuer identifier of the IdP.
 func (o TrustProviderNativeApplicationOidcOptionsOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrustProviderNativeApplicationOidcOptions) *string { return v.Issuer }).(pulumi.StringPtrOutput)
 }
 
+// OIDC public signing key endpoint.
 func (o TrustProviderNativeApplicationOidcOptionsOutput) PublicSigningKeyEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrustProviderNativeApplicationOidcOptions) *string { return v.PublicSigningKeyEndpoint }).(pulumi.StringPtrOutput)
 }
 
+// OpenID Connect (OIDC) scope specified.
 func (o TrustProviderNativeApplicationOidcOptionsOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrustProviderNativeApplicationOidcOptions) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
+// OIDC token endpoint.
 func (o TrustProviderNativeApplicationOidcOptionsOutput) TokenEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrustProviderNativeApplicationOidcOptions) *string { return v.TokenEndpoint }).(pulumi.StringPtrOutput)
 }
 
+// OIDC user info endpoint.
 func (o TrustProviderNativeApplicationOidcOptionsOutput) UserInfoEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrustProviderNativeApplicationOidcOptions) *string { return v.UserInfoEndpoint }).(pulumi.StringPtrOutput)
 }
@@ -2546,6 +2662,7 @@ func (o TrustProviderNativeApplicationOidcOptionsPtrOutput) Elem() TrustProvider
 	}).(TrustProviderNativeApplicationOidcOptionsOutput)
 }
 
+// OIDC authorization endpoint.
 func (o TrustProviderNativeApplicationOidcOptionsPtrOutput) AuthorizationEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrustProviderNativeApplicationOidcOptions) *string {
 		if v == nil {
@@ -2555,6 +2672,7 @@ func (o TrustProviderNativeApplicationOidcOptionsPtrOutput) AuthorizationEndpoin
 	}).(pulumi.StringPtrOutput)
 }
 
+// OAuth 2.0 client identifier.
 func (o TrustProviderNativeApplicationOidcOptionsPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrustProviderNativeApplicationOidcOptions) *string {
 		if v == nil {
@@ -2564,6 +2682,7 @@ func (o TrustProviderNativeApplicationOidcOptionsPtrOutput) ClientId() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// OAuth 2.0 client secret.
 func (o TrustProviderNativeApplicationOidcOptionsPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrustProviderNativeApplicationOidcOptions) *string {
 		if v == nil {
@@ -2573,6 +2692,7 @@ func (o TrustProviderNativeApplicationOidcOptionsPtrOutput) ClientSecret() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+// OIDC issuer identifier of the IdP.
 func (o TrustProviderNativeApplicationOidcOptionsPtrOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrustProviderNativeApplicationOidcOptions) *string {
 		if v == nil {
@@ -2582,6 +2702,7 @@ func (o TrustProviderNativeApplicationOidcOptionsPtrOutput) Issuer() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// OIDC public signing key endpoint.
 func (o TrustProviderNativeApplicationOidcOptionsPtrOutput) PublicSigningKeyEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrustProviderNativeApplicationOidcOptions) *string {
 		if v == nil {
@@ -2591,6 +2712,7 @@ func (o TrustProviderNativeApplicationOidcOptionsPtrOutput) PublicSigningKeyEndp
 	}).(pulumi.StringPtrOutput)
 }
 
+// OpenID Connect (OIDC) scope specified.
 func (o TrustProviderNativeApplicationOidcOptionsPtrOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrustProviderNativeApplicationOidcOptions) *string {
 		if v == nil {
@@ -2600,6 +2722,7 @@ func (o TrustProviderNativeApplicationOidcOptionsPtrOutput) Scope() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// OIDC token endpoint.
 func (o TrustProviderNativeApplicationOidcOptionsPtrOutput) TokenEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrustProviderNativeApplicationOidcOptions) *string {
 		if v == nil {
@@ -2609,6 +2732,7 @@ func (o TrustProviderNativeApplicationOidcOptionsPtrOutput) TokenEndpoint() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
+// OIDC user info endpoint.
 func (o TrustProviderNativeApplicationOidcOptionsPtrOutput) UserInfoEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrustProviderNativeApplicationOidcOptions) *string {
 		if v == nil {
@@ -2619,13 +2743,20 @@ func (o TrustProviderNativeApplicationOidcOptionsPtrOutput) UserInfoEndpoint() p
 }
 
 type TrustProviderOidcOptions struct {
+	// OIDC authorization endpoint.
 	AuthorizationEndpoint *string `pulumi:"authorizationEndpoint"`
-	ClientId              *string `pulumi:"clientId"`
-	ClientSecret          string  `pulumi:"clientSecret"`
-	Issuer                *string `pulumi:"issuer"`
-	Scope                 *string `pulumi:"scope"`
-	TokenEndpoint         *string `pulumi:"tokenEndpoint"`
-	UserInfoEndpoint      *string `pulumi:"userInfoEndpoint"`
+	// OAuth 2.0 client identifier.
+	ClientId *string `pulumi:"clientId"`
+	// OAuth 2.0 client secret.
+	ClientSecret string `pulumi:"clientSecret"`
+	// OIDC issuer identifier of the IdP.
+	Issuer *string `pulumi:"issuer"`
+	// OpenID Connect (OIDC) scope specified.
+	Scope *string `pulumi:"scope"`
+	// OIDC token endpoint.
+	TokenEndpoint *string `pulumi:"tokenEndpoint"`
+	// OIDC user info endpoint.
+	UserInfoEndpoint *string `pulumi:"userInfoEndpoint"`
 }
 
 // TrustProviderOidcOptionsInput is an input type that accepts TrustProviderOidcOptionsArgs and TrustProviderOidcOptionsOutput values.
@@ -2640,13 +2771,20 @@ type TrustProviderOidcOptionsInput interface {
 }
 
 type TrustProviderOidcOptionsArgs struct {
+	// OIDC authorization endpoint.
 	AuthorizationEndpoint pulumi.StringPtrInput `pulumi:"authorizationEndpoint"`
-	ClientId              pulumi.StringPtrInput `pulumi:"clientId"`
-	ClientSecret          pulumi.StringInput    `pulumi:"clientSecret"`
-	Issuer                pulumi.StringPtrInput `pulumi:"issuer"`
-	Scope                 pulumi.StringPtrInput `pulumi:"scope"`
-	TokenEndpoint         pulumi.StringPtrInput `pulumi:"tokenEndpoint"`
-	UserInfoEndpoint      pulumi.StringPtrInput `pulumi:"userInfoEndpoint"`
+	// OAuth 2.0 client identifier.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// OAuth 2.0 client secret.
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	// OIDC issuer identifier of the IdP.
+	Issuer pulumi.StringPtrInput `pulumi:"issuer"`
+	// OpenID Connect (OIDC) scope specified.
+	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	// OIDC token endpoint.
+	TokenEndpoint pulumi.StringPtrInput `pulumi:"tokenEndpoint"`
+	// OIDC user info endpoint.
+	UserInfoEndpoint pulumi.StringPtrInput `pulumi:"userInfoEndpoint"`
 }
 
 func (TrustProviderOidcOptionsArgs) ElementType() reflect.Type {
@@ -2726,30 +2864,37 @@ func (o TrustProviderOidcOptionsOutput) ToTrustProviderOidcOptionsPtrOutputWithC
 	}).(TrustProviderOidcOptionsPtrOutput)
 }
 
+// OIDC authorization endpoint.
 func (o TrustProviderOidcOptionsOutput) AuthorizationEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrustProviderOidcOptions) *string { return v.AuthorizationEndpoint }).(pulumi.StringPtrOutput)
 }
 
+// OAuth 2.0 client identifier.
 func (o TrustProviderOidcOptionsOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrustProviderOidcOptions) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
+// OAuth 2.0 client secret.
 func (o TrustProviderOidcOptionsOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v TrustProviderOidcOptions) string { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
+// OIDC issuer identifier of the IdP.
 func (o TrustProviderOidcOptionsOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrustProviderOidcOptions) *string { return v.Issuer }).(pulumi.StringPtrOutput)
 }
 
+// OpenID Connect (OIDC) scope specified.
 func (o TrustProviderOidcOptionsOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrustProviderOidcOptions) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
+// OIDC token endpoint.
 func (o TrustProviderOidcOptionsOutput) TokenEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrustProviderOidcOptions) *string { return v.TokenEndpoint }).(pulumi.StringPtrOutput)
 }
 
+// OIDC user info endpoint.
 func (o TrustProviderOidcOptionsOutput) UserInfoEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrustProviderOidcOptions) *string { return v.UserInfoEndpoint }).(pulumi.StringPtrOutput)
 }
@@ -2778,6 +2923,7 @@ func (o TrustProviderOidcOptionsPtrOutput) Elem() TrustProviderOidcOptionsOutput
 	}).(TrustProviderOidcOptionsOutput)
 }
 
+// OIDC authorization endpoint.
 func (o TrustProviderOidcOptionsPtrOutput) AuthorizationEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrustProviderOidcOptions) *string {
 		if v == nil {
@@ -2787,6 +2933,7 @@ func (o TrustProviderOidcOptionsPtrOutput) AuthorizationEndpoint() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// OAuth 2.0 client identifier.
 func (o TrustProviderOidcOptionsPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrustProviderOidcOptions) *string {
 		if v == nil {
@@ -2796,6 +2943,7 @@ func (o TrustProviderOidcOptionsPtrOutput) ClientId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// OAuth 2.0 client secret.
 func (o TrustProviderOidcOptionsPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrustProviderOidcOptions) *string {
 		if v == nil {
@@ -2805,6 +2953,7 @@ func (o TrustProviderOidcOptionsPtrOutput) ClientSecret() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// OIDC issuer identifier of the IdP.
 func (o TrustProviderOidcOptionsPtrOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrustProviderOidcOptions) *string {
 		if v == nil {
@@ -2814,6 +2963,7 @@ func (o TrustProviderOidcOptionsPtrOutput) Issuer() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// OpenID Connect (OIDC) scope specified.
 func (o TrustProviderOidcOptionsPtrOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrustProviderOidcOptions) *string {
 		if v == nil {
@@ -2823,6 +2973,7 @@ func (o TrustProviderOidcOptionsPtrOutput) Scope() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// OIDC token endpoint.
 func (o TrustProviderOidcOptionsPtrOutput) TokenEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrustProviderOidcOptions) *string {
 		if v == nil {
@@ -2832,6 +2983,7 @@ func (o TrustProviderOidcOptionsPtrOutput) TokenEndpoint() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// OIDC user info endpoint.
 func (o TrustProviderOidcOptionsPtrOutput) UserInfoEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrustProviderOidcOptions) *string {
 		if v == nil {
@@ -2842,8 +2994,10 @@ func (o TrustProviderOidcOptionsPtrOutput) UserInfoEndpoint() pulumi.StringPtrOu
 }
 
 type TrustProviderSseSpecification struct {
-	CustomerManagedKeyEnabled *bool   `pulumi:"customerManagedKeyEnabled"`
-	KmsKeyArn                 *string `pulumi:"kmsKeyArn"`
+	// Whether a customer managed key is in use.
+	CustomerManagedKeyEnabled *bool `pulumi:"customerManagedKeyEnabled"`
+	// ARN of the KMS key.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 }
 
 // TrustProviderSseSpecificationInput is an input type that accepts TrustProviderSseSpecificationArgs and TrustProviderSseSpecificationOutput values.
@@ -2858,8 +3012,10 @@ type TrustProviderSseSpecificationInput interface {
 }
 
 type TrustProviderSseSpecificationArgs struct {
-	CustomerManagedKeyEnabled pulumi.BoolPtrInput   `pulumi:"customerManagedKeyEnabled"`
-	KmsKeyArn                 pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+	// Whether a customer managed key is in use.
+	CustomerManagedKeyEnabled pulumi.BoolPtrInput `pulumi:"customerManagedKeyEnabled"`
+	// ARN of the KMS key.
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 }
 
 func (TrustProviderSseSpecificationArgs) ElementType() reflect.Type {
@@ -2939,10 +3095,12 @@ func (o TrustProviderSseSpecificationOutput) ToTrustProviderSseSpecificationPtrO
 	}).(TrustProviderSseSpecificationPtrOutput)
 }
 
+// Whether a customer managed key is in use.
 func (o TrustProviderSseSpecificationOutput) CustomerManagedKeyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TrustProviderSseSpecification) *bool { return v.CustomerManagedKeyEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// ARN of the KMS key.
 func (o TrustProviderSseSpecificationOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrustProviderSseSpecification) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
@@ -2971,6 +3129,7 @@ func (o TrustProviderSseSpecificationPtrOutput) Elem() TrustProviderSseSpecifica
 	}).(TrustProviderSseSpecificationOutput)
 }
 
+// Whether a customer managed key is in use.
 func (o TrustProviderSseSpecificationPtrOutput) CustomerManagedKeyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TrustProviderSseSpecification) *bool {
 		if v == nil {
@@ -2980,6 +3139,7 @@ func (o TrustProviderSseSpecificationPtrOutput) CustomerManagedKeyEnabled() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// ARN of the KMS key.
 func (o TrustProviderSseSpecificationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrustProviderSseSpecification) *string {
 		if v == nil {

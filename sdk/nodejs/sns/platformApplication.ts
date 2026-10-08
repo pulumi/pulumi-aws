@@ -11,15 +11,22 @@ import * as utilities from "../utilities";
  *
  * ### Apple Push Notification Service (APNS) using certificate-based authentication
  *
+ * > **NOTE:** For certificate-based APNS, both `platformCredential` (private key) and `platformPrincipal` (certificate) must be PEM-encoded strings. Terraform string values must be valid UTF-8, so do not pass a binary Apple `.p12` via `base64decode()` — that fails with `the result of decoding the provided string is not valid UTF-8`. Convert the `.p12` to PEM (for example with `openssl`) and load the PEM files instead.
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
  *
  * const apnsApplication = new aws.sns.PlatformApplication("apns_application", {
  *     name: "apns_application",
  *     platform: "APNS",
- *     platformCredential: "<APNS PRIVATE KEY>",
- *     platformPrincipal: "<APNS CERTIFICATE>",
+ *     platformCredential: std.file({
+ *         input: "apns-private-key.pem",
+ *     }).then(invoke => invoke.result),
+ *     platformPrincipal: std.file({
+ *         input: "apns-certificate.pem",
+ *     }).then(invoke => invoke.result),
  * });
  * ```
  *

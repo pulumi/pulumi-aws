@@ -14,11 +14,11 @@ namespace Pulumi.Aws.VerifiedPermissions.Outputs
     public sealed class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection
     {
         /// <summary>
-        /// The OIDC configuration for processing access tokens. See Access Token Only below.
+        /// OIDC configuration for processing access tokens. See Access Token Only below.
         /// </summary>
         public readonly Outputs.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly? AccessTokenOnly;
         /// <summary>
-        /// The OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
+        /// OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
         /// </summary>
         public readonly Outputs.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly? IdentityTokenOnly;
 

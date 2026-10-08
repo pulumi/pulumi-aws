@@ -54,9 +54,6 @@ class GetDomainIdentityResult:
     @_builtins.property
     @pulumi.getter
     def domain(self) -> _builtins.str:
-        """
-        Name of the domain
-        """
         return pulumi.get(self, "domain")
 
     @_builtins.property
@@ -110,7 +107,7 @@ def get_domain_identity(domain: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str domain: Name of the domain
+    :param _builtins.str domain: Name of the domain.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
@@ -141,7 +138,7 @@ def get_domain_identity_output(domain: pulumi.Input[Optional[_builtins.str]] = N
     ```
 
 
-    :param _builtins.str domain: Name of the domain
+    :param _builtins.str domain: Name of the domain.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()

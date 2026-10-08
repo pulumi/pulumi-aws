@@ -18,7 +18,7 @@ public final class WebAclDataProtectionConfigDataProtectionField {
      */
     private @Nullable List<String> fieldKeys;
     /**
-     * @return Specifies the web request component type to protect. Valid Values are `SINGLE_HEADER`, `SINGLE_COOKIE`, `SINGLE_QUERY_ARGUMENT`, `QUERY_STRING`, `BODY`.
+     * @return Web request component type to protect. Valid Values are `SINGLE_HEADER`, `SINGLE_COOKIE`, `SINGLE_QUERY_ARGUMENT`, `QUERY_STRING`, `BODY`.
      * 
      */
     private String fieldType;
@@ -32,7 +32,7 @@ public final class WebAclDataProtectionConfigDataProtectionField {
         return this.fieldKeys == null ? List.of() : this.fieldKeys;
     }
     /**
-     * @return Specifies the web request component type to protect. Valid Values are `SINGLE_HEADER`, `SINGLE_COOKIE`, `SINGLE_QUERY_ARGUMENT`, `QUERY_STRING`, `BODY`.
+     * @return Web request component type to protect. Valid Values are `SINGLE_HEADER`, `SINGLE_COOKIE`, `SINGLE_QUERY_ARGUMENT`, `QUERY_STRING`, `BODY`.
      * 
      */
     public String fieldType() {

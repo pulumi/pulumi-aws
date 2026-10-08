@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleWindowsFileSystem = new aws.fsx.WindowsFileSystem("example", {
- *     activeDirectoryId: eample.id,
+ *     activeDirectoryId: exampleAwsDirectoryServiceDirectory.id,
  *     skipFinalBackup: true,
  *     storageCapacity: 32,
  *     subnetIds: [example1.id],

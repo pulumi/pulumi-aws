@@ -70,7 +70,7 @@ namespace Pulumi.Aws.CodeCatalyst
         public Output<int?> InactivityTimeoutMinutes { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
+        /// The Amazon EC2 instance type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.CodeCatalyst
         public Input<int>? InactivityTimeoutMinutes { get; set; }
 
         /// <summary>
-        /// The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
+        /// The Amazon EC2 instance type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -236,7 +236,7 @@ namespace Pulumi.Aws.CodeCatalyst
         public Input<int>? InactivityTimeoutMinutes { get; set; }
 
         /// <summary>
-        /// The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
+        /// The Amazon EC2 instance type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
         /// 
         /// The following arguments are optional:
         /// </summary>

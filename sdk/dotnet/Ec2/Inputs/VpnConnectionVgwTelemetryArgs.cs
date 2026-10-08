@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ec2.Inputs
     public sealed class VpnConnectionVgwTelemetryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of accepted routes.
+        /// Number of accepted routes.
         /// </summary>
         [Input("acceptedRouteCount")]
         public Input<int>? AcceptedRouteCount { get; set; }
@@ -25,19 +25,19 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string>? CertificateArn { get; set; }
 
         /// <summary>
-        /// The date and time of the last change in status.
+        /// Date and time of the last change in status.
         /// </summary>
         [Input("lastStatusChange")]
         public Input<string>? LastStatusChange { get; set; }
 
         /// <summary>
-        /// The Internet-routable IP address of the virtual private gateway's outside interface.
+        /// Internet-routable IP address of the virtual private gateway's outside interface.
         /// </summary>
         [Input("outsideIpAddress")]
         public Input<string>? OutsideIpAddress { get; set; }
 
         /// <summary>
-        /// The status of the VPN tunnel.
+        /// Status of the VPN tunnel.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

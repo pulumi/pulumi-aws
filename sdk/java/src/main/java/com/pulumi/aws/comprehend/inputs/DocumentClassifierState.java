@@ -122,7 +122,7 @@ public final class DocumentClassifierState extends com.pulumi.resources.Resource
     /**
      * Name for the Document Classifier.
      * Has a maximum length of 63 characters.
-     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
      * 
      * The following arguments are optional:
      * 
@@ -133,7 +133,7 @@ public final class DocumentClassifierState extends com.pulumi.resources.Resource
     /**
      * @return Name for the Document Classifier.
      * Has a maximum length of 63 characters.
-     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
      * 
      * The following arguments are optional:
      * 
@@ -210,7 +210,7 @@ public final class DocumentClassifierState extends com.pulumi.resources.Resource
      * If omitted, the provider will assign a random, unique version name.
      * If explicitly set to `&#34;&#34;`, no version name will be set.
      * Has a maximum length of 63 characters.
-     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
      * Conflicts with `versionNamePrefix`.
      * 
      */
@@ -223,7 +223,7 @@ public final class DocumentClassifierState extends com.pulumi.resources.Resource
      * If omitted, the provider will assign a random, unique version name.
      * If explicitly set to `&#34;&#34;`, no version name will be set.
      * Has a maximum length of 63 characters.
-     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
      * Conflicts with `versionNamePrefix`.
      * 
      */
@@ -234,7 +234,7 @@ public final class DocumentClassifierState extends com.pulumi.resources.Resource
     /**
      * Creates a unique version name beginning with the specified prefix.
      * Has a maximum length of 37 characters.
-     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
      * Conflicts with `versionName`.
      * 
      */
@@ -244,7 +244,7 @@ public final class DocumentClassifierState extends com.pulumi.resources.Resource
     /**
      * @return Creates a unique version name beginning with the specified prefix.
      * Has a maximum length of 37 characters.
-     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
      * Conflicts with `versionName`.
      * 
      */
@@ -463,7 +463,7 @@ public final class DocumentClassifierState extends com.pulumi.resources.Resource
         /**
          * @param name Name for the Document Classifier.
          * Has a maximum length of 63 characters.
-         * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+         * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
          * 
          * The following arguments are optional:
          * 
@@ -478,7 +478,7 @@ public final class DocumentClassifierState extends com.pulumi.resources.Resource
         /**
          * @param name Name for the Document Classifier.
          * Has a maximum length of 63 characters.
-         * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+         * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
          * 
          * The following arguments are optional:
          * 
@@ -581,7 +581,7 @@ public final class DocumentClassifierState extends com.pulumi.resources.Resource
          * If omitted, the provider will assign a random, unique version name.
          * If explicitly set to `&#34;&#34;`, no version name will be set.
          * Has a maximum length of 63 characters.
-         * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+         * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
          * Conflicts with `versionNamePrefix`.
          * 
          * @return builder
@@ -598,7 +598,7 @@ public final class DocumentClassifierState extends com.pulumi.resources.Resource
          * If omitted, the provider will assign a random, unique version name.
          * If explicitly set to `&#34;&#34;`, no version name will be set.
          * Has a maximum length of 63 characters.
-         * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+         * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
          * Conflicts with `versionNamePrefix`.
          * 
          * @return builder
@@ -611,7 +611,7 @@ public final class DocumentClassifierState extends com.pulumi.resources.Resource
         /**
          * @param versionNamePrefix Creates a unique version name beginning with the specified prefix.
          * Has a maximum length of 37 characters.
-         * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+         * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
          * Conflicts with `versionName`.
          * 
          * @return builder
@@ -625,7 +625,7 @@ public final class DocumentClassifierState extends com.pulumi.resources.Resource
         /**
          * @param versionNamePrefix Creates a unique version name beginning with the specified prefix.
          * Has a maximum length of 37 characters.
-         * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+         * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
          * Conflicts with `versionName`.
          * 
          * @return builder

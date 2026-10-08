@@ -90,14 +90,14 @@ public class SecurityGroupVpcAssociation extends com.pulumi.resources.CustomReso
         return this.region;
     }
     /**
-     * The ID of the security group.
+     * ID of the security group.
      * 
      */
     @Export(name="securityGroupId", refs={String.class}, tree="[0]")
     private Output<String> securityGroupId;
 
     /**
-     * @return The ID of the security group.
+     * @return ID of the security group.
      * 
      */
     public Output<String> securityGroupId() {
@@ -124,14 +124,14 @@ public class SecurityGroupVpcAssociation extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.timeouts);
     }
     /**
-     * The ID of the VPC to make the association with.
+     * ID of the VPC to make the association with.
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**
-     * @return The ID of the VPC to make the association with.
+     * @return ID of the VPC to make the association with.
      * 
      */
     public Output<String> vpcId() {

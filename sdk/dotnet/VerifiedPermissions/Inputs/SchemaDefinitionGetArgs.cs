@@ -13,7 +13,7 @@ namespace Pulumi.Aws.VerifiedPermissions.Inputs
     public sealed class SchemaDefinitionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A JSON string representation of the schema.
+        /// JSON string representation of the schema.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

@@ -95,7 +95,7 @@ class GetTableResult:
     @pulumi.getter(name="magneticStoreWriteProperties")
     def magnetic_store_write_properties(self) -> Sequence['outputs.GetTableMagneticStoreWritePropertyResult']:
         """
-        Object containing the following attributes to desribe magnetic store writes.
+        Object containing the following attributes to describe magnetic store writes.
         """
         return pulumi.get(self, "magnetic_store_write_properties")
 

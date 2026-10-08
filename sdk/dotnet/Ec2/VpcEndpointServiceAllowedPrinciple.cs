@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Ec2
     public partial class VpcEndpointServiceAllowedPrinciple : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the principal to allow permissions.
+        /// ARN of the principal to allow permissions.
         /// </summary>
         [Output("principalArn")]
         public Output<string> PrincipalArn { get; private set; } = null!;
@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the VPC endpoint service to allow permission.
+        /// ID of the VPC endpoint service to allow permission.
         /// </summary>
         [Output("vpcEndpointServiceId")]
         public Output<string> VpcEndpointServiceId { get; private set; } = null!;
@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class VpcEndpointServiceAllowedPrincipleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the principal to allow permissions.
+        /// ARN of the principal to allow permissions.
         /// </summary>
         [Input("principalArn", required: true)]
         public Input<string> PrincipalArn { get; set; } = null!;
@@ -121,7 +121,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ID of the VPC endpoint service to allow permission.
+        /// ID of the VPC endpoint service to allow permission.
         /// </summary>
         [Input("vpcEndpointServiceId", required: true)]
         public Input<string> VpcEndpointServiceId { get; set; } = null!;
@@ -135,7 +135,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class VpcEndpointServiceAllowedPrincipleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the principal to allow permissions.
+        /// ARN of the principal to allow permissions.
         /// </summary>
         [Input("principalArn")]
         public Input<string>? PrincipalArn { get; set; }
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ID of the VPC endpoint service to allow permission.
+        /// ID of the VPC endpoint service to allow permission.
         /// </summary>
         [Input("vpcEndpointServiceId")]
         public Input<string>? VpcEndpointServiceId { get; set; }

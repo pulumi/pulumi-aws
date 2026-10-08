@@ -96,7 +96,7 @@ type ClusterInstance struct {
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
-	// The neptune engine version. Currently configuring this argumnet has no effect.
+	// The neptune engine version. Currently configuring this argument has no effect.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
 	// The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier pulumi.StringOutput `pulumi:"identifier"`
@@ -192,7 +192,7 @@ type clusterInstanceState struct {
 	Endpoint *string `pulumi:"endpoint"`
 	// The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
 	Engine *string `pulumi:"engine"`
-	// The neptune engine version. Currently configuring this argumnet has no effect.
+	// The neptune engine version. Currently configuring this argument has no effect.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier *string `pulumi:"identifier"`
@@ -253,7 +253,7 @@ type ClusterInstanceState struct {
 	Endpoint pulumi.StringPtrInput
 	// The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
 	Engine pulumi.StringPtrInput
-	// The neptune engine version. Currently configuring this argumnet has no effect.
+	// The neptune engine version. Currently configuring this argument has no effect.
 	EngineVersion pulumi.StringPtrInput
 	// The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier pulumi.StringPtrInput
@@ -310,7 +310,7 @@ type clusterInstanceArgs struct {
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
 	// The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
 	Engine *string `pulumi:"engine"`
-	// The neptune engine version. Currently configuring this argumnet has no effect.
+	// The neptune engine version. Currently configuring this argument has no effect.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier *string `pulumi:"identifier"`
@@ -354,7 +354,7 @@ type ClusterInstanceArgs struct {
 	ClusterIdentifier pulumi.StringInput
 	// The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
 	Engine pulumi.StringPtrInput
-	// The neptune engine version. Currently configuring this argumnet has no effect.
+	// The neptune engine version. Currently configuring this argument has no effect.
 	EngineVersion pulumi.StringPtrInput
 	// The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier pulumi.StringPtrInput
@@ -518,7 +518,7 @@ func (o ClusterInstanceOutput) Engine() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.StringPtrOutput { return v.Engine }).(pulumi.StringPtrOutput)
 }
 
-// The neptune engine version. Currently configuring this argumnet has no effect.
+// The neptune engine version. Currently configuring this argument has no effect.
 func (o ClusterInstanceOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
 }

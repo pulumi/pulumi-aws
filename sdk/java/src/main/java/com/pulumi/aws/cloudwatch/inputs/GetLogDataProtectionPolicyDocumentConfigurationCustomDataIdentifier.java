@@ -14,14 +14,14 @@ public final class GetLogDataProtectionPolicyDocumentConfigurationCustomDataIden
     public static final GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifier Empty = new GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifier();
 
     /**
-     * Name of the custom data idenfitier
+     * Name of the custom data identifier
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return Name of the custom data idenfitier
+     * @return Name of the custom data identifier
      * 
      */
     public String name() {
@@ -69,7 +69,7 @@ public final class GetLogDataProtectionPolicyDocumentConfigurationCustomDataIden
         }
 
         /**
-         * @param name Name of the custom data idenfitier
+         * @param name Name of the custom data identifier
          * 
          * @return builder
          * 

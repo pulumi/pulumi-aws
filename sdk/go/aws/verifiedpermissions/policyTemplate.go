@@ -45,7 +45,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Verified Permissions Policy Store using the `policy_store_id:policy_template_id`. For example:
+// Using `pulumi import`, import Verified Permissions Policy Template using the `policy_store_id:policy_template_id`. For example:
 //
 // ```sh
 // $ pulumi import aws:verifiedpermissions/policyTemplate:PolicyTemplate example policyStoreId:policyTemplateId
@@ -53,17 +53,17 @@ import (
 type PolicyTemplate struct {
 	pulumi.CustomResourceState
 
-	// The date the Policy Store was created.
+	// Date the policy template was created.
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
 	// Provides a description for the policy template.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The ID of the Policy Store.
+	// ID of the Policy Store.
 	PolicyStoreId pulumi.StringOutput `pulumi:"policyStoreId"`
-	// The ID of the Policy Store.
+	// ID of the policy template.
 	PolicyTemplateId pulumi.StringOutput `pulumi:"policyTemplateId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Defines the content of the statement, written in Cedar policy language.
+	// Content of the statement, written in Cedar policy language.
 	//
 	// The following arguments are optional:
 	Statement pulumi.StringOutput `pulumi:"statement"`
@@ -105,34 +105,34 @@ func GetPolicyTemplate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PolicyTemplate resources.
 type policyTemplateState struct {
-	// The date the Policy Store was created.
+	// Date the policy template was created.
 	CreatedDate *string `pulumi:"createdDate"`
 	// Provides a description for the policy template.
 	Description *string `pulumi:"description"`
-	// The ID of the Policy Store.
+	// ID of the Policy Store.
 	PolicyStoreId *string `pulumi:"policyStoreId"`
-	// The ID of the Policy Store.
+	// ID of the policy template.
 	PolicyTemplateId *string `pulumi:"policyTemplateId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Defines the content of the statement, written in Cedar policy language.
+	// Content of the statement, written in Cedar policy language.
 	//
 	// The following arguments are optional:
 	Statement *string `pulumi:"statement"`
 }
 
 type PolicyTemplateState struct {
-	// The date the Policy Store was created.
+	// Date the policy template was created.
 	CreatedDate pulumi.StringPtrInput
 	// Provides a description for the policy template.
 	Description pulumi.StringPtrInput
-	// The ID of the Policy Store.
+	// ID of the Policy Store.
 	PolicyStoreId pulumi.StringPtrInput
-	// The ID of the Policy Store.
+	// ID of the policy template.
 	PolicyTemplateId pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Defines the content of the statement, written in Cedar policy language.
+	// Content of the statement, written in Cedar policy language.
 	//
 	// The following arguments are optional:
 	Statement pulumi.StringPtrInput
@@ -145,11 +145,11 @@ func (PolicyTemplateState) ElementType() reflect.Type {
 type policyTemplateArgs struct {
 	// Provides a description for the policy template.
 	Description *string `pulumi:"description"`
-	// The ID of the Policy Store.
+	// ID of the Policy Store.
 	PolicyStoreId string `pulumi:"policyStoreId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Defines the content of the statement, written in Cedar policy language.
+	// Content of the statement, written in Cedar policy language.
 	//
 	// The following arguments are optional:
 	Statement string `pulumi:"statement"`
@@ -159,11 +159,11 @@ type policyTemplateArgs struct {
 type PolicyTemplateArgs struct {
 	// Provides a description for the policy template.
 	Description pulumi.StringPtrInput
-	// The ID of the Policy Store.
+	// ID of the Policy Store.
 	PolicyStoreId pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Defines the content of the statement, written in Cedar policy language.
+	// Content of the statement, written in Cedar policy language.
 	//
 	// The following arguments are optional:
 	Statement pulumi.StringInput
@@ -256,7 +256,7 @@ func (o PolicyTemplateOutput) ToPolicyTemplateOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The date the Policy Store was created.
+// Date the policy template was created.
 func (o PolicyTemplateOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyTemplate) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
 }
@@ -266,12 +266,12 @@ func (o PolicyTemplateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyTemplate) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Policy Store.
+// ID of the Policy Store.
 func (o PolicyTemplateOutput) PolicyStoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyTemplate) pulumi.StringOutput { return v.PolicyStoreId }).(pulumi.StringOutput)
 }
 
-// The ID of the Policy Store.
+// ID of the policy template.
 func (o PolicyTemplateOutput) PolicyTemplateId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyTemplate) pulumi.StringOutput { return v.PolicyTemplateId }).(pulumi.StringOutput)
 }
@@ -281,7 +281,7 @@ func (o PolicyTemplateOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyTemplate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Defines the content of the statement, written in Cedar policy language.
+// Content of the statement, written in Cedar policy language.
 //
 // The following arguments are optional:
 func (o PolicyTemplateOutput) Statement() pulumi.StringOutput {

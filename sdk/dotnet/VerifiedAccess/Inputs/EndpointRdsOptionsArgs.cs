@@ -12,26 +12,48 @@ namespace Pulumi.Aws.VerifiedAccess.Inputs
 
     public sealed class EndpointRdsOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// IP port number.
+        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
+        /// <summary>
+        /// Protocol. Currently `Tcp` is supported.
+        /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
 
+        /// <summary>
+        /// ARN of the RDS cluster.
+        /// </summary>
         [Input("rdsDbClusterArn")]
         public Input<string>? RdsDbClusterArn { get; set; }
 
+        /// <summary>
+        /// ARN of the RDS instance.
+        /// </summary>
         [Input("rdsDbInstanceArn")]
         public Input<string>? RdsDbInstanceArn { get; set; }
 
+        /// <summary>
+        /// ARN of the RDS proxy.
+        /// </summary>
         [Input("rdsDbProxyArn")]
         public Input<string>? RdsDbProxyArn { get; set; }
 
+        /// <summary>
+        /// RDS endpoint.
+        /// </summary>
         [Input("rdsEndpoint")]
         public Input<string>? RdsEndpoint { get; set; }
 
         [Input("subnetIds")]
         private InputList<string>? _subnetIds;
+
+        /// <summary>
+        /// IDs of the subnets.
+        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());

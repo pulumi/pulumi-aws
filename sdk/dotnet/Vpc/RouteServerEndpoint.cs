@@ -49,19 +49,19 @@ namespace Pulumi.Aws.Vpc
     public partial class RouteServerEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the route server endpoint.
+        /// ARN of the route server endpoint.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The IP address of the Elastic network interface for the endpoint.
+        /// IP address of the Elastic network interface for the endpoint.
         /// </summary>
         [Output("eniAddress")]
         public Output<string> EniAddress { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Elastic network interface for the endpoint.
+        /// ID of the Elastic network interface for the endpoint.
         /// </summary>
         [Output("eniId")]
         public Output<string> EniId { get; private set; } = null!;
@@ -73,19 +73,19 @@ namespace Pulumi.Aws.Vpc
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The unique identifier of the route server endpoint.
+        /// Unique identifier of the route server endpoint.
         /// </summary>
         [Output("routeServerEndpointId")]
         public Output<string> RouteServerEndpointId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the route server for which to create an endpoint.
+        /// ID of the route server for which to create an endpoint.
         /// </summary>
         [Output("routeServerId")]
         public Output<string> RouteServerId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the subnet in which to create the route server endpoint.
+        /// ID of the subnet in which to create the route server endpoint.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -93,13 +93,13 @@ namespace Pulumi.Aws.Vpc
         public Output<string> SubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Vpc
         public Output<Outputs.RouteServerEndpointTimeouts?> Timeouts { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the VPC containing the endpoint.
+        /// ID of the VPC containing the endpoint.
         /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
@@ -166,13 +166,13 @@ namespace Pulumi.Aws.Vpc
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ID of the route server for which to create an endpoint.
+        /// ID of the route server for which to create an endpoint.
         /// </summary>
         [Input("routeServerId", required: true)]
         public Input<string> RouteServerId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the subnet in which to create the route server endpoint.
+        /// ID of the subnet in which to create the route server endpoint.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.Vpc
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -203,19 +203,19 @@ namespace Pulumi.Aws.Vpc
     public sealed class RouteServerEndpointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the route server endpoint.
+        /// ARN of the route server endpoint.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The IP address of the Elastic network interface for the endpoint.
+        /// IP address of the Elastic network interface for the endpoint.
         /// </summary>
         [Input("eniAddress")]
         public Input<string>? EniAddress { get; set; }
 
         /// <summary>
-        /// The ID of the Elastic network interface for the endpoint.
+        /// ID of the Elastic network interface for the endpoint.
         /// </summary>
         [Input("eniId")]
         public Input<string>? EniId { get; set; }
@@ -227,19 +227,19 @@ namespace Pulumi.Aws.Vpc
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The unique identifier of the route server endpoint.
+        /// Unique identifier of the route server endpoint.
         /// </summary>
         [Input("routeServerEndpointId")]
         public Input<string>? RouteServerEndpointId { get; set; }
 
         /// <summary>
-        /// The ID of the route server for which to create an endpoint.
+        /// ID of the route server for which to create an endpoint.
         /// </summary>
         [Input("routeServerId")]
         public Input<string>? RouteServerId { get; set; }
 
         /// <summary>
-        /// The ID of the subnet in which to create the route server endpoint.
+        /// ID of the subnet in which to create the route server endpoint.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -250,7 +250,7 @@ namespace Pulumi.Aws.Vpc
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -262,7 +262,7 @@ namespace Pulumi.Aws.Vpc
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -274,7 +274,7 @@ namespace Pulumi.Aws.Vpc
         public Input<Inputs.RouteServerEndpointTimeoutsGetArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// The ID of the VPC containing the endpoint.
+        /// ID of the VPC containing the endpoint.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

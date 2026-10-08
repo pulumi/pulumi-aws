@@ -111,8 +111,6 @@ def get_vpc_ipam_pools(filters: Optional[Sequence[Union['GetVpcIpamPoolsFilterAr
 
 
     :param Sequence[Union['GetVpcIpamPoolsFilterArgs', 'GetVpcIpamPoolsFilterArgsDict', 'outputs.GetVpcIpamPoolsFilterResult']] filters: Custom filter block as described below.
-           
-           The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
@@ -156,8 +154,6 @@ def get_vpc_ipam_pools_output(filters: pulumi.Input[Optional[Optional[Sequence[U
 
 
     :param Sequence[Union['GetVpcIpamPoolsFilterArgs', 'GetVpcIpamPoolsFilterArgsDict', 'outputs.GetVpcIpamPoolsFilterResult']] filters: Custom filter block as described below.
-           
-           The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()

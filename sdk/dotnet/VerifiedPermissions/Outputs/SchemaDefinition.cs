@@ -14,7 +14,7 @@ namespace Pulumi.Aws.VerifiedPermissions.Outputs
     public sealed class SchemaDefinition
     {
         /// <summary>
-        /// A JSON string representation of the schema.
+        /// JSON string representation of the schema.
         /// </summary>
         public readonly string Value;
 

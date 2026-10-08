@@ -16,16 +16,14 @@ public final class GetVpcEndpointFilterArgs extends com.pulumi.resources.Resourc
     public static final GetVpcEndpointFilterArgs Empty = new GetVpcEndpointFilterArgs();
 
     /**
-     * Name of the field to filter by, as defined by
-     * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
+     * Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the field to filter by, as defined by
-     * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
+     * @return Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
      * 
      */
     public Output<String> name() {
@@ -33,16 +31,14 @@ public final class GetVpcEndpointFilterArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Set of values that are accepted for the given field.
-     * A VPC Endpoint will be selected if any one of the given values matches.
+     * Set of values that are accepted for the given field. A VPC Endpoint will be selected if any one of the given values matches.
      * 
      */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
     /**
-     * @return Set of values that are accepted for the given field.
-     * A VPC Endpoint will be selected if any one of the given values matches.
+     * @return Set of values that are accepted for the given field. A VPC Endpoint will be selected if any one of the given values matches.
      * 
      */
     public Output<List<String>> values() {
@@ -75,8 +71,7 @@ public final class GetVpcEndpointFilterArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name Name of the field to filter by, as defined by
-         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
+         * @param name Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
          * 
          * @return builder
          * 
@@ -87,8 +82,7 @@ public final class GetVpcEndpointFilterArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name Name of the field to filter by, as defined by
-         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
+         * @param name Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
          * 
          * @return builder
          * 
@@ -98,8 +92,7 @@ public final class GetVpcEndpointFilterArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param values Set of values that are accepted for the given field.
-         * A VPC Endpoint will be selected if any one of the given values matches.
+         * @param values Set of values that are accepted for the given field. A VPC Endpoint will be selected if any one of the given values matches.
          * 
          * @return builder
          * 
@@ -110,8 +103,7 @@ public final class GetVpcEndpointFilterArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param values Set of values that are accepted for the given field.
-         * A VPC Endpoint will be selected if any one of the given values matches.
+         * @param values Set of values that are accepted for the given field. A VPC Endpoint will be selected if any one of the given values matches.
          * 
          * @return builder
          * 
@@ -121,8 +113,7 @@ public final class GetVpcEndpointFilterArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param values Set of values that are accepted for the given field.
-         * A VPC Endpoint will be selected if any one of the given values matches.
+         * @param values Set of values that are accepted for the given field. A VPC Endpoint will be selected if any one of the given values matches.
          * 
          * @return builder
          * 

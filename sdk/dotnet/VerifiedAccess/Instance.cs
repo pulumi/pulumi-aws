@@ -84,35 +84,38 @@ namespace Pulumi.Aws.VerifiedAccess
     public partial class Instance : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The custom subdomain for the CIDR endpoints.
+        /// Custom subdomain for the CIDR endpoints.
         /// </summary>
         [Output("cidrEndpointsCustomSubdomain")]
         public Output<string?> CidrEndpointsCustomSubdomain { get; private set; } = null!;
 
         /// <summary>
-        /// The time that the Verified Access Instance was created.
+        /// Time that the Verified Access Instance was created.
         /// </summary>
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
         /// <summary>
-        /// A description for the AWS Verified Access Instance.
+        /// Description for the AWS Verified Access Instance.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+        /// Whether to enable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
         /// </summary>
         [Output("fipsEnabled")]
         public Output<bool?> FipsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The time that the Verified Access Instance was last updated.
+        /// Time that the Verified Access Instance was last updated.
         /// </summary>
         [Output("lastUpdatedTime")]
         public Output<string> LastUpdatedTime { get; private set; } = null!;
 
+        /// <summary>
+        /// List of DNS names servers that clients can use to connect to the Verified Access Instance.
+        /// </summary>
         [Output("nameServers")]
         public Output<ImmutableArray<string>> NameServers { get; private set; } = null!;
 
@@ -132,7 +135,7 @@ namespace Pulumi.Aws.VerifiedAccess
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// One or more blocks of providing information about the AWS Verified Access Trust Providers. See VerifiedAccessTrustProviders below for details.One or more blocks
+        /// One or more blocks providing information about the AWS Verified Access Trust Providers. See VerifiedAccessTrustProviders below for details.
         /// </summary>
         [Output("verifiedAccessTrustProviders")]
         public Output<ImmutableArray<Outputs.InstanceVerifiedAccessTrustProvider>> VerifiedAccessTrustProviders { get; private set; } = null!;
@@ -184,19 +187,19 @@ namespace Pulumi.Aws.VerifiedAccess
     public sealed class InstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The custom subdomain for the CIDR endpoints.
+        /// Custom subdomain for the CIDR endpoints.
         /// </summary>
         [Input("cidrEndpointsCustomSubdomain")]
         public Input<string>? CidrEndpointsCustomSubdomain { get; set; }
 
         /// <summary>
-        /// A description for the AWS Verified Access Instance.
+        /// Description for the AWS Verified Access Instance.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+        /// Whether to enable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
         /// </summary>
         [Input("fipsEnabled")]
         public Input<bool>? FipsEnabled { get; set; }
@@ -228,37 +231,41 @@ namespace Pulumi.Aws.VerifiedAccess
     public sealed class InstanceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The custom subdomain for the CIDR endpoints.
+        /// Custom subdomain for the CIDR endpoints.
         /// </summary>
         [Input("cidrEndpointsCustomSubdomain")]
         public Input<string>? CidrEndpointsCustomSubdomain { get; set; }
 
         /// <summary>
-        /// The time that the Verified Access Instance was created.
+        /// Time that the Verified Access Instance was created.
         /// </summary>
         [Input("creationTime")]
         public Input<string>? CreationTime { get; set; }
 
         /// <summary>
-        /// A description for the AWS Verified Access Instance.
+        /// Description for the AWS Verified Access Instance.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+        /// Whether to enable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
         /// </summary>
         [Input("fipsEnabled")]
         public Input<bool>? FipsEnabled { get; set; }
 
         /// <summary>
-        /// The time that the Verified Access Instance was last updated.
+        /// Time that the Verified Access Instance was last updated.
         /// </summary>
         [Input("lastUpdatedTime")]
         public Input<string>? LastUpdatedTime { get; set; }
 
         [Input("nameServers")]
         private InputList<string>? _nameServers;
+
+        /// <summary>
+        /// List of DNS names servers that clients can use to connect to the Verified Access Instance.
+        /// </summary>
         public InputList<string> NameServers
         {
             get => _nameServers ?? (_nameServers = new InputList<string>());
@@ -295,7 +302,7 @@ namespace Pulumi.Aws.VerifiedAccess
         private InputList<Inputs.InstanceVerifiedAccessTrustProviderGetArgs>? _verifiedAccessTrustProviders;
 
         /// <summary>
-        /// One or more blocks of providing information about the AWS Verified Access Trust Providers. See VerifiedAccessTrustProviders below for details.One or more blocks
+        /// One or more blocks providing information about the AWS Verified Access Trust Providers. See VerifiedAccessTrustProviders below for details.
         /// </summary>
         public InputList<Inputs.InstanceVerifiedAccessTrustProviderGetArgs> VerifiedAccessTrustProviders
         {

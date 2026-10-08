@@ -20,14 +20,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     public static final InstanceState Empty = new InstanceState();
 
     /**
-     * The custom subdomain for the CIDR endpoints.
+     * Custom subdomain for the CIDR endpoints.
      * 
      */
     @Import(name="cidrEndpointsCustomSubdomain")
     private @Nullable Output<String> cidrEndpointsCustomSubdomain;
 
     /**
-     * @return The custom subdomain for the CIDR endpoints.
+     * @return Custom subdomain for the CIDR endpoints.
      * 
      */
     public Optional<Output<String>> cidrEndpointsCustomSubdomain() {
@@ -35,14 +35,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The time that the Verified Access Instance was created.
+     * Time that the Verified Access Instance was created.
      * 
      */
     @Import(name="creationTime")
     private @Nullable Output<String> creationTime;
 
     /**
-     * @return The time that the Verified Access Instance was created.
+     * @return Time that the Verified Access Instance was created.
      * 
      */
     public Optional<Output<String>> creationTime() {
@@ -50,14 +50,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A description for the AWS Verified Access Instance.
+     * Description for the AWS Verified Access Instance.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description for the AWS Verified Access Instance.
+     * @return Description for the AWS Verified Access Instance.
      * 
      */
     public Optional<Output<String>> description() {
@@ -65,14 +65,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+     * Whether to enable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
      * 
      */
     @Import(name="fipsEnabled")
     private @Nullable Output<Boolean> fipsEnabled;
 
     /**
-     * @return Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+     * @return Whether to enable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
      * 
      */
     public Optional<Output<Boolean>> fipsEnabled() {
@@ -80,23 +80,31 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The time that the Verified Access Instance was last updated.
+     * Time that the Verified Access Instance was last updated.
      * 
      */
     @Import(name="lastUpdatedTime")
     private @Nullable Output<String> lastUpdatedTime;
 
     /**
-     * @return The time that the Verified Access Instance was last updated.
+     * @return Time that the Verified Access Instance was last updated.
      * 
      */
     public Optional<Output<String>> lastUpdatedTime() {
         return Optional.ofNullable(this.lastUpdatedTime);
     }
 
+    /**
+     * List of DNS names servers that clients can use to connect to the Verified Access Instance.
+     * 
+     */
     @Import(name="nameServers")
     private @Nullable Output<List<String>> nameServers;
 
+    /**
+     * @return List of DNS names servers that clients can use to connect to the Verified Access Instance.
+     * 
+     */
     public Optional<Output<List<String>>> nameServers() {
         return Optional.ofNullable(this.nameServers);
     }
@@ -139,14 +147,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more blocks of providing information about the AWS Verified Access Trust Providers. See verifiedAccessTrustProviders below for details.One or more blocks
+     * One or more blocks providing information about the AWS Verified Access Trust Providers. See verifiedAccessTrustProviders below for details.
      * 
      */
     @Import(name="verifiedAccessTrustProviders")
     private @Nullable Output<List<InstanceVerifiedAccessTrustProviderArgs>> verifiedAccessTrustProviders;
 
     /**
-     * @return One or more blocks of providing information about the AWS Verified Access Trust Providers. See verifiedAccessTrustProviders below for details.One or more blocks
+     * @return One or more blocks providing information about the AWS Verified Access Trust Providers. See verifiedAccessTrustProviders below for details.
      * 
      */
     public Optional<Output<List<InstanceVerifiedAccessTrustProviderArgs>>> verifiedAccessTrustProviders() {
@@ -187,7 +195,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cidrEndpointsCustomSubdomain The custom subdomain for the CIDR endpoints.
+         * @param cidrEndpointsCustomSubdomain Custom subdomain for the CIDR endpoints.
          * 
          * @return builder
          * 
@@ -198,7 +206,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cidrEndpointsCustomSubdomain The custom subdomain for the CIDR endpoints.
+         * @param cidrEndpointsCustomSubdomain Custom subdomain for the CIDR endpoints.
          * 
          * @return builder
          * 
@@ -208,7 +216,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param creationTime The time that the Verified Access Instance was created.
+         * @param creationTime Time that the Verified Access Instance was created.
          * 
          * @return builder
          * 
@@ -219,7 +227,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param creationTime The time that the Verified Access Instance was created.
+         * @param creationTime Time that the Verified Access Instance was created.
          * 
          * @return builder
          * 
@@ -229,7 +237,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description for the AWS Verified Access Instance.
+         * @param description Description for the AWS Verified Access Instance.
          * 
          * @return builder
          * 
@@ -240,7 +248,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description for the AWS Verified Access Instance.
+         * @param description Description for the AWS Verified Access Instance.
          * 
          * @return builder
          * 
@@ -250,7 +258,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fipsEnabled Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+         * @param fipsEnabled Whether to enable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
          * 
          * @return builder
          * 
@@ -261,7 +269,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fipsEnabled Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+         * @param fipsEnabled Whether to enable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
          * 
          * @return builder
          * 
@@ -271,7 +279,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lastUpdatedTime The time that the Verified Access Instance was last updated.
+         * @param lastUpdatedTime Time that the Verified Access Instance was last updated.
          * 
          * @return builder
          * 
@@ -282,7 +290,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lastUpdatedTime The time that the Verified Access Instance was last updated.
+         * @param lastUpdatedTime Time that the Verified Access Instance was last updated.
          * 
          * @return builder
          * 
@@ -291,15 +299,33 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
             return lastUpdatedTime(Output.of(lastUpdatedTime));
         }
 
+        /**
+         * @param nameServers List of DNS names servers that clients can use to connect to the Verified Access Instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nameServers(@Nullable Output<List<String>> nameServers) {
             $.nameServers = nameServers;
             return this;
         }
 
+        /**
+         * @param nameServers List of DNS names servers that clients can use to connect to the Verified Access Instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nameServers(List<String> nameServers) {
             return nameServers(Output.of(nameServers));
         }
 
+        /**
+         * @param nameServers List of DNS names servers that clients can use to connect to the Verified Access Instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nameServers(String... nameServers) {
             return nameServers(List.of(nameServers));
         }
@@ -356,7 +382,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param verifiedAccessTrustProviders One or more blocks of providing information about the AWS Verified Access Trust Providers. See verifiedAccessTrustProviders below for details.One or more blocks
+         * @param verifiedAccessTrustProviders One or more blocks providing information about the AWS Verified Access Trust Providers. See verifiedAccessTrustProviders below for details.
          * 
          * @return builder
          * 
@@ -367,7 +393,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param verifiedAccessTrustProviders One or more blocks of providing information about the AWS Verified Access Trust Providers. See verifiedAccessTrustProviders below for details.One or more blocks
+         * @param verifiedAccessTrustProviders One or more blocks providing information about the AWS Verified Access Trust Providers. See verifiedAccessTrustProviders below for details.
          * 
          * @return builder
          * 
@@ -377,7 +403,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param verifiedAccessTrustProviders One or more blocks of providing information about the AWS Verified Access Trust Providers. See verifiedAccessTrustProviders below for details.One or more blocks
+         * @param verifiedAccessTrustProviders One or more blocks providing information about the AWS Verified Access Trust Providers. See verifiedAccessTrustProviders below for details.
          * 
          * @return builder
          * 

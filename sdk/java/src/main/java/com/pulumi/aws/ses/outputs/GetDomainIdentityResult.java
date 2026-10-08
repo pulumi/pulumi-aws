@@ -15,10 +15,6 @@ public final class GetDomainIdentityResult {
      * 
      */
     private String arn;
-    /**
-     * @return Name of the domain
-     * 
-     */
     private String domain;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -40,10 +36,6 @@ public final class GetDomainIdentityResult {
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Name of the domain
-     * 
-     */
     public String domain() {
         return this.domain;
     }

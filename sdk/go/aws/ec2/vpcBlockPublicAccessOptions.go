@@ -52,9 +52,9 @@ import (
 type VpcBlockPublicAccessOptions struct {
 	pulumi.CustomResourceState
 
-	// The AWS account id to which these options apply.
+	// AWS account id to which these options apply.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// The AWS region to which these options apply.
+	// AWS region to which these options apply.
 	AwsRegion pulumi.StringOutput `pulumi:"awsRegion"`
 	// Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
 	InternetGatewayBlockMode pulumi.StringOutput `pulumi:"internetGatewayBlockMode"`
@@ -96,9 +96,9 @@ func GetVpcBlockPublicAccessOptions(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcBlockPublicAccessOptions resources.
 type vpcBlockPublicAccessOptionsState struct {
-	// The AWS account id to which these options apply.
+	// AWS account id to which these options apply.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// The AWS region to which these options apply.
+	// AWS region to which these options apply.
 	AwsRegion *string `pulumi:"awsRegion"`
 	// Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
 	InternetGatewayBlockMode *string `pulumi:"internetGatewayBlockMode"`
@@ -108,9 +108,9 @@ type vpcBlockPublicAccessOptionsState struct {
 }
 
 type VpcBlockPublicAccessOptionsState struct {
-	// The AWS account id to which these options apply.
+	// AWS account id to which these options apply.
 	AwsAccountId pulumi.StringPtrInput
-	// The AWS region to which these options apply.
+	// AWS region to which these options apply.
 	AwsRegion pulumi.StringPtrInput
 	// Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
 	InternetGatewayBlockMode pulumi.StringPtrInput
@@ -227,12 +227,12 @@ func (o VpcBlockPublicAccessOptionsOutput) ToVpcBlockPublicAccessOptionsOutputWi
 	return o
 }
 
-// The AWS account id to which these options apply.
+// AWS account id to which these options apply.
 func (o VpcBlockPublicAccessOptionsOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcBlockPublicAccessOptions) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// The AWS region to which these options apply.
+// AWS region to which these options apply.
 func (o VpcBlockPublicAccessOptionsOutput) AwsRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcBlockPublicAccessOptions) pulumi.StringOutput { return v.AwsRegion }).(pulumi.StringOutput)
 }

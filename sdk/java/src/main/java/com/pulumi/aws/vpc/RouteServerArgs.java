@@ -21,7 +21,7 @@ public final class RouteServerArgs extends com.pulumi.resources.ResourceArgs {
     public static final RouteServerArgs Empty = new RouteServerArgs();
 
     /**
-     * The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
+     * Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
      * 
      * The following arguments are optional:
      * 
@@ -30,7 +30,7 @@ public final class RouteServerArgs extends com.pulumi.resources.ResourceArgs {
     private Output<Integer> amazonSideAsn;
 
     /**
-     * @return The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
+     * @return Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
      * 
      * The following arguments are optional:
      * 
@@ -40,14 +40,14 @@ public final class RouteServerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
+     * Whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
      * 
      */
     @Import(name="persistRoutes")
     private @Nullable Output<String> persistRoutes;
 
     /**
-     * @return Indicates whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
+     * @return Whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
      * 
      */
     public Optional<Output<String>> persistRoutes() {
@@ -55,14 +55,14 @@ public final class RouteServerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persistRoutes` is enabled.
+     * Number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persistRoutes` is enabled.
      * 
      */
     @Import(name="persistRoutesDuration")
     private @Nullable Output<Integer> persistRoutesDuration;
 
     /**
-     * @return The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persistRoutes` is enabled.
+     * @return Number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persistRoutes` is enabled.
      * 
      */
     public Optional<Output<Integer>> persistRoutesDuration() {
@@ -85,14 +85,14 @@ public final class RouteServerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
+     * Whether to enable SNS notifications for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS.
      * 
      */
     @Import(name="snsNotificationsEnabled")
     private @Nullable Output<Boolean> snsNotificationsEnabled;
 
     /**
-     * @return Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
+     * @return Whether to enable SNS notifications for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS.
      * 
      */
     public Optional<Output<Boolean>> snsNotificationsEnabled() {
@@ -100,14 +100,14 @@ public final class RouteServerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -152,7 +152,7 @@ public final class RouteServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param amazonSideAsn The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
+         * @param amazonSideAsn Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
          * 
          * The following arguments are optional:
          * 
@@ -165,7 +165,7 @@ public final class RouteServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param amazonSideAsn The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
+         * @param amazonSideAsn Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
          * 
          * The following arguments are optional:
          * 
@@ -177,7 +177,7 @@ public final class RouteServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param persistRoutes Indicates whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
+         * @param persistRoutes Whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class RouteServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param persistRoutes Indicates whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
+         * @param persistRoutes Whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class RouteServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param persistRoutesDuration The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persistRoutes` is enabled.
+         * @param persistRoutesDuration Number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persistRoutes` is enabled.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class RouteServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param persistRoutesDuration The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persistRoutes` is enabled.
+         * @param persistRoutesDuration Number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persistRoutes` is enabled.
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class RouteServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snsNotificationsEnabled Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
+         * @param snsNotificationsEnabled Whether to enable SNS notifications for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class RouteServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snsNotificationsEnabled Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
+         * @param snsNotificationsEnabled Whether to enable SNS notifications for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS.
          * 
          * @return builder
          * 
@@ -261,7 +261,7 @@ public final class RouteServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -272,7 +272,7 @@ public final class RouteServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

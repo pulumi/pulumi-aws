@@ -387,7 +387,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The CIDRs provisioned into the IPAM pool, described below.
+        /// CIDRs provisioned into the IPAM pool, described below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVpcIpamPoolCidrsIpamPoolCidrResult> IpamPoolCidrs;
         public readonly string IpamPoolId;

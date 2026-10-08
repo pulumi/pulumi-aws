@@ -17,14 +17,14 @@ public final class VpnGatewayArgs extends com.pulumi.resources.ResourceArgs {
     public static final VpnGatewayArgs Empty = new VpnGatewayArgs();
 
     /**
-     * The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don&#39;t specify an ASN, the virtual private gateway is created with the default ASN.
+     * Autonomous System Number (ASN) for the Amazon side of the gateway. If you don&#39;t specify an ASN, the virtual private gateway is created with the default ASN.
      * 
      */
     @Import(name="amazonSideAsn")
     private @Nullable Output<String> amazonSideAsn;
 
     /**
-     * @return The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don&#39;t specify an ASN, the virtual private gateway is created with the default ASN.
+     * @return Autonomous System Number (ASN) for the Amazon side of the gateway. If you don&#39;t specify an ASN, the virtual private gateway is created with the default ASN.
      * 
      */
     public Optional<Output<String>> amazonSideAsn() {
@@ -32,14 +32,14 @@ public final class VpnGatewayArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Availability Zone for the virtual private gateway.
+     * Availability Zone for the virtual private gateway.
      * 
      */
     @Import(name="availabilityZone")
     private @Nullable Output<String> availabilityZone;
 
     /**
-     * @return The Availability Zone for the virtual private gateway.
+     * @return Availability Zone for the virtual private gateway.
      * 
      */
     public Optional<Output<String>> availabilityZone() {
@@ -62,14 +62,14 @@ public final class VpnGatewayArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -77,14 +77,14 @@ public final class VpnGatewayArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The VPC ID to create in.
+     * VPC ID to create in.
      * 
      */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
     /**
-     * @return The VPC ID to create in.
+     * @return VPC ID to create in.
      * 
      */
     public Optional<Output<String>> vpcId() {
@@ -120,7 +120,7 @@ public final class VpnGatewayArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param amazonSideAsn The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don&#39;t specify an ASN, the virtual private gateway is created with the default ASN.
+         * @param amazonSideAsn Autonomous System Number (ASN) for the Amazon side of the gateway. If you don&#39;t specify an ASN, the virtual private gateway is created with the default ASN.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class VpnGatewayArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param amazonSideAsn The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don&#39;t specify an ASN, the virtual private gateway is created with the default ASN.
+         * @param amazonSideAsn Autonomous System Number (ASN) for the Amazon side of the gateway. If you don&#39;t specify an ASN, the virtual private gateway is created with the default ASN.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class VpnGatewayArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZone The Availability Zone for the virtual private gateway.
+         * @param availabilityZone Availability Zone for the virtual private gateway.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class VpnGatewayArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZone The Availability Zone for the virtual private gateway.
+         * @param availabilityZone Availability Zone for the virtual private gateway.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class VpnGatewayArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class VpnGatewayArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class VpnGatewayArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcId The VPC ID to create in.
+         * @param vpcId VPC ID to create in.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class VpnGatewayArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcId The VPC ID to create in.
+         * @param vpcId VPC ID to create in.
          * 
          * @return builder
          * 

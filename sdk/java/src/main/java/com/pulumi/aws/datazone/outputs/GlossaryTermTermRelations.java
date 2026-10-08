@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GlossaryTermTermRelations {
     /**
-     * @return String array that calssifies the term relations.
+     * @return String array that classifies the term relations.
      * 
      */
     private @Nullable List<String> classifies;
@@ -20,7 +20,7 @@ public final class GlossaryTermTermRelations {
 
     private GlossaryTermTermRelations() {}
     /**
-     * @return String array that calssifies the term relations.
+     * @return String array that classifies the term relations.
      * 
      */
     public List<String> classifies() {

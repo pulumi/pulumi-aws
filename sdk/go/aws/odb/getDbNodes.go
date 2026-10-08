@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for manging db nodes linked to cloud vm cluster of Oracle Database@AWS.
+// Data source for managing db nodes linked to cloud vm cluster of Oracle Database@AWS.
 //
 // You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
 //

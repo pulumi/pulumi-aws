@@ -100,28 +100,28 @@ public class SecurityGroupAssociation extends com.pulumi.resources.CustomResourc
         return Codegen.optional(this.replaceDefaultAssociation);
     }
     /**
-     * The ID of the security group to be associated with the VPC endpoint.
+     * ID of the security group to be associated with the VPC endpoint.
      * 
      */
     @Export(name="securityGroupId", refs={String.class}, tree="[0]")
     private Output<String> securityGroupId;
 
     /**
-     * @return The ID of the security group to be associated with the VPC endpoint.
+     * @return ID of the security group to be associated with the VPC endpoint.
      * 
      */
     public Output<String> securityGroupId() {
         return this.securityGroupId;
     }
     /**
-     * The ID of the VPC endpoint with which the security group will be associated.
+     * ID of the VPC endpoint with which the security group will be associated.
      * 
      */
     @Export(name="vpcEndpointId", refs={String.class}, tree="[0]")
     private Output<String> vpcEndpointId;
 
     /**
-     * @return The ID of the VPC endpoint with which the security group will be associated.
+     * @return ID of the VPC endpoint with which the security group will be associated.
      * 
      */
     public Output<String> vpcEndpointId() {

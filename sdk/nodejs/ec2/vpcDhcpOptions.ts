@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Provides a VPC DHCP Options resource.
  *
+ * You can find more technical documentation about DHCP Options Set in the official [AWS User Guide](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html).
+ *
  * ## Example Usage
  *
  * Basic usage:
@@ -80,7 +82,7 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the DHCP Options Set.
+     * ARN of the DHCP Options Set.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -100,7 +102,7 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
      */
     declare public readonly netbiosNameServers: pulumi.Output<string[] | undefined>;
     /**
-     * The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
+     * NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
      */
     declare public readonly netbiosNodeType: pulumi.Output<string | undefined>;
     /**
@@ -108,7 +110,7 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
      */
     declare public readonly ntpServers: pulumi.Output<string[] | undefined>;
     /**
-     * The ID of the AWS account that owns the DHCP options set.
+     * ID of the AWS account that owns the DHCP options set.
      */
     declare public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
@@ -116,13 +118,13 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * > **Note:** All arguments are optional but at least one must be specified. `domainNameServers`, `netbiosNameServers`, and `ntpServers` are limited to four servers each. To use the DHCP Options Set you must associate it to a VPC using `aws.ec2.VpcDhcpOptionsAssociation`. If you delete a DHCP Options Set, all VPCs using it will be associated to AWS's `default` DHCP Option Set. In most cases, set `domainNameServers` to `AmazonProvidedDNS` unless configuring your own DNS.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -174,7 +176,7 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
  */
 export interface VpcDhcpOptionsState {
     /**
-     * The ARN of the DHCP Options Set.
+     * ARN of the DHCP Options Set.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -194,7 +196,7 @@ export interface VpcDhcpOptionsState {
      */
     netbiosNameServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
+     * NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
      */
     netbiosNodeType?: pulumi.Input<string | undefined>;
     /**
@@ -202,7 +204,7 @@ export interface VpcDhcpOptionsState {
      */
     ntpServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The ID of the AWS account that owns the DHCP options set.
+     * ID of the AWS account that owns the DHCP options set.
      */
     ownerId?: pulumi.Input<string | undefined>;
     /**
@@ -210,13 +212,13 @@ export interface VpcDhcpOptionsState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * > **Note:** All arguments are optional but at least one must be specified. `domainNameServers`, `netbiosNameServers`, and `ntpServers` are limited to four servers each. To use the DHCP Options Set you must associate it to a VPC using `aws.ec2.VpcDhcpOptionsAssociation`. If you delete a DHCP Options Set, all VPCs using it will be associated to AWS's `default` DHCP Option Set. In most cases, set `domainNameServers` to `AmazonProvidedDNS` unless configuring your own DNS.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -242,7 +244,7 @@ export interface VpcDhcpOptionsArgs {
      */
     netbiosNameServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
+     * NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
      */
     netbiosNodeType?: pulumi.Input<string | undefined>;
     /**
@@ -254,7 +256,7 @@ export interface VpcDhcpOptionsArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * > **Note:** All arguments are optional but at least one must be specified. `domainNameServers`, `netbiosNameServers`, and `ntpServers` are limited to four servers each. To use the DHCP Options Set you must associate it to a VPC using `aws.ec2.VpcDhcpOptionsAssociation`. If you delete a DHCP Options Set, all VPCs using it will be associated to AWS's `default` DHCP Option Set. In most cases, set `domainNameServers` to `AmazonProvidedDNS` unless configuring your own DNS.
      */

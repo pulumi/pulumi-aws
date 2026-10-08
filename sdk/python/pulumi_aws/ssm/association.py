@@ -57,7 +57,7 @@ class AssociationArgs:
         :param pulumi.Input[_builtins.str] sync_compliance: The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]] targets: A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
-        :param pulumi.Input[_builtins.int] wait_for_success_timeout_seconds: The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+        :param pulumi.Input[_builtins.int] wait_for_success_timeout_seconds: The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create operation will fail.
                
                Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
         """
@@ -292,7 +292,7 @@ class AssociationArgs:
     @pulumi.getter(name="waitForSuccessTimeoutSeconds")
     def wait_for_success_timeout_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+        The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create operation will fail.
 
         Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
         """
@@ -348,7 +348,7 @@ class _AssociationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]] targets: A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
-        :param pulumi.Input[_builtins.int] wait_for_success_timeout_seconds: The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+        :param pulumi.Input[_builtins.int] wait_for_success_timeout_seconds: The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create operation will fail.
                
                Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
         """
@@ -625,7 +625,7 @@ class _AssociationState:
     @pulumi.getter(name="waitForSuccessTimeoutSeconds")
     def wait_for_success_timeout_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+        The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create operation will fail.
 
         Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
         """
@@ -909,7 +909,7 @@ class Association(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] sync_compliance: The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AssociationTargetArgs', 'AssociationTargetArgsDict', 'outputs.AssociationTarget']]]] targets: A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
-        :param pulumi.Input[_builtins.int] wait_for_success_timeout_seconds: The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+        :param pulumi.Input[_builtins.int] wait_for_success_timeout_seconds: The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create operation will fail.
                
                Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
         """
@@ -1267,7 +1267,7 @@ class Association(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AssociationTargetArgs', 'AssociationTargetArgsDict', 'outputs.AssociationTarget']]]] targets: A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
-        :param pulumi.Input[_builtins.int] wait_for_success_timeout_seconds: The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+        :param pulumi.Input[_builtins.int] wait_for_success_timeout_seconds: The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create operation will fail.
                
                Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
         """
@@ -1453,7 +1453,7 @@ class Association(pulumi.CustomResource):
     @pulumi.getter(name="waitForSuccessTimeoutSeconds")
     def wait_for_success_timeout_seconds(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+        The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create operation will fail.
 
         Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
         """

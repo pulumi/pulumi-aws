@@ -26,8 +26,11 @@ namespace Pulumi.Aws.WorkSpacesWeb
     /// {
     ///     var example = new Aws.Kinesis.Stream("example", new()
     ///     {
+    ///         StreamModeDetails = new Aws.Kinesis.Inputs.StreamStreamModeDetailsArgs
+    ///         {
+    ///             StreamMode = "ON_DEMAND",
+    ///         },
     ///         Name = "amazon-workspaces-web-example-stream",
-    ///         ShardCount = 1,
     ///     });
     /// 
     ///     var exampleUserAccessLoggingSettings = new Aws.WorkSpacesWeb.UserAccessLoggingSettings("example", new()
@@ -50,8 +53,11 @@ namespace Pulumi.Aws.WorkSpacesWeb
     /// {
     ///     var example = new Aws.Kinesis.Stream("example", new()
     ///     {
+    ///         StreamModeDetails = new Aws.Kinesis.Inputs.StreamStreamModeDetailsArgs
+    ///         {
+    ///             StreamMode = "ON_DEMAND",
+    ///         },
     ///         Name = "example-stream",
-    ///         ShardCount = 1,
     ///     });
     /// 
     ///     var exampleUserAccessLoggingSettings = new Aws.WorkSpacesWeb.UserAccessLoggingSettings("example", new()

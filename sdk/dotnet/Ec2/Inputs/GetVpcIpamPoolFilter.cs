@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ec2.Inputs
     public sealed class GetVpcIpamPoolFilterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the filter. Filter names are case-sensitive.
+        /// Name of the filter. Filter names are case-sensitive.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         private List<string>? _values;
 
         /// <summary>
-        /// The filter values. Filter values are case-sensitive.
+        /// Filter values. Filter values are case-sensitive.
         /// </summary>
         public List<string> Values
         {

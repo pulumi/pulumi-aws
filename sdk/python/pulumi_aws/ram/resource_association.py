@@ -156,6 +156,18 @@ class ResourceAssociation(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `resource_share_arn` (String) ARN of the RAM Resource Share.
+        * `resource_arn` (String) ARN of the resource associated with the RAM Resource Share.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import RAM Resource Associations using their Resource Share ARN and Resource ARN separated by a comma. For example:
 
         ```sh
@@ -192,6 +204,18 @@ class ResourceAssociation(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `resource_share_arn` (String) ARN of the RAM Resource Share.
+        * `resource_arn` (String) ARN of the resource associated with the RAM Resource Share.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import RAM Resource Associations using their Resource Share ARN and Resource ARN separated by a comma. For example:
 

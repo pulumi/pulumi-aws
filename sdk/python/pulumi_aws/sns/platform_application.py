@@ -532,15 +532,18 @@ class PlatformApplication(pulumi.CustomResource):
 
         ### Apple Push Notification Service (APNS) using certificate-based authentication
 
+        > **NOTE:** For certificate-based APNS, both `platform_credential` (private key) and `platform_principal` (certificate) must be PEM-encoded strings. Terraform string values must be valid UTF-8, so do not pass a binary Apple `.p12` via `base64decode()` — that fails with `the result of decoding the provided string is not valid UTF-8`. Convert the `.p12` to PEM (for example with `openssl`) and load the PEM files instead.
+
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         apns_application = aws.sns.PlatformApplication("apns_application",
             name="apns_application",
             platform="APNS",
-            platform_credential="<APNS PRIVATE KEY>",
-            platform_principal="<APNS CERTIFICATE>")
+            platform_credential=std.file(input="apns-private-key.pem").result,
+            platform_principal=std.file(input="apns-certificate.pem").result)
         ```
 
         ### Apple Push Notification Service (APNS) using token-based authentication
@@ -611,15 +614,18 @@ class PlatformApplication(pulumi.CustomResource):
 
         ### Apple Push Notification Service (APNS) using certificate-based authentication
 
+        > **NOTE:** For certificate-based APNS, both `platform_credential` (private key) and `platform_principal` (certificate) must be PEM-encoded strings. Terraform string values must be valid UTF-8, so do not pass a binary Apple `.p12` via `base64decode()` — that fails with `the result of decoding the provided string is not valid UTF-8`. Convert the `.p12` to PEM (for example with `openssl`) and load the PEM files instead.
+
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         apns_application = aws.sns.PlatformApplication("apns_application",
             name="apns_application",
             platform="APNS",
-            platform_credential="<APNS PRIVATE KEY>",
-            platform_principal="<APNS CERTIFICATE>")
+            platform_credential=std.file(input="apns-private-key.pem").result,
+            platform_principal=std.file(input="apns-certificate.pem").result)
         ```
 
         ### Apple Push Notification Service (APNS) using token-based authentication

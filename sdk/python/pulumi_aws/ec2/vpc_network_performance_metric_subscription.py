@@ -27,11 +27,11 @@ class VpcNetworkPerformanceMetricSubscriptionArgs:
         """
         The set of arguments for constructing a VpcNetworkPerformanceMetricSubscription resource.
 
-        :param pulumi.Input[_builtins.str] destination: The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
-        :param pulumi.Input[_builtins.str] source: The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
-        :param pulumi.Input[_builtins.str] metric: The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
+        :param pulumi.Input[_builtins.str] destination: Target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
+        :param pulumi.Input[_builtins.str] source: Source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
+        :param pulumi.Input[_builtins.str] metric: Metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] statistic: The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
+        :param pulumi.Input[_builtins.str] statistic: Statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
         """
         pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "source", source)
@@ -46,7 +46,7 @@ class VpcNetworkPerformanceMetricSubscriptionArgs:
     @pulumi.getter
     def destination(self) -> pulumi.Input[_builtins.str]:
         """
-        The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
+        Target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
         """
         return pulumi.get(self, "destination")
 
@@ -58,7 +58,7 @@ class VpcNetworkPerformanceMetricSubscriptionArgs:
     @pulumi.getter
     def source(self) -> pulumi.Input[_builtins.str]:
         """
-        The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
+        Source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
         """
         return pulumi.get(self, "source")
 
@@ -70,7 +70,7 @@ class VpcNetworkPerformanceMetricSubscriptionArgs:
     @pulumi.getter
     def metric(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
+        Metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
         """
         return pulumi.get(self, "metric")
 
@@ -94,7 +94,7 @@ class VpcNetworkPerformanceMetricSubscriptionArgs:
     @pulumi.getter
     def statistic(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
+        Statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
         """
         return pulumi.get(self, "statistic")
 
@@ -115,12 +115,12 @@ class _VpcNetworkPerformanceMetricSubscriptionState:
         """
         Input properties used for looking up and filtering VpcNetworkPerformanceMetricSubscription resources.
 
-        :param pulumi.Input[_builtins.str] destination: The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
-        :param pulumi.Input[_builtins.str] metric: The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
-        :param pulumi.Input[_builtins.str] period: The data aggregation time for the subscription.
+        :param pulumi.Input[_builtins.str] destination: Target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
+        :param pulumi.Input[_builtins.str] metric: Metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
+        :param pulumi.Input[_builtins.str] period: Data aggregation time for the subscription.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] source: The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
-        :param pulumi.Input[_builtins.str] statistic: The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
+        :param pulumi.Input[_builtins.str] source: Source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
+        :param pulumi.Input[_builtins.str] statistic: Statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
         """
         if destination is not None:
             pulumi.set(__self__, "destination", destination)
@@ -139,7 +139,7 @@ class _VpcNetworkPerformanceMetricSubscriptionState:
     @pulumi.getter
     def destination(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
+        Target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
         """
         return pulumi.get(self, "destination")
 
@@ -151,7 +151,7 @@ class _VpcNetworkPerformanceMetricSubscriptionState:
     @pulumi.getter
     def metric(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
+        Metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
         """
         return pulumi.get(self, "metric")
 
@@ -163,7 +163,7 @@ class _VpcNetworkPerformanceMetricSubscriptionState:
     @pulumi.getter
     def period(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The data aggregation time for the subscription.
+        Data aggregation time for the subscription.
         """
         return pulumi.get(self, "period")
 
@@ -187,7 +187,7 @@ class _VpcNetworkPerformanceMetricSubscriptionState:
     @pulumi.getter
     def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
+        Source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
         """
         return pulumi.get(self, "source")
 
@@ -199,7 +199,7 @@ class _VpcNetworkPerformanceMetricSubscriptionState:
     @pulumi.getter
     def statistic(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
+        Statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
         """
         return pulumi.get(self, "statistic")
 
@@ -237,11 +237,11 @@ class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] destination: The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
-        :param pulumi.Input[_builtins.str] metric: The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
+        :param pulumi.Input[_builtins.str] destination: Target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
+        :param pulumi.Input[_builtins.str] metric: Metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] source: The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
-        :param pulumi.Input[_builtins.str] statistic: The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
+        :param pulumi.Input[_builtins.str] source: Source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
+        :param pulumi.Input[_builtins.str] statistic: Statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
         """
         ...
     @overload
@@ -326,12 +326,12 @@ class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] destination: The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
-        :param pulumi.Input[_builtins.str] metric: The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
-        :param pulumi.Input[_builtins.str] period: The data aggregation time for the subscription.
+        :param pulumi.Input[_builtins.str] destination: Target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
+        :param pulumi.Input[_builtins.str] metric: Metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
+        :param pulumi.Input[_builtins.str] period: Data aggregation time for the subscription.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] source: The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
-        :param pulumi.Input[_builtins.str] statistic: The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
+        :param pulumi.Input[_builtins.str] source: Source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
+        :param pulumi.Input[_builtins.str] statistic: Statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -349,7 +349,7 @@ class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
     @pulumi.getter
     def destination(self) -> pulumi.Output[_builtins.str]:
         """
-        The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
+        Target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
         """
         return pulumi.get(self, "destination")
 
@@ -357,7 +357,7 @@ class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
     @pulumi.getter
     def metric(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
+        Metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
         """
         return pulumi.get(self, "metric")
 
@@ -365,7 +365,7 @@ class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
     @pulumi.getter
     def period(self) -> pulumi.Output[_builtins.str]:
         """
-        The data aggregation time for the subscription.
+        Data aggregation time for the subscription.
         """
         return pulumi.get(self, "period")
 
@@ -381,7 +381,7 @@ class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
     @pulumi.getter
     def source(self) -> pulumi.Output[_builtins.str]:
         """
-        The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
+        Source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
         """
         return pulumi.get(self, "source")
 
@@ -389,7 +389,7 @@ class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
     @pulumi.getter
     def statistic(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
+        Statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
         """
         return pulumi.get(self, "statistic")
 

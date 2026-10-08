@@ -18,37 +18,77 @@ public final class EndpointLoadBalancerOptionsArgs extends com.pulumi.resources.
 
     public static final EndpointLoadBalancerOptionsArgs Empty = new EndpointLoadBalancerOptionsArgs();
 
+    /**
+     * ARN of the load balancer.
+     * 
+     */
     @Import(name="loadBalancerArn")
     private @Nullable Output<String> loadBalancerArn;
 
+    /**
+     * @return ARN of the load balancer.
+     * 
+     */
     public Optional<Output<String>> loadBalancerArn() {
         return Optional.ofNullable(this.loadBalancerArn);
     }
 
+    /**
+     * IP port number.
+     * 
+     */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
+    /**
+     * @return IP port number.
+     * 
+     */
     public Optional<Output<Integer>> port() {
         return Optional.ofNullable(this.port);
     }
 
+    /**
+     * Port ranges. See below.
+     * 
+     */
     @Import(name="portRanges")
     private @Nullable Output<List<EndpointLoadBalancerOptionsPortRangeArgs>> portRanges;
 
+    /**
+     * @return Port ranges. See below.
+     * 
+     */
     public Optional<Output<List<EndpointLoadBalancerOptionsPortRangeArgs>>> portRanges() {
         return Optional.ofNullable(this.portRanges);
     }
 
+    /**
+     * IP protocol.
+     * 
+     */
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
+    /**
+     * @return IP protocol.
+     * 
+     */
     public Optional<Output<String>> protocol() {
         return Optional.ofNullable(this.protocol);
     }
 
+    /**
+     * IDs of the subnets.
+     * 
+     */
     @Import(name="subnetIds")
     private @Nullable Output<List<String>> subnetIds;
 
+    /**
+     * @return IDs of the subnets.
+     * 
+     */
     public Optional<Output<List<String>>> subnetIds() {
         return Optional.ofNullable(this.subnetIds);
     }
@@ -81,55 +121,127 @@ public final class EndpointLoadBalancerOptionsArgs extends com.pulumi.resources.
             $ = new EndpointLoadBalancerOptionsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param loadBalancerArn ARN of the load balancer.
+         * 
+         * @return builder
+         * 
+         */
         public Builder loadBalancerArn(@Nullable Output<String> loadBalancerArn) {
             $.loadBalancerArn = loadBalancerArn;
             return this;
         }
 
+        /**
+         * @param loadBalancerArn ARN of the load balancer.
+         * 
+         * @return builder
+         * 
+         */
         public Builder loadBalancerArn(String loadBalancerArn) {
             return loadBalancerArn(Output.of(loadBalancerArn));
         }
 
+        /**
+         * @param port IP port number.
+         * 
+         * @return builder
+         * 
+         */
         public Builder port(@Nullable Output<Integer> port) {
             $.port = port;
             return this;
         }
 
+        /**
+         * @param port IP port number.
+         * 
+         * @return builder
+         * 
+         */
         public Builder port(Integer port) {
             return port(Output.of(port));
         }
 
+        /**
+         * @param portRanges Port ranges. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder portRanges(@Nullable Output<List<EndpointLoadBalancerOptionsPortRangeArgs>> portRanges) {
             $.portRanges = portRanges;
             return this;
         }
 
+        /**
+         * @param portRanges Port ranges. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder portRanges(List<EndpointLoadBalancerOptionsPortRangeArgs> portRanges) {
             return portRanges(Output.of(portRanges));
         }
 
+        /**
+         * @param portRanges Port ranges. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder portRanges(EndpointLoadBalancerOptionsPortRangeArgs... portRanges) {
             return portRanges(List.of(portRanges));
         }
 
+        /**
+         * @param protocol IP protocol.
+         * 
+         * @return builder
+         * 
+         */
         public Builder protocol(@Nullable Output<String> protocol) {
             $.protocol = protocol;
             return this;
         }
 
+        /**
+         * @param protocol IP protocol.
+         * 
+         * @return builder
+         * 
+         */
         public Builder protocol(String protocol) {
             return protocol(Output.of(protocol));
         }
 
+        /**
+         * @param subnetIds IDs of the subnets.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetIds(@Nullable Output<List<String>> subnetIds) {
             $.subnetIds = subnetIds;
             return this;
         }
 
+        /**
+         * @param subnetIds IDs of the subnets.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetIds(List<String> subnetIds) {
             return subnetIds(Output.of(subnetIds));
         }
 
+        /**
+         * @param subnetIds IDs of the subnets.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }

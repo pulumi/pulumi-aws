@@ -13,31 +13,31 @@ namespace Pulumi.Aws.VerifiedAccess.Inputs
     public sealed class InstanceVerifiedAccessTrustProviderGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A description for the AWS Verified Access Instance.
+        /// Description for the AWS Verified Access Instance.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The type of device-based trust provider.
+        /// Type of device-based trust provider.
         /// </summary>
         [Input("deviceTrustProviderType")]
         public Input<string>? DeviceTrustProviderType { get; set; }
 
         /// <summary>
-        /// The type of trust provider (user- or device-based).
+        /// Type of trust provider (user- or device-based).
         /// </summary>
         [Input("trustProviderType")]
         public Input<string>? TrustProviderType { get; set; }
 
         /// <summary>
-        /// The type of user-based trust provider.
+        /// Type of user-based trust provider.
         /// </summary>
         [Input("userTrustProviderType")]
         public Input<string>? UserTrustProviderType { get; set; }
 
         /// <summary>
-        /// The ID of the trust provider.
+        /// ID of the trust provider.
         /// </summary>
         [Input("verifiedAccessTrustProviderId")]
         public Input<string>? VerifiedAccessTrustProviderId { get; set; }

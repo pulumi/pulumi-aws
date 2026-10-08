@@ -14,11 +14,11 @@ namespace Pulumi.Aws.VerifiedPermissions.Outputs
     public sealed class IdentitySourceConfigurationCognitoUserPoolConfiguration
     {
         /// <summary>
-        /// The unique application client IDs that are associated with the specified Amazon Cognito user pool.
+        /// Unique application client IDs that are associated with the specified Amazon Cognito user pool.
         /// </summary>
         public readonly ImmutableArray<string> ClientIds;
         /// <summary>
-        /// The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+        /// Type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
         /// </summary>
         public readonly Outputs.IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration? GroupConfiguration;
         /// <summary>

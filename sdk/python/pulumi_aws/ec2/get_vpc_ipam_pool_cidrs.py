@@ -62,7 +62,7 @@ class GetVpcIpamPoolCidrsResult:
     @pulumi.getter(name="ipamPoolCidrs")
     def ipam_pool_cidrs(self) -> Sequence['outputs.GetVpcIpamPoolCidrsIpamPoolCidrResult']:
         """
-        The CIDRs provisioned into the IPAM pool, described below.
+        CIDRs provisioned into the IPAM pool, described below.
         """
         return pulumi.get(self, "ipam_pool_cidrs")
 

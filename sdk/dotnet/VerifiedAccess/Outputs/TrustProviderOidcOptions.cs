@@ -13,12 +13,33 @@ namespace Pulumi.Aws.VerifiedAccess.Outputs
     [OutputType]
     public sealed class TrustProviderOidcOptions
     {
+        /// <summary>
+        /// OIDC authorization endpoint.
+        /// </summary>
         public readonly string? AuthorizationEndpoint;
+        /// <summary>
+        /// OAuth 2.0 client identifier.
+        /// </summary>
         public readonly string? ClientId;
+        /// <summary>
+        /// OAuth 2.0 client secret.
+        /// </summary>
         public readonly string ClientSecret;
+        /// <summary>
+        /// OIDC issuer identifier of the IdP.
+        /// </summary>
         public readonly string? Issuer;
+        /// <summary>
+        /// OpenID Connect (OIDC) scope specified.
+        /// </summary>
         public readonly string? Scope;
+        /// <summary>
+        /// OIDC token endpoint.
+        /// </summary>
         public readonly string? TokenEndpoint;
+        /// <summary>
+        /// OIDC user info endpoint.
+        /// </summary>
         public readonly string? UserInfoEndpoint;
 
         [OutputConstructor]

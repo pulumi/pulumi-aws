@@ -16,14 +16,14 @@ public final class VpcEndpointDnsEntryArgs extends com.pulumi.resources.Resource
     public static final VpcEndpointDnsEntryArgs Empty = new VpcEndpointDnsEntryArgs();
 
     /**
-     * The DNS name.
+     * DNS name.
      * 
      */
     @Import(name="dnsName")
     private @Nullable Output<String> dnsName;
 
     /**
-     * @return The DNS name.
+     * @return DNS name.
      * 
      */
     public Optional<Output<String>> dnsName() {
@@ -31,14 +31,14 @@ public final class VpcEndpointDnsEntryArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The ID of the private hosted zone.
+     * ID of the private hosted zone.
      * 
      */
     @Import(name="hostedZoneId")
     private @Nullable Output<String> hostedZoneId;
 
     /**
-     * @return The ID of the private hosted zone.
+     * @return ID of the private hosted zone.
      * 
      */
     public Optional<Output<String>> hostedZoneId() {
@@ -71,7 +71,7 @@ public final class VpcEndpointDnsEntryArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param dnsName The DNS name.
+         * @param dnsName DNS name.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class VpcEndpointDnsEntryArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param dnsName The DNS name.
+         * @param dnsName DNS name.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class VpcEndpointDnsEntryArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param hostedZoneId The ID of the private hosted zone.
+         * @param hostedZoneId ID of the private hosted zone.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class VpcEndpointDnsEntryArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param hostedZoneId The ID of the private hosted zone.
+         * @param hostedZoneId ID of the private hosted zone.
          * 
          * @return builder
          * 

@@ -94,14 +94,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/vpcEndpointPolicy:VpcEndpointPolicy")
 public class VpcEndpointPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+     * Policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
      * 
      */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
-     * @return A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+     * @return Policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
      * 
      */
     public Output<String> policy() {
@@ -122,14 +122,14 @@ public class VpcEndpointPolicy extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The VPC Endpoint ID.
+     * VPC Endpoint ID.
      * 
      */
     @Export(name="vpcEndpointId", refs={String.class}, tree="[0]")
     private Output<String> vpcEndpointId;
 
     /**
-     * @return The VPC Endpoint ID.
+     * @return VPC Endpoint ID.
      * 
      */
     public Output<String> vpcEndpointId() {

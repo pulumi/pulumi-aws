@@ -537,7 +537,7 @@ class GlossaryTermTermRelations(dict):
                  classifies: Optional[Sequence[_builtins.str]] = None,
                  is_as: Optional[Sequence[_builtins.str]] = None):
         """
-        :param Sequence[_builtins.str] classifies: String array that calssifies the term relations.
+        :param Sequence[_builtins.str] classifies: String array that classifies the term relations.
         """
         if classifies is not None:
             pulumi.set(__self__, "classifies", classifies)
@@ -548,7 +548,7 @@ class GlossaryTermTermRelations(dict):
     @pulumi.getter
     def classifies(self) -> Optional[Sequence[_builtins.str]]:
         """
-        String array that calssifies the term relations.
+        String array that classifies the term relations.
         """
         return pulumi.get(self, "classifies")
 

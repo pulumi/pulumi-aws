@@ -17,14 +17,14 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     public static final PolicyState Empty = new PolicyState();
 
     /**
-     * The date the policy was created.
+     * Date the policy was created.
      * 
      */
     @Import(name="createdDate")
     private @Nullable Output<String> createdDate;
 
     /**
-     * @return The date the policy was created.
+     * @return Date the policy was created.
      * 
      */
     public Optional<Output<String>> createdDate() {
@@ -32,14 +32,14 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The definition of the policy. See Definition below.
+     * Definition of the policy. See Definition below.
      * 
      */
     @Import(name="definition")
     private @Nullable Output<PolicyDefinitionArgs> definition;
 
     /**
-     * @return The definition of the policy. See Definition below.
+     * @return Definition of the policy. See Definition below.
      * 
      */
     public Optional<Output<PolicyDefinitionArgs>> definition() {
@@ -47,14 +47,14 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Policy ID of the policy.
+     * Policy ID of the policy.
      * 
      */
     @Import(name="policyId")
     private @Nullable Output<String> policyId;
 
     /**
-     * @return The Policy ID of the policy.
+     * @return Policy ID of the policy.
      * 
      */
     public Optional<Output<String>> policyId() {
@@ -62,14 +62,14 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Policy Store ID of the policy store.
+     * Policy Store ID of the policy store.
      * 
      */
     @Import(name="policyStoreId")
     private @Nullable Output<String> policyStoreId;
 
     /**
-     * @return The Policy Store ID of the policy store.
+     * @return Policy Store ID of the policy store.
      * 
      */
     public Optional<Output<String>> policyStoreId() {
@@ -120,7 +120,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdDate The date the policy was created.
+         * @param createdDate Date the policy was created.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdDate The date the policy was created.
+         * @param createdDate Date the policy was created.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param definition The definition of the policy. See Definition below.
+         * @param definition Definition of the policy. See Definition below.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param definition The definition of the policy. See Definition below.
+         * @param definition Definition of the policy. See Definition below.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyId The Policy ID of the policy.
+         * @param policyId Policy ID of the policy.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyId The Policy ID of the policy.
+         * @param policyId Policy ID of the policy.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyStoreId The Policy Store ID of the policy store.
+         * @param policyStoreId Policy Store ID of the policy store.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyStoreId The Policy Store ID of the policy store.
+         * @param policyStoreId Policy Store ID of the policy store.
          * 
          * @return builder
          * 

@@ -111,14 +111,14 @@ public class KeyPair extends com.pulumi.resources.CustomResource {
         return this.fingerprint;
     }
     /**
-     * Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
+     * Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
      * 
      */
     @Export(name="keyName", refs={String.class}, tree="[0]")
     private Output<String> keyName;
 
     /**
-     * @return Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
+     * @return Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
      * 
      */
     public Output<String> keyName() {

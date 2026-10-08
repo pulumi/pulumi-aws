@@ -48,15 +48,15 @@ export class VpcNetworkPerformanceMetricSubscription extends pulumi.CustomResour
     }
 
     /**
-     * The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
+     * Target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
      */
     declare public readonly destination: pulumi.Output<string>;
     /**
-     * The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
+     * Metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
      */
     declare public readonly metric: pulumi.Output<string | undefined>;
     /**
-     * The data aggregation time for the subscription.
+     * Data aggregation time for the subscription.
      */
     declare public /*out*/ readonly period: pulumi.Output<string>;
     /**
@@ -64,11 +64,11 @@ export class VpcNetworkPerformanceMetricSubscription extends pulumi.CustomResour
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
+     * Source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
      */
     declare public readonly source: pulumi.Output<string>;
     /**
-     * The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
+     * Statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
      */
     declare public readonly statistic: pulumi.Output<string | undefined>;
 
@@ -116,15 +116,15 @@ export class VpcNetworkPerformanceMetricSubscription extends pulumi.CustomResour
  */
 export interface VpcNetworkPerformanceMetricSubscriptionState {
     /**
-     * The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
+     * Target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
      */
     destination?: pulumi.Input<string | undefined>;
     /**
-     * The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
+     * Metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
      */
     metric?: pulumi.Input<string | undefined>;
     /**
-     * The data aggregation time for the subscription.
+     * Data aggregation time for the subscription.
      */
     period?: pulumi.Input<string | undefined>;
     /**
@@ -132,11 +132,11 @@ export interface VpcNetworkPerformanceMetricSubscriptionState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
+     * Source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
      */
     source?: pulumi.Input<string | undefined>;
     /**
-     * The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
+     * Statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
      */
     statistic?: pulumi.Input<string | undefined>;
 }
@@ -146,11 +146,11 @@ export interface VpcNetworkPerformanceMetricSubscriptionState {
  */
 export interface VpcNetworkPerformanceMetricSubscriptionArgs {
     /**
-     * The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
+     * Target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
      */
     destination: pulumi.Input<string>;
     /**
-     * The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
+     * Metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
      */
     metric?: pulumi.Input<string | undefined>;
     /**
@@ -158,11 +158,11 @@ export interface VpcNetworkPerformanceMetricSubscriptionArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
+     * Source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
      */
     source: pulumi.Input<string>;
     /**
-     * The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
+     * Statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
      */
     statistic?: pulumi.Input<string | undefined>;
 }

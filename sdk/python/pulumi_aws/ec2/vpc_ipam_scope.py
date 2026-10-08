@@ -26,8 +26,8 @@ class VpcIpamScopeArgs:
         """
         The set of arguments for constructing a VpcIpamScope resource.
 
-        :param pulumi.Input[_builtins.str] ipam_id: The ID of the IPAM for which you're creating this scope.
-        :param pulumi.Input[_builtins.str] description: A description for the scope you're creating.
+        :param pulumi.Input[_builtins.str] ipam_id: ID of the IPAM for which you're creating this scope.
+        :param pulumi.Input[_builtins.str] description: Description for the scope you're creating.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -43,7 +43,7 @@ class VpcIpamScopeArgs:
     @pulumi.getter(name="ipamId")
     def ipam_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the IPAM for which you're creating this scope.
+        ID of the IPAM for which you're creating this scope.
         """
         return pulumi.get(self, "ipam_id")
 
@@ -55,7 +55,7 @@ class VpcIpamScopeArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A description for the scope you're creating.
+        Description for the scope you're creating.
         """
         return pulumi.get(self, "description")
 
@@ -105,11 +105,12 @@ class _VpcIpamScopeState:
         Input properties used for looking up and filtering VpcIpamScope resources.
 
         :param pulumi.Input[_builtins.str] arn: ARN of the scope.
-        :param pulumi.Input[_builtins.str] description: A description for the scope you're creating.
-        :param pulumi.Input[_builtins.str] ipam_arn: The ARN of the IPAM for which you're creating this scope.
-        :param pulumi.Input[_builtins.str] ipam_id: The ID of the IPAM for which you're creating this scope.
-        :param pulumi.Input[_builtins.bool] is_default: Defines if the scope is the default scope or not.
-        :param pulumi.Input[_builtins.int] pool_count: The number of pools in the scope.
+        :param pulumi.Input[_builtins.str] description: Description for the scope you're creating.
+        :param pulumi.Input[_builtins.str] ipam_arn: ARN of the IPAM for which you're creating this scope.
+        :param pulumi.Input[_builtins.str] ipam_id: ID of the IPAM for which you're creating this scope.
+        :param pulumi.Input[_builtins.str] ipam_scope_type: Type of the scope.
+        :param pulumi.Input[_builtins.bool] is_default: Whether the scope is the default scope.
+        :param pulumi.Input[_builtins.int] pool_count: Number of pools in the scope.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -150,7 +151,7 @@ class _VpcIpamScopeState:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A description for the scope you're creating.
+        Description for the scope you're creating.
         """
         return pulumi.get(self, "description")
 
@@ -162,7 +163,7 @@ class _VpcIpamScopeState:
     @pulumi.getter(name="ipamArn")
     def ipam_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the IPAM for which you're creating this scope.
+        ARN of the IPAM for which you're creating this scope.
         """
         return pulumi.get(self, "ipam_arn")
 
@@ -174,7 +175,7 @@ class _VpcIpamScopeState:
     @pulumi.getter(name="ipamId")
     def ipam_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the IPAM for which you're creating this scope.
+        ID of the IPAM for which you're creating this scope.
         """
         return pulumi.get(self, "ipam_id")
 
@@ -185,6 +186,9 @@ class _VpcIpamScopeState:
     @_builtins.property
     @pulumi.getter(name="ipamScopeType")
     def ipam_scope_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Type of the scope.
+        """
         return pulumi.get(self, "ipam_scope_type")
 
     @ipam_scope_type.setter
@@ -195,7 +199,7 @@ class _VpcIpamScopeState:
     @pulumi.getter(name="isDefault")
     def is_default(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Defines if the scope is the default scope or not.
+        Whether the scope is the default scope.
         """
         return pulumi.get(self, "is_default")
 
@@ -207,7 +211,7 @@ class _VpcIpamScopeState:
     @pulumi.getter(name="poolCount")
     def pool_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The number of pools in the scope.
+        Number of pools in the scope.
         """
         return pulumi.get(self, "pool_count")
 
@@ -291,8 +295,8 @@ class VpcIpamScope(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: A description for the scope you're creating.
-        :param pulumi.Input[_builtins.str] ipam_id: The ID of the IPAM for which you're creating this scope.
+        :param pulumi.Input[_builtins.str] description: Description for the scope you're creating.
+        :param pulumi.Input[_builtins.str] ipam_id: ID of the IPAM for which you're creating this scope.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -399,11 +403,12 @@ class VpcIpamScope(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the scope.
-        :param pulumi.Input[_builtins.str] description: A description for the scope you're creating.
-        :param pulumi.Input[_builtins.str] ipam_arn: The ARN of the IPAM for which you're creating this scope.
-        :param pulumi.Input[_builtins.str] ipam_id: The ID of the IPAM for which you're creating this scope.
-        :param pulumi.Input[_builtins.bool] is_default: Defines if the scope is the default scope or not.
-        :param pulumi.Input[_builtins.int] pool_count: The number of pools in the scope.
+        :param pulumi.Input[_builtins.str] description: Description for the scope you're creating.
+        :param pulumi.Input[_builtins.str] ipam_arn: ARN of the IPAM for which you're creating this scope.
+        :param pulumi.Input[_builtins.str] ipam_id: ID of the IPAM for which you're creating this scope.
+        :param pulumi.Input[_builtins.str] ipam_scope_type: Type of the scope.
+        :param pulumi.Input[_builtins.bool] is_default: Whether the scope is the default scope.
+        :param pulumi.Input[_builtins.int] pool_count: Number of pools in the scope.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -435,7 +440,7 @@ class VpcIpamScope(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        A description for the scope you're creating.
+        Description for the scope you're creating.
         """
         return pulumi.get(self, "description")
 
@@ -443,7 +448,7 @@ class VpcIpamScope(pulumi.CustomResource):
     @pulumi.getter(name="ipamArn")
     def ipam_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the IPAM for which you're creating this scope.
+        ARN of the IPAM for which you're creating this scope.
         """
         return pulumi.get(self, "ipam_arn")
 
@@ -451,20 +456,23 @@ class VpcIpamScope(pulumi.CustomResource):
     @pulumi.getter(name="ipamId")
     def ipam_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the IPAM for which you're creating this scope.
+        ID of the IPAM for which you're creating this scope.
         """
         return pulumi.get(self, "ipam_id")
 
     @_builtins.property
     @pulumi.getter(name="ipamScopeType")
     def ipam_scope_type(self) -> pulumi.Output[_builtins.str]:
+        """
+        Type of the scope.
+        """
         return pulumi.get(self, "ipam_scope_type")
 
     @_builtins.property
     @pulumi.getter(name="isDefault")
     def is_default(self) -> pulumi.Output[_builtins.bool]:
         """
-        Defines if the scope is the default scope or not.
+        Whether the scope is the default scope.
         """
         return pulumi.get(self, "is_default")
 
@@ -472,7 +480,7 @@ class VpcIpamScope(pulumi.CustomResource):
     @pulumi.getter(name="poolCount")
     def pool_count(self) -> pulumi.Output[_builtins.int]:
         """
-        The number of pools in the scope.
+        Number of pools in the scope.
         """
         return pulumi.get(self, "pool_count")
 

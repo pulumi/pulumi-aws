@@ -40,8 +40,10 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * const testStream = new aws.kinesis.Stream("test_stream", {
- *     name: "kinesis-test",
- *     shardCount: 1,
+ *     streamModeDetails: {
+ *         streamMode: "ON_DEMAND",
+ *     },
+ *     name: "pulumi-kinesis-test",
  * });
  * const yada = new aws.cloudwatch.EventTarget("yada", {
  *     runCommandTargets: [
@@ -251,7 +253,7 @@ import * as utilities from "../utilities";
  *         },
  *     },
  *     arn: pulumi.interpolate`${exampleStage.executionArn}/GET`,
- *     rule: exampleEventRule.id,
+ *     rule: exampleEventRule.name,
  * });
  * ```
  *
@@ -323,7 +325,7 @@ import * as utilities from "../utilities";
  * `,
  *     },
  *     arn: exampleAwsLambdaFunction.arn,
- *     rule: exampleEventRule.id,
+ *     rule: exampleEventRule.name,
  * });
  * ```
  *
@@ -343,7 +345,7 @@ import * as utilities from "../utilities";
  *         inputTemplate: "\"<instance> is in state <status>\"",
  *     },
  *     arn: exampleAwsLambdaFunction.arn,
- *     rule: exampleEventRule.id,
+ *     rule: exampleEventRule.name,
  * });
  * ```
  *
@@ -478,7 +480,7 @@ import * as utilities from "../utilities";
  *         search: "apis",
  *         replace: "endpoints/graphql-api",
  *     }).result,
- *     rule: invokeAppsyncMutation.id,
+ *     rule: invokeAppsyncMutation.name,
  *     roleArn: appsyncMutationRole.arn,
  * });
  * const appsyncMutationRolePolicyDocument = aws.iam.getPolicyDocumentOutput({

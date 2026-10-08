@@ -462,6 +462,8 @@ type Endpoints struct {
 	// Use this to override the default service endpoint URL
 	Cloudwatchobservabilityaccessmanager *string `pulumi:"cloudwatchobservabilityaccessmanager"`
 	// Use this to override the default service endpoint URL
+	Cloudwatchomni *string `pulumi:"cloudwatchomni"`
+	// Use this to override the default service endpoint URL
 	Cloudwatchrum *string `pulumi:"cloudwatchrum"`
 	// Use this to override the default service endpoint URL
 	Codeartifact *string `pulumi:"codeartifact"`
@@ -604,6 +606,8 @@ type Endpoints struct {
 	// Use this to override the default service endpoint URL
 	Eventbridge *string `pulumi:"eventbridge"`
 	// Use this to override the default service endpoint URL
+	Eventbridgev2 *string `pulumi:"eventbridgev2"`
+	// Use this to override the default service endpoint URL
 	Events *string `pulumi:"events"`
 	// Use this to override the default service endpoint URL
 	Evidently *string `pulumi:"evidently"`
@@ -690,6 +694,8 @@ type Endpoints struct {
 	// Use this to override the default service endpoint URL
 	Lambdamicrovms *string `pulumi:"lambdamicrovms"`
 	// Use this to override the default service endpoint URL
+	Lambdaweb *string `pulumi:"lambdaweb"`
+	// Use this to override the default service endpoint URL
 	Launchwizard *string `pulumi:"launchwizard"`
 	// Use this to override the default service endpoint URL
 	Lex *string `pulumi:"lex"`
@@ -761,6 +767,8 @@ type Endpoints struct {
 	Networkmanager *string `pulumi:"networkmanager"`
 	// Use this to override the default service endpoint URL
 	Networkmonitor *string `pulumi:"networkmonitor"`
+	// Use this to override the default service endpoint URL
+	Networksecuritymanager *string `pulumi:"networksecuritymanager"`
 	// Use this to override the default service endpoint URL
 	Notifications *string `pulumi:"notifications"`
 	// Use this to override the default service endpoint URL
@@ -1118,6 +1126,8 @@ type EndpointsArgs struct {
 	// Use this to override the default service endpoint URL
 	Cloudwatchobservabilityaccessmanager pulumi.StringPtrInput `pulumi:"cloudwatchobservabilityaccessmanager"`
 	// Use this to override the default service endpoint URL
+	Cloudwatchomni pulumi.StringPtrInput `pulumi:"cloudwatchomni"`
+	// Use this to override the default service endpoint URL
 	Cloudwatchrum pulumi.StringPtrInput `pulumi:"cloudwatchrum"`
 	// Use this to override the default service endpoint URL
 	Codeartifact pulumi.StringPtrInput `pulumi:"codeartifact"`
@@ -1260,6 +1270,8 @@ type EndpointsArgs struct {
 	// Use this to override the default service endpoint URL
 	Eventbridge pulumi.StringPtrInput `pulumi:"eventbridge"`
 	// Use this to override the default service endpoint URL
+	Eventbridgev2 pulumi.StringPtrInput `pulumi:"eventbridgev2"`
+	// Use this to override the default service endpoint URL
 	Events pulumi.StringPtrInput `pulumi:"events"`
 	// Use this to override the default service endpoint URL
 	Evidently pulumi.StringPtrInput `pulumi:"evidently"`
@@ -1346,6 +1358,8 @@ type EndpointsArgs struct {
 	// Use this to override the default service endpoint URL
 	Lambdamicrovms pulumi.StringPtrInput `pulumi:"lambdamicrovms"`
 	// Use this to override the default service endpoint URL
+	Lambdaweb pulumi.StringPtrInput `pulumi:"lambdaweb"`
+	// Use this to override the default service endpoint URL
 	Launchwizard pulumi.StringPtrInput `pulumi:"launchwizard"`
 	// Use this to override the default service endpoint URL
 	Lex pulumi.StringPtrInput `pulumi:"lex"`
@@ -1417,6 +1431,8 @@ type EndpointsArgs struct {
 	Networkmanager pulumi.StringPtrInput `pulumi:"networkmanager"`
 	// Use this to override the default service endpoint URL
 	Networkmonitor pulumi.StringPtrInput `pulumi:"networkmonitor"`
+	// Use this to override the default service endpoint URL
+	Networksecuritymanager pulumi.StringPtrInput `pulumi:"networksecuritymanager"`
 	// Use this to override the default service endpoint URL
 	Notifications pulumi.StringPtrInput `pulumi:"notifications"`
 	// Use this to override the default service endpoint URL
@@ -2002,6 +2018,11 @@ func (o EndpointsOutput) Cloudwatchobservabilityaccessmanager() pulumi.StringPtr
 }
 
 // Use this to override the default service endpoint URL
+func (o EndpointsOutput) Cloudwatchomni() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Cloudwatchomni }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Cloudwatchrum() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Cloudwatchrum }).(pulumi.StringPtrOutput)
 }
@@ -2357,6 +2378,11 @@ func (o EndpointsOutput) Eventbridge() pulumi.StringPtrOutput {
 }
 
 // Use this to override the default service endpoint URL
+func (o EndpointsOutput) Eventbridgev2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Eventbridgev2 }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Events() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Events }).(pulumi.StringPtrOutput)
 }
@@ -2572,6 +2598,11 @@ func (o EndpointsOutput) Lambdamicrovms() pulumi.StringPtrOutput {
 }
 
 // Use this to override the default service endpoint URL
+func (o EndpointsOutput) Lambdaweb() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Lambdaweb }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Launchwizard() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Launchwizard }).(pulumi.StringPtrOutput)
 }
@@ -2749,6 +2780,11 @@ func (o EndpointsOutput) Networkmanager() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o EndpointsOutput) Networkmonitor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Networkmonitor }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Networksecuritymanager() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Networksecuritymanager }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

@@ -14,38 +14,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions {
     /**
-     * @return Message-based condition. See `messageBasedTrigger` Block below.
+     * @return Message-based condition. See `configuration.self_managed_configuration.trigger_conditions.message_based_trigger` Block below.
      * 
      */
     private @Nullable AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTrigger messageBasedTrigger;
     /**
-     * @return Idle-time condition. See `timeBasedTrigger` Block below.
+     * @return Idle-time condition. See `configuration.self_managed_configuration.trigger_conditions.time_based_trigger` Block below.
      * 
      */
     private @Nullable AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTrigger timeBasedTrigger;
     /**
-     * @return Token-based condition. See `tokenBasedTrigger` Block below.
+     * @return Token-based condition. See `configuration.self_managed_configuration.trigger_conditions.token_based_trigger` Block below.
      * 
      */
     private @Nullable AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTrigger tokenBasedTrigger;
 
     private AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions() {}
     /**
-     * @return Message-based condition. See `messageBasedTrigger` Block below.
+     * @return Message-based condition. See `configuration.self_managed_configuration.trigger_conditions.message_based_trigger` Block below.
      * 
      */
     public Optional<AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTrigger> messageBasedTrigger() {
         return Optional.ofNullable(this.messageBasedTrigger);
     }
     /**
-     * @return Idle-time condition. See `timeBasedTrigger` Block below.
+     * @return Idle-time condition. See `configuration.self_managed_configuration.trigger_conditions.time_based_trigger` Block below.
      * 
      */
     public Optional<AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTrigger> timeBasedTrigger() {
         return Optional.ofNullable(this.timeBasedTrigger);
     }
     /**
-     * @return Token-based condition. See `tokenBasedTrigger` Block below.
+     * @return Token-based condition. See `configuration.self_managed_configuration.trigger_conditions.token_based_trigger` Block below.
      * 
      */
     public Optional<AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTrigger> tokenBasedTrigger() {

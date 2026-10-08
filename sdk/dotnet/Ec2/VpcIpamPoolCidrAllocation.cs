@@ -132,13 +132,13 @@ namespace Pulumi.Aws.Ec2
     public partial class VpcIpamPoolCidrAllocation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The CIDR you want to assign to the pool.
+        /// CIDR you want to assign to the pool.
         /// </summary>
         [Output("cidr")]
         public Output<string> Cidr { get; private set; } = null!;
 
         /// <summary>
-        /// The description for the allocation.
+        /// Description for the allocation.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -149,17 +149,20 @@ namespace Pulumi.Aws.Ec2
         [Output("disallowedCidrs")]
         public Output<ImmutableArray<string>> DisallowedCidrs { get; private set; } = null!;
 
+        /// <summary>
+        /// ID of the allocation.
+        /// </summary>
         [Output("ipamPoolAllocationId")]
         public Output<string> IpamPoolAllocationId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the pool to which you want to assign a CIDR.
+        /// ID of the pool to which you want to assign a CIDR.
         /// </summary>
         [Output("ipamPoolId")]
         public Output<string> IpamPoolId { get; private set; } = null!;
 
         /// <summary>
-        /// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
+        /// Netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
         /// </summary>
         [Output("netmaskLength")]
         public Output<int> NetmaskLength { get; private set; } = null!;
@@ -171,19 +174,19 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the resource.
+        /// ID of the resource.
         /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// The owner of the resource.
+        /// Owner of the resource.
         /// </summary>
         [Output("resourceOwner")]
         public Output<string> ResourceOwner { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource.
+        /// Type of the resource.
         /// </summary>
         [Output("resourceType")]
         public Output<string> ResourceType { get; private set; } = null!;
@@ -247,13 +250,13 @@ namespace Pulumi.Aws.Ec2
     public sealed class VpcIpamPoolCidrAllocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The CIDR you want to assign to the pool.
+        /// CIDR you want to assign to the pool.
         /// </summary>
         [Input("cidr")]
         public Input<string>? Cidr { get; set; }
 
         /// <summary>
-        /// The description for the allocation.
+        /// Description for the allocation.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -271,13 +274,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The ID of the pool to which you want to assign a CIDR.
+        /// ID of the pool to which you want to assign a CIDR.
         /// </summary>
         [Input("ipamPoolId", required: true)]
         public Input<string> IpamPoolId { get; set; } = null!;
 
         /// <summary>
-        /// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
+        /// Netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
         /// </summary>
         [Input("netmaskLength")]
         public Input<int>? NetmaskLength { get; set; }
@@ -309,13 +312,13 @@ namespace Pulumi.Aws.Ec2
     public sealed class VpcIpamPoolCidrAllocationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The CIDR you want to assign to the pool.
+        /// CIDR you want to assign to the pool.
         /// </summary>
         [Input("cidr")]
         public Input<string>? Cidr { get; set; }
 
         /// <summary>
-        /// The description for the allocation.
+        /// Description for the allocation.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -332,17 +335,20 @@ namespace Pulumi.Aws.Ec2
             set => _disallowedCidrs = value;
         }
 
+        /// <summary>
+        /// ID of the allocation.
+        /// </summary>
         [Input("ipamPoolAllocationId")]
         public Input<string>? IpamPoolAllocationId { get; set; }
 
         /// <summary>
-        /// The ID of the pool to which you want to assign a CIDR.
+        /// ID of the pool to which you want to assign a CIDR.
         /// </summary>
         [Input("ipamPoolId")]
         public Input<string>? IpamPoolId { get; set; }
 
         /// <summary>
-        /// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
+        /// Netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
         /// </summary>
         [Input("netmaskLength")]
         public Input<int>? NetmaskLength { get; set; }
@@ -354,19 +360,19 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ID of the resource.
+        /// ID of the resource.
         /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }
 
         /// <summary>
-        /// The owner of the resource.
+        /// Owner of the resource.
         /// </summary>
         [Input("resourceOwner")]
         public Input<string>? ResourceOwner { get; set; }
 
         /// <summary>
-        /// The type of the resource.
+        /// Type of the resource.
         /// </summary>
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }
