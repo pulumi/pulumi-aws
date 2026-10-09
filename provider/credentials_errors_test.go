@@ -107,6 +107,17 @@ func TestValidateCredentialsErrorMessages(t *testing.T) {
 				"Check the `aws:profile` configuration and the AWS_PROFILE environment variable.",
 		},
 		{
+			name:   "profile listing skips the default profile and duplicates",
+			config: "[default]\nregion = us-west-2\n" + testLoginProfile,
+			credentials: "[default]\naws_access_key_id = AKIAEXAMPLE\naws_secret_access_key = example\n" +
+				"[myproj]\naws_access_key_id = AKIAEXAMPLE\naws_secret_access_key = example\n" +
+				"[legacy]\naws_access_key_id = AKIAEXAMPLE\naws_secret_access_key = example\n",
+			profile: "nope",
+			expected: "The AWS profile \"nope\" was not found.\n" +
+				"Configured profiles: myproj, legacy.\n" +
+				"Check the `aws:profile` configuration and the AWS_PROFILE environment variable.",
+		},
+		{
 			name:   "credential_process fails",
 			config: "[default]\ncredential_process = sh -c 'exit 1'\n",
 			expected: "The credential_process configured for the default profile failed.\n" +
@@ -184,6 +195,14 @@ func TestCredentialsFailureReason(t *testing.T) {
 				"Details: " + refresh + "operation error STS: AssumeRole, AccessDenied: User: " +
 				"arn:aws:sts::123456789012:assumed-role/AWSReservedSSO_Dev_0123456789abcdef/me is not authorized " +
 				"to perform: sts:AssumeRole\n",
+		},
+		{
+			name: "earlier rule wins when two match",
+			diag: refresh + "process provider error: error in credential_process: exit status 1: " +
+				"the SSO session has expired",
+			expected: "The credential_process configured for the default profile failed.\n" +
+				"Details: failed to refresh cached credentials, process provider error: " +
+				"error in credential_process: exit status 1: the SSO session has expired",
 		},
 		{
 			name: "unrecognized refresh failure",

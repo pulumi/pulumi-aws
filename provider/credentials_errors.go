@@ -40,7 +40,6 @@ var credentialsErrors = []struct {
 	{[]string{"SSO token", "SSO session"}, "expired_sso.txt"},
 }
 
-// maxListedProfiles bounds how many profile names an error message lists.
 const maxListedProfiles = 10
 
 // credentialsErrorData is the data available to the templates in the errors directory.
@@ -49,8 +48,7 @@ type credentialsErrorData struct {
 	Profile string
 	// Profiles lists the other profiles found in the shared config and credentials files.
 	Profiles string
-	// Cause is the underlying error.
-	Cause string
+	Cause    string
 }
 
 // ProfileLabel names the selected profile in prose.
