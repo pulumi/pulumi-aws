@@ -177,6 +177,15 @@ func TestCredentialsFailureReason(t *testing.T) {
 			expected: "The configured AWS credentials are invalid or have expired.\n" + docsHint + "\n" + escHint,
 		},
 		{
+			name: "refresh failure that only mentions an SSO role",
+			diag: refresh + "operation error STS: AssumeRole, AccessDenied: User: arn:aws:sts::123456789012:" +
+				"assumed-role/AWSReservedSSO_Dev_0123456789abcdef/me is not authorized to perform: sts:AssumeRole",
+			expected: "unable to validate AWS credentials.\n" +
+				"Details: " + refresh + "operation error STS: AssumeRole, AccessDenied: User: " +
+				"arn:aws:sts::123456789012:assumed-role/AWSReservedSSO_Dev_0123456789abcdef/me is not authorized " +
+				"to perform: sts:AssumeRole\n",
+		},
+		{
 			name: "unrecognized refresh failure",
 			diag: refresh + "something new",
 			expected: "unable to validate AWS credentials.\n" +
@@ -189,6 +198,18 @@ func TestCredentialsFailureReason(t *testing.T) {
 			require.Equal(t, tt.expected, actual)
 		})
 	}
+}
+
+func TestCredentialsErrorTemplatesExist(t *testing.T) {
+	for _, e := range credentialsErrors {
+		require.NotNilf(t, credentialsErrorTemplates.Lookup(e.template), "missing template %s", e.template)
+	}
+}
+
+func TestProfileFlag(t *testing.T) {
+	require.Equal(t, "", credentialsErrorData{}.ProfileFlag())
+	require.Equal(t, " --profile dev", credentialsErrorData{Profile: "dev"}.ProfileFlag())
+	require.Equal(t, ` --profile "my dev"`, credentialsErrorData{Profile: "my dev"}.ProfileFlag())
 }
 
 func TestFormatProfiles(t *testing.T) {
