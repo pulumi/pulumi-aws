@@ -217,18 +217,8 @@ func validateCredentials(vars resource.PropertyMap, _ shim.ResourceConfig) error
 
 	// lastly let's set the sharedCreds and sharedConfig file. If these are not found then let's default to the
 	// locations that AWS cli will store these values.
-	var sharedCredentialsFilePaths []string
-	sharedCredentialsFile := stringValue(vars, "sharedCredentialsFile", []string{"AWS_SHARED_CREDENTIALS_FILE"})
-	if sharedCredentialsFile != "" {
-		sharedCredentialsFilePaths = append(sharedCredentialsFilePaths, sharedCredentialsFile)
-	}
-
-	sharedCredentialsFiles := arrayValue(vars, "sharedCredentialsFiles",
+	sharedCredentialsFilePaths := arrayValue(vars, "sharedCredentialsFiles",
 		[]string{"AWS_SHARED_CREDENTIALS_FILE", "AWS_SHARED_CREDENTIALS_FILES"})
-	if len(sharedCredentialsFiles) > 0 {
-		sharedCredentialsFilePaths = append(sharedCredentialsFilePaths, sharedCredentialsFiles...)
-	}
-
 	if len(sharedCredentialsFilePaths) == 0 {
 		sharedCredentialsFile := "~/.aws/credentials" //nolint:gosec // This is a file path, not a credential
 		credsPath, err := homedir.Expand(sharedCredentialsFile)
@@ -240,16 +230,21 @@ func validateCredentials(vars resource.PropertyMap, _ shim.ResourceConfig) error
 	}
 	config.SharedCredentialsFiles = sharedCredentialsFilePaths
 
-	sharedConfigFile := stringValue(vars, "sharedConfigFile", []string{"AWS_CONFIG_FILE"})
-	if sharedConfigFile == "" {
-		sharedConfigFile = "~/.aws/config"
+	sharedConfigFilePaths := arrayValue(vars, "sharedConfigFiles", nil)
+	if len(sharedConfigFilePaths) == 0 {
+		sharedConfigFile := os.Getenv("AWS_CONFIG_FILE")
+		if sharedConfigFile == "" {
+			sharedConfigFile = "~/.aws/config"
+		}
+		sharedConfigFilePaths = []string{sharedConfigFile}
 	}
-	configPath, err := homedir.Expand(sharedConfigFile)
-	if err != nil {
-		return err
+	for i, path := range sharedConfigFilePaths {
+		sharedConfigFilePaths[i], err = homedir.Expand(path)
+		if err != nil {
+			return err
+		}
 	}
-
-	config.SharedConfigFiles = []string{configPath}
+	config.SharedConfigFiles = sharedConfigFilePaths
 
 	if _, _, diag := awsbase.GetAwsConfig(context.Background(), config); diag != nil && diag.HasError() {
 		formattedDiag := formatDiags(diag)
