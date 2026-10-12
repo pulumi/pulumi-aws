@@ -11,8 +11,6 @@ import (
 	"sync/atomic"
 	"time"
 
-	_ "embed"
-
 	"github.com/aws/aws-sdk-go-v2/feature/ec2/imds"
 	awsbase "github.com/hashicorp/aws-sdk-go-base/v2"
 	"github.com/mitchellh/go-homedir"
@@ -114,18 +112,6 @@ func durationFromConfig(vars resource.PropertyMap, prop resource.PropertyKey) (*
 
 	return nil, nil
 }
-
-//go:embed errors/no_credentials.txt
-var noCredentialsError string
-
-//go:embed errors/invalid_credentials.txt
-var invalidCredentialsError string
-
-//go:embed errors/no_region.txt
-var noRegionError string
-
-//go:embed errors/expired_sso.txt
-var expiredSSOError string
 
 func parseAssumeRoles(vars resource.PropertyMap) ([]awsbase.AssumeRole, error) {
 	assumeRoles := []awsbase.AssumeRole{}
@@ -252,54 +238,10 @@ func validateCredentials(vars resource.PropertyMap, _ shim.ResourceConfig) error
 	config.SharedConfigFiles = []string{configPath}
 
 	if _, _, diag := awsbase.GetAwsConfig(context.Background(), config); diag != nil && diag.HasError() {
-		formattedDiag := formatDiags(diag)
-		// Normally it'd query sts.REGION.amazonaws.com
-		// but if we query sts..amazonaws.com, then we don't have a region.
-		if strings.Contains(formattedDiag, "endpoint rule error, Invalid Configuration: Missing Region") {
-			return tfbridge.CheckFailureError{
-				Failures: []tfbridge.CheckFailureErrorElement{
-					{
-						Reason:   noRegionError,
-						Property: "",
-					},
-				},
-			}
-		}
-		if strings.Contains(formattedDiag, "no EC2 IMDS role found") {
-			return tfbridge.CheckFailureError{
-				Failures: []tfbridge.CheckFailureErrorElement{
-					{
-						Reason:   noCredentialsError,
-						Property: "",
-					},
-				},
-			}
-		}
-		if strings.Contains(formattedDiag, "The security token included in the request is invalid") {
-			return tfbridge.CheckFailureError{
-				Failures: []tfbridge.CheckFailureErrorElement{
-					{
-						Reason:   invalidCredentialsError,
-						Property: "",
-					},
-				},
-			}
-		}
-		if strings.Contains(formattedDiag, "failed to refresh cached credentials") {
-			return tfbridge.CheckFailureError{
-				Failures: []tfbridge.CheckFailureErrorElement{
-					{
-						Reason:   expiredSSOError,
-						Property: "",
-					},
-				},
-			}
-		}
-
 		return tfbridge.CheckFailureError{
 			Failures: []tfbridge.CheckFailureErrorElement{
 				{
-					Reason:   fmt.Sprintf("unable to validate AWS credentials.\nDetails: %s\n", formattedDiag),
+					Reason:   credentialsFailureReason(formatDiags(diag), config),
 					Property: "",
 				},
 			},
