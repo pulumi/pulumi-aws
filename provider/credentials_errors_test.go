@@ -129,9 +129,13 @@ func TestValidateCredentialsErrorMessages(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			configPath, credentialsPath := isolateAWSEnv(t, tt.config, tt.credentials)
 			vars := resource.PropertyMap{
-				"region":                resource.NewProperty("us-west-2"),
-				"sharedConfigFile":      resource.NewProperty(configPath),
-				"sharedCredentialsFile": resource.NewProperty(credentialsPath),
+				"region": resource.NewProperty("us-west-2"),
+				"sharedConfigFiles": resource.NewProperty([]resource.PropertyValue{
+					resource.NewProperty(configPath),
+				}),
+				"sharedCredentialsFiles": resource.NewProperty([]resource.PropertyValue{
+					resource.NewProperty(credentialsPath),
+				}),
 			}
 			if tt.profile != "" {
 				vars["profile"] = resource.NewProperty(tt.profile)
