@@ -14,8 +14,8 @@ import (
 )
 
 const (
-	escHint = "NEW: You can use Pulumi ESC to set up dynamic credentials with AWS OIDC to ensure the correct and " +
-		"valid credentials are used.\nLearn more: https://www.pulumi.com/registry/packages/aws/" +
+	escHint = "You can also use Pulumi ESC to get short-lived AWS credentials through OIDC. To set it up, run " +
+		"`pulumi env setup aws`.\nLearn more: https://www.pulumi.com/registry/packages/aws/" +
 		"installation-configuration/#dynamically-generate-credentials-via-pulumi-esc"
 	docsHint = "Please see https://www.pulumi.com/registry/packages/aws/installation-configuration/ for more " +
 		"information about providing credentials."
