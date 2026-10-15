@@ -21,7 +21,7 @@ public final class GetManagedPrefixListsResult {
      */
     private String id;
     /**
-     * @return List of all the managed prefix list ids found.
+     * @return List of all the managed prefix list IDs found.
      * 
      */
     private List<String> ids;
@@ -40,7 +40,7 @@ public final class GetManagedPrefixListsResult {
         return this.id;
     }
     /**
-     * @return List of all the managed prefix list ids found.
+     * @return List of all the managed prefix list IDs found.
      * 
      */
     public List<String> ids() {

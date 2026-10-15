@@ -17,9 +17,13 @@ public final class PartitionStorageDescriptorColumn {
      * 
      */
     private @Nullable String comment;
+    /**
+     * @return Name of the Column.
+     * 
+     */
     private String name;
     /**
-     * @return The datatype of data in the Column.
+     * @return Datatype of data in the Column.
      * 
      */
     private @Nullable String type;
@@ -32,11 +36,15 @@ public final class PartitionStorageDescriptorColumn {
     public Optional<String> comment() {
         return Optional.ofNullable(this.comment);
     }
+    /**
+     * @return Name of the Column.
+     * 
+     */
     public String name() {
         return this.name;
     }
     /**
-     * @return The datatype of data in the Column.
+     * @return Datatype of data in the Column.
      * 
      */
     public Optional<String> type() {

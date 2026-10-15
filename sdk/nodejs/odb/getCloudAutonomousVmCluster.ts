@@ -80,7 +80,7 @@ export interface GetCloudAutonomousVmClusterResult {
      */
     readonly cloudExadataInfrastructureArn: string;
     /**
-     * Cloud exadata infrastructure id associated with this cloud autonomous VM cluster.
+     * Cloud exadata infrastructure ID associated with this cloud autonomous VM cluster.
      */
     readonly cloudExadataInfrastructureId: string;
     /**

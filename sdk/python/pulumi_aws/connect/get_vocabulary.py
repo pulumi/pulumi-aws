@@ -208,7 +208,7 @@ def get_vocabulary(instance_id: Optional[_builtins.str] = None,
     :param _builtins.str name: Returns information on a specific Vocabulary by name
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: A map of tags to assign to the Vocabulary.
-    :param _builtins.str vocabulary_id: Returns information on a specific Vocabulary by Vocabulary id
+    :param _builtins.str vocabulary_id: Returns information on a specific Vocabulary by Vocabulary ID
            
            > **NOTE:** `instance_id` and one of either `name` or `vocabulary_id` is required.
     """
@@ -270,7 +270,7 @@ def get_vocabulary_output(instance_id: pulumi.Input[Optional[_builtins.str]] = N
     :param _builtins.str name: Returns information on a specific Vocabulary by name
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: A map of tags to assign to the Vocabulary.
-    :param _builtins.str vocabulary_id: Returns information on a specific Vocabulary by Vocabulary id
+    :param _builtins.str vocabulary_id: Returns information on a specific Vocabulary by Vocabulary ID
            
            > **NOTE:** `instance_id` and one of either `name` or `vocabulary_id` is required.
     """

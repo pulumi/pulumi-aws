@@ -13,55 +13,193 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings
     {
+        /// <summary>
+        /// When set to `Drop`, output audio streams are removed from the program if the selected input audio stream is removed from the input.
+        /// </summary>
         public readonly string? AbsentInputAudioBehavior;
+        /// <summary>
+        /// When set to `Enabled`, uses ARIB-compliant captioning.
+        /// </summary>
         public readonly string? Arib;
+        /// <summary>
+        /// Packet identifier (PID) for ARIB captions in the transport stream.
+        /// </summary>
         public readonly string? AribCaptionsPid;
+        /// <summary>
+        /// How to pass along the ARIB captions.
+        /// </summary>
         public readonly string? AribCaptionsPidControl;
+        /// <summary>
+        /// When set to `Dvb`, uses DVB buffer model for Dolby Digital audio.
+        /// </summary>
         public readonly string? AudioBufferModel;
+        /// <summary>
+        /// Number of audio frames to insert for each PES packet.
+        /// </summary>
         public readonly int? AudioFramesPerPes;
+        /// <summary>
+        /// Packet identifier (PID) of the elementary audio streams in the transport stream.
+        /// </summary>
         public readonly string? AudioPids;
+        /// <summary>
+        /// When set to `Atsc`, uses stream type `0x81` for AC3 and stream type `0x87` for EAC3.
+        /// </summary>
         public readonly string? AudioStreamType;
+        /// <summary>
+        /// Output bitrate, in bits per second, of the transport stream.
+        /// </summary>
         public readonly int? Bitrate;
+        /// <summary>
+        /// Controls the timing accuracy for output network traffic.
+        /// </summary>
         public readonly string? BufferModel;
+        /// <summary>
+        /// When set to `Enabled`, generates a captions service descriptor in the PMT.
+        /// </summary>
         public readonly string? CcDescriptor;
+        /// <summary>
+        /// DVB Network Information Table (NIT) settings. See `DvbNitSettings` Block for details.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings? DvbNitSettings;
+        /// <summary>
+        /// DVB Service Description Table (SDT) settings. See `DvbSdtSettings` Block for details.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings? DvbSdtSettings;
+        /// <summary>
+        /// Packet identifier (PID) for input source DVB Subtitle data to this output.
+        /// </summary>
         public readonly string? DvbSubPids;
+        /// <summary>
+        /// DVB Time and Date Table (TDT) settings. See `DvbTdtSettings` Block for details.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings? DvbTdtSettings;
+        /// <summary>
+        /// Packet identifier (PID) for input source DVB Teletext data to this output.
+        /// </summary>
         public readonly string? DvbTeletextPid;
+        /// <summary>
+        /// When set to `Passthrough`, passes through EBIF messages from the input source to this output.
+        /// </summary>
         public readonly string? Ebif;
+        /// <summary>
+        /// When set to `videoAndFixedIntervals`, adds Encoder Boundary Points for each elementary audio stream.
+        /// </summary>
         public readonly string? EbpAudioInterval;
+        /// <summary>
+        /// Amount of time, in milliseconds, that the encoder looks ahead for Encoder Boundary Points.
+        /// </summary>
         public readonly int? EbpLookaheadMs;
+        /// <summary>
+        /// Controls placement of Encoder Boundary Points on the video PID and audio PIDs.
+        /// </summary>
         public readonly string? EbpPlacement;
+        /// <summary>
+        /// Packet identifier (PID) for ECM in the transport stream.
+        /// </summary>
         public readonly string? EcmPid;
+        /// <summary>
+        /// When set to `Include`, writes the stream to the PES header.
+        /// </summary>
         public readonly string? EsRateInPes;
+        /// <summary>
+        /// Packet identifier (PID) for input source ETV Platform data to this output.
+        /// </summary>
         public readonly string? EtvPlatformPid;
+        /// <summary>
+        /// Packet identifier (PID) for input source ETV Signal data to this output.
+        /// </summary>
         public readonly string? EtvSignalPid;
+        /// <summary>
+        /// Length, in seconds, of each fragment, used only with EBP markers.
+        /// </summary>
         public readonly double? FragmentTime;
+        /// <summary>
+        /// When set to `Passthrough`, passes through KLV data from the SCTE-35 source.
+        /// </summary>
         public readonly string? Klv;
+        /// <summary>
+        /// Packet identifier (PID) for input source KLV data to this output.
+        /// </summary>
         public readonly string? KlvDataPids;
+        /// <summary>
+        /// When set to `Passthrough`, passes through Nielsen ID3.
+        /// </summary>
         public readonly string? NielsenId3Behavior;
+        /// <summary>
+        /// Value, in bits per second, to insert null packets into the transport stream.
+        /// </summary>
         public readonly double? NullPacketBitrate;
+        /// <summary>
+        /// Number of milliseconds between instances of this table in the output transport stream.
+        /// </summary>
         public readonly int? PatInterval;
+        /// <summary>
+        /// When set to `pcrEveryPesPacket`, a Program Clock Reference value is inserted for every Packetized Elementary Stream.
+        /// </summary>
         public readonly string? PcrControl;
+        /// <summary>
+        /// Maximum time, in milliseconds, between Program Clock References.
+        /// </summary>
         public readonly int? PcrPeriod;
+        /// <summary>
+        /// Packet identifier (PID) of the Program Clock Reference in the transport stream.
+        /// </summary>
         public readonly string? PcrPid;
+        /// <summary>
+        /// Number of milliseconds between instances of this table in the output transport stream.
+        /// </summary>
         public readonly int? PmtInterval;
+        /// <summary>
+        /// Packet identifier (PID) for the Program Map Table in the transport stream.
+        /// </summary>
         public readonly string? PmtPid;
+        /// <summary>
+        /// Value of the program number field in the Program Map Table.
+        /// </summary>
         public readonly int? ProgramNum;
+        /// <summary>
+        /// When set to `Vbr`, does not insert null packets into the transport stream.
+        /// </summary>
         public readonly string? RateMode;
+        /// <summary>
+        /// Packet identifier (PID) for input source SCTE-27 data to this output.
+        /// </summary>
         public readonly string? Scte27Pids;
+        /// <summary>
+        /// When set to `Passthrough`, passes any SCTE-35 signals from the input source to this output.
+        /// </summary>
         public readonly string? Scte35Control;
         /// <summary>
-        /// PID from which to read SCTE-35 messages.
+        /// Packet identifier (PID) of the SCTE-35 stream in the transport stream.
         /// </summary>
         public readonly string? Scte35Pid;
+        /// <summary>
+        /// Type of segmentation markers to include.
+        /// </summary>
         public readonly string? SegmentationMarkers;
+        /// <summary>
+        /// Whether segmentation markers are included at the start of a stream.
+        /// </summary>
         public readonly string? SegmentationStyle;
+        /// <summary>
+        /// Length, in seconds, of each segment.
+        /// </summary>
         public readonly double? SegmentationTime;
+        /// <summary>
+        /// When set to `Passthrough`, passes through timed metadata.
+        /// </summary>
         public readonly string? TimedMetadataBehavior;
+        /// <summary>
+        /// Packet identifier (PID) of the timed metadata stream in the transport stream.
+        /// </summary>
         public readonly string? TimedMetadataPid;
+        /// <summary>
+        /// Value of the transport stream ID field in the Program Map Table.
+        /// </summary>
         public readonly int? TransportStreamId;
+        /// <summary>
+        /// Packet identifier (PID) of the elementary video stream in the transport stream.
+        /// </summary>
         public readonly string? VideoPid;
 
         [OutputConstructor]

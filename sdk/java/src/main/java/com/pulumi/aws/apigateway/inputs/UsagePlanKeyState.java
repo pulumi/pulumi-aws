@@ -76,14 +76,14 @@ public final class UsagePlanKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Id of the usage plan resource representing to associate the key to.
+     * ID of the usage plan resource representing to associate the key to.
      * 
      */
     @Import(name="usagePlanId")
     private @Nullable Output<String> usagePlanId;
 
     /**
-     * @return Id of the usage plan resource representing to associate the key to.
+     * @return ID of the usage plan resource representing to associate the key to.
      * 
      */
     public Optional<Output<String>> usagePlanId() {
@@ -219,7 +219,7 @@ public final class UsagePlanKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usagePlanId Id of the usage plan resource representing to associate the key to.
+         * @param usagePlanId ID of the usage plan resource representing to associate the key to.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class UsagePlanKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usagePlanId Id of the usage plan resource representing to associate the key to.
+         * @param usagePlanId ID of the usage plan resource representing to associate the key to.
          * 
          * @return builder
          * 

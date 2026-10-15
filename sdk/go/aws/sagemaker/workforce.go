@@ -68,7 +68,7 @@ import (
 //
 // ```
 //
-// ### Oidc Usage
+// ### OIDC Usage
 //
 // ```go
 // package main
@@ -122,7 +122,7 @@ type Workforce struct {
 	OidcConfig WorkforceOidcConfigPtrOutput `pulumi:"oidcConfig"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
+	// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source IP Config details below.
 	SourceIpConfig WorkforceSourceIpConfigOutput `pulumi:"sourceIpConfig"`
 	// The subdomain for your OIDC Identity Provider.
 	Subdomain pulumi.StringOutput `pulumi:"subdomain"`
@@ -173,7 +173,7 @@ type workforceState struct {
 	OidcConfig *WorkforceOidcConfig `pulumi:"oidcConfig"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
+	// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source IP Config details below.
 	SourceIpConfig *WorkforceSourceIpConfig `pulumi:"sourceIpConfig"`
 	// The subdomain for your OIDC Identity Provider.
 	Subdomain *string `pulumi:"subdomain"`
@@ -192,7 +192,7 @@ type WorkforceState struct {
 	OidcConfig WorkforceOidcConfigPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
+	// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source IP Config details below.
 	SourceIpConfig WorkforceSourceIpConfigPtrInput
 	// The subdomain for your OIDC Identity Provider.
 	Subdomain pulumi.StringPtrInput
@@ -213,7 +213,7 @@ type workforceArgs struct {
 	OidcConfig *WorkforceOidcConfig `pulumi:"oidcConfig"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
+	// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source IP Config details below.
 	SourceIpConfig *WorkforceSourceIpConfig `pulumi:"sourceIpConfig"`
 	// The name of the Workforce (must be unique).
 	WorkforceName string `pulumi:"workforceName"`
@@ -229,7 +229,7 @@ type WorkforceArgs struct {
 	OidcConfig WorkforceOidcConfigPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
+	// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source IP Config details below.
 	SourceIpConfig WorkforceSourceIpConfigPtrInput
 	// The name of the Workforce (must be unique).
 	WorkforceName pulumi.StringInput
@@ -344,7 +344,7 @@ func (o WorkforceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workforce) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
+// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source IP Config details below.
 func (o WorkforceOutput) SourceIpConfig() WorkforceSourceIpConfigOutput {
 	return o.ApplyT(func(v *Workforce) WorkforceSourceIpConfigOutput { return v.SourceIpConfig }).(WorkforceSourceIpConfigOutput)
 }

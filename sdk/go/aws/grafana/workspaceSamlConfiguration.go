@@ -94,35 +94,35 @@ import (
 type WorkspaceSamlConfiguration struct {
 	pulumi.CustomResourceState
 
-	// The admin role values.
+	// Admin role values.
 	AdminRoleValues pulumi.StringArrayOutput `pulumi:"adminRoleValues"`
-	// The allowed organizations.
+	// Allowed organizations.
 	AllowedOrganizations pulumi.StringArrayOutput `pulumi:"allowedOrganizations"`
-	// The editor role values.
+	// Editor role values.
 	EditorRoleValues pulumi.StringArrayOutput `pulumi:"editorRoleValues"`
-	// The email assertion.
+	// Email assertion.
 	EmailAssertion pulumi.StringOutput `pulumi:"emailAssertion"`
-	// The groups assertion.
+	// Groups assertion.
 	GroupsAssertion pulumi.StringPtrOutput `pulumi:"groupsAssertion"`
-	// The IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
+	// IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
 	IdpMetadataUrl pulumi.StringPtrOutput `pulumi:"idpMetadataUrl"`
-	// The IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
+	// IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
 	IdpMetadataXml pulumi.StringPtrOutput `pulumi:"idpMetadataXml"`
-	// The login assertion.
+	// Login assertion.
 	LoginAssertion pulumi.StringOutput `pulumi:"loginAssertion"`
-	// The login validity duration.
+	// Login validity duration.
 	LoginValidityDuration pulumi.IntOutput `pulumi:"loginValidityDuration"`
-	// The name assertion.
+	// Name assertion.
 	NameAssertion pulumi.StringOutput `pulumi:"nameAssertion"`
-	// The org assertion.
+	// Org assertion.
 	OrgAssertion pulumi.StringPtrOutput `pulumi:"orgAssertion"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The role assertion.
+	// Role assertion.
 	RoleAssertion pulumi.StringPtrOutput `pulumi:"roleAssertion"`
-	// The status of the SAML configuration.
+	// Status of the SAML configuration.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// The workspace id.
+	// Workspace ID.
 	//
 	// The following arguments are optional:
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
@@ -164,70 +164,70 @@ func GetWorkspaceSamlConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WorkspaceSamlConfiguration resources.
 type workspaceSamlConfigurationState struct {
-	// The admin role values.
+	// Admin role values.
 	AdminRoleValues []string `pulumi:"adminRoleValues"`
-	// The allowed organizations.
+	// Allowed organizations.
 	AllowedOrganizations []string `pulumi:"allowedOrganizations"`
-	// The editor role values.
+	// Editor role values.
 	EditorRoleValues []string `pulumi:"editorRoleValues"`
-	// The email assertion.
+	// Email assertion.
 	EmailAssertion *string `pulumi:"emailAssertion"`
-	// The groups assertion.
+	// Groups assertion.
 	GroupsAssertion *string `pulumi:"groupsAssertion"`
-	// The IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
+	// IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
 	IdpMetadataUrl *string `pulumi:"idpMetadataUrl"`
-	// The IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
+	// IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
 	IdpMetadataXml *string `pulumi:"idpMetadataXml"`
-	// The login assertion.
+	// Login assertion.
 	LoginAssertion *string `pulumi:"loginAssertion"`
-	// The login validity duration.
+	// Login validity duration.
 	LoginValidityDuration *int `pulumi:"loginValidityDuration"`
-	// The name assertion.
+	// Name assertion.
 	NameAssertion *string `pulumi:"nameAssertion"`
-	// The org assertion.
+	// Org assertion.
 	OrgAssertion *string `pulumi:"orgAssertion"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The role assertion.
+	// Role assertion.
 	RoleAssertion *string `pulumi:"roleAssertion"`
-	// The status of the SAML configuration.
+	// Status of the SAML configuration.
 	Status *string `pulumi:"status"`
-	// The workspace id.
+	// Workspace ID.
 	//
 	// The following arguments are optional:
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
 type WorkspaceSamlConfigurationState struct {
-	// The admin role values.
+	// Admin role values.
 	AdminRoleValues pulumi.StringArrayInput
-	// The allowed organizations.
+	// Allowed organizations.
 	AllowedOrganizations pulumi.StringArrayInput
-	// The editor role values.
+	// Editor role values.
 	EditorRoleValues pulumi.StringArrayInput
-	// The email assertion.
+	// Email assertion.
 	EmailAssertion pulumi.StringPtrInput
-	// The groups assertion.
+	// Groups assertion.
 	GroupsAssertion pulumi.StringPtrInput
-	// The IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
+	// IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
 	IdpMetadataUrl pulumi.StringPtrInput
-	// The IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
+	// IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
 	IdpMetadataXml pulumi.StringPtrInput
-	// The login assertion.
+	// Login assertion.
 	LoginAssertion pulumi.StringPtrInput
-	// The login validity duration.
+	// Login validity duration.
 	LoginValidityDuration pulumi.IntPtrInput
-	// The name assertion.
+	// Name assertion.
 	NameAssertion pulumi.StringPtrInput
-	// The org assertion.
+	// Org assertion.
 	OrgAssertion pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The role assertion.
+	// Role assertion.
 	RoleAssertion pulumi.StringPtrInput
-	// The status of the SAML configuration.
+	// Status of the SAML configuration.
 	Status pulumi.StringPtrInput
-	// The workspace id.
+	// Workspace ID.
 	//
 	// The following arguments are optional:
 	WorkspaceId pulumi.StringPtrInput
@@ -238,33 +238,33 @@ func (WorkspaceSamlConfigurationState) ElementType() reflect.Type {
 }
 
 type workspaceSamlConfigurationArgs struct {
-	// The admin role values.
+	// Admin role values.
 	AdminRoleValues []string `pulumi:"adminRoleValues"`
-	// The allowed organizations.
+	// Allowed organizations.
 	AllowedOrganizations []string `pulumi:"allowedOrganizations"`
-	// The editor role values.
+	// Editor role values.
 	EditorRoleValues []string `pulumi:"editorRoleValues"`
-	// The email assertion.
+	// Email assertion.
 	EmailAssertion *string `pulumi:"emailAssertion"`
-	// The groups assertion.
+	// Groups assertion.
 	GroupsAssertion *string `pulumi:"groupsAssertion"`
-	// The IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
+	// IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
 	IdpMetadataUrl *string `pulumi:"idpMetadataUrl"`
-	// The IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
+	// IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
 	IdpMetadataXml *string `pulumi:"idpMetadataXml"`
-	// The login assertion.
+	// Login assertion.
 	LoginAssertion *string `pulumi:"loginAssertion"`
-	// The login validity duration.
+	// Login validity duration.
 	LoginValidityDuration *int `pulumi:"loginValidityDuration"`
-	// The name assertion.
+	// Name assertion.
 	NameAssertion *string `pulumi:"nameAssertion"`
-	// The org assertion.
+	// Org assertion.
 	OrgAssertion *string `pulumi:"orgAssertion"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The role assertion.
+	// Role assertion.
 	RoleAssertion *string `pulumi:"roleAssertion"`
-	// The workspace id.
+	// Workspace ID.
 	//
 	// The following arguments are optional:
 	WorkspaceId string `pulumi:"workspaceId"`
@@ -272,33 +272,33 @@ type workspaceSamlConfigurationArgs struct {
 
 // The set of arguments for constructing a WorkspaceSamlConfiguration resource.
 type WorkspaceSamlConfigurationArgs struct {
-	// The admin role values.
+	// Admin role values.
 	AdminRoleValues pulumi.StringArrayInput
-	// The allowed organizations.
+	// Allowed organizations.
 	AllowedOrganizations pulumi.StringArrayInput
-	// The editor role values.
+	// Editor role values.
 	EditorRoleValues pulumi.StringArrayInput
-	// The email assertion.
+	// Email assertion.
 	EmailAssertion pulumi.StringPtrInput
-	// The groups assertion.
+	// Groups assertion.
 	GroupsAssertion pulumi.StringPtrInput
-	// The IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
+	// IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
 	IdpMetadataUrl pulumi.StringPtrInput
-	// The IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
+	// IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
 	IdpMetadataXml pulumi.StringPtrInput
-	// The login assertion.
+	// Login assertion.
 	LoginAssertion pulumi.StringPtrInput
-	// The login validity duration.
+	// Login validity duration.
 	LoginValidityDuration pulumi.IntPtrInput
-	// The name assertion.
+	// Name assertion.
 	NameAssertion pulumi.StringPtrInput
-	// The org assertion.
+	// Org assertion.
 	OrgAssertion pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The role assertion.
+	// Role assertion.
 	RoleAssertion pulumi.StringPtrInput
-	// The workspace id.
+	// Workspace ID.
 	//
 	// The following arguments are optional:
 	WorkspaceId pulumi.StringInput
@@ -391,57 +391,57 @@ func (o WorkspaceSamlConfigurationOutput) ToWorkspaceSamlConfigurationOutputWith
 	return o
 }
 
-// The admin role values.
+// Admin role values.
 func (o WorkspaceSamlConfigurationOutput) AdminRoleValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringArrayOutput { return v.AdminRoleValues }).(pulumi.StringArrayOutput)
 }
 
-// The allowed organizations.
+// Allowed organizations.
 func (o WorkspaceSamlConfigurationOutput) AllowedOrganizations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringArrayOutput { return v.AllowedOrganizations }).(pulumi.StringArrayOutput)
 }
 
-// The editor role values.
+// Editor role values.
 func (o WorkspaceSamlConfigurationOutput) EditorRoleValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringArrayOutput { return v.EditorRoleValues }).(pulumi.StringArrayOutput)
 }
 
-// The email assertion.
+// Email assertion.
 func (o WorkspaceSamlConfigurationOutput) EmailAssertion() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringOutput { return v.EmailAssertion }).(pulumi.StringOutput)
 }
 
-// The groups assertion.
+// Groups assertion.
 func (o WorkspaceSamlConfigurationOutput) GroupsAssertion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringPtrOutput { return v.GroupsAssertion }).(pulumi.StringPtrOutput)
 }
 
-// The IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
+// IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
 func (o WorkspaceSamlConfigurationOutput) IdpMetadataUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringPtrOutput { return v.IdpMetadataUrl }).(pulumi.StringPtrOutput)
 }
 
-// The IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
+// IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
 func (o WorkspaceSamlConfigurationOutput) IdpMetadataXml() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringPtrOutput { return v.IdpMetadataXml }).(pulumi.StringPtrOutput)
 }
 
-// The login assertion.
+// Login assertion.
 func (o WorkspaceSamlConfigurationOutput) LoginAssertion() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringOutput { return v.LoginAssertion }).(pulumi.StringOutput)
 }
 
-// The login validity duration.
+// Login validity duration.
 func (o WorkspaceSamlConfigurationOutput) LoginValidityDuration() pulumi.IntOutput {
 	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.IntOutput { return v.LoginValidityDuration }).(pulumi.IntOutput)
 }
 
-// The name assertion.
+// Name assertion.
 func (o WorkspaceSamlConfigurationOutput) NameAssertion() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringOutput { return v.NameAssertion }).(pulumi.StringOutput)
 }
 
-// The org assertion.
+// Org assertion.
 func (o WorkspaceSamlConfigurationOutput) OrgAssertion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringPtrOutput { return v.OrgAssertion }).(pulumi.StringPtrOutput)
 }
@@ -451,17 +451,17 @@ func (o WorkspaceSamlConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The role assertion.
+// Role assertion.
 func (o WorkspaceSamlConfigurationOutput) RoleAssertion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringPtrOutput { return v.RoleAssertion }).(pulumi.StringPtrOutput)
 }
 
-// The status of the SAML configuration.
+// Status of the SAML configuration.
 func (o WorkspaceSamlConfigurationOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// The workspace id.
+// Workspace ID.
 //
 // The following arguments are optional:
 func (o WorkspaceSamlConfigurationOutput) WorkspaceId() pulumi.StringOutput {

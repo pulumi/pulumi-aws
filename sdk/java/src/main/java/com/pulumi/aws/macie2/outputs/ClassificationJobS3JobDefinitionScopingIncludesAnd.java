@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClassificationJobS3JobDefinitionScopingIncludesAnd {
     /**
-     * @return A property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job. (documented below)
+     * @return Property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job. See `includes.simple_scope_term` Block for details.
      * 
      */
     private @Nullable ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm simpleScopeTerm;
     /**
-     * @return A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an object from the job. (documented below)
+     * @return Tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an object from the job. See `includes.tag_scope_term` Block for details.
      * 
      */
     private @Nullable ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm tagScopeTerm;
 
     private ClassificationJobS3JobDefinitionScopingIncludesAnd() {}
     /**
-     * @return A property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job. (documented below)
+     * @return Property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job. See `includes.simple_scope_term` Block for details.
      * 
      */
     public Optional<ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm> simpleScopeTerm() {
         return Optional.ofNullable(this.simpleScopeTerm);
     }
     /**
-     * @return A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an object from the job. (documented below)
+     * @return Tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an object from the job. See `includes.tag_scope_term` Block for details.
      * 
      */
     public Optional<ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm> tagScopeTerm() {

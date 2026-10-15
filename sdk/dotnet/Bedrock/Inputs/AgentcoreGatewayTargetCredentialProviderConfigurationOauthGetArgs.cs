@@ -31,13 +31,13 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string>? DefaultReturnUrl { get; set; }
 
         /// <summary>
-        /// OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
+        /// OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access), `TOKEN_EXCHANGE` (on-behalf-of token exchange).
         /// </summary>
         [Input("grantType")]
         public Input<string>? GrantType { get; set; }
 
         /// <summary>
-        /// ARN of the Oauth credential provider for OAuth authentication.
+        /// ARN of the OAuth credential provider.
         /// </summary>
         [Input("providerArn", required: true)]
         public Input<string> ProviderArn { get; set; } = null!;

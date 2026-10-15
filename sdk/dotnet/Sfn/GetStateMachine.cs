@@ -136,7 +136,7 @@ namespace Pulumi.Aws.Sfn
     public sealed class GetStateMachineResult
     {
         /// <summary>
-        /// Set to the arn of the state function.
+        /// Set to the ARN of the state function.
         /// </summary>
         public readonly string Arn;
         /// <summary>

@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// `wafregional.RateBasedRule` Retrieves a WAF Regional Rate Based Rule Resource Id.
+// `wafregional.RateBasedRule` Retrieves a WAF Regional Rate Based Rule Resource ID.
 //
 // ## Example Usage
 //

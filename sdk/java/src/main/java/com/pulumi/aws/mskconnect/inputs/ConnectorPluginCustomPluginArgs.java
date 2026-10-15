@@ -31,14 +31,14 @@ public final class ConnectorPluginCustomPluginArgs extends com.pulumi.resources.
     }
 
     /**
-     * The revision of the custom plugin.
+     * Revision of the custom plugin.
      * 
      */
     @Import(name="revision", required=true)
     private Output<Integer> revision;
 
     /**
-     * @return The revision of the custom plugin.
+     * @return Revision of the custom plugin.
      * 
      */
     public Output<Integer> revision() {
@@ -92,7 +92,7 @@ public final class ConnectorPluginCustomPluginArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param revision The revision of the custom plugin.
+         * @param revision Revision of the custom plugin.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ConnectorPluginCustomPluginArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param revision The revision of the custom plugin.
+         * @param revision Revision of the custom plugin.
          * 
          * @return builder
          * 

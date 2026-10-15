@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Macie2.Inputs
     public sealed class ClassificationJobS3JobDefinitionBucketCriteriaGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The property- or tag-based conditions that determine which S3 buckets to exclude from the analysis. (documented below)
+        /// Property- or tag-based conditions that determine which S3 buckets to exclude from the analysis. See `bucket_criteria.excludes` Block for details.
         /// </summary>
         [Input("excludes")]
         public Input<Inputs.ClassificationJobS3JobDefinitionBucketCriteriaExcludesGetArgs>? Excludes { get; set; }
 
         /// <summary>
-        /// The property- or tag-based conditions that determine which S3 buckets to include in the analysis. (documented below)
+        /// Property- or tag-based conditions that determine which S3 buckets to include in the analysis. See `bucket_criteria.includes` Block for details.
         /// </summary>
         [Input("includes")]
         public Input<Inputs.ClassificationJobS3JobDefinitionBucketCriteriaIncludesGetArgs>? Includes { get; set; }

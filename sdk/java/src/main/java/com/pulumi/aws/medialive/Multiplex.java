@@ -111,28 +111,28 @@ public class Multiplex extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * A list of availability zones. You must specify exactly two.
+     * List of availability zones. You must specify exactly two.
      * 
      */
     @Export(name="availabilityZones", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> availabilityZones;
 
     /**
-     * @return A list of availability zones. You must specify exactly two.
+     * @return List of availability zones. You must specify exactly two.
      * 
      */
     public Output<List<String>> availabilityZones() {
         return this.availabilityZones;
     }
     /**
-     * Multiplex settings. See Multiplex Settings for more details.
+     * Multiplex settings. See `multiplexSettings` Block for more details.
      * 
      */
     @Export(name="multiplexSettings", refs={MultiplexMultiplexSettings.class}, tree="[0]")
     private Output</* @Nullable */ MultiplexMultiplexSettings> multiplexSettings;
 
     /**
-     * @return Multiplex settings. See Multiplex Settings for more details.
+     * @return Multiplex settings. See `multiplexSettings` Block for more details.
      * 
      */
     public Output<Optional<MultiplexMultiplexSettings>> multiplexSettings() {
@@ -185,14 +185,14 @@ public class Multiplex extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.startMultiplex);
     }
     /**
-     * A map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

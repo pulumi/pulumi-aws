@@ -97,7 +97,7 @@ namespace Pulumi.Aws.Dms.Inputs
         public Input<string>? MapLongVarcharAs { get; set; }
 
         /// <summary>
-        /// Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
+        /// Specifies the maximum size (in KB) of any `.csv` file used to transfer data to PostgreSQL. Default is `32,768 KB`.
         /// </summary>
         [Input("maxFileSize")]
         public Input<int>? MaxFileSize { get; set; }

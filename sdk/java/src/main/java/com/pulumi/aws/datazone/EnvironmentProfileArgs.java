@@ -19,14 +19,14 @@ public final class EnvironmentProfileArgs extends com.pulumi.resources.ResourceA
     public static final EnvironmentProfileArgs Empty = new EnvironmentProfileArgs();
 
     /**
-     * Id of the AWS account being used.
+     * ID of the AWS account being used.
      * 
      */
     @Import(name="awsAccountId")
     private @Nullable Output<String> awsAccountId;
 
     /**
-     * @return Id of the AWS account being used.
+     * @return ID of the AWS account being used.
      * 
      */
     public Optional<Output<String>> awsAccountId() {
@@ -186,7 +186,7 @@ public final class EnvironmentProfileArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param awsAccountId Id of the AWS account being used.
+         * @param awsAccountId ID of the AWS account being used.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class EnvironmentProfileArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param awsAccountId Id of the AWS account being used.
+         * @param awsAccountId ID of the AWS account being used.
          * 
          * @return builder
          * 

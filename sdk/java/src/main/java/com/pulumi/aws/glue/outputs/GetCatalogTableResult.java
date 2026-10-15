@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetCatalogTableResult {
     /**
-     * @return The ARN of the Glue Table.
+     * @return ARN of the Glue Table.
      * 
      */
     private String arn;
@@ -109,7 +109,7 @@ public final class GetCatalogTableResult {
 
     private GetCatalogTableResult() {}
     /**
-     * @return The ARN of the Glue Table.
+     * @return ARN of the Glue Table.
      * 
      */
     public String arn() {

@@ -28,10 +28,10 @@ class ChannelArgs:
         """
         The set of arguments for constructing a Channel resource.
 
-        :param pulumi.Input[_builtins.str] channel_id: A unique identifier describing the channel
-        :param pulumi.Input[_builtins.str] description: A description of the channel
+        :param pulumi.Input[_builtins.str] channel_id: Unique identifier describing the channel
+        :param pulumi.Input[_builtins.str] description: Description of the channel
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "channel_id", channel_id)
         if description is None:
@@ -47,7 +47,7 @@ class ChannelArgs:
     @pulumi.getter(name="channelId")
     def channel_id(self) -> pulumi.Input[_builtins.str]:
         """
-        A unique identifier describing the channel
+        Unique identifier describing the channel
         """
         return pulumi.get(self, "channel_id")
 
@@ -59,7 +59,7 @@ class ChannelArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A description of the channel
+        Description of the channel
         """
         return pulumi.get(self, "description")
 
@@ -83,7 +83,7 @@ class ChannelArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -105,13 +105,13 @@ class _ChannelState:
         """
         Input properties used for looking up and filtering Channel resources.
 
-        :param pulumi.Input[_builtins.str] arn: The ARN of the channel
-        :param pulumi.Input[_builtins.str] channel_id: A unique identifier describing the channel
-        :param pulumi.Input[_builtins.str] description: A description of the channel
-        :param pulumi.Input[Sequence[pulumi.Input['ChannelHlsIngestArgs']]] hls_ingests: A single item list of HLS ingest information
+        :param pulumi.Input[_builtins.str] arn: ARN of the channel
+        :param pulumi.Input[_builtins.str] channel_id: Unique identifier describing the channel
+        :param pulumi.Input[_builtins.str] description: Description of the channel
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelHlsIngestArgs']]] hls_ingests: Single item list of HLS ingest information
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -134,7 +134,7 @@ class _ChannelState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the channel
+        ARN of the channel
         """
         return pulumi.get(self, "arn")
 
@@ -146,7 +146,7 @@ class _ChannelState:
     @pulumi.getter(name="channelId")
     def channel_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A unique identifier describing the channel
+        Unique identifier describing the channel
         """
         return pulumi.get(self, "channel_id")
 
@@ -158,7 +158,7 @@ class _ChannelState:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A description of the channel
+        Description of the channel
         """
         return pulumi.get(self, "description")
 
@@ -170,7 +170,7 @@ class _ChannelState:
     @pulumi.getter(name="hlsIngests")
     def hls_ingests(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ChannelHlsIngestArgs']]]]:
         """
-        A single item list of HLS ingest information
+        Single item list of HLS ingest information
         """
         return pulumi.get(self, "hls_ingests")
 
@@ -194,7 +194,7 @@ class _ChannelState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -206,7 +206,7 @@ class _ChannelState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -251,10 +251,10 @@ class Channel(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] channel_id: A unique identifier describing the channel
-        :param pulumi.Input[_builtins.str] description: A description of the channel
+        :param pulumi.Input[_builtins.str] channel_id: Unique identifier describing the channel
+        :param pulumi.Input[_builtins.str] description: Description of the channel
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -348,13 +348,13 @@ class Channel(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the channel
-        :param pulumi.Input[_builtins.str] channel_id: A unique identifier describing the channel
-        :param pulumi.Input[_builtins.str] description: A description of the channel
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelHlsIngestArgs', 'ChannelHlsIngestArgsDict', 'outputs.ChannelHlsIngest']]]] hls_ingests: A single item list of HLS ingest information
+        :param pulumi.Input[_builtins.str] arn: ARN of the channel
+        :param pulumi.Input[_builtins.str] channel_id: Unique identifier describing the channel
+        :param pulumi.Input[_builtins.str] description: Description of the channel
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelHlsIngestArgs', 'ChannelHlsIngestArgsDict', 'outputs.ChannelHlsIngest']]]] hls_ingests: Single item list of HLS ingest information
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -373,7 +373,7 @@ class Channel(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the channel
+        ARN of the channel
         """
         return pulumi.get(self, "arn")
 
@@ -381,7 +381,7 @@ class Channel(pulumi.CustomResource):
     @pulumi.getter(name="channelId")
     def channel_id(self) -> pulumi.Output[_builtins.str]:
         """
-        A unique identifier describing the channel
+        Unique identifier describing the channel
         """
         return pulumi.get(self, "channel_id")
 
@@ -389,7 +389,7 @@ class Channel(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[_builtins.str]:
         """
-        A description of the channel
+        Description of the channel
         """
         return pulumi.get(self, "description")
 
@@ -397,7 +397,7 @@ class Channel(pulumi.CustomResource):
     @pulumi.getter(name="hlsIngests")
     def hls_ingests(self) -> pulumi.Output[Sequence['outputs.ChannelHlsIngest']]:
         """
-        A single item list of HLS ingest information
+        Single item list of HLS ingest information
         """
         return pulumi.get(self, "hls_ingests")
 
@@ -413,7 +413,7 @@ class Channel(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -421,7 +421,7 @@ class Channel(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

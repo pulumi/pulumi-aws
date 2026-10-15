@@ -15,14 +15,14 @@ public final class ChannelDestinationMultiplexSettingsArgs extends com.pulumi.re
     public static final ChannelDestinationMultiplexSettingsArgs Empty = new ChannelDestinationMultiplexSettingsArgs();
 
     /**
-     * The ID of the Multiplex that the encoder is providing output to.
+     * ID of the Multiplex that the encoder is providing output to.
      * 
      */
     @Import(name="multiplexId", required=true)
     private Output<String> multiplexId;
 
     /**
-     * @return The ID of the Multiplex that the encoder is providing output to.
+     * @return ID of the Multiplex that the encoder is providing output to.
      * 
      */
     public Output<String> multiplexId() {
@@ -30,14 +30,14 @@ public final class ChannelDestinationMultiplexSettingsArgs extends com.pulumi.re
     }
 
     /**
-     * The program name of the Multiplex program that the encoder is providing output to.
+     * Program name of the Multiplex program that the encoder is providing output to.
      * 
      */
     @Import(name="programName", required=true)
     private Output<String> programName;
 
     /**
-     * @return The program name of the Multiplex program that the encoder is providing output to.
+     * @return Program name of the Multiplex program that the encoder is providing output to.
      * 
      */
     public Output<String> programName() {
@@ -70,7 +70,7 @@ public final class ChannelDestinationMultiplexSettingsArgs extends com.pulumi.re
         }
 
         /**
-         * @param multiplexId The ID of the Multiplex that the encoder is providing output to.
+         * @param multiplexId ID of the Multiplex that the encoder is providing output to.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class ChannelDestinationMultiplexSettingsArgs extends com.pulumi.re
         }
 
         /**
-         * @param multiplexId The ID of the Multiplex that the encoder is providing output to.
+         * @param multiplexId ID of the Multiplex that the encoder is providing output to.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class ChannelDestinationMultiplexSettingsArgs extends com.pulumi.re
         }
 
         /**
-         * @param programName The program name of the Multiplex program that the encoder is providing output to.
+         * @param programName Program name of the Multiplex program that the encoder is providing output to.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class ChannelDestinationMultiplexSettingsArgs extends com.pulumi.re
         }
 
         /**
-         * @param programName The program name of the Multiplex program that the encoder is providing output to.
+         * @param programName Program name of the Multiplex program that the encoder is providing output to.
          * 
          * @return builder
          * 

@@ -12,11 +12,14 @@ namespace Pulumi.Aws.Mwaa.Inputs
 
     public sealed class EnvironmentLoggingConfigurationSchedulerLogsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of the CloudWatch Logs log group where the logs are published.
+        /// </summary>
         [Input("cloudWatchLogGroupArn")]
         public Input<string>? CloudWatchLogGroupArn { get; set; }
 
         /// <summary>
-        /// Enabling or disabling the collection of logs
+        /// Whether to enable the collection of logs.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

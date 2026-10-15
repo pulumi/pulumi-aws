@@ -64,14 +64,14 @@ public final class DataQualityRulesetArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
+     * Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
      * 
      */
     @Import(name="ruleset", required=true)
     private Output<String> ruleset;
 
     /**
-     * @return A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
+     * @return Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
      * 
      */
     public Output<String> ruleset() {
@@ -94,14 +94,14 @@ public final class DataQualityRulesetArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` below.
+     * Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` Block below.
      * 
      */
     @Import(name="targetTable")
     private @Nullable Output<DataQualityRulesetTargetTableArgs> targetTable;
 
     /**
-     * @return A Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` below.
+     * @return Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` Block below.
      * 
      */
     public Optional<Output<DataQualityRulesetTargetTableArgs>> targetTable() {
@@ -201,7 +201,7 @@ public final class DataQualityRulesetArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param ruleset A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
+         * @param ruleset Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class DataQualityRulesetArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param ruleset A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
+         * @param ruleset Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class DataQualityRulesetArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param targetTable A Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` below.
+         * @param targetTable Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` Block below.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class DataQualityRulesetArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param targetTable A Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` below.
+         * @param targetTable Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` Block below.
          * 
          * @return builder
          * 

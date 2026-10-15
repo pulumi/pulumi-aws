@@ -6884,7 +6884,7 @@ func (o PipeTargetParametersEcsTaskParametersOverridesPtrOutput) TaskRoleArn() p
 type PipeTargetParametersEcsTaskParametersOverridesContainerOverride struct {
 	// List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
 	Commands []string `pulumi:"commands"`
-	// Number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
+	// Number of CPU units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
 	Cpu *int `pulumi:"cpu"`
 	// List of files containing the environment variables to pass to a container, instead of the value from the container definition. See `environmentFile` Block for details.
 	EnvironmentFiles []PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFile `pulumi:"environmentFiles"`
@@ -6914,7 +6914,7 @@ type PipeTargetParametersEcsTaskParametersOverridesContainerOverrideInput interf
 type PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs struct {
 	// List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
-	// Number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
+	// Number of CPU units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
 	Cpu pulumi.IntPtrInput `pulumi:"cpu"`
 	// List of files containing the environment variables to pass to a container, instead of the value from the container definition. See `environmentFile` Block for details.
 	EnvironmentFiles PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileArrayInput `pulumi:"environmentFiles"`
@@ -6986,7 +6986,7 @@ func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideOutput) C
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverridesContainerOverride) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
 
-// Number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
+// Number of CPU units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
 func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideOutput) Cpu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverridesContainerOverride) *int { return v.Cpu }).(pulumi.IntPtrOutput)
 }
@@ -7724,7 +7724,7 @@ func (o PipeTargetParametersEcsTaskParametersPlacementConstraintArrayOutput) Ind
 }
 
 type PipeTargetParametersEcsTaskParametersPlacementStrategy struct {
-	// Field to apply the placement strategy against. For the spread placement strategy, valid values are instanceId (or host, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as attribute:ecs.availability-zone. For the binpack placement strategy, valid values are cpu and memory. For the random placement strategy, this field is not used. Maximum length of 255.
+	// Field to apply the placement strategy against. For the spread placement strategy, valid values are instanceId (or host, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as attribute:ecs.availability-zone. For the binpack placement strategy, valid values are `cpu` and `memory`. For the random placement strategy, this field is not used. Maximum length of 255.
 	Field *string `pulumi:"field"`
 	// Type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
 	Type *string `pulumi:"type"`
@@ -7742,7 +7742,7 @@ type PipeTargetParametersEcsTaskParametersPlacementStrategyInput interface {
 }
 
 type PipeTargetParametersEcsTaskParametersPlacementStrategyArgs struct {
-	// Field to apply the placement strategy against. For the spread placement strategy, valid values are instanceId (or host, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as attribute:ecs.availability-zone. For the binpack placement strategy, valid values are cpu and memory. For the random placement strategy, this field is not used. Maximum length of 255.
+	// Field to apply the placement strategy against. For the spread placement strategy, valid values are instanceId (or host, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as attribute:ecs.availability-zone. For the binpack placement strategy, valid values are `cpu` and `memory`. For the random placement strategy, this field is not used. Maximum length of 255.
 	Field pulumi.StringPtrInput `pulumi:"field"`
 	// Type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -7799,7 +7799,7 @@ func (o PipeTargetParametersEcsTaskParametersPlacementStrategyOutput) ToPipeTarg
 	return o
 }
 
-// Field to apply the placement strategy against. For the spread placement strategy, valid values are instanceId (or host, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as attribute:ecs.availability-zone. For the binpack placement strategy, valid values are cpu and memory. For the random placement strategy, this field is not used. Maximum length of 255.
+// Field to apply the placement strategy against. For the spread placement strategy, valid values are instanceId (or host, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as attribute:ecs.availability-zone. For the binpack placement strategy, valid values are `cpu` and `memory`. For the random placement strategy, this field is not used. Maximum length of 255.
 func (o PipeTargetParametersEcsTaskParametersPlacementStrategyOutput) Field() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersPlacementStrategy) *string { return v.Field }).(pulumi.StringPtrOutput)
 }

@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationInlineCode? InlineCode;
         /// <summary>
-        /// Configurations for an input flow node in your flow. The node `Inputs` can't be specified for this node. This block has no arguments.
+        /// Configurations for an input flow node in your flow. The `definition.node.input` block can't be specified for this node. This block has no arguments.
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationInput? Input;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationIterator? Iterator;
         /// <summary>
-        /// Configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See `definition.node.configuration.knowledge_base` Block for details.
+        /// Configurations for a knowledge base node in your flow. Queries a knowledge base and returns a response generated from the retrieved results. See `definition.node.configuration.knowledge_base` Block for details.
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationKnowledgeBase? KnowledgeBase;
         /// <summary>
@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationLex? Lex;
         /// <summary>
-        /// Configurations for an output flow node in your flow. The node `Outputs` can't be specified for this node. This block has no arguments.
+        /// Configurations for an output flow node in your flow. The `definition.node.output` block can't be specified for this node. This block has no arguments.
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfigurationOutput? Output;
         /// <summary>

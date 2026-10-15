@@ -80,6 +80,10 @@ export interface GetV2PolicyResult {
     readonly name: string;
     readonly region: string;
     /**
+     * Whether the policy is shared with other member accounts of the organization.
+     */
+    readonly sharingEnabled: boolean;
+    /**
      * Map of tags assigned to the resource.
      */
     readonly tags: {[key: string]: string};

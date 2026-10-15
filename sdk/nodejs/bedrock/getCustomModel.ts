@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Returns properties of a specific Amazon Bedrock custom model.
+ * Provides details about a specific Amazon Bedrock custom model.
  *
  * ## Example Usage
  *
@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = aws.bedrock.getCustomModel({
- *     modelId: "arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4 ",
+ * const example = aws.bedrock.getCustomModel({
+ *     modelId: "arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4",
  * });
  * ```
  */
@@ -69,7 +69,7 @@ export interface GetCustomModelResult {
      */
     readonly jobName: string;
     /**
-     * Key-value mapping of tags for the fine-tuning job.
+     * Key-value mapping of tags for the customization job.
      */
     readonly jobTags: {[key: string]: string};
     /**
@@ -112,7 +112,7 @@ export interface GetCustomModelResult {
     readonly validationMetrics: outputs.bedrock.GetCustomModelValidationMetric[];
 }
 /**
- * Returns properties of a specific Amazon Bedrock custom model.
+ * Provides details about a specific Amazon Bedrock custom model.
  *
  * ## Example Usage
  *
@@ -120,8 +120,8 @@ export interface GetCustomModelResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = aws.bedrock.getCustomModel({
- *     modelId: "arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4 ",
+ * const example = aws.bedrock.getCustomModel({
+ *     modelId: "arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4",
  * });
  * ```
  */

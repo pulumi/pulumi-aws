@@ -106,7 +106,7 @@ namespace Pulumi.Aws.GuardDuty
         public Output<string> DetectorId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+        /// Name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -118,7 +118,7 @@ namespace Pulumi.Aws.GuardDuty
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
+        /// Status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -194,7 +194,7 @@ namespace Pulumi.Aws.GuardDuty
         public Input<string> DetectorId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+        /// Name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -206,7 +206,7 @@ namespace Pulumi.Aws.GuardDuty
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
+        /// Status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
         /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
@@ -244,7 +244,7 @@ namespace Pulumi.Aws.GuardDuty
         public Input<string>? DetectorId { get; set; }
 
         /// <summary>
-        /// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+        /// Name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -256,7 +256,7 @@ namespace Pulumi.Aws.GuardDuty
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
+        /// Status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

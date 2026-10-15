@@ -109,7 +109,7 @@ export class DataQualityRuleset extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The time and date that this data quality ruleset was created.
+     * Time and date that this data quality ruleset was created.
      */
     declare public /*out*/ readonly createdOn: pulumi.Output<string>;
     /**
@@ -117,7 +117,7 @@ export class DataQualityRuleset extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * The time and date that this data quality ruleset was created.
+     * Time and date that this data quality ruleset was created.
      */
     declare public /*out*/ readonly lastModifiedOn: pulumi.Output<string>;
     /**
@@ -133,7 +133,7 @@ export class DataQualityRuleset extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
+     * Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
      */
     declare public readonly ruleset: pulumi.Output<string>;
     /**
@@ -141,11 +141,11 @@ export class DataQualityRuleset extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * A Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` below.
+     * Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` Block below.
      */
     declare public readonly targetTable: pulumi.Output<outputs.glue.DataQualityRulesetTargetTable | undefined>;
 
@@ -204,7 +204,7 @@ export interface DataQualityRulesetState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The time and date that this data quality ruleset was created.
+     * Time and date that this data quality ruleset was created.
      */
     createdOn?: pulumi.Input<string | undefined>;
     /**
@@ -212,7 +212,7 @@ export interface DataQualityRulesetState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The time and date that this data quality ruleset was created.
+     * Time and date that this data quality ruleset was created.
      */
     lastModifiedOn?: pulumi.Input<string | undefined>;
     /**
@@ -228,7 +228,7 @@ export interface DataQualityRulesetState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
+     * Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
      */
     ruleset?: pulumi.Input<string | undefined>;
     /**
@@ -236,11 +236,11 @@ export interface DataQualityRulesetState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` below.
+     * Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` Block below.
      */
     targetTable?: pulumi.Input<inputs.glue.DataQualityRulesetTargetTable | undefined>;
 }
@@ -262,7 +262,7 @@ export interface DataQualityRulesetArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
+     * Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
      */
     ruleset: pulumi.Input<string>;
     /**
@@ -270,7 +270,7 @@ export interface DataQualityRulesetArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` below.
+     * Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` Block below.
      */
     targetTable?: pulumi.Input<inputs.glue.DataQualityRulesetTargetTable | undefined>;
 }

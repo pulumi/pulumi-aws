@@ -40,7 +40,7 @@ public final class GetCustomPluginResult {
      */
     private String state;
     /**
-     * @return A map of tags assigned to the resource.
+     * @return Map of tags assigned to the resource.
      * 
      */
     private Map<String,String> tags;
@@ -88,7 +88,7 @@ public final class GetCustomPluginResult {
         return this.state;
     }
     /**
-     * @return A map of tags assigned to the resource.
+     * @return Map of tags assigned to the resource.
      * 
      */
     public Map<String,String> tags() {

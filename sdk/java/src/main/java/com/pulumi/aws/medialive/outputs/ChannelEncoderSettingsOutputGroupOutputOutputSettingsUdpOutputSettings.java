@@ -16,44 +16,52 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings {
     /**
-     * @return UDP output buffering in milliseconds.
+     * @return UDP output buffering, in milliseconds.
      * 
      */
     private @Nullable Integer bufferMsec;
     /**
-     * @return UDP container settings. See Container Settings for more details.
+     * @return UDP container settings. See `udp_output_settings.container_settings` Block for details.
      * 
      */
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings containerSettings;
     /**
-     * @return Destination address and port number for RTP or UDP packets. See Destination for more details.
+     * @return Destination address and port number for RTP or UDP packets. See `destination` Block for details.
      * 
      */
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestination destination;
+    /**
+     * @return Settings for enabling and adjusting Forward Error Correction on UDP outputs. See `fecOutputSettings` Block for details.
+     * 
+     */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings fecOutputSettings;
 
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings() {}
     /**
-     * @return UDP output buffering in milliseconds.
+     * @return UDP output buffering, in milliseconds.
      * 
      */
     public Optional<Integer> bufferMsec() {
         return Optional.ofNullable(this.bufferMsec);
     }
     /**
-     * @return UDP container settings. See Container Settings for more details.
+     * @return UDP container settings. See `udp_output_settings.container_settings` Block for details.
      * 
      */
     public ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings containerSettings() {
         return this.containerSettings;
     }
     /**
-     * @return Destination address and port number for RTP or UDP packets. See Destination for more details.
+     * @return Destination address and port number for RTP or UDP packets. See `destination` Block for details.
      * 
      */
     public ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestination destination() {
         return this.destination;
     }
+    /**
+     * @return Settings for enabling and adjusting Forward Error Correction on UDP outputs. See `fecOutputSettings` Block for details.
+     * 
+     */
     public Optional<ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings> fecOutputSettings() {
         return Optional.ofNullable(this.fecOutputSettings);
     }

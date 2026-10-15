@@ -15,22 +15,30 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmooth
 
     public static final ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsArgs();
 
+    /**
+     * Only applicable when this output is referencing an H.265 video description. Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
+     * 
+     */
     @Import(name="h265PackagingType")
     private @Nullable Output<String> h265PackagingType;
 
+    /**
+     * @return Only applicable when this output is referencing an H.265 video description. Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
+     * 
+     */
     public Optional<Output<String>> h265PackagingType() {
         return Optional.ofNullable(this.h265PackagingType);
     }
 
     /**
-     * String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+     * String concatenated to the end of the destination filename.
      * 
      */
     @Import(name="nameModifier")
     private @Nullable Output<String> nameModifier;
 
     /**
-     * @return String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+     * @return String concatenated to the end of the destination filename.
      * 
      */
     public Optional<Output<String>> nameModifier() {
@@ -62,17 +70,29 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmooth
             $ = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param h265PackagingType Only applicable when this output is referencing an H.265 video description. Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
+         * 
+         * @return builder
+         * 
+         */
         public Builder h265PackagingType(@Nullable Output<String> h265PackagingType) {
             $.h265PackagingType = h265PackagingType;
             return this;
         }
 
+        /**
+         * @param h265PackagingType Only applicable when this output is referencing an H.265 video description. Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
+         * 
+         * @return builder
+         * 
+         */
         public Builder h265PackagingType(String h265PackagingType) {
             return h265PackagingType(Output.of(h265PackagingType));
         }
 
         /**
-         * @param nameModifier String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+         * @param nameModifier String concatenated to the end of the destination filename.
          * 
          * @return builder
          * 
@@ -83,7 +103,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmooth
         }
 
         /**
-         * @param nameModifier String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+         * @param nameModifier String concatenated to the end of the destination filename.
          * 
          * @return builder
          * 

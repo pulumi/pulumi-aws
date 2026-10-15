@@ -40,7 +40,7 @@ namespace Pulumi.Aws.NetworkManager.Inputs
         private InputList<string>? _destinations;
 
         /// <summary>
-        /// A list of strings. Valid values include `["blackhole"]` or a list of attachment ids.
+        /// A list of strings. Valid values include `["blackhole"]` or a list of attachment IDs.
         /// </summary>
         public InputList<string> Destinations
         {

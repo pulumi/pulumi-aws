@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         }
 
         /// <summary>
-        /// Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
+        /// Details about the POSIX identity that is used for file system operations. See Custom POSIX User Config below.
         /// </summary>
         [Input("customPosixUserConfig")]
         public Input<Inputs.UserProfileUserSettingsCustomPosixUserConfigGetArgs>? CustomPosixUserConfig { get; set; }

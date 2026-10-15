@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Glue
     {
         public readonly string CatalogId;
         /// <summary>
-        /// The security configuration to set. see Data Catalog Encryption Settings.
+        /// Security configuration to set. see `DataCatalogEncryptionSettings` Block.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingResult> DataCatalogEncryptionSettings;
         /// <summary>

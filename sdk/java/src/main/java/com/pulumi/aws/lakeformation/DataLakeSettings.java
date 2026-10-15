@@ -109,7 +109,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### Enable EMR access to LakeFormation resources
+ * ### Enable EMR access to Lake Formation resources
  * 
  * <pre>
  * {@code

@@ -34,7 +34,7 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
      */
     private String endpoint;
     /**
-     * @return Name of the service that hosts the MongoDB Atlas database.
+     * @return Name of the VPC endpoint service in your account that is connected to your MongoDB Atlas cluster.
      * 
      */
     private @Nullable String endpointServiceName;
@@ -44,7 +44,7 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
      */
     private AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping fieldMapping;
     /**
-     * @return Name of the vector index.
+     * @return Name of the text search index in the MongoDB collection. Required for hybrid search.
      * 
      */
     private @Nullable String textIndexName;
@@ -84,7 +84,7 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
         return this.endpoint;
     }
     /**
-     * @return Name of the service that hosts the MongoDB Atlas database.
+     * @return Name of the VPC endpoint service in your account that is connected to your MongoDB Atlas cluster.
      * 
      */
     public Optional<String> endpointServiceName() {
@@ -98,7 +98,7 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
         return this.fieldMapping;
     }
     /**
-     * @return Name of the vector index.
+     * @return Name of the text search index in the MongoDB collection. Required for hybrid search.
      * 
      */
     public Optional<String> textIndexName() {

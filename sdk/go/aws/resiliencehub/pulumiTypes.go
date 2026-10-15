@@ -1232,6 +1232,8 @@ func (o V2InputSourceResourceConfigurationPtrOutput) TfStateFileUrl() pulumi.Str
 type V2InputSourceResourceConfigurationEks struct {
 	// Cluster ARN.
 	ClusterArn string `pulumi:"clusterArn"`
+	// Kubernetes label selector that narrows discovery to the objects whose labels match. When omitted, all supported objects in the selected namespaces are discovered. See `labelSelector` Block below.
+	LabelSelector *V2InputSourceResourceConfigurationEksLabelSelector `pulumi:"labelSelector"`
 	// List of Kubernetes namespaces within the EKS cluster.
 	Namespaces []string `pulumi:"namespaces"`
 }
@@ -1250,6 +1252,8 @@ type V2InputSourceResourceConfigurationEksInput interface {
 type V2InputSourceResourceConfigurationEksArgs struct {
 	// Cluster ARN.
 	ClusterArn pulumi.StringInput `pulumi:"clusterArn"`
+	// Kubernetes label selector that narrows discovery to the objects whose labels match. When omitted, all supported objects in the selected namespaces are discovered. See `labelSelector` Block below.
+	LabelSelector V2InputSourceResourceConfigurationEksLabelSelectorPtrInput `pulumi:"labelSelector"`
 	// List of Kubernetes namespaces within the EKS cluster.
 	Namespaces pulumi.StringArrayInput `pulumi:"namespaces"`
 }
@@ -1336,6 +1340,13 @@ func (o V2InputSourceResourceConfigurationEksOutput) ClusterArn() pulumi.StringO
 	return o.ApplyT(func(v V2InputSourceResourceConfigurationEks) string { return v.ClusterArn }).(pulumi.StringOutput)
 }
 
+// Kubernetes label selector that narrows discovery to the objects whose labels match. When omitted, all supported objects in the selected namespaces are discovered. See `labelSelector` Block below.
+func (o V2InputSourceResourceConfigurationEksOutput) LabelSelector() V2InputSourceResourceConfigurationEksLabelSelectorPtrOutput {
+	return o.ApplyT(func(v V2InputSourceResourceConfigurationEks) *V2InputSourceResourceConfigurationEksLabelSelector {
+		return v.LabelSelector
+	}).(V2InputSourceResourceConfigurationEksLabelSelectorPtrOutput)
+}
+
 // List of Kubernetes namespaces within the EKS cluster.
 func (o V2InputSourceResourceConfigurationEksOutput) Namespaces() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v V2InputSourceResourceConfigurationEks) []string { return v.Namespaces }).(pulumi.StringArrayOutput)
@@ -1375,6 +1386,16 @@ func (o V2InputSourceResourceConfigurationEksPtrOutput) ClusterArn() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// Kubernetes label selector that narrows discovery to the objects whose labels match. When omitted, all supported objects in the selected namespaces are discovered. See `labelSelector` Block below.
+func (o V2InputSourceResourceConfigurationEksPtrOutput) LabelSelector() V2InputSourceResourceConfigurationEksLabelSelectorPtrOutput {
+	return o.ApplyT(func(v *V2InputSourceResourceConfigurationEks) *V2InputSourceResourceConfigurationEksLabelSelector {
+		if v == nil {
+			return nil
+		}
+		return v.LabelSelector
+	}).(V2InputSourceResourceConfigurationEksLabelSelectorPtrOutput)
+}
+
 // List of Kubernetes namespaces within the EKS cluster.
 func (o V2InputSourceResourceConfigurationEksPtrOutput) Namespaces() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *V2InputSourceResourceConfigurationEks) []string {
@@ -1383,6 +1404,279 @@ func (o V2InputSourceResourceConfigurationEksPtrOutput) Namespaces() pulumi.Stri
 		}
 		return v.Namespaces
 	}).(pulumi.StringArrayOutput)
+}
+
+type V2InputSourceResourceConfigurationEksLabelSelector struct {
+	// Label requirements that an object must satisfy. Every requirement must match. See `matchExpressions` Block below.
+	MatchExpressions []V2InputSourceResourceConfigurationEksLabelSelectorMatchExpression `pulumi:"matchExpressions"`
+	// Label key-value pairs that an object must have, up to 20. Every pair must match.
+	MatchLabels map[string]string `pulumi:"matchLabels"`
+}
+
+// V2InputSourceResourceConfigurationEksLabelSelectorInput is an input type that accepts V2InputSourceResourceConfigurationEksLabelSelectorArgs and V2InputSourceResourceConfigurationEksLabelSelectorOutput values.
+// You can construct a concrete instance of `V2InputSourceResourceConfigurationEksLabelSelectorInput` via:
+//
+//	V2InputSourceResourceConfigurationEksLabelSelectorArgs{...}
+type V2InputSourceResourceConfigurationEksLabelSelectorInput interface {
+	pulumi.Input
+
+	ToV2InputSourceResourceConfigurationEksLabelSelectorOutput() V2InputSourceResourceConfigurationEksLabelSelectorOutput
+	ToV2InputSourceResourceConfigurationEksLabelSelectorOutputWithContext(context.Context) V2InputSourceResourceConfigurationEksLabelSelectorOutput
+}
+
+type V2InputSourceResourceConfigurationEksLabelSelectorArgs struct {
+	// Label requirements that an object must satisfy. Every requirement must match. See `matchExpressions` Block below.
+	MatchExpressions V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArrayInput `pulumi:"matchExpressions"`
+	// Label key-value pairs that an object must have, up to 20. Every pair must match.
+	MatchLabels pulumi.StringMapInput `pulumi:"matchLabels"`
+}
+
+func (V2InputSourceResourceConfigurationEksLabelSelectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2InputSourceResourceConfigurationEksLabelSelector)(nil)).Elem()
+}
+
+func (i V2InputSourceResourceConfigurationEksLabelSelectorArgs) ToV2InputSourceResourceConfigurationEksLabelSelectorOutput() V2InputSourceResourceConfigurationEksLabelSelectorOutput {
+	return i.ToV2InputSourceResourceConfigurationEksLabelSelectorOutputWithContext(context.Background())
+}
+
+func (i V2InputSourceResourceConfigurationEksLabelSelectorArgs) ToV2InputSourceResourceConfigurationEksLabelSelectorOutputWithContext(ctx context.Context) V2InputSourceResourceConfigurationEksLabelSelectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2InputSourceResourceConfigurationEksLabelSelectorOutput)
+}
+
+func (i V2InputSourceResourceConfigurationEksLabelSelectorArgs) ToV2InputSourceResourceConfigurationEksLabelSelectorPtrOutput() V2InputSourceResourceConfigurationEksLabelSelectorPtrOutput {
+	return i.ToV2InputSourceResourceConfigurationEksLabelSelectorPtrOutputWithContext(context.Background())
+}
+
+func (i V2InputSourceResourceConfigurationEksLabelSelectorArgs) ToV2InputSourceResourceConfigurationEksLabelSelectorPtrOutputWithContext(ctx context.Context) V2InputSourceResourceConfigurationEksLabelSelectorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2InputSourceResourceConfigurationEksLabelSelectorOutput).ToV2InputSourceResourceConfigurationEksLabelSelectorPtrOutputWithContext(ctx)
+}
+
+// V2InputSourceResourceConfigurationEksLabelSelectorPtrInput is an input type that accepts V2InputSourceResourceConfigurationEksLabelSelectorArgs, V2InputSourceResourceConfigurationEksLabelSelectorPtr and V2InputSourceResourceConfigurationEksLabelSelectorPtrOutput values.
+// You can construct a concrete instance of `V2InputSourceResourceConfigurationEksLabelSelectorPtrInput` via:
+//
+//	        V2InputSourceResourceConfigurationEksLabelSelectorArgs{...}
+//
+//	or:
+//
+//	        nil
+type V2InputSourceResourceConfigurationEksLabelSelectorPtrInput interface {
+	pulumi.Input
+
+	ToV2InputSourceResourceConfigurationEksLabelSelectorPtrOutput() V2InputSourceResourceConfigurationEksLabelSelectorPtrOutput
+	ToV2InputSourceResourceConfigurationEksLabelSelectorPtrOutputWithContext(context.Context) V2InputSourceResourceConfigurationEksLabelSelectorPtrOutput
+}
+
+type v2inputSourceResourceConfigurationEksLabelSelectorPtrType V2InputSourceResourceConfigurationEksLabelSelectorArgs
+
+func V2InputSourceResourceConfigurationEksLabelSelectorPtr(v *V2InputSourceResourceConfigurationEksLabelSelectorArgs) V2InputSourceResourceConfigurationEksLabelSelectorPtrInput {
+	return (*v2inputSourceResourceConfigurationEksLabelSelectorPtrType)(v)
+}
+
+func (*v2inputSourceResourceConfigurationEksLabelSelectorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**V2InputSourceResourceConfigurationEksLabelSelector)(nil)).Elem()
+}
+
+func (i *v2inputSourceResourceConfigurationEksLabelSelectorPtrType) ToV2InputSourceResourceConfigurationEksLabelSelectorPtrOutput() V2InputSourceResourceConfigurationEksLabelSelectorPtrOutput {
+	return i.ToV2InputSourceResourceConfigurationEksLabelSelectorPtrOutputWithContext(context.Background())
+}
+
+func (i *v2inputSourceResourceConfigurationEksLabelSelectorPtrType) ToV2InputSourceResourceConfigurationEksLabelSelectorPtrOutputWithContext(ctx context.Context) V2InputSourceResourceConfigurationEksLabelSelectorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2InputSourceResourceConfigurationEksLabelSelectorPtrOutput)
+}
+
+type V2InputSourceResourceConfigurationEksLabelSelectorOutput struct{ *pulumi.OutputState }
+
+func (V2InputSourceResourceConfigurationEksLabelSelectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2InputSourceResourceConfigurationEksLabelSelector)(nil)).Elem()
+}
+
+func (o V2InputSourceResourceConfigurationEksLabelSelectorOutput) ToV2InputSourceResourceConfigurationEksLabelSelectorOutput() V2InputSourceResourceConfigurationEksLabelSelectorOutput {
+	return o
+}
+
+func (o V2InputSourceResourceConfigurationEksLabelSelectorOutput) ToV2InputSourceResourceConfigurationEksLabelSelectorOutputWithContext(ctx context.Context) V2InputSourceResourceConfigurationEksLabelSelectorOutput {
+	return o
+}
+
+func (o V2InputSourceResourceConfigurationEksLabelSelectorOutput) ToV2InputSourceResourceConfigurationEksLabelSelectorPtrOutput() V2InputSourceResourceConfigurationEksLabelSelectorPtrOutput {
+	return o.ToV2InputSourceResourceConfigurationEksLabelSelectorPtrOutputWithContext(context.Background())
+}
+
+func (o V2InputSourceResourceConfigurationEksLabelSelectorOutput) ToV2InputSourceResourceConfigurationEksLabelSelectorPtrOutputWithContext(ctx context.Context) V2InputSourceResourceConfigurationEksLabelSelectorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v V2InputSourceResourceConfigurationEksLabelSelector) *V2InputSourceResourceConfigurationEksLabelSelector {
+		return &v
+	}).(V2InputSourceResourceConfigurationEksLabelSelectorPtrOutput)
+}
+
+// Label requirements that an object must satisfy. Every requirement must match. See `matchExpressions` Block below.
+func (o V2InputSourceResourceConfigurationEksLabelSelectorOutput) MatchExpressions() V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArrayOutput {
+	return o.ApplyT(func(v V2InputSourceResourceConfigurationEksLabelSelector) []V2InputSourceResourceConfigurationEksLabelSelectorMatchExpression {
+		return v.MatchExpressions
+	}).(V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArrayOutput)
+}
+
+// Label key-value pairs that an object must have, up to 20. Every pair must match.
+func (o V2InputSourceResourceConfigurationEksLabelSelectorOutput) MatchLabels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v V2InputSourceResourceConfigurationEksLabelSelector) map[string]string { return v.MatchLabels }).(pulumi.StringMapOutput)
+}
+
+type V2InputSourceResourceConfigurationEksLabelSelectorPtrOutput struct{ *pulumi.OutputState }
+
+func (V2InputSourceResourceConfigurationEksLabelSelectorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**V2InputSourceResourceConfigurationEksLabelSelector)(nil)).Elem()
+}
+
+func (o V2InputSourceResourceConfigurationEksLabelSelectorPtrOutput) ToV2InputSourceResourceConfigurationEksLabelSelectorPtrOutput() V2InputSourceResourceConfigurationEksLabelSelectorPtrOutput {
+	return o
+}
+
+func (o V2InputSourceResourceConfigurationEksLabelSelectorPtrOutput) ToV2InputSourceResourceConfigurationEksLabelSelectorPtrOutputWithContext(ctx context.Context) V2InputSourceResourceConfigurationEksLabelSelectorPtrOutput {
+	return o
+}
+
+func (o V2InputSourceResourceConfigurationEksLabelSelectorPtrOutput) Elem() V2InputSourceResourceConfigurationEksLabelSelectorOutput {
+	return o.ApplyT(func(v *V2InputSourceResourceConfigurationEksLabelSelector) V2InputSourceResourceConfigurationEksLabelSelector {
+		if v != nil {
+			return *v
+		}
+		var ret V2InputSourceResourceConfigurationEksLabelSelector
+		return ret
+	}).(V2InputSourceResourceConfigurationEksLabelSelectorOutput)
+}
+
+// Label requirements that an object must satisfy. Every requirement must match. See `matchExpressions` Block below.
+func (o V2InputSourceResourceConfigurationEksLabelSelectorPtrOutput) MatchExpressions() V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArrayOutput {
+	return o.ApplyT(func(v *V2InputSourceResourceConfigurationEksLabelSelector) []V2InputSourceResourceConfigurationEksLabelSelectorMatchExpression {
+		if v == nil {
+			return nil
+		}
+		return v.MatchExpressions
+	}).(V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArrayOutput)
+}
+
+// Label key-value pairs that an object must have, up to 20. Every pair must match.
+func (o V2InputSourceResourceConfigurationEksLabelSelectorPtrOutput) MatchLabels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *V2InputSourceResourceConfigurationEksLabelSelector) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchLabels
+	}).(pulumi.StringMapOutput)
+}
+
+type V2InputSourceResourceConfigurationEksLabelSelectorMatchExpression struct {
+	// Label key that the requirement applies to.
+	Key string `pulumi:"key"`
+	// Relationship between the label key and values. Valid values are `IN`, `NOT_IN`, `EXISTS`, and `DOES_NOT_EXIST`.
+	Operator string `pulumi:"operator"`
+	// Label values to compare against, up to 20. Required with `IN` and `NOT_IN`, and must be omitted with `EXISTS` and `DOES_NOT_EXIST`.
+	Values []string `pulumi:"values"`
+}
+
+// V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionInput is an input type that accepts V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArgs and V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionOutput values.
+// You can construct a concrete instance of `V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionInput` via:
+//
+//	V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArgs{...}
+type V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionInput interface {
+	pulumi.Input
+
+	ToV2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionOutput() V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionOutput
+	ToV2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionOutputWithContext(context.Context) V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionOutput
+}
+
+type V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArgs struct {
+	// Label key that the requirement applies to.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Relationship between the label key and values. Valid values are `IN`, `NOT_IN`, `EXISTS`, and `DOES_NOT_EXIST`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Label values to compare against, up to 20. Required with `IN` and `NOT_IN`, and must be omitted with `EXISTS` and `DOES_NOT_EXIST`.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2InputSourceResourceConfigurationEksLabelSelectorMatchExpression)(nil)).Elem()
+}
+
+func (i V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArgs) ToV2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionOutput() V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionOutput {
+	return i.ToV2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionOutputWithContext(context.Background())
+}
+
+func (i V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArgs) ToV2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionOutputWithContext(ctx context.Context) V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionOutput)
+}
+
+// V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArrayInput is an input type that accepts V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArray and V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArrayOutput values.
+// You can construct a concrete instance of `V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArrayInput` via:
+//
+//	V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArray{ V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArgs{...} }
+type V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArrayInput interface {
+	pulumi.Input
+
+	ToV2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArrayOutput() V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArrayOutput
+	ToV2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArrayOutputWithContext(context.Context) V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArrayOutput
+}
+
+type V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArray []V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionInput
+
+func (V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]V2InputSourceResourceConfigurationEksLabelSelectorMatchExpression)(nil)).Elem()
+}
+
+func (i V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArray) ToV2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArrayOutput() V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArrayOutput {
+	return i.ToV2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArrayOutputWithContext(context.Background())
+}
+
+func (i V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArray) ToV2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArrayOutputWithContext(ctx context.Context) V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArrayOutput)
+}
+
+type V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionOutput struct{ *pulumi.OutputState }
+
+func (V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2InputSourceResourceConfigurationEksLabelSelectorMatchExpression)(nil)).Elem()
+}
+
+func (o V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionOutput) ToV2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionOutput() V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionOutput {
+	return o
+}
+
+func (o V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionOutput) ToV2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionOutputWithContext(ctx context.Context) V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionOutput {
+	return o
+}
+
+// Label key that the requirement applies to.
+func (o V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v V2InputSourceResourceConfigurationEksLabelSelectorMatchExpression) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Relationship between the label key and values. Valid values are `IN`, `NOT_IN`, `EXISTS`, and `DOES_NOT_EXIST`.
+func (o V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v V2InputSourceResourceConfigurationEksLabelSelectorMatchExpression) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Label values to compare against, up to 20. Required with `IN` and `NOT_IN`, and must be omitted with `EXISTS` and `DOES_NOT_EXIST`.
+func (o V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v V2InputSourceResourceConfigurationEksLabelSelectorMatchExpression) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArrayOutput struct{ *pulumi.OutputState }
+
+func (V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]V2InputSourceResourceConfigurationEksLabelSelectorMatchExpression)(nil)).Elem()
+}
+
+func (o V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArrayOutput) ToV2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArrayOutput() V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArrayOutput {
+	return o
+}
+
+func (o V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArrayOutput) ToV2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArrayOutputWithContext(ctx context.Context) V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArrayOutput {
+	return o
+}
+
+func (o V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArrayOutput) Index(i pulumi.IntInput) V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) V2InputSourceResourceConfigurationEksLabelSelectorMatchExpression {
+		return vs[0].([]V2InputSourceResourceConfigurationEksLabelSelectorMatchExpression)[vs[1].(int)]
+	}).(V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionOutput)
 }
 
 type V2InputSourceResourceConfigurationResourceTag struct {
@@ -3246,6 +3540,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*V2InputSourceResourceConfigurationPtrInput)(nil)).Elem(), V2InputSourceResourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2InputSourceResourceConfigurationEksInput)(nil)).Elem(), V2InputSourceResourceConfigurationEksArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2InputSourceResourceConfigurationEksPtrInput)(nil)).Elem(), V2InputSourceResourceConfigurationEksArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2InputSourceResourceConfigurationEksLabelSelectorInput)(nil)).Elem(), V2InputSourceResourceConfigurationEksLabelSelectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2InputSourceResourceConfigurationEksLabelSelectorPtrInput)(nil)).Elem(), V2InputSourceResourceConfigurationEksLabelSelectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionInput)(nil)).Elem(), V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArrayInput)(nil)).Elem(), V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2InputSourceResourceConfigurationResourceTagInput)(nil)).Elem(), V2InputSourceResourceConfigurationResourceTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2InputSourceResourceConfigurationResourceTagArrayInput)(nil)).Elem(), V2InputSourceResourceConfigurationResourceTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2PolicyAvailabilitySloInput)(nil)).Elem(), V2PolicyAvailabilitySloArgs{})
@@ -3292,6 +3590,10 @@ func init() {
 	pulumi.RegisterOutputType(V2InputSourceResourceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(V2InputSourceResourceConfigurationEksOutput{})
 	pulumi.RegisterOutputType(V2InputSourceResourceConfigurationEksPtrOutput{})
+	pulumi.RegisterOutputType(V2InputSourceResourceConfigurationEksLabelSelectorOutput{})
+	pulumi.RegisterOutputType(V2InputSourceResourceConfigurationEksLabelSelectorPtrOutput{})
+	pulumi.RegisterOutputType(V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionOutput{})
+	pulumi.RegisterOutputType(V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArrayOutput{})
 	pulumi.RegisterOutputType(V2InputSourceResourceConfigurationResourceTagOutput{})
 	pulumi.RegisterOutputType(V2InputSourceResourceConfigurationResourceTagArrayOutput{})
 	pulumi.RegisterOutputType(V2PolicyAvailabilitySloOutput{})

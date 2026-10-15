@@ -18,6 +18,10 @@ public final class GetBrokerNodesResult {
      * 
      */
     private String id;
+    /**
+     * @return List of MSK Broker Nodes, sorted by broker ID in ascending order. See `nodeInfoList` Block for details.
+     * 
+     */
     private List<GetBrokerNodesNodeInfoList> nodeInfoLists;
     private String region;
 
@@ -32,6 +36,10 @@ public final class GetBrokerNodesResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return List of MSK Broker Nodes, sorted by broker ID in ascending order. See `nodeInfoList` Block for details.
+     * 
+     */
     public List<GetBrokerNodesNodeInfoList> nodeInfoLists() {
         return this.nodeInfoLists;
     }

@@ -57,14 +57,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/mainRouteTableAssociation:MainRouteTableAssociation")
 public class MainRouteTableAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * Used internally, see **Notes** below
+     * Original route table ID, used internally; see __Notes__ below
      * 
      */
     @Export(name="originalRouteTableId", refs={String.class}, tree="[0]")
     private Output<String> originalRouteTableId;
 
     /**
-     * @return Used internally, see **Notes** below
+     * @return Original route table ID, used internally; see __Notes__ below
      * 
      */
     public Output<String> originalRouteTableId() {
@@ -85,30 +85,28 @@ public class MainRouteTableAssociation extends com.pulumi.resources.CustomResour
         return this.region;
     }
     /**
-     * The ID of the Route Table to set as the new
-     * main route table for the target VPC
+     * ID of the Route Table to set as the new main route table for the target VPC
      * 
      */
     @Export(name="routeTableId", refs={String.class}, tree="[0]")
     private Output<String> routeTableId;
 
     /**
-     * @return The ID of the Route Table to set as the new
-     * main route table for the target VPC
+     * @return ID of the Route Table to set as the new main route table for the target VPC
      * 
      */
     public Output<String> routeTableId() {
         return this.routeTableId;
     }
     /**
-     * The ID of the VPC whose main route table should be set
+     * ID of the VPC whose main route table should be set
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**
-     * @return The ID of the VPC whose main route table should be set
+     * @return ID of the VPC whose main route table should be set
      * 
      */
     public Output<String> vpcId() {

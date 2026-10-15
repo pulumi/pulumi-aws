@@ -42,7 +42,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// </summary>
         public readonly Outputs.DistributionConfigurationDistributionS3ExportConfiguration? S3ExportConfiguration;
         /// <summary>
-        /// Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
+        /// Configuration block with SSM parameter configuration to use as AMI ID output. Detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DistributionConfigurationDistributionSsmParameterConfiguration> SsmParameterConfigurations;
 

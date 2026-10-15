@@ -14,21 +14,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings {
+    /**
+     * @return Audio-only HLS settings. See `audioOnlyHlsSettings` Block for details.
+     * 
+     */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings audioOnlyHlsSettings;
+    /**
+     * @return fMP4 HLS settings. See `fmp4HlsSettings` Block for details.
+     * 
+     */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettings fmp4HlsSettings;
+    /**
+     * @return Frame capture HLS settings. Can be set as an empty block.
+     * 
+     */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettings frameCaptureHlsSettings;
+    /**
+     * @return Standard HLS settings. See `standardHlsSettings` Block for details.
+     * 
+     */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings standardHlsSettings;
 
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings() {}
+    /**
+     * @return Audio-only HLS settings. See `audioOnlyHlsSettings` Block for details.
+     * 
+     */
     public Optional<ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings> audioOnlyHlsSettings() {
         return Optional.ofNullable(this.audioOnlyHlsSettings);
     }
+    /**
+     * @return fMP4 HLS settings. See `fmp4HlsSettings` Block for details.
+     * 
+     */
     public Optional<ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettings> fmp4HlsSettings() {
         return Optional.ofNullable(this.fmp4HlsSettings);
     }
+    /**
+     * @return Frame capture HLS settings. Can be set as an empty block.
+     * 
+     */
     public Optional<ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettings> frameCaptureHlsSettings() {
         return Optional.ofNullable(this.frameCaptureHlsSettings);
     }
+    /**
+     * @return Standard HLS settings. See `standardHlsSettings` Block for details.
+     * 
+     */
     public Optional<ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings> standardHlsSettings() {
         return Optional.ofNullable(this.standardHlsSettings);
     }

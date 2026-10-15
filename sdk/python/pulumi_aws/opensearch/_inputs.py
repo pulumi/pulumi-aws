@@ -1111,7 +1111,7 @@ class DomainClusterConfigArgsDict(TypedDict):
     """
     warm_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Instance type for the OpenSearch cluster's warm nodes. Valid values are `ultrawarm1.medium.search`, `ultrawarm1.large.search` and `ultrawarm1.xlarge.search`. `warm_type` can be only and must be set when `warm_enabled` is set to `true`.
+    Instance type for the OpenSearch cluster's warm nodes. `warm_type` can be only and must be set when `warm_enabled` is set to `true`.
     """
     zone_awareness_config: NotRequired[pulumi.Input[Optional['DomainClusterConfigZoneAwarenessConfigArgsDict']]]
     """
@@ -1149,7 +1149,7 @@ class DomainClusterConfigArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DomainClusterConfigNodeOptionArgs']]] node_options: List of node options for the domain.
         :param pulumi.Input[_builtins.int] warm_count: Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.
         :param pulumi.Input[_builtins.bool] warm_enabled: Whether to enable warm storage.
-        :param pulumi.Input[_builtins.str] warm_type: Instance type for the OpenSearch cluster's warm nodes. Valid values are `ultrawarm1.medium.search`, `ultrawarm1.large.search` and `ultrawarm1.xlarge.search`. `warm_type` can be only and must be set when `warm_enabled` is set to `true`.
+        :param pulumi.Input[_builtins.str] warm_type: Instance type for the OpenSearch cluster's warm nodes. `warm_type` can be only and must be set when `warm_enabled` is set to `true`.
         :param pulumi.Input['DomainClusterConfigZoneAwarenessConfigArgs'] zone_awareness_config: Configuration block containing zone awareness settings. Detailed below.
         :param pulumi.Input[_builtins.bool] zone_awareness_enabled: Whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availability_zone_count` within the `zone_awareness_config` must be set to `3`.
         """
@@ -1304,7 +1304,7 @@ class DomainClusterConfigArgs:
     @pulumi.getter(name="warmType")
     def warm_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Instance type for the OpenSearch cluster's warm nodes. Valid values are `ultrawarm1.medium.search`, `ultrawarm1.large.search` and `ultrawarm1.xlarge.search`. `warm_type` can be only and must be set when `warm_enabled` is set to `true`.
+        Instance type for the OpenSearch cluster's warm nodes. `warm_type` can be only and must be set when `warm_enabled` is set to `true`.
         """
         return pulumi.get(self, "warm_type")
 
@@ -1970,7 +1970,7 @@ class DomainIdentityCenterOptionsArgs:
 class DomainLogPublishingOptionArgsDict(TypedDict):
     cloudwatch_log_group_arn: pulumi.Input[_builtins.str]
     """
-    ARN of the Cloudwatch log group to which log needs to be published.
+    ARN of the CloudWatch log group to which log needs to be published.
     """
     log_type: pulumi.Input[_builtins.str]
     """
@@ -1988,7 +1988,7 @@ class DomainLogPublishingOptionArgs:
                  log_type: pulumi.Input[_builtins.str],
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.str] cloudwatch_log_group_arn: ARN of the Cloudwatch log group to which log needs to be published.
+        :param pulumi.Input[_builtins.str] cloudwatch_log_group_arn: ARN of the CloudWatch log group to which log needs to be published.
         :param pulumi.Input[_builtins.str] log_type: Type of OpenSearch log. Valid values: `INDEX_SLOW_LOGS`, `SEARCH_SLOW_LOGS`, `ES_APPLICATION_LOGS`, `AUDIT_LOGS`.
         :param pulumi.Input[_builtins.bool] enabled: Whether given log publishing option is enabled or not.
         """
@@ -2001,7 +2001,7 @@ class DomainLogPublishingOptionArgs:
     @pulumi.getter(name="cloudwatchLogGroupArn")
     def cloudwatch_log_group_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        ARN of the Cloudwatch log group to which log needs to be published.
+        ARN of the CloudWatch log group to which log needs to be published.
         """
         return pulumi.get(self, "cloudwatch_log_group_arn")
 
@@ -2338,7 +2338,7 @@ class DomainSamlOptionsSamlOptionsIdpArgsDict(TypedDict):
     """
     metadata_content: pulumi.Input[_builtins.str]
     """
-    Metadata of the SAML application in xml format.
+    Metadata of the SAML application in XML format.
     """
 
 @pulumi.input_type
@@ -2348,7 +2348,7 @@ class DomainSamlOptionsSamlOptionsIdpArgs:
                  metadata_content: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.str] entity_id: Unique Entity ID of the application in SAML Identity Provider.
-        :param pulumi.Input[_builtins.str] metadata_content: Metadata of the SAML application in xml format.
+        :param pulumi.Input[_builtins.str] metadata_content: Metadata of the SAML application in XML format.
         """
         pulumi.set(__self__, "entity_id", entity_id)
         pulumi.set(__self__, "metadata_content", metadata_content)
@@ -2369,7 +2369,7 @@ class DomainSamlOptionsSamlOptionsIdpArgs:
     @pulumi.getter(name="metadataContent")
     def metadata_content(self) -> pulumi.Input[_builtins.str]:
         """
-        Metadata of the SAML application in xml format.
+        Metadata of the SAML application in XML format.
         """
         return pulumi.get(self, "metadata_content")
 

@@ -20,7 +20,7 @@ import * as utilities from "./utilities";
  * const example = aws.getDefaultTags({});
  * ```
  *
- * ### Dynamically Apply Default Tags to Auto Scaling Group
+ * ### Dynamically Apply Default Tags to Auto Scaling group
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -81,7 +81,7 @@ export interface GetDefaultTagsResult {
  * const example = aws.getDefaultTags({});
  * ```
  *
- * ### Dynamically Apply Default Tags to Auto Scaling Group
+ * ### Dynamically Apply Default Tags to Auto Scaling group
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

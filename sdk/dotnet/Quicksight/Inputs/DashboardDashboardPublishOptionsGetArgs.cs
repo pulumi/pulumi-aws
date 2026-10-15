@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
         public Input<Inputs.DashboardDashboardPublishOptionsDataPointTooltipOptionGetArgs>? DataPointTooltipOption { get; set; }
 
         /// <summary>
-        /// Export to .csv option. See `ExportToCsvOption`.
+        /// Export to `.csv` option. See `ExportToCsvOption`.
         /// </summary>
         [Input("exportToCsvOption")]
         public Input<Inputs.DashboardDashboardPublishOptionsExportToCsvOptionGetArgs>? ExportToCsvOption { get; set; }

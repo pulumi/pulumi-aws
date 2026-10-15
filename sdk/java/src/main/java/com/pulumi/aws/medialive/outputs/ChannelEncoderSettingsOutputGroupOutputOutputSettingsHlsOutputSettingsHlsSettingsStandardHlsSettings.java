@@ -13,13 +13,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings {
+    /**
+     * @return List of audio rendition sets, separated by commas.
+     * 
+     */
     private @Nullable String audioRenditionSets;
+    /**
+     * @return Settings for the M3U8 container. See `m3u8Settings` Block for details.
+     * 
+     */
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8Settings m3u8Settings;
 
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings() {}
+    /**
+     * @return List of audio rendition sets, separated by commas.
+     * 
+     */
     public Optional<String> audioRenditionSets() {
         return Optional.ofNullable(this.audioRenditionSets);
     }
+    /**
+     * @return Settings for the M3U8 container. See `m3u8Settings` Block for details.
+     * 
+     */
     public ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8Settings m3u8Settings() {
         return this.m3u8Settings;
     }

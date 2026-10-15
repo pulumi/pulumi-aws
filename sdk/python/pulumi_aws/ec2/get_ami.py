@@ -411,7 +411,7 @@ class GetAmiResult:
     @pulumi.getter(name="rootSnapshotId")
     def root_snapshot_id(self) -> _builtins.str:
         """
-        Snapshot id associated with the root device, if any (only applies to `ebs` root devices).
+        Snapshot ID associated with the root device, if any (only applies to `ebs` root devices).
         """
         return pulumi.get(self, "root_snapshot_id")
 

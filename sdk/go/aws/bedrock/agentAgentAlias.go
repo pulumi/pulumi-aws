@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Agents for Amazon Bedrock Agent Alias.
+// Manages an AWS Agents for Amazon Bedrock Agent Alias.
 //
 // ## Example Usage
 //
@@ -112,10 +112,11 @@ import (
 //				return err
 //			}
 //			exampleAgentAgent, err := bedrock.NewAgentAgent(ctx, "example", &bedrock.AgentAgentArgs{
-//				AgentName:            pulumi.String("my-agent-name"),
-//				AgentResourceRoleArn: example.Arn,
-//				IdleTtl:              500,
-//				FoundationModel:      pulumi.String("anthropic.claude-v2"),
+//				AgentName:               pulumi.String("my-agent-name"),
+//				AgentResourceRoleArn:    example.Arn,
+//				IdleSessionTtlInSeconds: pulumi.Int(500),
+//				FoundationModel:         pulumi.String("anthropic.claude-v2"),
+//				Instruction:             pulumi.String("You are a friendly assistant who helps answer questions."),
 //			})
 //			if err != nil {
 //				return err

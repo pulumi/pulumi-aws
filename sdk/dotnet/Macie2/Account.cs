@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Macie2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws.macie2.Account` using the id. For example:
+    /// Using `pulumi import`, import `aws.macie2.Account` using the ID. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:macie2/account:Account example abcd1
@@ -43,13 +43,13 @@ namespace Pulumi.Aws.Macie2
     public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
+        /// Date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
+        /// How often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
         /// </summary>
         [Output("findingPublishingFrequency")]
         public Output<string> FindingPublishingFrequency { get; private set; } = null!;
@@ -67,13 +67,13 @@ namespace Pulumi.Aws.Macie2
         public Output<string> ServiceRole { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
+        /// Status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
+        /// Date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
         /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
@@ -125,7 +125,7 @@ namespace Pulumi.Aws.Macie2
     public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
+        /// How often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
         /// </summary>
         [Input("findingPublishingFrequency")]
         public Input<string>? FindingPublishingFrequency { get; set; }
@@ -137,7 +137,7 @@ namespace Pulumi.Aws.Macie2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
+        /// Status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -151,13 +151,13 @@ namespace Pulumi.Aws.Macie2
     public sealed class AccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
+        /// Date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
         /// <summary>
-        /// Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
+        /// How often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
         /// </summary>
         [Input("findingPublishingFrequency")]
         public Input<string>? FindingPublishingFrequency { get; set; }
@@ -175,13 +175,13 @@ namespace Pulumi.Aws.Macie2
         public Input<string>? ServiceRole { get; set; }
 
         /// <summary>
-        /// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
+        /// Status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
+        /// Date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
         /// </summary>
         [Input("updatedAt")]
         public Input<string>? UpdatedAt { get; set; }

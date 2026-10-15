@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentcoreGatewayProtocolConfigurationMcpStreamingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Boolean indicating whether response streaming is enabled for the gateway.
+        /// Whether to enable response streaming for the gateway.
         /// </summary>
         [Input("enableResponseStreaming")]
         public Input<bool>? EnableResponseStreaming { get; set; }

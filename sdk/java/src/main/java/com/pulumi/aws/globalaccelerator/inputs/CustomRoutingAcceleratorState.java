@@ -36,14 +36,14 @@ public final class CustomRoutingAcceleratorState extends com.pulumi.resources.Re
     }
 
     /**
-     * The attributes of the accelerator. Fields documented below.
+     * Configuration block with accelerator attributes. See `attributes` below.
      * 
      */
     @Import(name="attributes")
     private @Nullable Output<CustomRoutingAcceleratorAttributesArgs> attributes;
 
     /**
-     * @return The attributes of the accelerator. Fields documented below.
+     * @return Configuration block with accelerator attributes. See `attributes` below.
      * 
      */
     public Optional<Output<CustomRoutingAcceleratorAttributesArgs>> attributes() {
@@ -51,14 +51,14 @@ public final class CustomRoutingAcceleratorState extends com.pulumi.resources.Re
     }
 
     /**
-     * The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
+     * DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
      * 
      */
     @Import(name="dnsName")
     private @Nullable Output<String> dnsName;
 
     /**
-     * @return The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
+     * @return DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
      * 
      */
     public Optional<Output<String>> dnsName() {
@@ -66,14 +66,14 @@ public final class CustomRoutingAcceleratorState extends com.pulumi.resources.Re
     }
 
     /**
-     * Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
+     * Whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
+     * @return Whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -81,18 +81,14 @@ public final class CustomRoutingAcceleratorState extends com.pulumi.resources.Re
     }
 
     /**
-     * -  The Global Accelerator Route 53 zone ID that can be used to
-     *    route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-     *    is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+     * Global Accelerator Route 53 zone ID used to route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the accelerator. This is an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
      * 
      */
     @Import(name="hostedZoneId")
     private @Nullable Output<String> hostedZoneId;
 
     /**
-     * @return -  The Global Accelerator Route 53 zone ID that can be used to
-     * route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-     * is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+     * @return Global Accelerator Route 53 zone ID used to route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the accelerator. This is an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
      * 
      */
     public Optional<Output<String>> hostedZoneId() {
@@ -100,14 +96,14 @@ public final class CustomRoutingAcceleratorState extends com.pulumi.resources.Re
     }
 
     /**
-     * The IP address type that an accelerator supports. For a custom routing accelerator, the value must be `&#34;IPV4&#34;`.
+     * IP address type that an accelerator supports. For a custom routing accelerator, the value must be `&#34;IPV4&#34;`.
      * 
      */
     @Import(name="ipAddressType")
     private @Nullable Output<String> ipAddressType;
 
     /**
-     * @return The IP address type that an accelerator supports. For a custom routing accelerator, the value must be `&#34;IPV4&#34;`.
+     * @return IP address type that an accelerator supports. For a custom routing accelerator, the value must be `&#34;IPV4&#34;`.
      * 
      */
     public Optional<Output<String>> ipAddressType() {
@@ -115,14 +111,14 @@ public final class CustomRoutingAcceleratorState extends com.pulumi.resources.Re
     }
 
     /**
-     * The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+     * IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
      * 
      */
     @Import(name="ipAddresses")
     private @Nullable Output<List<String>> ipAddresses;
 
     /**
-     * @return The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+     * @return IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
      * 
      */
     public Optional<Output<List<String>>> ipAddresses() {
@@ -130,14 +126,14 @@ public final class CustomRoutingAcceleratorState extends com.pulumi.resources.Re
     }
 
     /**
-     * IP address set associated with the accelerator.
+     * IP address set associated with the accelerator. See `ipSets` below.
      * 
      */
     @Import(name="ipSets")
     private @Nullable Output<List<CustomRoutingAcceleratorIpSetArgs>> ipSets;
 
     /**
-     * @return IP address set associated with the accelerator.
+     * @return IP address set associated with the accelerator. See `ipSets` below.
      * 
      */
     public Optional<Output<List<CustomRoutingAcceleratorIpSetArgs>>> ipSets() {
@@ -145,14 +141,14 @@ public final class CustomRoutingAcceleratorState extends com.pulumi.resources.Re
     }
 
     /**
-     * The name of a custom routing accelerator.
+     * Name of a custom routing accelerator.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of a custom routing accelerator.
+     * @return Name of a custom routing accelerator.
      * 
      */
     public Optional<Output<String>> name() {
@@ -160,14 +156,14 @@ public final class CustomRoutingAcceleratorState extends com.pulumi.resources.Re
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -175,14 +171,14 @@ public final class CustomRoutingAcceleratorState extends com.pulumi.resources.Re
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -245,7 +241,7 @@ public final class CustomRoutingAcceleratorState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param attributes The attributes of the accelerator. Fields documented below.
+         * @param attributes Configuration block with accelerator attributes. See `attributes` below.
          * 
          * @return builder
          * 
@@ -256,7 +252,7 @@ public final class CustomRoutingAcceleratorState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param attributes The attributes of the accelerator. Fields documented below.
+         * @param attributes Configuration block with accelerator attributes. See `attributes` below.
          * 
          * @return builder
          * 
@@ -266,7 +262,7 @@ public final class CustomRoutingAcceleratorState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param dnsName The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
+         * @param dnsName DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
          * 
          * @return builder
          * 
@@ -277,7 +273,7 @@ public final class CustomRoutingAcceleratorState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param dnsName The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
+         * @param dnsName DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
          * 
          * @return builder
          * 
@@ -287,7 +283,7 @@ public final class CustomRoutingAcceleratorState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param enabled Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
+         * @param enabled Whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
          * 
          * @return builder
          * 
@@ -298,7 +294,7 @@ public final class CustomRoutingAcceleratorState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param enabled Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
+         * @param enabled Whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
          * 
          * @return builder
          * 
@@ -308,9 +304,7 @@ public final class CustomRoutingAcceleratorState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param hostedZoneId -  The Global Accelerator Route 53 zone ID that can be used to
-         * route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-         * is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+         * @param hostedZoneId Global Accelerator Route 53 zone ID used to route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the accelerator. This is an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
          * 
          * @return builder
          * 
@@ -321,9 +315,7 @@ public final class CustomRoutingAcceleratorState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param hostedZoneId -  The Global Accelerator Route 53 zone ID that can be used to
-         * route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-         * is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+         * @param hostedZoneId Global Accelerator Route 53 zone ID used to route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the accelerator. This is an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
          * 
          * @return builder
          * 
@@ -333,7 +325,7 @@ public final class CustomRoutingAcceleratorState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ipAddressType The IP address type that an accelerator supports. For a custom routing accelerator, the value must be `&#34;IPV4&#34;`.
+         * @param ipAddressType IP address type that an accelerator supports. For a custom routing accelerator, the value must be `&#34;IPV4&#34;`.
          * 
          * @return builder
          * 
@@ -344,7 +336,7 @@ public final class CustomRoutingAcceleratorState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ipAddressType The IP address type that an accelerator supports. For a custom routing accelerator, the value must be `&#34;IPV4&#34;`.
+         * @param ipAddressType IP address type that an accelerator supports. For a custom routing accelerator, the value must be `&#34;IPV4&#34;`.
          * 
          * @return builder
          * 
@@ -354,7 +346,7 @@ public final class CustomRoutingAcceleratorState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ipAddresses The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+         * @param ipAddresses IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
          * 
          * @return builder
          * 
@@ -365,7 +357,7 @@ public final class CustomRoutingAcceleratorState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ipAddresses The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+         * @param ipAddresses IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
          * 
          * @return builder
          * 
@@ -375,7 +367,7 @@ public final class CustomRoutingAcceleratorState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ipAddresses The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+         * @param ipAddresses IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
          * 
          * @return builder
          * 
@@ -385,7 +377,7 @@ public final class CustomRoutingAcceleratorState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ipSets IP address set associated with the accelerator.
+         * @param ipSets IP address set associated with the accelerator. See `ipSets` below.
          * 
          * @return builder
          * 
@@ -396,7 +388,7 @@ public final class CustomRoutingAcceleratorState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ipSets IP address set associated with the accelerator.
+         * @param ipSets IP address set associated with the accelerator. See `ipSets` below.
          * 
          * @return builder
          * 
@@ -406,7 +398,7 @@ public final class CustomRoutingAcceleratorState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ipSets IP address set associated with the accelerator.
+         * @param ipSets IP address set associated with the accelerator. See `ipSets` below.
          * 
          * @return builder
          * 
@@ -416,7 +408,7 @@ public final class CustomRoutingAcceleratorState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param name The name of a custom routing accelerator.
+         * @param name Name of a custom routing accelerator.
          * 
          * @return builder
          * 
@@ -427,7 +419,7 @@ public final class CustomRoutingAcceleratorState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param name The name of a custom routing accelerator.
+         * @param name Name of a custom routing accelerator.
          * 
          * @return builder
          * 
@@ -437,7 +429,7 @@ public final class CustomRoutingAcceleratorState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -448,7 +440,7 @@ public final class CustomRoutingAcceleratorState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -458,7 +450,7 @@ public final class CustomRoutingAcceleratorState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -469,7 +461,7 @@ public final class CustomRoutingAcceleratorState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

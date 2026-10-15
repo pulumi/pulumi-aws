@@ -132,7 +132,7 @@ namespace Pulumi.Aws.Glacier
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Glacier Vault.
+        /// Name of the Glacier Vault.
         /// </summary>
         [Output("vaultName")]
         public Output<string> VaultName { get; private set; } = null!;
@@ -208,7 +208,7 @@ namespace Pulumi.Aws.Glacier
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The name of the Glacier Vault.
+        /// Name of the Glacier Vault.
         /// </summary>
         [Input("vaultName", required: true)]
         public Input<string> VaultName { get; set; } = null!;
@@ -246,7 +246,7 @@ namespace Pulumi.Aws.Glacier
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The name of the Glacier Vault.
+        /// Name of the Glacier Vault.
         /// </summary>
         [Input("vaultName")]
         public Input<string>? VaultName { get; set; }

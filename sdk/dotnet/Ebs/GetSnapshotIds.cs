@@ -172,7 +172,7 @@ namespace Pulumi.Aws.Ebs
         private List<string>? _owners;
 
         /// <summary>
-        /// Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
+        /// Returns the snapshots owned by the specified owner ID. Multiple owners can be specified.
         /// </summary>
         public List<string> Owners
         {
@@ -222,7 +222,7 @@ namespace Pulumi.Aws.Ebs
         private InputList<string>? _owners;
 
         /// <summary>
-        /// Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
+        /// Returns the snapshots owned by the specified owner ID. Multiple owners can be specified.
         /// </summary>
         public InputList<string> Owners
         {

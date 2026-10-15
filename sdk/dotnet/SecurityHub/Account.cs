@@ -43,7 +43,7 @@ namespace Pulumi.Aws.SecurityHub
     public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// ARN of the SecurityHub Hub created in the account.
+        /// ARN of the Security Hub Hub created in the account.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -151,7 +151,7 @@ namespace Pulumi.Aws.SecurityHub
     public sealed class AccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN of the SecurityHub Hub created in the account.
+        /// ARN of the Security Hub Hub created in the account.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

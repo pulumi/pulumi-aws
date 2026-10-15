@@ -80,14 +80,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:glue/userDefinedFunction:UserDefinedFunction")
 public class UserDefinedFunction extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the Glue User Defined Function.
+     * ARN of the Glue User Defined Function.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the Glue User Defined Function.
+     * @return ARN of the Glue User Defined Function.
      * 
      */
     public Output<String> arn() {
@@ -108,84 +108,84 @@ public class UserDefinedFunction extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.catalogId);
     }
     /**
-     * The Java class that contains the function code.
+     * Java class that contains the function code.
      * 
      */
     @Export(name="className", refs={String.class}, tree="[0]")
     private Output<String> className;
 
     /**
-     * @return The Java class that contains the function code.
+     * @return Java class that contains the function code.
      * 
      */
     public Output<String> className() {
         return this.className;
     }
     /**
-     * The time at which the function was created.
+     * Time at which the function was created.
      * 
      */
     @Export(name="createTime", refs={String.class}, tree="[0]")
     private Output<String> createTime;
 
     /**
-     * @return The time at which the function was created.
+     * @return Time at which the function was created.
      * 
      */
     public Output<String> createTime() {
         return this.createTime;
     }
     /**
-     * The name of the Database to create the Function.
+     * Name of the Database to create the Function.
      * 
      */
     @Export(name="databaseName", refs={String.class}, tree="[0]")
     private Output<String> databaseName;
 
     /**
-     * @return The name of the Database to create the Function.
+     * @return Name of the Database to create the Function.
      * 
      */
     public Output<String> databaseName() {
         return this.databaseName;
     }
     /**
-     * The name of the function.
+     * Name of the function.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the function.
+     * @return Name of the function.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The owner of the function.
+     * Owner of the function.
      * 
      */
     @Export(name="ownerName", refs={String.class}, tree="[0]")
     private Output<String> ownerName;
 
     /**
-     * @return The owner of the function.
+     * @return Owner of the function.
      * 
      */
     public Output<String> ownerName() {
         return this.ownerName;
     }
     /**
-     * The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
+     * Owner type. can be one of `USER`, `ROLE`, and `GROUP`.
      * 
      */
     @Export(name="ownerType", refs={String.class}, tree="[0]")
     private Output<String> ownerType;
 
     /**
-     * @return The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
+     * @return Owner type. can be one of `USER`, `ROLE`, and `GROUP`.
      * 
      */
     public Output<String> ownerType() {
@@ -206,14 +206,14 @@ public class UserDefinedFunction extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The configuration block for Resource URIs. See resource uris below for more details.
+     * Configuration block for Resource URIs. See `resourceUris` Block below for more details.
      * 
      */
     @Export(name="resourceUris", refs={List.class,UserDefinedFunctionResourceUri.class}, tree="[0,1]")
     private Output</* @Nullable */ List<UserDefinedFunctionResourceUri>> resourceUris;
 
     /**
-     * @return The configuration block for Resource URIs. See resource uris below for more details.
+     * @return Configuration block for Resource URIs. See `resourceUris` Block below for more details.
      * 
      */
     public Output<Optional<List<UserDefinedFunctionResourceUri>>> resourceUris() {

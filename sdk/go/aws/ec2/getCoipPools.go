@@ -15,7 +15,7 @@ import (
 //
 // ## Example Usage
 //
-// The following shows outputting all COIP Pool Ids.
+// The following shows outputting all CoIP Pool IDs.
 //
 // ```go
 // package main
@@ -68,7 +68,7 @@ type GetCoipPoolsResult struct {
 	Filters []GetCoipPoolsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// Set of COIP Pool Identifiers
+	// Set of CoIP Pool Identifiers
 	PoolIds []string          `pulumi:"poolIds"`
 	Region  string            `pulumi:"region"`
 	Tags    map[string]string `pulumi:"tags"`
@@ -121,7 +121,7 @@ func (o GetCoipPoolsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCoipPoolsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Set of COIP Pool Identifiers
+// Set of CoIP Pool Identifiers
 func (o GetCoipPoolsResultOutput) PoolIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetCoipPoolsResult) []string { return v.PoolIds }).(pulumi.StringArrayOutput)
 }

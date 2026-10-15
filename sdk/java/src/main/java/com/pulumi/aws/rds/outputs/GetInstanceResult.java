@@ -87,7 +87,7 @@ public final class GetInstanceResult {
      */
     private String dbSubnetGroup;
     /**
-     * @return List of log types to export to cloudwatch.
+     * @return List of log types to export to CloudWatch.
      * 
      */
     private List<String> enabledCloudwatchLogsExports;
@@ -337,7 +337,7 @@ public final class GetInstanceResult {
         return this.dbSubnetGroup;
     }
     /**
-     * @return List of log types to export to cloudwatch.
+     * @return List of log types to export to CloudWatch.
      * 
      */
     public List<String> enabledCloudwatchLogsExports() {

@@ -64,14 +64,14 @@ public final class MemberDetectorFeatureArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+     * Name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+     * @return Name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -94,14 +94,14 @@ public final class MemberDetectorFeatureArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
+     * Status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
     @Import(name="status", required=true)
     private Output<String> status;
 
     /**
-     * @return The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
+     * @return Status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
     public Output<String> status() {
@@ -211,7 +211,7 @@ public final class MemberDetectorFeatureArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+         * @param name Name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class MemberDetectorFeatureArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+         * @param name Name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class MemberDetectorFeatureArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param status The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
+         * @param status Status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class MemberDetectorFeatureArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param status The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
+         * @param status Status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
          * 
          * @return builder
          * 

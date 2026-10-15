@@ -42,14 +42,14 @@ public final class AgentcoreAgentRuntimeState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Container artifact configuration. See `agentRuntimeArtifact` below.
+     * Artifact configuration for the agent runtime, either a container image or code stored in Amazon S3. See `agentRuntimeArtifact` below.
      * 
      */
     @Import(name="agentRuntimeArtifact")
     private @Nullable Output<AgentcoreAgentRuntimeAgentRuntimeArtifactArgs> agentRuntimeArtifact;
 
     /**
-     * @return Container artifact configuration. See `agentRuntimeArtifact` below.
+     * @return Artifact configuration for the agent runtime, either a container image or code stored in Amazon S3. See `agentRuntimeArtifact` below.
      * 
      */
     public Optional<Output<AgentcoreAgentRuntimeAgentRuntimeArtifactArgs>> agentRuntimeArtifact() {
@@ -387,7 +387,7 @@ public final class AgentcoreAgentRuntimeState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param agentRuntimeArtifact Container artifact configuration. See `agentRuntimeArtifact` below.
+         * @param agentRuntimeArtifact Artifact configuration for the agent runtime, either a container image or code stored in Amazon S3. See `agentRuntimeArtifact` below.
          * 
          * @return builder
          * 
@@ -398,7 +398,7 @@ public final class AgentcoreAgentRuntimeState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param agentRuntimeArtifact Container artifact configuration. See `agentRuntimeArtifact` below.
+         * @param agentRuntimeArtifact Artifact configuration for the agent runtime, either a container image or code stored in Amazon S3. See `agentRuntimeArtifact` below.
          * 
          * @return builder
          * 

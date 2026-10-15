@@ -139,7 +139,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Shield protection group resources using their protection group id. For example:
+// Using `pulumi import`, import Shield protection group resources using their protection group ID. For example:
 //
 // ```sh
 // $ pulumi import aws:shield/protectionGroup:ProtectionGroup example example

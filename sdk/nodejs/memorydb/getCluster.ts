@@ -118,7 +118,7 @@ export interface GetClusterResult {
      */
     readonly nodeType: string;
     /**
-     * The number of replicas to apply to each shard.
+     * Number of replicas to apply to each shard.
      */
     readonly numReplicasPerShard: number;
     /**
@@ -126,7 +126,7 @@ export interface GetClusterResult {
      */
     readonly numShards: number;
     /**
-     * The name of the parameter group associated with the cluster.
+     * Name of the parameter group associated with the cluster.
      */
     readonly parameterGroupName: string;
     /**
@@ -143,7 +143,7 @@ export interface GetClusterResult {
      */
     readonly shards: outputs.memorydb.GetClusterShard[];
     /**
-     * The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled.
+     * Number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled.
      */
     readonly snapshotRetentionLimit: number;
     /**
@@ -155,7 +155,7 @@ export interface GetClusterResult {
      */
     readonly snsTopicArn: string;
     /**
-     * The name of the subnet group used for the cluster.
+     * Name of the subnet group used for the cluster.
      */
     readonly subnetGroupName: string;
     /**

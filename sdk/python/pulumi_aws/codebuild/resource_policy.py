@@ -186,7 +186,7 @@ class ResourcePolicy(pulumi.CustomResource):
 
         - `resource_arn` (String) ARN of the CodeBuild resource.
 
-        Using `pulumi import`, import CodeBuild Resource Policy using the CodeBuild Resource Policy arn. For example:
+        Using `pulumi import`, import CodeBuild Resource Policy using the CodeBuild Resource Policy ARN. For example:
 
         ```sh
         $ pulumi import aws:codebuild/resourcePolicy:ResourcePolicy example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
@@ -253,7 +253,7 @@ class ResourcePolicy(pulumi.CustomResource):
 
         - `resource_arn` (String) ARN of the CodeBuild resource.
 
-        Using `pulumi import`, import CodeBuild Resource Policy using the CodeBuild Resource Policy arn. For example:
+        Using `pulumi import`, import CodeBuild Resource Policy using the CodeBuild Resource Policy ARN. For example:
 
         ```sh
         $ pulumi import aws:codebuild/resourcePolicy:ResourcePolicy example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name

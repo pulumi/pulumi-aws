@@ -34,14 +34,14 @@ public final class TriggerActionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the crawler to be executed. Conflicts with `jobName`.
+     * Name of the crawler to be executed. Conflicts with `jobName`.
      * 
      */
     @Import(name="crawlerName")
     private @Nullable Output<String> crawlerName;
 
     /**
-     * @return The name of the crawler to be executed. Conflicts with `jobName`.
+     * @return Name of the crawler to be executed. Conflicts with `jobName`.
      * 
      */
     public Optional<Output<String>> crawlerName() {
@@ -49,14 +49,14 @@ public final class TriggerActionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of a job to be executed. Conflicts with `crawlerName`.
+     * Name of a job to be executed. Conflicts with `crawlerName`.
      * 
      */
     @Import(name="jobName")
     private @Nullable Output<String> jobName;
 
     /**
-     * @return The name of a job to be executed. Conflicts with `crawlerName`.
+     * @return Name of a job to be executed. Conflicts with `crawlerName`.
      * 
      */
     public Optional<Output<String>> jobName() {
@@ -64,14 +64,14 @@ public final class TriggerActionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies configuration properties of a job run notification. See Notification Property details below.
+     * Configuration properties of a job run notification. See `notificationProperty` details below.
      * 
      */
     @Import(name="notificationProperty")
     private @Nullable Output<TriggerActionNotificationPropertyArgs> notificationProperty;
 
     /**
-     * @return Specifies configuration properties of a job run notification. See Notification Property details below.
+     * @return Configuration properties of a job run notification. See `notificationProperty` details below.
      * 
      */
     public Optional<Output<TriggerActionNotificationPropertyArgs>> notificationProperty() {
@@ -79,14 +79,14 @@ public final class TriggerActionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Security Configuration structure to be used with this action.
+     * Name of the Security Configuration structure to be used with this action.
      * 
      */
     @Import(name="securityConfiguration")
     private @Nullable Output<String> securityConfiguration;
 
     /**
-     * @return The name of the Security Configuration structure to be used with this action.
+     * @return Name of the Security Configuration structure to be used with this action.
      * 
      */
     public Optional<Output<String>> securityConfiguration() {
@@ -94,14 +94,14 @@ public final class TriggerActionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The job run timeout in minutes. It overrides the timeout value of the job.
+     * Job run timeout in minutes. It overrides the timeout value of the job.
      * 
      */
     @Import(name="timeout")
     private @Nullable Output<Integer> timeout;
 
     /**
-     * @return The job run timeout in minutes. It overrides the timeout value of the job.
+     * @return Job run timeout in minutes. It overrides the timeout value of the job.
      * 
      */
     public Optional<Output<Integer>> timeout() {
@@ -159,7 +159,7 @@ public final class TriggerActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param crawlerName The name of the crawler to be executed. Conflicts with `jobName`.
+         * @param crawlerName Name of the crawler to be executed. Conflicts with `jobName`.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class TriggerActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param crawlerName The name of the crawler to be executed. Conflicts with `jobName`.
+         * @param crawlerName Name of the crawler to be executed. Conflicts with `jobName`.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class TriggerActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jobName The name of a job to be executed. Conflicts with `crawlerName`.
+         * @param jobName Name of a job to be executed. Conflicts with `crawlerName`.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class TriggerActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jobName The name of a job to be executed. Conflicts with `crawlerName`.
+         * @param jobName Name of a job to be executed. Conflicts with `crawlerName`.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class TriggerActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notificationProperty Specifies configuration properties of a job run notification. See Notification Property details below.
+         * @param notificationProperty Configuration properties of a job run notification. See `notificationProperty` details below.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class TriggerActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notificationProperty Specifies configuration properties of a job run notification. See Notification Property details below.
+         * @param notificationProperty Configuration properties of a job run notification. See `notificationProperty` details below.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class TriggerActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityConfiguration The name of the Security Configuration structure to be used with this action.
+         * @param securityConfiguration Name of the Security Configuration structure to be used with this action.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class TriggerActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityConfiguration The name of the Security Configuration structure to be used with this action.
+         * @param securityConfiguration Name of the Security Configuration structure to be used with this action.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class TriggerActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timeout The job run timeout in minutes. It overrides the timeout value of the job.
+         * @param timeout Job run timeout in minutes. It overrides the timeout value of the job.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class TriggerActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timeout The job run timeout in minutes. It overrides the timeout value of the job.
+         * @param timeout Job run timeout in minutes. It overrides the timeout value of the job.
          * 
          * @return builder
          * 

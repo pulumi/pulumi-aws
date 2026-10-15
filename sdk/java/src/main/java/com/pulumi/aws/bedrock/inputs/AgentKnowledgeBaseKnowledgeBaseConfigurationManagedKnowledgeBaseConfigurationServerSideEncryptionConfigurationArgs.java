@@ -18,7 +18,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeB
     /**
      * ARN of the KMS key used to encrypt the managed knowledge base.
      * 
-     * &gt; **NOTE:** `storageConfiguration` is not required when `knowledge_base_configuration.type` is `MANAGED`. Amazon Bedrock manages the vector store automatically for managed knowledge bases.
+     * &gt; **Note:** `storageConfiguration` is not required when `knowledge_base_configuration.type` is `MANAGED`. Amazon Bedrock manages the vector store automatically for managed knowledge bases.
      * 
      */
     @Import(name="kmsKeyArn")
@@ -27,7 +27,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeB
     /**
      * @return ARN of the KMS key used to encrypt the managed knowledge base.
      * 
-     * &gt; **NOTE:** `storageConfiguration` is not required when `knowledge_base_configuration.type` is `MANAGED`. Amazon Bedrock manages the vector store automatically for managed knowledge bases.
+     * &gt; **Note:** `storageConfiguration` is not required when `knowledge_base_configuration.type` is `MANAGED`. Amazon Bedrock manages the vector store automatically for managed knowledge bases.
      * 
      */
     public Optional<Output<String>> kmsKeyArn() {
@@ -61,7 +61,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeB
         /**
          * @param kmsKeyArn ARN of the KMS key used to encrypt the managed knowledge base.
          * 
-         * &gt; **NOTE:** `storageConfiguration` is not required when `knowledge_base_configuration.type` is `MANAGED`. Amazon Bedrock manages the vector store automatically for managed knowledge bases.
+         * &gt; **Note:** `storageConfiguration` is not required when `knowledge_base_configuration.type` is `MANAGED`. Amazon Bedrock manages the vector store automatically for managed knowledge bases.
          * 
          * @return builder
          * 
@@ -74,7 +74,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeB
         /**
          * @param kmsKeyArn ARN of the KMS key used to encrypt the managed knowledge base.
          * 
-         * &gt; **NOTE:** `storageConfiguration` is not required when `knowledge_base_configuration.type` is `MANAGED`. Amazon Bedrock manages the vector store automatically for managed knowledge bases.
+         * &gt; **Note:** `storageConfiguration` is not required when `knowledge_base_configuration.type` is `MANAGED`. Amazon Bedrock manages the vector store automatically for managed knowledge bases.
          * 
          * @return builder
          * 

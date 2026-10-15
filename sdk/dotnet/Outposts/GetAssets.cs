@@ -317,7 +317,7 @@ namespace Pulumi.Aws.Outposts
     {
         public readonly string Arn;
         /// <summary>
-        /// List of all the asset ids found. This data source will fail if none are found.
+        /// List of all the asset IDs found. This data source will fail if none are found.
         /// </summary>
         public readonly ImmutableArray<string> AssetIds;
         public readonly ImmutableArray<string> HostIdFilters;

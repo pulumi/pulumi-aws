@@ -89,7 +89,7 @@ export class Application extends pulumi.CustomResource {
     }
 
     /**
-     * Id of the Application.
+     * ID of the Application.
      */
     declare public /*out*/ readonly applicationId: pulumi.Output<string>;
     /**
@@ -101,7 +101,7 @@ export class Application extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly currentVersion: pulumi.Output<number>;
     /**
-     * The application definition for this application. You can specify either inline JSON or an S3 bucket location.
+     * Application definition for this application. You can specify either inline JSON or an S3 bucket location.
      */
     declare public readonly definition: pulumi.Output<outputs.m2.ApplicationDefinition>;
     /**
@@ -135,7 +135,7 @@ export class Application extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.m2.ApplicationTimeouts | undefined>;
@@ -198,7 +198,7 @@ export class Application extends pulumi.CustomResource {
  */
 export interface ApplicationState {
     /**
-     * Id of the Application.
+     * ID of the Application.
      */
     applicationId?: pulumi.Input<string | undefined>;
     /**
@@ -210,7 +210,7 @@ export interface ApplicationState {
      */
     currentVersion?: pulumi.Input<number | undefined>;
     /**
-     * The application definition for this application. You can specify either inline JSON or an S3 bucket location.
+     * Application definition for this application. You can specify either inline JSON or an S3 bucket location.
      */
     definition?: pulumi.Input<inputs.m2.ApplicationDefinition | undefined>;
     /**
@@ -244,7 +244,7 @@ export interface ApplicationState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.m2.ApplicationTimeouts | undefined>;
@@ -255,7 +255,7 @@ export interface ApplicationState {
  */
 export interface ApplicationArgs {
     /**
-     * The application definition for this application. You can specify either inline JSON or an S3 bucket location.
+     * Application definition for this application. You can specify either inline JSON or an S3 bucket location.
      */
     definition: pulumi.Input<inputs.m2.ApplicationDefinition>;
     /**

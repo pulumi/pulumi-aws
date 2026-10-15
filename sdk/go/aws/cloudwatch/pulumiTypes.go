@@ -938,7 +938,7 @@ type EventConnectionAuthParameters struct {
 	Basic *EventConnectionAuthParametersBasic `pulumi:"basic"`
 	// Parameters used for `oauth` with private API. Documented below.
 	ConnectivityParameters *EventConnectionAuthParametersConnectivityParameters `pulumi:"connectivityParameters"`
-	// Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+	// Invocation HTTP Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation HTTP Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
 	InvocationHttpParameters *EventConnectionAuthParametersInvocationHttpParameters `pulumi:"invocationHttpParameters"`
 	// Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `apiKey`. Documented below.
 	Oauth *EventConnectionAuthParametersOauth `pulumi:"oauth"`
@@ -962,7 +962,7 @@ type EventConnectionAuthParametersArgs struct {
 	Basic EventConnectionAuthParametersBasicPtrInput `pulumi:"basic"`
 	// Parameters used for `oauth` with private API. Documented below.
 	ConnectivityParameters EventConnectionAuthParametersConnectivityParametersPtrInput `pulumi:"connectivityParameters"`
-	// Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+	// Invocation HTTP Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation HTTP Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
 	InvocationHttpParameters EventConnectionAuthParametersInvocationHttpParametersPtrInput `pulumi:"invocationHttpParameters"`
 	// Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `apiKey`. Documented below.
 	Oauth EventConnectionAuthParametersOauthPtrInput `pulumi:"oauth"`
@@ -1062,7 +1062,7 @@ func (o EventConnectionAuthParametersOutput) ConnectivityParameters() EventConne
 	}).(EventConnectionAuthParametersConnectivityParametersPtrOutput)
 }
 
-// Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+// Invocation HTTP Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation HTTP Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
 func (o EventConnectionAuthParametersOutput) InvocationHttpParameters() EventConnectionAuthParametersInvocationHttpParametersPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParameters) *EventConnectionAuthParametersInvocationHttpParameters {
 		return v.InvocationHttpParameters
@@ -1128,7 +1128,7 @@ func (o EventConnectionAuthParametersPtrOutput) ConnectivityParameters() EventCo
 	}).(EventConnectionAuthParametersConnectivityParametersPtrOutput)
 }
 
-// Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+// Invocation HTTP Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation HTTP Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
 func (o EventConnectionAuthParametersPtrOutput) InvocationHttpParameters() EventConnectionAuthParametersInvocationHttpParametersPtrOutput {
 	return o.ApplyT(func(v *EventConnectionAuthParameters) *EventConnectionAuthParametersInvocationHttpParameters {
 		if v == nil {
@@ -2288,7 +2288,7 @@ type EventConnectionAuthParametersOauth struct {
 	ClientParameters *EventConnectionAuthParametersOauthClientParameters `pulumi:"clientParameters"`
 	// A password for the authorization. Created and stored in AWS Secrets Manager.
 	HttpMethod string `pulumi:"httpMethod"`
-	// OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+	// OAuth HTTP Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
 	OauthHttpParameters EventConnectionAuthParametersOauthOauthHttpParameters `pulumi:"oauthHttpParameters"`
 }
 
@@ -2310,7 +2310,7 @@ type EventConnectionAuthParametersOauthArgs struct {
 	ClientParameters EventConnectionAuthParametersOauthClientParametersPtrInput `pulumi:"clientParameters"`
 	// A password for the authorization. Created and stored in AWS Secrets Manager.
 	HttpMethod pulumi.StringInput `pulumi:"httpMethod"`
-	// OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+	// OAuth HTTP Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
 	OauthHttpParameters EventConnectionAuthParametersOauthOauthHttpParametersInput `pulumi:"oauthHttpParameters"`
 }
 
@@ -2408,7 +2408,7 @@ func (o EventConnectionAuthParametersOauthOutput) HttpMethod() pulumi.StringOutp
 	return o.ApplyT(func(v EventConnectionAuthParametersOauth) string { return v.HttpMethod }).(pulumi.StringOutput)
 }
 
-// OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+// OAuth HTTP Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
 func (o EventConnectionAuthParametersOauthOutput) OauthHttpParameters() EventConnectionAuthParametersOauthOauthHttpParametersOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersOauth) EventConnectionAuthParametersOauthOauthHttpParameters {
 		return v.OauthHttpParameters
@@ -2469,7 +2469,7 @@ func (o EventConnectionAuthParametersOauthPtrOutput) HttpMethod() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+// OAuth HTTP Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
 func (o EventConnectionAuthParametersOauthPtrOutput) OauthHttpParameters() EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput {
 	return o.ApplyT(func(v *EventConnectionAuthParametersOauth) *EventConnectionAuthParametersOauthOauthHttpParameters {
 		if v == nil {
@@ -4925,7 +4925,7 @@ type EventTargetEcsTarget struct {
 	PlatformVersion *string `pulumi:"platformVersion"`
 	// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. The only valid value is: `TASK_DEFINITION`.
 	PropagateTags *string `pulumi:"propagateTags"`
-	// A map of tags to assign to ecs resources.
+	// A map of tags to assign to ECS resources.
 	Tags map[string]string `pulumi:"tags"`
 	// The number of tasks to create based on the TaskDefinition. Defaults to `1`.
 	TaskCount *int `pulumi:"taskCount"`
@@ -4965,7 +4965,7 @@ type EventTargetEcsTargetArgs struct {
 	PlatformVersion pulumi.StringPtrInput `pulumi:"platformVersion"`
 	// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. The only valid value is: `TASK_DEFINITION`.
 	PropagateTags pulumi.StringPtrInput `pulumi:"propagateTags"`
-	// A map of tags to assign to ecs resources.
+	// A map of tags to assign to ECS resources.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// The number of tasks to create based on the TaskDefinition. Defaults to `1`.
 	TaskCount pulumi.IntPtrInput `pulumi:"taskCount"`
@@ -5104,7 +5104,7 @@ func (o EventTargetEcsTargetOutput) PropagateTags() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTargetEcsTarget) *string { return v.PropagateTags }).(pulumi.StringPtrOutput)
 }
 
-// A map of tags to assign to ecs resources.
+// A map of tags to assign to ECS resources.
 func (o EventTargetEcsTargetOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v EventTargetEcsTarget) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -5243,7 +5243,7 @@ func (o EventTargetEcsTargetPtrOutput) PropagateTags() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A map of tags to assign to ecs resources.
+// A map of tags to assign to ECS resources.
 func (o EventTargetEcsTargetPtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EventTargetEcsTarget) map[string]string {
 		if v == nil {
@@ -12647,6 +12647,282 @@ func (o MetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutput) RecoveryPeriod() p
 	}).(pulumi.IntPtrOutput)
 }
 
+type MetricAlarmEvaluationWindow struct {
+	// Aligns the evaluated range to fixed clock boundaries that match the alarm's `period` (for example the top of the hour, midnight, or the start of the calendar week), instead of the default rolling sliding window. Only alarms with a `period` of `60`, `300`, `3600`, `86400`, or `604800` seconds support a wall clock window. See `wallClockWindow` below.
+	WallClockWindow MetricAlarmEvaluationWindowWallClockWindow `pulumi:"wallClockWindow"`
+}
+
+// MetricAlarmEvaluationWindowInput is an input type that accepts MetricAlarmEvaluationWindowArgs and MetricAlarmEvaluationWindowOutput values.
+// You can construct a concrete instance of `MetricAlarmEvaluationWindowInput` via:
+//
+//	MetricAlarmEvaluationWindowArgs{...}
+type MetricAlarmEvaluationWindowInput interface {
+	pulumi.Input
+
+	ToMetricAlarmEvaluationWindowOutput() MetricAlarmEvaluationWindowOutput
+	ToMetricAlarmEvaluationWindowOutputWithContext(context.Context) MetricAlarmEvaluationWindowOutput
+}
+
+type MetricAlarmEvaluationWindowArgs struct {
+	// Aligns the evaluated range to fixed clock boundaries that match the alarm's `period` (for example the top of the hour, midnight, or the start of the calendar week), instead of the default rolling sliding window. Only alarms with a `period` of `60`, `300`, `3600`, `86400`, or `604800` seconds support a wall clock window. See `wallClockWindow` below.
+	WallClockWindow MetricAlarmEvaluationWindowWallClockWindowInput `pulumi:"wallClockWindow"`
+}
+
+func (MetricAlarmEvaluationWindowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricAlarmEvaluationWindow)(nil)).Elem()
+}
+
+func (i MetricAlarmEvaluationWindowArgs) ToMetricAlarmEvaluationWindowOutput() MetricAlarmEvaluationWindowOutput {
+	return i.ToMetricAlarmEvaluationWindowOutputWithContext(context.Background())
+}
+
+func (i MetricAlarmEvaluationWindowArgs) ToMetricAlarmEvaluationWindowOutputWithContext(ctx context.Context) MetricAlarmEvaluationWindowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAlarmEvaluationWindowOutput)
+}
+
+func (i MetricAlarmEvaluationWindowArgs) ToMetricAlarmEvaluationWindowPtrOutput() MetricAlarmEvaluationWindowPtrOutput {
+	return i.ToMetricAlarmEvaluationWindowPtrOutputWithContext(context.Background())
+}
+
+func (i MetricAlarmEvaluationWindowArgs) ToMetricAlarmEvaluationWindowPtrOutputWithContext(ctx context.Context) MetricAlarmEvaluationWindowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAlarmEvaluationWindowOutput).ToMetricAlarmEvaluationWindowPtrOutputWithContext(ctx)
+}
+
+// MetricAlarmEvaluationWindowPtrInput is an input type that accepts MetricAlarmEvaluationWindowArgs, MetricAlarmEvaluationWindowPtr and MetricAlarmEvaluationWindowPtrOutput values.
+// You can construct a concrete instance of `MetricAlarmEvaluationWindowPtrInput` via:
+//
+//	        MetricAlarmEvaluationWindowArgs{...}
+//
+//	or:
+//
+//	        nil
+type MetricAlarmEvaluationWindowPtrInput interface {
+	pulumi.Input
+
+	ToMetricAlarmEvaluationWindowPtrOutput() MetricAlarmEvaluationWindowPtrOutput
+	ToMetricAlarmEvaluationWindowPtrOutputWithContext(context.Context) MetricAlarmEvaluationWindowPtrOutput
+}
+
+type metricAlarmEvaluationWindowPtrType MetricAlarmEvaluationWindowArgs
+
+func MetricAlarmEvaluationWindowPtr(v *MetricAlarmEvaluationWindowArgs) MetricAlarmEvaluationWindowPtrInput {
+	return (*metricAlarmEvaluationWindowPtrType)(v)
+}
+
+func (*metricAlarmEvaluationWindowPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricAlarmEvaluationWindow)(nil)).Elem()
+}
+
+func (i *metricAlarmEvaluationWindowPtrType) ToMetricAlarmEvaluationWindowPtrOutput() MetricAlarmEvaluationWindowPtrOutput {
+	return i.ToMetricAlarmEvaluationWindowPtrOutputWithContext(context.Background())
+}
+
+func (i *metricAlarmEvaluationWindowPtrType) ToMetricAlarmEvaluationWindowPtrOutputWithContext(ctx context.Context) MetricAlarmEvaluationWindowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAlarmEvaluationWindowPtrOutput)
+}
+
+type MetricAlarmEvaluationWindowOutput struct{ *pulumi.OutputState }
+
+func (MetricAlarmEvaluationWindowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricAlarmEvaluationWindow)(nil)).Elem()
+}
+
+func (o MetricAlarmEvaluationWindowOutput) ToMetricAlarmEvaluationWindowOutput() MetricAlarmEvaluationWindowOutput {
+	return o
+}
+
+func (o MetricAlarmEvaluationWindowOutput) ToMetricAlarmEvaluationWindowOutputWithContext(ctx context.Context) MetricAlarmEvaluationWindowOutput {
+	return o
+}
+
+func (o MetricAlarmEvaluationWindowOutput) ToMetricAlarmEvaluationWindowPtrOutput() MetricAlarmEvaluationWindowPtrOutput {
+	return o.ToMetricAlarmEvaluationWindowPtrOutputWithContext(context.Background())
+}
+
+func (o MetricAlarmEvaluationWindowOutput) ToMetricAlarmEvaluationWindowPtrOutputWithContext(ctx context.Context) MetricAlarmEvaluationWindowPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetricAlarmEvaluationWindow) *MetricAlarmEvaluationWindow {
+		return &v
+	}).(MetricAlarmEvaluationWindowPtrOutput)
+}
+
+// Aligns the evaluated range to fixed clock boundaries that match the alarm's `period` (for example the top of the hour, midnight, or the start of the calendar week), instead of the default rolling sliding window. Only alarms with a `period` of `60`, `300`, `3600`, `86400`, or `604800` seconds support a wall clock window. See `wallClockWindow` below.
+func (o MetricAlarmEvaluationWindowOutput) WallClockWindow() MetricAlarmEvaluationWindowWallClockWindowOutput {
+	return o.ApplyT(func(v MetricAlarmEvaluationWindow) MetricAlarmEvaluationWindowWallClockWindow {
+		return v.WallClockWindow
+	}).(MetricAlarmEvaluationWindowWallClockWindowOutput)
+}
+
+type MetricAlarmEvaluationWindowPtrOutput struct{ *pulumi.OutputState }
+
+func (MetricAlarmEvaluationWindowPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricAlarmEvaluationWindow)(nil)).Elem()
+}
+
+func (o MetricAlarmEvaluationWindowPtrOutput) ToMetricAlarmEvaluationWindowPtrOutput() MetricAlarmEvaluationWindowPtrOutput {
+	return o
+}
+
+func (o MetricAlarmEvaluationWindowPtrOutput) ToMetricAlarmEvaluationWindowPtrOutputWithContext(ctx context.Context) MetricAlarmEvaluationWindowPtrOutput {
+	return o
+}
+
+func (o MetricAlarmEvaluationWindowPtrOutput) Elem() MetricAlarmEvaluationWindowOutput {
+	return o.ApplyT(func(v *MetricAlarmEvaluationWindow) MetricAlarmEvaluationWindow {
+		if v != nil {
+			return *v
+		}
+		var ret MetricAlarmEvaluationWindow
+		return ret
+	}).(MetricAlarmEvaluationWindowOutput)
+}
+
+// Aligns the evaluated range to fixed clock boundaries that match the alarm's `period` (for example the top of the hour, midnight, or the start of the calendar week), instead of the default rolling sliding window. Only alarms with a `period` of `60`, `300`, `3600`, `86400`, or `604800` seconds support a wall clock window. See `wallClockWindow` below.
+func (o MetricAlarmEvaluationWindowPtrOutput) WallClockWindow() MetricAlarmEvaluationWindowWallClockWindowPtrOutput {
+	return o.ApplyT(func(v *MetricAlarmEvaluationWindow) *MetricAlarmEvaluationWindowWallClockWindow {
+		if v == nil {
+			return nil
+		}
+		return &v.WallClockWindow
+	}).(MetricAlarmEvaluationWindowWallClockWindowPtrOutput)
+}
+
+type MetricAlarmEvaluationWindowWallClockWindow struct {
+	// Time zone to align the window to. Accepts an IANA time zone name (for example `America/New_York`), a fixed UTC offset (for example `+05:30`), or an offset-prefixed identifier (for example `UTC+05:30`). The offset must be a multiple of 5 minutes. Defaults to UTC. Only IANA time zone names observe daylight saving time.
+	Timezone *string `pulumi:"timezone"`
+}
+
+// MetricAlarmEvaluationWindowWallClockWindowInput is an input type that accepts MetricAlarmEvaluationWindowWallClockWindowArgs and MetricAlarmEvaluationWindowWallClockWindowOutput values.
+// You can construct a concrete instance of `MetricAlarmEvaluationWindowWallClockWindowInput` via:
+//
+//	MetricAlarmEvaluationWindowWallClockWindowArgs{...}
+type MetricAlarmEvaluationWindowWallClockWindowInput interface {
+	pulumi.Input
+
+	ToMetricAlarmEvaluationWindowWallClockWindowOutput() MetricAlarmEvaluationWindowWallClockWindowOutput
+	ToMetricAlarmEvaluationWindowWallClockWindowOutputWithContext(context.Context) MetricAlarmEvaluationWindowWallClockWindowOutput
+}
+
+type MetricAlarmEvaluationWindowWallClockWindowArgs struct {
+	// Time zone to align the window to. Accepts an IANA time zone name (for example `America/New_York`), a fixed UTC offset (for example `+05:30`), or an offset-prefixed identifier (for example `UTC+05:30`). The offset must be a multiple of 5 minutes. Defaults to UTC. Only IANA time zone names observe daylight saving time.
+	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
+}
+
+func (MetricAlarmEvaluationWindowWallClockWindowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricAlarmEvaluationWindowWallClockWindow)(nil)).Elem()
+}
+
+func (i MetricAlarmEvaluationWindowWallClockWindowArgs) ToMetricAlarmEvaluationWindowWallClockWindowOutput() MetricAlarmEvaluationWindowWallClockWindowOutput {
+	return i.ToMetricAlarmEvaluationWindowWallClockWindowOutputWithContext(context.Background())
+}
+
+func (i MetricAlarmEvaluationWindowWallClockWindowArgs) ToMetricAlarmEvaluationWindowWallClockWindowOutputWithContext(ctx context.Context) MetricAlarmEvaluationWindowWallClockWindowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAlarmEvaluationWindowWallClockWindowOutput)
+}
+
+func (i MetricAlarmEvaluationWindowWallClockWindowArgs) ToMetricAlarmEvaluationWindowWallClockWindowPtrOutput() MetricAlarmEvaluationWindowWallClockWindowPtrOutput {
+	return i.ToMetricAlarmEvaluationWindowWallClockWindowPtrOutputWithContext(context.Background())
+}
+
+func (i MetricAlarmEvaluationWindowWallClockWindowArgs) ToMetricAlarmEvaluationWindowWallClockWindowPtrOutputWithContext(ctx context.Context) MetricAlarmEvaluationWindowWallClockWindowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAlarmEvaluationWindowWallClockWindowOutput).ToMetricAlarmEvaluationWindowWallClockWindowPtrOutputWithContext(ctx)
+}
+
+// MetricAlarmEvaluationWindowWallClockWindowPtrInput is an input type that accepts MetricAlarmEvaluationWindowWallClockWindowArgs, MetricAlarmEvaluationWindowWallClockWindowPtr and MetricAlarmEvaluationWindowWallClockWindowPtrOutput values.
+// You can construct a concrete instance of `MetricAlarmEvaluationWindowWallClockWindowPtrInput` via:
+//
+//	        MetricAlarmEvaluationWindowWallClockWindowArgs{...}
+//
+//	or:
+//
+//	        nil
+type MetricAlarmEvaluationWindowWallClockWindowPtrInput interface {
+	pulumi.Input
+
+	ToMetricAlarmEvaluationWindowWallClockWindowPtrOutput() MetricAlarmEvaluationWindowWallClockWindowPtrOutput
+	ToMetricAlarmEvaluationWindowWallClockWindowPtrOutputWithContext(context.Context) MetricAlarmEvaluationWindowWallClockWindowPtrOutput
+}
+
+type metricAlarmEvaluationWindowWallClockWindowPtrType MetricAlarmEvaluationWindowWallClockWindowArgs
+
+func MetricAlarmEvaluationWindowWallClockWindowPtr(v *MetricAlarmEvaluationWindowWallClockWindowArgs) MetricAlarmEvaluationWindowWallClockWindowPtrInput {
+	return (*metricAlarmEvaluationWindowWallClockWindowPtrType)(v)
+}
+
+func (*metricAlarmEvaluationWindowWallClockWindowPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricAlarmEvaluationWindowWallClockWindow)(nil)).Elem()
+}
+
+func (i *metricAlarmEvaluationWindowWallClockWindowPtrType) ToMetricAlarmEvaluationWindowWallClockWindowPtrOutput() MetricAlarmEvaluationWindowWallClockWindowPtrOutput {
+	return i.ToMetricAlarmEvaluationWindowWallClockWindowPtrOutputWithContext(context.Background())
+}
+
+func (i *metricAlarmEvaluationWindowWallClockWindowPtrType) ToMetricAlarmEvaluationWindowWallClockWindowPtrOutputWithContext(ctx context.Context) MetricAlarmEvaluationWindowWallClockWindowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAlarmEvaluationWindowWallClockWindowPtrOutput)
+}
+
+type MetricAlarmEvaluationWindowWallClockWindowOutput struct{ *pulumi.OutputState }
+
+func (MetricAlarmEvaluationWindowWallClockWindowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricAlarmEvaluationWindowWallClockWindow)(nil)).Elem()
+}
+
+func (o MetricAlarmEvaluationWindowWallClockWindowOutput) ToMetricAlarmEvaluationWindowWallClockWindowOutput() MetricAlarmEvaluationWindowWallClockWindowOutput {
+	return o
+}
+
+func (o MetricAlarmEvaluationWindowWallClockWindowOutput) ToMetricAlarmEvaluationWindowWallClockWindowOutputWithContext(ctx context.Context) MetricAlarmEvaluationWindowWallClockWindowOutput {
+	return o
+}
+
+func (o MetricAlarmEvaluationWindowWallClockWindowOutput) ToMetricAlarmEvaluationWindowWallClockWindowPtrOutput() MetricAlarmEvaluationWindowWallClockWindowPtrOutput {
+	return o.ToMetricAlarmEvaluationWindowWallClockWindowPtrOutputWithContext(context.Background())
+}
+
+func (o MetricAlarmEvaluationWindowWallClockWindowOutput) ToMetricAlarmEvaluationWindowWallClockWindowPtrOutputWithContext(ctx context.Context) MetricAlarmEvaluationWindowWallClockWindowPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetricAlarmEvaluationWindowWallClockWindow) *MetricAlarmEvaluationWindowWallClockWindow {
+		return &v
+	}).(MetricAlarmEvaluationWindowWallClockWindowPtrOutput)
+}
+
+// Time zone to align the window to. Accepts an IANA time zone name (for example `America/New_York`), a fixed UTC offset (for example `+05:30`), or an offset-prefixed identifier (for example `UTC+05:30`). The offset must be a multiple of 5 minutes. Defaults to UTC. Only IANA time zone names observe daylight saving time.
+func (o MetricAlarmEvaluationWindowWallClockWindowOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetricAlarmEvaluationWindowWallClockWindow) *string { return v.Timezone }).(pulumi.StringPtrOutput)
+}
+
+type MetricAlarmEvaluationWindowWallClockWindowPtrOutput struct{ *pulumi.OutputState }
+
+func (MetricAlarmEvaluationWindowWallClockWindowPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricAlarmEvaluationWindowWallClockWindow)(nil)).Elem()
+}
+
+func (o MetricAlarmEvaluationWindowWallClockWindowPtrOutput) ToMetricAlarmEvaluationWindowWallClockWindowPtrOutput() MetricAlarmEvaluationWindowWallClockWindowPtrOutput {
+	return o
+}
+
+func (o MetricAlarmEvaluationWindowWallClockWindowPtrOutput) ToMetricAlarmEvaluationWindowWallClockWindowPtrOutputWithContext(ctx context.Context) MetricAlarmEvaluationWindowWallClockWindowPtrOutput {
+	return o
+}
+
+func (o MetricAlarmEvaluationWindowWallClockWindowPtrOutput) Elem() MetricAlarmEvaluationWindowWallClockWindowOutput {
+	return o.ApplyT(func(v *MetricAlarmEvaluationWindowWallClockWindow) MetricAlarmEvaluationWindowWallClockWindow {
+		if v != nil {
+			return *v
+		}
+		var ret MetricAlarmEvaluationWindowWallClockWindow
+		return ret
+	}).(MetricAlarmEvaluationWindowWallClockWindowOutput)
+}
+
+// Time zone to align the window to. Accepts an IANA time zone name (for example `America/New_York`), a fixed UTC offset (for example `+05:30`), or an offset-prefixed identifier (for example `UTC+05:30`). The offset must be a multiple of 5 minutes. Defaults to UTC. Only IANA time zone names observe daylight saving time.
+func (o MetricAlarmEvaluationWindowWallClockWindowPtrOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricAlarmEvaluationWindowWallClockWindow) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Timezone
+	}).(pulumi.StringPtrOutput)
+}
+
 type MetricAlarmMetricQuery struct {
 	// The ID of the account where the metrics are located, if this is a cross-account alarm.
 	AccountId *string `pulumi:"accountId"`
@@ -13655,6 +13931,218 @@ func (o MetricStreamStatisticsConfigurationIncludeMetricArrayOutput) Index(i pul
 	}).(MetricStreamStatisticsConfigurationIncludeMetricOutput)
 }
 
+type OtelEnrichmentExcludeFilter struct {
+	// Names of the metrics to select within the namespace, up to 100. Omit to match every metric in the namespace.
+	MetricNames []string `pulumi:"metricNames"`
+	// Namespace of the metrics to select. Must be 1-255 characters and must not begin with a colon.
+	Namespace string `pulumi:"namespace"`
+}
+
+// OtelEnrichmentExcludeFilterInput is an input type that accepts OtelEnrichmentExcludeFilterArgs and OtelEnrichmentExcludeFilterOutput values.
+// You can construct a concrete instance of `OtelEnrichmentExcludeFilterInput` via:
+//
+//	OtelEnrichmentExcludeFilterArgs{...}
+type OtelEnrichmentExcludeFilterInput interface {
+	pulumi.Input
+
+	ToOtelEnrichmentExcludeFilterOutput() OtelEnrichmentExcludeFilterOutput
+	ToOtelEnrichmentExcludeFilterOutputWithContext(context.Context) OtelEnrichmentExcludeFilterOutput
+}
+
+type OtelEnrichmentExcludeFilterArgs struct {
+	// Names of the metrics to select within the namespace, up to 100. Omit to match every metric in the namespace.
+	MetricNames pulumi.StringArrayInput `pulumi:"metricNames"`
+	// Namespace of the metrics to select. Must be 1-255 characters and must not begin with a colon.
+	Namespace pulumi.StringInput `pulumi:"namespace"`
+}
+
+func (OtelEnrichmentExcludeFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtelEnrichmentExcludeFilter)(nil)).Elem()
+}
+
+func (i OtelEnrichmentExcludeFilterArgs) ToOtelEnrichmentExcludeFilterOutput() OtelEnrichmentExcludeFilterOutput {
+	return i.ToOtelEnrichmentExcludeFilterOutputWithContext(context.Background())
+}
+
+func (i OtelEnrichmentExcludeFilterArgs) ToOtelEnrichmentExcludeFilterOutputWithContext(ctx context.Context) OtelEnrichmentExcludeFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtelEnrichmentExcludeFilterOutput)
+}
+
+// OtelEnrichmentExcludeFilterArrayInput is an input type that accepts OtelEnrichmentExcludeFilterArray and OtelEnrichmentExcludeFilterArrayOutput values.
+// You can construct a concrete instance of `OtelEnrichmentExcludeFilterArrayInput` via:
+//
+//	OtelEnrichmentExcludeFilterArray{ OtelEnrichmentExcludeFilterArgs{...} }
+type OtelEnrichmentExcludeFilterArrayInput interface {
+	pulumi.Input
+
+	ToOtelEnrichmentExcludeFilterArrayOutput() OtelEnrichmentExcludeFilterArrayOutput
+	ToOtelEnrichmentExcludeFilterArrayOutputWithContext(context.Context) OtelEnrichmentExcludeFilterArrayOutput
+}
+
+type OtelEnrichmentExcludeFilterArray []OtelEnrichmentExcludeFilterInput
+
+func (OtelEnrichmentExcludeFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OtelEnrichmentExcludeFilter)(nil)).Elem()
+}
+
+func (i OtelEnrichmentExcludeFilterArray) ToOtelEnrichmentExcludeFilterArrayOutput() OtelEnrichmentExcludeFilterArrayOutput {
+	return i.ToOtelEnrichmentExcludeFilterArrayOutputWithContext(context.Background())
+}
+
+func (i OtelEnrichmentExcludeFilterArray) ToOtelEnrichmentExcludeFilterArrayOutputWithContext(ctx context.Context) OtelEnrichmentExcludeFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtelEnrichmentExcludeFilterArrayOutput)
+}
+
+type OtelEnrichmentExcludeFilterOutput struct{ *pulumi.OutputState }
+
+func (OtelEnrichmentExcludeFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtelEnrichmentExcludeFilter)(nil)).Elem()
+}
+
+func (o OtelEnrichmentExcludeFilterOutput) ToOtelEnrichmentExcludeFilterOutput() OtelEnrichmentExcludeFilterOutput {
+	return o
+}
+
+func (o OtelEnrichmentExcludeFilterOutput) ToOtelEnrichmentExcludeFilterOutputWithContext(ctx context.Context) OtelEnrichmentExcludeFilterOutput {
+	return o
+}
+
+// Names of the metrics to select within the namespace, up to 100. Omit to match every metric in the namespace.
+func (o OtelEnrichmentExcludeFilterOutput) MetricNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OtelEnrichmentExcludeFilter) []string { return v.MetricNames }).(pulumi.StringArrayOutput)
+}
+
+// Namespace of the metrics to select. Must be 1-255 characters and must not begin with a colon.
+func (o OtelEnrichmentExcludeFilterOutput) Namespace() pulumi.StringOutput {
+	return o.ApplyT(func(v OtelEnrichmentExcludeFilter) string { return v.Namespace }).(pulumi.StringOutput)
+}
+
+type OtelEnrichmentExcludeFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (OtelEnrichmentExcludeFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OtelEnrichmentExcludeFilter)(nil)).Elem()
+}
+
+func (o OtelEnrichmentExcludeFilterArrayOutput) ToOtelEnrichmentExcludeFilterArrayOutput() OtelEnrichmentExcludeFilterArrayOutput {
+	return o
+}
+
+func (o OtelEnrichmentExcludeFilterArrayOutput) ToOtelEnrichmentExcludeFilterArrayOutputWithContext(ctx context.Context) OtelEnrichmentExcludeFilterArrayOutput {
+	return o
+}
+
+func (o OtelEnrichmentExcludeFilterArrayOutput) Index(i pulumi.IntInput) OtelEnrichmentExcludeFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OtelEnrichmentExcludeFilter {
+		return vs[0].([]OtelEnrichmentExcludeFilter)[vs[1].(int)]
+	}).(OtelEnrichmentExcludeFilterOutput)
+}
+
+type OtelEnrichmentIncludeFilter struct {
+	// Names of the metrics to select within the namespace, up to 100. Omit to match every metric in the namespace.
+	MetricNames []string `pulumi:"metricNames"`
+	// Namespace of the metrics to select. Must be 1-255 characters and must not begin with a colon.
+	Namespace string `pulumi:"namespace"`
+}
+
+// OtelEnrichmentIncludeFilterInput is an input type that accepts OtelEnrichmentIncludeFilterArgs and OtelEnrichmentIncludeFilterOutput values.
+// You can construct a concrete instance of `OtelEnrichmentIncludeFilterInput` via:
+//
+//	OtelEnrichmentIncludeFilterArgs{...}
+type OtelEnrichmentIncludeFilterInput interface {
+	pulumi.Input
+
+	ToOtelEnrichmentIncludeFilterOutput() OtelEnrichmentIncludeFilterOutput
+	ToOtelEnrichmentIncludeFilterOutputWithContext(context.Context) OtelEnrichmentIncludeFilterOutput
+}
+
+type OtelEnrichmentIncludeFilterArgs struct {
+	// Names of the metrics to select within the namespace, up to 100. Omit to match every metric in the namespace.
+	MetricNames pulumi.StringArrayInput `pulumi:"metricNames"`
+	// Namespace of the metrics to select. Must be 1-255 characters and must not begin with a colon.
+	Namespace pulumi.StringInput `pulumi:"namespace"`
+}
+
+func (OtelEnrichmentIncludeFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtelEnrichmentIncludeFilter)(nil)).Elem()
+}
+
+func (i OtelEnrichmentIncludeFilterArgs) ToOtelEnrichmentIncludeFilterOutput() OtelEnrichmentIncludeFilterOutput {
+	return i.ToOtelEnrichmentIncludeFilterOutputWithContext(context.Background())
+}
+
+func (i OtelEnrichmentIncludeFilterArgs) ToOtelEnrichmentIncludeFilterOutputWithContext(ctx context.Context) OtelEnrichmentIncludeFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtelEnrichmentIncludeFilterOutput)
+}
+
+// OtelEnrichmentIncludeFilterArrayInput is an input type that accepts OtelEnrichmentIncludeFilterArray and OtelEnrichmentIncludeFilterArrayOutput values.
+// You can construct a concrete instance of `OtelEnrichmentIncludeFilterArrayInput` via:
+//
+//	OtelEnrichmentIncludeFilterArray{ OtelEnrichmentIncludeFilterArgs{...} }
+type OtelEnrichmentIncludeFilterArrayInput interface {
+	pulumi.Input
+
+	ToOtelEnrichmentIncludeFilterArrayOutput() OtelEnrichmentIncludeFilterArrayOutput
+	ToOtelEnrichmentIncludeFilterArrayOutputWithContext(context.Context) OtelEnrichmentIncludeFilterArrayOutput
+}
+
+type OtelEnrichmentIncludeFilterArray []OtelEnrichmentIncludeFilterInput
+
+func (OtelEnrichmentIncludeFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OtelEnrichmentIncludeFilter)(nil)).Elem()
+}
+
+func (i OtelEnrichmentIncludeFilterArray) ToOtelEnrichmentIncludeFilterArrayOutput() OtelEnrichmentIncludeFilterArrayOutput {
+	return i.ToOtelEnrichmentIncludeFilterArrayOutputWithContext(context.Background())
+}
+
+func (i OtelEnrichmentIncludeFilterArray) ToOtelEnrichmentIncludeFilterArrayOutputWithContext(ctx context.Context) OtelEnrichmentIncludeFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OtelEnrichmentIncludeFilterArrayOutput)
+}
+
+type OtelEnrichmentIncludeFilterOutput struct{ *pulumi.OutputState }
+
+func (OtelEnrichmentIncludeFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OtelEnrichmentIncludeFilter)(nil)).Elem()
+}
+
+func (o OtelEnrichmentIncludeFilterOutput) ToOtelEnrichmentIncludeFilterOutput() OtelEnrichmentIncludeFilterOutput {
+	return o
+}
+
+func (o OtelEnrichmentIncludeFilterOutput) ToOtelEnrichmentIncludeFilterOutputWithContext(ctx context.Context) OtelEnrichmentIncludeFilterOutput {
+	return o
+}
+
+// Names of the metrics to select within the namespace, up to 100. Omit to match every metric in the namespace.
+func (o OtelEnrichmentIncludeFilterOutput) MetricNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OtelEnrichmentIncludeFilter) []string { return v.MetricNames }).(pulumi.StringArrayOutput)
+}
+
+// Namespace of the metrics to select. Must be 1-255 characters and must not begin with a colon.
+func (o OtelEnrichmentIncludeFilterOutput) Namespace() pulumi.StringOutput {
+	return o.ApplyT(func(v OtelEnrichmentIncludeFilter) string { return v.Namespace }).(pulumi.StringOutput)
+}
+
+type OtelEnrichmentIncludeFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (OtelEnrichmentIncludeFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OtelEnrichmentIncludeFilter)(nil)).Elem()
+}
+
+func (o OtelEnrichmentIncludeFilterArrayOutput) ToOtelEnrichmentIncludeFilterArrayOutput() OtelEnrichmentIncludeFilterArrayOutput {
+	return o
+}
+
+func (o OtelEnrichmentIncludeFilterArrayOutput) ToOtelEnrichmentIncludeFilterArrayOutputWithContext(ctx context.Context) OtelEnrichmentIncludeFilterArrayOutput {
+	return o
+}
+
+func (o OtelEnrichmentIncludeFilterArrayOutput) Index(i pulumi.IntInput) OtelEnrichmentIncludeFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OtelEnrichmentIncludeFilter {
+		return vs[0].([]OtelEnrichmentIncludeFilter)[vs[1].(int)]
+	}).(OtelEnrichmentIncludeFilterOutput)
+}
+
 type OtelEnrichmentTimeouts struct {
 	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create *string `pulumi:"create"`
@@ -13975,6 +14463,143 @@ func (o PolicyDocumentPtrOutput) Version() iam.PolicyDocumentVersionPtrOutput {
 		}
 		return &v.Version
 	}).(iam.PolicyDocumentVersionPtrOutput)
+}
+
+type ResourceMetricsConfigurationMetricSelection struct {
+	// Set of metric names to collect for the resource. CloudWatch collects only the metrics listed here. Between 1 and 500 names, each between 1 and 255 characters. For the OpenTelemetry metrics published by ElastiCache, see [OpenTelemetry metrics](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/otel-metrics.html).
+	IncludeMetrics []string `pulumi:"includeMetrics"`
+}
+
+// ResourceMetricsConfigurationMetricSelectionInput is an input type that accepts ResourceMetricsConfigurationMetricSelectionArgs and ResourceMetricsConfigurationMetricSelectionOutput values.
+// You can construct a concrete instance of `ResourceMetricsConfigurationMetricSelectionInput` via:
+//
+//	ResourceMetricsConfigurationMetricSelectionArgs{...}
+type ResourceMetricsConfigurationMetricSelectionInput interface {
+	pulumi.Input
+
+	ToResourceMetricsConfigurationMetricSelectionOutput() ResourceMetricsConfigurationMetricSelectionOutput
+	ToResourceMetricsConfigurationMetricSelectionOutputWithContext(context.Context) ResourceMetricsConfigurationMetricSelectionOutput
+}
+
+type ResourceMetricsConfigurationMetricSelectionArgs struct {
+	// Set of metric names to collect for the resource. CloudWatch collects only the metrics listed here. Between 1 and 500 names, each between 1 and 255 characters. For the OpenTelemetry metrics published by ElastiCache, see [OpenTelemetry metrics](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/otel-metrics.html).
+	IncludeMetrics pulumi.StringArrayInput `pulumi:"includeMetrics"`
+}
+
+func (ResourceMetricsConfigurationMetricSelectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceMetricsConfigurationMetricSelection)(nil)).Elem()
+}
+
+func (i ResourceMetricsConfigurationMetricSelectionArgs) ToResourceMetricsConfigurationMetricSelectionOutput() ResourceMetricsConfigurationMetricSelectionOutput {
+	return i.ToResourceMetricsConfigurationMetricSelectionOutputWithContext(context.Background())
+}
+
+func (i ResourceMetricsConfigurationMetricSelectionArgs) ToResourceMetricsConfigurationMetricSelectionOutputWithContext(ctx context.Context) ResourceMetricsConfigurationMetricSelectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceMetricsConfigurationMetricSelectionOutput)
+}
+
+func (i ResourceMetricsConfigurationMetricSelectionArgs) ToResourceMetricsConfigurationMetricSelectionPtrOutput() ResourceMetricsConfigurationMetricSelectionPtrOutput {
+	return i.ToResourceMetricsConfigurationMetricSelectionPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceMetricsConfigurationMetricSelectionArgs) ToResourceMetricsConfigurationMetricSelectionPtrOutputWithContext(ctx context.Context) ResourceMetricsConfigurationMetricSelectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceMetricsConfigurationMetricSelectionOutput).ToResourceMetricsConfigurationMetricSelectionPtrOutputWithContext(ctx)
+}
+
+// ResourceMetricsConfigurationMetricSelectionPtrInput is an input type that accepts ResourceMetricsConfigurationMetricSelectionArgs, ResourceMetricsConfigurationMetricSelectionPtr and ResourceMetricsConfigurationMetricSelectionPtrOutput values.
+// You can construct a concrete instance of `ResourceMetricsConfigurationMetricSelectionPtrInput` via:
+//
+//	        ResourceMetricsConfigurationMetricSelectionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResourceMetricsConfigurationMetricSelectionPtrInput interface {
+	pulumi.Input
+
+	ToResourceMetricsConfigurationMetricSelectionPtrOutput() ResourceMetricsConfigurationMetricSelectionPtrOutput
+	ToResourceMetricsConfigurationMetricSelectionPtrOutputWithContext(context.Context) ResourceMetricsConfigurationMetricSelectionPtrOutput
+}
+
+type resourceMetricsConfigurationMetricSelectionPtrType ResourceMetricsConfigurationMetricSelectionArgs
+
+func ResourceMetricsConfigurationMetricSelectionPtr(v *ResourceMetricsConfigurationMetricSelectionArgs) ResourceMetricsConfigurationMetricSelectionPtrInput {
+	return (*resourceMetricsConfigurationMetricSelectionPtrType)(v)
+}
+
+func (*resourceMetricsConfigurationMetricSelectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceMetricsConfigurationMetricSelection)(nil)).Elem()
+}
+
+func (i *resourceMetricsConfigurationMetricSelectionPtrType) ToResourceMetricsConfigurationMetricSelectionPtrOutput() ResourceMetricsConfigurationMetricSelectionPtrOutput {
+	return i.ToResourceMetricsConfigurationMetricSelectionPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceMetricsConfigurationMetricSelectionPtrType) ToResourceMetricsConfigurationMetricSelectionPtrOutputWithContext(ctx context.Context) ResourceMetricsConfigurationMetricSelectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceMetricsConfigurationMetricSelectionPtrOutput)
+}
+
+type ResourceMetricsConfigurationMetricSelectionOutput struct{ *pulumi.OutputState }
+
+func (ResourceMetricsConfigurationMetricSelectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceMetricsConfigurationMetricSelection)(nil)).Elem()
+}
+
+func (o ResourceMetricsConfigurationMetricSelectionOutput) ToResourceMetricsConfigurationMetricSelectionOutput() ResourceMetricsConfigurationMetricSelectionOutput {
+	return o
+}
+
+func (o ResourceMetricsConfigurationMetricSelectionOutput) ToResourceMetricsConfigurationMetricSelectionOutputWithContext(ctx context.Context) ResourceMetricsConfigurationMetricSelectionOutput {
+	return o
+}
+
+func (o ResourceMetricsConfigurationMetricSelectionOutput) ToResourceMetricsConfigurationMetricSelectionPtrOutput() ResourceMetricsConfigurationMetricSelectionPtrOutput {
+	return o.ToResourceMetricsConfigurationMetricSelectionPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceMetricsConfigurationMetricSelectionOutput) ToResourceMetricsConfigurationMetricSelectionPtrOutputWithContext(ctx context.Context) ResourceMetricsConfigurationMetricSelectionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceMetricsConfigurationMetricSelection) *ResourceMetricsConfigurationMetricSelection {
+		return &v
+	}).(ResourceMetricsConfigurationMetricSelectionPtrOutput)
+}
+
+// Set of metric names to collect for the resource. CloudWatch collects only the metrics listed here. Between 1 and 500 names, each between 1 and 255 characters. For the OpenTelemetry metrics published by ElastiCache, see [OpenTelemetry metrics](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/otel-metrics.html).
+func (o ResourceMetricsConfigurationMetricSelectionOutput) IncludeMetrics() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ResourceMetricsConfigurationMetricSelection) []string { return v.IncludeMetrics }).(pulumi.StringArrayOutput)
+}
+
+type ResourceMetricsConfigurationMetricSelectionPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceMetricsConfigurationMetricSelectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceMetricsConfigurationMetricSelection)(nil)).Elem()
+}
+
+func (o ResourceMetricsConfigurationMetricSelectionPtrOutput) ToResourceMetricsConfigurationMetricSelectionPtrOutput() ResourceMetricsConfigurationMetricSelectionPtrOutput {
+	return o
+}
+
+func (o ResourceMetricsConfigurationMetricSelectionPtrOutput) ToResourceMetricsConfigurationMetricSelectionPtrOutputWithContext(ctx context.Context) ResourceMetricsConfigurationMetricSelectionPtrOutput {
+	return o
+}
+
+func (o ResourceMetricsConfigurationMetricSelectionPtrOutput) Elem() ResourceMetricsConfigurationMetricSelectionOutput {
+	return o.ApplyT(func(v *ResourceMetricsConfigurationMetricSelection) ResourceMetricsConfigurationMetricSelection {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceMetricsConfigurationMetricSelection
+		return ret
+	}).(ResourceMetricsConfigurationMetricSelectionOutput)
+}
+
+// Set of metric names to collect for the resource. CloudWatch collects only the metrics listed here. Between 1 and 500 names, each between 1 and 255 characters. For the OpenTelemetry metrics published by ElastiCache, see [OpenTelemetry metrics](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/otel-metrics.html).
+func (o ResourceMetricsConfigurationMetricSelectionPtrOutput) IncludeMetrics() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ResourceMetricsConfigurationMetricSelection) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeMetrics
+	}).(pulumi.StringArrayOutput)
 }
 
 type GetContributorManagedInsightRulesManagedRule struct {
@@ -16149,6 +16774,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlarmEvaluationCriteriaPtrInput)(nil)).Elem(), MetricAlarmEvaluationCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlarmEvaluationCriteriaPromqlCriteriaInput)(nil)).Elem(), MetricAlarmEvaluationCriteriaPromqlCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlarmEvaluationCriteriaPromqlCriteriaPtrInput)(nil)).Elem(), MetricAlarmEvaluationCriteriaPromqlCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlarmEvaluationWindowInput)(nil)).Elem(), MetricAlarmEvaluationWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlarmEvaluationWindowPtrInput)(nil)).Elem(), MetricAlarmEvaluationWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlarmEvaluationWindowWallClockWindowInput)(nil)).Elem(), MetricAlarmEvaluationWindowWallClockWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlarmEvaluationWindowWallClockWindowPtrInput)(nil)).Elem(), MetricAlarmEvaluationWindowWallClockWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlarmMetricQueryInput)(nil)).Elem(), MetricAlarmMetricQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlarmMetricQueryArrayInput)(nil)).Elem(), MetricAlarmMetricQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlarmMetricQueryMetricInput)(nil)).Elem(), MetricAlarmMetricQueryMetricArgs{})
@@ -16163,10 +16792,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamStatisticsConfigurationArrayInput)(nil)).Elem(), MetricStreamStatisticsConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamStatisticsConfigurationIncludeMetricInput)(nil)).Elem(), MetricStreamStatisticsConfigurationIncludeMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamStatisticsConfigurationIncludeMetricArrayInput)(nil)).Elem(), MetricStreamStatisticsConfigurationIncludeMetricArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtelEnrichmentExcludeFilterInput)(nil)).Elem(), OtelEnrichmentExcludeFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtelEnrichmentExcludeFilterArrayInput)(nil)).Elem(), OtelEnrichmentExcludeFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtelEnrichmentIncludeFilterInput)(nil)).Elem(), OtelEnrichmentIncludeFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OtelEnrichmentIncludeFilterArrayInput)(nil)).Elem(), OtelEnrichmentIncludeFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OtelEnrichmentTimeoutsInput)(nil)).Elem(), OtelEnrichmentTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OtelEnrichmentTimeoutsPtrInput)(nil)).Elem(), OtelEnrichmentTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDocumentInput)(nil)).Elem(), PolicyDocumentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDocumentPtrInput)(nil)).Elem(), PolicyDocumentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceMetricsConfigurationMetricSelectionInput)(nil)).Elem(), ResourceMetricsConfigurationMetricSelectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceMetricsConfigurationMetricSelectionPtrInput)(nil)).Elem(), ResourceMetricsConfigurationMetricSelectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetContributorManagedInsightRulesManagedRuleInput)(nil)).Elem(), GetContributorManagedInsightRulesManagedRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetContributorManagedInsightRulesManagedRuleArrayInput)(nil)).Elem(), GetContributorManagedInsightRulesManagedRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetContributorManagedInsightRulesManagedRuleRuleStateInput)(nil)).Elem(), GetContributorManagedInsightRulesManagedRuleRuleStateArgs{})
@@ -16374,6 +17009,10 @@ func init() {
 	pulumi.RegisterOutputType(MetricAlarmEvaluationCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(MetricAlarmEvaluationCriteriaPromqlCriteriaOutput{})
 	pulumi.RegisterOutputType(MetricAlarmEvaluationCriteriaPromqlCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(MetricAlarmEvaluationWindowOutput{})
+	pulumi.RegisterOutputType(MetricAlarmEvaluationWindowPtrOutput{})
+	pulumi.RegisterOutputType(MetricAlarmEvaluationWindowWallClockWindowOutput{})
+	pulumi.RegisterOutputType(MetricAlarmEvaluationWindowWallClockWindowPtrOutput{})
 	pulumi.RegisterOutputType(MetricAlarmMetricQueryOutput{})
 	pulumi.RegisterOutputType(MetricAlarmMetricQueryArrayOutput{})
 	pulumi.RegisterOutputType(MetricAlarmMetricQueryMetricOutput{})
@@ -16388,10 +17027,16 @@ func init() {
 	pulumi.RegisterOutputType(MetricStreamStatisticsConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(MetricStreamStatisticsConfigurationIncludeMetricOutput{})
 	pulumi.RegisterOutputType(MetricStreamStatisticsConfigurationIncludeMetricArrayOutput{})
+	pulumi.RegisterOutputType(OtelEnrichmentExcludeFilterOutput{})
+	pulumi.RegisterOutputType(OtelEnrichmentExcludeFilterArrayOutput{})
+	pulumi.RegisterOutputType(OtelEnrichmentIncludeFilterOutput{})
+	pulumi.RegisterOutputType(OtelEnrichmentIncludeFilterArrayOutput{})
 	pulumi.RegisterOutputType(OtelEnrichmentTimeoutsOutput{})
 	pulumi.RegisterOutputType(OtelEnrichmentTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(PolicyDocumentOutput{})
 	pulumi.RegisterOutputType(PolicyDocumentPtrOutput{})
+	pulumi.RegisterOutputType(ResourceMetricsConfigurationMetricSelectionOutput{})
+	pulumi.RegisterOutputType(ResourceMetricsConfigurationMetricSelectionPtrOutput{})
 	pulumi.RegisterOutputType(GetContributorManagedInsightRulesManagedRuleOutput{})
 	pulumi.RegisterOutputType(GetContributorManagedInsightRulesManagedRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetContributorManagedInsightRulesManagedRuleRuleStateOutput{})

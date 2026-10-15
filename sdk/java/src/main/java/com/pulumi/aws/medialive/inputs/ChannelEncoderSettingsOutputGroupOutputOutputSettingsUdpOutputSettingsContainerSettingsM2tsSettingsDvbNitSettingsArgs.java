@@ -17,23 +17,47 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
 
     public static final ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgs();
 
+    /**
+     * Numeric value placed in the Network Information Table.
+     * 
+     */
     @Import(name="networkId", required=true)
     private Output<Integer> networkId;
 
+    /**
+     * @return Numeric value placed in the Network Information Table.
+     * 
+     */
     public Output<Integer> networkId() {
         return this.networkId;
     }
 
+    /**
+     * Network name text placed in the Network Information Table.
+     * 
+     */
     @Import(name="networkName", required=true)
     private Output<String> networkName;
 
+    /**
+     * @return Network name text placed in the Network Information Table.
+     * 
+     */
     public Output<String> networkName() {
         return this.networkName;
     }
 
+    /**
+     * Number of milliseconds between instances of this table in the output transport stream.
+     * 
+     */
     @Import(name="repInterval")
     private @Nullable Output<Integer> repInterval;
 
+    /**
+     * @return Number of milliseconds between instances of this table in the output transport stream.
+     * 
+     */
     public Optional<Output<Integer>> repInterval() {
         return Optional.ofNullable(this.repInterval);
     }
@@ -64,29 +88,65 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
             $ = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param networkId Numeric value placed in the Network Information Table.
+         * 
+         * @return builder
+         * 
+         */
         public Builder networkId(Output<Integer> networkId) {
             $.networkId = networkId;
             return this;
         }
 
+        /**
+         * @param networkId Numeric value placed in the Network Information Table.
+         * 
+         * @return builder
+         * 
+         */
         public Builder networkId(Integer networkId) {
             return networkId(Output.of(networkId));
         }
 
+        /**
+         * @param networkName Network name text placed in the Network Information Table.
+         * 
+         * @return builder
+         * 
+         */
         public Builder networkName(Output<String> networkName) {
             $.networkName = networkName;
             return this;
         }
 
+        /**
+         * @param networkName Network name text placed in the Network Information Table.
+         * 
+         * @return builder
+         * 
+         */
         public Builder networkName(String networkName) {
             return networkName(Output.of(networkName));
         }
 
+        /**
+         * @param repInterval Number of milliseconds between instances of this table in the output transport stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repInterval(@Nullable Output<Integer> repInterval) {
             $.repInterval = repInterval;
             return this;
         }
 
+        /**
+         * @param repInterval Number of milliseconds between instances of this table in the output transport stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repInterval(Integer repInterval) {
             return repInterval(Output.of(repInterval));
         }

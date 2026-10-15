@@ -15,14 +15,14 @@ public final class DetectorFeatureAdditionalConfigurationArgs extends com.pulumi
     public static final DetectorFeatureAdditionalConfigurationArgs Empty = new DetectorFeatureAdditionalConfigurationArgs();
 
     /**
-     * The name of the additional configuration for a feature. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
+     * Name of the additional configuration for a feature. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the additional configuration for a feature. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
+     * @return Name of the additional configuration for a feature. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
      * 
      */
     public Output<String> name() {
@@ -30,14 +30,14 @@ public final class DetectorFeatureAdditionalConfigurationArgs extends com.pulumi
     }
 
     /**
-     * The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
+     * Status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
     @Import(name="status", required=true)
     private Output<String> status;
 
     /**
-     * @return The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
+     * @return Status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
     public Output<String> status() {
@@ -70,7 +70,7 @@ public final class DetectorFeatureAdditionalConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param name The name of the additional configuration for a feature. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
+         * @param name Name of the additional configuration for a feature. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class DetectorFeatureAdditionalConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param name The name of the additional configuration for a feature. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
+         * @param name Name of the additional configuration for a feature. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class DetectorFeatureAdditionalConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param status The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
+         * @param status Status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class DetectorFeatureAdditionalConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param status The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
+         * @param status Status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
          * 
          * @return builder
          * 

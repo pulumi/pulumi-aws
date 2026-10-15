@@ -1447,27 +1447,27 @@ class ChannelTopicConfigurationRecordSchemaArgs:
 class ClusterBrokerNodeGroupInfoArgsDict(TypedDict):
     client_subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     """
-    A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
+    List of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
     """
     instance_type: pulumi.Input[_builtins.str]
     """
-    Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
+    Instance type to use for the kafka brokers. For example, `kafka.m5.large`. ([Pricing info](https://aws.amazon.com/msk/pricing/))
     """
     security_groups: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     """
-    A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
+    List of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
     """
     az_distribution: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently, the only valid value is `DEFAULT`.
+    Distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently, the only valid value is `DEFAULT`.
     """
     connectivity_info: NotRequired[pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoArgsDict']]]
     """
-    Information about the cluster access configuration. See broker_node_group_info connectivity_info Argument Reference below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
+    Information about the cluster access configuration. See `connectivity_info` Block below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
     """
     storage_info: NotRequired[pulumi.Input[Optional['ClusterBrokerNodeGroupInfoStorageInfoArgsDict']]]
     """
-    A block that contains information about storage volumes attached to MSK broker nodes. See broker_node_group_info storage_info Argument Reference below. This block must not be specified when an Express instance type is specified for `instance_type`.
+    Configuration block that contains information about storage volumes attached to MSK broker nodes. See `storage_info` Block below. This block must not be specified when an Express instance type is specified for `instance_type`.
     """
 
 @pulumi.input_type
@@ -1480,12 +1480,12 @@ class ClusterBrokerNodeGroupInfoArgs:
                  connectivity_info: pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoArgs']] = None,
                  storage_info: pulumi.Input[Optional['ClusterBrokerNodeGroupInfoStorageInfoArgs']] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_subnets: A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
-        :param pulumi.Input[_builtins.str] instance_type: Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
-        :param pulumi.Input[_builtins.str] az_distribution: The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently, the only valid value is `DEFAULT`.
-        :param pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoArgs'] connectivity_info: Information about the cluster access configuration. See broker_node_group_info connectivity_info Argument Reference below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
-        :param pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoArgs'] storage_info: A block that contains information about storage volumes attached to MSK broker nodes. See broker_node_group_info storage_info Argument Reference below. This block must not be specified when an Express instance type is specified for `instance_type`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_subnets: List of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
+        :param pulumi.Input[_builtins.str] instance_type: Instance type to use for the kafka brokers. For example, `kafka.m5.large`. ([Pricing info](https://aws.amazon.com/msk/pricing/))
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: List of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
+        :param pulumi.Input[_builtins.str] az_distribution: Distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently, the only valid value is `DEFAULT`.
+        :param pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoArgs'] connectivity_info: Information about the cluster access configuration. See `connectivity_info` Block below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
+        :param pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoArgs'] storage_info: Configuration block that contains information about storage volumes attached to MSK broker nodes. See `storage_info` Block below. This block must not be specified when an Express instance type is specified for `instance_type`.
         """
         pulumi.set(__self__, "client_subnets", client_subnets)
         pulumi.set(__self__, "instance_type", instance_type)
@@ -1501,7 +1501,7 @@ class ClusterBrokerNodeGroupInfoArgs:
     @pulumi.getter(name="clientSubnets")
     def client_subnets(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
+        List of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
         """
         return pulumi.get(self, "client_subnets")
 
@@ -1513,7 +1513,7 @@ class ClusterBrokerNodeGroupInfoArgs:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Input[_builtins.str]:
         """
-        Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
+        Instance type to use for the kafka brokers. For example, `kafka.m5.large`. ([Pricing info](https://aws.amazon.com/msk/pricing/))
         """
         return pulumi.get(self, "instance_type")
 
@@ -1525,7 +1525,7 @@ class ClusterBrokerNodeGroupInfoArgs:
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
+        List of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
         """
         return pulumi.get(self, "security_groups")
 
@@ -1537,7 +1537,7 @@ class ClusterBrokerNodeGroupInfoArgs:
     @pulumi.getter(name="azDistribution")
     def az_distribution(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently, the only valid value is `DEFAULT`.
+        Distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently, the only valid value is `DEFAULT`.
         """
         return pulumi.get(self, "az_distribution")
 
@@ -1549,7 +1549,7 @@ class ClusterBrokerNodeGroupInfoArgs:
     @pulumi.getter(name="connectivityInfo")
     def connectivity_info(self) -> pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoArgs']]:
         """
-        Information about the cluster access configuration. See broker_node_group_info connectivity_info Argument Reference below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
+        Information about the cluster access configuration. See `connectivity_info` Block below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
         """
         return pulumi.get(self, "connectivity_info")
 
@@ -1561,7 +1561,7 @@ class ClusterBrokerNodeGroupInfoArgs:
     @pulumi.getter(name="storageInfo")
     def storage_info(self) -> pulumi.Input[Optional['ClusterBrokerNodeGroupInfoStorageInfoArgs']]:
         """
-        A block that contains information about storage volumes attached to MSK broker nodes. See broker_node_group_info storage_info Argument Reference below. This block must not be specified when an Express instance type is specified for `instance_type`.
+        Configuration block that contains information about storage volumes attached to MSK broker nodes. See `storage_info` Block below. This block must not be specified when an Express instance type is specified for `instance_type`.
         """
         return pulumi.get(self, "storage_info")
 
@@ -1577,11 +1577,11 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoArgsDict(TypedDict):
     """
     public_access: NotRequired[pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgsDict']]]
     """
-    Access control settings for brokers. See connectivity_info public_access Argument Reference below.
+    Access control settings for brokers. See `public_access` Block below.
     """
     vpc_connectivity: NotRequired[pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgsDict']]]
     """
-    VPC connectivity access control for brokers. See connectivity_info vpc_connectivity Argument Reference below.
+    VPC connectivity access control for brokers. See `vpc_connectivity` Block below.
     """
 
 @pulumi.input_type
@@ -1592,8 +1592,8 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoArgs:
                  vpc_connectivity: pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] network_type: Network type of the cluster. Valid values are: `IPV4` or `DUAL`. Default value: `IPV4`. Only updating from `IPV4` to `DUAL` is allowed.
-        :param pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs'] public_access: Access control settings for brokers. See connectivity_info public_access Argument Reference below.
-        :param pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs'] vpc_connectivity: VPC connectivity access control for brokers. See connectivity_info vpc_connectivity Argument Reference below.
+        :param pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs'] public_access: Access control settings for brokers. See `public_access` Block below.
+        :param pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs'] vpc_connectivity: VPC connectivity access control for brokers. See `vpc_connectivity` Block below.
         """
         if network_type is not None:
             pulumi.set(__self__, "network_type", network_type)
@@ -1618,7 +1618,7 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoArgs:
     @pulumi.getter(name="publicAccess")
     def public_access(self) -> pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs']]:
         """
-        Access control settings for brokers. See connectivity_info public_access Argument Reference below.
+        Access control settings for brokers. See `public_access` Block below.
         """
         return pulumi.get(self, "public_access")
 
@@ -1630,7 +1630,7 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoArgs:
     @pulumi.getter(name="vpcConnectivity")
     def vpc_connectivity(self) -> pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs']]:
         """
-        VPC connectivity access control for brokers. See connectivity_info vpc_connectivity Argument Reference below.
+        VPC connectivity access control for brokers. See `vpc_connectivity` Block below.
         """
         return pulumi.get(self, "vpc_connectivity")
 
@@ -1671,7 +1671,7 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs:
 class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgsDict(TypedDict):
     client_authentication: NotRequired[pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgsDict']]]
     """
-    Configuration block for specifying a client authentication. See client_authentication Argument Reference below.
+    Client authentication information for VPC connectivity. See `vpc_connectivity.client_authentication` Block below.
     """
 
 @pulumi.input_type
@@ -1679,7 +1679,7 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs:
     def __init__(__self__, *,
                  client_authentication: pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs']] = None):
         """
-        :param pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs'] client_authentication: Configuration block for specifying a client authentication. See client_authentication Argument Reference below.
+        :param pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs'] client_authentication: Client authentication information for VPC connectivity. See `vpc_connectivity.client_authentication` Block below.
         """
         if client_authentication is not None:
             pulumi.set(__self__, "client_authentication", client_authentication)
@@ -1688,7 +1688,7 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs:
     @pulumi.getter(name="clientAuthentication")
     def client_authentication(self) -> pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs']]:
         """
-        Configuration block for specifying a client authentication. See client_authentication Argument Reference below.
+        Client authentication information for VPC connectivity. See `vpc_connectivity.client_authentication` Block below.
         """
         return pulumi.get(self, "client_authentication")
 
@@ -1700,11 +1700,11 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs:
 class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgsDict(TypedDict):
     sasl: NotRequired[pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgsDict']]]
     """
-    Configuration block for specifying SASL client authentication. See client_authentication sasl Argument Reference below.
+    Configuration block for specifying SASL client authentication. See `sasl` Block below.
     """
     tls: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Configuration block for specifying TLS client authentication. See client_authentication tls Argument Reference below.
+    Configuration block for specifying TLS client authentication. See `tls` Block below.
     """
 
 @pulumi.input_type
@@ -1713,8 +1713,8 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticat
                  sasl: pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs']] = None,
                  tls: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs'] sasl: Configuration block for specifying SASL client authentication. See client_authentication sasl Argument Reference below.
-        :param pulumi.Input[_builtins.bool] tls: Configuration block for specifying TLS client authentication. See client_authentication tls Argument Reference below.
+        :param pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs'] sasl: Configuration block for specifying SASL client authentication. See `sasl` Block below.
+        :param pulumi.Input[_builtins.bool] tls: Configuration block for specifying TLS client authentication. See `tls` Block below.
         """
         if sasl is not None:
             pulumi.set(__self__, "sasl", sasl)
@@ -1725,7 +1725,7 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticat
     @pulumi.getter
     def sasl(self) -> pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs']]:
         """
-        Configuration block for specifying SASL client authentication. See client_authentication sasl Argument Reference below.
+        Configuration block for specifying SASL client authentication. See `sasl` Block below.
         """
         return pulumi.get(self, "sasl")
 
@@ -1737,7 +1737,7 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticat
     @pulumi.getter
     def tls(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Configuration block for specifying TLS client authentication. See client_authentication tls Argument Reference below.
+        Configuration block for specifying TLS client authentication. See `tls` Block below.
         """
         return pulumi.get(self, "tls")
 
@@ -1748,13 +1748,23 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticat
 
 class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgsDict(TypedDict):
     iam: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether to enable IAM client authentication. Defaults to `false`.
+    """
     scram: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether to enable SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
+    """
 
 @pulumi.input_type
 class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs:
     def __init__(__self__, *,
                  iam: pulumi.Input[Optional[_builtins.bool]] = None,
                  scram: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] iam: Whether to enable IAM client authentication. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] scram: Whether to enable SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
+        """
         if iam is not None:
             pulumi.set(__self__, "iam", iam)
         if scram is not None:
@@ -1763,6 +1773,9 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticat
     @_builtins.property
     @pulumi.getter
     def iam(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to enable IAM client authentication. Defaults to `false`.
+        """
         return pulumi.get(self, "iam")
 
     @iam.setter
@@ -1772,6 +1785,9 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticat
     @_builtins.property
     @pulumi.getter
     def scram(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to enable SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
+        """
         return pulumi.get(self, "scram")
 
     @scram.setter
@@ -1782,7 +1798,7 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticat
 class ClusterBrokerNodeGroupInfoStorageInfoArgsDict(TypedDict):
     ebs_storage_info: NotRequired[pulumi.Input[Optional['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgsDict']]]
     """
-    A block that contains EBS volume information. See storage_info ebs_storage_info Argument Reference below.
+    Configuration block that contains EBS volume information. See `ebs_storage_info` Block below.
     """
 
 @pulumi.input_type
@@ -1790,7 +1806,7 @@ class ClusterBrokerNodeGroupInfoStorageInfoArgs:
     def __init__(__self__, *,
                  ebs_storage_info: pulumi.Input[Optional['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs']] = None):
         """
-        :param pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs'] ebs_storage_info: A block that contains EBS volume information. See storage_info ebs_storage_info Argument Reference below.
+        :param pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs'] ebs_storage_info: Configuration block that contains EBS volume information. See `ebs_storage_info` Block below.
         """
         if ebs_storage_info is not None:
             pulumi.set(__self__, "ebs_storage_info", ebs_storage_info)
@@ -1799,7 +1815,7 @@ class ClusterBrokerNodeGroupInfoStorageInfoArgs:
     @pulumi.getter(name="ebsStorageInfo")
     def ebs_storage_info(self) -> pulumi.Input[Optional['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs']]:
         """
-        A block that contains EBS volume information. See storage_info ebs_storage_info Argument Reference below.
+        Configuration block that contains EBS volume information. See `ebs_storage_info` Block below.
         """
         return pulumi.get(self, "ebs_storage_info")
 
@@ -1811,11 +1827,11 @@ class ClusterBrokerNodeGroupInfoStorageInfoArgs:
 class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgsDict(TypedDict):
     provisioned_throughput: NotRequired[pulumi.Input[Optional['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgsDict']]]
     """
-    A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See ebs_storage_info provisioned_throughput Argument Reference below.
+    Configuration block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See `provisioned_throughput` Block below.
     """
     volume_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
+    Size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
     """
 
 @pulumi.input_type
@@ -1824,8 +1840,8 @@ class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs:
                  provisioned_throughput: pulumi.Input[Optional['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs']] = None,
                  volume_size: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs'] provisioned_throughput: A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See ebs_storage_info provisioned_throughput Argument Reference below.
-        :param pulumi.Input[_builtins.int] volume_size: The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
+        :param pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs'] provisioned_throughput: Configuration block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See `provisioned_throughput` Block below.
+        :param pulumi.Input[_builtins.int] volume_size: Size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
         """
         if provisioned_throughput is not None:
             pulumi.set(__self__, "provisioned_throughput", provisioned_throughput)
@@ -1836,7 +1852,7 @@ class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs:
     @pulumi.getter(name="provisionedThroughput")
     def provisioned_throughput(self) -> pulumi.Input[Optional['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs']]:
         """
-        A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See ebs_storage_info provisioned_throughput Argument Reference below.
+        Configuration block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See `provisioned_throughput` Block below.
         """
         return pulumi.get(self, "provisioned_throughput")
 
@@ -1848,7 +1864,7 @@ class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs:
     @pulumi.getter(name="volumeSize")
     def volume_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
+        Size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
         """
         return pulumi.get(self, "volume_size")
 
@@ -1859,9 +1875,12 @@ class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs:
 
 class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgsDict(TypedDict):
     enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether provisioned throughput is enabled or not. Default value: `false`.
+    """
     volume_throughput: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks)
+    Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks).
     """
 
 @pulumi.input_type
@@ -1870,7 +1889,8 @@ class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputAr
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  volume_throughput: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.int] volume_throughput: Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks)
+        :param pulumi.Input[_builtins.bool] enabled: Whether provisioned throughput is enabled or not. Default value: `false`.
+        :param pulumi.Input[_builtins.int] volume_throughput: Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks).
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -1880,6 +1900,9 @@ class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputAr
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether provisioned throughput is enabled or not. Default value: `false`.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -1890,7 +1913,7 @@ class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputAr
     @pulumi.getter(name="volumeThroughput")
     def volume_throughput(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks)
+        Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks).
         """
         return pulumi.get(self, "volume_throughput")
 
@@ -1902,15 +1925,15 @@ class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputAr
 class ClusterClientAuthenticationArgsDict(TypedDict):
     sasl: NotRequired[pulumi.Input[Optional['ClusterClientAuthenticationSaslArgsDict']]]
     """
-    Configuration block for specifying SASL client authentication. See client_authentication sasl Argument Reference below.
+    Configuration block for specifying SASL client authentication. See `sasl` Block below.
     """
     tls: NotRequired[pulumi.Input[Optional['ClusterClientAuthenticationTlsArgsDict']]]
     """
-    Configuration block for specifying TLS client authentication. See client_authentication tls Argument Reference below.
+    Configuration block for specifying TLS client authentication. See `tls` Block below.
     """
     unauthenticated: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Enables unauthenticated access.
+    Whether to enable unauthenticated access.
     """
 
 @pulumi.input_type
@@ -1920,9 +1943,9 @@ class ClusterClientAuthenticationArgs:
                  tls: pulumi.Input[Optional['ClusterClientAuthenticationTlsArgs']] = None,
                  unauthenticated: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input['ClusterClientAuthenticationSaslArgs'] sasl: Configuration block for specifying SASL client authentication. See client_authentication sasl Argument Reference below.
-        :param pulumi.Input['ClusterClientAuthenticationTlsArgs'] tls: Configuration block for specifying TLS client authentication. See client_authentication tls Argument Reference below.
-        :param pulumi.Input[_builtins.bool] unauthenticated: Enables unauthenticated access.
+        :param pulumi.Input['ClusterClientAuthenticationSaslArgs'] sasl: Configuration block for specifying SASL client authentication. See `sasl` Block below.
+        :param pulumi.Input['ClusterClientAuthenticationTlsArgs'] tls: Configuration block for specifying TLS client authentication. See `tls` Block below.
+        :param pulumi.Input[_builtins.bool] unauthenticated: Whether to enable unauthenticated access.
         """
         if sasl is not None:
             pulumi.set(__self__, "sasl", sasl)
@@ -1935,7 +1958,7 @@ class ClusterClientAuthenticationArgs:
     @pulumi.getter
     def sasl(self) -> pulumi.Input[Optional['ClusterClientAuthenticationSaslArgs']]:
         """
-        Configuration block for specifying SASL client authentication. See client_authentication sasl Argument Reference below.
+        Configuration block for specifying SASL client authentication. See `sasl` Block below.
         """
         return pulumi.get(self, "sasl")
 
@@ -1947,7 +1970,7 @@ class ClusterClientAuthenticationArgs:
     @pulumi.getter
     def tls(self) -> pulumi.Input[Optional['ClusterClientAuthenticationTlsArgs']]:
         """
-        Configuration block for specifying TLS client authentication. See client_authentication tls Argument Reference below.
+        Configuration block for specifying TLS client authentication. See `tls` Block below.
         """
         return pulumi.get(self, "tls")
 
@@ -1959,7 +1982,7 @@ class ClusterClientAuthenticationArgs:
     @pulumi.getter
     def unauthenticated(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Enables unauthenticated access.
+        Whether to enable unauthenticated access.
         """
         return pulumi.get(self, "unauthenticated")
 
@@ -1970,13 +1993,23 @@ class ClusterClientAuthenticationArgs:
 
 class ClusterClientAuthenticationSaslArgsDict(TypedDict):
     iam: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether to enable IAM client authentication. Defaults to `false`.
+    """
     scram: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether to enable SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
+    """
 
 @pulumi.input_type
 class ClusterClientAuthenticationSaslArgs:
     def __init__(__self__, *,
                  iam: pulumi.Input[Optional[_builtins.bool]] = None,
                  scram: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] iam: Whether to enable IAM client authentication. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] scram: Whether to enable SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
+        """
         if iam is not None:
             pulumi.set(__self__, "iam", iam)
         if scram is not None:
@@ -1985,6 +2018,9 @@ class ClusterClientAuthenticationSaslArgs:
     @_builtins.property
     @pulumi.getter
     def iam(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to enable IAM client authentication. Defaults to `false`.
+        """
         return pulumi.get(self, "iam")
 
     @iam.setter
@@ -1994,6 +2030,9 @@ class ClusterClientAuthenticationSaslArgs:
     @_builtins.property
     @pulumi.getter
     def scram(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to enable SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
+        """
         return pulumi.get(self, "scram")
 
     @scram.setter
@@ -2080,11 +2119,11 @@ class ClusterConfigurationInfoArgs:
 class ClusterEncryptionInfoArgsDict(TypedDict):
     encryption_at_rest_kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
+    KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest. If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
     """
     encryption_in_transit: NotRequired[pulumi.Input[Optional['ClusterEncryptionInfoEncryptionInTransitArgsDict']]]
     """
-    Configuration block to specify encryption in transit. See encryption_info encryption_in_transit Argument Reference below.
+    Configuration block to specify encryption in transit. See `encryption_in_transit` Block below.
     """
 
 @pulumi.input_type
@@ -2093,8 +2132,8 @@ class ClusterEncryptionInfoArgs:
                  encryption_at_rest_kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  encryption_in_transit: pulumi.Input[Optional['ClusterEncryptionInfoEncryptionInTransitArgs']] = None):
         """
-        :param pulumi.Input[_builtins.str] encryption_at_rest_kms_key_arn: You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
-        :param pulumi.Input['ClusterEncryptionInfoEncryptionInTransitArgs'] encryption_in_transit: Configuration block to specify encryption in transit. See encryption_info encryption_in_transit Argument Reference below.
+        :param pulumi.Input[_builtins.str] encryption_at_rest_kms_key_arn: KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest. If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
+        :param pulumi.Input['ClusterEncryptionInfoEncryptionInTransitArgs'] encryption_in_transit: Configuration block to specify encryption in transit. See `encryption_in_transit` Block below.
         """
         if encryption_at_rest_kms_key_arn is not None:
             pulumi.set(__self__, "encryption_at_rest_kms_key_arn", encryption_at_rest_kms_key_arn)
@@ -2105,7 +2144,7 @@ class ClusterEncryptionInfoArgs:
     @pulumi.getter(name="encryptionAtRestKmsKeyArn")
     def encryption_at_rest_kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
+        KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest. If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
         """
         return pulumi.get(self, "encryption_at_rest_kms_key_arn")
 
@@ -2117,7 +2156,7 @@ class ClusterEncryptionInfoArgs:
     @pulumi.getter(name="encryptionInTransit")
     def encryption_in_transit(self) -> pulumi.Input[Optional['ClusterEncryptionInfoEncryptionInTransitArgs']]:
         """
-        Configuration block to specify encryption in transit. See encryption_info encryption_in_transit Argument Reference below.
+        Configuration block to specify encryption in transit. See `encryption_in_transit` Block below.
         """
         return pulumi.get(self, "encryption_in_transit")
 
@@ -2178,7 +2217,7 @@ class ClusterEncryptionInfoEncryptionInTransitArgs:
 class ClusterLoggingInfoArgsDict(TypedDict):
     broker_logs: pulumi.Input['ClusterLoggingInfoBrokerLogsArgsDict']
     """
-    Configuration block for Broker Logs settings for logging info. See logging_info broker_logs Argument Reference below.
+    Configuration block for Broker Logs settings for logging info. See `broker_logs` Block below.
     """
 
 @pulumi.input_type
@@ -2186,7 +2225,7 @@ class ClusterLoggingInfoArgs:
     def __init__(__self__, *,
                  broker_logs: pulumi.Input['ClusterLoggingInfoBrokerLogsArgs']):
         """
-        :param pulumi.Input['ClusterLoggingInfoBrokerLogsArgs'] broker_logs: Configuration block for Broker Logs settings for logging info. See logging_info broker_logs Argument Reference below.
+        :param pulumi.Input['ClusterLoggingInfoBrokerLogsArgs'] broker_logs: Configuration block for Broker Logs settings for logging info. See `broker_logs` Block below.
         """
         pulumi.set(__self__, "broker_logs", broker_logs)
 
@@ -2194,7 +2233,7 @@ class ClusterLoggingInfoArgs:
     @pulumi.getter(name="brokerLogs")
     def broker_logs(self) -> pulumi.Input['ClusterLoggingInfoBrokerLogsArgs']:
         """
-        Configuration block for Broker Logs settings for logging info. See logging_info broker_logs Argument Reference below.
+        Configuration block for Broker Logs settings for logging info. See `broker_logs` Block below.
         """
         return pulumi.get(self, "broker_logs")
 
@@ -2206,15 +2245,15 @@ class ClusterLoggingInfoArgs:
 class ClusterLoggingInfoBrokerLogsArgsDict(TypedDict):
     cloudwatch_logs: NotRequired[pulumi.Input[Optional['ClusterLoggingInfoBrokerLogsCloudwatchLogsArgsDict']]]
     """
-    Configuration block for Cloudwatch Logs settings. See logging_info broker_logs cloudwatch_logs Argument Reference below.
+    Configuration block for CloudWatch Logs settings. See `cloudwatch_logs` Block below.
     """
     firehose: NotRequired[pulumi.Input[Optional['ClusterLoggingInfoBrokerLogsFirehoseArgsDict']]]
     """
-    Configuration block for Kinesis Data Firehose settings. See logging_info broker_logs firehose Argument Reference below.
+    Configuration block for Kinesis Data Firehose settings. See `firehose` Block below.
     """
     s3: NotRequired[pulumi.Input[Optional['ClusterLoggingInfoBrokerLogsS3ArgsDict']]]
     """
-    Configuration block for S3 settings. See logging_info broker_logs s3 Argument Reference below.
+    Configuration block for S3 settings. See `s3` Block below.
     """
 
 @pulumi.input_type
@@ -2224,9 +2263,9 @@ class ClusterLoggingInfoBrokerLogsArgs:
                  firehose: pulumi.Input[Optional['ClusterLoggingInfoBrokerLogsFirehoseArgs']] = None,
                  s3: pulumi.Input[Optional['ClusterLoggingInfoBrokerLogsS3Args']] = None):
         """
-        :param pulumi.Input['ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs'] cloudwatch_logs: Configuration block for Cloudwatch Logs settings. See logging_info broker_logs cloudwatch_logs Argument Reference below.
-        :param pulumi.Input['ClusterLoggingInfoBrokerLogsFirehoseArgs'] firehose: Configuration block for Kinesis Data Firehose settings. See logging_info broker_logs firehose Argument Reference below.
-        :param pulumi.Input['ClusterLoggingInfoBrokerLogsS3Args'] s3: Configuration block for S3 settings. See logging_info broker_logs s3 Argument Reference below.
+        :param pulumi.Input['ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs'] cloudwatch_logs: Configuration block for CloudWatch Logs settings. See `cloudwatch_logs` Block below.
+        :param pulumi.Input['ClusterLoggingInfoBrokerLogsFirehoseArgs'] firehose: Configuration block for Kinesis Data Firehose settings. See `firehose` Block below.
+        :param pulumi.Input['ClusterLoggingInfoBrokerLogsS3Args'] s3: Configuration block for S3 settings. See `s3` Block below.
         """
         if cloudwatch_logs is not None:
             pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
@@ -2239,7 +2278,7 @@ class ClusterLoggingInfoBrokerLogsArgs:
     @pulumi.getter(name="cloudwatchLogs")
     def cloudwatch_logs(self) -> pulumi.Input[Optional['ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs']]:
         """
-        Configuration block for Cloudwatch Logs settings. See logging_info broker_logs cloudwatch_logs Argument Reference below.
+        Configuration block for CloudWatch Logs settings. See `cloudwatch_logs` Block below.
         """
         return pulumi.get(self, "cloudwatch_logs")
 
@@ -2251,7 +2290,7 @@ class ClusterLoggingInfoBrokerLogsArgs:
     @pulumi.getter
     def firehose(self) -> pulumi.Input[Optional['ClusterLoggingInfoBrokerLogsFirehoseArgs']]:
         """
-        Configuration block for Kinesis Data Firehose settings. See logging_info broker_logs firehose Argument Reference below.
+        Configuration block for Kinesis Data Firehose settings. See `firehose` Block below.
         """
         return pulumi.get(self, "firehose")
 
@@ -2263,7 +2302,7 @@ class ClusterLoggingInfoBrokerLogsArgs:
     @pulumi.getter
     def s3(self) -> pulumi.Input[Optional['ClusterLoggingInfoBrokerLogsS3Args']]:
         """
-        Configuration block for S3 settings. See logging_info broker_logs s3 Argument Reference below.
+        Configuration block for S3 settings. See `s3` Block below.
         """
         return pulumi.get(self, "s3")
 
@@ -2274,9 +2313,12 @@ class ClusterLoggingInfoBrokerLogsArgs:
 
 class ClusterLoggingInfoBrokerLogsCloudwatchLogsArgsDict(TypedDict):
     enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether to enable or disable streaming broker logs to CloudWatch Logs.
+    """
     log_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Name of the Cloudwatch Log Group to deliver logs to.
+    Name of the CloudWatch Log Group to deliver logs to.
     """
 
 @pulumi.input_type
@@ -2285,7 +2327,8 @@ class ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs:
                  enabled: pulumi.Input[_builtins.bool],
                  log_group: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] log_group: Name of the Cloudwatch Log Group to deliver logs to.
+        :param pulumi.Input[_builtins.bool] enabled: Whether to enable or disable streaming broker logs to CloudWatch Logs.
+        :param pulumi.Input[_builtins.str] log_group: Name of the CloudWatch Log Group to deliver logs to.
         """
         pulumi.set(__self__, "enabled", enabled)
         if log_group is not None:
@@ -2294,6 +2337,9 @@ class ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether to enable or disable streaming broker logs to CloudWatch Logs.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -2304,7 +2350,7 @@ class ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs:
     @pulumi.getter(name="logGroup")
     def log_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Name of the Cloudwatch Log Group to deliver logs to.
+        Name of the CloudWatch Log Group to deliver logs to.
         """
         return pulumi.get(self, "log_group")
 
@@ -2315,6 +2361,9 @@ class ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs:
 
 class ClusterLoggingInfoBrokerLogsFirehoseArgsDict(TypedDict):
     enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether to enable or disable streaming broker logs to Kinesis Data Firehose.
+    """
     delivery_stream: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the Kinesis Data Firehose delivery stream to deliver logs to.
@@ -2326,6 +2375,7 @@ class ClusterLoggingInfoBrokerLogsFirehoseArgs:
                  enabled: pulumi.Input[_builtins.bool],
                  delivery_stream: pulumi.Input[Optional[_builtins.str]] = None):
         """
+        :param pulumi.Input[_builtins.bool] enabled: Whether to enable or disable streaming broker logs to Kinesis Data Firehose.
         :param pulumi.Input[_builtins.str] delivery_stream: Name of the Kinesis Data Firehose delivery stream to deliver logs to.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -2335,6 +2385,9 @@ class ClusterLoggingInfoBrokerLogsFirehoseArgs:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether to enable or disable streaming broker logs to Kinesis Data Firehose.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -2356,6 +2409,9 @@ class ClusterLoggingInfoBrokerLogsFirehoseArgs:
 
 class ClusterLoggingInfoBrokerLogsS3ArgsDict(TypedDict):
     enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether to enable or disable streaming broker logs to S3.
+    """
     bucket: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the S3 bucket to deliver logs to.
@@ -2372,6 +2428,7 @@ class ClusterLoggingInfoBrokerLogsS3Args:
                  bucket: pulumi.Input[Optional[_builtins.str]] = None,
                  prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
+        :param pulumi.Input[_builtins.bool] enabled: Whether to enable or disable streaming broker logs to S3.
         :param pulumi.Input[_builtins.str] bucket: Name of the S3 bucket to deliver logs to.
         :param pulumi.Input[_builtins.str] prefix: Prefix to append to the folder name.
         """
@@ -2384,6 +2441,9 @@ class ClusterLoggingInfoBrokerLogsS3Args:
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether to enable or disable streaming broker logs to S3.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -2418,7 +2478,7 @@ class ClusterLoggingInfoBrokerLogsS3Args:
 class ClusterOpenMonitoringArgsDict(TypedDict):
     prometheus: pulumi.Input['ClusterOpenMonitoringPrometheusArgsDict']
     """
-    Configuration block for Prometheus settings for open monitoring. See open_monitoring prometheus Argument Reference below.
+    Configuration block for Prometheus settings for open monitoring. See `prometheus` Block below.
     """
 
 @pulumi.input_type
@@ -2426,7 +2486,7 @@ class ClusterOpenMonitoringArgs:
     def __init__(__self__, *,
                  prometheus: pulumi.Input['ClusterOpenMonitoringPrometheusArgs']):
         """
-        :param pulumi.Input['ClusterOpenMonitoringPrometheusArgs'] prometheus: Configuration block for Prometheus settings for open monitoring. See open_monitoring prometheus Argument Reference below.
+        :param pulumi.Input['ClusterOpenMonitoringPrometheusArgs'] prometheus: Configuration block for Prometheus settings for open monitoring. See `prometheus` Block below.
         """
         pulumi.set(__self__, "prometheus", prometheus)
 
@@ -2434,7 +2494,7 @@ class ClusterOpenMonitoringArgs:
     @pulumi.getter
     def prometheus(self) -> pulumi.Input['ClusterOpenMonitoringPrometheusArgs']:
         """
-        Configuration block for Prometheus settings for open monitoring. See open_monitoring prometheus Argument Reference below.
+        Configuration block for Prometheus settings for open monitoring. See `prometheus` Block below.
         """
         return pulumi.get(self, "prometheus")
 
@@ -2446,11 +2506,11 @@ class ClusterOpenMonitoringArgs:
 class ClusterOpenMonitoringPrometheusArgsDict(TypedDict):
     jmx_exporter: NotRequired[pulumi.Input[Optional['ClusterOpenMonitoringPrometheusJmxExporterArgsDict']]]
     """
-    Configuration block for JMX Exporter. See open_monitoring prometheus jmx_exporter Argument Reference below.
+    Configuration block for JMX Exporter. See `jmx_exporter` Block below.
     """
     node_exporter: NotRequired[pulumi.Input[Optional['ClusterOpenMonitoringPrometheusNodeExporterArgsDict']]]
     """
-    Configuration block for Node Exporter. See open_monitoring prometheus node_exporter Argument Reference below.
+    Configuration block for Node Exporter. See `node_exporter` Block below.
     """
 
 @pulumi.input_type
@@ -2459,8 +2519,8 @@ class ClusterOpenMonitoringPrometheusArgs:
                  jmx_exporter: pulumi.Input[Optional['ClusterOpenMonitoringPrometheusJmxExporterArgs']] = None,
                  node_exporter: pulumi.Input[Optional['ClusterOpenMonitoringPrometheusNodeExporterArgs']] = None):
         """
-        :param pulumi.Input['ClusterOpenMonitoringPrometheusJmxExporterArgs'] jmx_exporter: Configuration block for JMX Exporter. See open_monitoring prometheus jmx_exporter Argument Reference below.
-        :param pulumi.Input['ClusterOpenMonitoringPrometheusNodeExporterArgs'] node_exporter: Configuration block for Node Exporter. See open_monitoring prometheus node_exporter Argument Reference below.
+        :param pulumi.Input['ClusterOpenMonitoringPrometheusJmxExporterArgs'] jmx_exporter: Configuration block for JMX Exporter. See `jmx_exporter` Block below.
+        :param pulumi.Input['ClusterOpenMonitoringPrometheusNodeExporterArgs'] node_exporter: Configuration block for Node Exporter. See `node_exporter` Block below.
         """
         if jmx_exporter is not None:
             pulumi.set(__self__, "jmx_exporter", jmx_exporter)
@@ -2471,7 +2531,7 @@ class ClusterOpenMonitoringPrometheusArgs:
     @pulumi.getter(name="jmxExporter")
     def jmx_exporter(self) -> pulumi.Input[Optional['ClusterOpenMonitoringPrometheusJmxExporterArgs']]:
         """
-        Configuration block for JMX Exporter. See open_monitoring prometheus jmx_exporter Argument Reference below.
+        Configuration block for JMX Exporter. See `jmx_exporter` Block below.
         """
         return pulumi.get(self, "jmx_exporter")
 
@@ -2483,7 +2543,7 @@ class ClusterOpenMonitoringPrometheusArgs:
     @pulumi.getter(name="nodeExporter")
     def node_exporter(self) -> pulumi.Input[Optional['ClusterOpenMonitoringPrometheusNodeExporterArgs']]:
         """
-        Configuration block for Node Exporter. See open_monitoring prometheus node_exporter Argument Reference below.
+        Configuration block for Node Exporter. See `node_exporter` Block below.
         """
         return pulumi.get(self, "node_exporter")
 
@@ -2495,7 +2555,7 @@ class ClusterOpenMonitoringPrometheusArgs:
 class ClusterOpenMonitoringPrometheusJmxExporterArgsDict(TypedDict):
     enabled_in_broker: pulumi.Input[_builtins.bool]
     """
-    Indicates whether you want to enable or disable the Node Exporter.
+    Whether to enable or disable the JMX Exporter.
     """
 
 @pulumi.input_type
@@ -2503,7 +2563,7 @@ class ClusterOpenMonitoringPrometheusJmxExporterArgs:
     def __init__(__self__, *,
                  enabled_in_broker: pulumi.Input[_builtins.bool]):
         """
-        :param pulumi.Input[_builtins.bool] enabled_in_broker: Indicates whether you want to enable or disable the Node Exporter.
+        :param pulumi.Input[_builtins.bool] enabled_in_broker: Whether to enable or disable the JMX Exporter.
         """
         pulumi.set(__self__, "enabled_in_broker", enabled_in_broker)
 
@@ -2511,7 +2571,7 @@ class ClusterOpenMonitoringPrometheusJmxExporterArgs:
     @pulumi.getter(name="enabledInBroker")
     def enabled_in_broker(self) -> pulumi.Input[_builtins.bool]:
         """
-        Indicates whether you want to enable or disable the Node Exporter.
+        Whether to enable or disable the JMX Exporter.
         """
         return pulumi.get(self, "enabled_in_broker")
 
@@ -2523,7 +2583,7 @@ class ClusterOpenMonitoringPrometheusJmxExporterArgs:
 class ClusterOpenMonitoringPrometheusNodeExporterArgsDict(TypedDict):
     enabled_in_broker: pulumi.Input[_builtins.bool]
     """
-    Indicates whether you want to enable or disable the Node Exporter.
+    Whether to enable or disable the Node Exporter.
     """
 
 @pulumi.input_type
@@ -2531,7 +2591,7 @@ class ClusterOpenMonitoringPrometheusNodeExporterArgs:
     def __init__(__self__, *,
                  enabled_in_broker: pulumi.Input[_builtins.bool]):
         """
-        :param pulumi.Input[_builtins.bool] enabled_in_broker: Indicates whether you want to enable or disable the Node Exporter.
+        :param pulumi.Input[_builtins.bool] enabled_in_broker: Whether to enable or disable the Node Exporter.
         """
         pulumi.set(__self__, "enabled_in_broker", enabled_in_broker)
 
@@ -2539,7 +2599,7 @@ class ClusterOpenMonitoringPrometheusNodeExporterArgs:
     @pulumi.getter(name="enabledInBroker")
     def enabled_in_broker(self) -> pulumi.Input[_builtins.bool]:
         """
-        Indicates whether you want to enable or disable the Node Exporter.
+        Whether to enable or disable the Node Exporter.
         """
         return pulumi.get(self, "enabled_in_broker")
 
@@ -2551,7 +2611,7 @@ class ClusterOpenMonitoringPrometheusNodeExporterArgs:
 class ClusterRebalancingArgsDict(TypedDict):
     status: pulumi.Input[_builtins.str]
     """
-    The status of intelligent rebalancing. Valid values: `ACTIVE`, `PAUSED`. Default is `ACTIVE` for new Express-based clusters.
+    Status of intelligent rebalancing. Valid values: `ACTIVE`, `PAUSED`. Default is `ACTIVE` for new Express-based clusters.
 
     > **NOTE:** Intelligent rebalancing is only available for MSK Provisioned clusters with Express brokers. When enabled, you cannot use third-party rebalancing tools such as Cruise Control. See [AWS MSK Intelligent Rebalancing](https://docs.aws.amazon.com/msk/latest/developerguide/intelligent-rebalancing.html) for more information.
     """
@@ -2561,7 +2621,7 @@ class ClusterRebalancingArgs:
     def __init__(__self__, *,
                  status: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] status: The status of intelligent rebalancing. Valid values: `ACTIVE`, `PAUSED`. Default is `ACTIVE` for new Express-based clusters.
+        :param pulumi.Input[_builtins.str] status: Status of intelligent rebalancing. Valid values: `ACTIVE`, `PAUSED`. Default is `ACTIVE` for new Express-based clusters.
                
                > **NOTE:** Intelligent rebalancing is only available for MSK Provisioned clusters with Express brokers. When enabled, you cannot use third-party rebalancing tools such as Cruise Control. See [AWS MSK Intelligent Rebalancing](https://docs.aws.amazon.com/msk/latest/developerguide/intelligent-rebalancing.html) for more information.
         """
@@ -2571,7 +2631,7 @@ class ClusterRebalancingArgs:
     @pulumi.getter
     def status(self) -> pulumi.Input[_builtins.str]:
         """
-        The status of intelligent rebalancing. Valid values: `ACTIVE`, `PAUSED`. Default is `ACTIVE` for new Express-based clusters.
+        Status of intelligent rebalancing. Valid values: `ACTIVE`, `PAUSED`. Default is `ACTIVE` for new Express-based clusters.
 
         > **NOTE:** Intelligent rebalancing is only available for MSK Provisioned clusters with Express brokers. When enabled, you cannot use third-party rebalancing tools such as Cruise Control. See [AWS MSK Intelligent Rebalancing](https://docs.aws.amazon.com/msk/latest/developerguide/intelligent-rebalancing.html) for more information.
         """
@@ -2585,23 +2645,23 @@ class ClusterRebalancingArgs:
 class ReplicatorKafkaClusterArgsDict(TypedDict):
     amazon_msk_cluster: NotRequired[pulumi.Input[Optional['ReplicatorKafkaClusterAmazonMskClusterArgsDict']]]
     """
-    Details of an Amazon MSK cluster. Exactly one of `amazon_msk_cluster` or `apache_kafka_cluster` must be specified. Detailed below.
+    Details of an Amazon MSK cluster. Exactly one of `amazon_msk_cluster` or `apache_kafka_cluster` must be specified. See `amazon_msk_cluster` Block below.
     """
     apache_kafka_cluster: NotRequired[pulumi.Input[Optional['ReplicatorKafkaClusterApacheKafkaClusterArgsDict']]]
     """
-    Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazon_msk_cluster` or `apache_kafka_cluster` must be specified. Detailed below.
+    Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazon_msk_cluster` or `apache_kafka_cluster` must be specified. See `apache_kafka_cluster` Block below.
     """
     client_authentication: NotRequired[pulumi.Input[Optional['ReplicatorKafkaClusterClientAuthenticationArgsDict']]]
     """
-    Details of the client authentication used by the Kafka cluster. Only valid for an `apache_kafka_cluster`. Detailed below.
+    Details of the client authentication used by the Kafka cluster. Only valid for an `apache_kafka_cluster`. See `client_authentication` Block below.
     """
     encryption_in_transit: NotRequired[pulumi.Input[Optional['ReplicatorKafkaClusterEncryptionInTransitArgsDict']]]
     """
-    Details of encryption in transit to the Kafka cluster. Only valid for an `apache_kafka_cluster`. TLS encryption in transit is always applied to an `apache_kafka_cluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). Detailed below.
+    Details of encryption in transit to the Kafka cluster. Only valid for an `apache_kafka_cluster`. TLS encryption in transit is always applied to an `apache_kafka_cluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). See `encryption_in_transit` Block below.
     """
     vpc_config: NotRequired[pulumi.Input[Optional['ReplicatorKafkaClusterVpcConfigArgsDict']]]
     """
-    Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazon_msk_cluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC.
+    Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazon_msk_cluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC. See `vpc_config` Block below.
     """
 
 @pulumi.input_type
@@ -2613,11 +2673,11 @@ class ReplicatorKafkaClusterArgs:
                  encryption_in_transit: pulumi.Input[Optional['ReplicatorKafkaClusterEncryptionInTransitArgs']] = None,
                  vpc_config: pulumi.Input[Optional['ReplicatorKafkaClusterVpcConfigArgs']] = None):
         """
-        :param pulumi.Input['ReplicatorKafkaClusterAmazonMskClusterArgs'] amazon_msk_cluster: Details of an Amazon MSK cluster. Exactly one of `amazon_msk_cluster` or `apache_kafka_cluster` must be specified. Detailed below.
-        :param pulumi.Input['ReplicatorKafkaClusterApacheKafkaClusterArgs'] apache_kafka_cluster: Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazon_msk_cluster` or `apache_kafka_cluster` must be specified. Detailed below.
-        :param pulumi.Input['ReplicatorKafkaClusterClientAuthenticationArgs'] client_authentication: Details of the client authentication used by the Kafka cluster. Only valid for an `apache_kafka_cluster`. Detailed below.
-        :param pulumi.Input['ReplicatorKafkaClusterEncryptionInTransitArgs'] encryption_in_transit: Details of encryption in transit to the Kafka cluster. Only valid for an `apache_kafka_cluster`. TLS encryption in transit is always applied to an `apache_kafka_cluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). Detailed below.
-        :param pulumi.Input['ReplicatorKafkaClusterVpcConfigArgs'] vpc_config: Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazon_msk_cluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC.
+        :param pulumi.Input['ReplicatorKafkaClusterAmazonMskClusterArgs'] amazon_msk_cluster: Details of an Amazon MSK cluster. Exactly one of `amazon_msk_cluster` or `apache_kafka_cluster` must be specified. See `amazon_msk_cluster` Block below.
+        :param pulumi.Input['ReplicatorKafkaClusterApacheKafkaClusterArgs'] apache_kafka_cluster: Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazon_msk_cluster` or `apache_kafka_cluster` must be specified. See `apache_kafka_cluster` Block below.
+        :param pulumi.Input['ReplicatorKafkaClusterClientAuthenticationArgs'] client_authentication: Details of the client authentication used by the Kafka cluster. Only valid for an `apache_kafka_cluster`. See `client_authentication` Block below.
+        :param pulumi.Input['ReplicatorKafkaClusterEncryptionInTransitArgs'] encryption_in_transit: Details of encryption in transit to the Kafka cluster. Only valid for an `apache_kafka_cluster`. TLS encryption in transit is always applied to an `apache_kafka_cluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). See `encryption_in_transit` Block below.
+        :param pulumi.Input['ReplicatorKafkaClusterVpcConfigArgs'] vpc_config: Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazon_msk_cluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC. See `vpc_config` Block below.
         """
         if amazon_msk_cluster is not None:
             pulumi.set(__self__, "amazon_msk_cluster", amazon_msk_cluster)
@@ -2634,7 +2694,7 @@ class ReplicatorKafkaClusterArgs:
     @pulumi.getter(name="amazonMskCluster")
     def amazon_msk_cluster(self) -> pulumi.Input[Optional['ReplicatorKafkaClusterAmazonMskClusterArgs']]:
         """
-        Details of an Amazon MSK cluster. Exactly one of `amazon_msk_cluster` or `apache_kafka_cluster` must be specified. Detailed below.
+        Details of an Amazon MSK cluster. Exactly one of `amazon_msk_cluster` or `apache_kafka_cluster` must be specified. See `amazon_msk_cluster` Block below.
         """
         return pulumi.get(self, "amazon_msk_cluster")
 
@@ -2646,7 +2706,7 @@ class ReplicatorKafkaClusterArgs:
     @pulumi.getter(name="apacheKafkaCluster")
     def apache_kafka_cluster(self) -> pulumi.Input[Optional['ReplicatorKafkaClusterApacheKafkaClusterArgs']]:
         """
-        Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazon_msk_cluster` or `apache_kafka_cluster` must be specified. Detailed below.
+        Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazon_msk_cluster` or `apache_kafka_cluster` must be specified. See `apache_kafka_cluster` Block below.
         """
         return pulumi.get(self, "apache_kafka_cluster")
 
@@ -2658,7 +2718,7 @@ class ReplicatorKafkaClusterArgs:
     @pulumi.getter(name="clientAuthentication")
     def client_authentication(self) -> pulumi.Input[Optional['ReplicatorKafkaClusterClientAuthenticationArgs']]:
         """
-        Details of the client authentication used by the Kafka cluster. Only valid for an `apache_kafka_cluster`. Detailed below.
+        Details of the client authentication used by the Kafka cluster. Only valid for an `apache_kafka_cluster`. See `client_authentication` Block below.
         """
         return pulumi.get(self, "client_authentication")
 
@@ -2670,7 +2730,7 @@ class ReplicatorKafkaClusterArgs:
     @pulumi.getter(name="encryptionInTransit")
     def encryption_in_transit(self) -> pulumi.Input[Optional['ReplicatorKafkaClusterEncryptionInTransitArgs']]:
         """
-        Details of encryption in transit to the Kafka cluster. Only valid for an `apache_kafka_cluster`. TLS encryption in transit is always applied to an `apache_kafka_cluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). Detailed below.
+        Details of encryption in transit to the Kafka cluster. Only valid for an `apache_kafka_cluster`. TLS encryption in transit is always applied to an `apache_kafka_cluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). See `encryption_in_transit` Block below.
         """
         return pulumi.get(self, "encryption_in_transit")
 
@@ -2682,7 +2742,7 @@ class ReplicatorKafkaClusterArgs:
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> pulumi.Input[Optional['ReplicatorKafkaClusterVpcConfigArgs']]:
         """
-        Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazon_msk_cluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC.
+        Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazon_msk_cluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC. See `vpc_config` Block below.
         """
         return pulumi.get(self, "vpc_config")
 
@@ -2694,7 +2754,7 @@ class ReplicatorKafkaClusterArgs:
 class ReplicatorKafkaClusterAmazonMskClusterArgsDict(TypedDict):
     msk_cluster_arn: pulumi.Input[_builtins.str]
     """
-    The ARN of an Amazon MSK cluster.
+    ARN of an Amazon MSK cluster.
     """
 
 @pulumi.input_type
@@ -2702,7 +2762,7 @@ class ReplicatorKafkaClusterAmazonMskClusterArgs:
     def __init__(__self__, *,
                  msk_cluster_arn: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] msk_cluster_arn: The ARN of an Amazon MSK cluster.
+        :param pulumi.Input[_builtins.str] msk_cluster_arn: ARN of an Amazon MSK cluster.
         """
         pulumi.set(__self__, "msk_cluster_arn", msk_cluster_arn)
 
@@ -2710,7 +2770,7 @@ class ReplicatorKafkaClusterAmazonMskClusterArgs:
     @pulumi.getter(name="mskClusterArn")
     def msk_cluster_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The ARN of an Amazon MSK cluster.
+        ARN of an Amazon MSK cluster.
         """
         return pulumi.get(self, "msk_cluster_arn")
 
@@ -2722,11 +2782,11 @@ class ReplicatorKafkaClusterAmazonMskClusterArgs:
 class ReplicatorKafkaClusterApacheKafkaClusterArgsDict(TypedDict):
     apache_kafka_cluster_id: pulumi.Input[_builtins.str]
     """
-    The Kafka `cluster.id` of the self-managed or on-premises Apache Kafka cluster (as reported by the cluster itself, e.g. via the Kafka admin tooling), not an arbitrary name. MSK Replicator validates this value against the source cluster. See [Migrate third-party and self-managed Apache Kafka clusters to Amazon MSK](https://aws.amazon.com/blogs/big-data/migrate-third-party-and-self-managed-apache-kafka-clusters-to-amazon-msk-express-and-standard-brokers-with-amazon-msk-replicator/) for how to obtain the cluster ID and the other required inputs.
+    Kafka `cluster.id` of the self-managed or on-premises Apache Kafka cluster (as reported by the cluster itself, e.g. via the Kafka admin tooling), not an arbitrary name. MSK Replicator validates this value against the source cluster. See [Migrate third-party and self-managed Apache Kafka clusters to Amazon MSK](https://aws.amazon.com/blogs/big-data/migrate-third-party-and-self-managed-apache-kafka-clusters-to-amazon-msk-express-and-standard-brokers-with-amazon-msk-replicator/) for how to obtain the cluster ID and the other required inputs.
     """
     bootstrap_broker_string: pulumi.Input[_builtins.str]
     """
-    The bootstrap broker connection string used to connect to the Apache Kafka cluster.
+    Bootstrap broker connection string used to connect to the Apache Kafka cluster.
     """
 
 @pulumi.input_type
@@ -2735,8 +2795,8 @@ class ReplicatorKafkaClusterApacheKafkaClusterArgs:
                  apache_kafka_cluster_id: pulumi.Input[_builtins.str],
                  bootstrap_broker_string: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] apache_kafka_cluster_id: The Kafka `cluster.id` of the self-managed or on-premises Apache Kafka cluster (as reported by the cluster itself, e.g. via the Kafka admin tooling), not an arbitrary name. MSK Replicator validates this value against the source cluster. See [Migrate third-party and self-managed Apache Kafka clusters to Amazon MSK](https://aws.amazon.com/blogs/big-data/migrate-third-party-and-self-managed-apache-kafka-clusters-to-amazon-msk-express-and-standard-brokers-with-amazon-msk-replicator/) for how to obtain the cluster ID and the other required inputs.
-        :param pulumi.Input[_builtins.str] bootstrap_broker_string: The bootstrap broker connection string used to connect to the Apache Kafka cluster.
+        :param pulumi.Input[_builtins.str] apache_kafka_cluster_id: Kafka `cluster.id` of the self-managed or on-premises Apache Kafka cluster (as reported by the cluster itself, e.g. via the Kafka admin tooling), not an arbitrary name. MSK Replicator validates this value against the source cluster. See [Migrate third-party and self-managed Apache Kafka clusters to Amazon MSK](https://aws.amazon.com/blogs/big-data/migrate-third-party-and-self-managed-apache-kafka-clusters-to-amazon-msk-express-and-standard-brokers-with-amazon-msk-replicator/) for how to obtain the cluster ID and the other required inputs.
+        :param pulumi.Input[_builtins.str] bootstrap_broker_string: Bootstrap broker connection string used to connect to the Apache Kafka cluster.
         """
         pulumi.set(__self__, "apache_kafka_cluster_id", apache_kafka_cluster_id)
         pulumi.set(__self__, "bootstrap_broker_string", bootstrap_broker_string)
@@ -2745,7 +2805,7 @@ class ReplicatorKafkaClusterApacheKafkaClusterArgs:
     @pulumi.getter(name="apacheKafkaClusterId")
     def apache_kafka_cluster_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The Kafka `cluster.id` of the self-managed or on-premises Apache Kafka cluster (as reported by the cluster itself, e.g. via the Kafka admin tooling), not an arbitrary name. MSK Replicator validates this value against the source cluster. See [Migrate third-party and self-managed Apache Kafka clusters to Amazon MSK](https://aws.amazon.com/blogs/big-data/migrate-third-party-and-self-managed-apache-kafka-clusters-to-amazon-msk-express-and-standard-brokers-with-amazon-msk-replicator/) for how to obtain the cluster ID and the other required inputs.
+        Kafka `cluster.id` of the self-managed or on-premises Apache Kafka cluster (as reported by the cluster itself, e.g. via the Kafka admin tooling), not an arbitrary name. MSK Replicator validates this value against the source cluster. See [Migrate third-party and self-managed Apache Kafka clusters to Amazon MSK](https://aws.amazon.com/blogs/big-data/migrate-third-party-and-self-managed-apache-kafka-clusters-to-amazon-msk-express-and-standard-brokers-with-amazon-msk-replicator/) for how to obtain the cluster ID and the other required inputs.
         """
         return pulumi.get(self, "apache_kafka_cluster_id")
 
@@ -2757,7 +2817,7 @@ class ReplicatorKafkaClusterApacheKafkaClusterArgs:
     @pulumi.getter(name="bootstrapBrokerString")
     def bootstrap_broker_string(self) -> pulumi.Input[_builtins.str]:
         """
-        The bootstrap broker connection string used to connect to the Apache Kafka cluster.
+        Bootstrap broker connection string used to connect to the Apache Kafka cluster.
         """
         return pulumi.get(self, "bootstrap_broker_string")
 
@@ -2769,11 +2829,11 @@ class ReplicatorKafkaClusterApacheKafkaClusterArgs:
 class ReplicatorKafkaClusterClientAuthenticationArgsDict(TypedDict):
     mtls: NotRequired[pulumi.Input[Optional['ReplicatorKafkaClusterClientAuthenticationMtlsArgsDict']]]
     """
-    Details of the mTLS client authentication used by the Kafka cluster. Detailed below.
+    Details of the mTLS client authentication used by the Kafka cluster. See `mtls` Block below.
     """
     sasl_scram: NotRequired[pulumi.Input[Optional['ReplicatorKafkaClusterClientAuthenticationSaslScramArgsDict']]]
     """
-    Details of the SASL/SCRAM client authentication used by the Kafka cluster. Detailed below.
+    Details of the SASL/SCRAM client authentication used by the Kafka cluster. See `sasl_scram` Block below.
     """
 
 @pulumi.input_type
@@ -2782,8 +2842,8 @@ class ReplicatorKafkaClusterClientAuthenticationArgs:
                  mtls: pulumi.Input[Optional['ReplicatorKafkaClusterClientAuthenticationMtlsArgs']] = None,
                  sasl_scram: pulumi.Input[Optional['ReplicatorKafkaClusterClientAuthenticationSaslScramArgs']] = None):
         """
-        :param pulumi.Input['ReplicatorKafkaClusterClientAuthenticationMtlsArgs'] mtls: Details of the mTLS client authentication used by the Kafka cluster. Detailed below.
-        :param pulumi.Input['ReplicatorKafkaClusterClientAuthenticationSaslScramArgs'] sasl_scram: Details of the SASL/SCRAM client authentication used by the Kafka cluster. Detailed below.
+        :param pulumi.Input['ReplicatorKafkaClusterClientAuthenticationMtlsArgs'] mtls: Details of the mTLS client authentication used by the Kafka cluster. See `mtls` Block below.
+        :param pulumi.Input['ReplicatorKafkaClusterClientAuthenticationSaslScramArgs'] sasl_scram: Details of the SASL/SCRAM client authentication used by the Kafka cluster. See `sasl_scram` Block below.
         """
         if mtls is not None:
             pulumi.set(__self__, "mtls", mtls)
@@ -2794,7 +2854,7 @@ class ReplicatorKafkaClusterClientAuthenticationArgs:
     @pulumi.getter
     def mtls(self) -> pulumi.Input[Optional['ReplicatorKafkaClusterClientAuthenticationMtlsArgs']]:
         """
-        Details of the mTLS client authentication used by the Kafka cluster. Detailed below.
+        Details of the mTLS client authentication used by the Kafka cluster. See `mtls` Block below.
         """
         return pulumi.get(self, "mtls")
 
@@ -2806,7 +2866,7 @@ class ReplicatorKafkaClusterClientAuthenticationArgs:
     @pulumi.getter(name="saslScram")
     def sasl_scram(self) -> pulumi.Input[Optional['ReplicatorKafkaClusterClientAuthenticationSaslScramArgs']]:
         """
-        Details of the SASL/SCRAM client authentication used by the Kafka cluster. Detailed below.
+        Details of the SASL/SCRAM client authentication used by the Kafka cluster. See `sasl_scram` Block below.
         """
         return pulumi.get(self, "sasl_scram")
 
@@ -2818,7 +2878,7 @@ class ReplicatorKafkaClusterClientAuthenticationArgs:
 class ReplicatorKafkaClusterClientAuthenticationMtlsArgsDict(TypedDict):
     secret_arn: pulumi.Input[_builtins.str]
     """
-    The ARN of the AWS Secrets Manager secret that stores the private key and certificate used for mTLS authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+    ARN of the AWS Secrets Manager secret that stores the private key and certificate used for mTLS authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
     """
 
 @pulumi.input_type
@@ -2826,7 +2886,7 @@ class ReplicatorKafkaClusterClientAuthenticationMtlsArgs:
     def __init__(__self__, *,
                  secret_arn: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] secret_arn: The ARN of the AWS Secrets Manager secret that stores the private key and certificate used for mTLS authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+        :param pulumi.Input[_builtins.str] secret_arn: ARN of the AWS Secrets Manager secret that stores the private key and certificate used for mTLS authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
         """
         pulumi.set(__self__, "secret_arn", secret_arn)
 
@@ -2834,7 +2894,7 @@ class ReplicatorKafkaClusterClientAuthenticationMtlsArgs:
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The ARN of the AWS Secrets Manager secret that stores the private key and certificate used for mTLS authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+        ARN of the AWS Secrets Manager secret that stores the private key and certificate used for mTLS authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
         """
         return pulumi.get(self, "secret_arn")
 
@@ -2846,11 +2906,11 @@ class ReplicatorKafkaClusterClientAuthenticationMtlsArgs:
 class ReplicatorKafkaClusterClientAuthenticationSaslScramArgsDict(TypedDict):
     mechanism: pulumi.Input[_builtins.str]
     """
-    The SASL/SCRAM mechanism used for authentication. Valid values are `SHA256` and `SHA512`.
+    SASL/SCRAM mechanism used for authentication. Valid values are `SHA256` and `SHA512`.
     """
     secret_arn: pulumi.Input[_builtins.str]
     """
-    The ARN of the AWS Secrets Manager secret that stores the credentials used for SASL/SCRAM authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+    ARN of the AWS Secrets Manager secret that stores the credentials used for SASL/SCRAM authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
     """
 
 @pulumi.input_type
@@ -2859,8 +2919,8 @@ class ReplicatorKafkaClusterClientAuthenticationSaslScramArgs:
                  mechanism: pulumi.Input[_builtins.str],
                  secret_arn: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] mechanism: The SASL/SCRAM mechanism used for authentication. Valid values are `SHA256` and `SHA512`.
-        :param pulumi.Input[_builtins.str] secret_arn: The ARN of the AWS Secrets Manager secret that stores the credentials used for SASL/SCRAM authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+        :param pulumi.Input[_builtins.str] mechanism: SASL/SCRAM mechanism used for authentication. Valid values are `SHA256` and `SHA512`.
+        :param pulumi.Input[_builtins.str] secret_arn: ARN of the AWS Secrets Manager secret that stores the credentials used for SASL/SCRAM authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
         """
         pulumi.set(__self__, "mechanism", mechanism)
         pulumi.set(__self__, "secret_arn", secret_arn)
@@ -2869,7 +2929,7 @@ class ReplicatorKafkaClusterClientAuthenticationSaslScramArgs:
     @pulumi.getter
     def mechanism(self) -> pulumi.Input[_builtins.str]:
         """
-        The SASL/SCRAM mechanism used for authentication. Valid values are `SHA256` and `SHA512`.
+        SASL/SCRAM mechanism used for authentication. Valid values are `SHA256` and `SHA512`.
         """
         return pulumi.get(self, "mechanism")
 
@@ -2881,7 +2941,7 @@ class ReplicatorKafkaClusterClientAuthenticationSaslScramArgs:
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The ARN of the AWS Secrets Manager secret that stores the credentials used for SASL/SCRAM authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+        ARN of the AWS Secrets Manager secret that stores the credentials used for SASL/SCRAM authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
         """
         return pulumi.get(self, "secret_arn")
 
@@ -2893,7 +2953,7 @@ class ReplicatorKafkaClusterClientAuthenticationSaslScramArgs:
 class ReplicatorKafkaClusterEncryptionInTransitArgsDict(TypedDict):
     root_ca_certificate: pulumi.Input[_builtins.str]
     """
-    The ARN of the AWS Secrets Manager secret that stores the custom root CA certificate chain used to trust the certificate authority of the Apache Kafka cluster. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+    ARN of the AWS Secrets Manager secret that stores the custom root CA certificate chain used to trust the certificate authority of the Apache Kafka cluster. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
     """
 
 @pulumi.input_type
@@ -2901,7 +2961,7 @@ class ReplicatorKafkaClusterEncryptionInTransitArgs:
     def __init__(__self__, *,
                  root_ca_certificate: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] root_ca_certificate: The ARN of the AWS Secrets Manager secret that stores the custom root CA certificate chain used to trust the certificate authority of the Apache Kafka cluster. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+        :param pulumi.Input[_builtins.str] root_ca_certificate: ARN of the AWS Secrets Manager secret that stores the custom root CA certificate chain used to trust the certificate authority of the Apache Kafka cluster. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
         """
         pulumi.set(__self__, "root_ca_certificate", root_ca_certificate)
 
@@ -2909,7 +2969,7 @@ class ReplicatorKafkaClusterEncryptionInTransitArgs:
     @pulumi.getter(name="rootCaCertificate")
     def root_ca_certificate(self) -> pulumi.Input[_builtins.str]:
         """
-        The ARN of the AWS Secrets Manager secret that stores the custom root CA certificate chain used to trust the certificate authority of the Apache Kafka cluster. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+        ARN of the AWS Secrets Manager secret that stores the custom root CA certificate chain used to trust the certificate authority of the Apache Kafka cluster. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
         """
         return pulumi.get(self, "root_ca_certificate")
 
@@ -2922,12 +2982,12 @@ class ReplicatorKafkaClusterVpcConfigArgsDict(TypedDict):
     subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     """
     List of subnets to connect to in the VPC. AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
+
+    > **Note:** When an `apache_kafka_cluster` uses `client_authentication`, the replicator's network interfaces (created in these subnets, with private IPs only) must be able to reach AWS Secrets Manager and AWS KMS to retrieve and decrypt the credentials. Ensure the subnets have egress to those services via a NAT gateway or Secrets Manager and KMS interface VPC endpoints; otherwise the replicator times out connecting to the source cluster.
     """
     security_groups_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
-
-    > **Note:** When an `apache_kafka_cluster` uses `client_authentication`, the replicator's network interfaces (created in these subnets, with private IPs only) must be able to reach AWS Secrets Manager and AWS KMS to retrieve and decrypt the credentials. Ensure the subnets have egress to those services via a NAT gateway or Secrets Manager and KMS interface VPC endpoints; otherwise the replicator times out connecting to the source cluster.
+    AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
     """
 
 @pulumi.input_type
@@ -2937,9 +2997,9 @@ class ReplicatorKafkaClusterVpcConfigArgs:
                  security_groups_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of subnets to connect to in the VPC. AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups_ids: The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
                
                > **Note:** When an `apache_kafka_cluster` uses `client_authentication`, the replicator's network interfaces (created in these subnets, with private IPs only) must be able to reach AWS Secrets Manager and AWS KMS to retrieve and decrypt the credentials. Ensure the subnets have egress to those services via a NAT gateway or Secrets Manager and KMS interface VPC endpoints; otherwise the replicator times out connecting to the source cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups_ids: AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
         """
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         if security_groups_ids is not None:
@@ -2950,6 +3010,8 @@ class ReplicatorKafkaClusterVpcConfigArgs:
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
         List of subnets to connect to in the VPC. AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
+
+        > **Note:** When an `apache_kafka_cluster` uses `client_authentication`, the replicator's network interfaces (created in these subnets, with private IPs only) must be able to reach AWS Secrets Manager and AWS KMS to retrieve and decrypt the credentials. Ensure the subnets have egress to those services via a NAT gateway or Secrets Manager and KMS interface VPC endpoints; otherwise the replicator times out connecting to the source cluster.
         """
         return pulumi.get(self, "subnet_ids")
 
@@ -2961,9 +3023,7 @@ class ReplicatorKafkaClusterVpcConfigArgs:
     @pulumi.getter(name="securityGroupsIds")
     def security_groups_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
-
-        > **Note:** When an `apache_kafka_cluster` uses `client_authentication`, the replicator's network interfaces (created in these subnets, with private IPs only) must be able to reach AWS Secrets Manager and AWS KMS to retrieve and decrypt the credentials. Ensure the subnets have egress to those services via a NAT gateway or Secrets Manager and KMS interface VPC endpoints; otherwise the replicator times out connecting to the source cluster.
+        AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
         """
         return pulumi.get(self, "security_groups_ids")
 
@@ -2975,7 +3035,7 @@ class ReplicatorKafkaClusterVpcConfigArgs:
 class ReplicatorLogDeliveryArgsDict(TypedDict):
     replicator_log_delivery: NotRequired[pulumi.Input[Optional['ReplicatorLogDeliveryReplicatorLogDeliveryArgsDict']]]
     """
-    Configuration block for replicator log delivery. Detailed below.
+    Configuration block for replicator log delivery. See `replicator_log_delivery` Block below.
     """
 
 @pulumi.input_type
@@ -2983,7 +3043,7 @@ class ReplicatorLogDeliveryArgs:
     def __init__(__self__, *,
                  replicator_log_delivery: pulumi.Input[Optional['ReplicatorLogDeliveryReplicatorLogDeliveryArgs']] = None):
         """
-        :param pulumi.Input['ReplicatorLogDeliveryReplicatorLogDeliveryArgs'] replicator_log_delivery: Configuration block for replicator log delivery. Detailed below.
+        :param pulumi.Input['ReplicatorLogDeliveryReplicatorLogDeliveryArgs'] replicator_log_delivery: Configuration block for replicator log delivery. See `replicator_log_delivery` Block below.
         """
         if replicator_log_delivery is not None:
             pulumi.set(__self__, "replicator_log_delivery", replicator_log_delivery)
@@ -2992,7 +3052,7 @@ class ReplicatorLogDeliveryArgs:
     @pulumi.getter(name="replicatorLogDelivery")
     def replicator_log_delivery(self) -> pulumi.Input[Optional['ReplicatorLogDeliveryReplicatorLogDeliveryArgs']]:
         """
-        Configuration block for replicator log delivery. Detailed below.
+        Configuration block for replicator log delivery. See `replicator_log_delivery` Block below.
         """
         return pulumi.get(self, "replicator_log_delivery")
 
@@ -3004,15 +3064,15 @@ class ReplicatorLogDeliveryArgs:
 class ReplicatorLogDeliveryReplicatorLogDeliveryArgsDict(TypedDict):
     cloudwatch_logs: NotRequired[pulumi.Input[Optional['ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsArgsDict']]]
     """
-    Configuration block for replicator log delivery to Amazon CloudWatch Logs. Detailed below.
+    Configuration block for replicator log delivery to Amazon CloudWatch Logs. See `cloudwatch_logs` Block below.
     """
     firehose: NotRequired[pulumi.Input[Optional['ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseArgsDict']]]
     """
-    Configuration block for replicator log delivery to Amazon Data Firehose. Detailed below.
+    Configuration block for replicator log delivery to Amazon Data Firehose. See `firehose` Block below.
     """
     s3: NotRequired[pulumi.Input[Optional['ReplicatorLogDeliveryReplicatorLogDeliveryS3ArgsDict']]]
     """
-    Configuration block for replicator log delivery to Amazon S3. Detailed below.
+    Configuration block for replicator log delivery to Amazon S3. See `s3` Block below.
     """
 
 @pulumi.input_type
@@ -3022,9 +3082,9 @@ class ReplicatorLogDeliveryReplicatorLogDeliveryArgs:
                  firehose: pulumi.Input[Optional['ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseArgs']] = None,
                  s3: pulumi.Input[Optional['ReplicatorLogDeliveryReplicatorLogDeliveryS3Args']] = None):
         """
-        :param pulumi.Input['ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsArgs'] cloudwatch_logs: Configuration block for replicator log delivery to Amazon CloudWatch Logs. Detailed below.
-        :param pulumi.Input['ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseArgs'] firehose: Configuration block for replicator log delivery to Amazon Data Firehose. Detailed below.
-        :param pulumi.Input['ReplicatorLogDeliveryReplicatorLogDeliveryS3Args'] s3: Configuration block for replicator log delivery to Amazon S3. Detailed below.
+        :param pulumi.Input['ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsArgs'] cloudwatch_logs: Configuration block for replicator log delivery to Amazon CloudWatch Logs. See `cloudwatch_logs` Block below.
+        :param pulumi.Input['ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseArgs'] firehose: Configuration block for replicator log delivery to Amazon Data Firehose. See `firehose` Block below.
+        :param pulumi.Input['ReplicatorLogDeliveryReplicatorLogDeliveryS3Args'] s3: Configuration block for replicator log delivery to Amazon S3. See `s3` Block below.
         """
         if cloudwatch_logs is not None:
             pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
@@ -3037,7 +3097,7 @@ class ReplicatorLogDeliveryReplicatorLogDeliveryArgs:
     @pulumi.getter(name="cloudwatchLogs")
     def cloudwatch_logs(self) -> pulumi.Input[Optional['ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsArgs']]:
         """
-        Configuration block for replicator log delivery to Amazon CloudWatch Logs. Detailed below.
+        Configuration block for replicator log delivery to Amazon CloudWatch Logs. See `cloudwatch_logs` Block below.
         """
         return pulumi.get(self, "cloudwatch_logs")
 
@@ -3049,7 +3109,7 @@ class ReplicatorLogDeliveryReplicatorLogDeliveryArgs:
     @pulumi.getter
     def firehose(self) -> pulumi.Input[Optional['ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseArgs']]:
         """
-        Configuration block for replicator log delivery to Amazon Data Firehose. Detailed below.
+        Configuration block for replicator log delivery to Amazon Data Firehose. See `firehose` Block below.
         """
         return pulumi.get(self, "firehose")
 
@@ -3061,7 +3121,7 @@ class ReplicatorLogDeliveryReplicatorLogDeliveryArgs:
     @pulumi.getter
     def s3(self) -> pulumi.Input[Optional['ReplicatorLogDeliveryReplicatorLogDeliveryS3Args']]:
         """
-        Configuration block for replicator log delivery to Amazon S3. Detailed below.
+        Configuration block for replicator log delivery to Amazon S3. See `s3` Block below.
         """
         return pulumi.get(self, "s3")
 
@@ -3237,33 +3297,39 @@ class ReplicatorLogDeliveryReplicatorLogDeliveryS3Args:
 class ReplicatorReplicationInfoListArgsDict(TypedDict):
     consumer_group_replications: pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListConsumerGroupReplicationArgsDict']]]
     """
-    Configuration relating to consumer group replication.
+    Configuration relating to consumer group replication. See `consumer_group_replication` Block below.
     """
     target_compression_type: pulumi.Input[_builtins.str]
     """
-    The type of compression to use writing records to target Kafka cluster.
+    Type of compression to use writing records to target Kafka cluster.
     """
     topic_replications: pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationArgsDict']]]
     """
-    Configuration relating to topic replication.
+    Configuration relating to topic replication. See `topic_replication` Block below.
     """
     source_kafka_cluster_alias: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Alias of the source Kafka cluster.
+    """
     source_kafka_cluster_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `source_kafka_cluster_arn` or `source_kafka_cluster_id` must be specified.
+    ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `source_kafka_cluster_arn` or `source_kafka_cluster_id` must be specified.
     """
     source_kafka_cluster_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `apache_kafka_cluster_id`). Exactly one of `source_kafka_cluster_arn` or `source_kafka_cluster_id` must be specified.
+    Identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `apache_kafka_cluster_id`). Exactly one of `source_kafka_cluster_arn` or `source_kafka_cluster_id` must be specified.
     """
     target_kafka_cluster_alias: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Alias of the target Kafka cluster.
+    """
     target_kafka_cluster_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `target_kafka_cluster_arn` or `target_kafka_cluster_id` must be specified.
+    ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `target_kafka_cluster_arn` or `target_kafka_cluster_id` must be specified.
     """
     target_kafka_cluster_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `apache_kafka_cluster_id`). Exactly one of `target_kafka_cluster_arn` or `target_kafka_cluster_id` must be specified.
+    Identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `apache_kafka_cluster_id`). Exactly one of `target_kafka_cluster_arn` or `target_kafka_cluster_id` must be specified.
     """
 
 @pulumi.input_type
@@ -3279,13 +3345,15 @@ class ReplicatorReplicationInfoListArgs:
                  target_kafka_cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  target_kafka_cluster_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListConsumerGroupReplicationArgs']]] consumer_group_replications: Configuration relating to consumer group replication.
-        :param pulumi.Input[_builtins.str] target_compression_type: The type of compression to use writing records to target Kafka cluster.
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationArgs']]] topic_replications: Configuration relating to topic replication.
-        :param pulumi.Input[_builtins.str] source_kafka_cluster_arn: The ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `source_kafka_cluster_arn` or `source_kafka_cluster_id` must be specified.
-        :param pulumi.Input[_builtins.str] source_kafka_cluster_id: The identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `apache_kafka_cluster_id`). Exactly one of `source_kafka_cluster_arn` or `source_kafka_cluster_id` must be specified.
-        :param pulumi.Input[_builtins.str] target_kafka_cluster_arn: The ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `target_kafka_cluster_arn` or `target_kafka_cluster_id` must be specified.
-        :param pulumi.Input[_builtins.str] target_kafka_cluster_id: The identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `apache_kafka_cluster_id`). Exactly one of `target_kafka_cluster_arn` or `target_kafka_cluster_id` must be specified.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListConsumerGroupReplicationArgs']]] consumer_group_replications: Configuration relating to consumer group replication. See `consumer_group_replication` Block below.
+        :param pulumi.Input[_builtins.str] target_compression_type: Type of compression to use writing records to target Kafka cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationArgs']]] topic_replications: Configuration relating to topic replication. See `topic_replication` Block below.
+        :param pulumi.Input[_builtins.str] source_kafka_cluster_alias: Alias of the source Kafka cluster.
+        :param pulumi.Input[_builtins.str] source_kafka_cluster_arn: ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `source_kafka_cluster_arn` or `source_kafka_cluster_id` must be specified.
+        :param pulumi.Input[_builtins.str] source_kafka_cluster_id: Identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `apache_kafka_cluster_id`). Exactly one of `source_kafka_cluster_arn` or `source_kafka_cluster_id` must be specified.
+        :param pulumi.Input[_builtins.str] target_kafka_cluster_alias: Alias of the target Kafka cluster.
+        :param pulumi.Input[_builtins.str] target_kafka_cluster_arn: ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `target_kafka_cluster_arn` or `target_kafka_cluster_id` must be specified.
+        :param pulumi.Input[_builtins.str] target_kafka_cluster_id: Identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `apache_kafka_cluster_id`). Exactly one of `target_kafka_cluster_arn` or `target_kafka_cluster_id` must be specified.
         """
         pulumi.set(__self__, "consumer_group_replications", consumer_group_replications)
         pulumi.set(__self__, "target_compression_type", target_compression_type)
@@ -3307,7 +3375,7 @@ class ReplicatorReplicationInfoListArgs:
     @pulumi.getter(name="consumerGroupReplications")
     def consumer_group_replications(self) -> pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListConsumerGroupReplicationArgs']]]:
         """
-        Configuration relating to consumer group replication.
+        Configuration relating to consumer group replication. See `consumer_group_replication` Block below.
         """
         return pulumi.get(self, "consumer_group_replications")
 
@@ -3319,7 +3387,7 @@ class ReplicatorReplicationInfoListArgs:
     @pulumi.getter(name="targetCompressionType")
     def target_compression_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of compression to use writing records to target Kafka cluster.
+        Type of compression to use writing records to target Kafka cluster.
         """
         return pulumi.get(self, "target_compression_type")
 
@@ -3331,7 +3399,7 @@ class ReplicatorReplicationInfoListArgs:
     @pulumi.getter(name="topicReplications")
     def topic_replications(self) -> pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationArgs']]]:
         """
-        Configuration relating to topic replication.
+        Configuration relating to topic replication. See `topic_replication` Block below.
         """
         return pulumi.get(self, "topic_replications")
 
@@ -3342,6 +3410,9 @@ class ReplicatorReplicationInfoListArgs:
     @_builtins.property
     @pulumi.getter(name="sourceKafkaClusterAlias")
     def source_kafka_cluster_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Alias of the source Kafka cluster.
+        """
         return pulumi.get(self, "source_kafka_cluster_alias")
 
     @source_kafka_cluster_alias.setter
@@ -3352,7 +3423,7 @@ class ReplicatorReplicationInfoListArgs:
     @pulumi.getter(name="sourceKafkaClusterArn")
     def source_kafka_cluster_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `source_kafka_cluster_arn` or `source_kafka_cluster_id` must be specified.
+        ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `source_kafka_cluster_arn` or `source_kafka_cluster_id` must be specified.
         """
         return pulumi.get(self, "source_kafka_cluster_arn")
 
@@ -3364,7 +3435,7 @@ class ReplicatorReplicationInfoListArgs:
     @pulumi.getter(name="sourceKafkaClusterId")
     def source_kafka_cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `apache_kafka_cluster_id`). Exactly one of `source_kafka_cluster_arn` or `source_kafka_cluster_id` must be specified.
+        Identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `apache_kafka_cluster_id`). Exactly one of `source_kafka_cluster_arn` or `source_kafka_cluster_id` must be specified.
         """
         return pulumi.get(self, "source_kafka_cluster_id")
 
@@ -3375,6 +3446,9 @@ class ReplicatorReplicationInfoListArgs:
     @_builtins.property
     @pulumi.getter(name="targetKafkaClusterAlias")
     def target_kafka_cluster_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Alias of the target Kafka cluster.
+        """
         return pulumi.get(self, "target_kafka_cluster_alias")
 
     @target_kafka_cluster_alias.setter
@@ -3385,7 +3459,7 @@ class ReplicatorReplicationInfoListArgs:
     @pulumi.getter(name="targetKafkaClusterArn")
     def target_kafka_cluster_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `target_kafka_cluster_arn` or `target_kafka_cluster_id` must be specified.
+        ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `target_kafka_cluster_arn` or `target_kafka_cluster_id` must be specified.
         """
         return pulumi.get(self, "target_kafka_cluster_arn")
 
@@ -3397,7 +3471,7 @@ class ReplicatorReplicationInfoListArgs:
     @pulumi.getter(name="targetKafkaClusterId")
     def target_kafka_cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `apache_kafka_cluster_id`). Exactly one of `target_kafka_cluster_arn` or `target_kafka_cluster_id` must be specified.
+        Identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `apache_kafka_cluster_id`). Exactly one of `target_kafka_cluster_arn` or `target_kafka_cluster_id` must be specified.
         """
         return pulumi.get(self, "target_kafka_cluster_id")
 
@@ -3533,11 +3607,11 @@ class ReplicatorReplicationInfoListTopicReplicationArgsDict(TypedDict):
     """
     starting_position: NotRequired[pulumi.Input[Optional['ReplicatorReplicationInfoListTopicReplicationStartingPositionArgsDict']]]
     """
-    Configuration for specifying the position in the topics to start replicating from.
+    Configuration for specifying the position in the topics to start replicating from. See `starting_position` Block below.
     """
     topic_name_configuration: NotRequired[pulumi.Input[Optional['ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgsDict']]]
     """
-    Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+    Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias. See `topic_name_configuration` Block below.
     """
     topics_to_excludes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
@@ -3559,8 +3633,8 @@ class ReplicatorReplicationInfoListTopicReplicationArgs:
         :param pulumi.Input[_builtins.bool] copy_access_control_lists_for_topics: Whether to periodically configure remote topic ACLs to match their corresponding upstream topics.
         :param pulumi.Input[_builtins.bool] copy_topic_configurations: Whether to periodically configure remote topics to match their corresponding upstream topics.
         :param pulumi.Input[_builtins.bool] detect_and_copy_new_topics: Whether to periodically check for new topics and partitions.
-        :param pulumi.Input['ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs'] starting_position: Configuration for specifying the position in the topics to start replicating from.
-        :param pulumi.Input['ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs'] topic_name_configuration: Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+        :param pulumi.Input['ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs'] starting_position: Configuration for specifying the position in the topics to start replicating from. See `starting_position` Block below.
+        :param pulumi.Input['ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs'] topic_name_configuration: Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias. See `topic_name_configuration` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] topics_to_excludes: List of regular expression patterns indicating the topics that should not be replica.
         """
         pulumi.set(__self__, "topics_to_replicates", topics_to_replicates)
@@ -3629,7 +3703,7 @@ class ReplicatorReplicationInfoListTopicReplicationArgs:
     @pulumi.getter(name="startingPosition")
     def starting_position(self) -> pulumi.Input[Optional['ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs']]:
         """
-        Configuration for specifying the position in the topics to start replicating from.
+        Configuration for specifying the position in the topics to start replicating from. See `starting_position` Block below.
         """
         return pulumi.get(self, "starting_position")
 
@@ -3641,7 +3715,7 @@ class ReplicatorReplicationInfoListTopicReplicationArgs:
     @pulumi.getter(name="topicNameConfiguration")
     def topic_name_configuration(self) -> pulumi.Input[Optional['ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs']]:
         """
-        Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+        Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias. See `topic_name_configuration` Block below.
         """
         return pulumi.get(self, "topic_name_configuration")
 
@@ -3665,7 +3739,7 @@ class ReplicatorReplicationInfoListTopicReplicationArgs:
 class ReplicatorReplicationInfoListTopicReplicationStartingPositionArgsDict(TypedDict):
     type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The type of replication starting position. Supports `LATEST` and `EARLIEST`.
+    Type of replication starting position. Supports `LATEST` and `EARLIEST`.
     """
 
 @pulumi.input_type
@@ -3673,7 +3747,7 @@ class ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] type: The type of replication starting position. Supports `LATEST` and `EARLIEST`.
+        :param pulumi.Input[_builtins.str] type: Type of replication starting position. Supports `LATEST` and `EARLIEST`.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -3682,7 +3756,7 @@ class ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of replication starting position. Supports `LATEST` and `EARLIEST`.
+        Type of replication starting position. Supports `LATEST` and `EARLIEST`.
         """
         return pulumi.get(self, "type")
 
@@ -3694,7 +3768,7 @@ class ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs:
 class ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgsDict(TypedDict):
     type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
+    Type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
     """
 
 @pulumi.input_type
@@ -3702,7 +3776,7 @@ class ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] type: The type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
+        :param pulumi.Input[_builtins.str] type: Type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -3711,7 +3785,7 @@ class ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
+        Type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
         """
         return pulumi.get(self, "type")
 
@@ -3723,7 +3797,7 @@ class ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs:
 class ServerlessClusterClientAuthenticationArgsDict(TypedDict):
     sasl: pulumi.Input['ServerlessClusterClientAuthenticationSaslArgsDict']
     """
-    Details for client authentication using SASL. See below.
+    Details for client authentication using SASL. See `sasl` Block below.
     """
 
 @pulumi.input_type
@@ -3731,7 +3805,7 @@ class ServerlessClusterClientAuthenticationArgs:
     def __init__(__self__, *,
                  sasl: pulumi.Input['ServerlessClusterClientAuthenticationSaslArgs']):
         """
-        :param pulumi.Input['ServerlessClusterClientAuthenticationSaslArgs'] sasl: Details for client authentication using SASL. See below.
+        :param pulumi.Input['ServerlessClusterClientAuthenticationSaslArgs'] sasl: Details for client authentication using SASL. See `sasl` Block below.
         """
         pulumi.set(__self__, "sasl", sasl)
 
@@ -3739,7 +3813,7 @@ class ServerlessClusterClientAuthenticationArgs:
     @pulumi.getter
     def sasl(self) -> pulumi.Input['ServerlessClusterClientAuthenticationSaslArgs']:
         """
-        Details for client authentication using SASL. See below.
+        Details for client authentication using SASL. See `sasl` Block below.
         """
         return pulumi.get(self, "sasl")
 
@@ -3751,7 +3825,7 @@ class ServerlessClusterClientAuthenticationArgs:
 class ServerlessClusterClientAuthenticationSaslArgsDict(TypedDict):
     iam: pulumi.Input['ServerlessClusterClientAuthenticationSaslIamArgsDict']
     """
-    Details for client authentication using IAM. See below.
+    Details for client authentication using IAM. See `iam` Block below.
     """
 
 @pulumi.input_type
@@ -3759,7 +3833,7 @@ class ServerlessClusterClientAuthenticationSaslArgs:
     def __init__(__self__, *,
                  iam: pulumi.Input['ServerlessClusterClientAuthenticationSaslIamArgs']):
         """
-        :param pulumi.Input['ServerlessClusterClientAuthenticationSaslIamArgs'] iam: Details for client authentication using IAM. See below.
+        :param pulumi.Input['ServerlessClusterClientAuthenticationSaslIamArgs'] iam: Details for client authentication using IAM. See `iam` Block below.
         """
         pulumi.set(__self__, "iam", iam)
 
@@ -3767,7 +3841,7 @@ class ServerlessClusterClientAuthenticationSaslArgs:
     @pulumi.getter
     def iam(self) -> pulumi.Input['ServerlessClusterClientAuthenticationSaslIamArgs']:
         """
-        Details for client authentication using IAM. See below.
+        Details for client authentication using IAM. See `iam` Block below.
         """
         return pulumi.get(self, "iam")
 
@@ -3807,11 +3881,11 @@ class ServerlessClusterClientAuthenticationSaslIamArgs:
 class ServerlessClusterVpcConfigArgsDict(TypedDict):
     subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     """
-    A list of subnets in at least two different Availability Zones that host your client applications.
+    List of subnets in at least two different Availability Zones that host your client applications.
     """
     security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.
+    Up to five security groups that control inbound and outbound traffic for the serverless cluster.
     """
 
 @pulumi.input_type
@@ -3820,8 +3894,8 @@ class ServerlessClusterVpcConfigArgs:
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of subnets in at least two different Availability Zones that host your client applications.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of subnets in at least two different Availability Zones that host your client applications.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: Up to five security groups that control inbound and outbound traffic for the serverless cluster.
         """
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         if security_group_ids is not None:
@@ -3831,7 +3905,7 @@ class ServerlessClusterVpcConfigArgs:
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        A list of subnets in at least two different Availability Zones that host your client applications.
+        List of subnets in at least two different Availability Zones that host your client applications.
         """
         return pulumi.get(self, "subnet_ids")
 
@@ -3843,7 +3917,7 @@ class ServerlessClusterVpcConfigArgs:
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.
+        Up to five security groups that control inbound and outbound traffic for the serverless cluster.
         """
         return pulumi.get(self, "security_group_ids")
 

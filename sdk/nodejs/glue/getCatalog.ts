@@ -62,15 +62,15 @@ export interface GetCatalogResult {
      */
     readonly catalogId: string;
     /**
-     * Catalog properties. See `catalogProperties` below.
+     * Catalog properties. See `catalogProperties` Block below.
      */
     readonly catalogProperties: outputs.glue.GetCatalogCatalogProperty[];
     /**
-     * Default permissions on databases for principals. See `createDatabaseDefaultPermissions` below.
+     * Default permissions on databases for principals. See `createDatabaseDefaultPermissions` Block below.
      */
     readonly createDatabaseDefaultPermissions: outputs.glue.GetCatalogCreateDatabaseDefaultPermission[];
     /**
-     * Default permissions on tables for principals. See `createTableDefaultPermissions` below.
+     * Default permissions on tables for principals. See `createTableDefaultPermissions` Block below.
      */
     readonly createTableDefaultPermissions: outputs.glue.GetCatalogCreateTableDefaultPermission[];
     /**
@@ -82,7 +82,7 @@ export interface GetCatalogResult {
      */
     readonly description: string;
     /**
-     * Federated catalog configuration. See `federatedCatalog` below.
+     * Federated catalog configuration. See `federatedCatalog` Block below.
      */
     readonly federatedCatalogs: outputs.glue.GetCatalogFederatedCatalog[];
     readonly name: string;
@@ -96,7 +96,7 @@ export interface GetCatalogResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * Target Redshift catalog configuration. See `targetRedshiftCatalog` below.
+     * Target Redshift catalog configuration. See `targetRedshiftCatalog` Block below.
      */
     readonly targetRedshiftCatalogs: outputs.glue.GetCatalogTargetRedshiftCatalog[];
     /**

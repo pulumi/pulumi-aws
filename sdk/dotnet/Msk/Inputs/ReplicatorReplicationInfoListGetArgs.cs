@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Msk.Inputs
         private InputList<Inputs.ReplicatorReplicationInfoListConsumerGroupReplicationGetArgs>? _consumerGroupReplications;
 
         /// <summary>
-        /// Configuration relating to consumer group replication.
+        /// Configuration relating to consumer group replication. See `ConsumerGroupReplication` Block below.
         /// </summary>
         public InputList<Inputs.ReplicatorReplicationInfoListConsumerGroupReplicationGetArgs> ConsumerGroupReplications
         {
@@ -24,38 +24,44 @@ namespace Pulumi.Aws.Msk.Inputs
             set => _consumerGroupReplications = value;
         }
 
+        /// <summary>
+        /// Alias of the source Kafka cluster.
+        /// </summary>
         [Input("sourceKafkaClusterAlias")]
         public Input<string>? SourceKafkaClusterAlias { get; set; }
 
         /// <summary>
-        /// The ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `SourceKafkaClusterArn` or `SourceKafkaClusterId` must be specified.
+        /// ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `SourceKafkaClusterArn` or `SourceKafkaClusterId` must be specified.
         /// </summary>
         [Input("sourceKafkaClusterArn")]
         public Input<string>? SourceKafkaClusterArn { get; set; }
 
         /// <summary>
-        /// The identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `ApacheKafkaClusterId`). Exactly one of `SourceKafkaClusterArn` or `SourceKafkaClusterId` must be specified.
+        /// Identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `ApacheKafkaClusterId`). Exactly one of `SourceKafkaClusterArn` or `SourceKafkaClusterId` must be specified.
         /// </summary>
         [Input("sourceKafkaClusterId")]
         public Input<string>? SourceKafkaClusterId { get; set; }
 
         /// <summary>
-        /// The type of compression to use writing records to target Kafka cluster.
+        /// Type of compression to use writing records to target Kafka cluster.
         /// </summary>
         [Input("targetCompressionType", required: true)]
         public Input<string> TargetCompressionType { get; set; } = null!;
 
+        /// <summary>
+        /// Alias of the target Kafka cluster.
+        /// </summary>
         [Input("targetKafkaClusterAlias")]
         public Input<string>? TargetKafkaClusterAlias { get; set; }
 
         /// <summary>
-        /// The ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `TargetKafkaClusterArn` or `TargetKafkaClusterId` must be specified.
+        /// ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `TargetKafkaClusterArn` or `TargetKafkaClusterId` must be specified.
         /// </summary>
         [Input("targetKafkaClusterArn")]
         public Input<string>? TargetKafkaClusterArn { get; set; }
 
         /// <summary>
-        /// The identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `ApacheKafkaClusterId`). Exactly one of `TargetKafkaClusterArn` or `TargetKafkaClusterId` must be specified.
+        /// Identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `ApacheKafkaClusterId`). Exactly one of `TargetKafkaClusterArn` or `TargetKafkaClusterId` must be specified.
         /// </summary>
         [Input("targetKafkaClusterId")]
         public Input<string>? TargetKafkaClusterId { get; set; }
@@ -64,7 +70,7 @@ namespace Pulumi.Aws.Msk.Inputs
         private InputList<Inputs.ReplicatorReplicationInfoListTopicReplicationGetArgs>? _topicReplications;
 
         /// <summary>
-        /// Configuration relating to topic replication.
+        /// Configuration relating to topic replication. See `TopicReplication` Block below.
         /// </summary>
         public InputList<Inputs.ReplicatorReplicationInfoListTopicReplicationGetArgs> TopicReplications
         {

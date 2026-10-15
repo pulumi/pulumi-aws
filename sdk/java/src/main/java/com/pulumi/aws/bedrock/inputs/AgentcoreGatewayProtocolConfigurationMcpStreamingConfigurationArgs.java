@@ -16,14 +16,14 @@ public final class AgentcoreGatewayProtocolConfigurationMcpStreamingConfiguratio
     public static final AgentcoreGatewayProtocolConfigurationMcpStreamingConfigurationArgs Empty = new AgentcoreGatewayProtocolConfigurationMcpStreamingConfigurationArgs();
 
     /**
-     * Boolean indicating whether response streaming is enabled for the gateway.
+     * Whether to enable response streaming for the gateway.
      * 
      */
     @Import(name="enableResponseStreaming")
     private @Nullable Output<Boolean> enableResponseStreaming;
 
     /**
-     * @return Boolean indicating whether response streaming is enabled for the gateway.
+     * @return Whether to enable response streaming for the gateway.
      * 
      */
     public Optional<Output<Boolean>> enableResponseStreaming() {
@@ -55,7 +55,7 @@ public final class AgentcoreGatewayProtocolConfigurationMcpStreamingConfiguratio
         }
 
         /**
-         * @param enableResponseStreaming Boolean indicating whether response streaming is enabled for the gateway.
+         * @param enableResponseStreaming Whether to enable response streaming for the gateway.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class AgentcoreGatewayProtocolConfigurationMcpStreamingConfiguratio
         }
 
         /**
-         * @param enableResponseStreaming Boolean indicating whether response streaming is enabled for the gateway.
+         * @param enableResponseStreaming Whether to enable response streaming for the gateway.
          * 
          * @return builder
          * 

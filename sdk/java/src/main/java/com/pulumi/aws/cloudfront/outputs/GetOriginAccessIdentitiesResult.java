@@ -24,7 +24,7 @@ public final class GetOriginAccessIdentitiesResult {
      */
     private String id;
     /**
-     * @return Set of ids of the matched origin access identities.
+     * @return Set of IDs of the matched origin access identities.
      * 
      */
     private List<String> ids;
@@ -53,7 +53,7 @@ public final class GetOriginAccessIdentitiesResult {
         return this.id;
     }
     /**
-     * @return Set of ids of the matched origin access identities.
+     * @return Set of IDs of the matched origin access identities.
      * 
      */
     public List<String> ids() {

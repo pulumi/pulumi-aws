@@ -18,14 +18,14 @@ public final class ClusterShardNodeArgs extends com.pulumi.resources.ResourceArg
     public static final ClusterShardNodeArgs Empty = new ClusterShardNodeArgs();
 
     /**
-     * The Availability Zone in which the node resides.
+     * Availability Zone in which the node resides.
      * 
      */
     @Import(name="availabilityZone")
     private @Nullable Output<String> availabilityZone;
 
     /**
-     * @return The Availability Zone in which the node resides.
+     * @return Availability Zone in which the node resides.
      * 
      */
     public Optional<Output<String>> availabilityZone() {
@@ -33,14 +33,14 @@ public final class ClusterShardNodeArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
+     * Date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
      * 
      */
     @Import(name="createTime")
     private @Nullable Output<String> createTime;
 
     /**
-     * @return The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
+     * @return Date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
      * 
      */
     public Optional<Output<String>> createTime() {
@@ -97,7 +97,7 @@ public final class ClusterShardNodeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param availabilityZone The Availability Zone in which the node resides.
+         * @param availabilityZone Availability Zone in which the node resides.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class ClusterShardNodeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param availabilityZone The Availability Zone in which the node resides.
+         * @param availabilityZone Availability Zone in which the node resides.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class ClusterShardNodeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param createTime The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
+         * @param createTime Date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class ClusterShardNodeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param createTime The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
+         * @param createTime Date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
          * 
          * @return builder
          * 

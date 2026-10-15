@@ -40,7 +40,7 @@ export interface GetWorkerConfigurationArgs {
      */
     region?: string;
     /**
-     * A map of tags assigned to the resource.
+     * Map of tags assigned to the resource.
      */
     tags?: {[key: string]: string};
 }
@@ -72,7 +72,7 @@ export interface GetWorkerConfigurationResult {
     readonly propertiesFileContent: string;
     readonly region: string;
     /**
-     * A map of tags assigned to the resource.
+     * Map of tags assigned to the resource.
      */
     readonly tags: {[key: string]: string};
 }
@@ -112,7 +112,7 @@ export interface GetWorkerConfigurationOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags assigned to the resource.
+     * Map of tags assigned to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

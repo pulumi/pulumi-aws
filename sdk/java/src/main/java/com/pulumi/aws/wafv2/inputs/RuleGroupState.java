@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.inputs;
 
 import com.pulumi.aws.wafv2.inputs.RuleGroupCustomResponseBodyArgs;
+import com.pulumi.aws.wafv2.inputs.RuleGroupMonetizationConfigArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupVisibilityConfigArgs;
 import com.pulumi.core.Output;
@@ -86,6 +87,21 @@ public final class RuleGroupState extends com.pulumi.resources.ResourceArgs {
 
     public Optional<Output<String>> lockToken() {
         return Optional.ofNullable(this.lockToken);
+    }
+
+    /**
+     * Monetization configuration for the rule group. Required when any rule uses the `monetize` action. See `monetizationConfig` below for details.
+     * 
+     */
+    @Import(name="monetizationConfig")
+    private @Nullable Output<RuleGroupMonetizationConfigArgs> monetizationConfig;
+
+    /**
+     * @return Monetization configuration for the rule group. Required when any rule uses the `monetize` action. See `monetizationConfig` below for details.
+     * 
+     */
+    public Optional<Output<RuleGroupMonetizationConfigArgs>> monetizationConfig() {
+        return Optional.ofNullable(this.monetizationConfig);
     }
 
     /**
@@ -231,6 +247,7 @@ public final class RuleGroupState extends com.pulumi.resources.ResourceArgs {
         this.customResponseBodies = $.customResponseBodies;
         this.description = $.description;
         this.lockToken = $.lockToken;
+        this.monetizationConfig = $.monetizationConfig;
         this.name = $.name;
         this.namePrefix = $.namePrefix;
         this.region = $.region;
@@ -361,6 +378,27 @@ public final class RuleGroupState extends com.pulumi.resources.ResourceArgs {
 
         public Builder lockToken(String lockToken) {
             return lockToken(Output.of(lockToken));
+        }
+
+        /**
+         * @param monetizationConfig Monetization configuration for the rule group. Required when any rule uses the `monetize` action. See `monetizationConfig` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monetizationConfig(@Nullable Output<RuleGroupMonetizationConfigArgs> monetizationConfig) {
+            $.monetizationConfig = monetizationConfig;
+            return this;
+        }
+
+        /**
+         * @param monetizationConfig Monetization configuration for the rule group. Required when any rule uses the `monetize` action. See `monetizationConfig` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monetizationConfig(RuleGroupMonetizationConfigArgs monetizationConfig) {
+            return monetizationConfig(Output.of(monetizationConfig));
         }
 
         /**

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class JobExecutionProperty
     {
         /// <summary>
-        /// The maximum number of concurrent runs allowed for a job. The default is 1.
+        /// Maximum number of concurrent runs allowed for a job. The default is 1.
         /// </summary>
         public readonly int? MaxConcurrentRuns;
 

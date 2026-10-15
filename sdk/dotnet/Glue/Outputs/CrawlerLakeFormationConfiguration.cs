@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly string? AccountId;
         /// <summary>
-        /// Specifies whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
+        /// Whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
         /// </summary>
         public readonly bool? UseLakeFormationCredentials;
 

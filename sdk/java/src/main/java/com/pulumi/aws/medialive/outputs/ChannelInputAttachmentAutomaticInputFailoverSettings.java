@@ -16,12 +16,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelInputAttachmentAutomaticInputFailoverSettings {
     /**
-     * @return This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input\_preference for the failover pair is set to PRIMARY\_INPUT\_PREFERRED, because after this time, MediaLive will switch back to the primary input.
+     * @return Amount of time, in milliseconds, that a recovered input must have no failover conditions before it is considered healthy. This value is particularly important when `inputPreference` is set to `PRIMARY_INPUT_PREFERRED`, because after this time, MediaLive switches back to the primary input.
      * 
      */
     private @Nullable Integer errorClearTimeMsec;
     /**
-     * @return A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input. See Failover Condition Block for more details.
+     * @return Failover conditions. If any of these conditions occur, MediaLive fails over to the other input. See `failoverCondition` Block for details.
      * 
      */
     private @Nullable List<ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition> failoverConditions;
@@ -31,21 +31,21 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettings {
      */
     private @Nullable String inputPreference;
     /**
-     * @return The input ID of the secondary input in the automatic input failover pair.
+     * @return Input ID of the secondary input in the automatic input failover pair.
      * 
      */
     private String secondaryInputId;
 
     private ChannelInputAttachmentAutomaticInputFailoverSettings() {}
     /**
-     * @return This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input\_preference for the failover pair is set to PRIMARY\_INPUT\_PREFERRED, because after this time, MediaLive will switch back to the primary input.
+     * @return Amount of time, in milliseconds, that a recovered input must have no failover conditions before it is considered healthy. This value is particularly important when `inputPreference` is set to `PRIMARY_INPUT_PREFERRED`, because after this time, MediaLive switches back to the primary input.
      * 
      */
     public Optional<Integer> errorClearTimeMsec() {
         return Optional.ofNullable(this.errorClearTimeMsec);
     }
     /**
-     * @return A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input. See Failover Condition Block for more details.
+     * @return Failover conditions. If any of these conditions occur, MediaLive fails over to the other input. See `failoverCondition` Block for details.
      * 
      */
     public List<ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition> failoverConditions() {
@@ -59,7 +59,7 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettings {
         return Optional.ofNullable(this.inputPreference);
     }
     /**
-     * @return The input ID of the secondary input in the automatic input failover pair.
+     * @return Input ID of the secondary input in the automatic input failover pair.
      * 
      */
     public String secondaryInputId() {

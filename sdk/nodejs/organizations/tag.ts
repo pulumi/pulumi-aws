@@ -72,7 +72,7 @@ export class Tag extends pulumi.CustomResource {
      */
     declare public readonly key: pulumi.Output<string>;
     /**
-     * Id of the Organizations resource to tag.
+     * ID of the Organizations resource to tag.
      */
     declare public readonly resourceId: pulumi.Output<string>;
     /**
@@ -125,7 +125,7 @@ export interface TagState {
      */
     key?: pulumi.Input<string | undefined>;
     /**
-     * Id of the Organizations resource to tag.
+     * ID of the Organizations resource to tag.
      */
     resourceId?: pulumi.Input<string | undefined>;
     /**
@@ -143,7 +143,7 @@ export interface TagArgs {
      */
     key: pulumi.Input<string>;
     /**
-     * Id of the Organizations resource to tag.
+     * ID of the Organizations resource to tag.
      */
     resourceId: pulumi.Input<string>;
     /**

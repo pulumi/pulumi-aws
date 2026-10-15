@@ -21,7 +21,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOau
      */
     private @Nullable Integer clientCredentialsWoVersion;
     /**
-     * @return OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
+     * @return OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret` unless `clientSecretSource` is `EXTERNAL`.
      * 
      */
     private @Nullable String clientId;
@@ -67,7 +67,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOau
         return Optional.ofNullable(this.clientCredentialsWoVersion);
     }
     /**
-     * @return OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
+     * @return OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret` unless `clientSecretSource` is `EXTERNAL`.
      * 
      */
     public Optional<String> clientId() {

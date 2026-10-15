@@ -57,11 +57,11 @@ import (
 type SubnetGroup struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the docDB subnet group.
+	// The ARN of the DocDB subnet group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The description of the docDB subnet group. Defaults to "Managed by Pulumi".
+	// The description of the DocDB subnet group. Defaults to "Managed by Pulumi".
 	Description pulumi.StringOutput `pulumi:"description"`
-	// The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
+	// The name of the DocDB subnet group. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
@@ -69,7 +69,7 @@ type SubnetGroup struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A list of VPC subnet IDs.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	// The network type of the docDB subnet group (`IPV4` or `DUAL`).
+	// The network type of the DocDB subnet group (`IPV4` or `DUAL`).
 	SupportedNetworkTypes pulumi.StringArrayOutput `pulumi:"supportedNetworkTypes"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -113,11 +113,11 @@ func GetSubnetGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SubnetGroup resources.
 type subnetGroupState struct {
-	// The ARN of the docDB subnet group.
+	// The ARN of the DocDB subnet group.
 	Arn *string `pulumi:"arn"`
-	// The description of the docDB subnet group. Defaults to "Managed by Pulumi".
+	// The description of the DocDB subnet group. Defaults to "Managed by Pulumi".
 	Description *string `pulumi:"description"`
-	// The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
+	// The name of the DocDB subnet group. If omitted, the provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
@@ -125,7 +125,7 @@ type subnetGroupState struct {
 	Region *string `pulumi:"region"`
 	// A list of VPC subnet IDs.
 	SubnetIds []string `pulumi:"subnetIds"`
-	// The network type of the docDB subnet group (`IPV4` or `DUAL`).
+	// The network type of the DocDB subnet group (`IPV4` or `DUAL`).
 	SupportedNetworkTypes []string `pulumi:"supportedNetworkTypes"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -134,11 +134,11 @@ type subnetGroupState struct {
 }
 
 type SubnetGroupState struct {
-	// The ARN of the docDB subnet group.
+	// The ARN of the DocDB subnet group.
 	Arn pulumi.StringPtrInput
-	// The description of the docDB subnet group. Defaults to "Managed by Pulumi".
+	// The description of the DocDB subnet group. Defaults to "Managed by Pulumi".
 	Description pulumi.StringPtrInput
-	// The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
+	// The name of the DocDB subnet group. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
@@ -146,7 +146,7 @@ type SubnetGroupState struct {
 	Region pulumi.StringPtrInput
 	// A list of VPC subnet IDs.
 	SubnetIds pulumi.StringArrayInput
-	// The network type of the docDB subnet group (`IPV4` or `DUAL`).
+	// The network type of the DocDB subnet group (`IPV4` or `DUAL`).
 	SupportedNetworkTypes pulumi.StringArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -159,9 +159,9 @@ func (SubnetGroupState) ElementType() reflect.Type {
 }
 
 type subnetGroupArgs struct {
-	// The description of the docDB subnet group. Defaults to "Managed by Pulumi".
+	// The description of the DocDB subnet group. Defaults to "Managed by Pulumi".
 	Description *string `pulumi:"description"`
-	// The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
+	// The name of the DocDB subnet group. If omitted, the provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
@@ -175,9 +175,9 @@ type subnetGroupArgs struct {
 
 // The set of arguments for constructing a SubnetGroup resource.
 type SubnetGroupArgs struct {
-	// The description of the docDB subnet group. Defaults to "Managed by Pulumi".
+	// The description of the DocDB subnet group. Defaults to "Managed by Pulumi".
 	Description pulumi.StringPtrInput
-	// The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
+	// The name of the DocDB subnet group. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
@@ -276,17 +276,17 @@ func (o SubnetGroupOutput) ToSubnetGroupOutputWithContext(ctx context.Context) S
 	return o
 }
 
-// The ARN of the docDB subnet group.
+// The ARN of the DocDB subnet group.
 func (o SubnetGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The description of the docDB subnet group. Defaults to "Managed by Pulumi".
+// The description of the DocDB subnet group. Defaults to "Managed by Pulumi".
 func (o SubnetGroupOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
+// The name of the DocDB subnet group. If omitted, the provider will assign a random, unique name.
 func (o SubnetGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -306,7 +306,7 @@ func (o SubnetGroupOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// The network type of the docDB subnet group (`IPV4` or `DUAL`).
+// The network type of the DocDB subnet group (`IPV4` or `DUAL`).
 func (o SubnetGroupOutput) SupportedNetworkTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringArrayOutput { return v.SupportedNetworkTypes }).(pulumi.StringArrayOutput)
 }

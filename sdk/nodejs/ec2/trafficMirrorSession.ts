@@ -111,7 +111,7 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
      */
     declare public readonly trafficMirrorTargetId: pulumi.Output<string>;
     /**
-     * The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
+     * The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique ID is chosen at random.
      */
     declare public readonly virtualNetworkId: pulumi.Output<number>;
 
@@ -221,7 +221,7 @@ export interface TrafficMirrorSessionState {
      */
     trafficMirrorTargetId?: pulumi.Input<string | undefined>;
     /**
-     * The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
+     * The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique ID is chosen at random.
      */
     virtualNetworkId?: pulumi.Input<number | undefined>;
 }
@@ -263,7 +263,7 @@ export interface TrafficMirrorSessionArgs {
      */
     trafficMirrorTargetId: pulumi.Input<string>;
     /**
-     * The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
+     * The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique ID is chosen at random.
      */
     virtualNetworkId?: pulumi.Input<number | undefined>;
 }

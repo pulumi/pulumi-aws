@@ -231,14 +231,14 @@ public class MaintenanceWindowTarget extends com.pulumi.resources.CustomResource
         return this.targets;
     }
     /**
-     * The Id of the maintenance window to register the target with.
+     * The ID of the maintenance window to register the target with.
      * 
      */
     @Export(name="windowId", refs={String.class}, tree="[0]")
     private Output<String> windowId;
 
     /**
-     * @return The Id of the maintenance window to register the target with.
+     * @return The ID of the maintenance window to register the target with.
      * 
      */
     public Output<String> windowId() {

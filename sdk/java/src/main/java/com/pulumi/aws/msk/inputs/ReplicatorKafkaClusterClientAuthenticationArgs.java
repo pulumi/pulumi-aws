@@ -17,14 +17,14 @@ public final class ReplicatorKafkaClusterClientAuthenticationArgs extends com.pu
     public static final ReplicatorKafkaClusterClientAuthenticationArgs Empty = new ReplicatorKafkaClusterClientAuthenticationArgs();
 
     /**
-     * Details of the mTLS client authentication used by the Kafka cluster. Detailed below.
+     * Details of the mTLS client authentication used by the Kafka cluster. See `mtls` Block below.
      * 
      */
     @Import(name="mtls")
     private @Nullable Output<ReplicatorKafkaClusterClientAuthenticationMtlsArgs> mtls;
 
     /**
-     * @return Details of the mTLS client authentication used by the Kafka cluster. Detailed below.
+     * @return Details of the mTLS client authentication used by the Kafka cluster. See `mtls` Block below.
      * 
      */
     public Optional<Output<ReplicatorKafkaClusterClientAuthenticationMtlsArgs>> mtls() {
@@ -32,14 +32,14 @@ public final class ReplicatorKafkaClusterClientAuthenticationArgs extends com.pu
     }
 
     /**
-     * Details of the SASL/SCRAM client authentication used by the Kafka cluster. Detailed below.
+     * Details of the SASL/SCRAM client authentication used by the Kafka cluster. See `saslScram` Block below.
      * 
      */
     @Import(name="saslScram")
     private @Nullable Output<ReplicatorKafkaClusterClientAuthenticationSaslScramArgs> saslScram;
 
     /**
-     * @return Details of the SASL/SCRAM client authentication used by the Kafka cluster. Detailed below.
+     * @return Details of the SASL/SCRAM client authentication used by the Kafka cluster. See `saslScram` Block below.
      * 
      */
     public Optional<Output<ReplicatorKafkaClusterClientAuthenticationSaslScramArgs>> saslScram() {
@@ -72,7 +72,7 @@ public final class ReplicatorKafkaClusterClientAuthenticationArgs extends com.pu
         }
 
         /**
-         * @param mtls Details of the mTLS client authentication used by the Kafka cluster. Detailed below.
+         * @param mtls Details of the mTLS client authentication used by the Kafka cluster. See `mtls` Block below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ReplicatorKafkaClusterClientAuthenticationArgs extends com.pu
         }
 
         /**
-         * @param mtls Details of the mTLS client authentication used by the Kafka cluster. Detailed below.
+         * @param mtls Details of the mTLS client authentication used by the Kafka cluster. See `mtls` Block below.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ReplicatorKafkaClusterClientAuthenticationArgs extends com.pu
         }
 
         /**
-         * @param saslScram Details of the SASL/SCRAM client authentication used by the Kafka cluster. Detailed below.
+         * @param saslScram Details of the SASL/SCRAM client authentication used by the Kafka cluster. See `saslScram` Block below.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ReplicatorKafkaClusterClientAuthenticationArgs extends com.pu
         }
 
         /**
-         * @param saslScram Details of the SASL/SCRAM client authentication used by the Kafka cluster. Detailed below.
+         * @param saslScram Details of the SASL/SCRAM client authentication used by the Kafka cluster. See `saslScram` Block below.
          * 
          * @return builder
          * 

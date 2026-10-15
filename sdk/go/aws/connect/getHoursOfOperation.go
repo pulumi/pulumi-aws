@@ -80,7 +80,7 @@ func LookupHoursOfOperation(ctx *pulumi.Context, args *LookupHoursOfOperationArg
 
 // A collection of arguments for invoking getHoursOfOperation.
 type LookupHoursOfOperationArgs struct {
-	// Returns information on a specific Hours of Operation by hours of operation id
+	// Returns information on a specific Hours of Operation by hours of operation ID
 	HoursOfOperationId *string `pulumi:"hoursOfOperationId"`
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId string `pulumi:"instanceId"`
@@ -124,7 +124,7 @@ func LookupHoursOfOperationOutput(ctx *pulumi.Context, args LookupHoursOfOperati
 
 // A collection of arguments for invoking getHoursOfOperation.
 type LookupHoursOfOperationOutputArgs struct {
-	// Returns information on a specific Hours of Operation by hours of operation id
+	// Returns information on a specific Hours of Operation by hours of operation ID
 	HoursOfOperationId pulumi.StringPtrInput `pulumi:"hoursOfOperationId"`
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`

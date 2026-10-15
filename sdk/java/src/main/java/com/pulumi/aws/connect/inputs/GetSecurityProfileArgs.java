@@ -67,14 +67,14 @@ public final class GetSecurityProfileArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * Returns information on a specific Security Profile by Security Profile id
+     * Returns information on a specific Security Profile by Security Profile ID
      * 
      */
     @Import(name="securityProfileId")
     private @Nullable Output<String> securityProfileId;
 
     /**
-     * @return Returns information on a specific Security Profile by Security Profile id
+     * @return Returns information on a specific Security Profile by Security Profile ID
      * 
      */
     public Optional<Output<String>> securityProfileId() {
@@ -192,7 +192,7 @@ public final class GetSecurityProfileArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param securityProfileId Returns information on a specific Security Profile by Security Profile id
+         * @param securityProfileId Returns information on a specific Security Profile by Security Profile ID
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class GetSecurityProfileArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param securityProfileId Returns information on a specific Security Profile by Security Profile id
+         * @param securityProfileId Returns information on a specific Security Profile by Security Profile ID
          * 
          * @return builder
          * 

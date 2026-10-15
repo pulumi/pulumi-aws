@@ -19,12 +19,12 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfo {
      */
     private @Nullable String networkType;
     /**
-     * @return Access control settings for brokers. See connectivityInfo public_access Argument Reference below.
+     * @return Access control settings for brokers. See `publicAccess` Block below.
      * 
      */
     private @Nullable ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess publicAccess;
     /**
-     * @return VPC connectivity access control for brokers. See connectivityInfo vpc_connectivity Argument Reference below.
+     * @return VPC connectivity access control for brokers. See `vpcConnectivity` Block below.
      * 
      */
     private @Nullable ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity vpcConnectivity;
@@ -38,14 +38,14 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfo {
         return Optional.ofNullable(this.networkType);
     }
     /**
-     * @return Access control settings for brokers. See connectivityInfo public_access Argument Reference below.
+     * @return Access control settings for brokers. See `publicAccess` Block below.
      * 
      */
     public Optional<ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess> publicAccess() {
         return Optional.ofNullable(this.publicAccess);
     }
     /**
-     * @return VPC connectivity access control for brokers. See connectivityInfo vpc_connectivity Argument Reference below.
+     * @return VPC connectivity access control for brokers. See `vpcConnectivity` Block below.
      * 
      */
     public Optional<ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity> vpcConnectivity() {

@@ -209,7 +209,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import MQ Brokers using their broker id. For example:
+ * Using `pulumi import`, import MQ Brokers using their broker ID. For example:
  * 
  * ```sh
  * $ pulumi import aws:mq/broker:Broker example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
@@ -405,14 +405,14 @@ public class Broker extends com.pulumi.resources.CustomResource {
         return this.hostInstanceType;
     }
     /**
-     * List of information about allocated brokers (both active &amp; standby).
+     * List of information about allocated brokers (both active &amp; standby). See `instances` Block for details.
      * 
      */
     @Export(name="instances", refs={List.class,BrokerInstance.class}, tree="[0,1]")
     private Output<List<BrokerInstance>> instances;
 
     /**
-     * @return List of information about allocated brokers (both active &amp; standby).
+     * @return List of information about allocated brokers (both active &amp; standby). See `instances` Block for details.
      * 
      */
     public Output<List<BrokerInstance>> instances() {
@@ -531,14 +531,14 @@ public class Broker extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.securityGroups);
     }
     /**
-     * List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`.
+     * List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`. See `sharedResources` Block for details.
      * 
      */
     @Export(name="sharedResources", refs={List.class,BrokerSharedResource.class}, tree="[0,1]")
     private Output<List<BrokerSharedResource>> sharedResources;
 
     /**
-     * @return List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`.
+     * @return List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`. See `sharedResources` Block for details.
      * 
      */
     public Output<List<BrokerSharedResource>> sharedResources() {

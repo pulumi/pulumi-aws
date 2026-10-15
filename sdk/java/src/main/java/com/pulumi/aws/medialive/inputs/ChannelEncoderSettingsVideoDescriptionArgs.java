@@ -19,14 +19,14 @@ public final class ChannelEncoderSettingsVideoDescriptionArgs extends com.pulumi
     public static final ChannelEncoderSettingsVideoDescriptionArgs Empty = new ChannelEncoderSettingsVideoDescriptionArgs();
 
     /**
-     * The video codec settings. See Video Codec Settings for more details.
+     * Video codec settings. See `video_descriptions.codec_settings` Block for details.
      * 
      */
     @Import(name="codecSettings")
     private @Nullable Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs> codecSettings;
 
     /**
-     * @return The video codec settings. See Video Codec Settings for more details.
+     * @return Video codec settings. See `video_descriptions.codec_settings` Block for details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs>> codecSettings() {
@@ -34,14 +34,14 @@ public final class ChannelEncoderSettingsVideoDescriptionArgs extends com.pulumi
     }
 
     /**
-     * Output video height in pixels.
+     * Output video height, in pixels.
      * 
      */
     @Import(name="height")
     private @Nullable Output<Integer> height;
 
     /**
-     * @return Output video height in pixels.
+     * @return Output video height, in pixels.
      * 
      */
     public Optional<Output<Integer>> height() {
@@ -49,14 +49,14 @@ public final class ChannelEncoderSettingsVideoDescriptionArgs extends com.pulumi
     }
 
     /**
-     * The name of the video description.
+     * Name of the video description.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the video description.
+     * @return Name of the video description.
      * 
      */
     public Output<String> name() {
@@ -64,14 +64,14 @@ public final class ChannelEncoderSettingsVideoDescriptionArgs extends com.pulumi
     }
 
     /**
-     * Indicate how to respond to the AFD values that might be in the input video.
+     * How to respond to the AFD values that might be in the input video.
      * 
      */
     @Import(name="respondToAfd")
     private @Nullable Output<String> respondToAfd;
 
     /**
-     * @return Indicate how to respond to the AFD values that might be in the input video.
+     * @return How to respond to the AFD values that might be in the input video.
      * 
      */
     public Optional<Output<String>> respondToAfd() {
@@ -94,14 +94,14 @@ public final class ChannelEncoderSettingsVideoDescriptionArgs extends com.pulumi
     }
 
     /**
-     * Changes the strength of the anti-alias filter used for scaling.
+     * Strength of the anti-alias filter used for scaling.
      * 
      */
     @Import(name="sharpness")
     private @Nullable Output<Integer> sharpness;
 
     /**
-     * @return Changes the strength of the anti-alias filter used for scaling.
+     * @return Strength of the anti-alias filter used for scaling.
      * 
      */
     public Optional<Output<Integer>> sharpness() {
@@ -109,14 +109,14 @@ public final class ChannelEncoderSettingsVideoDescriptionArgs extends com.pulumi
     }
 
     /**
-     * Output video width in pixels.
+     * Output video width, in pixels.
      * 
      */
     @Import(name="width")
     private @Nullable Output<Integer> width;
 
     /**
-     * @return Output video width in pixels.
+     * @return Output video width, in pixels.
      * 
      */
     public Optional<Output<Integer>> width() {
@@ -154,7 +154,7 @@ public final class ChannelEncoderSettingsVideoDescriptionArgs extends com.pulumi
         }
 
         /**
-         * @param codecSettings The video codec settings. See Video Codec Settings for more details.
+         * @param codecSettings Video codec settings. See `video_descriptions.codec_settings` Block for details.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class ChannelEncoderSettingsVideoDescriptionArgs extends com.pulumi
         }
 
         /**
-         * @param codecSettings The video codec settings. See Video Codec Settings for more details.
+         * @param codecSettings Video codec settings. See `video_descriptions.codec_settings` Block for details.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class ChannelEncoderSettingsVideoDescriptionArgs extends com.pulumi
         }
 
         /**
-         * @param height Output video height in pixels.
+         * @param height Output video height, in pixels.
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class ChannelEncoderSettingsVideoDescriptionArgs extends com.pulumi
         }
 
         /**
-         * @param height Output video height in pixels.
+         * @param height Output video height, in pixels.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class ChannelEncoderSettingsVideoDescriptionArgs extends com.pulumi
         }
 
         /**
-         * @param name The name of the video description.
+         * @param name Name of the video description.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class ChannelEncoderSettingsVideoDescriptionArgs extends com.pulumi
         }
 
         /**
-         * @param name The name of the video description.
+         * @param name Name of the video description.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class ChannelEncoderSettingsVideoDescriptionArgs extends com.pulumi
         }
 
         /**
-         * @param respondToAfd Indicate how to respond to the AFD values that might be in the input video.
+         * @param respondToAfd How to respond to the AFD values that might be in the input video.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class ChannelEncoderSettingsVideoDescriptionArgs extends com.pulumi
         }
 
         /**
-         * @param respondToAfd Indicate how to respond to the AFD values that might be in the input video.
+         * @param respondToAfd How to respond to the AFD values that might be in the input video.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class ChannelEncoderSettingsVideoDescriptionArgs extends com.pulumi
         }
 
         /**
-         * @param sharpness Changes the strength of the anti-alias filter used for scaling.
+         * @param sharpness Strength of the anti-alias filter used for scaling.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class ChannelEncoderSettingsVideoDescriptionArgs extends com.pulumi
         }
 
         /**
-         * @param sharpness Changes the strength of the anti-alias filter used for scaling.
+         * @param sharpness Strength of the anti-alias filter used for scaling.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class ChannelEncoderSettingsVideoDescriptionArgs extends com.pulumi
         }
 
         /**
-         * @param width Output video width in pixels.
+         * @param width Output video width, in pixels.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class ChannelEncoderSettingsVideoDescriptionArgs extends com.pulumi
         }
 
         /**
-         * @param width Output video width in pixels.
+         * @param width Output video width, in pixels.
          * 
          * @return builder
          * 

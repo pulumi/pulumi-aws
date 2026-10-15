@@ -36,7 +36,7 @@ public final class GetClusterVersionsClusterVersion {
      */
     private List<GetClusterVersionsClusterVersionControlPlaneScalingTier> controlPlaneScalingTiers;
     /**
-     * @return Default eks platform version for the cluster version.
+     * @return Default EKS platform version for the cluster version.
      * 
      */
     private String defaultPlatformVersion;
@@ -103,7 +103,7 @@ public final class GetClusterVersionsClusterVersion {
         return this.controlPlaneScalingTiers;
     }
     /**
-     * @return Default eks platform version for the cluster version.
+     * @return Default EKS platform version for the cluster version.
      * 
      */
     public String defaultPlatformVersion() {

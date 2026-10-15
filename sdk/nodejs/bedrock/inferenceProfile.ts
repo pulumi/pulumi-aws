@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource for managing an AWS Bedrock Inference Profile.
+ * Manages an AWS Bedrock Inference Profile.
  *
  * ## Example Usage
  *
@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Bedrock Inference Profile using the `name`. For example:
+ * Using `pulumi import`, import Bedrock Inference Profile using the `id`. For example:
  *
  * ```sh
  * $ pulumi import aws:bedrock/inferenceProfile:InferenceProfile example inference_profile-id-12345678
@@ -105,6 +105,9 @@ export class InferenceProfile extends pulumi.CustomResource {
      * Key-value mapping of resource tags for the inference profile.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.bedrock.InferenceProfileTimeouts | undefined>;
     /**
@@ -205,6 +208,9 @@ export interface InferenceProfileState {
      * Key-value mapping of resource tags for the inference profile.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.bedrock.InferenceProfileTimeouts | undefined>;
     /**

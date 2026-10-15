@@ -73,7 +73,7 @@ class GetExportResult:
     @pulumi.getter
     def value(self) -> _builtins.str:
         """
-        Value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+        Value from CloudFormation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
         """
         return pulumi.get(self, "value")
 
@@ -96,9 +96,9 @@ def get_export(name: Optional[_builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExportResult:
     """
     The CloudFormation Export data source allows access to stack
-    exports specified in the [Output](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) section of the Cloudformation Template using the optional Export Property.
+    exports specified in the [Output](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) section of the CloudFormation Template using the optional Export Property.
 
-     > Note: If you are trying to use a value from a Cloudformation Stack in the same deployment please use normal interpolation or Cloudformation Outputs.
+     > Note: If you are trying to use a value from a CloudFormation Stack in the same Terraform run please use normal interpolation or CloudFormation Outputs.
 
     ## Example Usage
 
@@ -134,9 +134,9 @@ def get_export_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExportResult]:
     """
     The CloudFormation Export data source allows access to stack
-    exports specified in the [Output](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) section of the Cloudformation Template using the optional Export Property.
+    exports specified in the [Output](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) section of the CloudFormation Template using the optional Export Property.
 
-     > Note: If you are trying to use a value from a Cloudformation Stack in the same deployment please use normal interpolation or Cloudformation Outputs.
+     > Note: If you are trying to use a value from a CloudFormation Stack in the same Terraform run please use normal interpolation or CloudFormation Outputs.
 
     ## Example Usage
 

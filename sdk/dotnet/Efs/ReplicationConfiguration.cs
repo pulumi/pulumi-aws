@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Efs
     /// });
     /// ```
     /// 
-    /// Will create a replica and set the existing file system with id `fs-1234567890` in us-west-2 as destination.
+    /// Will create a replica and set the existing file system with ID `fs-1234567890` in us-west-2 as destination.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

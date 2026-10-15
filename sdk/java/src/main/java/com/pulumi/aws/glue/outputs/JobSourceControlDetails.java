@@ -12,98 +12,98 @@ import javax.annotation.Nullable;
 @CustomType
 public final class JobSourceControlDetails {
     /**
-     * @return The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token. Valid values are: `PERSONAL_ACCESS_TOKEN` and `AWS_SECRETS_MANAGER`.
+     * @return Type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token. Valid values are: `PERSONAL_ACCESS_TOKEN` and `AWS_SECRETS_MANAGER`.
      * 
      */
     private @Nullable String authStrategy;
     /**
-     * @return The value of an authorization token.
+     * @return Value of an authorization token.
      * 
      */
     private @Nullable String authToken;
     /**
-     * @return A branch in the remote repository.
+     * @return Branch in the remote repository.
      * 
      */
     private @Nullable String branch;
     /**
-     * @return A folder in the remote repository.
+     * @return Folder in the remote repository.
      * 
      */
     private @Nullable String folder;
     /**
-     * @return The last commit ID for a commit in the remote repository.
+     * @return Last commit ID for a commit in the remote repository.
      * 
      */
     private @Nullable String lastCommitId;
     /**
-     * @return The owner of the remote repository that contains the job artifacts.
+     * @return Owner of the remote repository that contains the job artifacts.
      * 
      */
     private @Nullable String owner;
     /**
-     * @return The provider for the remote repository. Valid values are: `GITHUB`, `GITLAB`, `BITBUCKET`, and `AWS_CODE_COMMIT`.
+     * @return Provider for the remote repository. Valid values are: `GITHUB`, `GITLAB`, `BITBUCKET`, and `AWS_CODE_COMMIT`.
      * 
      */
     private @Nullable String provider;
     /**
-     * @return The name of the remote repository that contains the job artifacts.
+     * @return Name of the remote repository that contains the job artifacts.
      * 
      */
     private @Nullable String repository;
 
     private JobSourceControlDetails() {}
     /**
-     * @return The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token. Valid values are: `PERSONAL_ACCESS_TOKEN` and `AWS_SECRETS_MANAGER`.
+     * @return Type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token. Valid values are: `PERSONAL_ACCESS_TOKEN` and `AWS_SECRETS_MANAGER`.
      * 
      */
     public Optional<String> authStrategy() {
         return Optional.ofNullable(this.authStrategy);
     }
     /**
-     * @return The value of an authorization token.
+     * @return Value of an authorization token.
      * 
      */
     public Optional<String> authToken() {
         return Optional.ofNullable(this.authToken);
     }
     /**
-     * @return A branch in the remote repository.
+     * @return Branch in the remote repository.
      * 
      */
     public Optional<String> branch() {
         return Optional.ofNullable(this.branch);
     }
     /**
-     * @return A folder in the remote repository.
+     * @return Folder in the remote repository.
      * 
      */
     public Optional<String> folder() {
         return Optional.ofNullable(this.folder);
     }
     /**
-     * @return The last commit ID for a commit in the remote repository.
+     * @return Last commit ID for a commit in the remote repository.
      * 
      */
     public Optional<String> lastCommitId() {
         return Optional.ofNullable(this.lastCommitId);
     }
     /**
-     * @return The owner of the remote repository that contains the job artifacts.
+     * @return Owner of the remote repository that contains the job artifacts.
      * 
      */
     public Optional<String> owner() {
         return Optional.ofNullable(this.owner);
     }
     /**
-     * @return The provider for the remote repository. Valid values are: `GITHUB`, `GITLAB`, `BITBUCKET`, and `AWS_CODE_COMMIT`.
+     * @return Provider for the remote repository. Valid values are: `GITHUB`, `GITLAB`, `BITBUCKET`, and `AWS_CODE_COMMIT`.
      * 
      */
     public Optional<String> provider() {
         return Optional.ofNullable(this.provider);
     }
     /**
-     * @return The name of the remote repository that contains the job artifacts.
+     * @return Name of the remote repository that contains the job artifacts.
      * 
      */
     public Optional<String> repository() {

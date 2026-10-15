@@ -15,14 +15,14 @@ public final class GuardrailContentPolicyConfigTierConfigArgs extends com.pulumi
     public static final GuardrailContentPolicyConfigTierConfigArgs Empty = new GuardrailContentPolicyConfigTierConfigArgs();
 
     /**
-     * Name of the topic policy tier. Valid values include STANDARD or CLASSIC.
+     * Name of the topic policy tier. Valid values: `CLASSIC`, `STANDARD`. `STANDARD` requires `crossRegionConfig`.
      * 
      */
     @Import(name="tierName", required=true)
     private Output<String> tierName;
 
     /**
-     * @return Name of the topic policy tier. Valid values include STANDARD or CLASSIC.
+     * @return Name of the topic policy tier. Valid values: `CLASSIC`, `STANDARD`. `STANDARD` requires `crossRegionConfig`.
      * 
      */
     public Output<String> tierName() {
@@ -54,7 +54,7 @@ public final class GuardrailContentPolicyConfigTierConfigArgs extends com.pulumi
         }
 
         /**
-         * @param tierName Name of the topic policy tier. Valid values include STANDARD or CLASSIC.
+         * @param tierName Name of the topic policy tier. Valid values: `CLASSIC`, `STANDARD`. `STANDARD` requires `crossRegionConfig`.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class GuardrailContentPolicyConfigTierConfigArgs extends com.pulumi
         }
 
         /**
-         * @param tierName Name of the topic policy tier. Valid values include STANDARD or CLASSIC.
+         * @param tierName Name of the topic policy tier. Valid values: `CLASSIC`, `STANDARD`. `STANDARD` requires `crossRegionConfig`.
          * 
          * @return builder
          * 

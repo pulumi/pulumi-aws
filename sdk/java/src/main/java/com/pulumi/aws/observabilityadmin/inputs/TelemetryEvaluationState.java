@@ -6,7 +6,9 @@ package com.pulumi.aws.observabilityadmin.inputs;
 import com.pulumi.aws.observabilityadmin.inputs.TelemetryEvaluationTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -15,6 +17,21 @@ import javax.annotation.Nullable;
 public final class TelemetryEvaluationState extends com.pulumi.resources.ResourceArgs {
 
     public static final TelemetryEvaluationState Empty = new TelemetryEvaluationState();
+
+    /**
+     * Whether to start telemetry evaluation in all AWS Regions where CloudWatch Observability Admin is available. The current region becomes the home region. Mutually exclusive with `regions`.
+     * 
+     */
+    @Import(name="allRegions")
+    private @Nullable Output<Boolean> allRegions;
+
+    /**
+     * @return Whether to start telemetry evaluation in all AWS Regions where CloudWatch Observability Admin is available. The current region becomes the home region. Mutually exclusive with `regions`.
+     * 
+     */
+    public Optional<Output<Boolean>> allRegions() {
+        return Optional.ofNullable(this.allRegions);
+    }
 
     /**
      * Reason for the failure status. Only populated if `status` is `FAILED_START` or `FAILED_STOP`.
@@ -47,6 +64,21 @@ public final class TelemetryEvaluationState extends com.pulumi.resources.Resourc
     }
 
     /**
+     * List of AWS Regions to include in multi-region telemetry evaluation. The current region is always implicitly included. Mutually exclusive with `allRegions`.
+     * 
+     */
+    @Import(name="regions")
+    private @Nullable Output<List<String>> regions;
+
+    /**
+     * @return List of AWS Regions to include in multi-region telemetry evaluation. The current region is always implicitly included. Mutually exclusive with `allRegions`.
+     * 
+     */
+    public Optional<Output<List<String>>> regions() {
+        return Optional.ofNullable(this.regions);
+    }
+
+    /**
      * Onboarding status of the telemetry config feature. Valid values: `NOT_STARTED`, `STARTING`, `FAILED_START`, `RUNNING`, `STOPPING`, `FAILED_STOP`, `STOPPED`.
      * 
      */
@@ -71,8 +103,10 @@ public final class TelemetryEvaluationState extends com.pulumi.resources.Resourc
     private TelemetryEvaluationState() {}
 
     private TelemetryEvaluationState(TelemetryEvaluationState $) {
+        this.allRegions = $.allRegions;
         this.failureReason = $.failureReason;
         this.region = $.region;
+        this.regions = $.regions;
         this.status = $.status;
         this.timeouts = $.timeouts;
     }
@@ -93,6 +127,27 @@ public final class TelemetryEvaluationState extends com.pulumi.resources.Resourc
 
         public Builder(TelemetryEvaluationState defaults) {
             $ = new TelemetryEvaluationState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param allRegions Whether to start telemetry evaluation in all AWS Regions where CloudWatch Observability Admin is available. The current region becomes the home region. Mutually exclusive with `regions`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allRegions(@Nullable Output<Boolean> allRegions) {
+            $.allRegions = allRegions;
+            return this;
+        }
+
+        /**
+         * @param allRegions Whether to start telemetry evaluation in all AWS Regions where CloudWatch Observability Admin is available. The current region becomes the home region. Mutually exclusive with `regions`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allRegions(Boolean allRegions) {
+            return allRegions(Output.of(allRegions));
         }
 
         /**
@@ -135,6 +190,37 @@ public final class TelemetryEvaluationState extends com.pulumi.resources.Resourc
          */
         public Builder region(String region) {
             return region(Output.of(region));
+        }
+
+        /**
+         * @param regions List of AWS Regions to include in multi-region telemetry evaluation. The current region is always implicitly included. Mutually exclusive with `allRegions`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regions(@Nullable Output<List<String>> regions) {
+            $.regions = regions;
+            return this;
+        }
+
+        /**
+         * @param regions List of AWS Regions to include in multi-region telemetry evaluation. The current region is always implicitly included. Mutually exclusive with `allRegions`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regions(List<String> regions) {
+            return regions(Output.of(regions));
+        }
+
+        /**
+         * @param regions List of AWS Regions to include in multi-region telemetry evaluation. The current region is always implicitly included. Mutually exclusive with `allRegions`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regions(String... regions) {
+            return regions(List.of(regions));
         }
 
         /**

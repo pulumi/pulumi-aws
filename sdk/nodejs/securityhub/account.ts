@@ -57,7 +57,7 @@ export class Account extends pulumi.CustomResource {
     }
 
     /**
-     * ARN of the SecurityHub Hub created in the account.
+     * ARN of the Security Hub Hub created in the account.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -113,7 +113,7 @@ export class Account extends pulumi.CustomResource {
  */
 export interface AccountState {
     /**
-     * ARN of the SecurityHub Hub created in the account.
+     * ARN of the Security Hub Hub created in the account.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

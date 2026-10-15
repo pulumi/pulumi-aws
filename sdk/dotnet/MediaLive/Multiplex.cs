@@ -83,13 +83,13 @@ namespace Pulumi.Aws.MediaLive
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A list of availability zones. You must specify exactly two.
+        /// List of availability zones. You must specify exactly two.
         /// </summary>
         [Output("availabilityZones")]
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
 
         /// <summary>
-        /// Multiplex settings. See Multiplex Settings for more details.
+        /// Multiplex settings. See `MultiplexSettings` Block for more details.
         /// </summary>
         [Output("multiplexSettings")]
         public Output<Outputs.MultiplexMultiplexSettings?> MultiplexSettings { get; private set; } = null!;
@@ -115,7 +115,7 @@ namespace Pulumi.Aws.MediaLive
         public Output<bool?> StartMultiplex { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the Multiplex. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the Multiplex. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -173,7 +173,7 @@ namespace Pulumi.Aws.MediaLive
         private InputList<string>? _availabilityZones;
 
         /// <summary>
-        /// A list of availability zones. You must specify exactly two.
+        /// List of availability zones. You must specify exactly two.
         /// </summary>
         public InputList<string> AvailabilityZones
         {
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.MediaLive
         }
 
         /// <summary>
-        /// Multiplex settings. See Multiplex Settings for more details.
+        /// Multiplex settings. See `MultiplexSettings` Block for more details.
         /// </summary>
         [Input("multiplexSettings")]
         public Input<Inputs.MultiplexMultiplexSettingsArgs>? MultiplexSettings { get; set; }
@@ -211,7 +211,7 @@ namespace Pulumi.Aws.MediaLive
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the Multiplex. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the Multiplex. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -237,7 +237,7 @@ namespace Pulumi.Aws.MediaLive
         private InputList<string>? _availabilityZones;
 
         /// <summary>
-        /// A list of availability zones. You must specify exactly two.
+        /// List of availability zones. You must specify exactly two.
         /// </summary>
         public InputList<string> AvailabilityZones
         {
@@ -246,7 +246,7 @@ namespace Pulumi.Aws.MediaLive
         }
 
         /// <summary>
-        /// Multiplex settings. See Multiplex Settings for more details.
+        /// Multiplex settings. See `MultiplexSettings` Block for more details.
         /// </summary>
         [Input("multiplexSettings")]
         public Input<Inputs.MultiplexMultiplexSettingsGetArgs>? MultiplexSettings { get; set; }
@@ -275,7 +275,7 @@ namespace Pulumi.Aws.MediaLive
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the Multiplex. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the Multiplex. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

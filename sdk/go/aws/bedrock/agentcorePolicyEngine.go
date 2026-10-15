@@ -110,12 +110,12 @@ import (
 //
 // #### Required
 //
-// - `policyEngineId` (String) Policy engine ID.
+// * `policyEngineId` (String) Policy engine ID.
 //
 // #### Optional
 //
-// * `accountId` (String) AWS account ID for this resource.
-// * `region` (String) AWS Region for this resource.
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
 //
 // Using `pulumi import`, import a Bedrock AgentCore Policy Engine by policy engine ID. For example:
 //
@@ -127,7 +127,7 @@ type AgentcorePolicyEngine struct {
 
 	// Description of the policy engine.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// ARN of the KMS key used to encrypt the policy engine. If not set, AWS uses an AWS managed key.
+	// ARN of the KMS key used to encrypt the policy engine. If not set, the policy engine is encrypted with an AWS owned key.
 	EncryptionKeyArn pulumi.StringPtrOutput `pulumi:"encryptionKeyArn"`
 	// Name of the policy engine. Must start with a letter and contain only letters, numbers, and underscores. Maximum length of 48 characters.
 	//
@@ -178,7 +178,7 @@ func GetAgentcorePolicyEngine(ctx *pulumi.Context,
 type agentcorePolicyEngineState struct {
 	// Description of the policy engine.
 	Description *string `pulumi:"description"`
-	// ARN of the KMS key used to encrypt the policy engine. If not set, AWS uses an AWS managed key.
+	// ARN of the KMS key used to encrypt the policy engine. If not set, the policy engine is encrypted with an AWS owned key.
 	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
 	// Name of the policy engine. Must start with a letter and contain only letters, numbers, and underscores. Maximum length of 48 characters.
 	//
@@ -200,7 +200,7 @@ type agentcorePolicyEngineState struct {
 type AgentcorePolicyEngineState struct {
 	// Description of the policy engine.
 	Description pulumi.StringPtrInput
-	// ARN of the KMS key used to encrypt the policy engine. If not set, AWS uses an AWS managed key.
+	// ARN of the KMS key used to encrypt the policy engine. If not set, the policy engine is encrypted with an AWS owned key.
 	EncryptionKeyArn pulumi.StringPtrInput
 	// Name of the policy engine. Must start with a letter and contain only letters, numbers, and underscores. Maximum length of 48 characters.
 	//
@@ -226,7 +226,7 @@ func (AgentcorePolicyEngineState) ElementType() reflect.Type {
 type agentcorePolicyEngineArgs struct {
 	// Description of the policy engine.
 	Description *string `pulumi:"description"`
-	// ARN of the KMS key used to encrypt the policy engine. If not set, AWS uses an AWS managed key.
+	// ARN of the KMS key used to encrypt the policy engine. If not set, the policy engine is encrypted with an AWS owned key.
 	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
 	// Name of the policy engine. Must start with a letter and contain only letters, numbers, and underscores. Maximum length of 48 characters.
 	//
@@ -243,7 +243,7 @@ type agentcorePolicyEngineArgs struct {
 type AgentcorePolicyEngineArgs struct {
 	// Description of the policy engine.
 	Description pulumi.StringPtrInput
-	// ARN of the KMS key used to encrypt the policy engine. If not set, AWS uses an AWS managed key.
+	// ARN of the KMS key used to encrypt the policy engine. If not set, the policy engine is encrypted with an AWS owned key.
 	EncryptionKeyArn pulumi.StringPtrInput
 	// Name of the policy engine. Must start with a letter and contain only letters, numbers, and underscores. Maximum length of 48 characters.
 	//
@@ -348,7 +348,7 @@ func (o AgentcorePolicyEngineOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcorePolicyEngine) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the KMS key used to encrypt the policy engine. If not set, AWS uses an AWS managed key.
+// ARN of the KMS key used to encrypt the policy engine. If not set, the policy engine is encrypted with an AWS owned key.
 func (o AgentcorePolicyEngineOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcorePolicyEngine) pulumi.StringPtrOutput { return v.EncryptionKeyArn }).(pulumi.StringPtrOutput)
 }

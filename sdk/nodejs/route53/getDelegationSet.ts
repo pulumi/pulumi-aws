@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * The following example shows how to get a delegation set from its id.
+ * The following example shows how to get a delegation set from its ID.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -64,7 +64,7 @@ export interface GetDelegationSetResult {
  *
  * ## Example Usage
  *
- * The following example shows how to get a delegation set from its id.
+ * The following example shows how to get a delegation set from its ID.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -4,6 +4,7 @@
 package com.pulumi.aws.bedrock.inputs;
 
 import com.pulumi.aws.bedrock.inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs;
+import com.pulumi.aws.bedrock.inputs.AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationArgs;
 import com.pulumi.aws.bedrock.inputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs;
 import com.pulumi.aws.bedrock.inputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs;
 import com.pulumi.core.Output;
@@ -30,6 +31,21 @@ public final class AgentDataSourceVectorIngestionConfigurationArgs extends com.p
      */
     public Optional<Output<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs>> chunkingConfiguration() {
         return Optional.ofNullable(this.chunkingConfiguration);
+    }
+
+    /**
+     * Context enrichment configuration used to provide additional context to the RAG application. Required when the knowledge base uses Amazon Neptune Analytics (GraphRAG) storage. See `contextEnrichmentConfiguration` Block for details.
+     * 
+     */
+    @Import(name="contextEnrichmentConfiguration")
+    private @Nullable Output<AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationArgs> contextEnrichmentConfiguration;
+
+    /**
+     * @return Context enrichment configuration used to provide additional context to the RAG application. Required when the knowledge base uses Amazon Neptune Analytics (GraphRAG) storage. See `contextEnrichmentConfiguration` Block for details.
+     * 
+     */
+    public Optional<Output<AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationArgs>> contextEnrichmentConfiguration() {
+        return Optional.ofNullable(this.contextEnrichmentConfiguration);
     }
 
     /**
@@ -66,6 +82,7 @@ public final class AgentDataSourceVectorIngestionConfigurationArgs extends com.p
 
     private AgentDataSourceVectorIngestionConfigurationArgs(AgentDataSourceVectorIngestionConfigurationArgs $) {
         this.chunkingConfiguration = $.chunkingConfiguration;
+        this.contextEnrichmentConfiguration = $.contextEnrichmentConfiguration;
         this.customTransformationConfiguration = $.customTransformationConfiguration;
         this.parsingConfiguration = $.parsingConfiguration;
     }
@@ -107,6 +124,27 @@ public final class AgentDataSourceVectorIngestionConfigurationArgs extends com.p
          */
         public Builder chunkingConfiguration(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs chunkingConfiguration) {
             return chunkingConfiguration(Output.of(chunkingConfiguration));
+        }
+
+        /**
+         * @param contextEnrichmentConfiguration Context enrichment configuration used to provide additional context to the RAG application. Required when the knowledge base uses Amazon Neptune Analytics (GraphRAG) storage. See `contextEnrichmentConfiguration` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder contextEnrichmentConfiguration(@Nullable Output<AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationArgs> contextEnrichmentConfiguration) {
+            $.contextEnrichmentConfiguration = contextEnrichmentConfiguration;
+            return this;
+        }
+
+        /**
+         * @param contextEnrichmentConfiguration Context enrichment configuration used to provide additional context to the RAG application. Required when the knowledge base uses Amazon Neptune Analytics (GraphRAG) storage. See `contextEnrichmentConfiguration` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder contextEnrichmentConfiguration(AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationArgs contextEnrichmentConfiguration) {
+            return contextEnrichmentConfiguration(Output.of(contextEnrichmentConfiguration));
         }
 
         /**

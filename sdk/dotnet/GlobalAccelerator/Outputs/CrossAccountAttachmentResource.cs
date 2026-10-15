@@ -18,11 +18,11 @@ namespace Pulumi.Aws.GlobalAccelerator.Outputs
         /// </summary>
         public readonly string? CidrBlock;
         /// <summary>
-        /// The endpoint ID for the endpoint that is specified as a AWS resource.
+        /// Endpoint ID for the endpoint that is specified as a AWS resource.
         /// </summary>
         public readonly string? EndpointId;
         /// <summary>
-        /// The AWS Region where a shared endpoint resource is located.
+        /// AWS Region where a shared endpoint resource is located.
         /// </summary>
         public readonly string? Region;
 

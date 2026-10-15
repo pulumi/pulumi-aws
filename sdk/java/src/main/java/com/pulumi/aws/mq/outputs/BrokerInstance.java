@@ -18,7 +18,7 @@ public final class BrokerInstance {
      */
     private @Nullable String consoleUrl;
     /**
-     * @return `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
+     * @return Broker&#39;s wire-level protocol endpoints, referenceable e.g., as `instances.0.endpoints.0`.
      * 
      */
     private @Nullable List<String> endpoints;
@@ -37,7 +37,7 @@ public final class BrokerInstance {
         return Optional.ofNullable(this.consoleUrl);
     }
     /**
-     * @return `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
+     * @return Broker&#39;s wire-level protocol endpoints, referenceable e.g., as `instances.0.endpoints.0`.
      * 
      */
     public List<String> endpoints() {

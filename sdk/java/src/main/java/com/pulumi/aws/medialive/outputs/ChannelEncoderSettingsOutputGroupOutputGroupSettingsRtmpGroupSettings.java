@@ -14,32 +14,32 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings {
     /**
-     * @return The ad marker type for this output group.
+     * @return List of ad markers for this output group.
      * 
      */
     private @Nullable List<String> adMarkers;
     /**
-     * @return Authentication scheme to use when connecting with CDN.
+     * @return Authentication scheme to use when connecting with the CDN.
      * 
      */
     private @Nullable String authenticationScheme;
     /**
-     * @return Controls behavior when content cache fills up.
+     * @return Behavior when the content cache fills up.
      * 
      */
     private @Nullable String cacheFullBehavior;
     /**
-     * @return Cache length in seconds, is used to calculate buffer size.
+     * @return Cache length, in seconds, used to calculate buffer size.
      * 
      */
     private @Nullable Integer cacheLength;
     /**
-     * @return Controls the types of data that passes to onCaptionInfo outputs.
+     * @return Controls the types of data that pass to `onCaptionInfo` outputs.
      * 
      */
     private @Nullable String captionData;
     /**
-     * @return Controls the behavior of the RTMP group if input becomes unavailable.
+     * @return Behavior of the RTMP group if the input becomes unavailable.
      * 
      */
     private @Nullable String inputLossAction;
@@ -51,42 +51,42 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroup
 
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings() {}
     /**
-     * @return The ad marker type for this output group.
+     * @return List of ad markers for this output group.
      * 
      */
     public List<String> adMarkers() {
         return this.adMarkers == null ? List.of() : this.adMarkers;
     }
     /**
-     * @return Authentication scheme to use when connecting with CDN.
+     * @return Authentication scheme to use when connecting with the CDN.
      * 
      */
     public Optional<String> authenticationScheme() {
         return Optional.ofNullable(this.authenticationScheme);
     }
     /**
-     * @return Controls behavior when content cache fills up.
+     * @return Behavior when the content cache fills up.
      * 
      */
     public Optional<String> cacheFullBehavior() {
         return Optional.ofNullable(this.cacheFullBehavior);
     }
     /**
-     * @return Cache length in seconds, is used to calculate buffer size.
+     * @return Cache length, in seconds, used to calculate buffer size.
      * 
      */
     public Optional<Integer> cacheLength() {
         return Optional.ofNullable(this.cacheLength);
     }
     /**
-     * @return Controls the types of data that passes to onCaptionInfo outputs.
+     * @return Controls the types of data that pass to `onCaptionInfo` outputs.
      * 
      */
     public Optional<String> captionData() {
         return Optional.ofNullable(this.captionData);
     }
     /**
-     * @return Controls the behavior of the RTMP group if input becomes unavailable.
+     * @return Behavior of the RTMP group if the input becomes unavailable.
      * 
      */
     public Optional<String> inputLossAction() {

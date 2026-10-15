@@ -18,6 +18,9 @@ namespace Pulumi.Aws.Msk.Inputs
         [Input("deliveryStream")]
         public Input<string>? DeliveryStream { get; set; }
 
+        /// <summary>
+        /// Whether to enable or disable streaming broker logs to Kinesis Data Firehose.
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 

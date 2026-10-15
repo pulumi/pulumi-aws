@@ -162,7 +162,7 @@ type Method struct {
 	Authorization pulumi.StringOutput `pulumi:"authorization"`
 	// Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
 	AuthorizationScopes pulumi.StringArrayOutput `pulumi:"authorizationScopes"`
-	// Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+	// Authorizer ID to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
 	AuthorizerId pulumi.StringPtrOutput `pulumi:"authorizerId"`
 	// HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
 	HttpMethod pulumi.StringOutput `pulumi:"httpMethod"`
@@ -230,7 +230,7 @@ type methodState struct {
 	Authorization *string `pulumi:"authorization"`
 	// Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
 	AuthorizationScopes []string `pulumi:"authorizationScopes"`
-	// Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+	// Authorizer ID to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
 	AuthorizerId *string `pulumi:"authorizerId"`
 	// HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
 	HttpMethod *string `pulumi:"httpMethod"`
@@ -257,7 +257,7 @@ type MethodState struct {
 	Authorization pulumi.StringPtrInput
 	// Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
 	AuthorizationScopes pulumi.StringArrayInput
-	// Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+	// Authorizer ID to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
 	AuthorizerId pulumi.StringPtrInput
 	// HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
 	HttpMethod pulumi.StringPtrInput
@@ -288,7 +288,7 @@ type methodArgs struct {
 	Authorization string `pulumi:"authorization"`
 	// Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
 	AuthorizationScopes []string `pulumi:"authorizationScopes"`
-	// Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+	// Authorizer ID to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
 	AuthorizerId *string `pulumi:"authorizerId"`
 	// HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
 	HttpMethod string `pulumi:"httpMethod"`
@@ -316,7 +316,7 @@ type MethodArgs struct {
 	Authorization pulumi.StringInput
 	// Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
 	AuthorizationScopes pulumi.StringArrayInput
-	// Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+	// Authorizer ID to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
 	AuthorizerId pulumi.StringPtrInput
 	// HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
 	HttpMethod pulumi.StringInput
@@ -438,7 +438,7 @@ func (o MethodOutput) AuthorizationScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Method) pulumi.StringArrayOutput { return v.AuthorizationScopes }).(pulumi.StringArrayOutput)
 }
 
-// Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+// Authorizer ID to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
 func (o MethodOutput) AuthorizerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Method) pulumi.StringPtrOutput { return v.AuthorizerId }).(pulumi.StringPtrOutput)
 }

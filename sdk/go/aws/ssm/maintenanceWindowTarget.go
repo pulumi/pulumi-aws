@@ -143,7 +143,7 @@ type MaintenanceWindowTarget struct {
 	// The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
 	// (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
 	Targets MaintenanceWindowTargetTargetArrayOutput `pulumi:"targets"`
-	// The Id of the maintenance window to register the target with.
+	// The ID of the maintenance window to register the target with.
 	WindowId pulumi.StringOutput `pulumi:"windowId"`
 }
 
@@ -199,7 +199,7 @@ type maintenanceWindowTargetState struct {
 	// The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
 	// (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
 	Targets []MaintenanceWindowTargetTarget `pulumi:"targets"`
-	// The Id of the maintenance window to register the target with.
+	// The ID of the maintenance window to register the target with.
 	WindowId *string `pulumi:"windowId"`
 }
 
@@ -217,7 +217,7 @@ type MaintenanceWindowTargetState struct {
 	// The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
 	// (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
 	Targets MaintenanceWindowTargetTargetArrayInput
-	// The Id of the maintenance window to register the target with.
+	// The ID of the maintenance window to register the target with.
 	WindowId pulumi.StringPtrInput
 }
 
@@ -239,7 +239,7 @@ type maintenanceWindowTargetArgs struct {
 	// The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
 	// (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
 	Targets []MaintenanceWindowTargetTarget `pulumi:"targets"`
-	// The Id of the maintenance window to register the target with.
+	// The ID of the maintenance window to register the target with.
 	WindowId string `pulumi:"windowId"`
 }
 
@@ -258,7 +258,7 @@ type MaintenanceWindowTargetArgs struct {
 	// The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
 	// (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
 	Targets MaintenanceWindowTargetTargetArrayInput
-	// The Id of the maintenance window to register the target with.
+	// The ID of the maintenance window to register the target with.
 	WindowId pulumi.StringInput
 }
 
@@ -380,7 +380,7 @@ func (o MaintenanceWindowTargetOutput) Targets() MaintenanceWindowTargetTargetAr
 	return o.ApplyT(func(v *MaintenanceWindowTarget) MaintenanceWindowTargetTargetArrayOutput { return v.Targets }).(MaintenanceWindowTargetTargetArrayOutput)
 }
 
-// The Id of the maintenance window to register the target with.
+// The ID of the maintenance window to register the target with.
 func (o MaintenanceWindowTargetOutput) WindowId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaintenanceWindowTarget) pulumi.StringOutput { return v.WindowId }).(pulumi.StringOutput)
 }

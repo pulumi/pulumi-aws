@@ -21,7 +21,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// 
         /// &gt; **Note:** It's strongly discouraged to use this data source for querying ephemeral
-        /// instances (e.g., managed via autoscaling group), as the output may change at any time
+        /// instances (e.g., managed via Auto Scaling group), as the output may change at any time
         /// and you'd need to re-run `Apply` every time an instance comes up or dies.
         /// 
         /// ## Example Usage
@@ -87,7 +87,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// 
         /// &gt; **Note:** It's strongly discouraged to use this data source for querying ephemeral
-        /// instances (e.g., managed via autoscaling group), as the output may change at any time
+        /// instances (e.g., managed via Auto Scaling group), as the output may change at any time
         /// and you'd need to re-run `Apply` every time an instance comes up or dies.
         /// 
         /// ## Example Usage
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// 
         /// &gt; **Note:** It's strongly discouraged to use this data source for querying ephemeral
-        /// instances (e.g., managed via autoscaling group), as the output may change at any time
+        /// instances (e.g., managed via Auto Scaling group), as the output may change at any time
         /// and you'd need to re-run `Apply` every time an instance comes up or dies.
         /// 
         /// ## Example Usage

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly int? ConstantBitrate;
         /// <summary>
-        /// Statmux settings. See Statmux Settings for more details.
+        /// Statmux settings. See `StatmuxSettings` Block for more details.
         /// </summary>
         public readonly Outputs.MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings? StatmuxSettings;
 

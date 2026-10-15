@@ -36,14 +36,14 @@ public final class EndpointGroupState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The list of endpoint objects. Fields documented below.
+     * Endpoint objects. See `endpointConfiguration` below.
      * 
      */
     @Import(name="endpointConfigurations")
     private @Nullable Output<List<EndpointGroupEndpointConfigurationArgs>> endpointConfigurations;
 
     /**
-     * @return The list of endpoint objects. Fields documented below.
+     * @return Endpoint objects. See `endpointConfiguration` below.
      * 
      */
     public Optional<Output<List<EndpointGroupEndpointConfigurationArgs>>> endpointConfigurations() {
@@ -51,14 +51,14 @@ public final class EndpointGroupState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The name of the AWS Region where the endpoint group is located.
+     * AWS Region where the endpoint group is located.
      * 
      */
     @Import(name="endpointGroupRegion")
     private @Nullable Output<String> endpointGroupRegion;
 
     /**
-     * @return The name of the AWS Region where the endpoint group is located.
+     * @return AWS Region where the endpoint group is located.
      * 
      */
     public Optional<Output<String>> endpointGroupRegion() {
@@ -66,14 +66,14 @@ public final class EndpointGroupState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
+     * Time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
      * 
      */
     @Import(name="healthCheckIntervalSeconds")
     private @Nullable Output<Integer> healthCheckIntervalSeconds;
 
     /**
-     * @return The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
+     * @return Time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
      * 
      */
     public Optional<Output<Integer>> healthCheckIntervalSeconds() {
@@ -96,16 +96,14 @@ public final class EndpointGroupState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
-     * the provider will only perform drift detection of its value when present in a configuration.
+     * Port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.   the provider will only perform drift detection of its value when present in a configuration.
      * 
      */
     @Import(name="healthCheckPort")
     private @Nullable Output<Integer> healthCheckPort;
 
     /**
-     * @return The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
-     * the provider will only perform drift detection of its value when present in a configuration.
+     * @return Port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.   the provider will only perform drift detection of its value when present in a configuration.
      * 
      */
     public Optional<Output<Integer>> healthCheckPort() {
@@ -113,14 +111,14 @@ public final class EndpointGroupState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
+     * Protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
      * 
      */
     @Import(name="healthCheckProtocol")
     private @Nullable Output<String> healthCheckProtocol;
 
     /**
-     * @return The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
+     * @return Protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
      * 
      */
     public Optional<Output<String>> healthCheckProtocol() {
@@ -143,14 +141,14 @@ public final class EndpointGroupState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+     * Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. See `portOverride` below.
      * 
      */
     @Import(name="portOverrides")
     private @Nullable Output<List<EndpointGroupPortOverrideArgs>> portOverrides;
 
     /**
-     * @return Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+     * @return Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. See `portOverride` below.
      * 
      */
     public Optional<Output<List<EndpointGroupPortOverrideArgs>>> portOverrides() {
@@ -158,14 +156,14 @@ public final class EndpointGroupState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
+     * Number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
      * 
      */
     @Import(name="thresholdCount")
     private @Nullable Output<Integer> thresholdCount;
 
     /**
-     * @return The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
+     * @return Number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
      * 
      */
     public Optional<Output<Integer>> thresholdCount() {
@@ -173,14 +171,14 @@ public final class EndpointGroupState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
+     * Percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
      * 
      */
     @Import(name="trafficDialPercentage")
     private @Nullable Output<Double> trafficDialPercentage;
 
     /**
-     * @return The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
+     * @return Percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
      * 
      */
     public Optional<Output<Double>> trafficDialPercentage() {
@@ -243,7 +241,7 @@ public final class EndpointGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param endpointConfigurations The list of endpoint objects. Fields documented below.
+         * @param endpointConfigurations Endpoint objects. See `endpointConfiguration` below.
          * 
          * @return builder
          * 
@@ -254,7 +252,7 @@ public final class EndpointGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param endpointConfigurations The list of endpoint objects. Fields documented below.
+         * @param endpointConfigurations Endpoint objects. See `endpointConfiguration` below.
          * 
          * @return builder
          * 
@@ -264,7 +262,7 @@ public final class EndpointGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param endpointConfigurations The list of endpoint objects. Fields documented below.
+         * @param endpointConfigurations Endpoint objects. See `endpointConfiguration` below.
          * 
          * @return builder
          * 
@@ -274,7 +272,7 @@ public final class EndpointGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param endpointGroupRegion The name of the AWS Region where the endpoint group is located.
+         * @param endpointGroupRegion AWS Region where the endpoint group is located.
          * 
          * @return builder
          * 
@@ -285,7 +283,7 @@ public final class EndpointGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param endpointGroupRegion The name of the AWS Region where the endpoint group is located.
+         * @param endpointGroupRegion AWS Region where the endpoint group is located.
          * 
          * @return builder
          * 
@@ -295,7 +293,7 @@ public final class EndpointGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param healthCheckIntervalSeconds The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
+         * @param healthCheckIntervalSeconds Time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
          * 
          * @return builder
          * 
@@ -306,7 +304,7 @@ public final class EndpointGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param healthCheckIntervalSeconds The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
+         * @param healthCheckIntervalSeconds Time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
          * 
          * @return builder
          * 
@@ -337,8 +335,7 @@ public final class EndpointGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param healthCheckPort The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
-         * the provider will only perform drift detection of its value when present in a configuration.
+         * @param healthCheckPort Port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.   the provider will only perform drift detection of its value when present in a configuration.
          * 
          * @return builder
          * 
@@ -349,8 +346,7 @@ public final class EndpointGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param healthCheckPort The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
-         * the provider will only perform drift detection of its value when present in a configuration.
+         * @param healthCheckPort Port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.   the provider will only perform drift detection of its value when present in a configuration.
          * 
          * @return builder
          * 
@@ -360,7 +356,7 @@ public final class EndpointGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param healthCheckProtocol The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
+         * @param healthCheckProtocol Protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
          * 
          * @return builder
          * 
@@ -371,7 +367,7 @@ public final class EndpointGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param healthCheckProtocol The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
+         * @param healthCheckProtocol Protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
          * 
          * @return builder
          * 
@@ -402,7 +398,7 @@ public final class EndpointGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param portOverrides Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+         * @param portOverrides Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. See `portOverride` below.
          * 
          * @return builder
          * 
@@ -413,7 +409,7 @@ public final class EndpointGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param portOverrides Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+         * @param portOverrides Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. See `portOverride` below.
          * 
          * @return builder
          * 
@@ -423,7 +419,7 @@ public final class EndpointGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param portOverrides Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+         * @param portOverrides Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. See `portOverride` below.
          * 
          * @return builder
          * 
@@ -433,7 +429,7 @@ public final class EndpointGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param thresholdCount The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
+         * @param thresholdCount Number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
          * 
          * @return builder
          * 
@@ -444,7 +440,7 @@ public final class EndpointGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param thresholdCount The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
+         * @param thresholdCount Number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
          * 
          * @return builder
          * 
@@ -454,7 +450,7 @@ public final class EndpointGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param trafficDialPercentage The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
+         * @param trafficDialPercentage Percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
          * 
          * @return builder
          * 
@@ -465,7 +461,7 @@ public final class EndpointGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param trafficDialPercentage The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
+         * @param trafficDialPercentage Percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
          * 
          * @return builder
          * 

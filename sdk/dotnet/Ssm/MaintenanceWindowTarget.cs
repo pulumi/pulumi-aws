@@ -155,7 +155,7 @@ namespace Pulumi.Aws.Ssm
         public Output<ImmutableArray<Outputs.MaintenanceWindowTargetTarget>> Targets { get; private set; } = null!;
 
         /// <summary>
-        /// The Id of the maintenance window to register the target with.
+        /// The ID of the maintenance window to register the target with.
         /// </summary>
         [Output("windowId")]
         public Output<string> WindowId { get; private set; } = null!;
@@ -250,7 +250,7 @@ namespace Pulumi.Aws.Ssm
         }
 
         /// <summary>
-        /// The Id of the maintenance window to register the target with.
+        /// The ID of the maintenance window to register the target with.
         /// </summary>
         [Input("windowId", required: true)]
         public Input<string> WindowId { get; set; } = null!;
@@ -307,7 +307,7 @@ namespace Pulumi.Aws.Ssm
         }
 
         /// <summary>
-        /// The Id of the maintenance window to register the target with.
+        /// The ID of the maintenance window to register the target with.
         /// </summary>
         [Input("windowId")]
         public Input<string>? WindowId { get; set; }

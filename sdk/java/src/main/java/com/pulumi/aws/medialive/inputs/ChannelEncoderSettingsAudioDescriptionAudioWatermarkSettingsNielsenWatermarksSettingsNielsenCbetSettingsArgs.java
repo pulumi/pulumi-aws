@@ -14,22 +14,30 @@ public final class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsN
 
     public static final ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsArgs Empty = new ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsArgs();
 
+    /**
+     * CBET check digits to use for the watermark.
+     * 
+     */
     @Import(name="cbetCheckDigitString", required=true)
     private Output<String> cbetCheckDigitString;
 
+    /**
+     * @return CBET check digits to use for the watermark.
+     * 
+     */
     public Output<String> cbetCheckDigitString() {
         return this.cbetCheckDigitString;
     }
 
     /**
-     * Determines the method of CBET insertion mode when prior encoding is detected on the same layer.
+     * Method of CBET insertion mode when prior encoding is detected on the same layer.
      * 
      */
     @Import(name="cbetStepaside", required=true)
     private Output<String> cbetStepaside;
 
     /**
-     * @return Determines the method of CBET insertion mode when prior encoding is detected on the same layer.
+     * @return Method of CBET insertion mode when prior encoding is detected on the same layer.
      * 
      */
     public Output<String> cbetStepaside() {
@@ -77,17 +85,29 @@ public final class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsN
             $ = new ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param cbetCheckDigitString CBET check digits to use for the watermark.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cbetCheckDigitString(Output<String> cbetCheckDigitString) {
             $.cbetCheckDigitString = cbetCheckDigitString;
             return this;
         }
 
+        /**
+         * @param cbetCheckDigitString CBET check digits to use for the watermark.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cbetCheckDigitString(String cbetCheckDigitString) {
             return cbetCheckDigitString(Output.of(cbetCheckDigitString));
         }
 
         /**
-         * @param cbetStepaside Determines the method of CBET insertion mode when prior encoding is detected on the same layer.
+         * @param cbetStepaside Method of CBET insertion mode when prior encoding is detected on the same layer.
          * 
          * @return builder
          * 
@@ -98,7 +118,7 @@ public final class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsN
         }
 
         /**
-         * @param cbetStepaside Determines the method of CBET insertion mode when prior encoding is detected on the same layer.
+         * @param cbetStepaside Method of CBET insertion mode when prior encoding is detected on the same layer.
          * 
          * @return builder
          * 

@@ -20,7 +20,7 @@ public final class GuardrailContentPolicyConfigFiltersConfig {
      */
     private @Nullable String inputAction;
     /**
-     * @return Toggles guardrail evaluation on input.
+     * @return Whether to enable guardrail evaluation on input.
      * 
      */
     private @Nullable Boolean inputEnabled;
@@ -40,7 +40,7 @@ public final class GuardrailContentPolicyConfigFiltersConfig {
      */
     private @Nullable String outputAction;
     /**
-     * @return Toggles guardrail evaluation on output.
+     * @return Whether to enable guardrail evaluation on output.
      * 
      */
     private @Nullable Boolean outputEnabled;
@@ -69,7 +69,7 @@ public final class GuardrailContentPolicyConfigFiltersConfig {
         return Optional.ofNullable(this.inputAction);
     }
     /**
-     * @return Toggles guardrail evaluation on input.
+     * @return Whether to enable guardrail evaluation on input.
      * 
      */
     public Optional<Boolean> inputEnabled() {
@@ -97,7 +97,7 @@ public final class GuardrailContentPolicyConfigFiltersConfig {
         return Optional.ofNullable(this.outputAction);
     }
     /**
-     * @return Toggles guardrail evaluation on output.
+     * @return Whether to enable guardrail evaluation on output.
      * 
      */
     public Optional<Boolean> outputEnabled() {

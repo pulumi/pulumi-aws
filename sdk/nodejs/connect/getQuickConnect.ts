@@ -62,7 +62,7 @@ export interface GetQuickConnectArgs {
      */
     name?: string;
     /**
-     * Returns information on a specific Quick Connect by Quick Connect id
+     * Returns information on a specific Quick Connect by Quick Connect ID
      */
     quickConnectId?: string;
     /**
@@ -162,7 +162,7 @@ export interface GetQuickConnectOutputArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Returns information on a specific Quick Connect by Quick Connect id
+     * Returns information on a specific Quick Connect by Quick Connect ID
      */
     quickConnectId?: pulumi.Input<string | undefined>;
     /**

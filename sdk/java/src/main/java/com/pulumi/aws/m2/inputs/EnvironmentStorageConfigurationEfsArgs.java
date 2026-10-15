@@ -15,14 +15,14 @@ public final class EnvironmentStorageConfigurationEfsArgs extends com.pulumi.res
     public static final EnvironmentStorageConfigurationEfsArgs Empty = new EnvironmentStorageConfigurationEfsArgs();
 
     /**
-     * Id of the EFS filesystem to mount.
+     * ID of the EFS filesystem to mount.
      * 
      */
     @Import(name="fileSystemId", required=true)
     private Output<String> fileSystemId;
 
     /**
-     * @return Id of the EFS filesystem to mount.
+     * @return ID of the EFS filesystem to mount.
      * 
      */
     public Output<String> fileSystemId() {
@@ -70,7 +70,7 @@ public final class EnvironmentStorageConfigurationEfsArgs extends com.pulumi.res
         }
 
         /**
-         * @param fileSystemId Id of the EFS filesystem to mount.
+         * @param fileSystemId ID of the EFS filesystem to mount.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class EnvironmentStorageConfigurationEfsArgs extends com.pulumi.res
         }
 
         /**
-         * @param fileSystemId Id of the EFS filesystem to mount.
+         * @param fileSystemId ID of the EFS filesystem to mount.
          * 
          * @return builder
          * 

@@ -13,19 +13,39 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings {
+    /**
+     * @return Only applicable when this output is referencing an H.265 video description. Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
+     * 
+     */
     private @Nullable String h265PackagingType;
+    /**
+     * @return Settings regarding the underlying stream. See `hlsSettings` Block for details.
+     * 
+     */
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings hlsSettings;
     /**
      * @return String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
      * 
      */
     private @Nullable String nameModifier;
+    /**
+     * @return String concatenated to the end of the destination filename.
+     * 
+     */
     private @Nullable String segmentModifier;
 
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings() {}
+    /**
+     * @return Only applicable when this output is referencing an H.265 video description. Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
+     * 
+     */
     public Optional<String> h265PackagingType() {
         return Optional.ofNullable(this.h265PackagingType);
     }
+    /**
+     * @return Settings regarding the underlying stream. See `hlsSettings` Block for details.
+     * 
+     */
     public ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings hlsSettings() {
         return this.hlsSettings;
     }
@@ -36,6 +56,10 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
     public Optional<String> nameModifier() {
         return Optional.ofNullable(this.nameModifier);
     }
+    /**
+     * @return String concatenated to the end of the destination filename.
+     * 
+     */
     public Optional<String> segmentModifier() {
         return Optional.ofNullable(this.segmentModifier);
     }

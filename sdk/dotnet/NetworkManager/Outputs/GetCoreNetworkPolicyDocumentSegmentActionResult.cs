@@ -26,7 +26,7 @@ namespace Pulumi.Aws.NetworkManager.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DestinationCidrBlocks;
         /// <summary>
-        /// A list of strings. Valid values include `["blackhole"]` or a list of attachment ids.
+        /// A list of strings. Valid values include `["blackhole"]` or a list of attachment IDs.
         /// </summary>
         public readonly ImmutableArray<string> Destinations;
         /// <summary>

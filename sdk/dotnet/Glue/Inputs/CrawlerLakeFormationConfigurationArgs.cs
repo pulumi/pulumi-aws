@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Glue.Inputs
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// Specifies whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
+        /// Whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
         /// </summary>
         [Input("useLakeFormationCredentials")]
         public Input<bool>? UseLakeFormationCredentials { get; set; }

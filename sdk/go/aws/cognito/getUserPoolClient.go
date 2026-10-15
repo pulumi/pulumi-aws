@@ -51,7 +51,7 @@ func LookupUserPoolClient(ctx *pulumi.Context, args *LookupUserPoolClientArgs, o
 
 // A collection of arguments for invoking getUserPoolClient.
 type LookupUserPoolClientArgs struct {
-	// Client Id of the user pool.
+	// Client ID of the user pool.
 	ClientId string `pulumi:"clientId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -117,7 +117,7 @@ func LookupUserPoolClientOutput(ctx *pulumi.Context, args LookupUserPoolClientOu
 
 // A collection of arguments for invoking getUserPoolClient.
 type LookupUserPoolClientOutputArgs struct {
-	// Client Id of the user pool.
+	// Client ID of the user pool.
 	ClientId pulumi.StringInput `pulumi:"clientId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`

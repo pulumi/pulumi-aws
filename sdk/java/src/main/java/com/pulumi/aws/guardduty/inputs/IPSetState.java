@@ -18,14 +18,14 @@ public final class IPSetState extends com.pulumi.resources.ResourceArgs {
     public static final IPSetState Empty = new IPSetState();
 
     /**
-     * Specifies whether GuardDuty is to start using the uploaded IPSet.
+     * Whether to start using the uploaded IPSet.
      * 
      */
     @Import(name="activate")
     private @Nullable Output<Boolean> activate;
 
     /**
-     * @return Specifies whether GuardDuty is to start using the uploaded IPSet.
+     * @return Whether to start using the uploaded IPSet.
      * 
      */
     public Optional<Output<Boolean>> activate() {
@@ -48,14 +48,14 @@ public final class IPSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The detector ID of the GuardDuty.
+     * Detector ID of the GuardDuty.
      * 
      */
     @Import(name="detectorId")
     private @Nullable Output<String> detectorId;
 
     /**
-     * @return The detector ID of the GuardDuty.
+     * @return Detector ID of the GuardDuty.
      * 
      */
     public Optional<Output<String>> detectorId() {
@@ -63,14 +63,14 @@ public final class IPSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
+     * Format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
      * 
      */
     @Import(name="format")
     private @Nullable Output<String> format;
 
     /**
-     * @return The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
+     * @return Format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
      * 
      */
     public Optional<Output<String>> format() {
@@ -93,14 +93,14 @@ public final class IPSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The URI of the file that contains the IPSet.
+     * URI of the file that contains the IPSet.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return The URI of the file that contains the IPSet.
+     * @return URI of the file that contains the IPSet.
      * 
      */
     public Optional<Output<String>> location() {
@@ -108,14 +108,14 @@ public final class IPSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The friendly name to identify the IPSet.
+     * Friendly name to identify the IPSet.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The friendly name to identify the IPSet.
+     * @return Friendly name to identify the IPSet.
      * 
      */
     public Optional<Output<String>> name() {
@@ -153,14 +153,14 @@ public final class IPSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -201,7 +201,7 @@ public final class IPSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param activate Specifies whether GuardDuty is to start using the uploaded IPSet.
+         * @param activate Whether to start using the uploaded IPSet.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class IPSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param activate Specifies whether GuardDuty is to start using the uploaded IPSet.
+         * @param activate Whether to start using the uploaded IPSet.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class IPSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param detectorId The detector ID of the GuardDuty.
+         * @param detectorId Detector ID of the GuardDuty.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class IPSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param detectorId The detector ID of the GuardDuty.
+         * @param detectorId Detector ID of the GuardDuty.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class IPSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param format The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
+         * @param format Format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
          * 
          * @return builder
          * 
@@ -275,7 +275,7 @@ public final class IPSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param format The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
+         * @param format Format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class IPSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The URI of the file that contains the IPSet.
+         * @param location URI of the file that contains the IPSet.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class IPSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The URI of the file that contains the IPSet.
+         * @param location URI of the file that contains the IPSet.
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class IPSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The friendly name to identify the IPSet.
+         * @param name Friendly name to identify the IPSet.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class IPSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The friendly name to identify the IPSet.
+         * @param name Friendly name to identify the IPSet.
          * 
          * @return builder
          * 
@@ -390,7 +390,7 @@ public final class IPSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class IPSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

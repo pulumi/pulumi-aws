@@ -288,7 +288,7 @@ class GetInstanceResult:
     @pulumi.getter(name="enabledCloudwatchLogsExports")
     def enabled_cloudwatch_logs_exports(self) -> Sequence[_builtins.str]:
         """
-        List of log types to export to cloudwatch.
+        List of log types to export to CloudWatch.
         """
         return pulumi.get(self, "enabled_cloudwatch_logs_exports")
 

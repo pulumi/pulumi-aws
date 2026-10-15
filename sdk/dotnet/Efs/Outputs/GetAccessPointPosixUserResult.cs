@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Efs.Outputs
         /// </summary>
         public readonly ImmutableArray<int> SecondaryGids;
         /// <summary>
-        /// User Id
+        /// User ID
         /// </summary>
         public readonly int Uid;
 

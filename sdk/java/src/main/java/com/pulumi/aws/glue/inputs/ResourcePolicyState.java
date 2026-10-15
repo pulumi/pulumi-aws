@@ -16,14 +16,14 @@ public final class ResourcePolicyState extends com.pulumi.resources.ResourceArgs
     public static final ResourcePolicyState Empty = new ResourcePolicyState();
 
     /**
-     * Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
+     * Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the terraform will not perform drift detetction on this field as its not return on read.
      * 
      */
     @Import(name="enableHybrid")
     private @Nullable Output<String> enableHybrid;
 
     /**
-     * @return Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
+     * @return Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the terraform will not perform drift detetction on this field as its not return on read.
      * 
      */
     public Optional<Output<String>> enableHybrid() {
@@ -31,14 +31,14 @@ public final class ResourcePolicyState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The policy to be applied to the aws glue data catalog.
+     * Policy to be applied to the aws glue data catalog.
      * 
      */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
     /**
-     * @return The policy to be applied to the aws glue data catalog.
+     * @return Policy to be applied to the aws glue data catalog.
      * 
      */
     public Optional<Output<String>> policy() {
@@ -87,7 +87,7 @@ public final class ResourcePolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param enableHybrid Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
+         * @param enableHybrid Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the terraform will not perform drift detetction on this field as its not return on read.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class ResourcePolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param enableHybrid Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
+         * @param enableHybrid Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the terraform will not perform drift detetction on this field as its not return on read.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class ResourcePolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param policy The policy to be applied to the aws glue data catalog.
+         * @param policy Policy to be applied to the aws glue data catalog.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class ResourcePolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param policy The policy to be applied to the aws glue data catalog.
+         * @param policy Policy to be applied to the aws glue data catalog.
          * 
          * @return builder
          * 

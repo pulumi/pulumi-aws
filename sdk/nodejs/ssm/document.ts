@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### Create an ssm document in JSON format
+ * ### Create an SSM document in JSON format
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Create an ssm document in YAML format
+ * ### Create an SSM document in YAML format
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

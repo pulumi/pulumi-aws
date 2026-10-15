@@ -16,14 +16,14 @@ public final class ContainerPolicyState extends com.pulumi.resources.ResourceArg
     public static final ContainerPolicyState Empty = new ContainerPolicyState();
 
     /**
-     * The name of the container.
+     * Name of the container.
      * 
      */
     @Import(name="containerName")
     private @Nullable Output<String> containerName;
 
     /**
-     * @return The name of the container.
+     * @return Name of the container.
      * 
      */
     public Optional<Output<String>> containerName() {
@@ -31,14 +31,14 @@ public final class ContainerPolicyState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The contents of the policy.
+     * Contents of the policy. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
      * 
      */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
     /**
-     * @return The contents of the policy.
+     * @return Contents of the policy. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
      * 
      */
     public Optional<Output<String>> policy() {
@@ -87,7 +87,7 @@ public final class ContainerPolicyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param containerName The name of the container.
+         * @param containerName Name of the container.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class ContainerPolicyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param containerName The name of the container.
+         * @param containerName Name of the container.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class ContainerPolicyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param policy The contents of the policy.
+         * @param policy Contents of the policy. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class ContainerPolicyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param policy The contents of the policy.
+         * @param policy Contents of the policy. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
          * 
          * @return builder
          * 

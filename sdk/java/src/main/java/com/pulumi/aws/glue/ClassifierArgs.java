@@ -20,14 +20,14 @@ public final class ClassifierArgs extends com.pulumi.resources.ResourceArgs {
     public static final ClassifierArgs Empty = new ClassifierArgs();
 
     /**
-     * A classifier for CSV content. Defined below.
+     * Classifier for CSV content. Defined below.
      * 
      */
     @Import(name="csvClassifier")
     private @Nullable Output<ClassifierCsvClassifierArgs> csvClassifier;
 
     /**
-     * @return A classifier for CSV content. Defined below.
+     * @return Classifier for CSV content. Defined below.
      * 
      */
     public Optional<Output<ClassifierCsvClassifierArgs>> csvClassifier() {
@@ -35,14 +35,14 @@ public final class ClassifierArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A classifier that uses grok patterns. Defined below.
+     * Classifier that uses grok patterns. Defined below.
      * 
      */
     @Import(name="grokClassifier")
     private @Nullable Output<ClassifierGrokClassifierArgs> grokClassifier;
 
     /**
-     * @return A classifier that uses grok patterns. Defined below.
+     * @return Classifier that uses grok patterns. Defined below.
      * 
      */
     public Optional<Output<ClassifierGrokClassifierArgs>> grokClassifier() {
@@ -50,14 +50,14 @@ public final class ClassifierArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A classifier for JSON content. Defined below.
+     * Classifier for JSON content. Defined below.
      * 
      */
     @Import(name="jsonClassifier")
     private @Nullable Output<ClassifierJsonClassifierArgs> jsonClassifier;
 
     /**
-     * @return A classifier for JSON content. Defined below.
+     * @return Classifier for JSON content. Defined below.
      * 
      */
     public Optional<Output<ClassifierJsonClassifierArgs>> jsonClassifier() {
@@ -65,14 +65,14 @@ public final class ClassifierArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the classifier.
+     * Name of the classifier.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the classifier.
+     * @return Name of the classifier.
      * 
      */
     public Optional<Output<String>> name() {
@@ -95,14 +95,14 @@ public final class ClassifierArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A classifier for XML content. Defined below.
+     * Classifier for XML content. Defined below.
      * 
      */
     @Import(name="xmlClassifier")
     private @Nullable Output<ClassifierXmlClassifierArgs> xmlClassifier;
 
     /**
-     * @return A classifier for XML content. Defined below.
+     * @return Classifier for XML content. Defined below.
      * 
      */
     public Optional<Output<ClassifierXmlClassifierArgs>> xmlClassifier() {
@@ -139,7 +139,7 @@ public final class ClassifierArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param csvClassifier A classifier for CSV content. Defined below.
+         * @param csvClassifier Classifier for CSV content. Defined below.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class ClassifierArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param csvClassifier A classifier for CSV content. Defined below.
+         * @param csvClassifier Classifier for CSV content. Defined below.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class ClassifierArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param grokClassifier A classifier that uses grok patterns. Defined below.
+         * @param grokClassifier Classifier that uses grok patterns. Defined below.
          * 
          * @return builder
          * 
@@ -171,7 +171,7 @@ public final class ClassifierArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param grokClassifier A classifier that uses grok patterns. Defined below.
+         * @param grokClassifier Classifier that uses grok patterns. Defined below.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class ClassifierArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jsonClassifier A classifier for JSON content. Defined below.
+         * @param jsonClassifier Classifier for JSON content. Defined below.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class ClassifierArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jsonClassifier A classifier for JSON content. Defined below.
+         * @param jsonClassifier Classifier for JSON content. Defined below.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class ClassifierArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the classifier.
+         * @param name Name of the classifier.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class ClassifierArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the classifier.
+         * @param name Name of the classifier.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class ClassifierArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param xmlClassifier A classifier for XML content. Defined below.
+         * @param xmlClassifier Classifier for XML content. Defined below.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class ClassifierArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param xmlClassifier A classifier for XML content. Defined below.
+         * @param xmlClassifier Classifier for XML content. Defined below.
          * 
          * @return builder
          * 

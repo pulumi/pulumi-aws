@@ -14,7 +14,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettings
     {
         /// <summary>
-        /// Destination is a multiplex. See Destination for more details.
+        /// Multiplex destination. See `Destination` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestination Destination;
 

@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Macie2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws.macie2.OrganizationAdminAccount` using the id. For example:
+    /// Using `pulumi import`, import `aws.macie2.OrganizationAdminAccount` using the ID. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:macie2/organizationAdminAccount:OrganizationAdminAccount example abcd1
@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Macie2
     public partial class OrganizationAdminAccount : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
+        /// AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
         /// </summary>
         [Output("adminAccountId")]
         public Output<string> AdminAccountId { get; private set; } = null!;
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Macie2
     public sealed class OrganizationAdminAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
+        /// AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
         /// </summary>
         [Input("adminAccountId", required: true)]
         public Input<string> AdminAccountId { get; set; } = null!;
@@ -128,7 +128,7 @@ namespace Pulumi.Aws.Macie2
     public sealed class OrganizationAdminAccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
+        /// AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
         /// </summary>
         [Input("adminAccountId")]
         public Input<string>? AdminAccountId { get; set; }

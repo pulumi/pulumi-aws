@@ -14,8 +14,7 @@ namespace Pulumi.Aws.GuardDuty.Outputs
     public sealed class OrganizationConfigurationDatasourcesKubernetesAuditLogs
     {
         /// <summary>
-        /// If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-        /// Defaults to `True`.
+        /// If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html). Defaults to `True`.
         /// </summary>
         public readonly bool Enable;
 

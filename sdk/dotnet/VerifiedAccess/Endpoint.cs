@@ -86,7 +86,7 @@ namespace Pulumi.Aws.VerifiedAccess
     /// });
     /// ```
     /// 
-    /// ### Cidr Example
+    /// ### CIDR Example
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

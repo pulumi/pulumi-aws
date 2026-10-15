@@ -100,14 +100,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:guardduty/iPSet:IPSet")
 public class IPSet extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies whether GuardDuty is to start using the uploaded IPSet.
+     * Whether to start using the uploaded IPSet.
      * 
      */
     @Export(name="activate", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> activate;
 
     /**
-     * @return Specifies whether GuardDuty is to start using the uploaded IPSet.
+     * @return Whether to start using the uploaded IPSet.
      * 
      */
     public Output<Boolean> activate() {
@@ -128,28 +128,28 @@ public class IPSet extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The detector ID of the GuardDuty.
+     * Detector ID of the GuardDuty.
      * 
      */
     @Export(name="detectorId", refs={String.class}, tree="[0]")
     private Output<String> detectorId;
 
     /**
-     * @return The detector ID of the GuardDuty.
+     * @return Detector ID of the GuardDuty.
      * 
      */
     public Output<String> detectorId() {
         return this.detectorId;
     }
     /**
-     * The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
+     * Format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
      * 
      */
     @Export(name="format", refs={String.class}, tree="[0]")
     private Output<String> format;
 
     /**
-     * @return The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
+     * @return Format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
      * 
      */
     public Output<String> format() {
@@ -170,28 +170,28 @@ public class IPSet extends com.pulumi.resources.CustomResource {
         return this.ipSetId;
     }
     /**
-     * The URI of the file that contains the IPSet.
+     * URI of the file that contains the IPSet.
      * 
      */
     @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
-     * @return The URI of the file that contains the IPSet.
+     * @return URI of the file that contains the IPSet.
      * 
      */
     public Output<String> location() {
         return this.location;
     }
     /**
-     * The friendly name to identify the IPSet.
+     * Friendly name to identify the IPSet.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The friendly name to identify the IPSet.
+     * @return Friendly name to identify the IPSet.
      * 
      */
     public Output<String> name() {
@@ -226,14 +226,14 @@ public class IPSet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

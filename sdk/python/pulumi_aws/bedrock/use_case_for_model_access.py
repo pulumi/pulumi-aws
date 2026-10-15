@@ -24,8 +24,6 @@ class UseCaseForModelAccessArgs:
         The set of arguments for constructing a UseCaseForModelAccess resource.
 
         :param pulumi.Input[_builtins.str] form_data: Form data from the Anthropic first time user request. See also the example [payload](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_PutUseCaseForModelAccess.html#API_PutUseCaseForModelAccess_Examples).
-               
-               The following arguments are optional:
         """
         pulumi.set(__self__, "form_data", form_data)
 
@@ -34,8 +32,6 @@ class UseCaseForModelAccessArgs:
     def form_data(self) -> pulumi.Input[_builtins.str]:
         """
         Form data from the Anthropic first time user request. See also the example [payload](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_PutUseCaseForModelAccess.html#API_PutUseCaseForModelAccess_Examples).
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "form_data")
 
@@ -52,8 +48,6 @@ class _UseCaseForModelAccessState:
         Input properties used for looking up and filtering UseCaseForModelAccess resources.
 
         :param pulumi.Input[_builtins.str] form_data: Form data from the Anthropic first time user request. See also the example [payload](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_PutUseCaseForModelAccess.html#API_PutUseCaseForModelAccess_Examples).
-               
-               The following arguments are optional:
         """
         if form_data is not None:
             pulumi.set(__self__, "form_data", form_data)
@@ -63,8 +57,6 @@ class _UseCaseForModelAccessState:
     def form_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Form data from the Anthropic first time user request. See also the example [payload](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_PutUseCaseForModelAccess.html#API_PutUseCaseForModelAccess_Examples).
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "form_data")
 
@@ -86,9 +78,9 @@ class UseCaseForModelAccess(pulumi.CustomResource):
 
         **This is an advanced resource** and has special caveats to be aware of when using it. Please read this document in its entirety before using this resource.
 
-        The `bedrock.UseCaseForModelAccess` resource behaves differently from normal resources in that if an Use Case For Model Access already exists, Terraform does not _create_ this resource, but instead "adopts" it into management if it is the same. As the ability to update doesn't exist, changes compared to the existing resource generate an error.
+        The `bedrock.UseCaseForModelAccess` resource behaves differently from normal resources in that if a Use Case For Model Access already exists, Terraform does not _create_ this resource, but instead "adopts" it into management if it is the same. As the ability to update doesn't exist, changes compared to the existing resource generate an error.
         If no Use Case For Model Access exists, Terraform creates a new Use Case For Model Access.
-        By default, `terraform destroy` does not delete the Use Case For Model Access but does remove the resource from Terraform state. Real deletion does not exist for this resource.
+        `terraform destroy` does not delete the Use Case For Model Access but does remove the resource from Terraform state. Real deletion does not exist for this resource.
 
         ## Example Usage
 
@@ -129,8 +121,6 @@ class UseCaseForModelAccess(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] form_data: Form data from the Anthropic first time user request. See also the example [payload](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_PutUseCaseForModelAccess.html#API_PutUseCaseForModelAccess_Examples).
-               
-               The following arguments are optional:
         """
         ...
     @overload
@@ -143,9 +133,9 @@ class UseCaseForModelAccess(pulumi.CustomResource):
 
         **This is an advanced resource** and has special caveats to be aware of when using it. Please read this document in its entirety before using this resource.
 
-        The `bedrock.UseCaseForModelAccess` resource behaves differently from normal resources in that if an Use Case For Model Access already exists, Terraform does not _create_ this resource, but instead "adopts" it into management if it is the same. As the ability to update doesn't exist, changes compared to the existing resource generate an error.
+        The `bedrock.UseCaseForModelAccess` resource behaves differently from normal resources in that if a Use Case For Model Access already exists, Terraform does not _create_ this resource, but instead "adopts" it into management if it is the same. As the ability to update doesn't exist, changes compared to the existing resource generate an error.
         If no Use Case For Model Access exists, Terraform creates a new Use Case For Model Access.
-        By default, `terraform destroy` does not delete the Use Case For Model Access but does remove the resource from Terraform state. Real deletion does not exist for this resource.
+        `terraform destroy` does not delete the Use Case For Model Access but does remove the resource from Terraform state. Real deletion does not exist for this resource.
 
         ## Example Usage
 
@@ -230,8 +220,6 @@ class UseCaseForModelAccess(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] form_data: Form data from the Anthropic first time user request. See also the example [payload](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_PutUseCaseForModelAccess.html#API_PutUseCaseForModelAccess_Examples).
-               
-               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -245,8 +233,6 @@ class UseCaseForModelAccess(pulumi.CustomResource):
     def form_data(self) -> pulumi.Output[_builtins.str]:
         """
         Form data from the Anthropic first time user request. See also the example [payload](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_PutUseCaseForModelAccess.html#API_PutUseCaseForModelAccess_Examples).
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "form_data")
 

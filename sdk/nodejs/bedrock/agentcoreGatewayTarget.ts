@@ -53,6 +53,18 @@ import * as utilities from "../utilities";
  *     handler: "index.handler",
  *     runtime: aws.lambda.Runtime.NodeJS24dX,
  * });
+ * const gatewayLambdaInvoke = aws.iam.getPolicyDocumentOutput({
+ *     statements: [{
+ *         effect: "Allow",
+ *         actions: ["lambda:InvokeFunction"],
+ *         resources: [example.arn],
+ *     }],
+ * });
+ * const gatewayLambdaInvokeRolePolicy = new aws.iam.RolePolicy("gateway_lambda_invoke", {
+ *     name: "example-gateway-lambda-invoke",
+ *     role: gatewayRole.id,
+ *     policy: gatewayLambdaInvoke.json,
+ * });
  * const exampleAgentcoreGateway = new aws.bedrock.AgentcoreGateway("example", {
  *     authorizerConfiguration: {
  *         customJwtAuthorizer: {
@@ -61,6 +73,7 @@ import * as utilities from "../utilities";
  *     },
  *     name: "example-gateway",
  *     roleArn: gatewayRole.arn,
+ *     authorizerType: "CUSTOM_JWT",
  * });
  * const exampleAgentcoreGatewayTarget = new aws.bedrock.AgentcoreGatewayTarget("example", {
  *     credentialProviderConfiguration: {
@@ -86,11 +99,11 @@ import * as utilities from "../utilities";
  *                                             type: "string",
  *                                         },
  *                                         {
- *                                             items: [{
- *                                                 type: "string",
- *                                             }],
  *                                             name: "tags",
  *                                             type: "array",
+ *                                             itemsJson: JSON.stringify({
+ *                                                 type: "string",
+ *                                             }),
  *                                         },
  *                                     ],
  *                                     name: "options",
@@ -125,100 +138,6 @@ import * as utilities from "../utilities";
  *     name: "example-target",
  *     gatewayIdentifier: exampleAgentcoreGateway.gatewayId,
  *     description: "Lambda function target for processing requests",
- * });
- * ```
- *
- * ### Target with API Key Authentication
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const apiKeyExample = new aws.bedrock.AgentcoreGatewayTarget("api_key_example", {
- *     credentialProviderConfiguration: {
- *         apiKey: {
- *             providerArn: "arn:aws:iam::123456789012:oidc-provider/example.com",
- *             credentialLocation: "HEADER",
- *             credentialParameterName: "X-API-Key",
- *             credentialPrefix: "Bearer",
- *         },
- *     },
- *     targetConfiguration: {
- *         mcp: {
- *             lambda: {
- *                 toolSchema: {
- *                     inlinePayloads: [{
- *                         inputSchema: {
- *                             type: "string",
- *                             description: "Simple string input for API calls",
- *                         },
- *                         name: "api_tool",
- *                         description: "External API integration tool",
- *                     }],
- *                 },
- *                 lambdaArn: example.arn,
- *             },
- *         },
- *     },
- *     name: "api-target",
- *     gatewayIdentifier: exampleAwsBedrockagentcoreGateway.gatewayId,
- *     description: "External API target with API key authentication",
- * });
- * ```
- *
- * ### Target with OAuth Authentication
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const oauthExample = new aws.bedrock.AgentcoreGatewayTarget("oauth_example", {
- *     credentialProviderConfiguration: {
- *         oauth: {
- *             providerArn: "arn:aws:iam::123456789012:oidc-provider/oauth.example.com",
- *             scopes: [
- *                 "read",
- *                 "write",
- *             ],
- *             grantType: "authorization_code",
- *             defaultReturnUrl: "https://myapp.example.com/callback",
- *             customParameters: {
- *                 client_type: "confidential",
- *             },
- *         },
- *     },
- *     targetConfiguration: {
- *         mcp: {
- *             lambda: {
- *                 toolSchema: {
- *                     inlinePayloads: [{
- *                         inputSchema: {
- *                             items: {
- *                                 properties: [
- *                                     {
- *                                         name: "id",
- *                                         type: "string",
- *                                         required: true,
- *                                     },
- *                                     {
- *                                         name: "value",
- *                                         type: "number",
- *                                     },
- *                                 ],
- *                                 type: "object",
- *                             },
- *                             type: "array",
- *                         },
- *                         name: "oauth_tool",
- *                         description: "OAuth-authenticated service",
- *                     }],
- *                 },
- *                 lambdaArn: example.arn,
- *             },
- *         },
- *     },
- *     name: "oauth-target",
- *     gatewayIdentifier: exampleAwsBedrockagentcoreGateway.gatewayId,
  * });
  * ```
  *
@@ -426,7 +345,7 @@ import * as utilities from "../utilities";
  *
  * #### Optional
  *
- * * `accountId` (String) Account ID where this resource is managed.
+ * * `accountId` (String) AWS Account where this resource is managed.
  * * `region` (String) Region where this resource is managed.
  *
  * Using `pulumi import`, import gateway targets using `gatewayIdentifier` and `targetId` separated by a comma (`,`). For example:

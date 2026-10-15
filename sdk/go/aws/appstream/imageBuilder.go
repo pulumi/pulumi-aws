@@ -67,7 +67,7 @@ type ImageBuilder struct {
 	AccessEndpoints ImageBuilderAccessEndpointArrayOutput `pulumi:"accessEndpoints"`
 	// Version of the AppStream 2.0 agent to use for this image builder.
 	AppstreamAgentVersion pulumi.StringOutput `pulumi:"appstreamAgentVersion"`
-	// ARN of the appstream image builder.
+	// ARN of the AppStream image builder.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Date and time, in UTC and extended RFC 3339 format, when the image builder was created.
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
@@ -140,7 +140,7 @@ type imageBuilderState struct {
 	AccessEndpoints []ImageBuilderAccessEndpoint `pulumi:"accessEndpoints"`
 	// Version of the AppStream 2.0 agent to use for this image builder.
 	AppstreamAgentVersion *string `pulumi:"appstreamAgentVersion"`
-	// ARN of the appstream image builder.
+	// ARN of the AppStream image builder.
 	Arn *string `pulumi:"arn"`
 	// Date and time, in UTC and extended RFC 3339 format, when the image builder was created.
 	CreatedTime *string `pulumi:"createdTime"`
@@ -181,7 +181,7 @@ type ImageBuilderState struct {
 	AccessEndpoints ImageBuilderAccessEndpointArrayInput
 	// Version of the AppStream 2.0 agent to use for this image builder.
 	AppstreamAgentVersion pulumi.StringPtrInput
-	// ARN of the appstream image builder.
+	// ARN of the AppStream image builder.
 	Arn pulumi.StringPtrInput
 	// Date and time, in UTC and extended RFC 3339 format, when the image builder was created.
 	CreatedTime pulumi.StringPtrInput
@@ -385,7 +385,7 @@ func (o ImageBuilderOutput) AppstreamAgentVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageBuilder) pulumi.StringOutput { return v.AppstreamAgentVersion }).(pulumi.StringOutput)
 }
 
-// ARN of the appstream image builder.
+// ARN of the AppStream image builder.
 func (o ImageBuilderOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageBuilder) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

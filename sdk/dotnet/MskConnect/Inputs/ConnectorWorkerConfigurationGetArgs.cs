@@ -19,7 +19,7 @@ namespace Pulumi.Aws.MskConnect.Inputs
         public Input<string> Arn { get; set; } = null!;
 
         /// <summary>
-        /// The revision of the worker configuration.
+        /// Revision of the worker configuration.
         /// </summary>
         [Input("revision", required: true)]
         public Input<int> Revision { get; set; } = null!;

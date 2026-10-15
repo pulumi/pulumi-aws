@@ -22,7 +22,7 @@ public final class GetNetworkAclsResult {
      */
     private String id;
     /**
-     * @return List of all the network ACL ids found.
+     * @return List of all the network ACL IDs found.
      * 
      */
     private List<String> ids;
@@ -42,7 +42,7 @@ public final class GetNetworkAclsResult {
         return this.id;
     }
     /**
-     * @return List of all the network ACL ids found.
+     * @return List of all the network ACL IDs found.
      * 
      */
     public List<String> ids() {

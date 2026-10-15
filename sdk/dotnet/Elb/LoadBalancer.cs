@@ -173,7 +173,7 @@ namespace Pulumi.Aws.Elb
         public Output<int?> IdleTimeout { get; private set; } = null!;
 
         /// <summary>
-        /// A list of instance ids to place in the ELB pool.
+        /// A list of instance IDs to place in the ELB pool.
         /// </summary>
         [Output("instances")]
         public Output<ImmutableArray<string>> Instances { get; private set; } = null!;
@@ -367,7 +367,7 @@ namespace Pulumi.Aws.Elb
         private InputList<string>? _instances;
 
         /// <summary>
-        /// A list of instance ids to place in the ELB pool.
+        /// A list of instance IDs to place in the ELB pool.
         /// </summary>
         public InputList<string> Instances
         {
@@ -538,7 +538,7 @@ namespace Pulumi.Aws.Elb
         private InputList<string>? _instances;
 
         /// <summary>
-        /// A list of instance ids to place in the ELB pool.
+        /// A list of instance IDs to place in the ELB pool.
         /// </summary>
         public InputList<string> Instances
         {

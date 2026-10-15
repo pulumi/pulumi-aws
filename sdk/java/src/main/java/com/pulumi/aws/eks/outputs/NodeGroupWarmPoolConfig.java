@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class NodeGroupWarmPoolConfig {
     /**
-     * @return Maximum number of instances that are allowed to be in the warm pool combined with the Auto Scaling Group. Use `-1` to specify an unlimited capacity.
+     * @return Maximum number of instances that are allowed to be in the warm pool combined with the Auto Scaling group. Use `-1` to specify an unlimited capacity.
      * 
      */
     private @Nullable Integer maxGroupPreparedCapacity;
@@ -29,14 +29,14 @@ public final class NodeGroupWarmPoolConfig {
      */
     private @Nullable String poolState;
     /**
-     * @return Whether to return instances in the Auto Scaling Group to the warm pool on scale in. Not supported on Bottlerocket. Defaults to `false`.
+     * @return Whether to return instances in the Auto Scaling group to the warm pool on scale in. Not supported on Bottlerocket. Defaults to `false`.
      * 
      */
     private @Nullable Boolean reuseOnScaleIn;
 
     private NodeGroupWarmPoolConfig() {}
     /**
-     * @return Maximum number of instances that are allowed to be in the warm pool combined with the Auto Scaling Group. Use `-1` to specify an unlimited capacity.
+     * @return Maximum number of instances that are allowed to be in the warm pool combined with the Auto Scaling group. Use `-1` to specify an unlimited capacity.
      * 
      */
     public Optional<Integer> maxGroupPreparedCapacity() {
@@ -57,7 +57,7 @@ public final class NodeGroupWarmPoolConfig {
         return Optional.ofNullable(this.poolState);
     }
     /**
-     * @return Whether to return instances in the Auto Scaling Group to the warm pool on scale in. Not supported on Bottlerocket. Defaults to `false`.
+     * @return Whether to return instances in the Auto Scaling group to the warm pool on scale in. Not supported on Bottlerocket. Defaults to `false`.
      * 
      */
     public Optional<Boolean> reuseOnScaleIn() {

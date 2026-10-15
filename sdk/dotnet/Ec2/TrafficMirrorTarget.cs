@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
+        /// The VPC Endpoint ID of the Gateway Load Balancer that is associated with the target.
         /// </summary>
         [Output("gatewayLoadBalancerEndpointId")]
         public Output<string?> GatewayLoadBalancerEndpointId { get; private set; } = null!;
@@ -166,7 +166,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
+        /// The VPC Endpoint ID of the Gateway Load Balancer that is associated with the target.
         /// </summary>
         [Input("gatewayLoadBalancerEndpointId")]
         public Input<string>? GatewayLoadBalancerEndpointId { get; set; }
@@ -224,7 +224,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
+        /// The VPC Endpoint ID of the Gateway Load Balancer that is associated with the target.
         /// </summary>
         [Input("gatewayLoadBalancerEndpointId")]
         public Input<string>? GatewayLoadBalancerEndpointId { get; set; }

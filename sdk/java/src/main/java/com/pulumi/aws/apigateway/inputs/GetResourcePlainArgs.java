@@ -46,14 +46,14 @@ public final class GetResourcePlainArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * REST API id that owns the resource. If no REST API is found, an error will be returned.
+     * REST API ID that owns the resource. If no REST API is found, an error will be returned.
      * 
      */
     @Import(name="restApiId", required=true)
     private String restApiId;
 
     /**
-     * @return REST API id that owns the resource. If no REST API is found, an error will be returned.
+     * @return REST API ID that owns the resource. If no REST API is found, an error will be returned.
      * 
      */
     public String restApiId() {
@@ -109,7 +109,7 @@ public final class GetResourcePlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param restApiId REST API id that owns the resource. If no REST API is found, an error will be returned.
+         * @param restApiId REST API ID that owns the resource. If no REST API is found, an error will be returned.
          * 
          * @return builder
          * 

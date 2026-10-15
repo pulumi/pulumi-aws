@@ -12,9 +12,15 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// List of audio rendition sets, separated by commas.
+        /// </summary>
         [Input("audioRenditionSets")]
         public Input<string>? AudioRenditionSets { get; set; }
 
+        /// <summary>
+        /// Settings for the M3U8 container. See `M3u8Settings` Block for details.
+        /// </summary>
         [Input("m3u8Settings", required: true)]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs> M3u8Settings { get; set; } = null!;
 

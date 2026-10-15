@@ -17,7 +17,7 @@ public final class GetSnapshotClusterConfiguration {
      */
     private String description;
     /**
-     * @return The engine that will run on cluster nodes.
+     * @return Engine that will run on cluster nodes.
      * 
      */
     private String engine;
@@ -27,7 +27,7 @@ public final class GetSnapshotClusterConfiguration {
      */
     private String engineVersion;
     /**
-     * @return The weekly time range during which maintenance on the cluster is performed.
+     * @return Weekly time range during which maintenance on the cluster is performed.
      * 
      */
     private String maintenanceWindow;
@@ -62,7 +62,7 @@ public final class GetSnapshotClusterConfiguration {
      */
     private Integer snapshotRetentionLimit;
     /**
-     * @return The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
+     * @return Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
      * 
      */
     private String snapshotWindow;
@@ -77,7 +77,7 @@ public final class GetSnapshotClusterConfiguration {
      */
     private String topicArn;
     /**
-     * @return The VPC in which the cluster exists.
+     * @return VPC in which the cluster exists.
      * 
      */
     private String vpcId;
@@ -91,7 +91,7 @@ public final class GetSnapshotClusterConfiguration {
         return this.description;
     }
     /**
-     * @return The engine that will run on cluster nodes.
+     * @return Engine that will run on cluster nodes.
      * 
      */
     public String engine() {
@@ -105,7 +105,7 @@ public final class GetSnapshotClusterConfiguration {
         return this.engineVersion;
     }
     /**
-     * @return The weekly time range during which maintenance on the cluster is performed.
+     * @return Weekly time range during which maintenance on the cluster is performed.
      * 
      */
     public String maintenanceWindow() {
@@ -154,7 +154,7 @@ public final class GetSnapshotClusterConfiguration {
         return this.snapshotRetentionLimit;
     }
     /**
-     * @return The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
+     * @return Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
      * 
      */
     public String snapshotWindow() {
@@ -175,7 +175,7 @@ public final class GetSnapshotClusterConfiguration {
         return this.topicArn;
     }
     /**
-     * @return The VPC in which the cluster exists.
+     * @return VPC in which the cluster exists.
      * 
      */
     public String vpcId() {

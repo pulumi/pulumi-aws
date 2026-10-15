@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ebs.Outputs
         /// </summary>
         public readonly string Format;
         /// <summary>
-        /// The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `Url` or `UserBucket` must be set.
+        /// The URL to the Amazon S3-based disk image being imported. It can either be an HTTPS URL (`https://..`) or an Amazon S3 URL (`s3://..`). One of `Url` or `UserBucket` must be set.
         /// </summary>
         public readonly string? Url;
         /// <summary>

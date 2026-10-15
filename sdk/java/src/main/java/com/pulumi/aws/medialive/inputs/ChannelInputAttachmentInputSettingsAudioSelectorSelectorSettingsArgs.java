@@ -19,14 +19,14 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
     public static final ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs Empty = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs();
 
     /**
-     * Audio HLS Rendition Selection. See Audio HLS Rendition Selection for more details.
+     * HLS rendition selection. See `audioHlsRenditionSelection` Block for details.
      * 
      */
     @Import(name="audioHlsRenditionSelection")
     private @Nullable Output<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgs> audioHlsRenditionSelection;
 
     /**
-     * @return Audio HLS Rendition Selection. See Audio HLS Rendition Selection for more details.
+     * @return HLS rendition selection. See `audioHlsRenditionSelection` Block for details.
      * 
      */
     public Optional<Output<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgs>> audioHlsRenditionSelection() {
@@ -34,14 +34,14 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
     }
 
     /**
-     * Audio Language Selection. See Audio Language Selection for more details.
+     * Language selection. See `audioLanguageSelection` Block for details.
      * 
      */
     @Import(name="audioLanguageSelection")
     private @Nullable Output<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArgs> audioLanguageSelection;
 
     /**
-     * @return Audio Language Selection. See Audio Language Selection for more details.
+     * @return Language selection. See `audioLanguageSelection` Block for details.
      * 
      */
     public Optional<Output<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArgs>> audioLanguageSelection() {
@@ -49,14 +49,14 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
     }
 
     /**
-     * Audio Pid Selection. See Audio PID Selection for more details.
+     * PID selection. See `audioPidSelection` Block for details.
      * 
      */
     @Import(name="audioPidSelection")
     private @Nullable Output<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgs> audioPidSelection;
 
     /**
-     * @return Audio Pid Selection. See Audio PID Selection for more details.
+     * @return PID selection. See `audioPidSelection` Block for details.
      * 
      */
     public Optional<Output<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgs>> audioPidSelection() {
@@ -64,14 +64,14 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
     }
 
     /**
-     * Audio Track Selection. See Audio Track Selection for more details.
+     * Track selection. See `audioTrackSelection` Block for details.
      * 
      */
     @Import(name="audioTrackSelection")
     private @Nullable Output<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs> audioTrackSelection;
 
     /**
-     * @return Audio Track Selection. See Audio Track Selection for more details.
+     * @return Track selection. See `audioTrackSelection` Block for details.
      * 
      */
     public Optional<Output<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs>> audioTrackSelection() {
@@ -106,7 +106,7 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
         }
 
         /**
-         * @param audioHlsRenditionSelection Audio HLS Rendition Selection. See Audio HLS Rendition Selection for more details.
+         * @param audioHlsRenditionSelection HLS rendition selection. See `audioHlsRenditionSelection` Block for details.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
         }
 
         /**
-         * @param audioHlsRenditionSelection Audio HLS Rendition Selection. See Audio HLS Rendition Selection for more details.
+         * @param audioHlsRenditionSelection HLS rendition selection. See `audioHlsRenditionSelection` Block for details.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
         }
 
         /**
-         * @param audioLanguageSelection Audio Language Selection. See Audio Language Selection for more details.
+         * @param audioLanguageSelection Language selection. See `audioLanguageSelection` Block for details.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
         }
 
         /**
-         * @param audioLanguageSelection Audio Language Selection. See Audio Language Selection for more details.
+         * @param audioLanguageSelection Language selection. See `audioLanguageSelection` Block for details.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
         }
 
         /**
-         * @param audioPidSelection Audio Pid Selection. See Audio PID Selection for more details.
+         * @param audioPidSelection PID selection. See `audioPidSelection` Block for details.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
         }
 
         /**
-         * @param audioPidSelection Audio Pid Selection. See Audio PID Selection for more details.
+         * @param audioPidSelection PID selection. See `audioPidSelection` Block for details.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
         }
 
         /**
-         * @param audioTrackSelection Audio Track Selection. See Audio Track Selection for more details.
+         * @param audioTrackSelection Track selection. See `audioTrackSelection` Block for details.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
         }
 
         /**
-         * @param audioTrackSelection Audio Track Selection. See Audio Track Selection for more details.
+         * @param audioTrackSelection Track selection. See `audioTrackSelection` Block for details.
          * 
          * @return builder
          * 

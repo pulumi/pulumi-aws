@@ -52,14 +52,14 @@ public final class GetQuickConnectArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Returns information on a specific Quick Connect by Quick Connect id
+     * Returns information on a specific Quick Connect by Quick Connect ID
      * 
      */
     @Import(name="quickConnectId")
     private @Nullable Output<String> quickConnectId;
 
     /**
-     * @return Returns information on a specific Quick Connect by Quick Connect id
+     * @return Returns information on a specific Quick Connect by Quick Connect ID
      * 
      */
     public Optional<Output<String>> quickConnectId() {
@@ -171,7 +171,7 @@ public final class GetQuickConnectArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param quickConnectId Returns information on a specific Quick Connect by Quick Connect id
+         * @param quickConnectId Returns information on a specific Quick Connect by Quick Connect ID
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class GetQuickConnectArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param quickConnectId Returns information on a specific Quick Connect by Quick Connect id
+         * @param quickConnectId Returns information on a specific Quick Connect by Quick Connect ID
          * 
          * @return builder
          * 

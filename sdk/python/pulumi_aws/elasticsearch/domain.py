@@ -349,7 +349,7 @@ class _DomainState:
         :param pulumi.Input[_builtins.str] elasticsearch_version: Version of Elasticsearch to deploy. Defaults to `1.5`.
         :param pulumi.Input['DomainEncryptAtRestArgs'] encrypt_at_rest: Configuration block for encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). Detailed below.
         :param pulumi.Input[_builtins.str] endpoint: Domain-specific endpoint used to submit index, search, and data upload requests.
-        :param pulumi.Input[_builtins.str] kibana_endpoint: Domain-specific endpoint for kibana without https scheme.
+        :param pulumi.Input[_builtins.str] kibana_endpoint: Domain-specific endpoint for kibana without HTTPS scheme.
         :param pulumi.Input[Sequence[pulumi.Input['DomainLogPublishingOptionArgs']]] log_publishing_options: Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
         :param pulumi.Input['DomainNodeToNodeEncryptionArgs'] node_to_node_encryption: Configuration block for node-to-node encryption options. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -577,7 +577,7 @@ class _DomainState:
     @pulumi.getter(name="kibanaEndpoint")
     def kibana_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Domain-specific endpoint for kibana without https scheme.
+        Domain-specific endpoint for kibana without HTTPS scheme.
         """
         return pulumi.get(self, "kibana_endpoint")
 
@@ -1164,7 +1164,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] elasticsearch_version: Version of Elasticsearch to deploy. Defaults to `1.5`.
         :param pulumi.Input[Union['DomainEncryptAtRestArgs', 'DomainEncryptAtRestArgsDict', 'outputs.DomainEncryptAtRest']] encrypt_at_rest: Configuration block for encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). Detailed below.
         :param pulumi.Input[_builtins.str] endpoint: Domain-specific endpoint used to submit index, search, and data upload requests.
-        :param pulumi.Input[_builtins.str] kibana_endpoint: Domain-specific endpoint for kibana without https scheme.
+        :param pulumi.Input[_builtins.str] kibana_endpoint: Domain-specific endpoint for kibana without HTTPS scheme.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict', 'outputs.DomainLogPublishingOption']]]] log_publishing_options: Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
         :param pulumi.Input[Union['DomainNodeToNodeEncryptionArgs', 'DomainNodeToNodeEncryptionArgsDict', 'outputs.DomainNodeToNodeEncryption']] node_to_node_encryption: Configuration block for node-to-node encryption options. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -1319,7 +1319,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter(name="kibanaEndpoint")
     def kibana_endpoint(self) -> pulumi.Output[_builtins.str]:
         """
-        Domain-specific endpoint for kibana without https scheme.
+        Domain-specific endpoint for kibana without HTTPS scheme.
         """
         return pulumi.get(self, "kibana_endpoint")
 

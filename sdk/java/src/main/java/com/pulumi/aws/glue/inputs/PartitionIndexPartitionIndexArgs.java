@@ -31,9 +31,17 @@ public final class PartitionIndexPartitionIndexArgs extends com.pulumi.resources
         return Optional.ofNullable(this.indexName);
     }
 
+    /**
+     * Status of the partition index.
+     * 
+     */
     @Import(name="indexStatus")
     private @Nullable Output<String> indexStatus;
 
+    /**
+     * @return Status of the partition index.
+     * 
+     */
     public Optional<Output<String>> indexStatus() {
         return Optional.ofNullable(this.indexStatus);
     }
@@ -100,11 +108,23 @@ public final class PartitionIndexPartitionIndexArgs extends com.pulumi.resources
             return indexName(Output.of(indexName));
         }
 
+        /**
+         * @param indexStatus Status of the partition index.
+         * 
+         * @return builder
+         * 
+         */
         public Builder indexStatus(@Nullable Output<String> indexStatus) {
             $.indexStatus = indexStatus;
             return this;
         }
 
+        /**
+         * @param indexStatus Status of the partition index.
+         * 
+         * @return builder
+         * 
+         */
         public Builder indexStatus(String indexStatus) {
             return indexStatus(Output.of(indexStatus));
         }

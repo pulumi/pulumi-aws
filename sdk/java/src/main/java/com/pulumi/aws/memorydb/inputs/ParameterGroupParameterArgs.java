@@ -15,14 +15,14 @@ public final class ParameterGroupParameterArgs extends com.pulumi.resources.Reso
     public static final ParameterGroupParameterArgs Empty = new ParameterGroupParameterArgs();
 
     /**
-     * The name of the parameter.
+     * Name of the parameter.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the parameter.
+     * @return Name of the parameter.
      * 
      */
     public Output<String> name() {
@@ -30,14 +30,14 @@ public final class ParameterGroupParameterArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The value of the parameter.
+     * Value of the parameter.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return The value of the parameter.
+     * @return Value of the parameter.
      * 
      */
     public Output<String> value() {
@@ -70,7 +70,7 @@ public final class ParameterGroupParameterArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name The name of the parameter.
+         * @param name Name of the parameter.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class ParameterGroupParameterArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name The name of the parameter.
+         * @param name Name of the parameter.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class ParameterGroupParameterArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param value The value of the parameter.
+         * @param value Value of the parameter.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class ParameterGroupParameterArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param value The value of the parameter.
+         * @param value Value of the parameter.
          * 
          * @return builder
          * 

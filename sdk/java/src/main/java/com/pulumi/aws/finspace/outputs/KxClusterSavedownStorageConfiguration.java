@@ -18,7 +18,7 @@ public final class KxClusterSavedownStorageConfiguration {
      */
     private @Nullable Integer size;
     /**
-     * @return Type of writeable storage space for temporarily storing your savedown data. Valid value is `SDS01`, which represents 3000 IOPS and io2 ebs volume type.
+     * @return Type of writeable storage space for temporarily storing your savedown data. Valid value is `SDS01`, which represents 3000 IOPS and io2 EBS volume type.
      * 
      */
     private @Nullable String type;
@@ -37,7 +37,7 @@ public final class KxClusterSavedownStorageConfiguration {
         return Optional.ofNullable(this.size);
     }
     /**
-     * @return Type of writeable storage space for temporarily storing your savedown data. Valid value is `SDS01`, which represents 3000 IOPS and io2 ebs volume type.
+     * @return Type of writeable storage space for temporarily storing your savedown data. Valid value is `SDS01`, which represents 3000 IOPS and io2 EBS volume type.
      * 
      */
     public Optional<String> type() {

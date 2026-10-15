@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Bedrock
     ///         {
     ///             NetworkMode = "PUBLIC",
     ///         },
-    ///         Name = "example-code-interpreter",
+    ///         Name = "example_code_interpreter",
     ///         Description = "Code interpreter for data analysis",
     ///     });
     /// 
@@ -85,7 +85,7 @@ namespace Pulumi.Aws.Bedrock
     ///         {
     ///             NetworkMode = "SANDBOX",
     ///         },
-    ///         Name = "example-code-interpreter",
+    ///         Name = "example_code_interpreter",
     ///         Description = "Code interpreter with custom execution role",
     ///         ExecutionRoleArn = example.Arn,
     ///     });
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
+        /// ARN of the IAM role that the code interpreter assumes for execution.
         /// </summary>
         [Output("executionRoleArn")]
         public Output<string?> ExecutionRoleArn { get; private set; } = null!;
@@ -234,7 +234,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
+        /// ARN of the IAM role that the code interpreter assumes for execution.
         /// </summary>
         [Input("executionRoleArn")]
         public Input<string>? ExecutionRoleArn { get; set; }
@@ -313,7 +313,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
+        /// ARN of the IAM role that the code interpreter assumes for execution.
         /// </summary>
         [Input("executionRoleArn")]
         public Input<string>? ExecutionRoleArn { get; set; }

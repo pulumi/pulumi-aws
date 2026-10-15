@@ -34,14 +34,14 @@ public final class UserDefinedFunctionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The Java class that contains the function code.
+     * Java class that contains the function code.
      * 
      */
     @Import(name="className", required=true)
     private Output<String> className;
 
     /**
-     * @return The Java class that contains the function code.
+     * @return Java class that contains the function code.
      * 
      */
     public Output<String> className() {
@@ -49,14 +49,14 @@ public final class UserDefinedFunctionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The name of the Database to create the Function.
+     * Name of the Database to create the Function.
      * 
      */
     @Import(name="databaseName", required=true)
     private Output<String> databaseName;
 
     /**
-     * @return The name of the Database to create the Function.
+     * @return Name of the Database to create the Function.
      * 
      */
     public Output<String> databaseName() {
@@ -64,14 +64,14 @@ public final class UserDefinedFunctionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The name of the function.
+     * Name of the function.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the function.
+     * @return Name of the function.
      * 
      */
     public Optional<Output<String>> name() {
@@ -79,14 +79,14 @@ public final class UserDefinedFunctionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The owner of the function.
+     * Owner of the function.
      * 
      */
     @Import(name="ownerName", required=true)
     private Output<String> ownerName;
 
     /**
-     * @return The owner of the function.
+     * @return Owner of the function.
      * 
      */
     public Output<String> ownerName() {
@@ -94,14 +94,14 @@ public final class UserDefinedFunctionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
+     * Owner type. can be one of `USER`, `ROLE`, and `GROUP`.
      * 
      */
     @Import(name="ownerType", required=true)
     private Output<String> ownerType;
 
     /**
-     * @return The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
+     * @return Owner type. can be one of `USER`, `ROLE`, and `GROUP`.
      * 
      */
     public Output<String> ownerType() {
@@ -124,14 +124,14 @@ public final class UserDefinedFunctionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The configuration block for Resource URIs. See resource uris below for more details.
+     * Configuration block for Resource URIs. See `resourceUris` Block below for more details.
      * 
      */
     @Import(name="resourceUris")
     private @Nullable Output<List<UserDefinedFunctionResourceUriArgs>> resourceUris;
 
     /**
-     * @return The configuration block for Resource URIs. See resource uris below for more details.
+     * @return Configuration block for Resource URIs. See `resourceUris` Block below for more details.
      * 
      */
     public Optional<Output<List<UserDefinedFunctionResourceUriArgs>>> resourceUris() {
@@ -191,7 +191,7 @@ public final class UserDefinedFunctionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param className The Java class that contains the function code.
+         * @param className Java class that contains the function code.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class UserDefinedFunctionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param className The Java class that contains the function code.
+         * @param className Java class that contains the function code.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class UserDefinedFunctionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param databaseName The name of the Database to create the Function.
+         * @param databaseName Name of the Database to create the Function.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class UserDefinedFunctionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param databaseName The name of the Database to create the Function.
+         * @param databaseName Name of the Database to create the Function.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class UserDefinedFunctionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name The name of the function.
+         * @param name Name of the function.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class UserDefinedFunctionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name The name of the function.
+         * @param name Name of the function.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class UserDefinedFunctionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param ownerName The owner of the function.
+         * @param ownerName Owner of the function.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class UserDefinedFunctionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param ownerName The owner of the function.
+         * @param ownerName Owner of the function.
          * 
          * @return builder
          * 
@@ -275,7 +275,7 @@ public final class UserDefinedFunctionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param ownerType The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
+         * @param ownerType Owner type. can be one of `USER`, `ROLE`, and `GROUP`.
          * 
          * @return builder
          * 
@@ -286,7 +286,7 @@ public final class UserDefinedFunctionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param ownerType The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
+         * @param ownerType Owner type. can be one of `USER`, `ROLE`, and `GROUP`.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class UserDefinedFunctionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param resourceUris The configuration block for Resource URIs. See resource uris below for more details.
+         * @param resourceUris Configuration block for Resource URIs. See `resourceUris` Block below for more details.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class UserDefinedFunctionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param resourceUris The configuration block for Resource URIs. See resource uris below for more details.
+         * @param resourceUris Configuration block for Resource URIs. See `resourceUris` Block below for more details.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class UserDefinedFunctionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param resourceUris The configuration block for Resource URIs. See resource uris below for more details.
+         * @param resourceUris Configuration block for Resource URIs. See `resourceUris` Block below for more details.
          * 
          * @return builder
          * 

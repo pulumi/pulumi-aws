@@ -20,14 +20,14 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
     public static final ApplicationArgs Empty = new ApplicationArgs();
 
     /**
-     * The application definition for this application. You can specify either inline JSON or an S3 bucket location.
+     * Application definition for this application. You can specify either inline JSON or an S3 bucket location.
      * 
      */
     @Import(name="definition", required=true)
     private Output<ApplicationDefinitionArgs> definition;
 
     /**
-     * @return The application definition for this application. You can specify either inline JSON or an S3 bucket location.
+     * @return Application definition for this application. You can specify either inline JSON or an S3 bucket location.
      * 
      */
     public Output<ApplicationDefinitionArgs> definition() {
@@ -183,7 +183,7 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param definition The application definition for this application. You can specify either inline JSON or an S3 bucket location.
+         * @param definition Application definition for this application. You can specify either inline JSON or an S3 bucket location.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param definition The application definition for this application. You can specify either inline JSON or an S3 bucket location.
+         * @param definition Application definition for this application. You can specify either inline JSON or an S3 bucket location.
          * 
          * @return builder
          * 

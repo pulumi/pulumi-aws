@@ -35,7 +35,7 @@ class SnapshotArgs:
         :param pulumi.Input[_builtins.str] name: Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
         if kms_key_arn is not None:
@@ -113,7 +113,7 @@ class SnapshotArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -138,16 +138,16 @@ class _SnapshotState:
         """
         Input properties used for looking up and filtering Snapshot resources.
 
-        :param pulumi.Input[_builtins.str] arn: The ARN of the snapshot.
-        :param pulumi.Input[Sequence[pulumi.Input['SnapshotClusterConfigurationArgs']]] cluster_configurations: The configuration of the cluster from which the snapshot was taken.
+        :param pulumi.Input[_builtins.str] arn: ARN of the snapshot.
+        :param pulumi.Input[Sequence[pulumi.Input['SnapshotClusterConfigurationArgs']]] cluster_configurations: Configuration of the cluster from which the snapshot was taken.
         :param pulumi.Input[_builtins.str] cluster_name: Name of the MemoryDB cluster to take a snapshot of.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt the snapshot at rest.
         :param pulumi.Input[_builtins.str] name: Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] source: Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] source: Whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -174,7 +174,7 @@ class _SnapshotState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the snapshot.
+        ARN of the snapshot.
         """
         return pulumi.get(self, "arn")
 
@@ -186,7 +186,7 @@ class _SnapshotState:
     @pulumi.getter(name="clusterConfigurations")
     def cluster_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SnapshotClusterConfigurationArgs']]]]:
         """
-        The configuration of the cluster from which the snapshot was taken.
+        Configuration of the cluster from which the snapshot was taken.
         """
         return pulumi.get(self, "cluster_configurations")
 
@@ -258,7 +258,7 @@ class _SnapshotState:
     @pulumi.getter
     def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
+        Whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
         """
         return pulumi.get(self, "source")
 
@@ -270,7 +270,7 @@ class _SnapshotState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -282,7 +282,7 @@ class _SnapshotState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -336,7 +336,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -438,16 +438,16 @@ class Snapshot(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the snapshot.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SnapshotClusterConfigurationArgs', 'SnapshotClusterConfigurationArgsDict', 'outputs.SnapshotClusterConfiguration']]]] cluster_configurations: The configuration of the cluster from which the snapshot was taken.
+        :param pulumi.Input[_builtins.str] arn: ARN of the snapshot.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SnapshotClusterConfigurationArgs', 'SnapshotClusterConfigurationArgsDict', 'outputs.SnapshotClusterConfiguration']]]] cluster_configurations: Configuration of the cluster from which the snapshot was taken.
         :param pulumi.Input[_builtins.str] cluster_name: Name of the MemoryDB cluster to take a snapshot of.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt the snapshot at rest.
         :param pulumi.Input[_builtins.str] name: Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] source: Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] source: Whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -469,7 +469,7 @@ class Snapshot(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the snapshot.
+        ARN of the snapshot.
         """
         return pulumi.get(self, "arn")
 
@@ -477,7 +477,7 @@ class Snapshot(pulumi.CustomResource):
     @pulumi.getter(name="clusterConfigurations")
     def cluster_configurations(self) -> pulumi.Output[Sequence['outputs.SnapshotClusterConfiguration']]:
         """
-        The configuration of the cluster from which the snapshot was taken.
+        Configuration of the cluster from which the snapshot was taken.
         """
         return pulumi.get(self, "cluster_configurations")
 
@@ -525,7 +525,7 @@ class Snapshot(pulumi.CustomResource):
     @pulumi.getter
     def source(self) -> pulumi.Output[_builtins.str]:
         """
-        Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
+        Whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
         """
         return pulumi.get(self, "source")
 
@@ -533,7 +533,7 @@ class Snapshot(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -541,7 +541,7 @@ class Snapshot(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

@@ -18,6 +18,10 @@ public final class CatalogTablePartitionIndex {
      * 
      */
     private String indexName;
+    /**
+     * @return Status of the partition index.
+     * 
+     */
     private @Nullable String indexStatus;
     /**
      * @return Keys for the partition index.
@@ -33,6 +37,10 @@ public final class CatalogTablePartitionIndex {
     public String indexName() {
         return this.indexName;
     }
+    /**
+     * @return Status of the partition index.
+     * 
+     */
     public Optional<String> indexStatus() {
         return Optional.ofNullable(this.indexStatus);
     }

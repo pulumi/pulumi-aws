@@ -50,7 +50,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import EMR task instance group using their EMR Cluster id and Instance Group id separated by a forward-slash `/`. For example:
+// Using `pulumi import`, import EMR task instance group using their EMR Cluster ID and Instance Group ID separated by a forward-slash `/`. For example:
 //
 // ```sh
 // $ pulumi import aws:emr/instanceGroup:InstanceGroup task_group j-123456ABCDEF/ig-15EK4O09RZLNR
@@ -58,7 +58,7 @@ import (
 type InstanceGroup struct {
 	pulumi.CustomResourceState
 
-	// The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+	// The Auto Scaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
 	AutoscalingPolicy pulumi.StringPtrOutput `pulumi:"autoscalingPolicy"`
 	// If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
 	BidPrice pulumi.StringPtrOutput `pulumi:"bidPrice"`
@@ -155,7 +155,7 @@ func GetInstanceGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InstanceGroup resources.
 type instanceGroupState struct {
-	// The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+	// The Auto Scaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
 	AutoscalingPolicy *string `pulumi:"autoscalingPolicy"`
 	// If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
 	BidPrice *string `pulumi:"bidPrice"`
@@ -217,7 +217,7 @@ type instanceGroupState struct {
 }
 
 type InstanceGroupState struct {
-	// The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+	// The Auto Scaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
 	AutoscalingPolicy pulumi.StringPtrInput
 	// If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
 	BidPrice pulumi.StringPtrInput
@@ -283,7 +283,7 @@ func (InstanceGroupState) ElementType() reflect.Type {
 }
 
 type instanceGroupArgs struct {
-	// The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+	// The Auto Scaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
 	AutoscalingPolicy *string `pulumi:"autoscalingPolicy"`
 	// If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
 	BidPrice *string `pulumi:"bidPrice"`
@@ -342,7 +342,7 @@ type instanceGroupArgs struct {
 
 // The set of arguments for constructing a InstanceGroup resource.
 type InstanceGroupArgs struct {
-	// The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+	// The Auto Scaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
 	AutoscalingPolicy pulumi.StringPtrInput
 	// If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
 	BidPrice pulumi.StringPtrInput
@@ -486,7 +486,7 @@ func (o InstanceGroupOutput) ToInstanceGroupOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+// The Auto Scaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
 func (o InstanceGroupOutput) AutoscalingPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceGroup) pulumi.StringPtrOutput { return v.AutoscalingPolicy }).(pulumi.StringPtrOutput)
 }

@@ -221,7 +221,7 @@ def get_resolver_firewall_rule_group_association(firewall_rule_group_association
 
     ## Example Usage
 
-    The following example shows how to get a firewall rule group association from its id.
+    The following example shows how to get a firewall rule group association from its ID.
 
     ```python
     import pulumi
@@ -266,7 +266,7 @@ def get_resolver_firewall_rule_group_association_output(firewall_rule_group_asso
 
     ## Example Usage
 
-    The following example shows how to get a firewall rule group association from its id.
+    The following example shows how to get a firewall rule group association from its ID.
 
     ```python
     import pulumi

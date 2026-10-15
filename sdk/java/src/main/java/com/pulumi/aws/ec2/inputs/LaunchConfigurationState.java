@@ -37,14 +37,14 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Associate a public ip address with an instance in a VPC.
+     * Associate a public IP address with an instance in a VPC.
      * 
      */
     @Import(name="associatePublicIpAddress")
     private @Nullable Output<Boolean> associatePublicIpAddress;
 
     /**
-     * @return Associate a public ip address with an instance in a VPC.
+     * @return Associate a public IP address with an instance in a VPC.
      * 
      */
     public Optional<Output<Boolean>> associatePublicIpAddress() {
@@ -266,14 +266,14 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A list of associated security group IDS.
+     * A list of associated security group IDs.
      * 
      */
     @Import(name="securityGroups")
     private @Nullable Output<List<String>> securityGroups;
 
     /**
-     * @return A list of associated security group IDS.
+     * @return A list of associated security group IDs.
      * 
      */
     public Optional<Output<List<String>>> securityGroups() {
@@ -390,7 +390,7 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param associatePublicIpAddress Associate a public ip address with an instance in a VPC.
+         * @param associatePublicIpAddress Associate a public IP address with an instance in a VPC.
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param associatePublicIpAddress Associate a public ip address with an instance in a VPC.
+         * @param associatePublicIpAddress Associate a public IP address with an instance in a VPC.
          * 
          * @return builder
          * 
@@ -729,7 +729,7 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param securityGroups A list of associated security group IDS.
+         * @param securityGroups A list of associated security group IDs.
          * 
          * @return builder
          * 
@@ -740,7 +740,7 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param securityGroups A list of associated security group IDS.
+         * @param securityGroups A list of associated security group IDs.
          * 
          * @return builder
          * 
@@ -750,7 +750,7 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param securityGroups A list of associated security group IDS.
+         * @param securityGroups A list of associated security group IDs.
          * 
          * @return builder
          * 

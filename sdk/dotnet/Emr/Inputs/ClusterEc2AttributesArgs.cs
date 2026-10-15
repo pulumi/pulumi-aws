@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Emr.Inputs
         public Input<string> InstanceProfile { get; set; } = null!;
 
         /// <summary>
-        /// Amazon EC2 key pair that can be used to ssh to the master node as the user called `Hadoop`.
+        /// Amazon EC2 key pair that can be used to SSH to the master node as the user called `Hadoop`.
         /// </summary>
         [Input("keyName")]
         public Input<string>? KeyName { get; set; }
@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Emr.Inputs
         public Input<string>? ServiceAccessSecurityGroup { get; set; }
 
         /// <summary>
-        /// VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in an Amazon VPC.
+        /// VPC subnet ID where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in an Amazon VPC.
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }

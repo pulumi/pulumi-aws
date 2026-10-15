@@ -18,14 +18,14 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
     public static final WorkspaceSamlConfigurationState Empty = new WorkspaceSamlConfigurationState();
 
     /**
-     * The admin role values.
+     * Admin role values.
      * 
      */
     @Import(name="adminRoleValues")
     private @Nullable Output<List<String>> adminRoleValues;
 
     /**
-     * @return The admin role values.
+     * @return Admin role values.
      * 
      */
     public Optional<Output<List<String>>> adminRoleValues() {
@@ -33,14 +33,14 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
     }
 
     /**
-     * The allowed organizations.
+     * Allowed organizations.
      * 
      */
     @Import(name="allowedOrganizations")
     private @Nullable Output<List<String>> allowedOrganizations;
 
     /**
-     * @return The allowed organizations.
+     * @return Allowed organizations.
      * 
      */
     public Optional<Output<List<String>>> allowedOrganizations() {
@@ -48,14 +48,14 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
     }
 
     /**
-     * The editor role values.
+     * Editor role values.
      * 
      */
     @Import(name="editorRoleValues")
     private @Nullable Output<List<String>> editorRoleValues;
 
     /**
-     * @return The editor role values.
+     * @return Editor role values.
      * 
      */
     public Optional<Output<List<String>>> editorRoleValues() {
@@ -63,14 +63,14 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
     }
 
     /**
-     * The email assertion.
+     * Email assertion.
      * 
      */
     @Import(name="emailAssertion")
     private @Nullable Output<String> emailAssertion;
 
     /**
-     * @return The email assertion.
+     * @return Email assertion.
      * 
      */
     public Optional<Output<String>> emailAssertion() {
@@ -78,14 +78,14 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
     }
 
     /**
-     * The groups assertion.
+     * Groups assertion.
      * 
      */
     @Import(name="groupsAssertion")
     private @Nullable Output<String> groupsAssertion;
 
     /**
-     * @return The groups assertion.
+     * @return Groups assertion.
      * 
      */
     public Optional<Output<String>> groupsAssertion() {
@@ -93,14 +93,14 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
     }
 
     /**
-     * The IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
+     * IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
      * 
      */
     @Import(name="idpMetadataUrl")
     private @Nullable Output<String> idpMetadataUrl;
 
     /**
-     * @return The IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
+     * @return IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
      * 
      */
     public Optional<Output<String>> idpMetadataUrl() {
@@ -108,14 +108,14 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
     }
 
     /**
-     * The IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
+     * IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
      * 
      */
     @Import(name="idpMetadataXml")
     private @Nullable Output<String> idpMetadataXml;
 
     /**
-     * @return The IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
+     * @return IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
      * 
      */
     public Optional<Output<String>> idpMetadataXml() {
@@ -123,14 +123,14 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
     }
 
     /**
-     * The login assertion.
+     * Login assertion.
      * 
      */
     @Import(name="loginAssertion")
     private @Nullable Output<String> loginAssertion;
 
     /**
-     * @return The login assertion.
+     * @return Login assertion.
      * 
      */
     public Optional<Output<String>> loginAssertion() {
@@ -138,14 +138,14 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
     }
 
     /**
-     * The login validity duration.
+     * Login validity duration.
      * 
      */
     @Import(name="loginValidityDuration")
     private @Nullable Output<Integer> loginValidityDuration;
 
     /**
-     * @return The login validity duration.
+     * @return Login validity duration.
      * 
      */
     public Optional<Output<Integer>> loginValidityDuration() {
@@ -153,14 +153,14 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
     }
 
     /**
-     * The name assertion.
+     * Name assertion.
      * 
      */
     @Import(name="nameAssertion")
     private @Nullable Output<String> nameAssertion;
 
     /**
-     * @return The name assertion.
+     * @return Name assertion.
      * 
      */
     public Optional<Output<String>> nameAssertion() {
@@ -168,14 +168,14 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
     }
 
     /**
-     * The org assertion.
+     * Org assertion.
      * 
      */
     @Import(name="orgAssertion")
     private @Nullable Output<String> orgAssertion;
 
     /**
-     * @return The org assertion.
+     * @return Org assertion.
      * 
      */
     public Optional<Output<String>> orgAssertion() {
@@ -198,14 +198,14 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
     }
 
     /**
-     * The role assertion.
+     * Role assertion.
      * 
      */
     @Import(name="roleAssertion")
     private @Nullable Output<String> roleAssertion;
 
     /**
-     * @return The role assertion.
+     * @return Role assertion.
      * 
      */
     public Optional<Output<String>> roleAssertion() {
@@ -213,14 +213,14 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
     }
 
     /**
-     * The status of the SAML configuration.
+     * Status of the SAML configuration.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The status of the SAML configuration.
+     * @return Status of the SAML configuration.
      * 
      */
     public Optional<Output<String>> status() {
@@ -228,7 +228,7 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
     }
 
     /**
-     * The workspace id.
+     * Workspace ID.
      * 
      * The following arguments are optional:
      * 
@@ -237,7 +237,7 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
     private @Nullable Output<String> workspaceId;
 
     /**
-     * @return The workspace id.
+     * @return Workspace ID.
      * 
      * The following arguments are optional:
      * 
@@ -285,7 +285,7 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param adminRoleValues The admin role values.
+         * @param adminRoleValues Admin role values.
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param adminRoleValues The admin role values.
+         * @param adminRoleValues Admin role values.
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param adminRoleValues The admin role values.
+         * @param adminRoleValues Admin role values.
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param allowedOrganizations The allowed organizations.
+         * @param allowedOrganizations Allowed organizations.
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param allowedOrganizations The allowed organizations.
+         * @param allowedOrganizations Allowed organizations.
          * 
          * @return builder
          * 
@@ -337,7 +337,7 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param allowedOrganizations The allowed organizations.
+         * @param allowedOrganizations Allowed organizations.
          * 
          * @return builder
          * 
@@ -347,7 +347,7 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param editorRoleValues The editor role values.
+         * @param editorRoleValues Editor role values.
          * 
          * @return builder
          * 
@@ -358,7 +358,7 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param editorRoleValues The editor role values.
+         * @param editorRoleValues Editor role values.
          * 
          * @return builder
          * 
@@ -368,7 +368,7 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param editorRoleValues The editor role values.
+         * @param editorRoleValues Editor role values.
          * 
          * @return builder
          * 
@@ -378,7 +378,7 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param emailAssertion The email assertion.
+         * @param emailAssertion Email assertion.
          * 
          * @return builder
          * 
@@ -389,7 +389,7 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param emailAssertion The email assertion.
+         * @param emailAssertion Email assertion.
          * 
          * @return builder
          * 
@@ -399,7 +399,7 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param groupsAssertion The groups assertion.
+         * @param groupsAssertion Groups assertion.
          * 
          * @return builder
          * 
@@ -410,7 +410,7 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param groupsAssertion The groups assertion.
+         * @param groupsAssertion Groups assertion.
          * 
          * @return builder
          * 
@@ -420,7 +420,7 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param idpMetadataUrl The IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
+         * @param idpMetadataUrl IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
          * 
          * @return builder
          * 
@@ -431,7 +431,7 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param idpMetadataUrl The IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
+         * @param idpMetadataUrl IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
          * 
          * @return builder
          * 
@@ -441,7 +441,7 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param idpMetadataXml The IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
+         * @param idpMetadataXml IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
          * 
          * @return builder
          * 
@@ -452,7 +452,7 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param idpMetadataXml The IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
+         * @param idpMetadataXml IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
          * 
          * @return builder
          * 
@@ -462,7 +462,7 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param loginAssertion The login assertion.
+         * @param loginAssertion Login assertion.
          * 
          * @return builder
          * 
@@ -473,7 +473,7 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param loginAssertion The login assertion.
+         * @param loginAssertion Login assertion.
          * 
          * @return builder
          * 
@@ -483,7 +483,7 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param loginValidityDuration The login validity duration.
+         * @param loginValidityDuration Login validity duration.
          * 
          * @return builder
          * 
@@ -494,7 +494,7 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param loginValidityDuration The login validity duration.
+         * @param loginValidityDuration Login validity duration.
          * 
          * @return builder
          * 
@@ -504,7 +504,7 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param nameAssertion The name assertion.
+         * @param nameAssertion Name assertion.
          * 
          * @return builder
          * 
@@ -515,7 +515,7 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param nameAssertion The name assertion.
+         * @param nameAssertion Name assertion.
          * 
          * @return builder
          * 
@@ -525,7 +525,7 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param orgAssertion The org assertion.
+         * @param orgAssertion Org assertion.
          * 
          * @return builder
          * 
@@ -536,7 +536,7 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param orgAssertion The org assertion.
+         * @param orgAssertion Org assertion.
          * 
          * @return builder
          * 
@@ -567,7 +567,7 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param roleAssertion The role assertion.
+         * @param roleAssertion Role assertion.
          * 
          * @return builder
          * 
@@ -578,7 +578,7 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param roleAssertion The role assertion.
+         * @param roleAssertion Role assertion.
          * 
          * @return builder
          * 
@@ -588,7 +588,7 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param status The status of the SAML configuration.
+         * @param status Status of the SAML configuration.
          * 
          * @return builder
          * 
@@ -599,7 +599,7 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param status The status of the SAML configuration.
+         * @param status Status of the SAML configuration.
          * 
          * @return builder
          * 
@@ -609,7 +609,7 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param workspaceId The workspace id.
+         * @param workspaceId Workspace ID.
          * 
          * The following arguments are optional:
          * 
@@ -622,7 +622,7 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
         }
 
         /**
-         * @param workspaceId The workspace id.
+         * @param workspaceId Workspace ID.
          * 
          * The following arguments are optional:
          * 

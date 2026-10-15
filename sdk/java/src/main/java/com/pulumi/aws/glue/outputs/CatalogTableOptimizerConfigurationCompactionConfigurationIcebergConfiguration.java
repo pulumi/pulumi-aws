@@ -13,38 +13,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration {
     /**
-     * @return The minimum number of deletes that must be present in a data file to make it eligible for compaction. Defaults to `1`.
+     * @return Minimum number of deletes that must be present in a data file to make it eligible for compaction. Defaults to `1`.
      * 
      */
     private @Nullable Integer deleteFileThreshold;
     /**
-     * @return The minimum number of data files that must be present in a partition before compaction will actually compact files. Defaults to `100`.
+     * @return Minimum number of data files that must be present in a partition before compaction will actually compact files. Defaults to `100`.
      * 
      */
     private @Nullable Integer minInputFiles;
     /**
-     * @return The strategy to use for compaction. Valid values are `binpack`, `sort` and `z-order` Defaults to `binpack`.
+     * @return Strategy to use for compaction. Valid values are `binpack`, `sort` and `z-order` Defaults to `binpack`.
      * 
      */
     private @Nullable String strategy;
 
     private CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration() {}
     /**
-     * @return The minimum number of deletes that must be present in a data file to make it eligible for compaction. Defaults to `1`.
+     * @return Minimum number of deletes that must be present in a data file to make it eligible for compaction. Defaults to `1`.
      * 
      */
     public Optional<Integer> deleteFileThreshold() {
         return Optional.ofNullable(this.deleteFileThreshold);
     }
     /**
-     * @return The minimum number of data files that must be present in a partition before compaction will actually compact files. Defaults to `100`.
+     * @return Minimum number of data files that must be present in a partition before compaction will actually compact files. Defaults to `100`.
      * 
      */
     public Optional<Integer> minInputFiles() {
         return Optional.ofNullable(this.minInputFiles);
     }
     /**
-     * @return The strategy to use for compaction. Valid values are `binpack`, `sort` and `z-order` Defaults to `binpack`.
+     * @return Strategy to use for compaction. Valid values are `binpack`, `sort` and `z-order` Defaults to `binpack`.
      * 
      */
     public Optional<String> strategy() {

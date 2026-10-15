@@ -17,110 +17,134 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelEncoderSettingsAudioDescription {
     /**
-     * @return Advanced audio normalization settings. See Audio Normalization Settings for more details.
+     * @return Advanced audio normalization settings. See `audioNormalizationSettings` Block for details.
      * 
      */
     private @Nullable ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings audioNormalizationSettings;
     /**
-     * @return The name of the audio selector used as the source for this AudioDescription.
+     * @return Name of the audio selector used as the source for this audio description.
      * 
      */
     private String audioSelectorName;
     /**
-     * @return Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
+     * @return Applies only if `audioTypeControl` is `useConfigured`. Values for `audioType` are defined in ISO-IEC 13818-1.
      * 
      */
     private @Nullable String audioType;
     /**
-     * @return Determined how audio type is determined.
+     * @return How audio type is determined.
      * 
      */
     private @Nullable String audioTypeControl;
     /**
-     * @return Settings to configure one or more solutions that insert audio watermarks in the audio encode. See Audio Watermark Settings for more details.
+     * @return Settings to configure one or more solutions that insert audio watermarks in the audio encode. See `audioWatermarkSettings` Block for details.
      * 
      */
     private @Nullable ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings audioWatermarkSettings;
     /**
-     * @return Audio codec settings. See Audio Codec Settings for more details.
+     * @return Audio codec settings. See `audio_descriptions.codec_settings` Block for details.
      * 
      */
     private @Nullable ChannelEncoderSettingsAudioDescriptionCodecSettings codecSettings;
+    /**
+     * @return ISO 639-2 three-digit code for the language of this audio description.
+     * 
+     */
     private @Nullable String languageCode;
+    /**
+     * @return How to handle the audio language code.
+     * 
+     */
     private @Nullable String languageCodeControl;
     /**
-     * @return The name of this audio description.
+     * @return Name of this audio description.
      * 
      */
     private String name;
+    /**
+     * @return Settings to remix the audio. See `remixSettings` Block for details.
+     * 
+     */
     private @Nullable ChannelEncoderSettingsAudioDescriptionRemixSettings remixSettings;
     /**
-     * @return Stream name RTMP destinations (URLs of type rtmp://)
+     * @return Stream name used to identify the audio description.
      * 
      */
     private @Nullable String streamName;
 
     private ChannelEncoderSettingsAudioDescription() {}
     /**
-     * @return Advanced audio normalization settings. See Audio Normalization Settings for more details.
+     * @return Advanced audio normalization settings. See `audioNormalizationSettings` Block for details.
      * 
      */
     public Optional<ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings> audioNormalizationSettings() {
         return Optional.ofNullable(this.audioNormalizationSettings);
     }
     /**
-     * @return The name of the audio selector used as the source for this AudioDescription.
+     * @return Name of the audio selector used as the source for this audio description.
      * 
      */
     public String audioSelectorName() {
         return this.audioSelectorName;
     }
     /**
-     * @return Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
+     * @return Applies only if `audioTypeControl` is `useConfigured`. Values for `audioType` are defined in ISO-IEC 13818-1.
      * 
      */
     public Optional<String> audioType() {
         return Optional.ofNullable(this.audioType);
     }
     /**
-     * @return Determined how audio type is determined.
+     * @return How audio type is determined.
      * 
      */
     public Optional<String> audioTypeControl() {
         return Optional.ofNullable(this.audioTypeControl);
     }
     /**
-     * @return Settings to configure one or more solutions that insert audio watermarks in the audio encode. See Audio Watermark Settings for more details.
+     * @return Settings to configure one or more solutions that insert audio watermarks in the audio encode. See `audioWatermarkSettings` Block for details.
      * 
      */
     public Optional<ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings> audioWatermarkSettings() {
         return Optional.ofNullable(this.audioWatermarkSettings);
     }
     /**
-     * @return Audio codec settings. See Audio Codec Settings for more details.
+     * @return Audio codec settings. See `audio_descriptions.codec_settings` Block for details.
      * 
      */
     public Optional<ChannelEncoderSettingsAudioDescriptionCodecSettings> codecSettings() {
         return Optional.ofNullable(this.codecSettings);
     }
+    /**
+     * @return ISO 639-2 three-digit code for the language of this audio description.
+     * 
+     */
     public Optional<String> languageCode() {
         return Optional.ofNullable(this.languageCode);
     }
+    /**
+     * @return How to handle the audio language code.
+     * 
+     */
     public Optional<String> languageCodeControl() {
         return Optional.ofNullable(this.languageCodeControl);
     }
     /**
-     * @return The name of this audio description.
+     * @return Name of this audio description.
      * 
      */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Settings to remix the audio. See `remixSettings` Block for details.
+     * 
+     */
     public Optional<ChannelEncoderSettingsAudioDescriptionRemixSettings> remixSettings() {
         return Optional.ofNullable(this.remixSettings);
     }
     /**
-     * @return Stream name RTMP destinations (URLs of type rtmp://)
+     * @return Stream name used to identify the audio description.
      * 
      */
     public Optional<String> streamName() {

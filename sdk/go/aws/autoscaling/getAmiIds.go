@@ -11,8 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Autoscaling Groups data source allows access to the list of AWS
-// ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
+// The Auto Scaling groups data source allows access to the list of AWS
+// ASGs within a specific region. This will allow you to pass a list of Auto Scaling groups to other resources.
 //
 // ## Example Usage
 //
@@ -87,7 +87,7 @@ func GetAmiIds(ctx *pulumi.Context, args *GetAmiIdsArgs, opts ...pulumi.InvokeOp
 type GetAmiIdsArgs struct {
 	// Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
 	Filters []GetAmiIdsFilter `pulumi:"filters"`
-	// List of autoscaling group names
+	// List of Auto Scaling group names
 	Names []string `pulumi:"names"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -95,12 +95,12 @@ type GetAmiIdsArgs struct {
 
 // A collection of values returned by getAmiIds.
 type GetAmiIdsResult struct {
-	// List of the Autoscaling Groups Arns in the current region.
+	// List of the Auto Scaling groups ARNs in the current region.
 	Arns    []string          `pulumi:"arns"`
 	Filters []GetAmiIdsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// List of the Autoscaling Groups in the current region.
+	// List of the Auto Scaling groups in the current region.
 	Names  []string `pulumi:"names"`
 	Region string   `pulumi:"region"`
 }
@@ -114,7 +114,7 @@ func GetAmiIdsOutput(ctx *pulumi.Context, args GetAmiIdsOutputArgs, opts ...pulu
 type GetAmiIdsOutputArgs struct {
 	// Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
 	Filters GetAmiIdsFilterArrayInput `pulumi:"filters"`
-	// List of autoscaling group names
+	// List of Auto Scaling group names
 	Names pulumi.StringArrayInput `pulumi:"names"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
@@ -139,7 +139,7 @@ func (o GetAmiIdsResultOutput) ToGetAmiIdsResultOutputWithContext(ctx context.Co
 	return o
 }
 
-// List of the Autoscaling Groups Arns in the current region.
+// List of the Auto Scaling groups ARNs in the current region.
 func (o GetAmiIdsResultOutput) Arns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAmiIdsResult) []string { return v.Arns }).(pulumi.StringArrayOutput)
 }
@@ -153,7 +153,7 @@ func (o GetAmiIdsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAmiIdsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of the Autoscaling Groups in the current region.
+// List of the Auto Scaling groups in the current region.
 func (o GetAmiIdsResultOutput) Names() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAmiIdsResult) []string { return v.Names }).(pulumi.StringArrayOutput)
 }

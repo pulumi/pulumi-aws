@@ -13,7 +13,13 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings
     {
+        /// <summary>
+        /// Average bitrate in bits/second.
+        /// </summary>
         public readonly double? Bitrate;
+        /// <summary>
+        /// MPEG-2 coding mode.
+        /// </summary>
         public readonly string? CodingMode;
         /// <summary>
         /// Sample rate in Hz.

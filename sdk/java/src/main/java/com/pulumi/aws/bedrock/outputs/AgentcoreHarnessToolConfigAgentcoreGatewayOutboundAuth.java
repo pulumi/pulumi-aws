@@ -13,12 +13,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuth {
     /**
-     * @return Set to `true` to use AWS IAM authentication.
+     * @return Whether to use AWS IAM authentication. Must be `true` if set.
      * 
      */
     private @Nullable Boolean awsIam;
     /**
-     * @return Set to `true` to disable authentication.
+     * @return Whether to disable authentication. Must be `true` if set.
      * 
      */
     private @Nullable Boolean none;
@@ -30,14 +30,14 @@ public final class AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuth {
 
     private AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuth() {}
     /**
-     * @return Set to `true` to use AWS IAM authentication.
+     * @return Whether to use AWS IAM authentication. Must be `true` if set.
      * 
      */
     public Optional<Boolean> awsIam() {
         return Optional.ofNullable(this.awsIam);
     }
     /**
-     * @return Set to `true` to disable authentication.
+     * @return Whether to disable authentication. Must be `true` if set.
      * 
      */
     public Optional<Boolean> none() {

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2
 {
     /// <summary>
-    /// Provides an EC2 launch template resource. Can be used to create instances or auto scaling groups.
+    /// Provides an EC2 launch template resource. Can be used to create instances or Auto Scaling groups.
     /// 
     /// #### Optional
     /// 

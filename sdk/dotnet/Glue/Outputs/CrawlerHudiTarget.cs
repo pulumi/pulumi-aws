@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class CrawlerHudiTarget
     {
         /// <summary>
-        /// The name of the connection to use to connect to the Hudi target.
+        /// Name of the connection to use to connect to the Hudi target.
         /// </summary>
         public readonly string? ConnectionName;
         /// <summary>
-        /// A list of glob patterns used to exclude from the crawl.
+        /// List of glob patterns used to exclude from the crawl.
         /// </summary>
         public readonly ImmutableArray<string> Exclusions;
         /// <summary>
-        /// The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Hudi metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
+        /// Maximum depth of Amazon S3 paths that the crawler can traverse to discover the Hudi metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
         /// </summary>
         public readonly int MaximumTraversalDepth;
         /// <summary>

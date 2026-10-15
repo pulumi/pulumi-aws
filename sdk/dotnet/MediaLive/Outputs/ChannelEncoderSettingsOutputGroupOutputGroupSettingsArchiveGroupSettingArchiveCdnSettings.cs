@@ -14,7 +14,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettings
     {
         /// <summary>
-        /// Archive S3 Settings. See Archive S3 Settings for more details.
+        /// Archive S3 settings. See `ArchiveS3Settings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3Settings? ArchiveS3Settings;
 

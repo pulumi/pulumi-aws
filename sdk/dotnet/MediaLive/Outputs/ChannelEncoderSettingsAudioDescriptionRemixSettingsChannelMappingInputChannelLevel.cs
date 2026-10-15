@@ -13,7 +13,13 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevel
     {
+        /// <summary>
+        /// Remixing value, from -60 to 6 decibels.
+        /// </summary>
         public readonly int Gain;
+        /// <summary>
+        /// Index of the input channel used as a source.
+        /// </summary>
         public readonly int InputChannel;
 
         [OutputConstructor]

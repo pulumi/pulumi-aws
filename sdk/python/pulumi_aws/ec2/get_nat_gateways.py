@@ -65,7 +65,7 @@ class GetNatGatewaysResult:
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
         """
-        List of all the NAT gateway ids found.
+        List of all the NAT gateway IDs found.
         """
         return pulumi.get(self, "ids")
 
@@ -105,7 +105,7 @@ def get_nat_gateways(filters: Optional[Sequence[Union['GetNatGatewaysFilterArgs'
                      vpc_id: Optional[_builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNatGatewaysResult:
     """
-    This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
+    This resource can be useful for getting back a list of NAT gateway IDs to be referenced elsewhere.
 
     ## Example Usage
 
@@ -151,7 +151,7 @@ def get_nat_gateways_output(filters: pulumi.Input[Optional[Optional[Sequence[Uni
                             vpc_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNatGatewaysResult]:
     """
-    This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
+    This resource can be useful for getting back a list of NAT gateway IDs to be referenced elsewhere.
 
     ## Example Usage
 

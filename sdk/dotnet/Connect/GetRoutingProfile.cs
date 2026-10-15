@@ -172,7 +172,7 @@ namespace Pulumi.Aws.Connect
         public string? Region { get; set; }
 
         /// <summary>
-        /// Returns information on a specific Routing Profile by Routing Profile id
+        /// Returns information on a specific Routing Profile by Routing Profile ID
         /// 
         /// &gt; **NOTE:** `InstanceId` and one of either `Name` or `RoutingProfileId` is required.
         /// </summary>
@@ -218,7 +218,7 @@ namespace Pulumi.Aws.Connect
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Returns information on a specific Routing Profile by Routing Profile id
+        /// Returns information on a specific Routing Profile by Routing Profile ID
         /// 
         /// &gt; **NOTE:** `InstanceId` and one of either `Name` or `RoutingProfileId` is required.
         /// </summary>

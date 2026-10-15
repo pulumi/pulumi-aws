@@ -49,14 +49,14 @@ public final class DeploymentConfigState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The AWS Assigned deployment config id
+     * The AWS Assigned deployment config ID
      * 
      */
     @Import(name="deploymentConfigId")
     private @Nullable Output<String> deploymentConfigId;
 
     /**
-     * @return The AWS Assigned deployment config id
+     * @return The AWS Assigned deployment config ID
      * 
      */
     public Optional<Output<String>> deploymentConfigId() {
@@ -212,7 +212,7 @@ public final class DeploymentConfigState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param deploymentConfigId The AWS Assigned deployment config id
+         * @param deploymentConfigId The AWS Assigned deployment config ID
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class DeploymentConfigState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param deploymentConfigId The AWS Assigned deployment config id
+         * @param deploymentConfigId The AWS Assigned deployment config ID
          * 
          * @return builder
          * 

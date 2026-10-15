@@ -295,17 +295,9 @@ public class AmiCopy extends com.pulumi.resources.CustomResource {
     public Output<String> kmsKeyId() {
         return this.kmsKeyId;
     }
-    /**
-     * Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
-     * 
-     */
     @Export(name="lastLaunchedTime", refs={String.class}, tree="[0]")
     private Output<String> lastLaunchedTime;
 
-    /**
-     * @return Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
-     * 
-     */
     public Output<String> lastLaunchedTime() {
         return this.lastLaunchedTime;
     }
@@ -404,7 +396,7 @@ public class AmiCopy extends com.pulumi.resources.CustomResource {
         return this.rootSnapshotId;
     }
     /**
-     * Id of the AMI to copy. This id must be valid in the region
+     * ID of the AMI to copy. This ID must be valid in the region
      * given by `sourceAmiRegion`.
      * 
      */
@@ -412,7 +404,7 @@ public class AmiCopy extends com.pulumi.resources.CustomResource {
     private Output<String> sourceAmiId;
 
     /**
-     * @return Id of the AMI to copy. This id must be valid in the region
+     * @return ID of the AMI to copy. This ID must be valid in the region
      * given by `sourceAmiRegion`.
      * 
      */

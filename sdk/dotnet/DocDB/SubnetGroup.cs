@@ -51,19 +51,19 @@ namespace Pulumi.Aws.DocDB
     public partial class SubnetGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the docDB subnet group.
+        /// The ARN of the DocDB subnet group.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the docDB subnet group. Defaults to "Managed by Pulumi".
+        /// The description of the DocDB subnet group. Defaults to "Managed by Pulumi".
         /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
+        /// The name of the DocDB subnet group. If omitted, the provider will assign a random, unique name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -87,7 +87,7 @@ namespace Pulumi.Aws.DocDB
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
-        /// The network type of the docDB subnet group (`IPV4` or `DUAL`).
+        /// The network type of the DocDB subnet group (`IPV4` or `DUAL`).
         /// </summary>
         [Output("supportedNetworkTypes")]
         public Output<ImmutableArray<string>> SupportedNetworkTypes { get; private set; } = null!;
@@ -151,13 +151,13 @@ namespace Pulumi.Aws.DocDB
     public sealed class SubnetGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The description of the docDB subnet group. Defaults to "Managed by Pulumi".
+        /// The description of the DocDB subnet group. Defaults to "Managed by Pulumi".
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
+        /// The name of the DocDB subnet group. If omitted, the provider will assign a random, unique name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -208,19 +208,19 @@ namespace Pulumi.Aws.DocDB
     public sealed class SubnetGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the docDB subnet group.
+        /// The ARN of the DocDB subnet group.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The description of the docDB subnet group. Defaults to "Managed by Pulumi".
+        /// The description of the DocDB subnet group. Defaults to "Managed by Pulumi".
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
+        /// The name of the DocDB subnet group. If omitted, the provider will assign a random, unique name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -253,7 +253,7 @@ namespace Pulumi.Aws.DocDB
         private InputList<string>? _supportedNetworkTypes;
 
         /// <summary>
-        /// The network type of the docDB subnet group (`IPV4` or `DUAL`).
+        /// The network type of the DocDB subnet group (`IPV4` or `DUAL`).
         /// </summary>
         public InputList<string> SupportedNetworkTypes
         {

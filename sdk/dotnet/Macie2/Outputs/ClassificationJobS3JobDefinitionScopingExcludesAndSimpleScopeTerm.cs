@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Macie2.Outputs
     public sealed class ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm
     {
         /// <summary>
-        /// The operator to use in a condition. Valid values are: `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`
+        /// Operator to use in a condition. Valid values are `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`.
         /// </summary>
         public readonly string? Comparator;
         /// <summary>
-        /// The object property to use in the condition.
+        /// Object property to use in the condition.
         /// </summary>
         public readonly string? Key;
         /// <summary>
-        /// An array that lists the values to use in the condition.
+        /// Array that lists the values to use in the condition.
         /// </summary>
         public readonly ImmutableArray<string> Values;
 

@@ -83,7 +83,7 @@ export class Script extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
@@ -91,7 +91,7 @@ export class Script extends pulumi.CustomResource {
      */
     declare public readonly version: pulumi.Output<string | undefined>;
     /**
-     * A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
+     * Data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
      */
     declare public readonly zipFile: pulumi.Output<string | undefined>;
 
@@ -157,7 +157,7 @@ export interface ScriptState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -165,7 +165,7 @@ export interface ScriptState {
      */
     version?: pulumi.Input<string | undefined>;
     /**
-     * A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
+     * Data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
      */
     zipFile?: pulumi.Input<string | undefined>;
 }
@@ -195,7 +195,7 @@ export interface ScriptArgs {
      */
     version?: pulumi.Input<string | undefined>;
     /**
-     * A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
+     * Data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
      */
     zipFile?: pulumi.Input<string | undefined>;
 }

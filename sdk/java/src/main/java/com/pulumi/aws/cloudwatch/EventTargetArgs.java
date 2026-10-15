@@ -337,14 +337,14 @@ public final class EventTargetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The unique target assignment ID. If missing, will generate a random, unique id.
+     * The unique target assignment ID. If missing, will generate a random, unique ID.
      * 
      */
     @Import(name="targetId")
     private @Nullable Output<String> targetId;
 
     /**
-     * @return The unique target assignment ID. If missing, will generate a random, unique id.
+     * @return The unique target assignment ID. If missing, will generate a random, unique ID.
      * 
      */
     public Optional<Output<String>> targetId() {
@@ -832,7 +832,7 @@ public final class EventTargetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetId The unique target assignment ID. If missing, will generate a random, unique id.
+         * @param targetId The unique target assignment ID. If missing, will generate a random, unique ID.
          * 
          * @return builder
          * 
@@ -843,7 +843,7 @@ public final class EventTargetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetId The unique target assignment ID. If missing, will generate a random, unique id.
+         * @param targetId The unique target assignment ID. If missing, will generate a random, unique ID.
          * 
          * @return builder
          * 

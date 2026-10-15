@@ -606,7 +606,7 @@ class DirectoryWorkspaceCreationProperties(dict):
                  enable_maintenance_mode: Optional[_builtins.bool] = None,
                  user_enabled_as_local_administrator: Optional[_builtins.bool] = None):
         """
-        :param _builtins.str custom_security_group_id: The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+        :param _builtins.str custom_security_group_id: The identifier of your custom security group. Should relate to the same VPC, where WorkSpaces reside in.
         :param _builtins.str default_ou: The default organizational unit (OU) for your WorkSpace directories. Should conform `"OU=<value>,DC=<value>,...,DC=<value>"` pattern.
         :param _builtins.bool enable_internet_access: Indicates whether internet access is enabled for your WorkSpaces.
         :param _builtins.bool enable_maintenance_mode: Indicates whether maintenance mode is enabled for your WorkSpaces. Valid only if `workspace_type` is set to `PERSONAL`.
@@ -627,7 +627,7 @@ class DirectoryWorkspaceCreationProperties(dict):
     @pulumi.getter(name="customSecurityGroupId")
     def custom_security_group_id(self) -> Optional[_builtins.str]:
         """
-        The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+        The identifier of your custom security group. Should relate to the same VPC, where WorkSpaces reside in.
         """
         return pulumi.get(self, "custom_security_group_id")
 
@@ -1408,7 +1408,7 @@ class GetDirectoryWorkspaceCreationPropertyResult(dict):
                  enable_maintenance_mode: _builtins.bool,
                  user_enabled_as_local_administrator: _builtins.bool):
         """
-        :param _builtins.str custom_security_group_id: The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+        :param _builtins.str custom_security_group_id: The identifier of your custom security group. Should relate to the same VPC, where WorkSpaces reside in.
         :param _builtins.str default_ou: The default organizational unit (OU) for your WorkSpace directories.
         :param _builtins.bool enable_internet_access: Indicates whether internet access is enabled for your WorkSpaces.
         :param _builtins.bool enable_maintenance_mode: Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html).
@@ -1424,7 +1424,7 @@ class GetDirectoryWorkspaceCreationPropertyResult(dict):
     @pulumi.getter(name="customSecurityGroupId")
     def custom_security_group_id(self) -> _builtins.str:
         """
-        The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+        The identifier of your custom security group. Should relate to the same VPC, where WorkSpaces reside in.
         """
         return pulumi.get(self, "custom_security_group_id")
 

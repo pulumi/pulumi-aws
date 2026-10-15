@@ -70,7 +70,7 @@ namespace Pulumi.Aws.AppStream
         public Output<string> AppstreamAgentVersion { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the appstream image builder.
+        /// ARN of the AppStream image builder.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -338,7 +338,7 @@ namespace Pulumi.Aws.AppStream
         public Input<string>? AppstreamAgentVersion { get; set; }
 
         /// <summary>
-        /// ARN of the appstream image builder.
+        /// ARN of the AppStream image builder.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

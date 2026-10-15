@@ -6364,7 +6364,7 @@ func (o MeshSpecServiceDiscoveryPtrOutput) IpPreference() pulumi.StringPtrOutput
 }
 
 type RouteSpec struct {
-	// GRPC routing information for the route. See `spec.grpc_route` Block for details.
+	// gRPC routing information for the route. See `spec.grpc_route` Block for details.
 	GrpcRoute *RouteSpecGrpcRoute `pulumi:"grpcRoute"`
 	// HTTP/2 routing information for the route. See `spec.http2_route` Block for details.
 	Http2Route *RouteSpecHttp2Route `pulumi:"http2Route"`
@@ -6388,7 +6388,7 @@ type RouteSpecInput interface {
 }
 
 type RouteSpecArgs struct {
-	// GRPC routing information for the route. See `spec.grpc_route` Block for details.
+	// gRPC routing information for the route. See `spec.grpc_route` Block for details.
 	GrpcRoute RouteSpecGrpcRoutePtrInput `pulumi:"grpcRoute"`
 	// HTTP/2 routing information for the route. See `spec.http2_route` Block for details.
 	Http2Route RouteSpecHttp2RoutePtrInput `pulumi:"http2Route"`
@@ -6477,7 +6477,7 @@ func (o RouteSpecOutput) ToRouteSpecPtrOutputWithContext(ctx context.Context) Ro
 	}).(RouteSpecPtrOutput)
 }
 
-// GRPC routing information for the route. See `spec.grpc_route` Block for details.
+// gRPC routing information for the route. See `spec.grpc_route` Block for details.
 func (o RouteSpecOutput) GrpcRoute() RouteSpecGrpcRoutePtrOutput {
 	return o.ApplyT(func(v RouteSpec) *RouteSpecGrpcRoute { return v.GrpcRoute }).(RouteSpecGrpcRoutePtrOutput)
 }
@@ -6526,7 +6526,7 @@ func (o RouteSpecPtrOutput) Elem() RouteSpecOutput {
 	}).(RouteSpecOutput)
 }
 
-// GRPC routing information for the route. See `spec.grpc_route` Block for details.
+// gRPC routing information for the route. See `spec.grpc_route` Block for details.
 func (o RouteSpecPtrOutput) GrpcRoute() RouteSpecGrpcRoutePtrOutput {
 	return o.ApplyT(func(v *RouteSpec) *RouteSpecGrpcRoute {
 		if v == nil {

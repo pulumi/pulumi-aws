@@ -62,7 +62,7 @@ export interface GetQueueArgs {
      */
     name?: string;
     /**
-     * Returns information on a specific Queue by Queue id
+     * Returns information on a specific Queue by Queue ID
      */
     queueId?: string;
     /**
@@ -174,7 +174,7 @@ export interface GetQueueOutputArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Returns information on a specific Queue by Queue id
+     * Returns information on a specific Queue by Queue ID
      */
     queueId?: pulumi.Input<string | undefined>;
     /**

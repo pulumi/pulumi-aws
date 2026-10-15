@@ -686,7 +686,7 @@ class Endpoint(pulumi.CustomResource):
             verified_access_group_id=example_aws_verifiedaccess_group["id"])
         ```
 
-        ### Cidr Example
+        ### CIDR Example
 
         ```python
         import pulumi
@@ -795,7 +795,7 @@ class Endpoint(pulumi.CustomResource):
             verified_access_group_id=example_aws_verifiedaccess_group["id"])
         ```
 
-        ### Cidr Example
+        ### CIDR Example
 
         ```python
         import pulumi

@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * The following example shows how one might accept a local gateway id as a variable.
+ * The following example shows how one might accept a local gateway ID as a variable.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -46,7 +46,7 @@ export interface GetLocalGatewayArgs {
      */
     filters?: inputs.ec2.GetLocalGatewayFilter[];
     /**
-     * Id of the specific Local Gateway to retrieve.
+     * ID of the specific Local Gateway to retrieve.
      */
     id?: string;
     /**
@@ -95,7 +95,7 @@ export interface GetLocalGatewayResult {
  *
  * ## Example Usage
  *
- * The following example shows how one might accept a local gateway id as a variable.
+ * The following example shows how one might accept a local gateway ID as a variable.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -129,7 +129,7 @@ export interface GetLocalGatewayOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetLocalGatewayFilterArgs>[] | undefined>;
     /**
-     * Id of the specific Local Gateway to retrieve.
+     * ID of the specific Local Gateway to retrieve.
      */
     id?: pulumi.Input<string | undefined>;
     /**

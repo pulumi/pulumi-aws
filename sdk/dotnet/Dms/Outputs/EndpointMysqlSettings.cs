@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Dms.Outputs
         /// </summary>
         public readonly int? ExecuteTimeout;
         /// <summary>
-        /// Maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
+        /// Maximum size (in KB) of any `.csv` file used to transfer data to a MySQL-compatible database.
         /// </summary>
         public readonly int? MaxFileSize;
         /// <summary>

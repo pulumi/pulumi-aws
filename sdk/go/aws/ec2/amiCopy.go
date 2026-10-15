@@ -92,8 +92,7 @@ type AmiCopy struct {
 	// kernel in created instances.
 	KernelId pulumi.StringOutput `pulumi:"kernelId"`
 	// Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
-	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
-	// Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
+	KmsKeyId           pulumi.StringOutput `pulumi:"kmsKeyId"`
 	LastLaunchedTime   pulumi.StringOutput `pulumi:"lastLaunchedTime"`
 	ManageEbsSnapshots pulumi.BoolOutput   `pulumi:"manageEbsSnapshots"`
 	// Region-unique name for the AMI.
@@ -110,7 +109,7 @@ type AmiCopy struct {
 	// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
 	RootDeviceName pulumi.StringOutput `pulumi:"rootDeviceName"`
 	RootSnapshotId pulumi.StringOutput `pulumi:"rootSnapshotId"`
-	// Id of the AMI to copy. This id must be valid in the region
+	// ID of the AMI to copy. This ID must be valid in the region
 	// given by `sourceAmiRegion`.
 	SourceAmiId pulumi.StringOutput `pulumi:"sourceAmiId"`
 	// Region from which the AMI will be copied. This may be the
@@ -204,8 +203,7 @@ type amiCopyState struct {
 	// kernel in created instances.
 	KernelId *string `pulumi:"kernelId"`
 	// Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
+	KmsKeyId           *string `pulumi:"kmsKeyId"`
 	LastLaunchedTime   *string `pulumi:"lastLaunchedTime"`
 	ManageEbsSnapshots *bool   `pulumi:"manageEbsSnapshots"`
 	// Region-unique name for the AMI.
@@ -222,7 +220,7 @@ type amiCopyState struct {
 	// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
 	RootDeviceName *string `pulumi:"rootDeviceName"`
 	RootSnapshotId *string `pulumi:"rootSnapshotId"`
-	// Id of the AMI to copy. This id must be valid in the region
+	// ID of the AMI to copy. This ID must be valid in the region
 	// given by `sourceAmiRegion`.
 	SourceAmiId *string `pulumi:"sourceAmiId"`
 	// Region from which the AMI will be copied. This may be the
@@ -281,8 +279,7 @@ type AmiCopyState struct {
 	// kernel in created instances.
 	KernelId pulumi.StringPtrInput
 	// Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
-	KmsKeyId pulumi.StringPtrInput
-	// Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
+	KmsKeyId           pulumi.StringPtrInput
 	LastLaunchedTime   pulumi.StringPtrInput
 	ManageEbsSnapshots pulumi.BoolPtrInput
 	// Region-unique name for the AMI.
@@ -299,7 +296,7 @@ type AmiCopyState struct {
 	// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
 	RootDeviceName pulumi.StringPtrInput
 	RootSnapshotId pulumi.StringPtrInput
-	// Id of the AMI to copy. This id must be valid in the region
+	// ID of the AMI to copy. This ID must be valid in the region
 	// given by `sourceAmiRegion`.
 	SourceAmiId pulumi.StringPtrInput
 	// Region from which the AMI will be copied. This may be the
@@ -348,7 +345,7 @@ type amiCopyArgs struct {
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Id of the AMI to copy. This id must be valid in the region
+	// ID of the AMI to copy. This ID must be valid in the region
 	// given by `sourceAmiRegion`.
 	SourceAmiId string `pulumi:"sourceAmiId"`
 	// Region from which the AMI will be copied. This may be the
@@ -381,7 +378,7 @@ type AmiCopyArgs struct {
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Id of the AMI to copy. This id must be valid in the region
+	// ID of the AMI to copy. This ID must be valid in the region
 	// given by `sourceAmiRegion`.
 	SourceAmiId pulumi.StringInput
 	// Region from which the AMI will be copied. This may be the
@@ -565,7 +562,6 @@ func (o AmiCopyOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AmiCopy) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
-// Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
 func (o AmiCopyOutput) LastLaunchedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *AmiCopy) pulumi.StringOutput { return v.LastLaunchedTime }).(pulumi.StringOutput)
 }
@@ -615,7 +611,7 @@ func (o AmiCopyOutput) RootSnapshotId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AmiCopy) pulumi.StringOutput { return v.RootSnapshotId }).(pulumi.StringOutput)
 }
 
-// Id of the AMI to copy. This id must be valid in the region
+// ID of the AMI to copy. This ID must be valid in the region
 // given by `sourceAmiRegion`.
 func (o AmiCopyOutput) SourceAmiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AmiCopy) pulumi.StringOutput { return v.SourceAmiId }).(pulumi.StringOutput)

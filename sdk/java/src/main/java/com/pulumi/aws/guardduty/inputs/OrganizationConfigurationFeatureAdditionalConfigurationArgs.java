@@ -15,14 +15,14 @@ public final class OrganizationConfigurationFeatureAdditionalConfigurationArgs e
     public static final OrganizationConfigurationFeatureAdditionalConfigurationArgs Empty = new OrganizationConfigurationFeatureAdditionalConfigurationArgs();
 
     /**
-     * The status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
+     * Status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
      * 
      */
     @Import(name="autoEnable", required=true)
     private Output<String> autoEnable;
 
     /**
-     * @return The status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
+     * @return Status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
      * 
      */
     public Output<String> autoEnable() {
@@ -30,14 +30,14 @@ public final class OrganizationConfigurationFeatureAdditionalConfigurationArgs e
     }
 
     /**
-     * The name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
+     * Name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
+     * @return Name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
      * 
      */
     public Output<String> name() {
@@ -70,7 +70,7 @@ public final class OrganizationConfigurationFeatureAdditionalConfigurationArgs e
         }
 
         /**
-         * @param autoEnable The status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
+         * @param autoEnable Status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class OrganizationConfigurationFeatureAdditionalConfigurationArgs e
         }
 
         /**
-         * @param autoEnable The status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
+         * @param autoEnable Status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class OrganizationConfigurationFeatureAdditionalConfigurationArgs e
         }
 
         /**
-         * @param name The name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
+         * @param name Name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class OrganizationConfigurationFeatureAdditionalConfigurationArgs e
         }
 
         /**
-         * @param name The name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
+         * @param name Name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
          * 
          * @return builder
          * 

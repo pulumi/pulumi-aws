@@ -202,7 +202,7 @@ namespace Pulumi.Aws.Dms
         public Output<string?> ServerName { get; private set; } = null!;
 
         /// <summary>
-        /// ARN used by the service access IAM role for dynamodb endpoints.
+        /// ARN used by the service access IAM role for DynamoDB endpoints.
         /// </summary>
         [Output("serviceAccessRole")]
         public Output<string?> ServiceAccessRole { get; private set; } = null!;
@@ -431,7 +431,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? ServerName { get; set; }
 
         /// <summary>
-        /// ARN used by the service access IAM role for dynamodb endpoints.
+        /// ARN used by the service access IAM role for DynamoDB endpoints.
         /// </summary>
         [Input("serviceAccessRole")]
         public Input<string>? ServiceAccessRole { get; set; }
@@ -624,7 +624,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? ServerName { get; set; }
 
         /// <summary>
-        /// ARN used by the service access IAM role for dynamodb endpoints.
+        /// ARN used by the service access IAM role for DynamoDB endpoints.
         /// </summary>
         [Input("serviceAccessRole")]
         public Input<string>? ServiceAccessRole { get; set; }

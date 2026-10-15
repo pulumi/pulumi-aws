@@ -16,14 +16,14 @@ public final class NodeGroupResourceAutoscalingGroupArgs extends com.pulumi.reso
     public static final NodeGroupResourceAutoscalingGroupArgs Empty = new NodeGroupResourceAutoscalingGroupArgs();
 
     /**
-     * Name of the AutoScaling Group.
+     * Name of the Auto Scaling group.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the AutoScaling Group.
+     * @return Name of the Auto Scaling group.
      * 
      */
     public Optional<Output<String>> name() {
@@ -55,7 +55,7 @@ public final class NodeGroupResourceAutoscalingGroupArgs extends com.pulumi.reso
         }
 
         /**
-         * @param name Name of the AutoScaling Group.
+         * @param name Name of the Auto Scaling group.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class NodeGroupResourceAutoscalingGroupArgs extends com.pulumi.reso
         }
 
         /**
-         * @param name Name of the AutoScaling Group.
+         * @param name Name of the Auto Scaling group.
          * 
          * @return builder
          * 

@@ -75,7 +75,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * * `name` (String) Name of the Appflow connector profile.
+ * * `name` (String) Name of the AppFlow connector profile.
  *
  * #### Optional
  *

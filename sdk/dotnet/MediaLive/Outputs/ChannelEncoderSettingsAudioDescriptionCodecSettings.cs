@@ -14,23 +14,32 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelEncoderSettingsAudioDescriptionCodecSettings
     {
         /// <summary>
-        /// Aac Settings. See AAC Settings for more details.
+        /// AAC settings. See `AacSettings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings? AacSettings;
         /// <summary>
-        /// Ac3 Settings. See AC3 Settings for more details.
+        /// AC3 settings. See `Ac3Settings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings? Ac3Settings;
         /// <summary>
-        /// Eac3 Atmos Settings. See EAC3 Atmos Settings
+        /// EAC3 Atmos settings. See `Eac3AtmosSettings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings? Eac3AtmosSettings;
         /// <summary>
-        /// Eac3 Settings. See EAC3 Settings
+        /// EAC3 settings. See `Eac3Settings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings? Eac3Settings;
+        /// <summary>
+        /// MP2 settings. See `Mp2Settings` Block for details.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings? Mp2Settings;
+        /// <summary>
+        /// Pass-through settings. Can be set as an empty block.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettings? PassThroughSettings;
+        /// <summary>
+        /// WAV settings. See `WavSettings` Block for details.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings? WavSettings;
 
         [OutputConstructor]

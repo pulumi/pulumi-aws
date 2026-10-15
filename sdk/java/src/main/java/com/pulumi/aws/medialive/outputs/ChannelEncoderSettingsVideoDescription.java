@@ -15,22 +15,22 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelEncoderSettingsVideoDescription {
     /**
-     * @return The video codec settings. See Video Codec Settings for more details.
+     * @return Video codec settings. See `video_descriptions.codec_settings` Block for details.
      * 
      */
     private @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettings codecSettings;
     /**
-     * @return Output video height in pixels.
+     * @return Output video height, in pixels.
      * 
      */
     private @Nullable Integer height;
     /**
-     * @return The name of the video description.
+     * @return Name of the video description.
      * 
      */
     private String name;
     /**
-     * @return Indicate how to respond to the AFD values that might be in the input video.
+     * @return How to respond to the AFD values that might be in the input video.
      * 
      */
     private @Nullable String respondToAfd;
@@ -40,40 +40,40 @@ public final class ChannelEncoderSettingsVideoDescription {
      */
     private @Nullable String scalingBehavior;
     /**
-     * @return Changes the strength of the anti-alias filter used for scaling.
+     * @return Strength of the anti-alias filter used for scaling.
      * 
      */
     private @Nullable Integer sharpness;
     /**
-     * @return Output video width in pixels.
+     * @return Output video width, in pixels.
      * 
      */
     private @Nullable Integer width;
 
     private ChannelEncoderSettingsVideoDescription() {}
     /**
-     * @return The video codec settings. See Video Codec Settings for more details.
+     * @return Video codec settings. See `video_descriptions.codec_settings` Block for details.
      * 
      */
     public Optional<ChannelEncoderSettingsVideoDescriptionCodecSettings> codecSettings() {
         return Optional.ofNullable(this.codecSettings);
     }
     /**
-     * @return Output video height in pixels.
+     * @return Output video height, in pixels.
      * 
      */
     public Optional<Integer> height() {
         return Optional.ofNullable(this.height);
     }
     /**
-     * @return The name of the video description.
+     * @return Name of the video description.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return Indicate how to respond to the AFD values that might be in the input video.
+     * @return How to respond to the AFD values that might be in the input video.
      * 
      */
     public Optional<String> respondToAfd() {
@@ -87,14 +87,14 @@ public final class ChannelEncoderSettingsVideoDescription {
         return Optional.ofNullable(this.scalingBehavior);
     }
     /**
-     * @return Changes the strength of the anti-alias filter used for scaling.
+     * @return Strength of the anti-alias filter used for scaling.
      * 
      */
     public Optional<Integer> sharpness() {
         return Optional.ofNullable(this.sharpness);
     }
     /**
-     * @return Output video width in pixels.
+     * @return Output video width, in pixels.
      * 
      */
     public Optional<Integer> width() {

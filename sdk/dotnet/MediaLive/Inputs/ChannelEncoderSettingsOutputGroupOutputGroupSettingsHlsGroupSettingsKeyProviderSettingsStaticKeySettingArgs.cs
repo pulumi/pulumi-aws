@@ -12,9 +12,15 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Location of the license server used for protecting content. See `KeyProviderServer` Block for details.
+        /// </summary>
         [Input("keyProviderServer")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServerArgs>? KeyProviderServer { get; set; }
 
+        /// <summary>
+        /// Static key value as a 32-character hexadecimal string.
+        /// </summary>
         [Input("staticKeyValue", required: true)]
         public Input<string> StaticKeyValue { get; set; } = null!;
 

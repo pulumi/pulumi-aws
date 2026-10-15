@@ -84,7 +84,7 @@ type TrustStore struct {
 	CaCertificatesBundleS3Bucket pulumi.StringOutput `pulumi:"caCertificatesBundleS3Bucket"`
 	// S3 object key holding the client certificate CA bundle.
 	CaCertificatesBundleS3Key pulumi.StringOutput `pulumi:"caCertificatesBundleS3Key"`
-	// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+	// Version ID of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
 	CaCertificatesBundleS3ObjectVersion pulumi.StringPtrOutput `pulumi:"caCertificatesBundleS3ObjectVersion"`
 	// Name of the Trust Store. If omitted, the provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -142,7 +142,7 @@ type trustStoreState struct {
 	CaCertificatesBundleS3Bucket *string `pulumi:"caCertificatesBundleS3Bucket"`
 	// S3 object key holding the client certificate CA bundle.
 	CaCertificatesBundleS3Key *string `pulumi:"caCertificatesBundleS3Key"`
-	// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+	// Version ID of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
 	CaCertificatesBundleS3ObjectVersion *string `pulumi:"caCertificatesBundleS3ObjectVersion"`
 	// Name of the Trust Store. If omitted, the provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
 	Name *string `pulumi:"name"`
@@ -165,7 +165,7 @@ type TrustStoreState struct {
 	CaCertificatesBundleS3Bucket pulumi.StringPtrInput
 	// S3 object key holding the client certificate CA bundle.
 	CaCertificatesBundleS3Key pulumi.StringPtrInput
-	// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+	// Version ID of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
 	CaCertificatesBundleS3ObjectVersion pulumi.StringPtrInput
 	// Name of the Trust Store. If omitted, the provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
 	Name pulumi.StringPtrInput
@@ -188,7 +188,7 @@ type trustStoreArgs struct {
 	CaCertificatesBundleS3Bucket string `pulumi:"caCertificatesBundleS3Bucket"`
 	// S3 object key holding the client certificate CA bundle.
 	CaCertificatesBundleS3Key string `pulumi:"caCertificatesBundleS3Key"`
-	// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+	// Version ID of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
 	CaCertificatesBundleS3ObjectVersion *string `pulumi:"caCertificatesBundleS3ObjectVersion"`
 	// Name of the Trust Store. If omitted, the provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
 	Name *string `pulumi:"name"`
@@ -206,7 +206,7 @@ type TrustStoreArgs struct {
 	CaCertificatesBundleS3Bucket pulumi.StringInput
 	// S3 object key holding the client certificate CA bundle.
 	CaCertificatesBundleS3Key pulumi.StringInput
-	// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+	// Version ID of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
 	CaCertificatesBundleS3ObjectVersion pulumi.StringPtrInput
 	// Name of the Trust Store. If omitted, the provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
 	Name pulumi.StringPtrInput
@@ -325,7 +325,7 @@ func (o TrustStoreOutput) CaCertificatesBundleS3Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustStore) pulumi.StringOutput { return v.CaCertificatesBundleS3Key }).(pulumi.StringOutput)
 }
 
-// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+// Version ID of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
 func (o TrustStoreOutput) CaCertificatesBundleS3ObjectVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrustStore) pulumi.StringPtrOutput { return v.CaCertificatesBundleS3ObjectVersion }).(pulumi.StringPtrOutput)
 }

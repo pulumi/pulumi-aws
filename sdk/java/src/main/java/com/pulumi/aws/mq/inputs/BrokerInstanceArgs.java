@@ -32,14 +32,14 @@ public final class BrokerInstanceArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
+     * Broker&#39;s wire-level protocol endpoints, referenceable e.g., as `instances.0.endpoints.0`.
      * 
      */
     @Import(name="endpoints")
     private @Nullable Output<List<String>> endpoints;
 
     /**
-     * @return `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
+     * @return Broker&#39;s wire-level protocol endpoints, referenceable e.g., as `instances.0.endpoints.0`.
      * 
      */
     public Optional<Output<List<String>>> endpoints() {
@@ -109,7 +109,7 @@ public final class BrokerInstanceArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param endpoints `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
+         * @param endpoints Broker&#39;s wire-level protocol endpoints, referenceable e.g., as `instances.0.endpoints.0`.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class BrokerInstanceArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param endpoints `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
+         * @param endpoints Broker&#39;s wire-level protocol endpoints, referenceable e.g., as `instances.0.endpoints.0`.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class BrokerInstanceArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param endpoints `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
+         * @param endpoints Broker&#39;s wire-level protocol endpoints, referenceable e.g., as `instances.0.endpoints.0`.
          * 
          * @return builder
          * 

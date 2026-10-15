@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS Bedrock Agent Core Resource Policy. Resource-based policies in Amazon Bedrock Agent Core allow you to control which principals (AWS accounts, IAM users, or IAM roles) can invoke and manage your Amazon Bedrock Agent Core Runtime and Gateway resources.
+// Manages an AWS Bedrock AgentCore Resource Policy. Resource-based policies in Amazon Bedrock AgentCore allow you to control which principals (AWS accounts, IAM users, or IAM roles) can invoke and manage your Amazon Bedrock AgentCore Runtime and Gateway resources.
 //
 // ## Example Usage
 //
@@ -85,9 +85,9 @@ import (
 //
 // #### Required
 //
-// * `resourceArn` - ARN of the resource to which the Resource Policy is attached.
+// * `resourceArn` (String) ARN of the resource to which the Resource Policy is attached.
 //
-// Using `pulumi import`, import Bedrock Agent Core Resource Policy using the `resourceArn`. For example:
+// Using `pulumi import`, import Bedrock AgentCore Resource Policy using the `resourceArn`. For example:
 //
 // ```sh
 // $ pulumi import aws:bedrock/agentcoreResourcePolicy:AgentcoreResourcePolicy example arn:aws:bedrock-agentcore:us-west-2:012345678901:runtime/abcd1234
@@ -95,7 +95,7 @@ import (
 type AgentcoreResourcePolicy struct {
 	pulumi.CustomResourceState
 
-	// Resource policy definition
+	// Resource policy document in JSON format.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -141,7 +141,7 @@ func GetAgentcoreResourcePolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AgentcoreResourcePolicy resources.
 type agentcoreResourcePolicyState struct {
-	// Resource policy definition
+	// Resource policy document in JSON format.
 	Policy *string `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -152,7 +152,7 @@ type agentcoreResourcePolicyState struct {
 }
 
 type AgentcoreResourcePolicyState struct {
-	// Resource policy definition
+	// Resource policy document in JSON format.
 	Policy pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -167,7 +167,7 @@ func (AgentcoreResourcePolicyState) ElementType() reflect.Type {
 }
 
 type agentcoreResourcePolicyArgs struct {
-	// Resource policy definition
+	// Resource policy document in JSON format.
 	Policy string `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -179,7 +179,7 @@ type agentcoreResourcePolicyArgs struct {
 
 // The set of arguments for constructing a AgentcoreResourcePolicy resource.
 type AgentcoreResourcePolicyArgs struct {
-	// Resource policy definition
+	// Resource policy document in JSON format.
 	Policy pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -276,7 +276,7 @@ func (o AgentcoreResourcePolicyOutput) ToAgentcoreResourcePolicyOutputWithContex
 	return o
 }
 
-// Resource policy definition
+// Resource policy document in JSON format.
 func (o AgentcoreResourcePolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreResourcePolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }

@@ -1066,8 +1066,8 @@ class DistributionDefaultCacheBehavior(dict):
         :param _builtins.int default_ttl: Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header. The TTL defined in Cache Policy overrides this configuration.
         :param _builtins.str field_level_encryption_id: Field level encryption configuration ID.
         :param 'DistributionDefaultCacheBehaviorForwardedValuesArgs' forwarded_values: The forwarded values configuration that specifies how CloudFront handles query strings, cookies and headers (maximum one).
-        :param Sequence['DistributionDefaultCacheBehaviorFunctionAssociationArgs'] function_associations: A config block that triggers a cloudfront function with specific actions (maximum 2).
-        :param 'DistributionDefaultCacheBehaviorGrpcConfigArgs' grpc_config: A config block that sets the grpc config.
+        :param Sequence['DistributionDefaultCacheBehaviorFunctionAssociationArgs'] function_associations: A config block that triggers a CloudFront function with specific actions (maximum 2).
+        :param 'DistributionDefaultCacheBehaviorGrpcConfigArgs' grpc_config: A config block that sets the gRPC config.
         :param Sequence['DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs'] lambda_function_associations: A config block that triggers a lambda function with specific actions (maximum 4).
         :param _builtins.int max_ttl: Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers. The TTL defined in Cache Policy overrides this configuration.
         :param _builtins.int min_ttl: Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds. The TTL defined in Cache Policy overrides this configuration.
@@ -1191,7 +1191,7 @@ class DistributionDefaultCacheBehavior(dict):
     @pulumi.getter(name="functionAssociations")
     def function_associations(self) -> Optional[Sequence['outputs.DistributionDefaultCacheBehaviorFunctionAssociation']]:
         """
-        A config block that triggers a cloudfront function with specific actions (maximum 2).
+        A config block that triggers a CloudFront function with specific actions (maximum 2).
         """
         return pulumi.get(self, "function_associations")
 
@@ -1199,7 +1199,7 @@ class DistributionDefaultCacheBehavior(dict):
     @pulumi.getter(name="grpcConfig")
     def grpc_config(self) -> Optional['outputs.DistributionDefaultCacheBehaviorGrpcConfig']:
         """
-        A config block that sets the grpc config.
+        A config block that sets the gRPC config.
         """
         return pulumi.get(self, "grpc_config")
 
@@ -1422,6 +1422,8 @@ class DistributionDefaultCacheBehaviorFunctionAssociation(dict):
         """
         :param _builtins.str event_type: Specific event to trigger this function. Valid values: `viewer-request` or `viewer-response`.
         :param _builtins.str function_arn: ARN of the CloudFront function.
+               
+               #### `GRPC` config arguments
         """
         pulumi.set(__self__, "event_type", event_type)
         pulumi.set(__self__, "function_arn", function_arn)
@@ -1439,6 +1441,8 @@ class DistributionDefaultCacheBehaviorFunctionAssociation(dict):
     def function_arn(self) -> _builtins.str:
         """
         ARN of the CloudFront function.
+
+        #### `GRPC` config arguments
         """
         return pulumi.get(self, "function_arn")
 
@@ -1674,8 +1678,8 @@ class DistributionOrderedCacheBehavior(dict):
         :param _builtins.int default_ttl: Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header. The TTL defined in Cache Policy overrides this configuration.
         :param _builtins.str field_level_encryption_id: Field level encryption configuration ID.
         :param 'DistributionOrderedCacheBehaviorForwardedValuesArgs' forwarded_values: The forwarded values configuration that specifies how CloudFront handles query strings, cookies and headers (maximum one).
-        :param Sequence['DistributionOrderedCacheBehaviorFunctionAssociationArgs'] function_associations: A config block that triggers a cloudfront function with specific actions (maximum 2).
-        :param 'DistributionOrderedCacheBehaviorGrpcConfigArgs' grpc_config: A config block that sets the grpc config.
+        :param Sequence['DistributionOrderedCacheBehaviorFunctionAssociationArgs'] function_associations: A config block that triggers a CloudFront function with specific actions (maximum 2).
+        :param 'DistributionOrderedCacheBehaviorGrpcConfigArgs' grpc_config: A config block that sets the gRPC config.
         :param Sequence['DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgs'] lambda_function_associations: A config block that triggers a lambda function with specific actions (maximum 4).
         :param _builtins.int max_ttl: Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers. The TTL defined in Cache Policy overrides this configuration.
         :param _builtins.int min_ttl: Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds. The TTL defined in Cache Policy overrides this configuration.
@@ -1808,7 +1812,7 @@ class DistributionOrderedCacheBehavior(dict):
     @pulumi.getter(name="functionAssociations")
     def function_associations(self) -> Optional[Sequence['outputs.DistributionOrderedCacheBehaviorFunctionAssociation']]:
         """
-        A config block that triggers a cloudfront function with specific actions (maximum 2).
+        A config block that triggers a CloudFront function with specific actions (maximum 2).
         """
         return pulumi.get(self, "function_associations")
 
@@ -1816,7 +1820,7 @@ class DistributionOrderedCacheBehavior(dict):
     @pulumi.getter(name="grpcConfig")
     def grpc_config(self) -> Optional['outputs.DistributionOrderedCacheBehaviorGrpcConfig']:
         """
-        A config block that sets the grpc config.
+        A config block that sets the gRPC config.
         """
         return pulumi.get(self, "grpc_config")
 
@@ -2039,6 +2043,8 @@ class DistributionOrderedCacheBehaviorFunctionAssociation(dict):
         """
         :param _builtins.str event_type: Specific event to trigger this function. Valid values: `viewer-request` or `viewer-response`.
         :param _builtins.str function_arn: ARN of the CloudFront function.
+               
+               #### `GRPC` config arguments
         """
         pulumi.set(__self__, "event_type", event_type)
         pulumi.set(__self__, "function_arn", function_arn)
@@ -2056,6 +2062,8 @@ class DistributionOrderedCacheBehaviorFunctionAssociation(dict):
     def function_arn(self) -> _builtins.str:
         """
         ARN of the CloudFront function.
+
+        #### `GRPC` config arguments
         """
         return pulumi.get(self, "function_arn")
 

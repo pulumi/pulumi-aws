@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
         public Input<Inputs.DataSourceParametersAuroraPostgresqlArgs>? AuroraPostgresql { get; set; }
 
         /// <summary>
-        /// Parameters for connecting to AWS IOT Analytics.
+        /// Parameters for connecting to AWS IoT Analytics.
         /// </summary>
         [Input("awsIotAnalytics")]
         public Input<Inputs.DataSourceParametersAwsIotAnalyticsArgs>? AwsIotAnalytics { get; set; }

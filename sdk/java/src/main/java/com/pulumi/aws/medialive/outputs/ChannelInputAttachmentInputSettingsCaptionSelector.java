@@ -13,29 +13,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelInputAttachmentInputSettingsCaptionSelector {
+    /**
+     * @return When specified, indicates the three-letter language code of the caption track to extract from the source.
+     * 
+     */
     private @Nullable String languageCode;
     /**
-     * @return Name of the Channel.
-     * 
-     * The following arguments are optional:
+     * @return Name of the caption selector.
      * 
      */
     private String name;
+    /**
+     * @return Caption selector settings. See `caption_selector.selector_settings` Block for details.
+     * 
+     */
     private @Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings selectorSettings;
 
     private ChannelInputAttachmentInputSettingsCaptionSelector() {}
+    /**
+     * @return When specified, indicates the three-letter language code of the caption track to extract from the source.
+     * 
+     */
     public Optional<String> languageCode() {
         return Optional.ofNullable(this.languageCode);
     }
     /**
-     * @return Name of the Channel.
-     * 
-     * The following arguments are optional:
+     * @return Name of the caption selector.
      * 
      */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Caption selector settings. See `caption_selector.selector_settings` Block for details.
+     * 
+     */
     public Optional<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings> selectorSettings() {
         return Optional.ofNullable(this.selectorSettings);
     }

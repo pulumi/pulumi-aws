@@ -250,12 +250,12 @@ class AgentcoreWorkloadIdentity(pulumi.CustomResource):
 
         #### Required
 
-        * `name` - (String) Name of the workload identity.
+        * `name` (String) Name of the workload identity.
 
         #### Optional
 
-        * `account_id` - (String) AWS Account where this resource is managed.
-        * `region` - (String) Region where this resource is managed.
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Bedrock AgentCore Workload Identity using the workload identity name. For example:
 
@@ -316,12 +316,12 @@ class AgentcoreWorkloadIdentity(pulumi.CustomResource):
 
         #### Required
 
-        * `name` - (String) Name of the workload identity.
+        * `name` (String) Name of the workload identity.
 
         #### Optional
 
-        * `account_id` - (String) AWS Account where this resource is managed.
-        * `region` - (String) Region where this resource is managed.
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Bedrock AgentCore Workload Identity using the workload identity name. For example:
 

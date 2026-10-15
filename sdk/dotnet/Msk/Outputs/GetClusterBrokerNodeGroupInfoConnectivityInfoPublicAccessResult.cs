@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Msk.Outputs
     [OutputType]
     public sealed class GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessResult
     {
+        /// <summary>
+        /// Public access type.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

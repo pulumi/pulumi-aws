@@ -19,14 +19,14 @@ public final class CrawlerHudiTargetArgs extends com.pulumi.resources.ResourceAr
     public static final CrawlerHudiTargetArgs Empty = new CrawlerHudiTargetArgs();
 
     /**
-     * The name of the connection to use to connect to the Hudi target.
+     * Name of the connection to use to connect to the Hudi target.
      * 
      */
     @Import(name="connectionName")
     private @Nullable Output<String> connectionName;
 
     /**
-     * @return The name of the connection to use to connect to the Hudi target.
+     * @return Name of the connection to use to connect to the Hudi target.
      * 
      */
     public Optional<Output<String>> connectionName() {
@@ -34,14 +34,14 @@ public final class CrawlerHudiTargetArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A list of glob patterns used to exclude from the crawl.
+     * List of glob patterns used to exclude from the crawl.
      * 
      */
     @Import(name="exclusions")
     private @Nullable Output<List<String>> exclusions;
 
     /**
-     * @return A list of glob patterns used to exclude from the crawl.
+     * @return List of glob patterns used to exclude from the crawl.
      * 
      */
     public Optional<Output<List<String>>> exclusions() {
@@ -49,14 +49,14 @@ public final class CrawlerHudiTargetArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Hudi metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
+     * Maximum depth of Amazon S3 paths that the crawler can traverse to discover the Hudi metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
      * 
      */
     @Import(name="maximumTraversalDepth", required=true)
     private Output<Integer> maximumTraversalDepth;
 
     /**
-     * @return The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Hudi metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
+     * @return Maximum depth of Amazon S3 paths that the crawler can traverse to discover the Hudi metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
      * 
      */
     public Output<Integer> maximumTraversalDepth() {
@@ -106,7 +106,7 @@ public final class CrawlerHudiTargetArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param connectionName The name of the connection to use to connect to the Hudi target.
+         * @param connectionName Name of the connection to use to connect to the Hudi target.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class CrawlerHudiTargetArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param connectionName The name of the connection to use to connect to the Hudi target.
+         * @param connectionName Name of the connection to use to connect to the Hudi target.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class CrawlerHudiTargetArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param exclusions A list of glob patterns used to exclude from the crawl.
+         * @param exclusions List of glob patterns used to exclude from the crawl.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class CrawlerHudiTargetArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param exclusions A list of glob patterns used to exclude from the crawl.
+         * @param exclusions List of glob patterns used to exclude from the crawl.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class CrawlerHudiTargetArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param exclusions A list of glob patterns used to exclude from the crawl.
+         * @param exclusions List of glob patterns used to exclude from the crawl.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class CrawlerHudiTargetArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param maximumTraversalDepth The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Hudi metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
+         * @param maximumTraversalDepth Maximum depth of Amazon S3 paths that the crawler can traverse to discover the Hudi metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class CrawlerHudiTargetArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param maximumTraversalDepth The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Hudi metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
+         * @param maximumTraversalDepth Maximum depth of Amazon S3 paths that the crawler can traverse to discover the Hudi metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
          * 
          * @return builder
          * 

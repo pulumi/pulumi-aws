@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FindingsFilterFindingCriteria {
     /**
-     * @return A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
+     * @return Condition that specifies the property, operator, and one or more values to use to filter the results. See `criterion` Block for details.
      * 
      */
     private @Nullable List<FindingsFilterFindingCriteriaCriterion> criterions;
 
     private FindingsFilterFindingCriteria() {}
     /**
-     * @return A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
+     * @return Condition that specifies the property, operator, and one or more values to use to filter the results. See `criterion` Block for details.
      * 
      */
     public List<FindingsFilterFindingCriteriaCriterion> criterions() {

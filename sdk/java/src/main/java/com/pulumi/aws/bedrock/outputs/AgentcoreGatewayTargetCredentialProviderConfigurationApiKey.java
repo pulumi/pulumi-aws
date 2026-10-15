@@ -28,7 +28,7 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationApiKey {
      */
     private @Nullable String credentialPrefix;
     /**
-     * @return ARN of the OIDC provider for API key authentication.
+     * @return ARN of the API key credential provider.
      * 
      */
     private String providerArn;
@@ -56,7 +56,7 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationApiKey {
         return Optional.ofNullable(this.credentialPrefix);
     }
     /**
-     * @return ARN of the OIDC provider for API key authentication.
+     * @return ARN of the API key credential provider.
      * 
      */
     public String providerArn() {

@@ -14,21 +14,36 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelEncoderSettingsOutputGroupOutputGroupSettings
     {
         /// <summary>
-        /// Archive group settings. See Archive Group Settings for more details.
+        /// Archive group settings. See `ArchiveGroupSettings` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting> ArchiveGroupSettings;
+        /// <summary>
+        /// Frame capture group settings. See `FrameCaptureGroupSettings` Block for details.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings? FrameCaptureGroupSettings;
+        /// <summary>
+        /// HLS group settings. See `HlsGroupSettings` Block for details.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings? HlsGroupSettings;
         /// <summary>
-        /// Media package group settings. See Media Package Group Settings for more details.
+        /// Media package group settings. See `MediaPackageGroupSettings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettings? MediaPackageGroupSettings;
+        /// <summary>
+        /// Microsoft Smooth group settings. See `MsSmoothGroupSettings` Block for details.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings? MsSmoothGroupSettings;
+        /// <summary>
+        /// Multiplex group settings. Can be set as an empty block.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettings? MultiplexGroupSettings;
         /// <summary>
-        /// RTMP group settings. See RTMP Group Settings for more details.
+        /// RTMP group settings. See `RtmpGroupSettings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings? RtmpGroupSettings;
+        /// <summary>
+        /// UDP group settings. See `UdpGroupSettings` Block for details.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettings? UdpGroupSettings;
 
         [OutputConstructor]

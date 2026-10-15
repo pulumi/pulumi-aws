@@ -180,42 +180,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:glue/catalogTableOptimizer:CatalogTableOptimizer")
 public class CatalogTableOptimizer extends com.pulumi.resources.CustomResource {
     /**
-     * The Catalog ID of the table.
+     * Catalog ID of the table.
      * 
      */
     @Export(name="catalogId", refs={String.class}, tree="[0]")
     private Output<String> catalogId;
 
     /**
-     * @return The Catalog ID of the table.
+     * @return Catalog ID of the table.
      * 
      */
     public Output<String> catalogId() {
         return this.catalogId;
     }
     /**
-     * A configuration block that defines the table optimizer settings. See Configuration for additional details.
+     * Configuration block that defines the table optimizer settings. See `configuration` Block for additional details.
      * 
      */
     @Export(name="configuration", refs={CatalogTableOptimizerConfiguration.class}, tree="[0]")
     private Output<CatalogTableOptimizerConfiguration> configuration;
 
     /**
-     * @return A configuration block that defines the table optimizer settings. See Configuration for additional details.
+     * @return Configuration block that defines the table optimizer settings. See `configuration` Block for additional details.
      * 
      */
     public Output<CatalogTableOptimizerConfiguration> configuration() {
         return this.configuration;
     }
     /**
-     * The name of the database in the catalog in which the table resides.
+     * Name of the database in the catalog in which the table resides.
      * 
      */
     @Export(name="databaseName", refs={String.class}, tree="[0]")
     private Output<String> databaseName;
 
     /**
-     * @return The name of the database in the catalog in which the table resides.
+     * @return Name of the database in the catalog in which the table resides.
      * 
      */
     public Output<String> databaseName() {
@@ -236,28 +236,28 @@ public class CatalogTableOptimizer extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The name of the table.
+     * Name of the table.
      * 
      */
     @Export(name="tableName", refs={String.class}, tree="[0]")
     private Output<String> tableName;
 
     /**
-     * @return The name of the table.
+     * @return Name of the table.
      * 
      */
     public Output<String> tableName() {
         return this.tableName;
     }
     /**
-     * The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
+     * Type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
+     * @return Type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
      * 
      */
     public Output<String> type() {

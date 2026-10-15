@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing db nodes linked to cloud vm cluster of Oracle Database@AWS.
+// Data source for managing DB nodes linked to cloud vm cluster of Oracle Database@AWS.
 //
 // You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
 //
@@ -57,7 +57,7 @@ func GetDbNode(ctx *pulumi.Context, args *GetDbNodeArgs, opts ...pulumi.InvokeOp
 type GetDbNodeArgs struct {
 	// Unique identifier of the cloud vm cluster.
 	CloudVmClusterId string `pulumi:"cloudVmClusterId"`
-	// Unique identifier of db node associated with vm cluster.
+	// Unique identifier of DB node associated with vm cluster.
 	//
 	// The following arguments are optional:
 	Id string `pulumi:"id"`
@@ -136,7 +136,7 @@ func GetDbNodeOutput(ctx *pulumi.Context, args GetDbNodeOutputArgs, opts ...pulu
 type GetDbNodeOutputArgs struct {
 	// Unique identifier of the cloud vm cluster.
 	CloudVmClusterId pulumi.StringInput `pulumi:"cloudVmClusterId"`
-	// Unique identifier of db node associated with vm cluster.
+	// Unique identifier of DB node associated with vm cluster.
 	//
 	// The following arguments are optional:
 	Id pulumi.StringInput `pulumi:"id"`

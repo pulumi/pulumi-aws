@@ -482,9 +482,9 @@ type Domain struct {
 	ClusterConfig DomainClusterConfigOutput `pulumi:"clusterConfig"`
 	// Configuration block for authenticating dashboard with Cognito. Detailed below.
 	CognitoOptions DomainCognitoOptionsPtrOutput `pulumi:"cognitoOptions"`
-	// Domain-specific endpoint for Dashboard without https scheme.
+	// Domain-specific endpoint for Dashboard without HTTPS scheme.
 	DashboardEndpoint pulumi.StringOutput `pulumi:"dashboardEndpoint"`
-	// V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
+	// V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without HTTPS scheme.
 	DashboardEndpointV2 pulumi.StringOutput `pulumi:"dashboardEndpointV2"`
 	// Configuration block for the deployment strategy options of the domain. Detailed below.
 	DeploymentStrategyOptions DomainDeploymentStrategyOptionsOutput `pulumi:"deploymentStrategyOptions"`
@@ -580,9 +580,9 @@ type domainState struct {
 	ClusterConfig *DomainClusterConfig `pulumi:"clusterConfig"`
 	// Configuration block for authenticating dashboard with Cognito. Detailed below.
 	CognitoOptions *DomainCognitoOptions `pulumi:"cognitoOptions"`
-	// Domain-specific endpoint for Dashboard without https scheme.
+	// Domain-specific endpoint for Dashboard without HTTPS scheme.
 	DashboardEndpoint *string `pulumi:"dashboardEndpoint"`
-	// V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
+	// V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without HTTPS scheme.
 	DashboardEndpointV2 *string `pulumi:"dashboardEndpointV2"`
 	// Configuration block for the deployment strategy options of the domain. Detailed below.
 	DeploymentStrategyOptions *DomainDeploymentStrategyOptions `pulumi:"deploymentStrategyOptions"`
@@ -649,9 +649,9 @@ type DomainState struct {
 	ClusterConfig DomainClusterConfigPtrInput
 	// Configuration block for authenticating dashboard with Cognito. Detailed below.
 	CognitoOptions DomainCognitoOptionsPtrInput
-	// Domain-specific endpoint for Dashboard without https scheme.
+	// Domain-specific endpoint for Dashboard without HTTPS scheme.
 	DashboardEndpoint pulumi.StringPtrInput
-	// V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
+	// V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without HTTPS scheme.
 	DashboardEndpointV2 pulumi.StringPtrInput
 	// Configuration block for the deployment strategy options of the domain. Detailed below.
 	DeploymentStrategyOptions DomainDeploymentStrategyOptionsPtrInput
@@ -939,12 +939,12 @@ func (o DomainOutput) CognitoOptions() DomainCognitoOptionsPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainCognitoOptionsPtrOutput { return v.CognitoOptions }).(DomainCognitoOptionsPtrOutput)
 }
 
-// Domain-specific endpoint for Dashboard without https scheme.
+// Domain-specific endpoint for Dashboard without HTTPS scheme.
 func (o DomainOutput) DashboardEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DashboardEndpoint }).(pulumi.StringOutput)
 }
 
-// V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
+// V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without HTTPS scheme.
 func (o DomainOutput) DashboardEndpointV2() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DashboardEndpointV2 }).(pulumi.StringOutput)
 }

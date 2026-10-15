@@ -25,7 +25,7 @@ public final class AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration {
      */
     private List<String> entryPoints;
     /**
-     * @return Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`.
+     * @return Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`, `PYTHON_3_14`, `NODE_22`.
      * 
      */
     private String runtime;
@@ -46,7 +46,7 @@ public final class AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfiguration {
         return this.entryPoints;
     }
     /**
-     * @return Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`.
+     * @return Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`, `PYTHON_3_14`, `NODE_22`.
      * 
      */
     public String runtime() {

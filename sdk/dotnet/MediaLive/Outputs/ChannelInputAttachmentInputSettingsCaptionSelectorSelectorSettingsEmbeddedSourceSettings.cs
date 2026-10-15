@@ -14,15 +14,15 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings
     {
         /// <summary>
-        /// If upconvert, 608 data is both passed through via the “608 compatibility bytes” fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
+        /// When set to `Upconvert`, 608 data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper and translated into 708. 708 data present in the source content is discarded.
         /// </summary>
         public readonly string? Convert608To708;
         /// <summary>
-        /// Set to “auto” to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
+        /// Set to `Auto` to handle streams with intermittent or non-aligned SCTE-20 and Embedded captions.
         /// </summary>
         public readonly string? Scte20Detection;
         /// <summary>
-        /// Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
+        /// 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
         /// </summary>
         public readonly int? Source608ChannelNumber;
 

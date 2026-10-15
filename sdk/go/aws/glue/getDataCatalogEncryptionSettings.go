@@ -35,7 +35,7 @@ type LookupDataCatalogEncryptionSettingsArgs struct {
 // A collection of values returned by getDataCatalogEncryptionSettings.
 type LookupDataCatalogEncryptionSettingsResult struct {
 	CatalogId string `pulumi:"catalogId"`
-	// The security configuration to set. see Data Catalog Encryption Settings.
+	// Security configuration to set. see `dataCatalogEncryptionSettings` Block.
 	DataCatalogEncryptionSettings []GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting `pulumi:"dataCatalogEncryptionSettings"`
 	// The provider-assigned unique ID for this managed resource.
 	Id     string `pulumi:"id"`
@@ -78,7 +78,7 @@ func (o LookupDataCatalogEncryptionSettingsResultOutput) CatalogId() pulumi.Stri
 	return o.ApplyT(func(v LookupDataCatalogEncryptionSettingsResult) string { return v.CatalogId }).(pulumi.StringOutput)
 }
 
-// The security configuration to set. see Data Catalog Encryption Settings.
+// Security configuration to set. see `dataCatalogEncryptionSettings` Block.
 func (o LookupDataCatalogEncryptionSettingsResultOutput) DataCatalogEncryptionSettings() GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayOutput {
 	return o.ApplyT(func(v LookupDataCatalogEncryptionSettingsResult) []GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting {
 		return v.DataCatalogEncryptionSettings

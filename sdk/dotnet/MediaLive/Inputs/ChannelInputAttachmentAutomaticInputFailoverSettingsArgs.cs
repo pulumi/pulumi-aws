@@ -13,7 +13,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
     public sealed class ChannelInputAttachmentAutomaticInputFailoverSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input\_preference for the failover pair is set to PRIMARY\_INPUT\_PREFERRED, because after this time, MediaLive will switch back to the primary input.
+        /// Amount of time, in milliseconds, that a recovered input must have no failover conditions before it is considered healthy. This value is particularly important when `InputPreference` is set to `PRIMARY_INPUT_PREFERRED`, because after this time, MediaLive switches back to the primary input.
         /// </summary>
         [Input("errorClearTimeMsec")]
         public Input<int>? ErrorClearTimeMsec { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         private InputList<Inputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs>? _failoverConditions;
 
         /// <summary>
-        /// A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input. See Failover Condition Block for more details.
+        /// Failover conditions. If any of these conditions occur, MediaLive fails over to the other input. See `FailoverCondition` Block for details.
         /// </summary>
         public InputList<Inputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs> FailoverConditions
         {
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<string>? InputPreference { get; set; }
 
         /// <summary>
-        /// The input ID of the secondary input in the automatic input failover pair.
+        /// Input ID of the secondary input in the automatic input failover pair.
         /// </summary>
         [Input("secondaryInputId", required: true)]
         public Input<string> SecondaryInputId { get; set; } = null!;

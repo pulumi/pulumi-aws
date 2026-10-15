@@ -94,7 +94,7 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to ecs resources.
+        /// A map of tags to assign to ECS resources.
         /// </summary>
         public InputMap<string> Tags
         {

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// ## Example Usage
         /// 
-        /// The following shows outputting all Local Gateway Route Table Ids.
+        /// The following shows outputting all Local Gateway Route Table IDs.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// ## Example Usage
         /// 
-        /// The following shows outputting all Local Gateway Route Table Ids.
+        /// The following shows outputting all Local Gateway Route Table IDs.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// ## Example Usage
         /// 
-        /// The following shows outputting all Local Gateway Route Table Ids.
+        /// The following shows outputting all Local Gateway Route Table IDs.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;

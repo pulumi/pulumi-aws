@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClassificationJobS3JobDefinitionBucketCriteria {
     /**
-     * @return The property- or tag-based conditions that determine which S3 buckets to exclude from the analysis. (documented below)
+     * @return Property- or tag-based conditions that determine which S3 buckets to exclude from the analysis. See `bucket_criteria.excludes` Block for details.
      * 
      */
     private @Nullable ClassificationJobS3JobDefinitionBucketCriteriaExcludes excludes;
     /**
-     * @return The property- or tag-based conditions that determine which S3 buckets to include in the analysis. (documented below)
+     * @return Property- or tag-based conditions that determine which S3 buckets to include in the analysis. See `bucket_criteria.includes` Block for details.
      * 
      */
     private @Nullable ClassificationJobS3JobDefinitionBucketCriteriaIncludes includes;
 
     private ClassificationJobS3JobDefinitionBucketCriteria() {}
     /**
-     * @return The property- or tag-based conditions that determine which S3 buckets to exclude from the analysis. (documented below)
+     * @return Property- or tag-based conditions that determine which S3 buckets to exclude from the analysis. See `bucket_criteria.excludes` Block for details.
      * 
      */
     public Optional<ClassificationJobS3JobDefinitionBucketCriteriaExcludes> excludes() {
         return Optional.ofNullable(this.excludes);
     }
     /**
-     * @return The property- or tag-based conditions that determine which S3 buckets to include in the analysis. (documented below)
+     * @return Property- or tag-based conditions that determine which S3 buckets to include in the analysis. See `bucket_criteria.includes` Block for details.
      * 
      */
     public Optional<ClassificationJobS3JobDefinitionBucketCriteriaIncludes> includes() {

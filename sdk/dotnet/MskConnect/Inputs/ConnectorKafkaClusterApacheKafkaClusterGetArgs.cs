@@ -13,7 +13,7 @@ namespace Pulumi.Aws.MskConnect.Inputs
     public sealed class ConnectorKafkaClusterApacheKafkaClusterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The bootstrap servers of the cluster.
+        /// Bootstrap servers of the cluster.
         /// </summary>
         [Input("bootstrapServers", required: true)]
         public Input<string> BootstrapServers { get; set; } = null!;

@@ -19,7 +19,7 @@ public final class ModelContainerImageConfig {
      */
     private String repositoryAccessMode;
     /**
-     * @return Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
+     * @return Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified `Vpc` as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
      * 
      */
     private @Nullable ModelContainerImageConfigRepositoryAuthConfig repositoryAuthConfig;
@@ -33,7 +33,7 @@ public final class ModelContainerImageConfig {
         return this.repositoryAccessMode;
     }
     /**
-     * @return Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
+     * @return Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified `Vpc` as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
      * 
      */
     public Optional<ModelContainerImageConfigRepositoryAuthConfig> repositoryAuthConfig() {

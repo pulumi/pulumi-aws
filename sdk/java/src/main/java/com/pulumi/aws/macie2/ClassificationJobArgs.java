@@ -23,14 +23,14 @@ public final class ClassificationJobArgs extends com.pulumi.resources.ResourceAr
     public static final ClassificationJobArgs Empty = new ClassificationJobArgs();
 
     /**
-     * The custom data identifiers to use for data analysis and classification.
+     * Custom data identifiers to use for data analysis and classification.
      * 
      */
     @Import(name="customDataIdentifierIds")
     private @Nullable Output<List<String>> customDataIdentifierIds;
 
     /**
-     * @return The custom data identifiers to use for data analysis and classification.
+     * @return Custom data identifiers to use for data analysis and classification.
      * 
      */
     public Optional<Output<List<String>>> customDataIdentifierIds() {
@@ -38,14 +38,14 @@ public final class ClassificationJobArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A custom description of the job. The description can contain as many as 200 characters.
+     * Custom description of the job. Can contain as many as 200 characters.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A custom description of the job. The description can contain as many as 200 characters.
+     * @return Custom description of the job. Can contain as many as 200 characters.
      * 
      */
     public Optional<Output<String>> description() {
@@ -53,14 +53,14 @@ public final class ClassificationJobArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Specifies whether to analyze all existing, eligible objects immediately after the job is created.
+     * Whether to analyze all existing, eligible objects immediately after the job is created.
      * 
      */
     @Import(name="initialRun")
     private @Nullable Output<Boolean> initialRun;
 
     /**
-     * @return Specifies whether to analyze all existing, eligible objects immediately after the job is created.
+     * @return Whether to analyze all existing, eligible objects immediately after the job is created.
      * 
      */
     public Optional<Output<Boolean>> initialRun() {
@@ -68,14 +68,14 @@ public final class ClassificationJobArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
+     * Status for the job. Valid values are `CANCELLED`, `RUNNING` and `USER_PAUSED`.
      * 
      */
     @Import(name="jobStatus")
     private @Nullable Output<String> jobStatus;
 
     /**
-     * @return The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
+     * @return Status for the job. Valid values are `CANCELLED`, `RUNNING` and `USER_PAUSED`.
      * 
      */
     public Optional<Output<String>> jobStatus() {
@@ -83,14 +83,14 @@ public final class ClassificationJobArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don&#39;t specify a value for the `scheduleFrequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `scheduleFrequency` property to define the recurrence pattern for the job.
+     * Schedule for running the job. Valid values are `ONE_TIME`, to run the job only once, and `SCHEDULED`, to run the job on a daily, weekly, or monthly basis. When set to `SCHEDULED`, use `scheduleFrequency` to define the recurrence pattern for the job.
      * 
      */
     @Import(name="jobType", required=true)
     private Output<String> jobType;
 
     /**
-     * @return The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don&#39;t specify a value for the `scheduleFrequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `scheduleFrequency` property to define the recurrence pattern for the job.
+     * @return Schedule for running the job. Valid values are `ONE_TIME`, to run the job only once, and `SCHEDULED`, to run the job on a daily, weekly, or monthly basis. When set to `SCHEDULED`, use `scheduleFrequency` to define the recurrence pattern for the job.
      * 
      */
     public Output<String> jobType() {
@@ -98,14 +98,14 @@ public final class ClassificationJobArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     * Custom name for the job. Can contain as many as 500 characters. If omitted, Terraform assigns a random, unique name. Conflicts with `namePrefix`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     * @return Custom name for the job. Can contain as many as 500 characters. If omitted, Terraform assigns a random, unique name. Conflicts with `namePrefix`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -143,14 +143,14 @@ public final class ClassificationJobArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
+     * S3 buckets that contain the objects to analyze, and the scope of that analysis. See `s3JobDefinition` Block for details.
      * 
      */
     @Import(name="s3JobDefinition", required=true)
     private Output<ClassificationJobS3JobDefinitionArgs> s3JobDefinition;
 
     /**
-     * @return The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
+     * @return S3 buckets that contain the objects to analyze, and the scope of that analysis. See `s3JobDefinition` Block for details.
      * 
      */
     public Output<ClassificationJobS3JobDefinitionArgs> s3JobDefinition() {
@@ -158,14 +158,14 @@ public final class ClassificationJobArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
+     * Sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
      * 
      */
     @Import(name="samplingPercentage")
     private @Nullable Output<Integer> samplingPercentage;
 
     /**
-     * @return The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
+     * @return Sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
      * 
      */
     public Optional<Output<Integer>> samplingPercentage() {
@@ -173,14 +173,14 @@ public final class ClassificationJobArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The recurrence pattern for running the job. To run the job only once, don&#39;t specify a value for this property and set the value for the `jobType` property to `ONE_TIME`. (documented below)
+     * Recurrence pattern for running the job. To run the job only once, omit this argument and set `jobType` to `ONE_TIME`. See `scheduleFrequency` Block for details.
      * 
      */
     @Import(name="scheduleFrequency")
     private @Nullable Output<ClassificationJobScheduleFrequencyArgs> scheduleFrequency;
 
     /**
-     * @return The recurrence pattern for running the job. To run the job only once, don&#39;t specify a value for this property and set the value for the `jobType` property to `ONE_TIME`. (documented below)
+     * @return Recurrence pattern for running the job. To run the job only once, omit this argument and set `jobType` to `ONE_TIME`. See `scheduleFrequency` Block for details.
      * 
      */
     public Optional<Output<ClassificationJobScheduleFrequencyArgs>> scheduleFrequency() {
@@ -238,7 +238,7 @@ public final class ClassificationJobArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param customDataIdentifierIds The custom data identifiers to use for data analysis and classification.
+         * @param customDataIdentifierIds Custom data identifiers to use for data analysis and classification.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class ClassificationJobArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param customDataIdentifierIds The custom data identifiers to use for data analysis and classification.
+         * @param customDataIdentifierIds Custom data identifiers to use for data analysis and classification.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class ClassificationJobArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param customDataIdentifierIds The custom data identifiers to use for data analysis and classification.
+         * @param customDataIdentifierIds Custom data identifiers to use for data analysis and classification.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class ClassificationJobArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param description A custom description of the job. The description can contain as many as 200 characters.
+         * @param description Custom description of the job. Can contain as many as 200 characters.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class ClassificationJobArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param description A custom description of the job. The description can contain as many as 200 characters.
+         * @param description Custom description of the job. Can contain as many as 200 characters.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class ClassificationJobArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param initialRun Specifies whether to analyze all existing, eligible objects immediately after the job is created.
+         * @param initialRun Whether to analyze all existing, eligible objects immediately after the job is created.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class ClassificationJobArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param initialRun Specifies whether to analyze all existing, eligible objects immediately after the job is created.
+         * @param initialRun Whether to analyze all existing, eligible objects immediately after the job is created.
          * 
          * @return builder
          * 
@@ -311,7 +311,7 @@ public final class ClassificationJobArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param jobStatus The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
+         * @param jobStatus Status for the job. Valid values are `CANCELLED`, `RUNNING` and `USER_PAUSED`.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class ClassificationJobArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param jobStatus The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
+         * @param jobStatus Status for the job. Valid values are `CANCELLED`, `RUNNING` and `USER_PAUSED`.
          * 
          * @return builder
          * 
@@ -332,7 +332,7 @@ public final class ClassificationJobArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param jobType The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don&#39;t specify a value for the `scheduleFrequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `scheduleFrequency` property to define the recurrence pattern for the job.
+         * @param jobType Schedule for running the job. Valid values are `ONE_TIME`, to run the job only once, and `SCHEDULED`, to run the job on a daily, weekly, or monthly basis. When set to `SCHEDULED`, use `scheduleFrequency` to define the recurrence pattern for the job.
          * 
          * @return builder
          * 
@@ -343,7 +343,7 @@ public final class ClassificationJobArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param jobType The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don&#39;t specify a value for the `scheduleFrequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `scheduleFrequency` property to define the recurrence pattern for the job.
+         * @param jobType Schedule for running the job. Valid values are `ONE_TIME`, to run the job only once, and `SCHEDULED`, to run the job on a daily, weekly, or monthly basis. When set to `SCHEDULED`, use `scheduleFrequency` to define the recurrence pattern for the job.
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class ClassificationJobArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+         * @param name Custom name for the job. Can contain as many as 500 characters. If omitted, Terraform assigns a random, unique name. Conflicts with `namePrefix`.
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class ClassificationJobArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+         * @param name Custom name for the job. Can contain as many as 500 characters. If omitted, Terraform assigns a random, unique name. Conflicts with `namePrefix`.
          * 
          * @return builder
          * 
@@ -416,7 +416,7 @@ public final class ClassificationJobArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param s3JobDefinition The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
+         * @param s3JobDefinition S3 buckets that contain the objects to analyze, and the scope of that analysis. See `s3JobDefinition` Block for details.
          * 
          * @return builder
          * 
@@ -427,7 +427,7 @@ public final class ClassificationJobArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param s3JobDefinition The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
+         * @param s3JobDefinition S3 buckets that contain the objects to analyze, and the scope of that analysis. See `s3JobDefinition` Block for details.
          * 
          * @return builder
          * 
@@ -437,7 +437,7 @@ public final class ClassificationJobArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param samplingPercentage The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
+         * @param samplingPercentage Sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
          * 
          * @return builder
          * 
@@ -448,7 +448,7 @@ public final class ClassificationJobArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param samplingPercentage The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
+         * @param samplingPercentage Sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
          * 
          * @return builder
          * 
@@ -458,7 +458,7 @@ public final class ClassificationJobArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param scheduleFrequency The recurrence pattern for running the job. To run the job only once, don&#39;t specify a value for this property and set the value for the `jobType` property to `ONE_TIME`. (documented below)
+         * @param scheduleFrequency Recurrence pattern for running the job. To run the job only once, omit this argument and set `jobType` to `ONE_TIME`. See `scheduleFrequency` Block for details.
          * 
          * @return builder
          * 
@@ -469,7 +469,7 @@ public final class ClassificationJobArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param scheduleFrequency The recurrence pattern for running the job. To run the job only once, don&#39;t specify a value for this property and set the value for the `jobType` property to `ONE_TIME`. (documented below)
+         * @param scheduleFrequency Recurrence pattern for running the job. To run the job only once, omit this argument and set `jobType` to `ONE_TIME`. See `scheduleFrequency` Block for details.
          * 
          * @return builder
          * 

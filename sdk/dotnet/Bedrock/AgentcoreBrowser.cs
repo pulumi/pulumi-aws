@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Bedrock
     ///         {
     ///             NetworkMode = "PUBLIC",
     ///         },
-    ///         Name = "example-browser",
+    ///         Name = "example_browser",
     ///         Description = "Browser for web data extraction",
     ///     });
     /// 
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Bedrock
     ///             },
     ///             NetworkMode = "VPC",
     ///         },
-    ///         Name = "vpc-browser",
+    ///         Name = "vpc_browser",
     ///         Description = "Browser with VPC configuration",
     ///     });
     /// 
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Bedrock
     ///             },
     ///             Enabled = true,
     ///         },
-    ///         Name = "example-browser",
+    ///         Name = "example_browser",
     ///         Description = "Browser with recording enabled",
     ///         ExecutionRoleArn = example.Arn,
     ///     });

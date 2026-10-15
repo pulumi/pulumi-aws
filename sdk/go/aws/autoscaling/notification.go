@@ -12,9 +12,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an AutoScaling Group with Notification support, via SNS Topics. Each of
+// Provides an Auto Scaling group with Notification support, via SNS Topics. Each of
 // the `notifications` map to a [Notification Configuration](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeNotificationConfigurations.html) inside Amazon Web
-// Services, and are applied to each AutoScaling Group you supply.
+// Services, and are applied to each Auto Scaling group you supply.
 //
 // ## Example Usage
 //
@@ -75,7 +75,7 @@ import (
 type Notification struct {
 	pulumi.CustomResourceState
 
-	// List of AutoScaling Group Names
+	// List of Auto Scaling group Names
 	GroupNames pulumi.StringArrayOutput `pulumi:"groupNames"`
 	// List of Notification Types that trigger
 	// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
@@ -125,7 +125,7 @@ func GetNotification(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Notification resources.
 type notificationState struct {
-	// List of AutoScaling Group Names
+	// List of Auto Scaling group Names
 	GroupNames []string `pulumi:"groupNames"`
 	// List of Notification Types that trigger
 	// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
@@ -137,7 +137,7 @@ type notificationState struct {
 }
 
 type NotificationState struct {
-	// List of AutoScaling Group Names
+	// List of Auto Scaling group Names
 	GroupNames pulumi.StringArrayInput
 	// List of Notification Types that trigger
 	// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
@@ -153,7 +153,7 @@ func (NotificationState) ElementType() reflect.Type {
 }
 
 type notificationArgs struct {
-	// List of AutoScaling Group Names
+	// List of Auto Scaling group Names
 	GroupNames []string `pulumi:"groupNames"`
 	// List of Notification Types that trigger
 	// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
@@ -166,7 +166,7 @@ type notificationArgs struct {
 
 // The set of arguments for constructing a Notification resource.
 type NotificationArgs struct {
-	// List of AutoScaling Group Names
+	// List of Auto Scaling group Names
 	GroupNames pulumi.StringArrayInput
 	// List of Notification Types that trigger
 	// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
@@ -264,7 +264,7 @@ func (o NotificationOutput) ToNotificationOutputWithContext(ctx context.Context)
 	return o
 }
 
-// List of AutoScaling Group Names
+// List of Auto Scaling group Names
 func (o NotificationOutput) GroupNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Notification) pulumi.StringArrayOutput { return v.GroupNames }).(pulumi.StringArrayOutput)
 }

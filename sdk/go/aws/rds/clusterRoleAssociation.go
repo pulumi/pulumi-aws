@@ -57,7 +57,7 @@ type ClusterRoleAssociation struct {
 
 	// DB Cluster Identifier to associate with the IAM Role.
 	DbClusterIdentifier pulumi.StringOutput `pulumi:"dbClusterIdentifier"`
-	// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
+	// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI `rds describe-db-engine-versions`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
 	FeatureName pulumi.StringPtrOutput `pulumi:"featureName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -103,7 +103,7 @@ func GetClusterRoleAssociation(ctx *pulumi.Context,
 type clusterRoleAssociationState struct {
 	// DB Cluster Identifier to associate with the IAM Role.
 	DbClusterIdentifier *string `pulumi:"dbClusterIdentifier"`
-	// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
+	// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI `rds describe-db-engine-versions`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
 	FeatureName *string `pulumi:"featureName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -114,7 +114,7 @@ type clusterRoleAssociationState struct {
 type ClusterRoleAssociationState struct {
 	// DB Cluster Identifier to associate with the IAM Role.
 	DbClusterIdentifier pulumi.StringPtrInput
-	// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
+	// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI `rds describe-db-engine-versions`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
 	FeatureName pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -129,7 +129,7 @@ func (ClusterRoleAssociationState) ElementType() reflect.Type {
 type clusterRoleAssociationArgs struct {
 	// DB Cluster Identifier to associate with the IAM Role.
 	DbClusterIdentifier string `pulumi:"dbClusterIdentifier"`
-	// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
+	// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI `rds describe-db-engine-versions`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
 	FeatureName *string `pulumi:"featureName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -141,7 +141,7 @@ type clusterRoleAssociationArgs struct {
 type ClusterRoleAssociationArgs struct {
 	// DB Cluster Identifier to associate with the IAM Role.
 	DbClusterIdentifier pulumi.StringInput
-	// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
+	// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI `rds describe-db-engine-versions`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
 	FeatureName pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -241,7 +241,7 @@ func (o ClusterRoleAssociationOutput) DbClusterIdentifier() pulumi.StringOutput 
 	return o.ApplyT(func(v *ClusterRoleAssociation) pulumi.StringOutput { return v.DbClusterIdentifier }).(pulumi.StringOutput)
 }
 
-// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
+// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI `rds describe-db-engine-versions`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
 func (o ClusterRoleAssociationOutput) FeatureName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterRoleAssociation) pulumi.StringPtrOutput { return v.FeatureName }).(pulumi.StringPtrOutput)
 }

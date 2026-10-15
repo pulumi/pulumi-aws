@@ -30,13 +30,13 @@ class SchemaArgs:
         """
         The set of arguments for constructing a Schema resource.
 
-        :param pulumi.Input[_builtins.str] compatibility: The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
-        :param pulumi.Input[_builtins.str] data_format: The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
-        :param pulumi.Input[_builtins.str] schema_definition: The schema definition using the `data_format` setting for `schema_name`.
-        :param pulumi.Input[_builtins.str] schema_name: The Name of the schema.
-        :param pulumi.Input[_builtins.str] description: A description of the schema.
+        :param pulumi.Input[_builtins.str] compatibility: Compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
+        :param pulumi.Input[_builtins.str] data_format: Data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
+        :param pulumi.Input[_builtins.str] schema_definition: Schema definition using the `data_format` setting for `schema_name`.
+        :param pulumi.Input[_builtins.str] schema_name: Name of the schema.
+        :param pulumi.Input[_builtins.str] description: Description of the schema.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] registry_arn: The ARN of the Glue Registry to create the schema in.
+        :param pulumi.Input[_builtins.str] registry_arn: ARN of the Glue Registry to create the schema in.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "compatibility", compatibility)
@@ -56,7 +56,7 @@ class SchemaArgs:
     @pulumi.getter
     def compatibility(self) -> pulumi.Input[_builtins.str]:
         """
-        The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
+        Compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
         """
         return pulumi.get(self, "compatibility")
 
@@ -68,7 +68,7 @@ class SchemaArgs:
     @pulumi.getter(name="dataFormat")
     def data_format(self) -> pulumi.Input[_builtins.str]:
         """
-        The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
+        Data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
         """
         return pulumi.get(self, "data_format")
 
@@ -80,7 +80,7 @@ class SchemaArgs:
     @pulumi.getter(name="schemaDefinition")
     def schema_definition(self) -> pulumi.Input[_builtins.str]:
         """
-        The schema definition using the `data_format` setting for `schema_name`.
+        Schema definition using the `data_format` setting for `schema_name`.
         """
         return pulumi.get(self, "schema_definition")
 
@@ -92,7 +92,7 @@ class SchemaArgs:
     @pulumi.getter(name="schemaName")
     def schema_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The Name of the schema.
+        Name of the schema.
         """
         return pulumi.get(self, "schema_name")
 
@@ -104,7 +104,7 @@ class SchemaArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A description of the schema.
+        Description of the schema.
         """
         return pulumi.get(self, "description")
 
@@ -128,7 +128,7 @@ class SchemaArgs:
     @pulumi.getter(name="registryArn")
     def registry_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the Glue Registry to create the schema in.
+        ARN of the Glue Registry to create the schema in.
         """
         return pulumi.get(self, "registry_arn")
 
@@ -170,19 +170,19 @@ class _SchemaState:
         Input properties used for looking up and filtering Schema resources.
 
         :param pulumi.Input[_builtins.str] arn: ARN of the schema.
-        :param pulumi.Input[_builtins.str] compatibility: The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
-        :param pulumi.Input[_builtins.str] data_format: The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
-        :param pulumi.Input[_builtins.str] description: A description of the schema.
-        :param pulumi.Input[_builtins.int] latest_schema_version: The latest version of the schema associated with the returned schema definition.
-        :param pulumi.Input[_builtins.int] next_schema_version: The next version of the schema associated with the returned schema definition.
+        :param pulumi.Input[_builtins.str] compatibility: Compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
+        :param pulumi.Input[_builtins.str] data_format: Data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
+        :param pulumi.Input[_builtins.str] description: Description of the schema.
+        :param pulumi.Input[_builtins.int] latest_schema_version: Latest version of the schema associated with the returned schema definition.
+        :param pulumi.Input[_builtins.int] next_schema_version: Next version of the schema associated with the returned schema definition.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] registry_arn: The ARN of the Glue Registry to create the schema in.
-        :param pulumi.Input[_builtins.str] registry_name: The name of the Glue Registry.
-        :param pulumi.Input[_builtins.int] schema_checkpoint: The version number of the checkpoint (the last time the compatibility mode was changed).
-        :param pulumi.Input[_builtins.str] schema_definition: The schema definition using the `data_format` setting for `schema_name`.
-        :param pulumi.Input[_builtins.str] schema_name: The Name of the schema.
+        :param pulumi.Input[_builtins.str] registry_arn: ARN of the Glue Registry to create the schema in.
+        :param pulumi.Input[_builtins.str] registry_name: Name of the Glue Registry.
+        :param pulumi.Input[_builtins.int] schema_checkpoint: Version number of the checkpoint (the last time the compatibility mode was changed).
+        :param pulumi.Input[_builtins.str] schema_definition: Schema definition using the `data_format` setting for `schema_name`.
+        :param pulumi.Input[_builtins.str] schema_name: Name of the schema.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -229,7 +229,7 @@ class _SchemaState:
     @pulumi.getter
     def compatibility(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
+        Compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
         """
         return pulumi.get(self, "compatibility")
 
@@ -241,7 +241,7 @@ class _SchemaState:
     @pulumi.getter(name="dataFormat")
     def data_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
+        Data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
         """
         return pulumi.get(self, "data_format")
 
@@ -253,7 +253,7 @@ class _SchemaState:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A description of the schema.
+        Description of the schema.
         """
         return pulumi.get(self, "description")
 
@@ -265,7 +265,7 @@ class _SchemaState:
     @pulumi.getter(name="latestSchemaVersion")
     def latest_schema_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The latest version of the schema associated with the returned schema definition.
+        Latest version of the schema associated with the returned schema definition.
         """
         return pulumi.get(self, "latest_schema_version")
 
@@ -277,7 +277,7 @@ class _SchemaState:
     @pulumi.getter(name="nextSchemaVersion")
     def next_schema_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The next version of the schema associated with the returned schema definition.
+        Next version of the schema associated with the returned schema definition.
         """
         return pulumi.get(self, "next_schema_version")
 
@@ -301,7 +301,7 @@ class _SchemaState:
     @pulumi.getter(name="registryArn")
     def registry_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the Glue Registry to create the schema in.
+        ARN of the Glue Registry to create the schema in.
         """
         return pulumi.get(self, "registry_arn")
 
@@ -313,7 +313,7 @@ class _SchemaState:
     @pulumi.getter(name="registryName")
     def registry_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the Glue Registry.
+        Name of the Glue Registry.
         """
         return pulumi.get(self, "registry_name")
 
@@ -325,7 +325,7 @@ class _SchemaState:
     @pulumi.getter(name="schemaCheckpoint")
     def schema_checkpoint(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The version number of the checkpoint (the last time the compatibility mode was changed).
+        Version number of the checkpoint (the last time the compatibility mode was changed).
         """
         return pulumi.get(self, "schema_checkpoint")
 
@@ -337,7 +337,7 @@ class _SchemaState:
     @pulumi.getter(name="schemaDefinition")
     def schema_definition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The schema definition using the `data_format` setting for `schema_name`.
+        Schema definition using the `data_format` setting for `schema_name`.
         """
         return pulumi.get(self, "schema_definition")
 
@@ -349,7 +349,7 @@ class _SchemaState:
     @pulumi.getter(name="schemaName")
     def schema_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Name of the schema.
+        Name of the schema.
         """
         return pulumi.get(self, "schema_name")
 
@@ -373,7 +373,7 @@ class _SchemaState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -431,13 +431,13 @@ class Schema(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] compatibility: The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
-        :param pulumi.Input[_builtins.str] data_format: The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
-        :param pulumi.Input[_builtins.str] description: A description of the schema.
+        :param pulumi.Input[_builtins.str] compatibility: Compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
+        :param pulumi.Input[_builtins.str] data_format: Data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
+        :param pulumi.Input[_builtins.str] description: Description of the schema.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] registry_arn: The ARN of the Glue Registry to create the schema in.
-        :param pulumi.Input[_builtins.str] schema_definition: The schema definition using the `data_format` setting for `schema_name`.
-        :param pulumi.Input[_builtins.str] schema_name: The Name of the schema.
+        :param pulumi.Input[_builtins.str] registry_arn: ARN of the Glue Registry to create the schema in.
+        :param pulumi.Input[_builtins.str] schema_definition: Schema definition using the `data_format` setting for `schema_name`.
+        :param pulumi.Input[_builtins.str] schema_name: Name of the schema.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -564,19 +564,19 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the schema.
-        :param pulumi.Input[_builtins.str] compatibility: The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
-        :param pulumi.Input[_builtins.str] data_format: The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
-        :param pulumi.Input[_builtins.str] description: A description of the schema.
-        :param pulumi.Input[_builtins.int] latest_schema_version: The latest version of the schema associated with the returned schema definition.
-        :param pulumi.Input[_builtins.int] next_schema_version: The next version of the schema associated with the returned schema definition.
+        :param pulumi.Input[_builtins.str] compatibility: Compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
+        :param pulumi.Input[_builtins.str] data_format: Data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
+        :param pulumi.Input[_builtins.str] description: Description of the schema.
+        :param pulumi.Input[_builtins.int] latest_schema_version: Latest version of the schema associated with the returned schema definition.
+        :param pulumi.Input[_builtins.int] next_schema_version: Next version of the schema associated with the returned schema definition.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] registry_arn: The ARN of the Glue Registry to create the schema in.
-        :param pulumi.Input[_builtins.str] registry_name: The name of the Glue Registry.
-        :param pulumi.Input[_builtins.int] schema_checkpoint: The version number of the checkpoint (the last time the compatibility mode was changed).
-        :param pulumi.Input[_builtins.str] schema_definition: The schema definition using the `data_format` setting for `schema_name`.
-        :param pulumi.Input[_builtins.str] schema_name: The Name of the schema.
+        :param pulumi.Input[_builtins.str] registry_arn: ARN of the Glue Registry to create the schema in.
+        :param pulumi.Input[_builtins.str] registry_name: Name of the Glue Registry.
+        :param pulumi.Input[_builtins.int] schema_checkpoint: Version number of the checkpoint (the last time the compatibility mode was changed).
+        :param pulumi.Input[_builtins.str] schema_definition: Schema definition using the `data_format` setting for `schema_name`.
+        :param pulumi.Input[_builtins.str] schema_name: Name of the schema.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -610,7 +610,7 @@ class Schema(pulumi.CustomResource):
     @pulumi.getter
     def compatibility(self) -> pulumi.Output[_builtins.str]:
         """
-        The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
+        Compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
         """
         return pulumi.get(self, "compatibility")
 
@@ -618,7 +618,7 @@ class Schema(pulumi.CustomResource):
     @pulumi.getter(name="dataFormat")
     def data_format(self) -> pulumi.Output[_builtins.str]:
         """
-        The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
+        Data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
         """
         return pulumi.get(self, "data_format")
 
@@ -626,7 +626,7 @@ class Schema(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        A description of the schema.
+        Description of the schema.
         """
         return pulumi.get(self, "description")
 
@@ -634,7 +634,7 @@ class Schema(pulumi.CustomResource):
     @pulumi.getter(name="latestSchemaVersion")
     def latest_schema_version(self) -> pulumi.Output[_builtins.int]:
         """
-        The latest version of the schema associated with the returned schema definition.
+        Latest version of the schema associated with the returned schema definition.
         """
         return pulumi.get(self, "latest_schema_version")
 
@@ -642,7 +642,7 @@ class Schema(pulumi.CustomResource):
     @pulumi.getter(name="nextSchemaVersion")
     def next_schema_version(self) -> pulumi.Output[_builtins.int]:
         """
-        The next version of the schema associated with the returned schema definition.
+        Next version of the schema associated with the returned schema definition.
         """
         return pulumi.get(self, "next_schema_version")
 
@@ -658,7 +658,7 @@ class Schema(pulumi.CustomResource):
     @pulumi.getter(name="registryArn")
     def registry_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the Glue Registry to create the schema in.
+        ARN of the Glue Registry to create the schema in.
         """
         return pulumi.get(self, "registry_arn")
 
@@ -666,7 +666,7 @@ class Schema(pulumi.CustomResource):
     @pulumi.getter(name="registryName")
     def registry_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the Glue Registry.
+        Name of the Glue Registry.
         """
         return pulumi.get(self, "registry_name")
 
@@ -674,7 +674,7 @@ class Schema(pulumi.CustomResource):
     @pulumi.getter(name="schemaCheckpoint")
     def schema_checkpoint(self) -> pulumi.Output[_builtins.int]:
         """
-        The version number of the checkpoint (the last time the compatibility mode was changed).
+        Version number of the checkpoint (the last time the compatibility mode was changed).
         """
         return pulumi.get(self, "schema_checkpoint")
 
@@ -682,7 +682,7 @@ class Schema(pulumi.CustomResource):
     @pulumi.getter(name="schemaDefinition")
     def schema_definition(self) -> pulumi.Output[_builtins.str]:
         """
-        The schema definition using the `data_format` setting for `schema_name`.
+        Schema definition using the `data_format` setting for `schema_name`.
         """
         return pulumi.get(self, "schema_definition")
 
@@ -690,7 +690,7 @@ class Schema(pulumi.CustomResource):
     @pulumi.getter(name="schemaName")
     def schema_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The Name of the schema.
+        Name of the schema.
         """
         return pulumi.get(self, "schema_name")
 
@@ -706,7 +706,7 @@ class Schema(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

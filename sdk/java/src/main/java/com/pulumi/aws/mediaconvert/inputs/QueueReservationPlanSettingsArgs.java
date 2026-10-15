@@ -16,14 +16,14 @@ public final class QueueReservationPlanSettingsArgs extends com.pulumi.resources
     public static final QueueReservationPlanSettingsArgs Empty = new QueueReservationPlanSettingsArgs();
 
     /**
-     * The length of the term of your reserved queue pricing plan commitment. Valid value is `ONE_YEAR`.
+     * Length of the term of your reserved queue pricing plan commitment. Valid value is `ONE_YEAR`.
      * 
      */
     @Import(name="commitment", required=true)
     private Output<String> commitment;
 
     /**
-     * @return The length of the term of your reserved queue pricing plan commitment. Valid value is `ONE_YEAR`.
+     * @return Length of the term of your reserved queue pricing plan commitment. Valid value is `ONE_YEAR`.
      * 
      */
     public Output<String> commitment() {
@@ -31,14 +31,14 @@ public final class QueueReservationPlanSettingsArgs extends com.pulumi.resources
     }
 
     /**
-     * Specifies whether the term of your reserved queue pricing plan. Valid values are `AUTO_RENEW` or `EXPIRE`.
+     * Renewal type of your reserved queue pricing plan. Valid values are `AUTO_RENEW` or `EXPIRE`.
      * 
      */
     @Import(name="renewalType", required=true)
     private Output<String> renewalType;
 
     /**
-     * @return Specifies whether the term of your reserved queue pricing plan. Valid values are `AUTO_RENEW` or `EXPIRE`.
+     * @return Renewal type of your reserved queue pricing plan. Valid values are `AUTO_RENEW` or `EXPIRE`.
      * 
      */
     public Output<String> renewalType() {
@@ -46,14 +46,14 @@ public final class QueueReservationPlanSettingsArgs extends com.pulumi.resources
     }
 
     /**
-     * Specifies the number of reserved transcode slots (RTS) for queue.
+     * Number of reserved transcode slots (RTS) for queue.
      * 
      */
     @Import(name="reservedSlots", required=true)
     private Output<Integer> reservedSlots;
 
     /**
-     * @return Specifies the number of reserved transcode slots (RTS) for queue.
+     * @return Number of reserved transcode slots (RTS) for queue.
      * 
      */
     public Output<Integer> reservedSlots() {
@@ -87,7 +87,7 @@ public final class QueueReservationPlanSettingsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param commitment The length of the term of your reserved queue pricing plan commitment. Valid value is `ONE_YEAR`.
+         * @param commitment Length of the term of your reserved queue pricing plan commitment. Valid value is `ONE_YEAR`.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class QueueReservationPlanSettingsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param commitment The length of the term of your reserved queue pricing plan commitment. Valid value is `ONE_YEAR`.
+         * @param commitment Length of the term of your reserved queue pricing plan commitment. Valid value is `ONE_YEAR`.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class QueueReservationPlanSettingsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param renewalType Specifies whether the term of your reserved queue pricing plan. Valid values are `AUTO_RENEW` or `EXPIRE`.
+         * @param renewalType Renewal type of your reserved queue pricing plan. Valid values are `AUTO_RENEW` or `EXPIRE`.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class QueueReservationPlanSettingsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param renewalType Specifies whether the term of your reserved queue pricing plan. Valid values are `AUTO_RENEW` or `EXPIRE`.
+         * @param renewalType Renewal type of your reserved queue pricing plan. Valid values are `AUTO_RENEW` or `EXPIRE`.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class QueueReservationPlanSettingsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param reservedSlots Specifies the number of reserved transcode slots (RTS) for queue.
+         * @param reservedSlots Number of reserved transcode slots (RTS) for queue.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class QueueReservationPlanSettingsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param reservedSlots Specifies the number of reserved transcode slots (RTS) for queue.
+         * @param reservedSlots Number of reserved transcode slots (RTS) for queue.
          * 
          * @return builder
          * 

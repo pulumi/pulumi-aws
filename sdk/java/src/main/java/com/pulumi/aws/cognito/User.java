@@ -289,14 +289,14 @@ public class User extends com.pulumi.resources.CustomResource {
         return this.status;
     }
     /**
-     * unique user id that is never reassignable to another user.
+     * unique user ID that is never reassignable to another user.
      * 
      */
     @Export(name="sub", refs={String.class}, tree="[0]")
     private Output<String> sub;
 
     /**
-     * @return unique user id that is never reassignable to another user.
+     * @return unique user ID that is never reassignable to another user.
      * 
      */
     public Output<String> sub() {

@@ -12,147 +12,285 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// When set to `Drop`, output audio streams are removed from the program if the selected input audio stream is removed from the input.
+        /// </summary>
         [Input("absentInputAudioBehavior")]
         public Input<string>? AbsentInputAudioBehavior { get; set; }
 
+        /// <summary>
+        /// When set to `Enabled`, uses ARIB-compliant captioning.
+        /// </summary>
         [Input("arib")]
         public Input<string>? Arib { get; set; }
 
+        /// <summary>
+        /// Packet identifier (PID) for ARIB captions in the transport stream.
+        /// </summary>
         [Input("aribCaptionsPid")]
         public Input<string>? AribCaptionsPid { get; set; }
 
+        /// <summary>
+        /// How to pass along the ARIB captions.
+        /// </summary>
         [Input("aribCaptionsPidControl")]
         public Input<string>? AribCaptionsPidControl { get; set; }
 
+        /// <summary>
+        /// When set to `Dvb`, uses DVB buffer model for Dolby Digital audio.
+        /// </summary>
         [Input("audioBufferModel")]
         public Input<string>? AudioBufferModel { get; set; }
 
+        /// <summary>
+        /// Number of audio frames to insert for each PES packet.
+        /// </summary>
         [Input("audioFramesPerPes")]
         public Input<int>? AudioFramesPerPes { get; set; }
 
+        /// <summary>
+        /// Packet identifier (PID) of the elementary audio streams in the transport stream.
+        /// </summary>
         [Input("audioPids")]
         public Input<string>? AudioPids { get; set; }
 
+        /// <summary>
+        /// When set to `Atsc`, uses stream type `0x81` for AC3 and stream type `0x87` for EAC3.
+        /// </summary>
         [Input("audioStreamType")]
         public Input<string>? AudioStreamType { get; set; }
 
+        /// <summary>
+        /// Output bitrate, in bits per second, of the transport stream.
+        /// </summary>
         [Input("bitrate")]
         public Input<int>? Bitrate { get; set; }
 
+        /// <summary>
+        /// Controls the timing accuracy for output network traffic.
+        /// </summary>
         [Input("bufferModel")]
         public Input<string>? BufferModel { get; set; }
 
+        /// <summary>
+        /// When set to `Enabled`, generates a captions service descriptor in the PMT.
+        /// </summary>
         [Input("ccDescriptor")]
         public Input<string>? CcDescriptor { get; set; }
 
+        /// <summary>
+        /// DVB Network Information Table (NIT) settings. See `DvbNitSettings` Block for details.
+        /// </summary>
         [Input("dvbNitSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsGetArgs>? DvbNitSettings { get; set; }
 
+        /// <summary>
+        /// DVB Service Description Table (SDT) settings. See `DvbSdtSettings` Block for details.
+        /// </summary>
         [Input("dvbSdtSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsGetArgs>? DvbSdtSettings { get; set; }
 
+        /// <summary>
+        /// Packet identifier (PID) for input source DVB Subtitle data to this output.
+        /// </summary>
         [Input("dvbSubPids")]
         public Input<string>? DvbSubPids { get; set; }
 
+        /// <summary>
+        /// DVB Time and Date Table (TDT) settings. See `DvbTdtSettings` Block for details.
+        /// </summary>
         [Input("dvbTdtSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsGetArgs>? DvbTdtSettings { get; set; }
 
+        /// <summary>
+        /// Packet identifier (PID) for input source DVB Teletext data to this output.
+        /// </summary>
         [Input("dvbTeletextPid")]
         public Input<string>? DvbTeletextPid { get; set; }
 
+        /// <summary>
+        /// When set to `Passthrough`, passes through EBIF messages from the input source to this output.
+        /// </summary>
         [Input("ebif")]
         public Input<string>? Ebif { get; set; }
 
+        /// <summary>
+        /// When set to `videoAndFixedIntervals`, adds Encoder Boundary Points for each elementary audio stream.
+        /// </summary>
         [Input("ebpAudioInterval")]
         public Input<string>? EbpAudioInterval { get; set; }
 
+        /// <summary>
+        /// Amount of time, in milliseconds, that the encoder looks ahead for Encoder Boundary Points.
+        /// </summary>
         [Input("ebpLookaheadMs")]
         public Input<int>? EbpLookaheadMs { get; set; }
 
+        /// <summary>
+        /// Controls placement of Encoder Boundary Points on the video PID and audio PIDs.
+        /// </summary>
         [Input("ebpPlacement")]
         public Input<string>? EbpPlacement { get; set; }
 
+        /// <summary>
+        /// Packet identifier (PID) for ECM in the transport stream.
+        /// </summary>
         [Input("ecmPid")]
         public Input<string>? EcmPid { get; set; }
 
+        /// <summary>
+        /// When set to `Include`, writes the stream to the PES header.
+        /// </summary>
         [Input("esRateInPes")]
         public Input<string>? EsRateInPes { get; set; }
 
+        /// <summary>
+        /// Packet identifier (PID) for input source ETV Platform data to this output.
+        /// </summary>
         [Input("etvPlatformPid")]
         public Input<string>? EtvPlatformPid { get; set; }
 
+        /// <summary>
+        /// Packet identifier (PID) for input source ETV Signal data to this output.
+        /// </summary>
         [Input("etvSignalPid")]
         public Input<string>? EtvSignalPid { get; set; }
 
+        /// <summary>
+        /// Length, in seconds, of each fragment, used only with EBP markers.
+        /// </summary>
         [Input("fragmentTime")]
         public Input<double>? FragmentTime { get; set; }
 
+        /// <summary>
+        /// When set to `Passthrough`, passes through KLV data from the SCTE-35 source.
+        /// </summary>
         [Input("klv")]
         public Input<string>? Klv { get; set; }
 
+        /// <summary>
+        /// Packet identifier (PID) for input source KLV data to this output.
+        /// </summary>
         [Input("klvDataPids")]
         public Input<string>? KlvDataPids { get; set; }
 
+        /// <summary>
+        /// When set to `Passthrough`, passes through Nielsen ID3.
+        /// </summary>
         [Input("nielsenId3Behavior")]
         public Input<string>? NielsenId3Behavior { get; set; }
 
+        /// <summary>
+        /// Value, in bits per second, to insert null packets into the transport stream.
+        /// </summary>
         [Input("nullPacketBitrate")]
         public Input<double>? NullPacketBitrate { get; set; }
 
+        /// <summary>
+        /// Number of milliseconds between instances of this table in the output transport stream.
+        /// </summary>
         [Input("patInterval")]
         public Input<int>? PatInterval { get; set; }
 
+        /// <summary>
+        /// When set to `pcrEveryPesPacket`, a Program Clock Reference value is inserted for every Packetized Elementary Stream.
+        /// </summary>
         [Input("pcrControl")]
         public Input<string>? PcrControl { get; set; }
 
+        /// <summary>
+        /// Maximum time, in milliseconds, between Program Clock References.
+        /// </summary>
         [Input("pcrPeriod")]
         public Input<int>? PcrPeriod { get; set; }
 
+        /// <summary>
+        /// Packet identifier (PID) of the Program Clock Reference in the transport stream.
+        /// </summary>
         [Input("pcrPid")]
         public Input<string>? PcrPid { get; set; }
 
+        /// <summary>
+        /// Number of milliseconds between instances of this table in the output transport stream.
+        /// </summary>
         [Input("pmtInterval")]
         public Input<int>? PmtInterval { get; set; }
 
+        /// <summary>
+        /// Packet identifier (PID) for the Program Map Table in the transport stream.
+        /// </summary>
         [Input("pmtPid")]
         public Input<string>? PmtPid { get; set; }
 
+        /// <summary>
+        /// Value of the program number field in the Program Map Table.
+        /// </summary>
         [Input("programNum")]
         public Input<int>? ProgramNum { get; set; }
 
+        /// <summary>
+        /// When set to `Vbr`, does not insert null packets into the transport stream.
+        /// </summary>
         [Input("rateMode")]
         public Input<string>? RateMode { get; set; }
 
+        /// <summary>
+        /// Packet identifier (PID) for input source SCTE-27 data to this output.
+        /// </summary>
         [Input("scte27Pids")]
         public Input<string>? Scte27Pids { get; set; }
 
+        /// <summary>
+        /// When set to `Passthrough`, passes any SCTE-35 signals from the input source to this output.
+        /// </summary>
         [Input("scte35Control")]
         public Input<string>? Scte35Control { get; set; }
 
         /// <summary>
-        /// PID from which to read SCTE-35 messages.
+        /// Packet identifier (PID) of the SCTE-35 stream in the transport stream.
         /// </summary>
         [Input("scte35Pid")]
         public Input<string>? Scte35Pid { get; set; }
 
+        /// <summary>
+        /// Type of segmentation markers to include.
+        /// </summary>
         [Input("segmentationMarkers")]
         public Input<string>? SegmentationMarkers { get; set; }
 
+        /// <summary>
+        /// Whether segmentation markers are included at the start of a stream.
+        /// </summary>
         [Input("segmentationStyle")]
         public Input<string>? SegmentationStyle { get; set; }
 
+        /// <summary>
+        /// Length, in seconds, of each segment.
+        /// </summary>
         [Input("segmentationTime")]
         public Input<double>? SegmentationTime { get; set; }
 
+        /// <summary>
+        /// When set to `Passthrough`, passes through timed metadata.
+        /// </summary>
         [Input("timedMetadataBehavior")]
         public Input<string>? TimedMetadataBehavior { get; set; }
 
+        /// <summary>
+        /// Packet identifier (PID) of the timed metadata stream in the transport stream.
+        /// </summary>
         [Input("timedMetadataPid")]
         public Input<string>? TimedMetadataPid { get; set; }
 
+        /// <summary>
+        /// Value of the transport stream ID field in the Program Map Table.
+        /// </summary>
         [Input("transportStreamId")]
         public Input<int>? TransportStreamId { get; set; }
 
+        /// <summary>
+        /// Packet identifier (PID) of the elementary video stream in the transport stream.
+        /// </summary>
         [Input("videoPid")]
         public Input<string>? VideoPid { get; set; }
 

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.MskConnect.Outputs
     public sealed class ConnectorKafkaClusterApacheKafkaCluster
     {
         /// <summary>
-        /// The bootstrap servers of the cluster.
+        /// Bootstrap servers of the cluster.
         /// </summary>
         public readonly string BootstrapServers;
         /// <summary>

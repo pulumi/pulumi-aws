@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
+// This resource can be useful for getting back a list of NAT gateway IDs to be referenced elsewhere.
 //
 // ## Example Usage
 //
@@ -44,7 +44,7 @@ type GetNatGatewaysResult struct {
 	Filters []GetNatGatewaysFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// List of all the NAT gateway ids found.
+	// List of all the NAT gateway IDs found.
 	Ids    []string          `pulumi:"ids"`
 	Region string            `pulumi:"region"`
 	Tags   map[string]string `pulumi:"tags"`
@@ -97,7 +97,7 @@ func (o GetNatGatewaysResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNatGatewaysResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of all the NAT gateway ids found.
+// List of all the NAT gateway IDs found.
 func (o GetNatGatewaysResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetNatGatewaysResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

@@ -92,6 +92,10 @@ export class WebAcl extends pulumi.CustomResource {
     declare public readonly description: pulumi.Output<string | undefined>;
     declare public /*out*/ readonly lockToken: pulumi.Output<string>;
     /**
+     * Monetization configuration for the web ACL. Provide this when any rule in the web ACL uses the `monetize` action. See `monetizationConfig` below for details.
+     */
+    declare public readonly monetizationConfig: pulumi.Output<outputs.wafv2.WebAclMonetizationConfig | undefined>;
+    /**
      * Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
     declare public readonly name: pulumi.Output<string>;
@@ -156,6 +160,7 @@ export class WebAcl extends pulumi.CustomResource {
             resourceInputs["defaultAction"] = state?.defaultAction;
             resourceInputs["description"] = state?.description;
             resourceInputs["lockToken"] = state?.lockToken;
+            resourceInputs["monetizationConfig"] = state?.monetizationConfig;
             resourceInputs["name"] = state?.name;
             resourceInputs["namePrefix"] = state?.namePrefix;
             resourceInputs["region"] = state?.region;
@@ -184,6 +189,7 @@ export class WebAcl extends pulumi.CustomResource {
             resourceInputs["dataProtectionConfig"] = args?.dataProtectionConfig;
             resourceInputs["defaultAction"] = args?.defaultAction;
             resourceInputs["description"] = args?.description;
+            resourceInputs["monetizationConfig"] = args?.monetizationConfig;
             resourceInputs["name"] = args?.name;
             resourceInputs["namePrefix"] = args?.namePrefix;
             resourceInputs["region"] = args?.region;
@@ -249,6 +255,10 @@ export interface WebAclState {
      */
     description?: pulumi.Input<string | undefined>;
     lockToken?: pulumi.Input<string | undefined>;
+    /**
+     * Monetization configuration for the web ACL. Provide this when any rule in the web ACL uses the `monetize` action. See `monetizationConfig` below for details.
+     */
+    monetizationConfig?: pulumi.Input<inputs.wafv2.WebAclMonetizationConfig | undefined>;
     /**
      * Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
@@ -323,6 +333,10 @@ export interface WebAclArgs {
      * Friendly description of the WebACL.
      */
     description?: pulumi.Input<string | undefined>;
+    /**
+     * Monetization configuration for the web ACL. Provide this when any rule in the web ACL uses the `monetize` action. See `monetizationConfig` below for details.
+     */
+    monetizationConfig?: pulumi.Input<inputs.wafv2.WebAclMonetizationConfig | undefined>;
     /**
      * Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */

@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration {
     /**
-     * @return The configuration for an Iceberg orphan file deletion optimizer.
+     * @return Configuration for an Iceberg orphan file deletion optimizer. See `configuration.orphan_file_deletion_configuration.iceberg_configuration` Block for additional details.
      * 
      */
     private @Nullable CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration icebergConfiguration;
 
     private CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration() {}
     /**
-     * @return The configuration for an Iceberg orphan file deletion optimizer.
+     * @return Configuration for an Iceberg orphan file deletion optimizer. See `configuration.orphan_file_deletion_configuration.iceberg_configuration` Block for additional details.
      * 
      */
     public Optional<CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration> icebergConfiguration() {

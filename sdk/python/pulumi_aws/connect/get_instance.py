@@ -261,7 +261,7 @@ def get_instance(instance_alias: Optional[_builtins.str] = None,
     :param _builtins.str instance_alias: Returns information on a specific connect instance by alias
            
            > **NOTE:** One of either `instance_id` or `instance_alias` is required.
-    :param _builtins.str instance_id: Returns information on a specific connect instance by id
+    :param _builtins.str instance_id: Returns information on a specific connect instance by ID
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: A map of tags to assigned to the instance.
     """
@@ -323,7 +323,7 @@ def get_instance_output(instance_alias: pulumi.Input[Optional[Optional[_builtins
     :param _builtins.str instance_alias: Returns information on a specific connect instance by alias
            
            > **NOTE:** One of either `instance_id` or `instance_alias` is required.
-    :param _builtins.str instance_id: Returns information on a specific connect instance by id
+    :param _builtins.str instance_id: Returns information on a specific connect instance by ID
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: A map of tags to assigned to the instance.
     """

@@ -25,14 +25,14 @@ public final class VpcEndpointVpcOptionsArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, elasticsearch Service uses the default security group for the VPC.
+     * The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, Elasticsearch Service uses the default security group for the VPC.
      * 
      */
     @Import(name="securityGroupIds")
     private @Nullable Output<List<String>> securityGroupIds;
 
     /**
-     * @return The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, elasticsearch Service uses the default security group for the VPC.
+     * @return The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, Elasticsearch Service uses the default security group for the VPC.
      * 
      */
     public Optional<Output<List<String>>> securityGroupIds() {
@@ -102,7 +102,7 @@ public final class VpcEndpointVpcOptionsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param securityGroupIds The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, elasticsearch Service uses the default security group for the VPC.
+         * @param securityGroupIds The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, Elasticsearch Service uses the default security group for the VPC.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class VpcEndpointVpcOptionsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param securityGroupIds The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, elasticsearch Service uses the default security group for the VPC.
+         * @param securityGroupIds The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, Elasticsearch Service uses the default security group for the VPC.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class VpcEndpointVpcOptionsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param securityGroupIds The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, elasticsearch Service uses the default security group for the VPC.
+         * @param securityGroupIds The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, Elasticsearch Service uses the default security group for the VPC.
          * 
          * @return builder
          * 

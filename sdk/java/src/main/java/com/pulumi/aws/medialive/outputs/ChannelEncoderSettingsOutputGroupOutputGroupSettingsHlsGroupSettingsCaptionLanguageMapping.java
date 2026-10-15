@@ -11,23 +11,39 @@ import java.util.Objects;
 
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping {
+    /**
+     * @return Caption channel to install in the output.
+     * 
+     */
     private Integer captionChannel;
+    /**
+     * @return Three-character ISO 639-2 language code.
+     * 
+     */
     private String languageCode;
     /**
-     * @return Human readable information to indicate captions available for players (eg. English, or Spanish).
+     * @return Textual description of the language.
      * 
      */
     private String languageDescription;
 
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping() {}
+    /**
+     * @return Caption channel to install in the output.
+     * 
+     */
     public Integer captionChannel() {
         return this.captionChannel;
     }
+    /**
+     * @return Three-character ISO 639-2 language code.
+     * 
+     */
     public String languageCode() {
         return this.languageCode;
     }
     /**
-     * @return Human readable information to indicate captions available for players (eg. English, or Spanish).
+     * @return Textual description of the language.
      * 
      */
     public String languageDescription() {

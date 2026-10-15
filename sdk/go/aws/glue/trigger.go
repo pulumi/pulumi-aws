@@ -215,35 +215,35 @@ import (
 type Trigger struct {
 	pulumi.CustomResourceState
 
-	// List of actions initiated by this trigger when it fires. See Actions Below.
+	// List of actions initiated by this trigger when it fires. See `actions` below.
 	Actions TriggerActionArrayOutput `pulumi:"actions"`
 	// ARN of Glue Trigger
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A description of the new trigger.
+	// Description of the new trigger.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Start the trigger. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
+	// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See `eventBatchingCondition`.
 	EventBatchingConditions TriggerEventBatchingConditionArrayOutput `pulumi:"eventBatchingConditions"`
-	// The name of the trigger.
+	// Name of the trigger.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
+	// Predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See `predicate` below.
 	Predicate TriggerPredicatePtrOutput `pulumi:"predicate"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
+	// Cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
 	Schedule pulumi.StringPtrOutput `pulumi:"schedule"`
 	// Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
 	StartOnCreation pulumi.BoolPtrOutput `pulumi:"startOnCreation"`
-	// The current state of the trigger.
+	// Current state of the trigger.
 	State pulumi.StringOutput `pulumi:"state"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
+	// Type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
 	Type pulumi.StringOutput `pulumi:"type"`
-	// A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
+	// Workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
 	WorkflowName pulumi.StringPtrOutput `pulumi:"workflowName"`
 }
 
@@ -283,68 +283,68 @@ func GetTrigger(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Trigger resources.
 type triggerState struct {
-	// List of actions initiated by this trigger when it fires. See Actions Below.
+	// List of actions initiated by this trigger when it fires. See `actions` below.
 	Actions []TriggerAction `pulumi:"actions"`
 	// ARN of Glue Trigger
 	Arn *string `pulumi:"arn"`
-	// A description of the new trigger.
+	// Description of the new trigger.
 	Description *string `pulumi:"description"`
 	// Start the trigger. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
+	// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See `eventBatchingCondition`.
 	EventBatchingConditions []TriggerEventBatchingCondition `pulumi:"eventBatchingConditions"`
-	// The name of the trigger.
+	// Name of the trigger.
 	Name *string `pulumi:"name"`
-	// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
+	// Predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See `predicate` below.
 	Predicate *TriggerPredicate `pulumi:"predicate"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
+	// Cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
 	Schedule *string `pulumi:"schedule"`
 	// Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
 	StartOnCreation *bool `pulumi:"startOnCreation"`
-	// The current state of the trigger.
+	// Current state of the trigger.
 	State *string `pulumi:"state"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
+	// Type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
 	Type *string `pulumi:"type"`
-	// A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
+	// Workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
 	WorkflowName *string `pulumi:"workflowName"`
 }
 
 type TriggerState struct {
-	// List of actions initiated by this trigger when it fires. See Actions Below.
+	// List of actions initiated by this trigger when it fires. See `actions` below.
 	Actions TriggerActionArrayInput
 	// ARN of Glue Trigger
 	Arn pulumi.StringPtrInput
-	// A description of the new trigger.
+	// Description of the new trigger.
 	Description pulumi.StringPtrInput
 	// Start the trigger. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
+	// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See `eventBatchingCondition`.
 	EventBatchingConditions TriggerEventBatchingConditionArrayInput
-	// The name of the trigger.
+	// Name of the trigger.
 	Name pulumi.StringPtrInput
-	// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
+	// Predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See `predicate` below.
 	Predicate TriggerPredicatePtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
+	// Cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
 	Schedule pulumi.StringPtrInput
 	// Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
 	StartOnCreation pulumi.BoolPtrInput
-	// The current state of the trigger.
+	// Current state of the trigger.
 	State pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
+	// Type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
 	Type pulumi.StringPtrInput
-	// A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
+	// Workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
 	WorkflowName pulumi.StringPtrInput
 }
 
@@ -353,57 +353,57 @@ func (TriggerState) ElementType() reflect.Type {
 }
 
 type triggerArgs struct {
-	// List of actions initiated by this trigger when it fires. See Actions Below.
+	// List of actions initiated by this trigger when it fires. See `actions` below.
 	Actions []TriggerAction `pulumi:"actions"`
-	// A description of the new trigger.
+	// Description of the new trigger.
 	Description *string `pulumi:"description"`
 	// Start the trigger. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
+	// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See `eventBatchingCondition`.
 	EventBatchingConditions []TriggerEventBatchingCondition `pulumi:"eventBatchingConditions"`
-	// The name of the trigger.
+	// Name of the trigger.
 	Name *string `pulumi:"name"`
-	// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
+	// Predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See `predicate` below.
 	Predicate *TriggerPredicate `pulumi:"predicate"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
+	// Cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
 	Schedule *string `pulumi:"schedule"`
 	// Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
 	StartOnCreation *bool `pulumi:"startOnCreation"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
+	// Type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
 	Type string `pulumi:"type"`
-	// A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
+	// Workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
 	WorkflowName *string `pulumi:"workflowName"`
 }
 
 // The set of arguments for constructing a Trigger resource.
 type TriggerArgs struct {
-	// List of actions initiated by this trigger when it fires. See Actions Below.
+	// List of actions initiated by this trigger when it fires. See `actions` below.
 	Actions TriggerActionArrayInput
-	// A description of the new trigger.
+	// Description of the new trigger.
 	Description pulumi.StringPtrInput
 	// Start the trigger. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
+	// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See `eventBatchingCondition`.
 	EventBatchingConditions TriggerEventBatchingConditionArrayInput
-	// The name of the trigger.
+	// Name of the trigger.
 	Name pulumi.StringPtrInput
-	// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
+	// Predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See `predicate` below.
 	Predicate TriggerPredicatePtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
+	// Cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
 	Schedule pulumi.StringPtrInput
 	// Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
 	StartOnCreation pulumi.BoolPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
+	// Type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
 	Type pulumi.StringInput
-	// A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
+	// Workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
 	WorkflowName pulumi.StringPtrInput
 }
 
@@ -494,7 +494,7 @@ func (o TriggerOutput) ToTriggerOutputWithContext(ctx context.Context) TriggerOu
 	return o
 }
 
-// List of actions initiated by this trigger when it fires. See Actions Below.
+// List of actions initiated by this trigger when it fires. See `actions` below.
 func (o TriggerOutput) Actions() TriggerActionArrayOutput {
 	return o.ApplyT(func(v *Trigger) TriggerActionArrayOutput { return v.Actions }).(TriggerActionArrayOutput)
 }
@@ -504,7 +504,7 @@ func (o TriggerOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trigger) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A description of the new trigger.
+// Description of the new trigger.
 func (o TriggerOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Trigger) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -514,17 +514,17 @@ func (o TriggerOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Trigger) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
+// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See `eventBatchingCondition`.
 func (o TriggerOutput) EventBatchingConditions() TriggerEventBatchingConditionArrayOutput {
 	return o.ApplyT(func(v *Trigger) TriggerEventBatchingConditionArrayOutput { return v.EventBatchingConditions }).(TriggerEventBatchingConditionArrayOutput)
 }
 
-// The name of the trigger.
+// Name of the trigger.
 func (o TriggerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trigger) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
+// Predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See `predicate` below.
 func (o TriggerOutput) Predicate() TriggerPredicatePtrOutput {
 	return o.ApplyT(func(v *Trigger) TriggerPredicatePtrOutput { return v.Predicate }).(TriggerPredicatePtrOutput)
 }
@@ -534,7 +534,7 @@ func (o TriggerOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trigger) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
+// Cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
 func (o TriggerOutput) Schedule() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Trigger) pulumi.StringPtrOutput { return v.Schedule }).(pulumi.StringPtrOutput)
 }
@@ -544,7 +544,7 @@ func (o TriggerOutput) StartOnCreation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Trigger) pulumi.BoolPtrOutput { return v.StartOnCreation }).(pulumi.BoolPtrOutput)
 }
 
-// The current state of the trigger.
+// Current state of the trigger.
 func (o TriggerOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trigger) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
@@ -554,17 +554,17 @@ func (o TriggerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Trigger) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o TriggerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Trigger) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
+// Type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
 func (o TriggerOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trigger) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
+// Workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
 func (o TriggerOutput) WorkflowName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Trigger) pulumi.StringPtrOutput { return v.WorkflowName }).(pulumi.StringPtrOutput)
 }

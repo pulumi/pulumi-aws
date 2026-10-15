@@ -12,12 +12,21 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Numeric value placed in the Network Information Table.
+        /// </summary>
         [Input("networkId", required: true)]
         public Input<int> NetworkId { get; set; } = null!;
 
+        /// <summary>
+        /// Network name text placed in the Network Information Table.
+        /// </summary>
         [Input("networkName", required: true)]
         public Input<string> NetworkName { get; set; } = null!;
 
+        /// <summary>
+        /// Number of milliseconds between instances of this table in the output transport stream.
+        /// </summary>
         [Input("repInterval")]
         public Input<int>? RepInterval { get; set; }
 

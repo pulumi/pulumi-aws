@@ -16,14 +16,14 @@ public final class PartitionStorageDescriptorSortColumnArgs extends com.pulumi.r
     public static final PartitionStorageDescriptorSortColumnArgs Empty = new PartitionStorageDescriptorSortColumnArgs();
 
     /**
-     * The name of the column.
+     * Name of the column.
      * 
      */
     @Import(name="column", required=true)
     private Output<String> column;
 
     /**
-     * @return The name of the column.
+     * @return Name of the column.
      * 
      */
     public Output<String> column() {
@@ -31,14 +31,14 @@ public final class PartitionStorageDescriptorSortColumnArgs extends com.pulumi.r
     }
 
     /**
-     * Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
+     * Order the column is sorted in: ascending (`1`) or descending (`0`).
      * 
      */
     @Import(name="sortOrder", required=true)
     private Output<Integer> sortOrder;
 
     /**
-     * @return Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
+     * @return Order the column is sorted in: ascending (`1`) or descending (`0`).
      * 
      */
     public Output<Integer> sortOrder() {
@@ -71,7 +71,7 @@ public final class PartitionStorageDescriptorSortColumnArgs extends com.pulumi.r
         }
 
         /**
-         * @param column The name of the column.
+         * @param column Name of the column.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class PartitionStorageDescriptorSortColumnArgs extends com.pulumi.r
         }
 
         /**
-         * @param column The name of the column.
+         * @param column Name of the column.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class PartitionStorageDescriptorSortColumnArgs extends com.pulumi.r
         }
 
         /**
-         * @param sortOrder Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
+         * @param sortOrder Order the column is sorted in: ascending (`1`) or descending (`0`).
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class PartitionStorageDescriptorSortColumnArgs extends com.pulumi.r
         }
 
         /**
-         * @param sortOrder Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
+         * @param sortOrder Order the column is sorted in: ascending (`1`) or descending (`0`).
          * 
          * @return builder
          * 

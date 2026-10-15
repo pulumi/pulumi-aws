@@ -108,7 +108,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### Attaching an EIP to an Instance with a pre-assigned private ip (VPC Only)
+ * ### Attaching an EIP to an Instance with a pre-assigned private IP (VPC Only)
  * 
  * <pre>
  * {@code

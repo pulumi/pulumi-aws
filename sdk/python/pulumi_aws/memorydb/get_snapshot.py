@@ -68,7 +68,7 @@ class GetSnapshotResult:
     @pulumi.getter(name="clusterConfigurations")
     def cluster_configurations(self) -> Sequence['outputs.GetSnapshotClusterConfigurationResult']:
         """
-        The configuration of the cluster from which the snapshot was taken.
+        Configuration of the cluster from which the snapshot was taken.
         """
         return pulumi.get(self, "cluster_configurations")
 

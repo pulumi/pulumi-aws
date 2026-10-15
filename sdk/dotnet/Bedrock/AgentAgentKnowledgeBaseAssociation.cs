@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Bedrock
 {
     /// <summary>
-    /// Resource for managing an AWS Agents for Amazon Bedrock Agent Knowledge Base Association.
+    /// Manages an AWS Agents for Amazon Bedrock Agent Knowledge Base Association.
     /// 
     /// ## Example Usage
     /// 
@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> AgentId { get; private set; } = null!;
 
         /// <summary>
-        /// Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
+        /// Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`. Defaults to `DRAFT`.
         /// </summary>
         [Output("agentVersion")]
         public Output<string> AgentVersion { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string> AgentId { get; set; } = null!;
 
         /// <summary>
-        /// Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
+        /// Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`. Defaults to `DRAFT`.
         /// </summary>
         [Input("agentVersion")]
         public Input<string>? AgentVersion { get; set; }
@@ -189,7 +189,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? AgentId { get; set; }
 
         /// <summary>
-        /// Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
+        /// Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`. Defaults to `DRAFT`.
         /// </summary>
         [Input("agentVersion")]
         public Input<string>? AgentVersion { get; set; }

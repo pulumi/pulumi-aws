@@ -75,7 +75,7 @@ def get_inference_profiles(region: Optional[_builtins.str] = None,
                            type: Optional[_builtins.str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInferenceProfilesResult:
     """
-    Data source for managing AWS Bedrock Inference Profiles.
+    Provides details about AWS Bedrock Inference Profiles.
 
     ## Example Usage
 
@@ -85,7 +85,7 @@ def get_inference_profiles(region: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.bedrock.get_inference_profiles()
+    example = aws.bedrock.get_inference_profiles()
     ```
 
     ### Filter by Type
@@ -94,7 +94,7 @@ def get_inference_profiles(region: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.bedrock.get_inference_profiles(type="APPLICATION")
+    example = aws.bedrock.get_inference_profiles(type="APPLICATION")
     ```
 
 
@@ -115,7 +115,7 @@ def get_inference_profiles_output(region: pulumi.Input[Optional[Optional[_builti
                                   type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInferenceProfilesResult]:
     """
-    Data source for managing AWS Bedrock Inference Profiles.
+    Provides details about AWS Bedrock Inference Profiles.
 
     ## Example Usage
 
@@ -125,7 +125,7 @@ def get_inference_profiles_output(region: pulumi.Input[Optional[Optional[_builti
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.bedrock.get_inference_profiles()
+    example = aws.bedrock.get_inference_profiles()
     ```
 
     ### Filter by Type
@@ -134,7 +134,7 @@ def get_inference_profiles_output(region: pulumi.Input[Optional[Optional[_builti
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.bedrock.get_inference_profiles(type="APPLICATION")
+    example = aws.bedrock.get_inference_profiles(type="APPLICATION")
     ```
 
 

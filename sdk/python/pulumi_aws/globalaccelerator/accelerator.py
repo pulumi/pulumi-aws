@@ -30,12 +30,12 @@ class AcceleratorArgs:
         """
         The set of arguments for constructing a Accelerator resource.
 
-        :param pulumi.Input['AcceleratorAttributesArgs'] attributes: The attributes of the accelerator. Fields documented below.
-        :param pulumi.Input[_builtins.bool] enabled: Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
-        :param pulumi.Input[_builtins.str] ip_address_type: The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_addresses: The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
-        :param pulumi.Input[_builtins.str] name: The name of the accelerator.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input['AcceleratorAttributesArgs'] attributes: Configuration block with accelerator attributes. See `attributes` below.
+        :param pulumi.Input[_builtins.bool] enabled: Whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
+        :param pulumi.Input[_builtins.str] ip_address_type: Value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_addresses: IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+        :param pulumi.Input[_builtins.str] name: Name of the accelerator.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
@@ -54,7 +54,7 @@ class AcceleratorArgs:
     @pulumi.getter
     def attributes(self) -> pulumi.Input[Optional['AcceleratorAttributesArgs']]:
         """
-        The attributes of the accelerator. Fields documented below.
+        Configuration block with accelerator attributes. See `attributes` below.
         """
         return pulumi.get(self, "attributes")
 
@@ -66,7 +66,7 @@ class AcceleratorArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
+        Whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
         """
         return pulumi.get(self, "enabled")
 
@@ -78,7 +78,7 @@ class AcceleratorArgs:
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
+        Value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
         """
         return pulumi.get(self, "ip_address_type")
 
@@ -90,7 +90,7 @@ class AcceleratorArgs:
     @pulumi.getter(name="ipAddresses")
     def ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+        IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
         """
         return pulumi.get(self, "ip_addresses")
 
@@ -102,7 +102,7 @@ class AcceleratorArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the accelerator.
+        Name of the accelerator.
         """
         return pulumi.get(self, "name")
 
@@ -114,7 +114,7 @@ class AcceleratorArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -142,19 +142,17 @@ class _AcceleratorState:
         Input properties used for looking up and filtering Accelerator resources.
 
         :param pulumi.Input[_builtins.str] arn: ARN of the accelerator.
-        :param pulumi.Input['AcceleratorAttributesArgs'] attributes: The attributes of the accelerator. Fields documented below.
-        :param pulumi.Input[_builtins.str] dns_name: The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
-        :param pulumi.Input[_builtins.str] dual_stack_dns_name: DNS name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
-        :param pulumi.Input[_builtins.bool] enabled: Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
-        :param pulumi.Input[_builtins.str] hosted_zone_id: -  The Global Accelerator Route 53 zone ID that can be used to
-                  route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-                  is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
-        :param pulumi.Input[_builtins.str] ip_address_type: The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_addresses: The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
-        :param pulumi.Input[Sequence[pulumi.Input['AcceleratorIpSetArgs']]] ip_sets: IP address set associated with the accelerator.
-        :param pulumi.Input[_builtins.str] name: The name of the accelerator.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input['AcceleratorAttributesArgs'] attributes: Configuration block with accelerator attributes. See `attributes` below.
+        :param pulumi.Input[_builtins.str] dns_name: DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
+        :param pulumi.Input[_builtins.str] dual_stack_dns_name: DNS name that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
+        :param pulumi.Input[_builtins.bool] enabled: Whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
+        :param pulumi.Input[_builtins.str] hosted_zone_id: Global Accelerator Route 53 zone ID used to route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the accelerator. This is an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+        :param pulumi.Input[_builtins.str] ip_address_type: Value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_addresses: IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+        :param pulumi.Input[Sequence[pulumi.Input['AcceleratorIpSetArgs']]] ip_sets: IP address set associated with the accelerator. See `ip_sets` below.
+        :param pulumi.Input[_builtins.str] name: Name of the accelerator.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -197,7 +195,7 @@ class _AcceleratorState:
     @pulumi.getter
     def attributes(self) -> pulumi.Input[Optional['AcceleratorAttributesArgs']]:
         """
-        The attributes of the accelerator. Fields documented below.
+        Configuration block with accelerator attributes. See `attributes` below.
         """
         return pulumi.get(self, "attributes")
 
@@ -209,7 +207,7 @@ class _AcceleratorState:
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
+        DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
         """
         return pulumi.get(self, "dns_name")
 
@@ -221,7 +219,7 @@ class _AcceleratorState:
     @pulumi.getter(name="dualStackDnsName")
     def dual_stack_dns_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        DNS name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
+        DNS name that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
         """
         return pulumi.get(self, "dual_stack_dns_name")
 
@@ -233,7 +231,7 @@ class _AcceleratorState:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
+        Whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
         """
         return pulumi.get(self, "enabled")
 
@@ -245,9 +243,7 @@ class _AcceleratorState:
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        -  The Global Accelerator Route 53 zone ID that can be used to
-           route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-           is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+        Global Accelerator Route 53 zone ID used to route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the accelerator. This is an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
         """
         return pulumi.get(self, "hosted_zone_id")
 
@@ -259,7 +255,7 @@ class _AcceleratorState:
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
+        Value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
         """
         return pulumi.get(self, "ip_address_type")
 
@@ -271,7 +267,7 @@ class _AcceleratorState:
     @pulumi.getter(name="ipAddresses")
     def ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+        IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
         """
         return pulumi.get(self, "ip_addresses")
 
@@ -283,7 +279,7 @@ class _AcceleratorState:
     @pulumi.getter(name="ipSets")
     def ip_sets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AcceleratorIpSetArgs']]]]:
         """
-        IP address set associated with the accelerator.
+        IP address set associated with the accelerator. See `ip_sets` below.
         """
         return pulumi.get(self, "ip_sets")
 
@@ -295,7 +291,7 @@ class _AcceleratorState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the accelerator.
+        Name of the accelerator.
         """
         return pulumi.get(self, "name")
 
@@ -307,7 +303,7 @@ class _AcceleratorState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -319,7 +315,7 @@ class _AcceleratorState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -379,12 +375,12 @@ class Accelerator(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AcceleratorAttributesArgs', 'AcceleratorAttributesArgsDict', 'outputs.AcceleratorAttributes']] attributes: The attributes of the accelerator. Fields documented below.
-        :param pulumi.Input[_builtins.bool] enabled: Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
-        :param pulumi.Input[_builtins.str] ip_address_type: The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_addresses: The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
-        :param pulumi.Input[_builtins.str] name: The name of the accelerator.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Union['AcceleratorAttributesArgs', 'AcceleratorAttributesArgsDict', 'outputs.AcceleratorAttributes']] attributes: Configuration block with accelerator attributes. See `attributes` below.
+        :param pulumi.Input[_builtins.bool] enabled: Whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
+        :param pulumi.Input[_builtins.str] ip_address_type: Value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_addresses: IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+        :param pulumi.Input[_builtins.str] name: Name of the accelerator.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -500,19 +496,17 @@ class Accelerator(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the accelerator.
-        :param pulumi.Input[Union['AcceleratorAttributesArgs', 'AcceleratorAttributesArgsDict', 'outputs.AcceleratorAttributes']] attributes: The attributes of the accelerator. Fields documented below.
-        :param pulumi.Input[_builtins.str] dns_name: The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
-        :param pulumi.Input[_builtins.str] dual_stack_dns_name: DNS name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
-        :param pulumi.Input[_builtins.bool] enabled: Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
-        :param pulumi.Input[_builtins.str] hosted_zone_id: -  The Global Accelerator Route 53 zone ID that can be used to
-                  route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-                  is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
-        :param pulumi.Input[_builtins.str] ip_address_type: The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_addresses: The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AcceleratorIpSetArgs', 'AcceleratorIpSetArgsDict', 'outputs.AcceleratorIpSet']]]] ip_sets: IP address set associated with the accelerator.
-        :param pulumi.Input[_builtins.str] name: The name of the accelerator.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Union['AcceleratorAttributesArgs', 'AcceleratorAttributesArgsDict', 'outputs.AcceleratorAttributes']] attributes: Configuration block with accelerator attributes. See `attributes` below.
+        :param pulumi.Input[_builtins.str] dns_name: DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
+        :param pulumi.Input[_builtins.str] dual_stack_dns_name: DNS name that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
+        :param pulumi.Input[_builtins.bool] enabled: Whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
+        :param pulumi.Input[_builtins.str] hosted_zone_id: Global Accelerator Route 53 zone ID used to route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the accelerator. This is an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+        :param pulumi.Input[_builtins.str] ip_address_type: Value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_addresses: IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AcceleratorIpSetArgs', 'AcceleratorIpSetArgsDict', 'outputs.AcceleratorIpSet']]]] ip_sets: IP address set associated with the accelerator. See `ip_sets` below.
+        :param pulumi.Input[_builtins.str] name: Name of the accelerator.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -544,7 +538,7 @@ class Accelerator(pulumi.CustomResource):
     @pulumi.getter
     def attributes(self) -> pulumi.Output[Optional['outputs.AcceleratorAttributes']]:
         """
-        The attributes of the accelerator. Fields documented below.
+        Configuration block with accelerator attributes. See `attributes` below.
         """
         return pulumi.get(self, "attributes")
 
@@ -552,7 +546,7 @@ class Accelerator(pulumi.CustomResource):
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
+        DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
         """
         return pulumi.get(self, "dns_name")
 
@@ -560,7 +554,7 @@ class Accelerator(pulumi.CustomResource):
     @pulumi.getter(name="dualStackDnsName")
     def dual_stack_dns_name(self) -> pulumi.Output[_builtins.str]:
         """
-        DNS name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
+        DNS name that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
         """
         return pulumi.get(self, "dual_stack_dns_name")
 
@@ -568,7 +562,7 @@ class Accelerator(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
+        Whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
         """
         return pulumi.get(self, "enabled")
 
@@ -576,9 +570,7 @@ class Accelerator(pulumi.CustomResource):
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> pulumi.Output[_builtins.str]:
         """
-        -  The Global Accelerator Route 53 zone ID that can be used to
-           route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-           is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+        Global Accelerator Route 53 zone ID used to route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the accelerator. This is an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
         """
         return pulumi.get(self, "hosted_zone_id")
 
@@ -586,7 +578,7 @@ class Accelerator(pulumi.CustomResource):
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
+        Value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
         """
         return pulumi.get(self, "ip_address_type")
 
@@ -594,7 +586,7 @@ class Accelerator(pulumi.CustomResource):
     @pulumi.getter(name="ipAddresses")
     def ip_addresses(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+        IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
         """
         return pulumi.get(self, "ip_addresses")
 
@@ -602,7 +594,7 @@ class Accelerator(pulumi.CustomResource):
     @pulumi.getter(name="ipSets")
     def ip_sets(self) -> pulumi.Output[Sequence['outputs.AcceleratorIpSet']]:
         """
-        IP address set associated with the accelerator.
+        IP address set associated with the accelerator. See `ip_sets` below.
         """
         return pulumi.get(self, "ip_sets")
 
@@ -610,7 +602,7 @@ class Accelerator(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the accelerator.
+        Name of the accelerator.
         """
         return pulumi.get(self, "name")
 
@@ -618,7 +610,7 @@ class Accelerator(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -626,7 +618,7 @@ class Accelerator(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

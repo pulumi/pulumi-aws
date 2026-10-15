@@ -25,9 +25,8 @@ class MainRouteTableAssociationArgs:
         """
         The set of arguments for constructing a MainRouteTableAssociation resource.
 
-        :param pulumi.Input[_builtins.str] route_table_id: The ID of the Route Table to set as the new
-               main route table for the target VPC
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC whose main route table should be set
+        :param pulumi.Input[_builtins.str] route_table_id: ID of the Route Table to set as the new main route table for the target VPC
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC whose main route table should be set
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "route_table_id", route_table_id)
@@ -39,8 +38,7 @@ class MainRouteTableAssociationArgs:
     @pulumi.getter(name="routeTableId")
     def route_table_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the Route Table to set as the new
-        main route table for the target VPC
+        ID of the Route Table to set as the new main route table for the target VPC
         """
         return pulumi.get(self, "route_table_id")
 
@@ -52,7 +50,7 @@ class MainRouteTableAssociationArgs:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the VPC whose main route table should be set
+        ID of the VPC whose main route table should be set
         """
         return pulumi.get(self, "vpc_id")
 
@@ -83,11 +81,10 @@ class _MainRouteTableAssociationState:
         """
         Input properties used for looking up and filtering MainRouteTableAssociation resources.
 
-        :param pulumi.Input[_builtins.str] original_route_table_id: Used internally, see **Notes** below
+        :param pulumi.Input[_builtins.str] original_route_table_id: Original route table ID, used internally; see __Notes__ below
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] route_table_id: The ID of the Route Table to set as the new
-               main route table for the target VPC
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC whose main route table should be set
+        :param pulumi.Input[_builtins.str] route_table_id: ID of the Route Table to set as the new main route table for the target VPC
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC whose main route table should be set
         """
         if original_route_table_id is not None:
             pulumi.set(__self__, "original_route_table_id", original_route_table_id)
@@ -102,7 +99,7 @@ class _MainRouteTableAssociationState:
     @pulumi.getter(name="originalRouteTableId")
     def original_route_table_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Used internally, see **Notes** below
+        Original route table ID, used internally; see __Notes__ below
         """
         return pulumi.get(self, "original_route_table_id")
 
@@ -126,8 +123,7 @@ class _MainRouteTableAssociationState:
     @pulumi.getter(name="routeTableId")
     def route_table_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the Route Table to set as the new
-        main route table for the target VPC
+        ID of the Route Table to set as the new main route table for the target VPC
         """
         return pulumi.get(self, "route_table_id")
 
@@ -139,7 +135,7 @@ class _MainRouteTableAssociationState:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the VPC whose main route table should be set
+        ID of the VPC whose main route table should be set
         """
         return pulumi.get(self, "vpc_id")
 
@@ -179,9 +175,8 @@ class MainRouteTableAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] route_table_id: The ID of the Route Table to set as the new
-               main route table for the target VPC
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC whose main route table should be set
+        :param pulumi.Input[_builtins.str] route_table_id: ID of the Route Table to set as the new main route table for the target VPC
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC whose main route table should be set
         """
         ...
     @overload
@@ -263,11 +258,10 @@ class MainRouteTableAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] original_route_table_id: Used internally, see **Notes** below
+        :param pulumi.Input[_builtins.str] original_route_table_id: Original route table ID, used internally; see __Notes__ below
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] route_table_id: The ID of the Route Table to set as the new
-               main route table for the target VPC
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC whose main route table should be set
+        :param pulumi.Input[_builtins.str] route_table_id: ID of the Route Table to set as the new main route table for the target VPC
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC whose main route table should be set
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -283,7 +277,7 @@ class MainRouteTableAssociation(pulumi.CustomResource):
     @pulumi.getter(name="originalRouteTableId")
     def original_route_table_id(self) -> pulumi.Output[_builtins.str]:
         """
-        Used internally, see **Notes** below
+        Original route table ID, used internally; see __Notes__ below
         """
         return pulumi.get(self, "original_route_table_id")
 
@@ -299,8 +293,7 @@ class MainRouteTableAssociation(pulumi.CustomResource):
     @pulumi.getter(name="routeTableId")
     def route_table_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the Route Table to set as the new
-        main route table for the target VPC
+        ID of the Route Table to set as the new main route table for the target VPC
         """
         return pulumi.get(self, "route_table_id")
 
@@ -308,7 +301,7 @@ class MainRouteTableAssociation(pulumi.CustomResource):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the VPC whose main route table should be set
+        ID of the VPC whose main route table should be set
         """
         return pulumi.get(self, "vpc_id")
 

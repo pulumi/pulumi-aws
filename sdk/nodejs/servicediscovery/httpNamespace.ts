@@ -66,7 +66,7 @@ export class HttpNamespace extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly httpName: pulumi.Output<string>;
     /**
-     * The name of the http namespace.
+     * The name of the HTTP namespace.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -134,7 +134,7 @@ export interface HttpNamespaceState {
      */
     httpName?: pulumi.Input<string | undefined>;
     /**
-     * The name of the http namespace.
+     * The name of the HTTP namespace.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -160,7 +160,7 @@ export interface HttpNamespaceArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The name of the http namespace.
+     * The name of the HTTP namespace.
      */
     name?: pulumi.Input<string | undefined>;
     /**

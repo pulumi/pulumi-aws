@@ -18,14 +18,14 @@ public final class AgentPromptVariantTemplateConfigurationChatMessageArgs extend
     public static final AgentPromptVariantTemplateConfigurationChatMessageArgs Empty = new AgentPromptVariantTemplateConfigurationChatMessageArgs();
 
     /**
-     * Content for the message you pass to, or receive from a model. See `content` Block for more information.
+     * Content for the message you pass to, or receive from, a model. See `content` Block for more information.
      * 
      */
     @Import(name="content")
     private @Nullable Output<AgentPromptVariantTemplateConfigurationChatMessageContentArgs> content;
 
     /**
-     * @return Content for the message you pass to, or receive from a model. See `content` Block for more information.
+     * @return Content for the message you pass to, or receive from, a model. See `content` Block for more information.
      * 
      */
     public Optional<Output<AgentPromptVariantTemplateConfigurationChatMessageContentArgs>> content() {
@@ -73,7 +73,7 @@ public final class AgentPromptVariantTemplateConfigurationChatMessageArgs extend
         }
 
         /**
-         * @param content Content for the message you pass to, or receive from a model. See `content` Block for more information.
+         * @param content Content for the message you pass to, or receive from, a model. See `content` Block for more information.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class AgentPromptVariantTemplateConfigurationChatMessageArgs extend
         }
 
         /**
-         * @param content Content for the message you pass to, or receive from a model. See `content` Block for more information.
+         * @param content Content for the message you pass to, or receive from, a model. See `content` Block for more information.
          * 
          * @return builder
          * 

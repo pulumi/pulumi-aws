@@ -153,17 +153,17 @@ import (
 type Classifier struct {
 	pulumi.CustomResourceState
 
-	// A classifier for CSV content. Defined below.
+	// Classifier for CSV content. Defined below.
 	CsvClassifier ClassifierCsvClassifierPtrOutput `pulumi:"csvClassifier"`
-	// A classifier that uses grok patterns. Defined below.
+	// Classifier that uses grok patterns. Defined below.
 	GrokClassifier ClassifierGrokClassifierPtrOutput `pulumi:"grokClassifier"`
-	// A classifier for JSON content. Defined below.
+	// Classifier for JSON content. Defined below.
 	JsonClassifier ClassifierJsonClassifierPtrOutput `pulumi:"jsonClassifier"`
-	// The name of the classifier.
+	// Name of the classifier.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// A classifier for XML content. Defined below.
+	// Classifier for XML content. Defined below.
 	XmlClassifier ClassifierXmlClassifierPtrOutput `pulumi:"xmlClassifier"`
 }
 
@@ -197,32 +197,32 @@ func GetClassifier(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Classifier resources.
 type classifierState struct {
-	// A classifier for CSV content. Defined below.
+	// Classifier for CSV content. Defined below.
 	CsvClassifier *ClassifierCsvClassifier `pulumi:"csvClassifier"`
-	// A classifier that uses grok patterns. Defined below.
+	// Classifier that uses grok patterns. Defined below.
 	GrokClassifier *ClassifierGrokClassifier `pulumi:"grokClassifier"`
-	// A classifier for JSON content. Defined below.
+	// Classifier for JSON content. Defined below.
 	JsonClassifier *ClassifierJsonClassifier `pulumi:"jsonClassifier"`
-	// The name of the classifier.
+	// Name of the classifier.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A classifier for XML content. Defined below.
+	// Classifier for XML content. Defined below.
 	XmlClassifier *ClassifierXmlClassifier `pulumi:"xmlClassifier"`
 }
 
 type ClassifierState struct {
-	// A classifier for CSV content. Defined below.
+	// Classifier for CSV content. Defined below.
 	CsvClassifier ClassifierCsvClassifierPtrInput
-	// A classifier that uses grok patterns. Defined below.
+	// Classifier that uses grok patterns. Defined below.
 	GrokClassifier ClassifierGrokClassifierPtrInput
-	// A classifier for JSON content. Defined below.
+	// Classifier for JSON content. Defined below.
 	JsonClassifier ClassifierJsonClassifierPtrInput
-	// The name of the classifier.
+	// Name of the classifier.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A classifier for XML content. Defined below.
+	// Classifier for XML content. Defined below.
 	XmlClassifier ClassifierXmlClassifierPtrInput
 }
 
@@ -231,33 +231,33 @@ func (ClassifierState) ElementType() reflect.Type {
 }
 
 type classifierArgs struct {
-	// A classifier for CSV content. Defined below.
+	// Classifier for CSV content. Defined below.
 	CsvClassifier *ClassifierCsvClassifier `pulumi:"csvClassifier"`
-	// A classifier that uses grok patterns. Defined below.
+	// Classifier that uses grok patterns. Defined below.
 	GrokClassifier *ClassifierGrokClassifier `pulumi:"grokClassifier"`
-	// A classifier for JSON content. Defined below.
+	// Classifier for JSON content. Defined below.
 	JsonClassifier *ClassifierJsonClassifier `pulumi:"jsonClassifier"`
-	// The name of the classifier.
+	// Name of the classifier.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A classifier for XML content. Defined below.
+	// Classifier for XML content. Defined below.
 	XmlClassifier *ClassifierXmlClassifier `pulumi:"xmlClassifier"`
 }
 
 // The set of arguments for constructing a Classifier resource.
 type ClassifierArgs struct {
-	// A classifier for CSV content. Defined below.
+	// Classifier for CSV content. Defined below.
 	CsvClassifier ClassifierCsvClassifierPtrInput
-	// A classifier that uses grok patterns. Defined below.
+	// Classifier that uses grok patterns. Defined below.
 	GrokClassifier ClassifierGrokClassifierPtrInput
-	// A classifier for JSON content. Defined below.
+	// Classifier for JSON content. Defined below.
 	JsonClassifier ClassifierJsonClassifierPtrInput
-	// The name of the classifier.
+	// Name of the classifier.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A classifier for XML content. Defined below.
+	// Classifier for XML content. Defined below.
 	XmlClassifier ClassifierXmlClassifierPtrInput
 }
 
@@ -348,22 +348,22 @@ func (o ClassifierOutput) ToClassifierOutputWithContext(ctx context.Context) Cla
 	return o
 }
 
-// A classifier for CSV content. Defined below.
+// Classifier for CSV content. Defined below.
 func (o ClassifierOutput) CsvClassifier() ClassifierCsvClassifierPtrOutput {
 	return o.ApplyT(func(v *Classifier) ClassifierCsvClassifierPtrOutput { return v.CsvClassifier }).(ClassifierCsvClassifierPtrOutput)
 }
 
-// A classifier that uses grok patterns. Defined below.
+// Classifier that uses grok patterns. Defined below.
 func (o ClassifierOutput) GrokClassifier() ClassifierGrokClassifierPtrOutput {
 	return o.ApplyT(func(v *Classifier) ClassifierGrokClassifierPtrOutput { return v.GrokClassifier }).(ClassifierGrokClassifierPtrOutput)
 }
 
-// A classifier for JSON content. Defined below.
+// Classifier for JSON content. Defined below.
 func (o ClassifierOutput) JsonClassifier() ClassifierJsonClassifierPtrOutput {
 	return o.ApplyT(func(v *Classifier) ClassifierJsonClassifierPtrOutput { return v.JsonClassifier }).(ClassifierJsonClassifierPtrOutput)
 }
 
-// The name of the classifier.
+// Name of the classifier.
 func (o ClassifierOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Classifier) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -373,7 +373,7 @@ func (o ClassifierOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Classifier) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A classifier for XML content. Defined below.
+// Classifier for XML content. Defined below.
 func (o ClassifierOutput) XmlClassifier() ClassifierXmlClassifierPtrOutput {
 	return o.ApplyT(func(v *Classifier) ClassifierXmlClassifierPtrOutput { return v.XmlClassifier }).(ClassifierXmlClassifierPtrOutput)
 }

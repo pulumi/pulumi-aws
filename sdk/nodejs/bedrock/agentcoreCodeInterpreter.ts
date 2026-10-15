@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     networkConfiguration: {
  *         networkMode: "PUBLIC",
  *     },
- *     name: "example-code-interpreter",
+ *     name: "example_code_interpreter",
  *     description: "Code interpreter for data analysis",
  * });
  * ```
@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  *     networkConfiguration: {
  *         networkMode: "SANDBOX",
  *     },
- *     name: "example-code-interpreter",
+ *     name: "example_code_interpreter",
  *     description: "Code interpreter with custom execution role",
  *     executionRoleArn: example.arn,
  * });
@@ -110,7 +110,7 @@ export class AgentcoreCodeInterpreter extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
+     * ARN of the IAM role that the code interpreter assumes for execution.
      */
     declare public readonly executionRoleArn: pulumi.Output<string | undefined>;
     /**
@@ -204,7 +204,7 @@ export interface AgentcoreCodeInterpreterState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
+     * ARN of the IAM role that the code interpreter assumes for execution.
      */
     executionRoleArn?: pulumi.Input<string | undefined>;
     /**
@@ -245,7 +245,7 @@ export interface AgentcoreCodeInterpreterArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
+     * ARN of the IAM role that the code interpreter assumes for execution.
      */
     executionRoleArn?: pulumi.Input<string | undefined>;
     /**

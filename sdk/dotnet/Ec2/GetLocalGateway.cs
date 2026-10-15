@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// ## Example Usage
         /// 
-        /// The following example shows how one might accept a local gateway id as a variable.
+        /// The following example shows how one might accept a local gateway ID as a variable.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -44,7 +44,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// ## Example Usage
         /// 
-        /// The following example shows how one might accept a local gateway id as a variable.
+        /// The following example shows how one might accept a local gateway ID as a variable.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// ## Example Usage
         /// 
-        /// The following example shows how one might accept a local gateway id as a variable.
+        /// The following example shows how one might accept a local gateway ID as a variable.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -112,7 +112,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Id of the specific Local Gateway to retrieve.
+        /// ID of the specific Local Gateway to retrieve.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Id of the specific Local Gateway to retrieve.
+        /// ID of the specific Local Gateway to retrieve.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

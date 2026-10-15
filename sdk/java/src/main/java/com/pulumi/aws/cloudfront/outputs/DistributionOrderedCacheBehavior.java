@@ -55,12 +55,12 @@ public final class DistributionOrderedCacheBehavior {
      */
     private @Nullable DistributionOrderedCacheBehaviorForwardedValues forwardedValues;
     /**
-     * @return A config block that triggers a cloudfront function with specific actions (maximum 2).
+     * @return A config block that triggers a CloudFront function with specific actions (maximum 2).
      * 
      */
     private @Nullable List<DistributionOrderedCacheBehaviorFunctionAssociation> functionAssociations;
     /**
-     * @return A config block that sets the grpc config.
+     * @return A config block that sets the gRPC config.
      * 
      */
     private @Nullable DistributionOrderedCacheBehaviorGrpcConfig grpcConfig;
@@ -176,14 +176,14 @@ public final class DistributionOrderedCacheBehavior {
         return Optional.ofNullable(this.forwardedValues);
     }
     /**
-     * @return A config block that triggers a cloudfront function with specific actions (maximum 2).
+     * @return A config block that triggers a CloudFront function with specific actions (maximum 2).
      * 
      */
     public List<DistributionOrderedCacheBehaviorFunctionAssociation> functionAssociations() {
         return this.functionAssociations == null ? List.of() : this.functionAssociations;
     }
     /**
-     * @return A config block that sets the grpc config.
+     * @return A config block that sets the gRPC config.
      * 
      */
     public Optional<DistributionOrderedCacheBehaviorGrpcConfig> grpcConfig() {

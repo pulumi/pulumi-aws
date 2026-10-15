@@ -147,9 +147,6 @@ namespace Pulumi.Aws.Ec2
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
 
-        /// <summary>
-        /// Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
-        /// </summary>
         [Output("lastLaunchedTime")]
         public Output<string> LastLaunchedTime { get; private set; } = null!;
 
@@ -197,7 +194,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> RootSnapshotId { get; private set; } = null!;
 
         /// <summary>
-        /// Id of the AMI to copy. This id must be valid in the region
+        /// ID of the AMI to copy. This ID must be valid in the region
         /// given by `SourceAmiRegion`.
         /// </summary>
         [Output("sourceAmiId")]
@@ -365,7 +362,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Id of the AMI to copy. This id must be valid in the region
+        /// ID of the AMI to copy. This ID must be valid in the region
         /// given by `SourceAmiRegion`.
         /// </summary>
         [Input("sourceAmiId", required: true)]
@@ -508,9 +505,6 @@ namespace Pulumi.Aws.Ec2
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
-        /// <summary>
-        /// Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
-        /// </summary>
         [Input("lastLaunchedTime")]
         public Input<string>? LastLaunchedTime { get; set; }
 
@@ -558,7 +552,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? RootSnapshotId { get; set; }
 
         /// <summary>
-        /// Id of the AMI to copy. This id must be valid in the region
+        /// ID of the AMI to copy. This ID must be valid in the region
         /// given by `SourceAmiRegion`.
         /// </summary>
         [Input("sourceAmiId")]

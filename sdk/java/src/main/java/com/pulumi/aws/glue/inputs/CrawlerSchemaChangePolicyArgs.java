@@ -16,14 +16,14 @@ public final class CrawlerSchemaChangePolicyArgs extends com.pulumi.resources.Re
     public static final CrawlerSchemaChangePolicyArgs Empty = new CrawlerSchemaChangePolicyArgs();
 
     /**
-     * The deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
+     * Deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
      * 
      */
     @Import(name="deleteBehavior")
     private @Nullable Output<String> deleteBehavior;
 
     /**
-     * @return The deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
+     * @return Deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
      * 
      */
     public Optional<Output<String>> deleteBehavior() {
@@ -31,14 +31,14 @@ public final class CrawlerSchemaChangePolicyArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The update behavior when the crawler finds a changed schema. Valid values: `LOG` or `UPDATE_IN_DATABASE`. Defaults to `UPDATE_IN_DATABASE`.
+     * Update behavior when the crawler finds a changed schema. Valid values: `LOG` or `UPDATE_IN_DATABASE`. Defaults to `UPDATE_IN_DATABASE`.
      * 
      */
     @Import(name="updateBehavior")
     private @Nullable Output<String> updateBehavior;
 
     /**
-     * @return The update behavior when the crawler finds a changed schema. Valid values: `LOG` or `UPDATE_IN_DATABASE`. Defaults to `UPDATE_IN_DATABASE`.
+     * @return Update behavior when the crawler finds a changed schema. Valid values: `LOG` or `UPDATE_IN_DATABASE`. Defaults to `UPDATE_IN_DATABASE`.
      * 
      */
     public Optional<Output<String>> updateBehavior() {
@@ -71,7 +71,7 @@ public final class CrawlerSchemaChangePolicyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param deleteBehavior The deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
+         * @param deleteBehavior Deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class CrawlerSchemaChangePolicyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param deleteBehavior The deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
+         * @param deleteBehavior Deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class CrawlerSchemaChangePolicyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param updateBehavior The update behavior when the crawler finds a changed schema. Valid values: `LOG` or `UPDATE_IN_DATABASE`. Defaults to `UPDATE_IN_DATABASE`.
+         * @param updateBehavior Update behavior when the crawler finds a changed schema. Valid values: `LOG` or `UPDATE_IN_DATABASE`. Defaults to `UPDATE_IN_DATABASE`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class CrawlerSchemaChangePolicyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param updateBehavior The update behavior when the crawler finds a changed schema. Valid values: `LOG` or `UPDATE_IN_DATABASE`. Defaults to `UPDATE_IN_DATABASE`.
+         * @param updateBehavior Update behavior when the crawler finds a changed schema. Valid values: `LOG` or `UPDATE_IN_DATABASE`. Defaults to `UPDATE_IN_DATABASE`.
          * 
          * @return builder
          * 

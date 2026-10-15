@@ -74,7 +74,7 @@ namespace Pulumi.Aws.GuardDuty
     public partial class IPSet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies whether GuardDuty is to start using the uploaded IPSet.
+        /// Whether to start using the uploaded IPSet.
         /// </summary>
         [Output("activate")]
         public Output<bool> Activate { get; private set; } = null!;
@@ -86,13 +86,13 @@ namespace Pulumi.Aws.GuardDuty
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The detector ID of the GuardDuty.
+        /// Detector ID of the GuardDuty.
         /// </summary>
         [Output("detectorId")]
         public Output<string> DetectorId { get; private set; } = null!;
 
         /// <summary>
-        /// The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
+        /// Format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
         /// </summary>
         [Output("format")]
         public Output<string> Format { get; private set; } = null!;
@@ -104,13 +104,13 @@ namespace Pulumi.Aws.GuardDuty
         public Output<string> IpSetId { get; private set; } = null!;
 
         /// <summary>
-        /// The URI of the file that contains the IPSet.
+        /// URI of the file that contains the IPSet.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The friendly name to identify the IPSet.
+        /// Friendly name to identify the IPSet.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -128,7 +128,7 @@ namespace Pulumi.Aws.GuardDuty
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -180,31 +180,31 @@ namespace Pulumi.Aws.GuardDuty
     public sealed class IPSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether GuardDuty is to start using the uploaded IPSet.
+        /// Whether to start using the uploaded IPSet.
         /// </summary>
         [Input("activate", required: true)]
         public Input<bool> Activate { get; set; } = null!;
 
         /// <summary>
-        /// The detector ID of the GuardDuty.
+        /// Detector ID of the GuardDuty.
         /// </summary>
         [Input("detectorId", required: true)]
         public Input<string> DetectorId { get; set; } = null!;
 
         /// <summary>
-        /// The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
+        /// Format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
         /// </summary>
         [Input("format", required: true)]
         public Input<string> Format { get; set; } = null!;
 
         /// <summary>
-        /// The URI of the file that contains the IPSet.
+        /// URI of the file that contains the IPSet.
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The friendly name to identify the IPSet.
+        /// Friendly name to identify the IPSet.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -236,7 +236,7 @@ namespace Pulumi.Aws.GuardDuty
     public sealed class IPSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether GuardDuty is to start using the uploaded IPSet.
+        /// Whether to start using the uploaded IPSet.
         /// </summary>
         [Input("activate")]
         public Input<bool>? Activate { get; set; }
@@ -248,13 +248,13 @@ namespace Pulumi.Aws.GuardDuty
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The detector ID of the GuardDuty.
+        /// Detector ID of the GuardDuty.
         /// </summary>
         [Input("detectorId")]
         public Input<string>? DetectorId { get; set; }
 
         /// <summary>
-        /// The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
+        /// Format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
         /// </summary>
         [Input("format")]
         public Input<string>? Format { get; set; }
@@ -266,13 +266,13 @@ namespace Pulumi.Aws.GuardDuty
         public Input<string>? IpSetId { get; set; }
 
         /// <summary>
-        /// The URI of the file that contains the IPSet.
+        /// URI of the file that contains the IPSet.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The friendly name to identify the IPSet.
+        /// Friendly name to identify the IPSet.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -299,7 +299,7 @@ namespace Pulumi.Aws.GuardDuty
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

@@ -8,9 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides an AutoScaling Group with Notification support, via SNS Topics. Each of
+ * Provides an Auto Scaling group with Notification support, via SNS Topics. Each of
  * the `notifications` map to a [Notification Configuration](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeNotificationConfigurations.html) inside Amazon Web
- * Services, and are applied to each AutoScaling Group you supply.
+ * Services, and are applied to each Auto Scaling group you supply.
  *
  * ## Example Usage
  *
@@ -67,7 +67,7 @@ export class Notification extends pulumi.CustomResource {
     }
 
     /**
-     * List of AutoScaling Group Names
+     * List of Auto Scaling group Names
      */
     declare public readonly groupNames: pulumi.Output<string[]>;
     /**
@@ -127,7 +127,7 @@ export class Notification extends pulumi.CustomResource {
  */
 export interface NotificationState {
     /**
-     * List of AutoScaling Group Names
+     * List of Auto Scaling group Names
      */
     groupNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -150,7 +150,7 @@ export interface NotificationState {
  */
 export interface NotificationArgs {
     /**
-     * List of AutoScaling Group Names
+     * List of Auto Scaling group Names
      */
     groupNames: pulumi.Input<pulumi.Input<string>[]>;
     /**

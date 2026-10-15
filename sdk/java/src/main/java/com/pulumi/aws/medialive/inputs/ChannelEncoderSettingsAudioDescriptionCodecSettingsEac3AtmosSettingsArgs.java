@@ -62,14 +62,14 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosS
     }
 
     /**
-     * Sets the Dolby dynamic range compression profile.
+     * Dolby dynamic range compression profile.
      * 
      */
     @Import(name="drcLine")
     private @Nullable Output<String> drcLine;
 
     /**
-     * @return Sets the Dolby dynamic range compression profile.
+     * @return Dolby dynamic range compression profile.
      * 
      */
     public Optional<Output<String>> drcLine() {
@@ -77,14 +77,14 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosS
     }
 
     /**
-     * Sets the profile for heavy Dolby dynamic range compression.
+     * Profile for heavy Dolby dynamic range compression.
      * 
      */
     @Import(name="drcRf")
     private @Nullable Output<String> drcRf;
 
     /**
-     * @return Sets the profile for heavy Dolby dynamic range compression.
+     * @return Profile for heavy Dolby dynamic range compression.
      * 
      */
     public Optional<Output<String>> drcRf() {
@@ -215,7 +215,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosS
         }
 
         /**
-         * @param drcLine Sets the Dolby dynamic range compression profile.
+         * @param drcLine Dolby dynamic range compression profile.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosS
         }
 
         /**
-         * @param drcLine Sets the Dolby dynamic range compression profile.
+         * @param drcLine Dolby dynamic range compression profile.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosS
         }
 
         /**
-         * @param drcRf Sets the profile for heavy Dolby dynamic range compression.
+         * @param drcRf Profile for heavy Dolby dynamic range compression.
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosS
         }
 
         /**
-         * @param drcRf Sets the profile for heavy Dolby dynamic range compression.
+         * @param drcRf Profile for heavy Dolby dynamic range compression.
          * 
          * @return builder
          * 

@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConnectorKafkaClusterEncryptionInTransit {
     /**
-     * @return The type of encryption in transit to the Apache Kafka cluster. Valid values: `PLAINTEXT`, `TLS`. The default values is `PLAINTEXT`.
+     * @return Type of encryption in transit to the Apache Kafka cluster. Valid values: `PLAINTEXT`, `TLS`. The default values is `PLAINTEXT`.
      * 
      */
     private @Nullable String encryptionType;
 
     private ConnectorKafkaClusterEncryptionInTransit() {}
     /**
-     * @return The type of encryption in transit to the Apache Kafka cluster. Valid values: `PLAINTEXT`, `TLS`. The default values is `PLAINTEXT`.
+     * @return Type of encryption in transit to the Apache Kafka cluster. Valid values: `PLAINTEXT`, `TLS`. The default values is `PLAINTEXT`.
      * 
      */
     public Optional<String> encryptionType() {

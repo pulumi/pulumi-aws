@@ -17,14 +17,14 @@ public final class AcceleratorAttributesArgs extends com.pulumi.resources.Resour
     public static final AcceleratorAttributesArgs Empty = new AcceleratorAttributesArgs();
 
     /**
-     * Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
+     * Whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
      * 
      */
     @Import(name="flowLogsEnabled")
     private @Nullable Output<Boolean> flowLogsEnabled;
 
     /**
-     * @return Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
+     * @return Whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
      * 
      */
     public Optional<Output<Boolean>> flowLogsEnabled() {
@@ -32,14 +32,14 @@ public final class AcceleratorAttributesArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
+     * Name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
      * 
      */
     @Import(name="flowLogsS3Bucket")
     private @Nullable Output<String> flowLogsS3Bucket;
 
     /**
-     * @return The name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
+     * @return Name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
      * 
      */
     public Optional<Output<String>> flowLogsS3Bucket() {
@@ -47,14 +47,14 @@ public final class AcceleratorAttributesArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
+     * Prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
      * 
      */
     @Import(name="flowLogsS3Prefix")
     private @Nullable Output<String> flowLogsS3Prefix;
 
     /**
-     * @return The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
+     * @return Prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
      * 
      */
     public Optional<Output<String>> flowLogsS3Prefix() {
@@ -88,7 +88,7 @@ public final class AcceleratorAttributesArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param flowLogsEnabled Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
+         * @param flowLogsEnabled Whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class AcceleratorAttributesArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param flowLogsEnabled Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
+         * @param flowLogsEnabled Whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class AcceleratorAttributesArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param flowLogsS3Bucket The name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
+         * @param flowLogsS3Bucket Name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class AcceleratorAttributesArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param flowLogsS3Bucket The name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
+         * @param flowLogsS3Bucket Name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class AcceleratorAttributesArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param flowLogsS3Prefix The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
+         * @param flowLogsS3Prefix Prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class AcceleratorAttributesArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param flowLogsS3Prefix The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
+         * @param flowLogsS3Prefix Prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
          * 
          * @return builder
          * 

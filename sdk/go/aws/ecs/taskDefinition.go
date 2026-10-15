@@ -89,7 +89,7 @@ import (
 //
 // ```
 //
-// ### With AppMesh Proxy
+// ### With App Mesh Proxy
 //
 // ```go
 // package main
@@ -422,7 +422,7 @@ type TaskDefinition struct {
 	ArnWithoutRevision pulumi.StringOutput `pulumi:"arnWithoutRevision"`
 	// List of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
 	ContainerDefinitions pulumi.StringOutput `pulumi:"containerDefinitions"`
-	// Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
+	// Number of CPU units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Cpu pulumi.StringPtrOutput `pulumi:"cpu"`
 	// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
 	EnableFaultInjection pulumi.BoolOutput `pulumi:"enableFaultInjection"`
@@ -514,7 +514,7 @@ type taskDefinitionState struct {
 	ArnWithoutRevision *string `pulumi:"arnWithoutRevision"`
 	// List of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
 	ContainerDefinitions *string `pulumi:"containerDefinitions"`
-	// Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
+	// Number of CPU units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Cpu *string `pulumi:"cpu"`
 	// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
 	EnableFaultInjection *bool `pulumi:"enableFaultInjection"`
@@ -571,7 +571,7 @@ type TaskDefinitionState struct {
 	ArnWithoutRevision pulumi.StringPtrInput
 	// List of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
 	ContainerDefinitions pulumi.StringPtrInput
-	// Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
+	// Number of CPU units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Cpu pulumi.StringPtrInput
 	// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
 	EnableFaultInjection pulumi.BoolPtrInput
@@ -628,7 +628,7 @@ func (TaskDefinitionState) ElementType() reflect.Type {
 type taskDefinitionArgs struct {
 	// List of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
 	ContainerDefinitions string `pulumi:"containerDefinitions"`
-	// Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
+	// Number of CPU units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Cpu *string `pulumi:"cpu"`
 	// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
 	EnableFaultInjection *bool `pulumi:"enableFaultInjection"`
@@ -678,7 +678,7 @@ type taskDefinitionArgs struct {
 type TaskDefinitionArgs struct {
 	// List of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
 	ContainerDefinitions pulumi.StringInput
-	// Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
+	// Number of CPU units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Cpu pulumi.StringPtrInput
 	// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
 	EnableFaultInjection pulumi.BoolPtrInput
@@ -826,7 +826,7 @@ func (o TaskDefinitionOutput) ContainerDefinitions() pulumi.StringOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringOutput { return v.ContainerDefinitions }).(pulumi.StringOutput)
 }
 
-// Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
+// Number of CPU units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 func (o TaskDefinitionOutput) Cpu() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringPtrOutput { return v.Cpu }).(pulumi.StringPtrOutput)
 }

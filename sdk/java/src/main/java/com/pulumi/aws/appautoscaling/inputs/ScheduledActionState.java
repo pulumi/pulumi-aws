@@ -137,14 +137,14 @@ public final class ScheduledActionState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs
+     * Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: `ecs`
      * 
      */
     @Import(name="serviceNamespace")
     private @Nullable Output<String> serviceNamespace;
 
     /**
-     * @return Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs
+     * @return Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: `ecs`
      * 
      */
     public Optional<Output<String>> serviceNamespace() {
@@ -384,7 +384,7 @@ public final class ScheduledActionState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param serviceNamespace Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs
+         * @param serviceNamespace Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: `ecs`
          * 
          * @return builder
          * 
@@ -395,7 +395,7 @@ public final class ScheduledActionState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param serviceNamespace Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs
+         * @param serviceNamespace Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: `ecs`
          * 
          * @return builder
          * 

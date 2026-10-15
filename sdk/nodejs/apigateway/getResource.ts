@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to get the id of a Resource in API Gateway.
- * To fetch the Resource, you must provide the REST API id as well as the full path.
+ * Use this data source to get the ID of a Resource in API Gateway.
+ * To fetch the Resource, you must provide the REST API ID as well as the full path.
  *
  * ## Example Usage
  *
@@ -45,7 +45,7 @@ export interface GetResourceArgs {
      */
     region?: string;
     /**
-     * REST API id that owns the resource. If no REST API is found, an error will be returned.
+     * REST API ID that owns the resource. If no REST API is found, an error will be returned.
      */
     restApiId: string;
 }
@@ -71,8 +71,8 @@ export interface GetResourceResult {
     readonly restApiId: string;
 }
 /**
- * Use this data source to get the id of a Resource in API Gateway.
- * To fetch the Resource, you must provide the REST API id as well as the full path.
+ * Use this data source to get the ID of a Resource in API Gateway.
+ * To fetch the Resource, you must provide the REST API ID as well as the full path.
  *
  * ## Example Usage
  *
@@ -111,7 +111,7 @@ export interface GetResourceOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * REST API id that owns the resource. If no REST API is found, an error will be returned.
+     * REST API ID that owns the resource. If no REST API is found, an error will be returned.
      */
     restApiId: pulumi.Input<string>;
 }

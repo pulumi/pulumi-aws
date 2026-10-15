@@ -19,7 +19,6 @@ namespace Pulumi.Aws.Glue.Outputs
         public readonly string? Doc;
         /// <summary>
         /// Catalog ID, database name, and table name, separated by colons (`:`).
-        /// * `partition_index[*].index_status` - Status of the partition index.
         /// </summary>
         public readonly int Id;
         /// <summary>

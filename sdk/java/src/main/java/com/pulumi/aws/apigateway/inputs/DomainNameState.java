@@ -124,14 +124,14 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
+     * Hostname created by CloudFront to represent the distribution that implements this domain name mapping.
      * 
      */
     @Import(name="cloudfrontDomainName")
     private @Nullable Output<String> cloudfrontDomainName;
 
     /**
-     * @return Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
+     * @return Hostname created by CloudFront to represent the distribution that implements this domain name mapping.
      * 
      */
     public Optional<Output<String>> cloudfrontDomainName() {
@@ -589,7 +589,7 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cloudfrontDomainName Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
+         * @param cloudfrontDomainName Hostname created by CloudFront to represent the distribution that implements this domain name mapping.
          * 
          * @return builder
          * 
@@ -600,7 +600,7 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cloudfrontDomainName Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
+         * @param cloudfrontDomainName Hostname created by CloudFront to represent the distribution that implements this domain name mapping.
          * 
          * @return builder
          * 

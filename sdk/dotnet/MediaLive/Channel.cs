@@ -165,13 +165,13 @@ namespace Pulumi.Aws.MediaLive
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Specification of CDI inputs for this channel. See CDI Input Specification for more details.
+        /// Specification of CDI inputs for this channel. See `CdiInputSpecification` Block for details.
         /// </summary>
         [Output("cdiInputSpecification")]
         public Output<Outputs.ChannelCdiInputSpecification?> CdiInputSpecification { get; private set; } = null!;
 
         /// <summary>
-        /// Concise argument description.
+        /// Class of the channel. Valid values: `STANDARD`, `SINGLE_PIPELINE`.
         /// </summary>
         [Output("channelClass")]
         public Output<string> ChannelClass { get; private set; } = null!;
@@ -183,43 +183,43 @@ namespace Pulumi.Aws.MediaLive
         public Output<string> ChannelId { get; private set; } = null!;
 
         /// <summary>
-        /// Destinations for channel. See Destinations for more details.
+        /// Destinations for the channel. See `Destinations` Block for details.
         /// </summary>
         [Output("destinations")]
         public Output<ImmutableArray<Outputs.ChannelDestination>> Destinations { get; private set; } = null!;
 
         /// <summary>
-        /// Encoder settings. See Encoder Settings for more details.
+        /// Encoder settings. See `EncoderSettings` Block for details.
         /// </summary>
         [Output("encoderSettings")]
         public Output<Outputs.ChannelEncoderSettings> EncoderSettings { get; private set; } = null!;
 
         /// <summary>
-        /// Input attachments for the channel. See Input Attachments for more details.
+        /// Input attachments for the channel. See `InputAttachments` Block for details.
         /// </summary>
         [Output("inputAttachments")]
         public Output<ImmutableArray<Outputs.ChannelInputAttachment>> InputAttachments { get; private set; } = null!;
 
         /// <summary>
-        /// Specification of network and file inputs for the channel.
+        /// Specification of network and file inputs for the channel. See `InputSpecification` Block for details.
         /// </summary>
         [Output("inputSpecification")]
         public Output<Outputs.ChannelInputSpecification> InputSpecification { get; private set; } = null!;
 
         /// <summary>
-        /// The log level to write to Cloudwatch logs.
+        /// Level of verbosity for the logs written to CloudWatch Logs.
         /// </summary>
         [Output("logLevel")]
         public Output<string> LogLevel { get; private set; } = null!;
 
         /// <summary>
-        /// Maintenance settings for this channel. See Maintenance for more details.
+        /// Maintenance settings for this channel. See `Maintenance` Block for details.
         /// </summary>
         [Output("maintenance")]
         public Output<Outputs.ChannelMaintenance> Maintenance { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the Channel.
+        /// Name of the channel.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -233,28 +233,33 @@ namespace Pulumi.Aws.MediaLive
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Concise argument description.
+        /// ARN of the IAM role for the channel.
         /// </summary>
         [Output("roleArn")]
         public Output<string?> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to start/stop channel. Default: `False`
+        /// Whether to start/stop channel. Default: `False`.
         /// </summary>
         [Output("startChannel")]
         public Output<bool?> StartChannel { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the channel. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the channel. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// * `vpc[0].availability_zones` - Availability zones where the network interfaces are created.
+        /// * `vpc[0].network_interface_ids` - Network interface IDs created in the output VPC.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Settings for the VPC outputs. See VPC for more details.
+        /// Settings for the VPC outputs. See `Vpc` Block for details.
         /// </summary>
         [Output("vpc")]
         public Output<Outputs.ChannelVpc?> Vpc { get; private set; } = null!;
@@ -306,13 +311,13 @@ namespace Pulumi.Aws.MediaLive
     public sealed class ChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specification of CDI inputs for this channel. See CDI Input Specification for more details.
+        /// Specification of CDI inputs for this channel. See `CdiInputSpecification` Block for details.
         /// </summary>
         [Input("cdiInputSpecification")]
         public Input<Inputs.ChannelCdiInputSpecificationArgs>? CdiInputSpecification { get; set; }
 
         /// <summary>
-        /// Concise argument description.
+        /// Class of the channel. Valid values: `STANDARD`, `SINGLE_PIPELINE`.
         /// </summary>
         [Input("channelClass", required: true)]
         public Input<string> ChannelClass { get; set; } = null!;
@@ -321,7 +326,7 @@ namespace Pulumi.Aws.MediaLive
         private InputList<Inputs.ChannelDestinationArgs>? _destinations;
 
         /// <summary>
-        /// Destinations for channel. See Destinations for more details.
+        /// Destinations for the channel. See `Destinations` Block for details.
         /// </summary>
         public InputList<Inputs.ChannelDestinationArgs> Destinations
         {
@@ -330,7 +335,7 @@ namespace Pulumi.Aws.MediaLive
         }
 
         /// <summary>
-        /// Encoder settings. See Encoder Settings for more details.
+        /// Encoder settings. See `EncoderSettings` Block for details.
         /// </summary>
         [Input("encoderSettings", required: true)]
         public Input<Inputs.ChannelEncoderSettingsArgs> EncoderSettings { get; set; } = null!;
@@ -339,7 +344,7 @@ namespace Pulumi.Aws.MediaLive
         private InputList<Inputs.ChannelInputAttachmentArgs>? _inputAttachments;
 
         /// <summary>
-        /// Input attachments for the channel. See Input Attachments for more details.
+        /// Input attachments for the channel. See `InputAttachments` Block for details.
         /// </summary>
         public InputList<Inputs.ChannelInputAttachmentArgs> InputAttachments
         {
@@ -348,25 +353,25 @@ namespace Pulumi.Aws.MediaLive
         }
 
         /// <summary>
-        /// Specification of network and file inputs for the channel.
+        /// Specification of network and file inputs for the channel. See `InputSpecification` Block for details.
         /// </summary>
         [Input("inputSpecification", required: true)]
         public Input<Inputs.ChannelInputSpecificationArgs> InputSpecification { get; set; } = null!;
 
         /// <summary>
-        /// The log level to write to Cloudwatch logs.
+        /// Level of verbosity for the logs written to CloudWatch Logs.
         /// </summary>
         [Input("logLevel")]
         public Input<string>? LogLevel { get; set; }
 
         /// <summary>
-        /// Maintenance settings for this channel. See Maintenance for more details.
+        /// Maintenance settings for this channel. See `Maintenance` Block for details.
         /// </summary>
         [Input("maintenance")]
         public Input<Inputs.ChannelMaintenanceArgs>? Maintenance { get; set; }
 
         /// <summary>
-        /// Name of the Channel.
+        /// Name of the channel.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -380,13 +385,13 @@ namespace Pulumi.Aws.MediaLive
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Concise argument description.
+        /// ARN of the IAM role for the channel.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
         /// <summary>
-        /// Whether to start/stop channel. Default: `False`
+        /// Whether to start/stop channel. Default: `False`.
         /// </summary>
         [Input("startChannel")]
         public Input<bool>? StartChannel { get; set; }
@@ -395,7 +400,7 @@ namespace Pulumi.Aws.MediaLive
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the channel. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the channel. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -404,7 +409,7 @@ namespace Pulumi.Aws.MediaLive
         }
 
         /// <summary>
-        /// Settings for the VPC outputs. See VPC for more details.
+        /// Settings for the VPC outputs. See `Vpc` Block for details.
         /// </summary>
         [Input("vpc")]
         public Input<Inputs.ChannelVpcArgs>? Vpc { get; set; }
@@ -424,13 +429,13 @@ namespace Pulumi.Aws.MediaLive
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Specification of CDI inputs for this channel. See CDI Input Specification for more details.
+        /// Specification of CDI inputs for this channel. See `CdiInputSpecification` Block for details.
         /// </summary>
         [Input("cdiInputSpecification")]
         public Input<Inputs.ChannelCdiInputSpecificationGetArgs>? CdiInputSpecification { get; set; }
 
         /// <summary>
-        /// Concise argument description.
+        /// Class of the channel. Valid values: `STANDARD`, `SINGLE_PIPELINE`.
         /// </summary>
         [Input("channelClass")]
         public Input<string>? ChannelClass { get; set; }
@@ -445,7 +450,7 @@ namespace Pulumi.Aws.MediaLive
         private InputList<Inputs.ChannelDestinationGetArgs>? _destinations;
 
         /// <summary>
-        /// Destinations for channel. See Destinations for more details.
+        /// Destinations for the channel. See `Destinations` Block for details.
         /// </summary>
         public InputList<Inputs.ChannelDestinationGetArgs> Destinations
         {
@@ -454,7 +459,7 @@ namespace Pulumi.Aws.MediaLive
         }
 
         /// <summary>
-        /// Encoder settings. See Encoder Settings for more details.
+        /// Encoder settings. See `EncoderSettings` Block for details.
         /// </summary>
         [Input("encoderSettings")]
         public Input<Inputs.ChannelEncoderSettingsGetArgs>? EncoderSettings { get; set; }
@@ -463,7 +468,7 @@ namespace Pulumi.Aws.MediaLive
         private InputList<Inputs.ChannelInputAttachmentGetArgs>? _inputAttachments;
 
         /// <summary>
-        /// Input attachments for the channel. See Input Attachments for more details.
+        /// Input attachments for the channel. See `InputAttachments` Block for details.
         /// </summary>
         public InputList<Inputs.ChannelInputAttachmentGetArgs> InputAttachments
         {
@@ -472,25 +477,25 @@ namespace Pulumi.Aws.MediaLive
         }
 
         /// <summary>
-        /// Specification of network and file inputs for the channel.
+        /// Specification of network and file inputs for the channel. See `InputSpecification` Block for details.
         /// </summary>
         [Input("inputSpecification")]
         public Input<Inputs.ChannelInputSpecificationGetArgs>? InputSpecification { get; set; }
 
         /// <summary>
-        /// The log level to write to Cloudwatch logs.
+        /// Level of verbosity for the logs written to CloudWatch Logs.
         /// </summary>
         [Input("logLevel")]
         public Input<string>? LogLevel { get; set; }
 
         /// <summary>
-        /// Maintenance settings for this channel. See Maintenance for more details.
+        /// Maintenance settings for this channel. See `Maintenance` Block for details.
         /// </summary>
         [Input("maintenance")]
         public Input<Inputs.ChannelMaintenanceGetArgs>? Maintenance { get; set; }
 
         /// <summary>
-        /// Name of the Channel.
+        /// Name of the channel.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -504,13 +509,13 @@ namespace Pulumi.Aws.MediaLive
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Concise argument description.
+        /// ARN of the IAM role for the channel.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
         /// <summary>
-        /// Whether to start/stop channel. Default: `False`
+        /// Whether to start/stop channel. Default: `False`.
         /// </summary>
         [Input("startChannel")]
         public Input<bool>? StartChannel { get; set; }
@@ -519,7 +524,7 @@ namespace Pulumi.Aws.MediaLive
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the channel. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the channel. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -529,6 +534,12 @@ namespace Pulumi.Aws.MediaLive
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// * `vpc[0].availability_zones` - Availability zones where the network interfaces are created.
+        /// * `vpc[0].network_interface_ids` - Network interface IDs created in the output VPC.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -536,7 +547,7 @@ namespace Pulumi.Aws.MediaLive
         }
 
         /// <summary>
-        /// Settings for the VPC outputs. See VPC for more details.
+        /// Settings for the VPC outputs. See `Vpc` Block for details.
         /// </summary>
         [Input("vpc")]
         public Input<Inputs.ChannelVpcGetArgs>? Vpc { get; set; }

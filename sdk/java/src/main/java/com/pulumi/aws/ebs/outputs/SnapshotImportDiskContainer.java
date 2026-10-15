@@ -24,7 +24,7 @@ public final class SnapshotImportDiskContainer {
      */
     private String format;
     /**
-     * @return The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `userBucket` must be set.
+     * @return The URL to the Amazon S3-based disk image being imported. It can either be an HTTPS URL (`https://..`) or an Amazon S3 URL (`s3://..`). One of `url` or `userBucket` must be set.
      * 
      */
     private @Nullable String url;
@@ -50,7 +50,7 @@ public final class SnapshotImportDiskContainer {
         return this.format;
     }
     /**
-     * @return The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `userBucket` must be set.
+     * @return The URL to the Amazon S3-based disk image being imported. It can either be an HTTPS URL (`https://..`) or an Amazon S3 URL (`s3://..`). One of `url` or `userBucket` must be set.
      * 
      */
     public Optional<String> url() {

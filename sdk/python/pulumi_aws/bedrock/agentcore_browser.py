@@ -468,7 +468,7 @@ class AgentcoreBrowser(pulumi.CustomResource):
             network_configuration={
                 "network_mode": "PUBLIC",
             },
-            name="example-browser",
+            name="example_browser",
             description="Browser for web data extraction")
         ```
 
@@ -489,7 +489,7 @@ class AgentcoreBrowser(pulumi.CustomResource):
                 },
                 "network_mode": "VPC",
             },
-            name="vpc-browser",
+            name="vpc_browser",
             description="Browser with VPC configuration")
         ```
 
@@ -522,7 +522,7 @@ class AgentcoreBrowser(pulumi.CustomResource):
                 },
                 "enabled": True,
             },
-            name="example-browser",
+            name="example_browser",
             description="Browser with recording enabled",
             execution_role_arn=example.arn)
         ```
@@ -572,7 +572,7 @@ class AgentcoreBrowser(pulumi.CustomResource):
             network_configuration={
                 "network_mode": "PUBLIC",
             },
-            name="example-browser",
+            name="example_browser",
             description="Browser for web data extraction")
         ```
 
@@ -593,7 +593,7 @@ class AgentcoreBrowser(pulumi.CustomResource):
                 },
                 "network_mode": "VPC",
             },
-            name="vpc-browser",
+            name="vpc_browser",
             description="Browser with VPC configuration")
         ```
 
@@ -626,7 +626,7 @@ class AgentcoreBrowser(pulumi.CustomResource):
                 },
                 "enabled": True,
             },
-            name="example-browser",
+            name="example_browser",
             description="Browser with recording enabled",
             execution_role_arn=example.arn)
         ```

@@ -80,7 +80,7 @@ export class TrustStoreRevocation extends pulumi.CustomResource {
      */
     declare public readonly revocationsS3Key: pulumi.Output<string>;
     /**
-     * Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+     * Version ID of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
      */
     declare public readonly revocationsS3ObjectVersion: pulumi.Output<string | undefined>;
     /**
@@ -151,7 +151,7 @@ export interface TrustStoreRevocationState {
      */
     revocationsS3Key?: pulumi.Input<string | undefined>;
     /**
-     * Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+     * Version ID of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
      */
     revocationsS3ObjectVersion?: pulumi.Input<string | undefined>;
     /**
@@ -177,7 +177,7 @@ export interface TrustStoreRevocationArgs {
      */
     revocationsS3Key: pulumi.Input<string>;
     /**
-     * Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+     * Version ID of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
      */
     revocationsS3ObjectVersion?: pulumi.Input<string | undefined>;
     /**

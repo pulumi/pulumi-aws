@@ -15,14 +15,14 @@ public final class GetPolicyArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetPolicyArgs Empty = new GetPolicyArgs();
 
     /**
-     * The unique identifier (ID) of the policy that you want more details on. Policy id starts with a &#34;p-&#34; followed by 8-28 lowercase or uppercase letters, digits, and underscores.
+     * The unique identifier (ID) of the policy that you want more details on. Policy ID starts with a &#34;p-&#34; followed by 8-28 lowercase or uppercase letters, digits, and underscores.
      * 
      */
     @Import(name="policyId", required=true)
     private Output<String> policyId;
 
     /**
-     * @return The unique identifier (ID) of the policy that you want more details on. Policy id starts with a &#34;p-&#34; followed by 8-28 lowercase or uppercase letters, digits, and underscores.
+     * @return The unique identifier (ID) of the policy that you want more details on. Policy ID starts with a &#34;p-&#34; followed by 8-28 lowercase or uppercase letters, digits, and underscores.
      * 
      */
     public Output<String> policyId() {
@@ -54,7 +54,7 @@ public final class GetPolicyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param policyId The unique identifier (ID) of the policy that you want more details on. Policy id starts with a &#34;p-&#34; followed by 8-28 lowercase or uppercase letters, digits, and underscores.
+         * @param policyId The unique identifier (ID) of the policy that you want more details on. Policy ID starts with a &#34;p-&#34; followed by 8-28 lowercase or uppercase letters, digits, and underscores.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class GetPolicyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param policyId The unique identifier (ID) of the policy that you want more details on. Policy id starts with a &#34;p-&#34; followed by 8-28 lowercase or uppercase letters, digits, and underscores.
+         * @param policyId The unique identifier (ID) of the policy that you want more details on. Policy ID starts with a &#34;p-&#34; followed by 8-28 lowercase or uppercase letters, digits, and underscores.
          * 
          * @return builder
          * 

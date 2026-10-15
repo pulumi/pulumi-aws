@@ -17128,7 +17128,7 @@ func (o LaunchTemplateMonitoringPtrOutput) Enabled() pulumi.BoolPtrOutput {
 type LaunchTemplateNetworkInterface struct {
 	// Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value, can be left unset.
 	AssociateCarrierIpAddress *string `pulumi:"associateCarrierIpAddress"`
-	// Associate a public ip address with the network interface. Boolean value, can be left unset.
+	// Associate a public IP address with the network interface. Boolean value, can be left unset.
 	AssociatePublicIpAddress *string `pulumi:"associatePublicIpAddress"`
 	// The Connection Tracking Configuration for the network interface. See [Amazon EC2 security group connection tracking](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts)
 	ConnectionTrackingSpecification *LaunchTemplateNetworkInterfaceConnectionTrackingSpecification `pulumi:"connectionTrackingSpecification"`
@@ -17188,7 +17188,7 @@ type LaunchTemplateNetworkInterfaceInput interface {
 type LaunchTemplateNetworkInterfaceArgs struct {
 	// Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value, can be left unset.
 	AssociateCarrierIpAddress pulumi.StringPtrInput `pulumi:"associateCarrierIpAddress"`
-	// Associate a public ip address with the network interface. Boolean value, can be left unset.
+	// Associate a public IP address with the network interface. Boolean value, can be left unset.
 	AssociatePublicIpAddress pulumi.StringPtrInput `pulumi:"associatePublicIpAddress"`
 	// The Connection Tracking Configuration for the network interface. See [Amazon EC2 security group connection tracking](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts)
 	ConnectionTrackingSpecification LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrInput `pulumi:"connectionTrackingSpecification"`
@@ -17290,7 +17290,7 @@ func (o LaunchTemplateNetworkInterfaceOutput) AssociateCarrierIpAddress() pulumi
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.AssociateCarrierIpAddress }).(pulumi.StringPtrOutput)
 }
 
-// Associate a public ip address with the network interface. Boolean value, can be left unset.
+// Associate a public IP address with the network interface. Boolean value, can be left unset.
 func (o LaunchTemplateNetworkInterfaceOutput) AssociatePublicIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.AssociatePublicIpAddress }).(pulumi.StringPtrOutput)
 }
@@ -36866,11 +36866,11 @@ type SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification struct {
 	Id *string `pulumi:"id"`
 	// The name of the launch template. Conflicts with `id`.
 	Name *string `pulumi:"name"`
-	// Template version. Unlike the autoscaling equivalent, does not support `$Latest` or `$Default`, so use the launchTemplate resource's attribute, e.g., `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
+	// Template version. Unlike the AutoScaling equivalent, does not support `$Latest` or `$Default`, so use the launchTemplate resource's attribute, e.g., `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
 	//
 	// **Note:** The specified launch template can specify only a subset of the
 	// inputs of `ec2.LaunchTemplate`.  There are limitations on
-	// what you can specify as spot fleet does not support all the attributes that are supported by autoscaling groups. [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#launch-templates-spot-fleet) is currently sparse, but at least `instanceInitiatedShutdownBehavior` is confirmed unsupported.
+	// what you can specify as spot fleet does not support all the attributes that are supported by Auto Scaling groups. [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#launch-templates-spot-fleet) is currently sparse, but at least `instanceInitiatedShutdownBehavior` is confirmed unsupported.
 	Version *string `pulumi:"version"`
 }
 
@@ -36890,11 +36890,11 @@ type SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs struct 
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The name of the launch template. Conflicts with `id`.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Template version. Unlike the autoscaling equivalent, does not support `$Latest` or `$Default`, so use the launchTemplate resource's attribute, e.g., `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
+	// Template version. Unlike the AutoScaling equivalent, does not support `$Latest` or `$Default`, so use the launchTemplate resource's attribute, e.g., `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
 	//
 	// **Note:** The specified launch template can specify only a subset of the
 	// inputs of `ec2.LaunchTemplate`.  There are limitations on
-	// what you can specify as spot fleet does not support all the attributes that are supported by autoscaling groups. [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#launch-templates-spot-fleet) is currently sparse, but at least `instanceInitiatedShutdownBehavior` is confirmed unsupported.
+	// what you can specify as spot fleet does not support all the attributes that are supported by Auto Scaling groups. [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#launch-templates-spot-fleet) is currently sparse, but at least `instanceInitiatedShutdownBehavior` is confirmed unsupported.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -36934,11 +36934,11 @@ func (o SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput) N
 	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Template version. Unlike the autoscaling equivalent, does not support `$Latest` or `$Default`, so use the launchTemplate resource's attribute, e.g., `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
+// Template version. Unlike the AutoScaling equivalent, does not support `$Latest` or `$Default`, so use the launchTemplate resource's attribute, e.g., `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
 //
 // **Note:** The specified launch template can specify only a subset of the
 // inputs of `ec2.LaunchTemplate`.  There are limitations on
-// what you can specify as spot fleet does not support all the attributes that are supported by autoscaling groups. [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#launch-templates-spot-fleet) is currently sparse, but at least `instanceInitiatedShutdownBehavior` is confirmed unsupported.
+// what you can specify as spot fleet does not support all the attributes that are supported by Auto Scaling groups. [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#launch-templates-spot-fleet) is currently sparse, but at least `instanceInitiatedShutdownBehavior` is confirmed unsupported.
 func (o SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -46684,13 +46684,13 @@ type VpnConnectionTunnel1LogOptionsCloudwatchLogOptions struct {
 	BgpLogEnabled *bool `pulumi:"bgpLogEnabled"`
 	// ARN of the CloudWatch log group to send BGP logs to.
 	BgpLogGroupArn *string `pulumi:"bgpLogGroupArn"`
-	// Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+	// Set BGP log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
 	BgpLogOutputFormat *string `pulumi:"bgpLogOutputFormat"`
 	// Whether to enable the VPN tunnel logging feature. The default is `false`.
 	LogEnabled *bool `pulumi:"logEnabled"`
 	// ARN of the CloudWatch log group to send logs to.
 	LogGroupArn *string `pulumi:"logGroupArn"`
-	// Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+	// Set log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
 	LogOutputFormat *string `pulumi:"logOutputFormat"`
 }
 
@@ -46710,13 +46710,13 @@ type VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs struct {
 	BgpLogEnabled pulumi.BoolPtrInput `pulumi:"bgpLogEnabled"`
 	// ARN of the CloudWatch log group to send BGP logs to.
 	BgpLogGroupArn pulumi.StringPtrInput `pulumi:"bgpLogGroupArn"`
-	// Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+	// Set BGP log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
 	BgpLogOutputFormat pulumi.StringPtrInput `pulumi:"bgpLogOutputFormat"`
 	// Whether to enable the VPN tunnel logging feature. The default is `false`.
 	LogEnabled pulumi.BoolPtrInput `pulumi:"logEnabled"`
 	// ARN of the CloudWatch log group to send logs to.
 	LogGroupArn pulumi.StringPtrInput `pulumi:"logGroupArn"`
-	// Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+	// Set log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
 	LogOutputFormat pulumi.StringPtrInput `pulumi:"logOutputFormat"`
 }
 
@@ -46807,7 +46807,7 @@ func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput) BgpLogGroupArn
 	return o.ApplyT(func(v VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) *string { return v.BgpLogGroupArn }).(pulumi.StringPtrOutput)
 }
 
-// Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+// Set BGP log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
 func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput) BgpLogOutputFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) *string { return v.BgpLogOutputFormat }).(pulumi.StringPtrOutput)
 }
@@ -46822,7 +46822,7 @@ func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput) LogGroupArn() 
 	return o.ApplyT(func(v VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) *string { return v.LogGroupArn }).(pulumi.StringPtrOutput)
 }
 
-// Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+// Set log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
 func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput) LogOutputFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) *string { return v.LogOutputFormat }).(pulumi.StringPtrOutput)
 }
@@ -46871,7 +46871,7 @@ func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput) BgpLogGroup
 	}).(pulumi.StringPtrOutput)
 }
 
-// Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+// Set BGP log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
 func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput) BgpLogOutputFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) *string {
 		if v == nil {
@@ -46901,7 +46901,7 @@ func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput) LogGroupArn
 	}).(pulumi.StringPtrOutput)
 }
 
-// Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+// Set log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
 func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput) LogOutputFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) *string {
 		if v == nil {
@@ -47055,13 +47055,13 @@ type VpnConnectionTunnel2LogOptionsCloudwatchLogOptions struct {
 	BgpLogEnabled *bool `pulumi:"bgpLogEnabled"`
 	// ARN of the CloudWatch log group to send BGP logs to.
 	BgpLogGroupArn *string `pulumi:"bgpLogGroupArn"`
-	// Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+	// Set BGP log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
 	BgpLogOutputFormat *string `pulumi:"bgpLogOutputFormat"`
 	// Whether to enable the VPN tunnel logging feature. The default is `false`.
 	LogEnabled *bool `pulumi:"logEnabled"`
 	// ARN of the CloudWatch log group to send logs to.
 	LogGroupArn *string `pulumi:"logGroupArn"`
-	// Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+	// Set log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
 	LogOutputFormat *string `pulumi:"logOutputFormat"`
 }
 
@@ -47081,13 +47081,13 @@ type VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs struct {
 	BgpLogEnabled pulumi.BoolPtrInput `pulumi:"bgpLogEnabled"`
 	// ARN of the CloudWatch log group to send BGP logs to.
 	BgpLogGroupArn pulumi.StringPtrInput `pulumi:"bgpLogGroupArn"`
-	// Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+	// Set BGP log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
 	BgpLogOutputFormat pulumi.StringPtrInput `pulumi:"bgpLogOutputFormat"`
 	// Whether to enable the VPN tunnel logging feature. The default is `false`.
 	LogEnabled pulumi.BoolPtrInput `pulumi:"logEnabled"`
 	// ARN of the CloudWatch log group to send logs to.
 	LogGroupArn pulumi.StringPtrInput `pulumi:"logGroupArn"`
-	// Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+	// Set log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
 	LogOutputFormat pulumi.StringPtrInput `pulumi:"logOutputFormat"`
 }
 
@@ -47178,7 +47178,7 @@ func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput) BgpLogGroupArn
 	return o.ApplyT(func(v VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) *string { return v.BgpLogGroupArn }).(pulumi.StringPtrOutput)
 }
 
-// Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+// Set BGP log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
 func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput) BgpLogOutputFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) *string { return v.BgpLogOutputFormat }).(pulumi.StringPtrOutput)
 }
@@ -47193,7 +47193,7 @@ func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput) LogGroupArn() 
 	return o.ApplyT(func(v VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) *string { return v.LogGroupArn }).(pulumi.StringPtrOutput)
 }
 
-// Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+// Set log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
 func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput) LogOutputFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) *string { return v.LogOutputFormat }).(pulumi.StringPtrOutput)
 }
@@ -47242,7 +47242,7 @@ func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput) BgpLogGroup
 	}).(pulumi.StringPtrOutput)
 }
 
-// Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+// Set BGP log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
 func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput) BgpLogOutputFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) *string {
 		if v == nil {
@@ -47272,7 +47272,7 @@ func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput) LogGroupArn
 	}).(pulumi.StringPtrOutput)
 }
 
-// Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+// Set log format. Default format is JSON. Possible values are: `json` and `text`. The default is `json`.
 func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput) LogOutputFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) *string {
 		if v == nil {
@@ -48189,7 +48189,7 @@ type GetCoipPoolFilter struct {
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
-	// A COIP Pool will be selected if any one of the given values matches.
+	// A CoIP Pool will be selected if any one of the given values matches.
 	Values []string `pulumi:"values"`
 }
 
@@ -48209,7 +48209,7 @@ type GetCoipPoolFilterArgs struct {
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
-	// A COIP Pool will be selected if any one of the given values matches.
+	// A CoIP Pool will be selected if any one of the given values matches.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -48271,7 +48271,7 @@ func (o GetCoipPoolFilterOutput) Name() pulumi.StringOutput {
 }
 
 // Set of values that are accepted for the given field.
-// A COIP Pool will be selected if any one of the given values matches.
+// A CoIP Pool will be selected if any one of the given values matches.
 func (o GetCoipPoolFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetCoipPoolFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -48301,7 +48301,7 @@ type GetCoipPoolsFilter struct {
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
-	// A COIP Pool will be selected if any one of the given values matches.
+	// A CoIP Pool will be selected if any one of the given values matches.
 	Values []string `pulumi:"values"`
 }
 
@@ -48321,7 +48321,7 @@ type GetCoipPoolsFilterArgs struct {
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
-	// A COIP Pool will be selected if any one of the given values matches.
+	// A CoIP Pool will be selected if any one of the given values matches.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -48383,7 +48383,7 @@ func (o GetCoipPoolsFilterOutput) Name() pulumi.StringOutput {
 }
 
 // Set of values that are accepted for the given field.
-// A COIP Pool will be selected if any one of the given values matches.
+// A CoIP Pool will be selected if any one of the given values matches.
 func (o GetCoipPoolsFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetCoipPoolsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }

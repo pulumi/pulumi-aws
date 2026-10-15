@@ -16,14 +16,14 @@ public final class ChannelHlsIngestIngestEndpointArgs extends com.pulumi.resourc
     public static final ChannelHlsIngestIngestEndpointArgs Empty = new ChannelHlsIngestIngestEndpointArgs();
 
     /**
-     * The password
+     * Password
      * 
      */
     @Import(name="password")
     private @Nullable Output<String> password;
 
     /**
-     * @return The password
+     * @return Password
      * 
      */
     public Optional<Output<String>> password() {
@@ -31,14 +31,14 @@ public final class ChannelHlsIngestIngestEndpointArgs extends com.pulumi.resourc
     }
 
     /**
-     * The URL
+     * URL
      * 
      */
     @Import(name="url")
     private @Nullable Output<String> url;
 
     /**
-     * @return The URL
+     * @return URL
      * 
      */
     public Optional<Output<String>> url() {
@@ -46,14 +46,14 @@ public final class ChannelHlsIngestIngestEndpointArgs extends com.pulumi.resourc
     }
 
     /**
-     * The username
+     * Username
      * 
      */
     @Import(name="username")
     private @Nullable Output<String> username;
 
     /**
-     * @return The username
+     * @return Username
      * 
      */
     public Optional<Output<String>> username() {
@@ -87,7 +87,7 @@ public final class ChannelHlsIngestIngestEndpointArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param password The password
+         * @param password Password
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class ChannelHlsIngestIngestEndpointArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param password The password
+         * @param password Password
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class ChannelHlsIngestIngestEndpointArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param url The URL
+         * @param url URL
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class ChannelHlsIngestIngestEndpointArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param url The URL
+         * @param url URL
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class ChannelHlsIngestIngestEndpointArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param username The username
+         * @param username Username
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ChannelHlsIngestIngestEndpointArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param username The username
+         * @param username Username
          * 
          * @return builder
          * 

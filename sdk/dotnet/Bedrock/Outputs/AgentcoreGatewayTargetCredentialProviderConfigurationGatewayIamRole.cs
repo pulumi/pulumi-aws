@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole
     {
         /// <summary>
-        /// AWS Region used for SigV4 signing of upstream requests. Defaults to the gateway's Region when omitted. Only meaningful when `Service` is set.
+        /// AWS Region used for SigV4 signing of upstream requests. Defaults to the gateway's Region when omitted. Can only be set when `Service` is set.
         /// </summary>
         public readonly string? Region;
         /// <summary>

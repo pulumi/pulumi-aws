@@ -62,7 +62,7 @@ class GetVpcsResult:
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
         """
-        List of all the VPC Ids found.
+        List of all the VPC IDs found.
         """
         return pulumi.get(self, "ids")
 
@@ -95,13 +95,13 @@ def get_vpcs(filters: Optional[Sequence[Union['GetVpcsFilterArgs', 'GetVpcsFilte
              tags: Optional[Mapping[str, _builtins.str]] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcsResult:
     """
-    This resource can be useful for getting back a list of VPC Ids for a region.
+    This resource can be useful for getting back a list of VPC IDs for a region.
 
-    The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
+    The following example retrieves a list of VPC IDs with a custom tag of `service` set to a value of "production".
 
     ## Example Usage
 
-    The following shows outputting all VPC Ids.
+    The following shows outputting all VPC IDs.
 
     ```python
     import pulumi
@@ -154,13 +154,13 @@ def get_vpcs_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetV
                     tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcsResult]:
     """
-    This resource can be useful for getting back a list of VPC Ids for a region.
+    This resource can be useful for getting back a list of VPC IDs for a region.
 
-    The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
+    The following example retrieves a list of VPC IDs with a custom tag of `service` set to a value of "production".
 
     ## Example Usage
 
-    The following shows outputting all VPC Ids.
+    The following shows outputting all VPC IDs.
 
     ```python
     import pulumi

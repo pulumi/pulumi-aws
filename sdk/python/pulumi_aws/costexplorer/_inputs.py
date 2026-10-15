@@ -202,7 +202,7 @@ __all__ = [
 class AnomalySubscriptionSubscriberArgsDict(TypedDict):
     address: pulumi.Input[_builtins.str]
     """
-    The address of the subscriber. If type is `SNS`, this will be the arn of the sns topic. If type is `EMAIL`, this will be the destination email address.
+    The address of the subscriber. If type is `SNS`, this will be the ARN of the SNS topic. If type is `EMAIL`, this will be the destination email address.
     """
     type: pulumi.Input[_builtins.str]
     """
@@ -215,7 +215,7 @@ class AnomalySubscriptionSubscriberArgs:
                  address: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] address: The address of the subscriber. If type is `SNS`, this will be the arn of the sns topic. If type is `EMAIL`, this will be the destination email address.
+        :param pulumi.Input[_builtins.str] address: The address of the subscriber. If type is `SNS`, this will be the ARN of the SNS topic. If type is `EMAIL`, this will be the destination email address.
         :param pulumi.Input[_builtins.str] type: The type of subscription. Valid Values: `SNS` | `EMAIL`.
         """
         pulumi.set(__self__, "address", address)
@@ -225,7 +225,7 @@ class AnomalySubscriptionSubscriberArgs:
     @pulumi.getter
     def address(self) -> pulumi.Input[_builtins.str]:
         """
-        The address of the subscriber. If type is `SNS`, this will be the arn of the sns topic. If type is `EMAIL`, this will be the destination email address.
+        The address of the subscriber. If type is `SNS`, this will be the ARN of the SNS topic. If type is `EMAIL`, this will be the destination email address.
         """
         return pulumi.get(self, "address")
 

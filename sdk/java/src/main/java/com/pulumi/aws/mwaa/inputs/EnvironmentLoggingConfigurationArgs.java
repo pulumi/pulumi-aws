@@ -20,14 +20,14 @@ public final class EnvironmentLoggingConfigurationArgs extends com.pulumi.resour
     public static final EnvironmentLoggingConfigurationArgs Empty = new EnvironmentLoggingConfigurationArgs();
 
     /**
-     * (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
+     * Log configuration options for processing DAGs. See Module logging configuration blocks for details. Disabled by default.
      * 
      */
     @Import(name="dagProcessingLogs")
     private @Nullable Output<EnvironmentLoggingConfigurationDagProcessingLogsArgs> dagProcessingLogs;
 
     /**
-     * @return (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
+     * @return Log configuration options for processing DAGs. See Module logging configuration blocks for details. Disabled by default.
      * 
      */
     public Optional<Output<EnvironmentLoggingConfigurationDagProcessingLogsArgs>> dagProcessingLogs() {
@@ -35,14 +35,14 @@ public final class EnvironmentLoggingConfigurationArgs extends com.pulumi.resour
     }
 
     /**
-     * Log configuration options for the schedulers. See Module logging configuration for more information. Disabled by default.
+     * Log configuration options for the schedulers. See Module logging configuration blocks for details. Disabled by default.
      * 
      */
     @Import(name="schedulerLogs")
     private @Nullable Output<EnvironmentLoggingConfigurationSchedulerLogsArgs> schedulerLogs;
 
     /**
-     * @return Log configuration options for the schedulers. See Module logging configuration for more information. Disabled by default.
+     * @return Log configuration options for the schedulers. See Module logging configuration blocks for details. Disabled by default.
      * 
      */
     public Optional<Output<EnvironmentLoggingConfigurationSchedulerLogsArgs>> schedulerLogs() {
@@ -50,14 +50,14 @@ public final class EnvironmentLoggingConfigurationArgs extends com.pulumi.resour
     }
 
     /**
-     * Log configuration options for DAG tasks. See Module logging configuration for more information. Enabled by default with `INFO` log level.
+     * Log configuration options for DAG tasks. See Module logging configuration blocks for details. Enabled by default with `INFO` log level.
      * 
      */
     @Import(name="taskLogs")
     private @Nullable Output<EnvironmentLoggingConfigurationTaskLogsArgs> taskLogs;
 
     /**
-     * @return Log configuration options for DAG tasks. See Module logging configuration for more information. Enabled by default with `INFO` log level.
+     * @return Log configuration options for DAG tasks. See Module logging configuration blocks for details. Enabled by default with `INFO` log level.
      * 
      */
     public Optional<Output<EnvironmentLoggingConfigurationTaskLogsArgs>> taskLogs() {
@@ -65,14 +65,14 @@ public final class EnvironmentLoggingConfigurationArgs extends com.pulumi.resour
     }
 
     /**
-     * Log configuration options for the webservers. See Module logging configuration for more information. Disabled by default.
+     * Log configuration options for the webservers. See Module logging configuration blocks for details. Disabled by default.
      * 
      */
     @Import(name="webserverLogs")
     private @Nullable Output<EnvironmentLoggingConfigurationWebserverLogsArgs> webserverLogs;
 
     /**
-     * @return Log configuration options for the webservers. See Module logging configuration for more information. Disabled by default.
+     * @return Log configuration options for the webservers. See Module logging configuration blocks for details. Disabled by default.
      * 
      */
     public Optional<Output<EnvironmentLoggingConfigurationWebserverLogsArgs>> webserverLogs() {
@@ -80,14 +80,14 @@ public final class EnvironmentLoggingConfigurationArgs extends com.pulumi.resour
     }
 
     /**
-     * Log configuration options for the workers. See Module logging configuration for more information. Disabled by default.
+     * Log configuration options for the workers. See Module logging configuration blocks for details. Disabled by default.
      * 
      */
     @Import(name="workerLogs")
     private @Nullable Output<EnvironmentLoggingConfigurationWorkerLogsArgs> workerLogs;
 
     /**
-     * @return Log configuration options for the workers. See Module logging configuration for more information. Disabled by default.
+     * @return Log configuration options for the workers. See Module logging configuration blocks for details. Disabled by default.
      * 
      */
     public Optional<Output<EnvironmentLoggingConfigurationWorkerLogsArgs>> workerLogs() {
@@ -123,7 +123,7 @@ public final class EnvironmentLoggingConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param dagProcessingLogs (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
+         * @param dagProcessingLogs Log configuration options for processing DAGs. See Module logging configuration blocks for details. Disabled by default.
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class EnvironmentLoggingConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param dagProcessingLogs (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
+         * @param dagProcessingLogs Log configuration options for processing DAGs. See Module logging configuration blocks for details. Disabled by default.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class EnvironmentLoggingConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param schedulerLogs Log configuration options for the schedulers. See Module logging configuration for more information. Disabled by default.
+         * @param schedulerLogs Log configuration options for the schedulers. See Module logging configuration blocks for details. Disabled by default.
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class EnvironmentLoggingConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param schedulerLogs Log configuration options for the schedulers. See Module logging configuration for more information. Disabled by default.
+         * @param schedulerLogs Log configuration options for the schedulers. See Module logging configuration blocks for details. Disabled by default.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class EnvironmentLoggingConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param taskLogs Log configuration options for DAG tasks. See Module logging configuration for more information. Enabled by default with `INFO` log level.
+         * @param taskLogs Log configuration options for DAG tasks. See Module logging configuration blocks for details. Enabled by default with `INFO` log level.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class EnvironmentLoggingConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param taskLogs Log configuration options for DAG tasks. See Module logging configuration for more information. Enabled by default with `INFO` log level.
+         * @param taskLogs Log configuration options for DAG tasks. See Module logging configuration blocks for details. Enabled by default with `INFO` log level.
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class EnvironmentLoggingConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param webserverLogs Log configuration options for the webservers. See Module logging configuration for more information. Disabled by default.
+         * @param webserverLogs Log configuration options for the webservers. See Module logging configuration blocks for details. Disabled by default.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class EnvironmentLoggingConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param webserverLogs Log configuration options for the webservers. See Module logging configuration for more information. Disabled by default.
+         * @param webserverLogs Log configuration options for the webservers. See Module logging configuration blocks for details. Disabled by default.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class EnvironmentLoggingConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param workerLogs Log configuration options for the workers. See Module logging configuration for more information. Disabled by default.
+         * @param workerLogs Log configuration options for the workers. See Module logging configuration blocks for details. Disabled by default.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class EnvironmentLoggingConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param workerLogs Log configuration options for the workers. See Module logging configuration for more information. Disabled by default.
+         * @param workerLogs Log configuration options for the workers. See Module logging configuration blocks for details. Disabled by default.
          * 
          * @return builder
          * 

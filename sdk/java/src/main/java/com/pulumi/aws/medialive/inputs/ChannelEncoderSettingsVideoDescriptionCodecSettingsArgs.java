@@ -18,14 +18,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs exten
     public static final ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs Empty = new ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs();
 
     /**
-     * Frame capture settings. See Frame Capture Settings for more details.
+     * Frame capture settings. See `frameCaptureSettings` Block for details.
      * 
      */
     @Import(name="frameCaptureSettings")
     private @Nullable Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs> frameCaptureSettings;
 
     /**
-     * @return Frame capture settings. See Frame Capture Settings for more details.
+     * @return Frame capture settings. See `frameCaptureSettings` Block for details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs>> frameCaptureSettings() {
@@ -33,23 +33,31 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs exten
     }
 
     /**
-     * H264 settings. See H264 Settings for more details.
+     * H264 settings. See `h264Settings` Block for details.
      * 
      */
     @Import(name="h264Settings")
     private @Nullable Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs> h264Settings;
 
     /**
-     * @return H264 settings. See H264 Settings for more details.
+     * @return H264 settings. See `h264Settings` Block for details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs>> h264Settings() {
         return Optional.ofNullable(this.h264Settings);
     }
 
+    /**
+     * H265 settings. See `h265Settings` Block for details.
+     * 
+     */
     @Import(name="h265Settings")
     private @Nullable Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs> h265Settings;
 
+    /**
+     * @return H265 settings. See `h265Settings` Block for details.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs>> h265Settings() {
         return Optional.ofNullable(this.h265Settings);
     }
@@ -81,7 +89,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs exten
         }
 
         /**
-         * @param frameCaptureSettings Frame capture settings. See Frame Capture Settings for more details.
+         * @param frameCaptureSettings Frame capture settings. See `frameCaptureSettings` Block for details.
          * 
          * @return builder
          * 
@@ -92,7 +100,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs exten
         }
 
         /**
-         * @param frameCaptureSettings Frame capture settings. See Frame Capture Settings for more details.
+         * @param frameCaptureSettings Frame capture settings. See `frameCaptureSettings` Block for details.
          * 
          * @return builder
          * 
@@ -102,7 +110,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs exten
         }
 
         /**
-         * @param h264Settings H264 settings. See H264 Settings for more details.
+         * @param h264Settings H264 settings. See `h264Settings` Block for details.
          * 
          * @return builder
          * 
@@ -113,7 +121,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs exten
         }
 
         /**
-         * @param h264Settings H264 settings. See H264 Settings for more details.
+         * @param h264Settings H264 settings. See `h264Settings` Block for details.
          * 
          * @return builder
          * 
@@ -122,11 +130,23 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs exten
             return h264Settings(Output.of(h264Settings));
         }
 
+        /**
+         * @param h265Settings H265 settings. See `h265Settings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder h265Settings(@Nullable Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs> h265Settings) {
             $.h265Settings = h265Settings;
             return this;
         }
 
+        /**
+         * @param h265Settings H265 settings. See `h265Settings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder h265Settings(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs h265Settings) {
             return h265Settings(Output.of(h265Settings));
         }

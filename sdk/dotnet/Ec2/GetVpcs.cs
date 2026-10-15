@@ -12,13 +12,13 @@ namespace Pulumi.Aws.Ec2
     public static class GetVpcs
     {
         /// <summary>
-        /// This resource can be useful for getting back a list of VPC Ids for a region.
+        /// This resource can be useful for getting back a list of VPC IDs for a region.
         /// 
-        /// The following example retrieves a list of VPC Ids with a custom tag of `Service` set to a value of "production".
+        /// The following example retrieves a list of VPC IDs with a custom tag of `Service` set to a value of "production".
         /// 
         /// ## Example Usage
         /// 
-        /// The following shows outputting all VPC Ids.
+        /// The following shows outputting all VPC IDs.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -81,13 +81,13 @@ namespace Pulumi.Aws.Ec2
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcsResult>("aws:ec2/getVpcs:getVpcs", args ?? new GetVpcsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// This resource can be useful for getting back a list of VPC Ids for a region.
+        /// This resource can be useful for getting back a list of VPC IDs for a region.
         /// 
-        /// The following example retrieves a list of VPC Ids with a custom tag of `Service` set to a value of "production".
+        /// The following example retrieves a list of VPC IDs with a custom tag of `Service` set to a value of "production".
         /// 
         /// ## Example Usage
         /// 
-        /// The following shows outputting all VPC Ids.
+        /// The following shows outputting all VPC IDs.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -150,13 +150,13 @@ namespace Pulumi.Aws.Ec2
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcsResult>("aws:ec2/getVpcs:getVpcs", args ?? new GetVpcsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// This resource can be useful for getting back a list of VPC Ids for a region.
+        /// This resource can be useful for getting back a list of VPC IDs for a region.
         /// 
-        /// The following example retrieves a list of VPC Ids with a custom tag of `Service` set to a value of "production".
+        /// The following example retrieves a list of VPC IDs with a custom tag of `Service` set to a value of "production".
         /// 
         /// ## Example Usage
         /// 
-        /// The following shows outputting all VPC Ids.
+        /// The following shows outputting all VPC IDs.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -306,7 +306,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// List of all the VPC Ids found.
+        /// List of all the VPC IDs found.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly string Region;

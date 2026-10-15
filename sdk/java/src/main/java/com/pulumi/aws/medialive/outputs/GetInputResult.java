@@ -27,23 +27,27 @@ public final class GetInputResult {
      */
     private List<String> attachedChannels;
     /**
-     * @return Destination settings for PUSH type inputs.
+     * @return Destination settings for PUSH type inputs. See `destinations` Block for more details.
      * 
      */
     private List<GetInputDestination> destinations;
+    /**
+     * @return ID of the device.
+     * 
+     */
     private String id;
     /**
-     * @return The input class.
+     * @return Input class.
      * 
      */
     private String inputClass;
     /**
-     * @return Settings for the devices.
+     * @return Settings for the devices. See `inputDevices` Block for more details.
      * 
      */
     private List<GetInputInputDevice> inputDevices;
     /**
-     * @return A list of IDs for all Inputs which are partners of this one.
+     * @return IDs for all Inputs which are partners of this one.
      * 
      */
     private List<String> inputPartnerIds;
@@ -53,7 +57,7 @@ public final class GetInputResult {
      */
     private String inputSourceType;
     /**
-     * @return A list of the MediaConnect Flows.
+     * @return MediaConnect Flows. See `mediaConnectFlows` Block for more details.
      * 
      */
     private List<GetInputMediaConnectFlow> mediaConnectFlows;
@@ -64,7 +68,7 @@ public final class GetInputResult {
     private String name;
     private String region;
     /**
-     * @return The ARN of the role this input assumes during and after creation.
+     * @return ARN of the role this input assumes during and after creation.
      * 
      */
     private String roleArn;
@@ -74,22 +78,22 @@ public final class GetInputResult {
      */
     private List<String> securityGroups;
     /**
-     * @return The source URLs for a PULL-type input.
+     * @return Source URLs for a PULL-type input. See `sources` Block for more details.
      * 
      */
     private List<GetInputSource> sources;
     /**
-     * @return The state of the input.
+     * @return State of the input.
      * 
      */
     private String state;
     /**
-     * @return A map of tags assigned to the Input.
+     * @return Map of tags assigned to the Input.
      * 
      */
     private Map<String,String> tags;
     /**
-     * @return The type of the input.
+     * @return Type of the input.
      * 
      */
     private String type;
@@ -110,31 +114,35 @@ public final class GetInputResult {
         return this.attachedChannels;
     }
     /**
-     * @return Destination settings for PUSH type inputs.
+     * @return Destination settings for PUSH type inputs. See `destinations` Block for more details.
      * 
      */
     public List<GetInputDestination> destinations() {
         return this.destinations;
     }
+    /**
+     * @return ID of the device.
+     * 
+     */
     public String id() {
         return this.id;
     }
     /**
-     * @return The input class.
+     * @return Input class.
      * 
      */
     public String inputClass() {
         return this.inputClass;
     }
     /**
-     * @return Settings for the devices.
+     * @return Settings for the devices. See `inputDevices` Block for more details.
      * 
      */
     public List<GetInputInputDevice> inputDevices() {
         return this.inputDevices;
     }
     /**
-     * @return A list of IDs for all Inputs which are partners of this one.
+     * @return IDs for all Inputs which are partners of this one.
      * 
      */
     public List<String> inputPartnerIds() {
@@ -148,7 +156,7 @@ public final class GetInputResult {
         return this.inputSourceType;
     }
     /**
-     * @return A list of the MediaConnect Flows.
+     * @return MediaConnect Flows. See `mediaConnectFlows` Block for more details.
      * 
      */
     public List<GetInputMediaConnectFlow> mediaConnectFlows() {
@@ -165,7 +173,7 @@ public final class GetInputResult {
         return this.region;
     }
     /**
-     * @return The ARN of the role this input assumes during and after creation.
+     * @return ARN of the role this input assumes during and after creation.
      * 
      */
     public String roleArn() {
@@ -179,28 +187,28 @@ public final class GetInputResult {
         return this.securityGroups;
     }
     /**
-     * @return The source URLs for a PULL-type input.
+     * @return Source URLs for a PULL-type input. See `sources` Block for more details.
      * 
      */
     public List<GetInputSource> sources() {
         return this.sources;
     }
     /**
-     * @return The state of the input.
+     * @return State of the input.
      * 
      */
     public String state() {
         return this.state;
     }
     /**
-     * @return A map of tags assigned to the Input.
+     * @return Map of tags assigned to the Input.
      * 
      */
     public Map<String,String> tags() {
         return this.tags;
     }
     /**
-     * @return The type of the input.
+     * @return Type of the input.
      * 
      */
     public String type() {

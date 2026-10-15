@@ -221,7 +221,7 @@ export interface GetAmiResult {
      */
     readonly rootDeviceType: string;
     /**
-     * Snapshot id associated with the root device, if any (only applies to `ebs` root devices).
+     * Snapshot ID associated with the root device, if any (only applies to `ebs` root devices).
      */
     readonly rootSnapshotId: string;
     /**

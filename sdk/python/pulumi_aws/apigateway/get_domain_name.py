@@ -122,7 +122,7 @@ class GetDomainNameResult:
     @pulumi.getter(name="cloudfrontDomainName")
     def cloudfront_domain_name(self) -> _builtins.str:
         """
-        Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
+        Hostname created by CloudFront to represent the distribution that implements this domain name mapping.
         """
         return pulumi.get(self, "cloudfront_domain_name")
 

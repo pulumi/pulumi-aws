@@ -21,7 +21,7 @@ public final class LaunchTemplateNetworkInterface {
      */
     private @Nullable String associateCarrierIpAddress;
     /**
-     * @return Associate a public ip address with the network interface. Boolean value, can be left unset.
+     * @return Associate a public IP address with the network interface. Boolean value, can be left unset.
      * 
      */
     private @Nullable String associatePublicIpAddress;
@@ -140,7 +140,7 @@ public final class LaunchTemplateNetworkInterface {
         return Optional.ofNullable(this.associateCarrierIpAddress);
     }
     /**
-     * @return Associate a public ip address with the network interface. Boolean value, can be left unset.
+     * @return Associate a public IP address with the network interface. Boolean value, can be left unset.
      * 
      */
     public Optional<String> associatePublicIpAddress() {

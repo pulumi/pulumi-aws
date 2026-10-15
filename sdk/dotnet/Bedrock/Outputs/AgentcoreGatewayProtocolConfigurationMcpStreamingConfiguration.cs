@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreGatewayProtocolConfigurationMcpStreamingConfiguration
     {
         /// <summary>
-        /// Boolean indicating whether response streaming is enabled for the gateway.
+        /// Whether to enable response streaming for the gateway.
         /// </summary>
         public readonly bool? EnableResponseStreaming;
 

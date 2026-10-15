@@ -16,14 +16,14 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     public static final AccountState Empty = new AccountState();
 
     /**
-     * The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
+     * Date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
      * 
      */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
     /**
-     * @return The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
+     * @return Date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
      * 
      */
     public Optional<Output<String>> createdAt() {
@@ -31,14 +31,14 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
+     * How often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
      * 
      */
     @Import(name="findingPublishingFrequency")
     private @Nullable Output<String> findingPublishingFrequency;
 
     /**
-     * @return Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
+     * @return How often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
      * 
      */
     public Optional<Output<String>> findingPublishingFrequency() {
@@ -76,14 +76,14 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
+     * Status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
+     * @return Status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
      * 
      */
     public Optional<Output<String>> status() {
@@ -91,14 +91,14 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
+     * Date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
      * 
      */
     @Import(name="updatedAt")
     private @Nullable Output<String> updatedAt;
 
     /**
-     * @return The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
+     * @return Date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
      * 
      */
     public Optional<Output<String>> updatedAt() {
@@ -135,7 +135,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdAt The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
+         * @param createdAt Date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdAt The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
+         * @param createdAt Date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param findingPublishingFrequency Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
+         * @param findingPublishingFrequency How often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param findingPublishingFrequency Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
+         * @param findingPublishingFrequency How often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
+         * @param status Status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
+         * @param status Status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param updatedAt The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
+         * @param updatedAt Date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param updatedAt The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
+         * @param updatedAt Date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
          * 
          * @return builder
          * 

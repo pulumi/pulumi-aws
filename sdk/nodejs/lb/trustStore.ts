@@ -92,7 +92,7 @@ export class TrustStore extends pulumi.CustomResource {
      */
     declare public readonly caCertificatesBundleS3Key: pulumi.Output<string>;
     /**
-     * Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+     * Version ID of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
      */
     declare public readonly caCertificatesBundleS3ObjectVersion: pulumi.Output<string | undefined>;
     /**
@@ -184,7 +184,7 @@ export interface TrustStoreState {
      */
     caCertificatesBundleS3Key?: pulumi.Input<string | undefined>;
     /**
-     * Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+     * Version ID of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
      */
     caCertificatesBundleS3ObjectVersion?: pulumi.Input<string | undefined>;
     /**
@@ -222,7 +222,7 @@ export interface TrustStoreArgs {
      */
     caCertificatesBundleS3Key: pulumi.Input<string>;
     /**
-     * Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+     * Version ID of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
      */
     caCertificatesBundleS3ObjectVersion?: pulumi.Input<string | undefined>;
     /**

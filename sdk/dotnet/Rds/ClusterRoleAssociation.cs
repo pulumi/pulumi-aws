@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> DbClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
+        /// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI `rds describe-db-engine-versions`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
         /// </summary>
         [Output("featureName")]
         public Output<string?> FeatureName { get; private set; } = null!;
@@ -123,7 +123,7 @@ namespace Pulumi.Aws.Rds
         public Input<string> DbClusterIdentifier { get; set; } = null!;
 
         /// <summary>
-        /// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
+        /// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI `rds describe-db-engine-versions`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
         /// </summary>
         [Input("featureName")]
         public Input<string>? FeatureName { get; set; }
@@ -155,7 +155,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DbClusterIdentifier { get; set; }
 
         /// <summary>
-        /// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
+        /// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI `rds describe-db-engine-versions`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
         /// </summary>
         [Input("featureName")]
         public Input<string>? FeatureName { get; set; }

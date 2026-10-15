@@ -66,7 +66,7 @@ export class InviteAccepter extends pulumi.CustomResource {
     }
 
     /**
-     * The detector ID of the member GuardDuty account.
+     * Detector ID of the member GuardDuty account.
      */
     declare public readonly detectorId: pulumi.Output<string>;
     /**
@@ -116,7 +116,7 @@ export class InviteAccepter extends pulumi.CustomResource {
  */
 export interface InviteAccepterState {
     /**
-     * The detector ID of the member GuardDuty account.
+     * Detector ID of the member GuardDuty account.
      */
     detectorId?: pulumi.Input<string | undefined>;
     /**
@@ -134,7 +134,7 @@ export interface InviteAccepterState {
  */
 export interface InviteAccepterArgs {
     /**
-     * The detector ID of the member GuardDuty account.
+     * Detector ID of the member GuardDuty account.
      */
     detectorId: pulumi.Input<string>;
     /**

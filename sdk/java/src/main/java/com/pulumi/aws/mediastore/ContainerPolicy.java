@@ -104,28 +104,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:mediastore/containerPolicy:ContainerPolicy")
 public class ContainerPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the container.
+     * Name of the container.
      * 
      */
     @Export(name="containerName", refs={String.class}, tree="[0]")
     private Output<String> containerName;
 
     /**
-     * @return The name of the container.
+     * @return Name of the container.
      * 
      */
     public Output<String> containerName() {
         return this.containerName;
     }
     /**
-     * The contents of the policy.
+     * Contents of the policy. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
      * 
      */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
-     * @return The contents of the policy.
+     * @return Contents of the policy. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
      * 
      */
     public Output<String> policy() {

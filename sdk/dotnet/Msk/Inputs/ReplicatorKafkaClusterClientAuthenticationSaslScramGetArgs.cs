@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Msk.Inputs
     public sealed class ReplicatorKafkaClusterClientAuthenticationSaslScramGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The SASL/SCRAM mechanism used for authentication. Valid values are `SHA256` and `SHA512`.
+        /// SASL/SCRAM mechanism used for authentication. Valid values are `SHA256` and `SHA512`.
         /// </summary>
         [Input("mechanism", required: true)]
         public Input<string> Mechanism { get; set; } = null!;
 
         /// <summary>
-        /// The ARN of the AWS Secrets Manager secret that stores the credentials used for SASL/SCRAM authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+        /// ARN of the AWS Secrets Manager secret that stores the credentials used for SASL/SCRAM authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
         /// </summary>
         [Input("secretArn", required: true)]
         public Input<string> SecretArn { get; set; } = null!;

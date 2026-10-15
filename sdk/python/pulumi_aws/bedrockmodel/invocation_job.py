@@ -531,9 +531,9 @@ class InvocationJob(pulumi.CustomResource):
         """
         Manages an Amazon Bedrock model invocation job. A model invocation job runs a foundation model, or a model accessed through an inference profile, against multiple prompts read from Amazon S3, and writes the results back to Amazon S3.
 
-        > Amazon Bedrock does not support permanently deleting a model invocation job. Destroying this resource stops the job (if it hasn't already reached a terminal state) using the [StopModelInvocationJob](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_StopModelInvocationJob.html) API, then removes it from Terraform state. Set `skip_destroy` to leave the job in its current state instead.
+        > **Note:** Amazon Bedrock does not support permanently deleting a model invocation job. Destroying this resource stops the job (if it hasn't already reached a terminal state) using the [StopModelInvocationJob](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_StopModelInvocationJob.html) API, then removes it from Terraform state. Set `skip_destroy` to leave the job in its current state instead.
 
-        > This resource does not support `tags`. Amazon Bedrock does not allow retrieving tags for a batch inference job that has already finished running, which would cause errors when importing or listing existing jobs.
+        > **Note:** This resource does not support `tags`. Amazon Bedrock does not allow retrieving tags for a batch inference job that has already finished running, which would cause errors when importing or listing existing jobs.
 
         ## Example Usage
 
@@ -565,7 +565,7 @@ class InvocationJob(pulumi.CustomResource):
 
         #### Required
 
-        - `job_arn` (String) ARN of the batch inference job.
+        * `job_arn` (String) ARN of the batch inference job.
 
         Using `pulumi import`, import Bedrock Model Invocation Job using the `job_arn`. For example:
 
@@ -597,9 +597,9 @@ class InvocationJob(pulumi.CustomResource):
         """
         Manages an Amazon Bedrock model invocation job. A model invocation job runs a foundation model, or a model accessed through an inference profile, against multiple prompts read from Amazon S3, and writes the results back to Amazon S3.
 
-        > Amazon Bedrock does not support permanently deleting a model invocation job. Destroying this resource stops the job (if it hasn't already reached a terminal state) using the [StopModelInvocationJob](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_StopModelInvocationJob.html) API, then removes it from Terraform state. Set `skip_destroy` to leave the job in its current state instead.
+        > **Note:** Amazon Bedrock does not support permanently deleting a model invocation job. Destroying this resource stops the job (if it hasn't already reached a terminal state) using the [StopModelInvocationJob](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_StopModelInvocationJob.html) API, then removes it from Terraform state. Set `skip_destroy` to leave the job in its current state instead.
 
-        > This resource does not support `tags`. Amazon Bedrock does not allow retrieving tags for a batch inference job that has already finished running, which would cause errors when importing or listing existing jobs.
+        > **Note:** This resource does not support `tags`. Amazon Bedrock does not allow retrieving tags for a batch inference job that has already finished running, which would cause errors when importing or listing existing jobs.
 
         ## Example Usage
 
@@ -631,7 +631,7 @@ class InvocationJob(pulumi.CustomResource):
 
         #### Required
 
-        - `job_arn` (String) ARN of the batch inference job.
+        * `job_arn` (String) ARN of the batch inference job.
 
         Using `pulumi import`, import Bedrock Model Invocation Job using the `job_arn`. For example:
 

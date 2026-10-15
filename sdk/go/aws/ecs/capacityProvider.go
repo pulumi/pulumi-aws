@@ -13,7 +13,7 @@ import (
 
 // Provides an ECS cluster capacity provider. More information can be found on the [ECS Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html).
 //
-// > **NOTE:** Associating an ECS Capacity Provider to an Auto Scaling Group will automatically add the `AmazonECSManaged` tag to the Auto Scaling Group. This tag should be included in the `autoscaling.Group` resource configuration to prevent the provider from removing it in subsequent executions as well as ensuring the `AmazonECSManaged` tag is propagated to all EC2 Instances in the Auto Scaling Group if `minSize` is above 0 on creation. Any EC2 Instances in the Auto Scaling Group without this tag must be manually be updated, otherwise they may cause unexpected scaling behavior and metrics.
+// > **NOTE:** Associating an ECS Capacity Provider to an Auto Scaling group will automatically add the `AmazonECSManaged` tag to the Auto Scaling group. This tag should be included in the `autoscaling.Group` resource configuration to prevent Terraform from removing it in subsequent executions as well as ensuring the `AmazonECSManaged` tag is propagated to all EC2 Instances in the Auto Scaling group if `minSize` is above 0 on creation. Any EC2 Instances in the Auto Scaling group without this tag must be manually be updated, otherwise they may cause unexpected scaling behavior and metrics.
 //
 // > **NOTE:** You must specify exactly one of `autoScalingGroupProvider` or `managedInstancesProvider`. When using `managedInstancesProvider`, the `cluster` parameter is required. When using `autoScalingGroupProvider`, the `cluster` parameter must not be set.
 //
@@ -21,7 +21,7 @@ import (
 //
 // ## Example Usage
 //
-// ### Auto Scaling Group Provider
+// ### Auto Scaling group Provider
 //
 // ```go
 // package main
@@ -151,7 +151,7 @@ type CapacityProvider struct {
 
 	// ARN that identifies the capacity provider.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
+	// Configuration block for the provider for the ECS Auto Scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderPtrOutput `pulumi:"autoScalingGroupProvider"`
 	// Name of the ECS cluster. Required when using `managedInstancesProvider`. Must not be set when using `autoScalingGroupProvider`.
 	Cluster pulumi.StringPtrOutput `pulumi:"cluster"`
@@ -199,7 +199,7 @@ func GetCapacityProvider(ctx *pulumi.Context,
 type capacityProviderState struct {
 	// ARN that identifies the capacity provider.
 	Arn *string `pulumi:"arn"`
-	// Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
+	// Configuration block for the provider for the ECS Auto Scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
 	AutoScalingGroupProvider *CapacityProviderAutoScalingGroupProvider `pulumi:"autoScalingGroupProvider"`
 	// Name of the ECS cluster. Required when using `managedInstancesProvider`. Must not be set when using `autoScalingGroupProvider`.
 	Cluster *string `pulumi:"cluster"`
@@ -218,7 +218,7 @@ type capacityProviderState struct {
 type CapacityProviderState struct {
 	// ARN that identifies the capacity provider.
 	Arn pulumi.StringPtrInput
-	// Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
+	// Configuration block for the provider for the ECS Auto Scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderPtrInput
 	// Name of the ECS cluster. Required when using `managedInstancesProvider`. Must not be set when using `autoScalingGroupProvider`.
 	Cluster pulumi.StringPtrInput
@@ -239,7 +239,7 @@ func (CapacityProviderState) ElementType() reflect.Type {
 }
 
 type capacityProviderArgs struct {
-	// Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
+	// Configuration block for the provider for the ECS Auto Scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
 	AutoScalingGroupProvider *CapacityProviderAutoScalingGroupProvider `pulumi:"autoScalingGroupProvider"`
 	// Name of the ECS cluster. Required when using `managedInstancesProvider`. Must not be set when using `autoScalingGroupProvider`.
 	Cluster *string `pulumi:"cluster"`
@@ -255,7 +255,7 @@ type capacityProviderArgs struct {
 
 // The set of arguments for constructing a CapacityProvider resource.
 type CapacityProviderArgs struct {
-	// Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
+	// Configuration block for the provider for the ECS Auto Scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderPtrInput
 	// Name of the ECS cluster. Required when using `managedInstancesProvider`. Must not be set when using `autoScalingGroupProvider`.
 	Cluster pulumi.StringPtrInput
@@ -361,7 +361,7 @@ func (o CapacityProviderOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityProvider) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
+// Configuration block for the provider for the ECS Auto Scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
 func (o CapacityProviderOutput) AutoScalingGroupProvider() CapacityProviderAutoScalingGroupProviderPtrOutput {
 	return o.ApplyT(func(v *CapacityProvider) CapacityProviderAutoScalingGroupProviderPtrOutput {
 		return v.AutoScalingGroupProvider

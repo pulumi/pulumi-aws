@@ -77,11 +77,11 @@ export class CustomPlugin extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The type of the plugin file. Allowed values are `ZIP` and `JAR`.
+     * Type of the plugin file. Allowed values are `ZIP` and `JAR`.
      */
     declare public readonly contentType: pulumi.Output<string>;
     /**
-     * A summary description of the custom plugin.
+     * Summary description of the custom plugin.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
@@ -93,7 +93,7 @@ export class CustomPlugin extends pulumi.CustomResource {
      */
     declare public readonly location: pulumi.Output<outputs.mskconnect.CustomPluginLocation>;
     /**
-     * The name of the custom plugin..
+     * Name of the custom plugin.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -105,11 +105,11 @@ export class CustomPlugin extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -169,11 +169,11 @@ export interface CustomPluginState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The type of the plugin file. Allowed values are `ZIP` and `JAR`.
+     * Type of the plugin file. Allowed values are `ZIP` and `JAR`.
      */
     contentType?: pulumi.Input<string | undefined>;
     /**
-     * A summary description of the custom plugin.
+     * Summary description of the custom plugin.
      */
     description?: pulumi.Input<string | undefined>;
     /**
@@ -185,7 +185,7 @@ export interface CustomPluginState {
      */
     location?: pulumi.Input<inputs.mskconnect.CustomPluginLocation | undefined>;
     /**
-     * The name of the custom plugin..
+     * Name of the custom plugin.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -197,11 +197,11 @@ export interface CustomPluginState {
      */
     state?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -211,11 +211,11 @@ export interface CustomPluginState {
  */
 export interface CustomPluginArgs {
     /**
-     * The type of the plugin file. Allowed values are `ZIP` and `JAR`.
+     * Type of the plugin file. Allowed values are `ZIP` and `JAR`.
      */
     contentType: pulumi.Input<string>;
     /**
-     * A summary description of the custom plugin.
+     * Summary description of the custom plugin.
      */
     description?: pulumi.Input<string | undefined>;
     /**
@@ -223,7 +223,7 @@ export interface CustomPluginArgs {
      */
     location: pulumi.Input<inputs.mskconnect.CustomPluginLocation>;
     /**
-     * The name of the custom plugin..
+     * Name of the custom plugin.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -231,7 +231,7 @@ export interface CustomPluginArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

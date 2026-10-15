@@ -72,7 +72,7 @@ namespace Pulumi.Aws.GameLift
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the fleet and/or routing type to use for the alias.
+        /// Fleet and/or routing type to use for the alias.
         /// </summary>
         [Output("routingStrategy")]
         public Output<Outputs.AliasRoutingStrategy> RoutingStrategy { get; private set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.GameLift
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.Aws.GameLift
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Specifies the fleet and/or routing type to use for the alias.
+        /// Fleet and/or routing type to use for the alias.
         /// </summary>
         [Input("routingStrategy", required: true)]
         public Input<Inputs.AliasRoutingStrategyArgs> RoutingStrategy { get; set; } = null!;
@@ -204,7 +204,7 @@ namespace Pulumi.Aws.GameLift
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Specifies the fleet and/or routing type to use for the alias.
+        /// Fleet and/or routing type to use for the alias.
         /// </summary>
         [Input("routingStrategy")]
         public Input<Inputs.AliasRoutingStrategyGetArgs>? RoutingStrategy { get; set; }
@@ -225,7 +225,7 @@ namespace Pulumi.Aws.GameLift
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

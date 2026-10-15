@@ -27,13 +27,13 @@ class RoleAssociationArgs:
         """
         The set of arguments for constructing a RoleAssociation resource.
 
-        :param pulumi.Input[_builtins.str] role: The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
-        :param pulumi.Input[_builtins.str] workspace_id: The workspace id.
+        :param pulumi.Input[_builtins.str] role: Grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
+        :param pulumi.Input[_builtins.str] workspace_id: Workspace ID.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_ids: The AWS SSO group ids to be assigned the role given in `role`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_ids: AWS SSO group IDs to be assigned the role given in `role`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_ids: The AWS SSO user ids to be assigned the role given in `role`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_ids: AWS SSO user IDs to be assigned the role given in `role`.
         """
         pulumi.set(__self__, "role", role)
         pulumi.set(__self__, "workspace_id", workspace_id)
@@ -48,7 +48,7 @@ class RoleAssociationArgs:
     @pulumi.getter
     def role(self) -> pulumi.Input[_builtins.str]:
         """
-        The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
+        Grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
         """
         return pulumi.get(self, "role")
 
@@ -60,7 +60,7 @@ class RoleAssociationArgs:
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The workspace id.
+        Workspace ID.
 
         The following arguments are optional:
         """
@@ -74,7 +74,7 @@ class RoleAssociationArgs:
     @pulumi.getter(name="groupIds")
     def group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The AWS SSO group ids to be assigned the role given in `role`.
+        AWS SSO group IDs to be assigned the role given in `role`.
         """
         return pulumi.get(self, "group_ids")
 
@@ -98,7 +98,7 @@ class RoleAssociationArgs:
     @pulumi.getter(name="userIds")
     def user_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The AWS SSO user ids to be assigned the role given in `role`.
+        AWS SSO user IDs to be assigned the role given in `role`.
         """
         return pulumi.get(self, "user_ids")
 
@@ -118,11 +118,11 @@ class _RoleAssociationState:
         """
         Input properties used for looking up and filtering RoleAssociation resources.
 
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_ids: The AWS SSO group ids to be assigned the role given in `role`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_ids: AWS SSO group IDs to be assigned the role given in `role`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role: The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_ids: The AWS SSO user ids to be assigned the role given in `role`.
-        :param pulumi.Input[_builtins.str] workspace_id: The workspace id.
+        :param pulumi.Input[_builtins.str] role: Grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_ids: AWS SSO user IDs to be assigned the role given in `role`.
+        :param pulumi.Input[_builtins.str] workspace_id: Workspace ID.
                
                The following arguments are optional:
         """
@@ -141,7 +141,7 @@ class _RoleAssociationState:
     @pulumi.getter(name="groupIds")
     def group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The AWS SSO group ids to be assigned the role given in `role`.
+        AWS SSO group IDs to be assigned the role given in `role`.
         """
         return pulumi.get(self, "group_ids")
 
@@ -165,7 +165,7 @@ class _RoleAssociationState:
     @pulumi.getter
     def role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
+        Grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
         """
         return pulumi.get(self, "role")
 
@@ -177,7 +177,7 @@ class _RoleAssociationState:
     @pulumi.getter(name="userIds")
     def user_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The AWS SSO user ids to be assigned the role given in `role`.
+        AWS SSO user IDs to be assigned the role given in `role`.
         """
         return pulumi.get(self, "user_ids")
 
@@ -189,7 +189,7 @@ class _RoleAssociationState:
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The workspace id.
+        Workspace ID.
 
         The following arguments are optional:
         """
@@ -254,11 +254,11 @@ class RoleAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_ids: The AWS SSO group ids to be assigned the role given in `role`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_ids: AWS SSO group IDs to be assigned the role given in `role`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role: The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_ids: The AWS SSO user ids to be assigned the role given in `role`.
-        :param pulumi.Input[_builtins.str] workspace_id: The workspace id.
+        :param pulumi.Input[_builtins.str] role: Grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_ids: AWS SSO user IDs to be assigned the role given in `role`.
+        :param pulumi.Input[_builtins.str] workspace_id: Workspace ID.
                
                The following arguments are optional:
         """
@@ -368,11 +368,11 @@ class RoleAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_ids: The AWS SSO group ids to be assigned the role given in `role`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_ids: AWS SSO group IDs to be assigned the role given in `role`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role: The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_ids: The AWS SSO user ids to be assigned the role given in `role`.
-        :param pulumi.Input[_builtins.str] workspace_id: The workspace id.
+        :param pulumi.Input[_builtins.str] role: Grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_ids: AWS SSO user IDs to be assigned the role given in `role`.
+        :param pulumi.Input[_builtins.str] workspace_id: Workspace ID.
                
                The following arguments are optional:
         """
@@ -391,7 +391,7 @@ class RoleAssociation(pulumi.CustomResource):
     @pulumi.getter(name="groupIds")
     def group_ids(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        The AWS SSO group ids to be assigned the role given in `role`.
+        AWS SSO group IDs to be assigned the role given in `role`.
         """
         return pulumi.get(self, "group_ids")
 
@@ -407,7 +407,7 @@ class RoleAssociation(pulumi.CustomResource):
     @pulumi.getter
     def role(self) -> pulumi.Output[_builtins.str]:
         """
-        The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
+        Grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
         """
         return pulumi.get(self, "role")
 
@@ -415,7 +415,7 @@ class RoleAssociation(pulumi.CustomResource):
     @pulumi.getter(name="userIds")
     def user_ids(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        The AWS SSO user ids to be assigned the role given in `role`.
+        AWS SSO user IDs to be assigned the role given in `role`.
         """
         return pulumi.get(self, "user_ids")
 
@@ -423,7 +423,7 @@ class RoleAssociation(pulumi.CustomResource):
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The workspace id.
+        Workspace ID.
 
         The following arguments are optional:
         """

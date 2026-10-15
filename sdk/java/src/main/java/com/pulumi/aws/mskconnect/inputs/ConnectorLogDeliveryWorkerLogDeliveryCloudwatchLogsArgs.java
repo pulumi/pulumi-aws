@@ -33,14 +33,14 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs exten
     }
 
     /**
-     * The name of the CloudWatch log group that is the destination for log delivery.
+     * Name of the CloudWatch log group that is the destination for log delivery.
      * 
      */
     @Import(name="logGroup")
     private @Nullable Output<String> logGroup;
 
     /**
-     * @return The name of the CloudWatch log group that is the destination for log delivery.
+     * @return Name of the CloudWatch log group that is the destination for log delivery.
      * 
      */
     public Optional<Output<String>> logGroup() {
@@ -94,7 +94,7 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs exten
         }
 
         /**
-         * @param logGroup The name of the CloudWatch log group that is the destination for log delivery.
+         * @param logGroup Name of the CloudWatch log group that is the destination for log delivery.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs exten
         }
 
         /**
-         * @param logGroup The name of the CloudWatch log group that is the destination for log delivery.
+         * @param logGroup Name of the CloudWatch log group that is the destination for log delivery.
          * 
          * @return builder
          * 

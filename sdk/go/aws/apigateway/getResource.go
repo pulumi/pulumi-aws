@@ -11,8 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get the id of a Resource in API Gateway.
-// To fetch the Resource, you must provide the REST API id as well as the full path.
+// Use this data source to get the ID of a Resource in API Gateway.
+// To fetch the Resource, you must provide the REST API ID as well as the full path.
 //
 // ## Example Usage
 //
@@ -62,7 +62,7 @@ type LookupResourceArgs struct {
 	Path string `pulumi:"path"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// REST API id that owns the resource. If no REST API is found, an error will be returned.
+	// REST API ID that owns the resource. If no REST API is found, an error will be returned.
 	RestApiId string `pulumi:"restApiId"`
 }
 
@@ -90,7 +90,7 @@ type LookupResourceOutputArgs struct {
 	Path pulumi.StringInput `pulumi:"path"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// REST API id that owns the resource. If no REST API is found, an error will be returned.
+	// REST API ID that owns the resource. If no REST API is found, an error will be returned.
 	RestApiId pulumi.StringInput `pulumi:"restApiId"`
 }
 

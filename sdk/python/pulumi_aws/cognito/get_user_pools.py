@@ -63,7 +63,7 @@ class GetUserPoolsResult:
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
         """
-        Set of cognito user pool ids.
+        Set of cognito user pool IDs.
         """
         return pulumi.get(self, "ids")
 
@@ -113,7 +113,7 @@ def get_user_pools(name: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str name: Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool id via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
+    :param _builtins.str name: Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool ID via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
@@ -150,7 +150,7 @@ def get_user_pools_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     ```
 
 
-    :param _builtins.str name: Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool id via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
+    :param _builtins.str name: Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool ID via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()

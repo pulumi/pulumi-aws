@@ -17,14 +17,14 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaArgs extends co
     public static final ClassificationJobS3JobDefinitionBucketCriteriaArgs Empty = new ClassificationJobS3JobDefinitionBucketCriteriaArgs();
 
     /**
-     * The property- or tag-based conditions that determine which S3 buckets to exclude from the analysis. (documented below)
+     * Property- or tag-based conditions that determine which S3 buckets to exclude from the analysis. See `bucket_criteria.excludes` Block for details.
      * 
      */
     @Import(name="excludes")
     private @Nullable Output<ClassificationJobS3JobDefinitionBucketCriteriaExcludesArgs> excludes;
 
     /**
-     * @return The property- or tag-based conditions that determine which S3 buckets to exclude from the analysis. (documented below)
+     * @return Property- or tag-based conditions that determine which S3 buckets to exclude from the analysis. See `bucket_criteria.excludes` Block for details.
      * 
      */
     public Optional<Output<ClassificationJobS3JobDefinitionBucketCriteriaExcludesArgs>> excludes() {
@@ -32,14 +32,14 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaArgs extends co
     }
 
     /**
-     * The property- or tag-based conditions that determine which S3 buckets to include in the analysis. (documented below)
+     * Property- or tag-based conditions that determine which S3 buckets to include in the analysis. See `bucket_criteria.includes` Block for details.
      * 
      */
     @Import(name="includes")
     private @Nullable Output<ClassificationJobS3JobDefinitionBucketCriteriaIncludesArgs> includes;
 
     /**
-     * @return The property- or tag-based conditions that determine which S3 buckets to include in the analysis. (documented below)
+     * @return Property- or tag-based conditions that determine which S3 buckets to include in the analysis. See `bucket_criteria.includes` Block for details.
      * 
      */
     public Optional<Output<ClassificationJobS3JobDefinitionBucketCriteriaIncludesArgs>> includes() {
@@ -72,7 +72,7 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaArgs extends co
         }
 
         /**
-         * @param excludes The property- or tag-based conditions that determine which S3 buckets to exclude from the analysis. (documented below)
+         * @param excludes Property- or tag-based conditions that determine which S3 buckets to exclude from the analysis. See `bucket_criteria.excludes` Block for details.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaArgs extends co
         }
 
         /**
-         * @param excludes The property- or tag-based conditions that determine which S3 buckets to exclude from the analysis. (documented below)
+         * @param excludes Property- or tag-based conditions that determine which S3 buckets to exclude from the analysis. See `bucket_criteria.excludes` Block for details.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaArgs extends co
         }
 
         /**
-         * @param includes The property- or tag-based conditions that determine which S3 buckets to include in the analysis. (documented below)
+         * @param includes Property- or tag-based conditions that determine which S3 buckets to include in the analysis. See `bucket_criteria.includes` Block for details.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaArgs extends co
         }
 
         /**
-         * @param includes The property- or tag-based conditions that determine which S3 buckets to include in the analysis. (documented below)
+         * @param includes Property- or tag-based conditions that determine which S3 buckets to include in the analysis. See `bucket_criteria.includes` Block for details.
          * 
          * @return builder
          * 

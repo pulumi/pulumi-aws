@@ -15,25 +15,65 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting {
+    /**
+     * @return Akamai settings. See `hlsAkamaiSettings` Block for details.
+     * 
+     */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings hlsAkamaiSettings;
+    /**
+     * @return Basic put settings. See `hlsBasicPutSettings` Block for details.
+     * 
+     */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings hlsBasicPutSettings;
+    /**
+     * @return Media store settings. See `hlsMediaStoreSettings` Block for details.
+     * 
+     */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettings hlsMediaStoreSettings;
+    /**
+     * @return S3 settings. See `hlsS3Settings` Block for details.
+     * 
+     */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3Settings hlsS3Settings;
+    /**
+     * @return WebDAV settings. See `hlsWebdavSettings` Block for details.
+     * 
+     */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings hlsWebdavSettings;
 
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting() {}
+    /**
+     * @return Akamai settings. See `hlsAkamaiSettings` Block for details.
+     * 
+     */
     public Optional<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings> hlsAkamaiSettings() {
         return Optional.ofNullable(this.hlsAkamaiSettings);
     }
+    /**
+     * @return Basic put settings. See `hlsBasicPutSettings` Block for details.
+     * 
+     */
     public Optional<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings> hlsBasicPutSettings() {
         return Optional.ofNullable(this.hlsBasicPutSettings);
     }
+    /**
+     * @return Media store settings. See `hlsMediaStoreSettings` Block for details.
+     * 
+     */
     public Optional<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettings> hlsMediaStoreSettings() {
         return Optional.ofNullable(this.hlsMediaStoreSettings);
     }
+    /**
+     * @return S3 settings. See `hlsS3Settings` Block for details.
+     * 
+     */
     public Optional<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3Settings> hlsS3Settings() {
         return Optional.ofNullable(this.hlsS3Settings);
     }
+    /**
+     * @return WebDAV settings. See `hlsWebdavSettings` Block for details.
+     * 
+     */
     public Optional<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings> hlsWebdavSettings() {
         return Optional.ofNullable(this.hlsWebdavSettings);
     }

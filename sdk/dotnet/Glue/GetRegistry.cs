@@ -140,7 +140,7 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// A description of the registry.
+        /// Description of the registry.
         /// </summary>
         public readonly string Description;
         public readonly string Name;

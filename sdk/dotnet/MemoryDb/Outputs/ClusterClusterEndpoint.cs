@@ -18,7 +18,7 @@ namespace Pulumi.Aws.MemoryDb.Outputs
         /// </summary>
         public readonly string? Address;
         /// <summary>
-        /// The port number on which each of the nodes accepts connections. Defaults to `6379`.
+        /// Port number on which each of the nodes accepts connections. Defaults to `6379`.
         /// </summary>
         public readonly int? Port;
 

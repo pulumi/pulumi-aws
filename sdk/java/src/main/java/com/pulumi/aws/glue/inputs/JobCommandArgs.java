@@ -17,14 +17,14 @@ public final class JobCommandArgs extends com.pulumi.resources.ResourceArgs {
     public static final JobCommandArgs Empty = new JobCommandArgs();
 
     /**
-     * The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
+     * Name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
+     * @return Name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
      * 
      */
     public Optional<Output<String>> name() {
@@ -32,14 +32,14 @@ public final class JobCommandArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.11 when `glueVersion` is set to 5.0.
+     * Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.11 when `glueVersion` is set to 5.0.
      * 
      */
     @Import(name="pythonVersion")
     private @Nullable Output<String> pythonVersion;
 
     /**
-     * @return The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.11 when `glueVersion` is set to 5.0.
+     * @return Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.11 when `glueVersion` is set to 5.0.
      * 
      */
     public Optional<Output<String>> pythonVersion() {
@@ -62,14 +62,14 @@ public final class JobCommandArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the S3 path to a script that executes a job.
+     * S3 path to a script that executes a job.
      * 
      */
     @Import(name="scriptLocation", required=true)
     private Output<String> scriptLocation;
 
     /**
-     * @return Specifies the S3 path to a script that executes a job.
+     * @return S3 path to a script that executes a job.
      * 
      */
     public Output<String> scriptLocation() {
@@ -104,7 +104,7 @@ public final class JobCommandArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
+         * @param name Name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class JobCommandArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
+         * @param name Name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class JobCommandArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pythonVersion The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.11 when `glueVersion` is set to 5.0.
+         * @param pythonVersion Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.11 when `glueVersion` is set to 5.0.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class JobCommandArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pythonVersion The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.11 when `glueVersion` is set to 5.0.
+         * @param pythonVersion Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.11 when `glueVersion` is set to 5.0.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class JobCommandArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scriptLocation Specifies the S3 path to a script that executes a job.
+         * @param scriptLocation S3 path to a script that executes a job.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class JobCommandArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scriptLocation Specifies the S3 path to a script that executes a job.
+         * @param scriptLocation S3 path to a script that executes a job.
          * 
          * @return builder
          * 

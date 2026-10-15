@@ -17,14 +17,14 @@ public final class GetHoursOfOperationPlainArgs extends com.pulumi.resources.Inv
     public static final GetHoursOfOperationPlainArgs Empty = new GetHoursOfOperationPlainArgs();
 
     /**
-     * Returns information on a specific Hours of Operation by hours of operation id
+     * Returns information on a specific Hours of Operation by hours of operation ID
      * 
      */
     @Import(name="hoursOfOperationId")
     private @Nullable String hoursOfOperationId;
 
     /**
-     * @return Returns information on a specific Hours of Operation by hours of operation id
+     * @return Returns information on a specific Hours of Operation by hours of operation ID
      * 
      */
     public Optional<String> hoursOfOperationId() {
@@ -124,7 +124,7 @@ public final class GetHoursOfOperationPlainArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param hoursOfOperationId Returns information on a specific Hours of Operation by hours of operation id
+         * @param hoursOfOperationId Returns information on a specific Hours of Operation by hours of operation ID
          * 
          * @return builder
          * 

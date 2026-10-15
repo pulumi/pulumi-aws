@@ -12,8 +12,8 @@ namespace Pulumi.Aws.ApiGateway
     public static class GetResource
     {
         /// <summary>
-        /// Use this data source to get the id of a Resource in API Gateway.
-        /// To fetch the Resource, you must provide the REST API id as well as the full path.  
+        /// Use this data source to get the ID of a Resource in API Gateway.
+        /// To fetch the Resource, you must provide the REST API ID as well as the full path.  
         /// 
         /// ## Example Usage
         /// 
@@ -43,8 +43,8 @@ namespace Pulumi.Aws.ApiGateway
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceResult>("aws:apigateway/getResource:getResource", args ?? new GetResourceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get the id of a Resource in API Gateway.
-        /// To fetch the Resource, you must provide the REST API id as well as the full path.  
+        /// Use this data source to get the ID of a Resource in API Gateway.
+        /// To fetch the Resource, you must provide the REST API ID as well as the full path.  
         /// 
         /// ## Example Usage
         /// 
@@ -74,8 +74,8 @@ namespace Pulumi.Aws.ApiGateway
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceResult>("aws:apigateway/getResource:getResource", args ?? new GetResourceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get the id of a Resource in API Gateway.
-        /// To fetch the Resource, you must provide the REST API id as well as the full path.  
+        /// Use this data source to get the ID of a Resource in API Gateway.
+        /// To fetch the Resource, you must provide the REST API ID as well as the full path.  
         /// 
         /// ## Example Usage
         /// 
@@ -121,7 +121,7 @@ namespace Pulumi.Aws.ApiGateway
         public string? Region { get; set; }
 
         /// <summary>
-        /// REST API id that owns the resource. If no REST API is found, an error will be returned.
+        /// REST API ID that owns the resource. If no REST API is found, an error will be returned.
         /// </summary>
         [Input("restApiId", required: true)]
         public string RestApiId { get; set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// REST API id that owns the resource. If no REST API is found, an error will be returned.
+        /// REST API ID that owns the resource. If no REST API is found, an error will be returned.
         /// </summary>
         [Input("restApiId", required: true)]
         public Input<string> RestApiId { get; set; } = null!;

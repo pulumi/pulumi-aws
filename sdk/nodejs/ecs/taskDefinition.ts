@@ -55,7 +55,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### With AppMesh Proxy
+ * ### With App Mesh Proxy
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -292,7 +292,7 @@ export class TaskDefinition extends pulumi.CustomResource {
      */
     declare public readonly containerDefinitions: pulumi.Output<string>;
     /**
-     * Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
+     * Number of CPU units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
      */
     declare public readonly cpu: pulumi.Output<string | undefined>;
     /**
@@ -474,7 +474,7 @@ export interface TaskDefinitionState {
      */
     containerDefinitions?: pulumi.Input<string | undefined>;
     /**
-     * Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
+     * Number of CPU units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
      */
     cpu?: pulumi.Input<string | undefined>;
     /**
@@ -574,7 +574,7 @@ export interface TaskDefinitionArgs {
      */
     containerDefinitions: pulumi.Input<string>;
     /**
-     * Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
+     * Number of CPU units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
      */
     cpu?: pulumi.Input<string | undefined>;
     /**

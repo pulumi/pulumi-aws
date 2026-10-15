@@ -38,14 +38,14 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The version of glue to use, for example &#34;1.0&#34;. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+     * Version of glue to use, for example &#34;1.0&#34;. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
      * 
      */
     @Import(name="glueVersion")
     private @Nullable Output<String> glueVersion;
 
     /**
-     * @return The version of glue to use, for example &#34;1.0&#34;. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+     * @return Version of glue to use, for example &#34;1.0&#34;. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
      * 
      */
     public Optional<Output<String>> glueVersion() {
@@ -53,14 +53,14 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of AWS Glue table definitions used by the transform. see Input Record Tables.
+     * List of AWS Glue table definitions used by the transform. See `inputRecordTables`.
      * 
      */
     @Import(name="inputRecordTables", required=true)
     private Output<List<MLTransformInputRecordTableArgs>> inputRecordTables;
 
     /**
-     * @return A list of AWS Glue table definitions used by the transform. see Input Record Tables.
+     * @return List of AWS Glue table definitions used by the transform. See `inputRecordTables`.
      * 
      */
     public Output<List<MLTransformInputRecordTableArgs>> inputRecordTables() {
@@ -68,14 +68,14 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
+     * Number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
      * 
      */
     @Import(name="maxCapacity")
     private @Nullable Output<Double> maxCapacity;
 
     /**
-     * @return The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
+     * @return Number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
      * 
      */
     public Optional<Output<Double>> maxCapacity() {
@@ -83,14 +83,14 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The maximum number of times to retry this ML Transform if it fails.
+     * Maximum number of times to retry this ML Transform if it fails.
      * 
      */
     @Import(name="maxRetries")
     private @Nullable Output<Integer> maxRetries;
 
     /**
-     * @return The maximum number of times to retry this ML Transform if it fails.
+     * @return Maximum number of times to retry this ML Transform if it fails.
      * 
      */
     public Optional<Output<Integer>> maxRetries() {
@@ -98,14 +98,14 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name you assign to this ML Transform. It must be unique in your account.
+     * Name you assign to this ML Transform. It must be unique in your account.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name you assign to this ML Transform. It must be unique in your account.
+     * @return Name you assign to this ML Transform. It must be unique in your account.
      * 
      */
     public Optional<Output<String>> name() {
@@ -113,14 +113,14 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
+     * Number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
      * 
      */
     @Import(name="numberOfWorkers")
     private @Nullable Output<Integer> numberOfWorkers;
 
     /**
-     * @return The number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
+     * @return Number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
      * 
      */
     public Optional<Output<Integer>> numberOfWorkers() {
@@ -128,14 +128,14 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
+     * Algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. See `parameters`.
      * 
      */
     @Import(name="parameters", required=true)
     private Output<MLTransformParametersArgs> parameters;
 
     /**
-     * @return The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
+     * @return Algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. See `parameters`.
      * 
      */
     public Output<MLTransformParametersArgs> parameters() {
@@ -158,14 +158,14 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the IAM role associated with this ML Transform.
+     * ARN of the IAM role associated with this ML Transform.
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return The ARN of the IAM role associated with this ML Transform.
+     * @return ARN of the IAM role associated with this ML Transform.
      * 
      */
     public Output<String> roleArn() {
@@ -188,14 +188,14 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
+     * ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
      * 
      */
     @Import(name="timeout")
     private @Nullable Output<Integer> timeout;
 
     /**
-     * @return The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
+     * @return ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
      * 
      */
     public Optional<Output<Integer>> timeout() {
@@ -203,14 +203,14 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
+     * Type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
      * 
      */
     @Import(name="workerType")
     private @Nullable Output<String> workerType;
 
     /**
-     * @return The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
+     * @return Type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
      * 
      */
     public Optional<Output<String>> workerType() {
@@ -275,7 +275,7 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param glueVersion The version of glue to use, for example &#34;1.0&#34;. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+         * @param glueVersion Version of glue to use, for example &#34;1.0&#34;. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
          * 
          * @return builder
          * 
@@ -286,7 +286,7 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param glueVersion The version of glue to use, for example &#34;1.0&#34;. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+         * @param glueVersion Version of glue to use, for example &#34;1.0&#34;. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inputRecordTables A list of AWS Glue table definitions used by the transform. see Input Record Tables.
+         * @param inputRecordTables List of AWS Glue table definitions used by the transform. See `inputRecordTables`.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inputRecordTables A list of AWS Glue table definitions used by the transform. see Input Record Tables.
+         * @param inputRecordTables List of AWS Glue table definitions used by the transform. See `inputRecordTables`.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inputRecordTables A list of AWS Glue table definitions used by the transform. see Input Record Tables.
+         * @param inputRecordTables List of AWS Glue table definitions used by the transform. See `inputRecordTables`.
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxCapacity The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
+         * @param maxCapacity Number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxCapacity The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
+         * @param maxCapacity Number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
          * 
          * @return builder
          * 
@@ -348,7 +348,7 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxRetries The maximum number of times to retry this ML Transform if it fails.
+         * @param maxRetries Maximum number of times to retry this ML Transform if it fails.
          * 
          * @return builder
          * 
@@ -359,7 +359,7 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxRetries The maximum number of times to retry this ML Transform if it fails.
+         * @param maxRetries Maximum number of times to retry this ML Transform if it fails.
          * 
          * @return builder
          * 
@@ -369,7 +369,7 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name you assign to this ML Transform. It must be unique in your account.
+         * @param name Name you assign to this ML Transform. It must be unique in your account.
          * 
          * @return builder
          * 
@@ -380,7 +380,7 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name you assign to this ML Transform. It must be unique in your account.
+         * @param name Name you assign to this ML Transform. It must be unique in your account.
          * 
          * @return builder
          * 
@@ -390,7 +390,7 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param numberOfWorkers The number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
+         * @param numberOfWorkers Number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param numberOfWorkers The number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
+         * @param numberOfWorkers Number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
          * 
          * @return builder
          * 
@@ -411,7 +411,7 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parameters The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
+         * @param parameters Algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. See `parameters`.
          * 
          * @return builder
          * 
@@ -422,7 +422,7 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parameters The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
+         * @param parameters Algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. See `parameters`.
          * 
          * @return builder
          * 
@@ -453,7 +453,7 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn The ARN of the IAM role associated with this ML Transform.
+         * @param roleArn ARN of the IAM role associated with this ML Transform.
          * 
          * @return builder
          * 
@@ -464,7 +464,7 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn The ARN of the IAM role associated with this ML Transform.
+         * @param roleArn ARN of the IAM role associated with this ML Transform.
          * 
          * @return builder
          * 
@@ -495,7 +495,7 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timeout The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
+         * @param timeout ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
          * 
          * @return builder
          * 
@@ -506,7 +506,7 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timeout The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
+         * @param timeout ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
          * 
          * @return builder
          * 
@@ -516,7 +516,7 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workerType The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
+         * @param workerType Type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
          * 
          * @return builder
          * 
@@ -527,7 +527,7 @@ public final class MLTransformArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workerType The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
+         * @param workerType Type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
          * 
          * @return builder
          * 

@@ -70,26 +70,41 @@ class GetAcceleratorResult:
     @_builtins.property
     @pulumi.getter
     def attributes(self) -> Sequence['outputs.GetAcceleratorAttributeResult']:
+        """
+        Attributes of the accelerator. See `attributes` below.
+        """
         return pulumi.get(self, "attributes")
 
     @_builtins.property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> _builtins.str:
+        """
+        DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
+        """
         return pulumi.get(self, "dns_name")
 
     @_builtins.property
     @pulumi.getter(name="dualStackDnsName")
     def dual_stack_dns_name(self) -> _builtins.str:
+        """
+        DNS name that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses.
+        """
         return pulumi.get(self, "dual_stack_dns_name")
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
+        """
+        Whether the accelerator is enabled.
+        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> _builtins.str:
+        """
+        Global Accelerator Route 53 zone ID used to route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the accelerator.
+        """
         return pulumi.get(self, "hosted_zone_id")
 
     @_builtins.property
@@ -100,11 +115,17 @@ class GetAcceleratorResult:
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> _builtins.str:
+        """
+        Value for the address type.
+        """
         return pulumi.get(self, "ip_address_type")
 
     @_builtins.property
     @pulumi.getter(name="ipSets")
     def ip_sets(self) -> Sequence['outputs.GetAcceleratorIpSetResult']:
+        """
+        IP address set associated with the accelerator. See `ip_sets` below.
+        """
         return pulumi.get(self, "ip_sets")
 
     @_builtins.property
@@ -115,6 +136,9 @@ class GetAcceleratorResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
+        """
+        Map of tags assigned to the resource.
+        """
         return pulumi.get(self, "tags")
 
 

@@ -37,7 +37,7 @@ class EnvironmentProfileArgs:
         :param pulumi.Input[_builtins.str] domain_identifier: Domain Identifier for environment profile.
         :param pulumi.Input[_builtins.str] environment_blueprint_identifier: ID of the blueprint which the environment will be created with.
         :param pulumi.Input[_builtins.str] project_identifier: Project identifier for environment profile.
-        :param pulumi.Input[_builtins.str] aws_account_id: Id of the AWS account being used.
+        :param pulumi.Input[_builtins.str] aws_account_id: ID of the AWS account being used.
         :param pulumi.Input[_builtins.str] description: Description of environment profile.
         :param pulumi.Input[_builtins.str] name: Name of the environment profile.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -110,7 +110,7 @@ class EnvironmentProfileArgs:
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Id of the AWS account being used.
+        ID of the AWS account being used.
         """
         return pulumi.get(self, "aws_account_id")
 
@@ -185,7 +185,7 @@ class _EnvironmentProfileState:
         """
         Input properties used for looking up and filtering EnvironmentProfile resources.
 
-        :param pulumi.Input[_builtins.str] aws_account_id: Id of the AWS account being used.
+        :param pulumi.Input[_builtins.str] aws_account_id: ID of the AWS account being used.
         :param pulumi.Input[_builtins.str] aws_account_region: Desired region for environment profile.
         :param pulumi.Input[_builtins.str] created_at: Creation time of environment profile.
         :param pulumi.Input[_builtins.str] created_by: Creator of environment profile.
@@ -227,7 +227,7 @@ class _EnvironmentProfileState:
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Id of the AWS account being used.
+        ID of the AWS account being used.
         """
         return pulumi.get(self, "aws_account_id")
 
@@ -496,7 +496,7 @@ class EnvironmentProfile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] aws_account_id: Id of the AWS account being used.
+        :param pulumi.Input[_builtins.str] aws_account_id: ID of the AWS account being used.
         :param pulumi.Input[_builtins.str] aws_account_region: Desired region for environment profile.
         :param pulumi.Input[_builtins.str] description: Description of environment profile.
         :param pulumi.Input[_builtins.str] domain_identifier: Domain Identifier for environment profile.
@@ -704,7 +704,7 @@ class EnvironmentProfile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] aws_account_id: Id of the AWS account being used.
+        :param pulumi.Input[_builtins.str] aws_account_id: ID of the AWS account being used.
         :param pulumi.Input[_builtins.str] aws_account_region: Desired region for environment profile.
         :param pulumi.Input[_builtins.str] created_at: Creation time of environment profile.
         :param pulumi.Input[_builtins.str] created_by: Creator of environment profile.
@@ -739,7 +739,7 @@ class EnvironmentProfile(pulumi.CustomResource):
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[_builtins.str]:
         """
-        Id of the AWS account being used.
+        ID of the AWS account being used.
         """
         return pulumi.get(self, "aws_account_id")
 

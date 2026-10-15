@@ -69,6 +69,18 @@ namespace Pulumi.Aws.Ram
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Principal` (String) Principal associated with the resource share.
+    /// * `ResourceShareArn` (String) ARN of the resource share.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import RAM Principal Associations using their Resource Share ARN and the `Principal` separated by a comma. For example:
     /// 
     /// ```sh

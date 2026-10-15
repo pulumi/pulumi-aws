@@ -92,11 +92,12 @@ def get_model_agreement_offers(model_id: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.bedrockfoundation.get_model_agreement_offers(model_id=example_aws_bedrock_foundation_models["modelSummaries"][0]["modelId"])
+    example = aws.bedrockfoundation.get_models()
+    example_get_model_agreement_offers = aws.bedrockfoundation.get_model_agreement_offers(model_id=example.model_summaries[0].model_id)
     ```
 
 
-    :param _builtins.str model_id: Model ID of the foundation model
+    :param _builtins.str model_id: Model ID of the foundation model.
            
            The following arguments are optional:
     :param _builtins.str offer_type: Type of offer associated with the model. Valid values are `ALL` and `PUBLIC`.
@@ -129,11 +130,12 @@ def get_model_agreement_offers_output(model_id: pulumi.Input[Optional[_builtins.
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.bedrockfoundation.get_model_agreement_offers(model_id=example_aws_bedrock_foundation_models["modelSummaries"][0]["modelId"])
+    example = aws.bedrockfoundation.get_models()
+    example_get_model_agreement_offers = aws.bedrockfoundation.get_model_agreement_offers(model_id=example.model_summaries[0].model_id)
     ```
 
 
-    :param _builtins.str model_id: Model ID of the foundation model
+    :param _builtins.str model_id: Model ID of the foundation model.
            
            The following arguments are optional:
     :param _builtins.str offer_type: Type of offer associated with the model. Valid values are `ALL` and `PUBLIC`.

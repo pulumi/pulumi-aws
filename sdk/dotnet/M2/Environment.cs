@@ -113,7 +113,7 @@ namespace Pulumi.Aws.M2
     /// });
     /// ```
     /// 
-    /// ### FSX Filesystem
+    /// ### FSx Filesystem
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -161,6 +161,9 @@ namespace Pulumi.Aws.M2
     [AwsResourceType("aws:m2/environment:Environment")]
     public partial class Environment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Whether to apply configuration changes during the preferred maintenance window instead of immediately.
+        /// </summary>
         [Output("applyChangesDuringMaintenanceWindow")]
         public Output<bool?> ApplyChangesDuringMaintenanceWindow { get; private set; } = null!;
 
@@ -170,6 +173,9 @@ namespace Pulumi.Aws.M2
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Description of the runtime environment.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -180,13 +186,13 @@ namespace Pulumi.Aws.M2
         public Output<string> EngineType { get; private set; } = null!;
 
         /// <summary>
-        /// The specific version of the engine for the Environment.
+        /// Specific version of the engine for the Environment.
         /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The id of the Environment.
+        /// ID of the Environment.
         /// </summary>
         [Output("environmentId")]
         public Output<string> EnvironmentId { get; private set; } = null!;
@@ -202,8 +208,6 @@ namespace Pulumi.Aws.M2
 
         /// <summary>
         /// M2 Instance Type.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Output("instanceType")]
         public Output<string> InstanceType { get; private set; } = null!;
@@ -222,6 +226,8 @@ namespace Pulumi.Aws.M2
 
         /// <summary>
         /// Name of the runtime environment. Must be unique within the account.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -245,7 +251,7 @@ namespace Pulumi.Aws.M2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// List of security group ids.
+        /// List of security group IDs.
         /// </summary>
         [Output("securityGroupIds")]
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
@@ -254,7 +260,7 @@ namespace Pulumi.Aws.M2
         public Output<Outputs.EnvironmentStorageConfiguration?> StorageConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// List of subnet ids to deploy environment to.
+        /// List of subnet IDs to deploy environment to.
         /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
@@ -317,9 +323,15 @@ namespace Pulumi.Aws.M2
 
     public sealed class EnvironmentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether to apply configuration changes during the preferred maintenance window instead of immediately.
+        /// </summary>
         [Input("applyChangesDuringMaintenanceWindow")]
         public Input<bool>? ApplyChangesDuringMaintenanceWindow { get; set; }
 
+        /// <summary>
+        /// Description of the runtime environment.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -330,7 +342,7 @@ namespace Pulumi.Aws.M2
         public Input<string> EngineType { get; set; } = null!;
 
         /// <summary>
-        /// The specific version of the engine for the Environment.
+        /// Specific version of the engine for the Environment.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
@@ -346,8 +358,6 @@ namespace Pulumi.Aws.M2
 
         /// <summary>
         /// M2 Instance Type.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;
@@ -360,6 +370,8 @@ namespace Pulumi.Aws.M2
 
         /// <summary>
         /// Name of the runtime environment. Must be unique within the account.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -386,7 +398,7 @@ namespace Pulumi.Aws.M2
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// List of security group ids.
+        /// List of security group IDs.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -401,7 +413,7 @@ namespace Pulumi.Aws.M2
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// List of subnet ids to deploy environment to.
+        /// List of subnet IDs to deploy environment to.
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -432,6 +444,9 @@ namespace Pulumi.Aws.M2
 
     public sealed class EnvironmentState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether to apply configuration changes during the preferred maintenance window instead of immediately.
+        /// </summary>
         [Input("applyChangesDuringMaintenanceWindow")]
         public Input<bool>? ApplyChangesDuringMaintenanceWindow { get; set; }
 
@@ -441,6 +456,9 @@ namespace Pulumi.Aws.M2
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Description of the runtime environment.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -451,13 +469,13 @@ namespace Pulumi.Aws.M2
         public Input<string>? EngineType { get; set; }
 
         /// <summary>
-        /// The specific version of the engine for the Environment.
+        /// Specific version of the engine for the Environment.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
-        /// The id of the Environment.
+        /// ID of the Environment.
         /// </summary>
         [Input("environmentId")]
         public Input<string>? EnvironmentId { get; set; }
@@ -473,8 +491,6 @@ namespace Pulumi.Aws.M2
 
         /// <summary>
         /// M2 Instance Type.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
@@ -493,6 +509,8 @@ namespace Pulumi.Aws.M2
 
         /// <summary>
         /// Name of the runtime environment. Must be unique within the account.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -519,7 +537,7 @@ namespace Pulumi.Aws.M2
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// List of security group ids.
+        /// List of security group IDs.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -534,7 +552,7 @@ namespace Pulumi.Aws.M2
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// List of subnet ids to deploy environment to.
+        /// List of subnet IDs to deploy environment to.
         /// </summary>
         public InputList<string> SubnetIds
         {

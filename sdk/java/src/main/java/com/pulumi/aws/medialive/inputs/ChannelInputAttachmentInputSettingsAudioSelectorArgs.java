@@ -18,27 +18,31 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorArgs extends 
     public static final ChannelInputAttachmentInputSettingsAudioSelectorArgs Empty = new ChannelInputAttachmentInputSettingsAudioSelectorArgs();
 
     /**
-     * Name of the Channel.
-     * 
-     * The following arguments are optional:
+     * Name of the audio selector.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the Channel.
-     * 
-     * The following arguments are optional:
+     * @return Name of the audio selector.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * Audio selector settings. See `audio_selector.selector_settings` Block for details.
+     * 
+     */
     @Import(name="selectorSettings")
     private @Nullable Output<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs> selectorSettings;
 
+    /**
+     * @return Audio selector settings. See `audio_selector.selector_settings` Block for details.
+     * 
+     */
     public Optional<Output<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs>> selectorSettings() {
         return Optional.ofNullable(this.selectorSettings);
     }
@@ -69,9 +73,7 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorArgs extends 
         }
 
         /**
-         * @param name Name of the Channel.
-         * 
-         * The following arguments are optional:
+         * @param name Name of the audio selector.
          * 
          * @return builder
          * 
@@ -82,9 +84,7 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorArgs extends 
         }
 
         /**
-         * @param name Name of the Channel.
-         * 
-         * The following arguments are optional:
+         * @param name Name of the audio selector.
          * 
          * @return builder
          * 
@@ -93,11 +93,23 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorArgs extends 
             return name(Output.of(name));
         }
 
+        /**
+         * @param selectorSettings Audio selector settings. See `audio_selector.selector_settings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder selectorSettings(@Nullable Output<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs> selectorSettings) {
             $.selectorSettings = selectorSettings;
             return this;
         }
 
+        /**
+         * @param selectorSettings Audio selector settings. See `audio_selector.selector_settings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder selectorSettings(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs selectorSettings) {
             return selectorSettings(Output.of(selectorSettings));
         }

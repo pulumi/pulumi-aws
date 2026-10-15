@@ -95,6 +95,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &OtelEnrichment{}
 	case "aws:cloudwatch/queryDefinition:QueryDefinition":
 		r = &QueryDefinition{}
+	case "aws:cloudwatch/resourceMetricsConfiguration:ResourceMetricsConfiguration":
+		r = &ResourceMetricsConfiguration{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -291,6 +293,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cloudwatch/queryDefinition",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cloudwatch/resourceMetricsConfiguration",
 		&module{version},
 	)
 }

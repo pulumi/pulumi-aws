@@ -14,15 +14,15 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelEncoderSettingsCaptionDescription
     {
         /// <summary>
-        /// Indicates whether the caption track implements accessibility features such as written descriptions of spoken dialog, music, and sounds.
+        /// Whether the caption track implements accessibility features such as written descriptions of spoken dialog, music, and sounds.
         /// </summary>
         public readonly string? Accessibility;
         /// <summary>
-        /// Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
+        /// Input caption selector to use as a caption source when generating output captions. Must match a caption selector name.
         /// </summary>
         public readonly string CaptionSelectorName;
         /// <summary>
-        /// Additional settings for captions destination that depend on the destination type. See Destination Settings for more details.
+        /// Additional settings for the captions destination that depend on the destination type. See `DestinationSettings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettings? DestinationSettings;
         /// <summary>
@@ -30,11 +30,11 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly string? LanguageCode;
         /// <summary>
-        /// Human readable information to indicate captions available for players (eg. English, or Spanish).
+        /// Human-readable information to indicate the captions available for players. For example, English or Spanish.
         /// </summary>
         public readonly string? LanguageDescription;
         /// <summary>
-        /// Name of the caption description. Used to associate a caption description with an output. Names must be unique within an event.
+        /// Name of the caption description. Used to associate a caption description with an output. Must be unique within an event.
         /// </summary>
         public readonly string Name;
 

@@ -71,7 +71,7 @@ def get_ipset(name: Optional[_builtins.str] = None,
               region: Optional[_builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpsetResult:
     """
-    `wafregional.IpSet` Retrieves a WAF Regional IP Set Resource Id.
+    `wafregional.IpSet` Retrieves a WAF Regional IP Set Resource ID.
 
     ## Example Usage
 
@@ -100,7 +100,7 @@ def get_ipset_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                      region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpsetResult]:
     """
-    `wafregional.IpSet` Retrieves a WAF Regional IP Set Resource Id.
+    `wafregional.IpSet` Retrieves a WAF Regional IP Set Resource ID.
 
     ## Example Usage
 

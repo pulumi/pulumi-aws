@@ -11,13 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This resource can be useful for getting back a list of VPC Ids for a region.
+// This resource can be useful for getting back a list of VPC IDs for a region.
 //
-// The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
+// The following example retrieves a list of VPC IDs with a custom tag of `service` set to a value of "production".
 //
 // ## Example Usage
 //
-// The following shows outputting all VPC Ids.
+// The following shows outputting all VPC IDs.
 //
 // ```go
 // package main
@@ -72,7 +72,7 @@ type GetVpcsResult struct {
 	Filters []GetVpcsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// List of all the VPC Ids found.
+	// List of all the VPC IDs found.
 	Ids    []string          `pulumi:"ids"`
 	Region string            `pulumi:"region"`
 	Tags   map[string]string `pulumi:"tags"`
@@ -121,7 +121,7 @@ func (o GetVpcsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of all the VPC Ids found.
+// List of all the VPC IDs found.
 func (o GetVpcsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVpcsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

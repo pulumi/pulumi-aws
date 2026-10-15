@@ -27,7 +27,7 @@ class VirtualMfaDeviceArgs:
 
         :param pulumi.Input[_builtins.str] virtual_mfa_device_name: Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
         :param pulumi.Input[_builtins.str] path: Path for the virtual MFA device.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags for the virtual mfa device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags for the virtual MFA device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "virtual_mfa_device_name", virtual_mfa_device_name)
         if path is not None:
@@ -63,7 +63,7 @@ class VirtualMfaDeviceArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        Map of resource tags for the virtual mfa device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of resource tags for the virtual MFA device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -94,7 +94,7 @@ class _VirtualMfaDeviceState:
         :param pulumi.Input[_builtins.str] path: Path for the virtual MFA device.
         :param pulumi.Input[_builtins.str] qr_code_png: QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. `AccountName` is the user name if set (otherwise, the account ID), and `Base32String` is the seed in base32 format.
         :param pulumi.Input[_builtins.str] serial_number: Serial number associated with the virtual MFA device.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags for the virtual mfa device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags for the virtual MFA device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] user_name: Name of the IAM user associated with this virtual MFA device.
         :param pulumi.Input[_builtins.str] virtual_mfa_device_name: Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
@@ -196,7 +196,7 @@ class _VirtualMfaDeviceState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        Map of resource tags for the virtual mfa device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of resource tags for the virtual MFA device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -282,7 +282,7 @@ class VirtualMfaDevice(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] path: Path for the virtual MFA device.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags for the virtual mfa device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags for the virtual MFA device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] virtual_mfa_device_name: Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
         """
         ...
@@ -391,7 +391,7 @@ class VirtualMfaDevice(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] path: Path for the virtual MFA device.
         :param pulumi.Input[_builtins.str] qr_code_png: QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. `AccountName` is the user name if set (otherwise, the account ID), and `Base32String` is the seed in base32 format.
         :param pulumi.Input[_builtins.str] serial_number: Serial number associated with the virtual MFA device.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags for the virtual mfa device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags for the virtual MFA device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] user_name: Name of the IAM user associated with this virtual MFA device.
         :param pulumi.Input[_builtins.str] virtual_mfa_device_name: Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
@@ -464,7 +464,7 @@ class VirtualMfaDevice(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        Map of resource tags for the virtual mfa device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of resource tags for the virtual MFA device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

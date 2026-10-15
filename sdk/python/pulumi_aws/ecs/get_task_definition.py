@@ -126,7 +126,7 @@ class GetTaskDefinitionResult:
     @pulumi.getter
     def cpu(self) -> _builtins.str:
         """
-        Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+        Number of CPU units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         """
         return pulumi.get(self, "cpu")
 

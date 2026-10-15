@@ -185,7 +185,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import MQ Brokers using their broker id. For example:
+// Using `pulumi import`, import MQ Brokers using their broker ID. For example:
 //
 // ```sh
 // $ pulumi import aws:mq/broker:Broker example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
@@ -221,7 +221,7 @@ type Broker struct {
 	//
 	// The following arguments are optional:
 	HostInstanceType pulumi.StringOutput `pulumi:"hostInstanceType"`
-	// List of information about allocated brokers (both active & standby).
+	// List of information about allocated brokers (both active & standby). See `instances` Block for details.
 	Instances BrokerInstanceArrayOutput `pulumi:"instances"`
 	// Configuration block for the LDAP server used to authenticate and authorize connections. Not supported for `engineType` `RabbitMQ`. Detailed below.
 	LdapServerMetadata BrokerLdapServerMetadataPtrOutput `pulumi:"ldapServerMetadata"`
@@ -239,7 +239,7 @@ type Broker struct {
 	ResourceShareArns pulumi.StringArrayOutput `pulumi:"resourceShareArns"`
 	// List of security group IDs assigned to the broker.
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
-	// List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`.
+	// List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`. See `sharedResources` Block for details.
 	SharedResources BrokerSharedResourceArrayOutput `pulumi:"sharedResources"`
 	// Storage type of the broker. For `engineType` `ActiveMQ`, valid values are `efs` and `ebs` (AWS-default is `efs`). For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
 	StorageType pulumi.StringOutput `pulumi:"storageType"`
@@ -320,7 +320,7 @@ type brokerState struct {
 	//
 	// The following arguments are optional:
 	HostInstanceType *string `pulumi:"hostInstanceType"`
-	// List of information about allocated brokers (both active & standby).
+	// List of information about allocated brokers (both active & standby). See `instances` Block for details.
 	Instances []BrokerInstance `pulumi:"instances"`
 	// Configuration block for the LDAP server used to authenticate and authorize connections. Not supported for `engineType` `RabbitMQ`. Detailed below.
 	LdapServerMetadata *BrokerLdapServerMetadata `pulumi:"ldapServerMetadata"`
@@ -338,7 +338,7 @@ type brokerState struct {
 	ResourceShareArns []string `pulumi:"resourceShareArns"`
 	// List of security group IDs assigned to the broker.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	// List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`.
+	// List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`. See `sharedResources` Block for details.
 	SharedResources []BrokerSharedResource `pulumi:"sharedResources"`
 	// Storage type of the broker. For `engineType` `ActiveMQ`, valid values are `efs` and `ebs` (AWS-default is `efs`). For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
 	StorageType *string `pulumi:"storageType"`
@@ -381,7 +381,7 @@ type BrokerState struct {
 	//
 	// The following arguments are optional:
 	HostInstanceType pulumi.StringPtrInput
-	// List of information about allocated brokers (both active & standby).
+	// List of information about allocated brokers (both active & standby). See `instances` Block for details.
 	Instances BrokerInstanceArrayInput
 	// Configuration block for the LDAP server used to authenticate and authorize connections. Not supported for `engineType` `RabbitMQ`. Detailed below.
 	LdapServerMetadata BrokerLdapServerMetadataPtrInput
@@ -399,7 +399,7 @@ type BrokerState struct {
 	ResourceShareArns pulumi.StringArrayInput
 	// List of security group IDs assigned to the broker.
 	SecurityGroups pulumi.StringArrayInput
-	// List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`.
+	// List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`. See `sharedResources` Block for details.
 	SharedResources BrokerSharedResourceArrayInput
 	// Storage type of the broker. For `engineType` `ActiveMQ`, valid values are `efs` and `ebs` (AWS-default is `efs`). For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
 	StorageType pulumi.StringPtrInput
@@ -674,7 +674,7 @@ func (o BrokerOutput) HostInstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Broker) pulumi.StringOutput { return v.HostInstanceType }).(pulumi.StringOutput)
 }
 
-// List of information about allocated brokers (both active & standby).
+// List of information about allocated brokers (both active & standby). See `instances` Block for details.
 func (o BrokerOutput) Instances() BrokerInstanceArrayOutput {
 	return o.ApplyT(func(v *Broker) BrokerInstanceArrayOutput { return v.Instances }).(BrokerInstanceArrayOutput)
 }
@@ -719,7 +719,7 @@ func (o BrokerOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Broker) pulumi.StringArrayOutput { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
-// List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`.
+// List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`. See `sharedResources` Block for details.
 func (o BrokerOutput) SharedResources() BrokerSharedResourceArrayOutput {
 	return o.ApplyT(func(v *Broker) BrokerSharedResourceArrayOutput { return v.SharedResources }).(BrokerSharedResourceArrayOutput)
 }

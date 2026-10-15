@@ -263,7 +263,7 @@ export class Domain extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
-     * Domain-specific endpoint for kibana without https scheme.
+     * Domain-specific endpoint for kibana without HTTPS scheme.
      */
     declare public /*out*/ readonly kibanaEndpoint: pulumi.Output<string>;
     /**
@@ -423,7 +423,7 @@ export interface DomainState {
      */
     endpoint?: pulumi.Input<string | undefined>;
     /**
-     * Domain-specific endpoint for kibana without https scheme.
+     * Domain-specific endpoint for kibana without HTTPS scheme.
      */
     kibanaEndpoint?: pulumi.Input<string | undefined>;
     /**

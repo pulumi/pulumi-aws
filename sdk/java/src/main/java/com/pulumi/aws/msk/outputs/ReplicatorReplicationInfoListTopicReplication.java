@@ -32,12 +32,12 @@ public final class ReplicatorReplicationInfoListTopicReplication {
      */
     private @Nullable Boolean detectAndCopyNewTopics;
     /**
-     * @return Configuration for specifying the position in the topics to start replicating from.
+     * @return Configuration for specifying the position in the topics to start replicating from. See `startingPosition` Block below.
      * 
      */
     private @Nullable ReplicatorReplicationInfoListTopicReplicationStartingPosition startingPosition;
     /**
-     * @return Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+     * @return Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias. See `topicNameConfiguration` Block below.
      * 
      */
     private @Nullable ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration topicNameConfiguration;
@@ -75,14 +75,14 @@ public final class ReplicatorReplicationInfoListTopicReplication {
         return Optional.ofNullable(this.detectAndCopyNewTopics);
     }
     /**
-     * @return Configuration for specifying the position in the topics to start replicating from.
+     * @return Configuration for specifying the position in the topics to start replicating from. See `startingPosition` Block below.
      * 
      */
     public Optional<ReplicatorReplicationInfoListTopicReplicationStartingPosition> startingPosition() {
         return Optional.ofNullable(this.startingPosition);
     }
     /**
-     * @return Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+     * @return Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias. See `topicNameConfiguration` Block below.
      * 
      */
     public Optional<ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration> topicNameConfiguration() {

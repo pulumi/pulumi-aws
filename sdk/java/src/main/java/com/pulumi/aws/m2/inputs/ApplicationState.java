@@ -20,14 +20,14 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
     public static final ApplicationState Empty = new ApplicationState();
 
     /**
-     * Id of the Application.
+     * ID of the Application.
      * 
      */
     @Import(name="applicationId")
     private @Nullable Output<String> applicationId;
 
     /**
-     * @return Id of the Application.
+     * @return ID of the Application.
      * 
      */
     public Optional<Output<String>> applicationId() {
@@ -65,14 +65,14 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The application definition for this application. You can specify either inline JSON or an S3 bucket location.
+     * Application definition for this application. You can specify either inline JSON or an S3 bucket location.
      * 
      */
     @Import(name="definition")
     private @Nullable Output<ApplicationDefinitionArgs> definition;
 
     /**
-     * @return The application definition for this application. You can specify either inline JSON or an S3 bucket location.
+     * @return Application definition for this application. You can specify either inline JSON or an S3 bucket location.
      * 
      */
     public Optional<Output<ApplicationDefinitionArgs>> definition() {
@@ -189,14 +189,14 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -247,7 +247,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationId Id of the Application.
+         * @param applicationId ID of the Application.
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationId Id of the Application.
+         * @param applicationId ID of the Application.
          * 
          * @return builder
          * 
@@ -310,7 +310,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param definition The application definition for this application. You can specify either inline JSON or an S3 bucket location.
+         * @param definition Application definition for this application. You can specify either inline JSON or an S3 bucket location.
          * 
          * @return builder
          * 
@@ -321,7 +321,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param definition The application definition for this application. You can specify either inline JSON or an S3 bucket location.
+         * @param definition Application definition for this application. You can specify either inline JSON or an S3 bucket location.
          * 
          * @return builder
          * 
@@ -482,7 +482,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -493,7 +493,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

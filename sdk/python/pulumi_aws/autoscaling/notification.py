@@ -27,7 +27,7 @@ class NotificationArgs:
         """
         The set of arguments for constructing a Notification resource.
 
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_names: List of AutoScaling Group Names
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_names: List of Auto Scaling group Names
         :param pulumi.Input[Sequence[pulumi.Input['NotificationType']]] notifications: List of Notification Types that trigger
                notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
         :param pulumi.Input[_builtins.str] topic_arn: Topic ARN for notifications to be sent through
@@ -43,7 +43,7 @@ class NotificationArgs:
     @pulumi.getter(name="groupNames")
     def group_names(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        List of AutoScaling Group Names
+        List of Auto Scaling group Names
         """
         return pulumi.get(self, "group_names")
 
@@ -99,7 +99,7 @@ class _NotificationState:
         """
         Input properties used for looking up and filtering Notification resources.
 
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_names: List of AutoScaling Group Names
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_names: List of Auto Scaling group Names
         :param pulumi.Input[Sequence[pulumi.Input['NotificationType']]] notifications: List of Notification Types that trigger
                notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -118,7 +118,7 @@ class _NotificationState:
     @pulumi.getter(name="groupNames")
     def group_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        List of AutoScaling Group Names
+        List of Auto Scaling group Names
         """
         return pulumi.get(self, "group_names")
 
@@ -176,9 +176,9 @@ class Notification(pulumi.CustomResource):
                  topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides an AutoScaling Group with Notification support, via SNS Topics. Each of
+        Provides an Auto Scaling group with Notification support, via SNS Topics. Each of
         the `notifications` map to a [Notification Configuration](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeNotificationConfigurations.html) inside Amazon Web
-        Services, and are applied to each AutoScaling Group you supply.
+        Services, and are applied to each Auto Scaling group you supply.
 
         ## Example Usage
 
@@ -208,7 +208,7 @@ class Notification(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_names: List of AutoScaling Group Names
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_names: List of Auto Scaling group Names
         :param pulumi.Input[Sequence[pulumi.Input['NotificationType']]] notifications: List of Notification Types that trigger
                notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -221,9 +221,9 @@ class Notification(pulumi.CustomResource):
                  args: NotificationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an AutoScaling Group with Notification support, via SNS Topics. Each of
+        Provides an Auto Scaling group with Notification support, via SNS Topics. Each of
         the `notifications` map to a [Notification Configuration](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeNotificationConfigurations.html) inside Amazon Web
-        Services, and are applied to each AutoScaling Group you supply.
+        Services, and are applied to each Auto Scaling group you supply.
 
         ## Example Usage
 
@@ -310,7 +310,7 @@ class Notification(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_names: List of AutoScaling Group Names
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_names: List of Auto Scaling group Names
         :param pulumi.Input[Sequence[pulumi.Input['NotificationType']]] notifications: List of Notification Types that trigger
                notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -330,7 +330,7 @@ class Notification(pulumi.CustomResource):
     @pulumi.getter(name="groupNames")
     def group_names(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        List of AutoScaling Group Names
+        List of Auto Scaling group Names
         """
         return pulumi.get(self, "group_names")
 

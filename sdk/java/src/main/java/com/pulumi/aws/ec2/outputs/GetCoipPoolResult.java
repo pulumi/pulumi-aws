@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetCoipPoolResult {
     /**
-     * @return ARN of the COIP pool
+     * @return ARN of the CoIP pool
      * 
      */
     private String arn;
@@ -37,7 +37,7 @@ public final class GetCoipPoolResult {
 
     private GetCoipPoolResult() {}
     /**
-     * @return ARN of the COIP pool
+     * @return ARN of the CoIP pool
      * 
      */
     public String arn() {

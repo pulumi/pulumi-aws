@@ -10,13 +10,13 @@ import * as utilities from "../utilities";
 /**
  * `aws.ec2.Vpc` provides details about a specific VPC.
  *
- * This resource can prove useful when a module accepts a vpc id as
+ * This resource can prove useful when a module accepts a VPC ID as
  * an input variable and needs to, for example, determine the CIDR block of that
  * VPC.
  *
  * ## Example Usage
  *
- * The following example shows how one might accept a VPC id as a variable
+ * The following example shows how one might accept a VPC ID as a variable
  * and use this data source to obtain the data necessary to create a subnet
  * within it.
  *
@@ -69,7 +69,7 @@ export interface GetVpcArgs {
      */
     default?: boolean;
     /**
-     * DHCP options id of the desired VPC.
+     * DHCP options ID of the desired VPC.
      */
     dhcpOptionsId?: string;
     /**
@@ -164,13 +164,13 @@ export interface GetVpcResult {
 /**
  * `aws.ec2.Vpc` provides details about a specific VPC.
  *
- * This resource can prove useful when a module accepts a vpc id as
+ * This resource can prove useful when a module accepts a VPC ID as
  * an input variable and needs to, for example, determine the CIDR block of that
  * VPC.
  *
  * ## Example Usage
  *
- * The following example shows how one might accept a VPC id as a variable
+ * The following example shows how one might accept a VPC ID as a variable
  * and use this data source to obtain the data necessary to create a subnet
  * within it.
  *
@@ -223,7 +223,7 @@ export interface GetVpcOutputArgs {
      */
     default?: pulumi.Input<boolean | undefined>;
     /**
-     * DHCP options id of the desired VPC.
+     * DHCP options ID of the desired VPC.
      */
     dhcpOptionsId?: pulumi.Input<string | undefined>;
     /**

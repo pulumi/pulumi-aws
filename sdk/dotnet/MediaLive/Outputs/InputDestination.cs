@@ -14,7 +14,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class InputDestination
     {
         /// <summary>
-        /// A unique name for the location the RTMP stream is being pushed to.
+        /// Unique name for the location the RTMP stream is being pushed to.
         /// </summary>
         public readonly string StreamName;
 

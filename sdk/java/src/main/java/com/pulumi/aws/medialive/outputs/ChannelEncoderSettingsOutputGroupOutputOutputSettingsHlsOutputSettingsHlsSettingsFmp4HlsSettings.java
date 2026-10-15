@@ -11,17 +11,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettings {
+    /**
+     * @return List of audio rendition sets, separated by commas.
+     * 
+     */
     private @Nullable String audioRenditionSets;
+    /**
+     * @return When set to `passthrough`, passes through Nielsen ID3.
+     * 
+     */
     private @Nullable String nielsenId3Behavior;
+    /**
+     * @return When set to `passthrough`, passes through timed metadata.
+     * 
+     */
     private @Nullable String timedMetadataBehavior;
 
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettings() {}
+    /**
+     * @return List of audio rendition sets, separated by commas.
+     * 
+     */
     public Optional<String> audioRenditionSets() {
         return Optional.ofNullable(this.audioRenditionSets);
     }
+    /**
+     * @return When set to `passthrough`, passes through Nielsen ID3.
+     * 
+     */
     public Optional<String> nielsenId3Behavior() {
         return Optional.ofNullable(this.nielsenId3Behavior);
     }
+    /**
+     * @return When set to `passthrough`, passes through timed metadata.
+     * 
+     */
     public Optional<String> timedMetadataBehavior() {
         return Optional.ofNullable(this.timedMetadataBehavior);
     }

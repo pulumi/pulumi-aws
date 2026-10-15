@@ -48,14 +48,14 @@ public final class SnapshotImportDiskContainerArgs extends com.pulumi.resources.
     }
 
     /**
-     * The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `userBucket` must be set.
+     * The URL to the Amazon S3-based disk image being imported. It can either be an HTTPS URL (`https://..`) or an Amazon S3 URL (`s3://..`). One of `url` or `userBucket` must be set.
      * 
      */
     @Import(name="url")
     private @Nullable Output<String> url;
 
     /**
-     * @return The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `userBucket` must be set.
+     * @return The URL to the Amazon S3-based disk image being imported. It can either be an HTTPS URL (`https://..`) or an Amazon S3 URL (`s3://..`). One of `url` or `userBucket` must be set.
      * 
      */
     public Optional<Output<String>> url() {
@@ -147,7 +147,7 @@ public final class SnapshotImportDiskContainerArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param url The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `userBucket` must be set.
+         * @param url The URL to the Amazon S3-based disk image being imported. It can either be an HTTPS URL (`https://..`) or an Amazon S3 URL (`s3://..`). One of `url` or `userBucket` must be set.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class SnapshotImportDiskContainerArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param url The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `userBucket` must be set.
+         * @param url The URL to the Amazon S3-based disk image being imported. It can either be an HTTPS URL (`https://..`) or an Amazon S3 URL (`s3://..`). One of `url` or `userBucket` must be set.
          * 
          * @return builder
          * 

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.MskConnect.Inputs
     public sealed class ConnectorKafkaClusterEncryptionInTransitGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of encryption in transit to the Apache Kafka cluster. Valid values: `PLAINTEXT`, `TLS`. The default values is `PLAINTEXT`.
+        /// Type of encryption in transit to the Apache Kafka cluster. Valid values: `PLAINTEXT`, `TLS`. The default values is `PLAINTEXT`.
         /// </summary>
         [Input("encryptionType")]
         public Input<string>? EncryptionType { get; set; }

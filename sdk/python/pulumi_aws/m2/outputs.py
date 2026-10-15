@@ -241,7 +241,7 @@ class EnvironmentStorageConfigurationEfs(dict):
                  file_system_id: _builtins.str,
                  mount_point: _builtins.str):
         """
-        :param _builtins.str file_system_id: Id of the EFS filesystem to mount.
+        :param _builtins.str file_system_id: ID of the EFS filesystem to mount.
         :param _builtins.str mount_point: Path to mount the filesystem on, must start with `/m2/mount/`.
         """
         pulumi.set(__self__, "file_system_id", file_system_id)
@@ -251,7 +251,7 @@ class EnvironmentStorageConfigurationEfs(dict):
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> _builtins.str:
         """
-        Id of the EFS filesystem to mount.
+        ID of the EFS filesystem to mount.
         """
         return pulumi.get(self, "file_system_id")
 
@@ -289,7 +289,7 @@ class EnvironmentStorageConfigurationFsx(dict):
                  file_system_id: _builtins.str,
                  mount_point: _builtins.str):
         """
-        :param _builtins.str file_system_id: Id of the FSX filesystem to mount.
+        :param _builtins.str file_system_id: ID of the FSx filesystem to mount.
         :param _builtins.str mount_point: Path to mount the filesystem on, must start with `/m2/mount/`.
         """
         pulumi.set(__self__, "file_system_id", file_system_id)
@@ -299,7 +299,7 @@ class EnvironmentStorageConfigurationFsx(dict):
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> _builtins.str:
         """
-        Id of the FSX filesystem to mount.
+        ID of the FSx filesystem to mount.
         """
         return pulumi.get(self, "file_system_id")
 

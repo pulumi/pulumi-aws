@@ -71,7 +71,7 @@ def get_web_acl(name: Optional[_builtins.str] = None,
                 region: Optional[_builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAclResult:
     """
-    `wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource Id.
+    `wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource ID.
 
     ## Example Usage
 
@@ -100,7 +100,7 @@ def get_web_acl_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                        region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAclResult]:
     """
-    `wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource Id.
+    `wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource ID.
 
     ## Example Usage
 

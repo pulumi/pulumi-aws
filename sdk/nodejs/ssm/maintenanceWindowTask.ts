@@ -218,7 +218,7 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
      */
     declare public readonly serviceRoleArn: pulumi.Output<string>;
     /**
-     * The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+     * The targets (either instances or window target IDs). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target IDs are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
      */
     declare public readonly targets: pulumi.Output<outputs.ssm.MaintenanceWindowTaskTarget[] | undefined>;
     /**
@@ -234,7 +234,7 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
      */
     declare public readonly taskType: pulumi.Output<string>;
     /**
-     * The Id of the maintenance window to register the task with.
+     * The ID of the maintenance window to register the task with.
      */
     declare public readonly windowId: pulumi.Output<string>;
     /**
@@ -343,7 +343,7 @@ export interface MaintenanceWindowTaskState {
      */
     serviceRoleArn?: pulumi.Input<string | undefined>;
     /**
-     * The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+     * The targets (either instances or window target IDs). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target IDs are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
      */
     targets?: pulumi.Input<pulumi.Input<inputs.ssm.MaintenanceWindowTaskTarget>[] | undefined>;
     /**
@@ -359,7 +359,7 @@ export interface MaintenanceWindowTaskState {
      */
     taskType?: pulumi.Input<string | undefined>;
     /**
-     * The Id of the maintenance window to register the task with.
+     * The ID of the maintenance window to register the task with.
      */
     windowId?: pulumi.Input<string | undefined>;
     /**
@@ -405,7 +405,7 @@ export interface MaintenanceWindowTaskArgs {
      */
     serviceRoleArn?: pulumi.Input<string | undefined>;
     /**
-     * The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+     * The targets (either instances or window target IDs). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target IDs are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
      */
     targets?: pulumi.Input<pulumi.Input<inputs.ssm.MaintenanceWindowTaskTarget>[] | undefined>;
     /**
@@ -421,7 +421,7 @@ export interface MaintenanceWindowTaskArgs {
      */
     taskType: pulumi.Input<string>;
     /**
-     * The Id of the maintenance window to register the task with.
+     * The ID of the maintenance window to register the task with.
      */
     windowId: pulumi.Input<string>;
 }

@@ -69,7 +69,7 @@ class GetAclResult:
     @pulumi.getter(name="minimumEngineVersion")
     def minimum_engine_version(self) -> _builtins.str:
         """
-        The minimum engine version supported by the ACL.
+        Minimum engine version supported by the ACL.
         """
         return pulumi.get(self, "minimum_engine_version")
 

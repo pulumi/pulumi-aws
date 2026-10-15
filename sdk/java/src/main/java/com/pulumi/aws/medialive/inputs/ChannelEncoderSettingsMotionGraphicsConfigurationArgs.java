@@ -18,14 +18,14 @@ public final class ChannelEncoderSettingsMotionGraphicsConfigurationArgs extends
     public static final ChannelEncoderSettingsMotionGraphicsConfigurationArgs Empty = new ChannelEncoderSettingsMotionGraphicsConfigurationArgs();
 
     /**
-     * Motion Graphics Insertion.
+     * Whether to activate motion graphics insertion.
      * 
      */
     @Import(name="motionGraphicsInsertion")
     private @Nullable Output<String> motionGraphicsInsertion;
 
     /**
-     * @return Motion Graphics Insertion.
+     * @return Whether to activate motion graphics insertion.
      * 
      */
     public Optional<Output<String>> motionGraphicsInsertion() {
@@ -33,14 +33,14 @@ public final class ChannelEncoderSettingsMotionGraphicsConfigurationArgs extends
     }
 
     /**
-     * Motion Graphics Settings. See Motion Graphics Settings for more details.
+     * Motion graphics settings. See `motionGraphicsSettings` Block for details.
      * 
      */
     @Import(name="motionGraphicsSettings", required=true)
     private Output<ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs> motionGraphicsSettings;
 
     /**
-     * @return Motion Graphics Settings. See Motion Graphics Settings for more details.
+     * @return Motion graphics settings. See `motionGraphicsSettings` Block for details.
      * 
      */
     public Output<ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs> motionGraphicsSettings() {
@@ -73,7 +73,7 @@ public final class ChannelEncoderSettingsMotionGraphicsConfigurationArgs extends
         }
 
         /**
-         * @param motionGraphicsInsertion Motion Graphics Insertion.
+         * @param motionGraphicsInsertion Whether to activate motion graphics insertion.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class ChannelEncoderSettingsMotionGraphicsConfigurationArgs extends
         }
 
         /**
-         * @param motionGraphicsInsertion Motion Graphics Insertion.
+         * @param motionGraphicsInsertion Whether to activate motion graphics insertion.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class ChannelEncoderSettingsMotionGraphicsConfigurationArgs extends
         }
 
         /**
-         * @param motionGraphicsSettings Motion Graphics Settings. See Motion Graphics Settings for more details.
+         * @param motionGraphicsSettings Motion graphics settings. See `motionGraphicsSettings` Block for details.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class ChannelEncoderSettingsMotionGraphicsConfigurationArgs extends
         }
 
         /**
-         * @param motionGraphicsSettings Motion Graphics Settings. See Motion Graphics Settings for more details.
+         * @param motionGraphicsSettings Motion graphics settings. See `motionGraphicsSettings` Block for details.
          * 
          * @return builder
          * 

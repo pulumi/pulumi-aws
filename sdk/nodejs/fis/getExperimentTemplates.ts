@@ -76,7 +76,7 @@ export interface GetExperimentTemplatesArgs {
  */
 export interface GetExperimentTemplatesResult {
     /**
-     * List of all the experiment template ids found.
+     * List of all the experiment template IDs found.
      */
     readonly ids: string[];
     readonly region: string;

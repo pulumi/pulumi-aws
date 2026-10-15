@@ -491,7 +491,7 @@ class DataLakeSettings(pulumi.CustomResource):
             ])
         ```
 
-        ### Enable EMR access to LakeFormation resources
+        ### Enable EMR access to Lake Formation resources
 
         ```python
         import pulumi
@@ -602,7 +602,7 @@ class DataLakeSettings(pulumi.CustomResource):
             ])
         ```
 
-        ### Enable EMR access to LakeFormation resources
+        ### Enable EMR access to Lake Formation resources
 
         ```python
         import pulumi

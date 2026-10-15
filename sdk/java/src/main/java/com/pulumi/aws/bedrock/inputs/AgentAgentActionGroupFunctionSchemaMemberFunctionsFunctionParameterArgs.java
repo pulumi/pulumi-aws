@@ -52,14 +52,14 @@ public final class AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionPar
     }
 
     /**
-     * Whether the parameter is required for the agent to complete the function for action group invocation.
+     * Whether to require the parameter for the agent to complete the function for action group invocation.
      * 
      */
     @Import(name="required")
     private @Nullable Output<Boolean> required;
 
     /**
-     * @return Whether the parameter is required for the agent to complete the function for action group invocation.
+     * @return Whether to require the parameter for the agent to complete the function for action group invocation.
      * 
      */
     public Optional<Output<Boolean>> required() {
@@ -155,7 +155,7 @@ public final class AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionPar
         }
 
         /**
-         * @param required Whether the parameter is required for the agent to complete the function for action group invocation.
+         * @param required Whether to require the parameter for the agent to complete the function for action group invocation.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionPar
         }
 
         /**
-         * @param required Whether the parameter is required for the agent to complete the function for action group invocation.
+         * @param required Whether to require the parameter for the agent to complete the function for action group invocation.
          * 
          * @return builder
          * 

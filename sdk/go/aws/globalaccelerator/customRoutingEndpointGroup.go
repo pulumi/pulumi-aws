@@ -72,11 +72,11 @@ type CustomRoutingEndpointGroup struct {
 
 	// ARN of the custom routing endpoint group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
+	// Port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. See `destinationConfiguration` below.
 	DestinationConfigurations CustomRoutingEndpointGroupDestinationConfigurationArrayOutput `pulumi:"destinationConfigurations"`
-	// The list of endpoint objects. Fields documented below.
+	// Endpoint objects. See `endpointConfiguration` below.
 	EndpointConfigurations CustomRoutingEndpointGroupEndpointConfigurationArrayOutput `pulumi:"endpointConfigurations"`
-	// The name of the AWS Region where the custom routing endpoint group is located.
+	// AWS Region where the custom routing endpoint group is located.
 	EndpointGroupRegion pulumi.StringOutput `pulumi:"endpointGroupRegion"`
 	// ARN of the custom routing listener.
 	ListenerArn pulumi.StringOutput `pulumi:"listenerArn"`
@@ -120,11 +120,11 @@ func GetCustomRoutingEndpointGroup(ctx *pulumi.Context,
 type customRoutingEndpointGroupState struct {
 	// ARN of the custom routing endpoint group.
 	Arn *string `pulumi:"arn"`
-	// The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
+	// Port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. See `destinationConfiguration` below.
 	DestinationConfigurations []CustomRoutingEndpointGroupDestinationConfiguration `pulumi:"destinationConfigurations"`
-	// The list of endpoint objects. Fields documented below.
+	// Endpoint objects. See `endpointConfiguration` below.
 	EndpointConfigurations []CustomRoutingEndpointGroupEndpointConfiguration `pulumi:"endpointConfigurations"`
-	// The name of the AWS Region where the custom routing endpoint group is located.
+	// AWS Region where the custom routing endpoint group is located.
 	EndpointGroupRegion *string `pulumi:"endpointGroupRegion"`
 	// ARN of the custom routing listener.
 	ListenerArn *string `pulumi:"listenerArn"`
@@ -133,11 +133,11 @@ type customRoutingEndpointGroupState struct {
 type CustomRoutingEndpointGroupState struct {
 	// ARN of the custom routing endpoint group.
 	Arn pulumi.StringPtrInput
-	// The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
+	// Port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. See `destinationConfiguration` below.
 	DestinationConfigurations CustomRoutingEndpointGroupDestinationConfigurationArrayInput
-	// The list of endpoint objects. Fields documented below.
+	// Endpoint objects. See `endpointConfiguration` below.
 	EndpointConfigurations CustomRoutingEndpointGroupEndpointConfigurationArrayInput
-	// The name of the AWS Region where the custom routing endpoint group is located.
+	// AWS Region where the custom routing endpoint group is located.
 	EndpointGroupRegion pulumi.StringPtrInput
 	// ARN of the custom routing listener.
 	ListenerArn pulumi.StringPtrInput
@@ -148,11 +148,11 @@ func (CustomRoutingEndpointGroupState) ElementType() reflect.Type {
 }
 
 type customRoutingEndpointGroupArgs struct {
-	// The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
+	// Port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. See `destinationConfiguration` below.
 	DestinationConfigurations []CustomRoutingEndpointGroupDestinationConfiguration `pulumi:"destinationConfigurations"`
-	// The list of endpoint objects. Fields documented below.
+	// Endpoint objects. See `endpointConfiguration` below.
 	EndpointConfigurations []CustomRoutingEndpointGroupEndpointConfiguration `pulumi:"endpointConfigurations"`
-	// The name of the AWS Region where the custom routing endpoint group is located.
+	// AWS Region where the custom routing endpoint group is located.
 	EndpointGroupRegion *string `pulumi:"endpointGroupRegion"`
 	// ARN of the custom routing listener.
 	ListenerArn string `pulumi:"listenerArn"`
@@ -160,11 +160,11 @@ type customRoutingEndpointGroupArgs struct {
 
 // The set of arguments for constructing a CustomRoutingEndpointGroup resource.
 type CustomRoutingEndpointGroupArgs struct {
-	// The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
+	// Port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. See `destinationConfiguration` below.
 	DestinationConfigurations CustomRoutingEndpointGroupDestinationConfigurationArrayInput
-	// The list of endpoint objects. Fields documented below.
+	// Endpoint objects. See `endpointConfiguration` below.
 	EndpointConfigurations CustomRoutingEndpointGroupEndpointConfigurationArrayInput
-	// The name of the AWS Region where the custom routing endpoint group is located.
+	// AWS Region where the custom routing endpoint group is located.
 	EndpointGroupRegion pulumi.StringPtrInput
 	// ARN of the custom routing listener.
 	ListenerArn pulumi.StringInput
@@ -262,21 +262,21 @@ func (o CustomRoutingEndpointGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomRoutingEndpointGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
+// Port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. See `destinationConfiguration` below.
 func (o CustomRoutingEndpointGroupOutput) DestinationConfigurations() CustomRoutingEndpointGroupDestinationConfigurationArrayOutput {
 	return o.ApplyT(func(v *CustomRoutingEndpointGroup) CustomRoutingEndpointGroupDestinationConfigurationArrayOutput {
 		return v.DestinationConfigurations
 	}).(CustomRoutingEndpointGroupDestinationConfigurationArrayOutput)
 }
 
-// The list of endpoint objects. Fields documented below.
+// Endpoint objects. See `endpointConfiguration` below.
 func (o CustomRoutingEndpointGroupOutput) EndpointConfigurations() CustomRoutingEndpointGroupEndpointConfigurationArrayOutput {
 	return o.ApplyT(func(v *CustomRoutingEndpointGroup) CustomRoutingEndpointGroupEndpointConfigurationArrayOutput {
 		return v.EndpointConfigurations
 	}).(CustomRoutingEndpointGroupEndpointConfigurationArrayOutput)
 }
 
-// The name of the AWS Region where the custom routing endpoint group is located.
+// AWS Region where the custom routing endpoint group is located.
 func (o CustomRoutingEndpointGroupOutput) EndpointGroupRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomRoutingEndpointGroup) pulumi.StringOutput { return v.EndpointGroupRegion }).(pulumi.StringOutput)
 }

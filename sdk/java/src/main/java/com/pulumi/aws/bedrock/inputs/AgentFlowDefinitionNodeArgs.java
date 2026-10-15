@@ -36,14 +36,14 @@ public final class AgentFlowDefinitionNodeArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Configurations for an input flow node in your flow. The node `inputs` can&#39;t be specified for this node. This block has no arguments.
+     * Configurations for an input flow node in your flow. The `definition.node.input` block can&#39;t be specified for this node. This block has no arguments.
      * 
      */
     @Import(name="inputs")
     private @Nullable Output<List<AgentFlowDefinitionNodeInputArgs>> inputs;
 
     /**
-     * @return Configurations for an input flow node in your flow. The node `inputs` can&#39;t be specified for this node. This block has no arguments.
+     * @return Configurations for an input flow node in your flow. The `definition.node.input` block can&#39;t be specified for this node. This block has no arguments.
      * 
      */
     public Optional<Output<List<AgentFlowDefinitionNodeInputArgs>>> inputs() {
@@ -70,14 +70,14 @@ public final class AgentFlowDefinitionNodeArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Configurations for an output flow node in your flow. The node `outputs` can&#39;t be specified for this node. This block has no arguments.
+     * Configurations for an output flow node in your flow. The `definition.node.output` block can&#39;t be specified for this node. This block has no arguments.
      * 
      */
     @Import(name="outputs")
     private @Nullable Output<List<AgentFlowDefinitionNodeOutputArgs>> outputs;
 
     /**
-     * @return Configurations for an output flow node in your flow. The node `outputs` can&#39;t be specified for this node. This block has no arguments.
+     * @return Configurations for an output flow node in your flow. The `definition.node.output` block can&#39;t be specified for this node. This block has no arguments.
      * 
      */
     public Optional<Output<List<AgentFlowDefinitionNodeOutputArgs>>> outputs() {
@@ -149,7 +149,7 @@ public final class AgentFlowDefinitionNodeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param inputs Configurations for an input flow node in your flow. The node `inputs` can&#39;t be specified for this node. This block has no arguments.
+         * @param inputs Configurations for an input flow node in your flow. The `definition.node.input` block can&#39;t be specified for this node. This block has no arguments.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class AgentFlowDefinitionNodeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param inputs Configurations for an input flow node in your flow. The node `inputs` can&#39;t be specified for this node. This block has no arguments.
+         * @param inputs Configurations for an input flow node in your flow. The `definition.node.input` block can&#39;t be specified for this node. This block has no arguments.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class AgentFlowDefinitionNodeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param inputs Configurations for an input flow node in your flow. The node `inputs` can&#39;t be specified for this node. This block has no arguments.
+         * @param inputs Configurations for an input flow node in your flow. The `definition.node.input` block can&#39;t be specified for this node. This block has no arguments.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class AgentFlowDefinitionNodeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param outputs Configurations for an output flow node in your flow. The node `outputs` can&#39;t be specified for this node. This block has no arguments.
+         * @param outputs Configurations for an output flow node in your flow. The `definition.node.output` block can&#39;t be specified for this node. This block has no arguments.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class AgentFlowDefinitionNodeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param outputs Configurations for an output flow node in your flow. The node `outputs` can&#39;t be specified for this node. This block has no arguments.
+         * @param outputs Configurations for an output flow node in your flow. The `definition.node.output` block can&#39;t be specified for this node. This block has no arguments.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class AgentFlowDefinitionNodeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param outputs Configurations for an output flow node in your flow. The node `outputs` can&#39;t be specified for this node. This block has no arguments.
+         * @param outputs Configurations for an output flow node in your flow. The `definition.node.output` block can&#39;t be specified for this node. This block has no arguments.
          * 
          * @return builder
          * 

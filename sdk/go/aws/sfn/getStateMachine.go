@@ -60,7 +60,7 @@ type LookupStateMachineArgs struct {
 
 // A collection of values returned by getStateMachine.
 type LookupStateMachineResult struct {
-	// Set to the arn of the state function.
+	// Set to the ARN of the state function.
 	Arn string `pulumi:"arn"`
 	// Date the state machine was created.
 	CreationDate string `pulumi:"creationDate"`
@@ -111,7 +111,7 @@ func (o LookupStateMachineResultOutput) ToLookupStateMachineResultOutputWithCont
 	return o
 }
 
-// Set to the arn of the state function.
+// Set to the ARN of the state function.
 func (o LookupStateMachineResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStateMachineResult) string { return v.Arn }).(pulumi.StringOutput)
 }

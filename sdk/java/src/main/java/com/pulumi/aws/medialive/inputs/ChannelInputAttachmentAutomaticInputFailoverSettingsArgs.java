@@ -20,14 +20,14 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsArgs exte
     public static final ChannelInputAttachmentAutomaticInputFailoverSettingsArgs Empty = new ChannelInputAttachmentAutomaticInputFailoverSettingsArgs();
 
     /**
-     * This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input\_preference for the failover pair is set to PRIMARY\_INPUT\_PREFERRED, because after this time, MediaLive will switch back to the primary input.
+     * Amount of time, in milliseconds, that a recovered input must have no failover conditions before it is considered healthy. This value is particularly important when `inputPreference` is set to `PRIMARY_INPUT_PREFERRED`, because after this time, MediaLive switches back to the primary input.
      * 
      */
     @Import(name="errorClearTimeMsec")
     private @Nullable Output<Integer> errorClearTimeMsec;
 
     /**
-     * @return This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input\_preference for the failover pair is set to PRIMARY\_INPUT\_PREFERRED, because after this time, MediaLive will switch back to the primary input.
+     * @return Amount of time, in milliseconds, that a recovered input must have no failover conditions before it is considered healthy. This value is particularly important when `inputPreference` is set to `PRIMARY_INPUT_PREFERRED`, because after this time, MediaLive switches back to the primary input.
      * 
      */
     public Optional<Output<Integer>> errorClearTimeMsec() {
@@ -35,14 +35,14 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsArgs exte
     }
 
     /**
-     * A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input. See Failover Condition Block for more details.
+     * Failover conditions. If any of these conditions occur, MediaLive fails over to the other input. See `failoverCondition` Block for details.
      * 
      */
     @Import(name="failoverConditions")
     private @Nullable Output<List<ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs>> failoverConditions;
 
     /**
-     * @return A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input. See Failover Condition Block for more details.
+     * @return Failover conditions. If any of these conditions occur, MediaLive fails over to the other input. See `failoverCondition` Block for details.
      * 
      */
     public Optional<Output<List<ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs>>> failoverConditions() {
@@ -65,14 +65,14 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsArgs exte
     }
 
     /**
-     * The input ID of the secondary input in the automatic input failover pair.
+     * Input ID of the secondary input in the automatic input failover pair.
      * 
      */
     @Import(name="secondaryInputId", required=true)
     private Output<String> secondaryInputId;
 
     /**
-     * @return The input ID of the secondary input in the automatic input failover pair.
+     * @return Input ID of the secondary input in the automatic input failover pair.
      * 
      */
     public Output<String> secondaryInputId() {
@@ -107,7 +107,7 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsArgs exte
         }
 
         /**
-         * @param errorClearTimeMsec This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input\_preference for the failover pair is set to PRIMARY\_INPUT\_PREFERRED, because after this time, MediaLive will switch back to the primary input.
+         * @param errorClearTimeMsec Amount of time, in milliseconds, that a recovered input must have no failover conditions before it is considered healthy. This value is particularly important when `inputPreference` is set to `PRIMARY_INPUT_PREFERRED`, because after this time, MediaLive switches back to the primary input.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsArgs exte
         }
 
         /**
-         * @param errorClearTimeMsec This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input\_preference for the failover pair is set to PRIMARY\_INPUT\_PREFERRED, because after this time, MediaLive will switch back to the primary input.
+         * @param errorClearTimeMsec Amount of time, in milliseconds, that a recovered input must have no failover conditions before it is considered healthy. This value is particularly important when `inputPreference` is set to `PRIMARY_INPUT_PREFERRED`, because after this time, MediaLive switches back to the primary input.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsArgs exte
         }
 
         /**
-         * @param failoverConditions A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input. See Failover Condition Block for more details.
+         * @param failoverConditions Failover conditions. If any of these conditions occur, MediaLive fails over to the other input. See `failoverCondition` Block for details.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsArgs exte
         }
 
         /**
-         * @param failoverConditions A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input. See Failover Condition Block for more details.
+         * @param failoverConditions Failover conditions. If any of these conditions occur, MediaLive fails over to the other input. See `failoverCondition` Block for details.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsArgs exte
         }
 
         /**
-         * @param failoverConditions A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input. See Failover Condition Block for more details.
+         * @param failoverConditions Failover conditions. If any of these conditions occur, MediaLive fails over to the other input. See `failoverCondition` Block for details.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsArgs exte
         }
 
         /**
-         * @param secondaryInputId The input ID of the secondary input in the automatic input failover pair.
+         * @param secondaryInputId Input ID of the secondary input in the automatic input failover pair.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsArgs exte
         }
 
         /**
-         * @param secondaryInputId The input ID of the secondary input in the automatic input failover pair.
+         * @param secondaryInputId Input ID of the secondary input in the automatic input failover pair.
          * 
          * @return builder
          * 

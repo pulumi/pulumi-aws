@@ -23,7 +23,7 @@ public final class EvaluationJobEvaluationConfigHumanDatasetMetricConfig {
      */
     private List<String> metricNames;
     /**
-     * @return Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`.
+     * @return Type of task to evaluate. Valid values: `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, `Custom`.
      * 
      */
     private String taskType;
@@ -44,7 +44,7 @@ public final class EvaluationJobEvaluationConfigHumanDatasetMetricConfig {
         return this.metricNames;
     }
     /**
-     * @return Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`.
+     * @return Type of task to evaluate. Valid values: `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, `Custom`.
      * 
      */
     public String taskType() {

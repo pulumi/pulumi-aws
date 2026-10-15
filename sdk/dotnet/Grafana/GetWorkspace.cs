@@ -160,7 +160,7 @@ namespace Pulumi.Aws.Grafana
     public sealed class GetWorkspaceResult
     {
         /// <summary>
-        /// (Required) Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `OrganizationalUnits` must also be present.
+        /// Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `OrganizationalUnits` must also be present.
         /// </summary>
         public readonly string AccountAccessType;
         /// <summary>
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.Grafana
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// (Required) Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
+        /// Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
         /// </summary>
         public readonly ImmutableArray<string> AuthenticationProviders;
         /// <summary>
@@ -196,7 +196,7 @@ namespace Pulumi.Aws.Grafana
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The ID or ARN of the AWS KMS key for encrypting workspace data.
+        /// ID or ARN of the AWS KMS key for encrypting workspace data.
         /// </summary>
         public readonly string KmsKeyId;
         /// <summary>
@@ -208,15 +208,15 @@ namespace Pulumi.Aws.Grafana
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The notification destinations.
+        /// Notification destinations.
         /// </summary>
         public readonly ImmutableArray<string> NotificationDestinations;
         /// <summary>
-        /// The role name that the workspace uses to access resources through Amazon Organizations.
+        /// Role name that the workspace uses to access resources through Amazon Organizations.
         /// </summary>
         public readonly string OrganizationRoleName;
         /// <summary>
-        /// The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
+        /// Amazon Organizations organizational units that the workspace is authorized to use data sources from.
         /// </summary>
         public readonly ImmutableArray<string> OrganizationalUnits;
         /// <summary>
@@ -228,6 +228,9 @@ namespace Pulumi.Aws.Grafana
         /// IAM role ARN that the workspace assumes.
         /// </summary>
         public readonly string RoleArn;
+        /// <summary>
+        /// Status of the SAML configuration.
+        /// </summary>
         public readonly string SamlConfigurationStatus;
         /// <summary>
         /// AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.

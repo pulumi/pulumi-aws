@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Macie2.Inputs
     public sealed class ClassificationJobS3JobDefinitionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The property- and tag-based conditions that determine which S3 buckets to include or exclude from the analysis. Conflicts with `BucketDefinitions`. (documented below)
+        /// Property- and tag-based conditions that determine which S3 buckets to include or exclude from the analysis. Conflicts with `BucketDefinitions`. See `BucketCriteria` Block for details.
         /// </summary>
         [Input("bucketCriteria")]
         public Input<Inputs.ClassificationJobS3JobDefinitionBucketCriteriaGetArgs>? BucketCriteria { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Macie2.Inputs
         private InputList<Inputs.ClassificationJobS3JobDefinitionBucketDefinitionGetArgs>? _bucketDefinitions;
 
         /// <summary>
-        /// An array of objects, one for each AWS account that owns buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for the account. Conflicts with `BucketCriteria`. (documented below)
+        /// Array of objects, one for each AWS account that owns buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for the account. Conflicts with `BucketCriteria`. See `BucketDefinitions` Block for details.
         /// </summary>
         public InputList<Inputs.ClassificationJobS3JobDefinitionBucketDefinitionGetArgs> BucketDefinitions
         {
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Macie2.Inputs
         }
 
         /// <summary>
-        /// The property- and tag-based conditions that determine which objects to include or exclude from the analysis. (documented below)
+        /// Property- and tag-based conditions that determine which objects to include or exclude from the analysis. See `Scoping` Block for details.
         /// </summary>
         [Input("scoping")]
         public Input<Inputs.ClassificationJobS3JobDefinitionScopingGetArgs>? Scoping { get; set; }

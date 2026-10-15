@@ -347,7 +347,7 @@ namespace Pulumi.Aws.Sns
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
+        /// Integer indicating number of minutes to wait in retrying mode for fetching subscription ARN before marking it as failure. Only applicable for HTTP and HTTPS protocols. Default is `1`.
         /// </summary>
         [Output("confirmationTimeoutInMinutes")]
         public Output<int?> ConfirmationTimeoutInMinutes { get; private set; } = null!;
@@ -491,7 +491,7 @@ namespace Pulumi.Aws.Sns
     public sealed class TopicSubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
+        /// Integer indicating number of minutes to wait in retrying mode for fetching subscription ARN before marking it as failure. Only applicable for HTTP and HTTPS protocols. Default is `1`.
         /// </summary>
         [Input("confirmationTimeoutInMinutes")]
         public Input<int>? ConfirmationTimeoutInMinutes { get; set; }
@@ -585,7 +585,7 @@ namespace Pulumi.Aws.Sns
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
+        /// Integer indicating number of minutes to wait in retrying mode for fetching subscription ARN before marking it as failure. Only applicable for HTTP and HTTPS protocols. Default is `1`.
         /// </summary>
         [Input("confirmationTimeoutInMinutes")]
         public Input<int>? ConfirmationTimeoutInMinutes { get; set; }

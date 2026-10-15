@@ -65,7 +65,7 @@ type LookupStreamArgs struct {
 type LookupStreamResult struct {
 	// ARN of the Kinesis Stream (same as `id`).
 	Arn string `pulumi:"arn"`
-	// List of shard ids in the CLOSED state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
+	// List of shard IDs in the CLOSED state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
 	ClosedShards []string `pulumi:"closedShards"`
 	// Approximate UNIX timestamp that the stream was created.
 	CreationTimestamp int `pulumi:"creationTimestamp"`
@@ -79,7 +79,7 @@ type LookupStreamResult struct {
 	MaxRecordSizeInKib int `pulumi:"maxRecordSizeInKib"`
 	// Name of the Kinesis Stream.
 	Name string `pulumi:"name"`
-	// List of shard ids in the OPEN state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
+	// List of shard IDs in the OPEN state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
 	OpenShards []string `pulumi:"openShards"`
 	Region     string   `pulumi:"region"`
 	// Length of time (in hours) data records are accessible after they are added to the stream.
@@ -135,7 +135,7 @@ func (o LookupStreamResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStreamResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// List of shard ids in the CLOSED state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
+// List of shard IDs in the CLOSED state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
 func (o LookupStreamResultOutput) ClosedShards() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupStreamResult) []string { return v.ClosedShards }).(pulumi.StringArrayOutput)
 }
@@ -170,7 +170,7 @@ func (o LookupStreamResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStreamResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// List of shard ids in the OPEN state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
+// List of shard IDs in the OPEN state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
 func (o LookupStreamResultOutput) OpenShards() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupStreamResult) []string { return v.OpenShards }).(pulumi.StringArrayOutput)
 }

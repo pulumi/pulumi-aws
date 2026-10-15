@@ -100,20 +100,23 @@ class GetInputResult:
     @pulumi.getter
     def destinations(self) -> Sequence['outputs.GetInputDestinationResult']:
         """
-        Destination settings for PUSH type inputs.
+        Destination settings for PUSH type inputs. See `destinations` Block for more details.
         """
         return pulumi.get(self, "destinations")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
+        """
+        ID of the device.
+        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="inputClass")
     def input_class(self) -> _builtins.str:
         """
-        The input class.
+        Input class.
         """
         return pulumi.get(self, "input_class")
 
@@ -121,7 +124,7 @@ class GetInputResult:
     @pulumi.getter(name="inputDevices")
     def input_devices(self) -> Sequence['outputs.GetInputInputDeviceResult']:
         """
-        Settings for the devices.
+        Settings for the devices. See `input_devices` Block for more details.
         """
         return pulumi.get(self, "input_devices")
 
@@ -129,7 +132,7 @@ class GetInputResult:
     @pulumi.getter(name="inputPartnerIds")
     def input_partner_ids(self) -> Sequence[_builtins.str]:
         """
-        A list of IDs for all Inputs which are partners of this one.
+        IDs for all Inputs which are partners of this one.
         """
         return pulumi.get(self, "input_partner_ids")
 
@@ -145,7 +148,7 @@ class GetInputResult:
     @pulumi.getter(name="mediaConnectFlows")
     def media_connect_flows(self) -> Sequence['outputs.GetInputMediaConnectFlowResult']:
         """
-        A list of the MediaConnect Flows.
+        MediaConnect Flows. See `media_connect_flows` Block for more details.
         """
         return pulumi.get(self, "media_connect_flows")
 
@@ -166,7 +169,7 @@ class GetInputResult:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> _builtins.str:
         """
-        The ARN of the role this input assumes during and after creation.
+        ARN of the role this input assumes during and after creation.
         """
         return pulumi.get(self, "role_arn")
 
@@ -182,7 +185,7 @@ class GetInputResult:
     @pulumi.getter
     def sources(self) -> Sequence['outputs.GetInputSourceResult']:
         """
-        The source URLs for a PULL-type input.
+        Source URLs for a PULL-type input. See `sources` Block for more details.
         """
         return pulumi.get(self, "sources")
 
@@ -190,7 +193,7 @@ class GetInputResult:
     @pulumi.getter
     def state(self) -> _builtins.str:
         """
-        The state of the input.
+        State of the input.
         """
         return pulumi.get(self, "state")
 
@@ -198,7 +201,7 @@ class GetInputResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
         """
-        A map of tags assigned to the Input.
+        Map of tags assigned to the Input.
         """
         return pulumi.get(self, "tags")
 
@@ -206,7 +209,7 @@ class GetInputResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of the input.
+        Type of the input.
         """
         return pulumi.get(self, "type")
 
@@ -254,7 +257,7 @@ def get_input(id: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str id: The ID of the Input.
+    :param _builtins.str id: ID of the Input.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
@@ -299,7 +302,7 @@ def get_input_output(id: pulumi.Input[Optional[_builtins.str]] = None,
     ```
 
 
-    :param _builtins.str id: The ID of the Input.
+    :param _builtins.str id: ID of the Input.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()

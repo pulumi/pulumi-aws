@@ -127,25 +127,25 @@ namespace Pulumi.Aws.Glue
     public partial class Classifier : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A classifier for CSV content. Defined below.
+        /// Classifier for CSV content. Defined below.
         /// </summary>
         [Output("csvClassifier")]
         public Output<Outputs.ClassifierCsvClassifier?> CsvClassifier { get; private set; } = null!;
 
         /// <summary>
-        /// A classifier that uses grok patterns. Defined below.
+        /// Classifier that uses grok patterns. Defined below.
         /// </summary>
         [Output("grokClassifier")]
         public Output<Outputs.ClassifierGrokClassifier?> GrokClassifier { get; private set; } = null!;
 
         /// <summary>
-        /// A classifier for JSON content. Defined below.
+        /// Classifier for JSON content. Defined below.
         /// </summary>
         [Output("jsonClassifier")]
         public Output<Outputs.ClassifierJsonClassifier?> JsonClassifier { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the classifier.
+        /// Name of the classifier.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.Aws.Glue
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A classifier for XML content. Defined below.
+        /// Classifier for XML content. Defined below.
         /// </summary>
         [Output("xmlClassifier")]
         public Output<Outputs.ClassifierXmlClassifier?> XmlClassifier { get; private set; } = null!;
@@ -209,25 +209,25 @@ namespace Pulumi.Aws.Glue
     public sealed class ClassifierArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A classifier for CSV content. Defined below.
+        /// Classifier for CSV content. Defined below.
         /// </summary>
         [Input("csvClassifier")]
         public Input<Inputs.ClassifierCsvClassifierArgs>? CsvClassifier { get; set; }
 
         /// <summary>
-        /// A classifier that uses grok patterns. Defined below.
+        /// Classifier that uses grok patterns. Defined below.
         /// </summary>
         [Input("grokClassifier")]
         public Input<Inputs.ClassifierGrokClassifierArgs>? GrokClassifier { get; set; }
 
         /// <summary>
-        /// A classifier for JSON content. Defined below.
+        /// Classifier for JSON content. Defined below.
         /// </summary>
         [Input("jsonClassifier")]
         public Input<Inputs.ClassifierJsonClassifierArgs>? JsonClassifier { get; set; }
 
         /// <summary>
-        /// The name of the classifier.
+        /// Name of the classifier.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -239,7 +239,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A classifier for XML content. Defined below.
+        /// Classifier for XML content. Defined below.
         /// </summary>
         [Input("xmlClassifier")]
         public Input<Inputs.ClassifierXmlClassifierArgs>? XmlClassifier { get; set; }
@@ -253,25 +253,25 @@ namespace Pulumi.Aws.Glue
     public sealed class ClassifierState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A classifier for CSV content. Defined below.
+        /// Classifier for CSV content. Defined below.
         /// </summary>
         [Input("csvClassifier")]
         public Input<Inputs.ClassifierCsvClassifierGetArgs>? CsvClassifier { get; set; }
 
         /// <summary>
-        /// A classifier that uses grok patterns. Defined below.
+        /// Classifier that uses grok patterns. Defined below.
         /// </summary>
         [Input("grokClassifier")]
         public Input<Inputs.ClassifierGrokClassifierGetArgs>? GrokClassifier { get; set; }
 
         /// <summary>
-        /// A classifier for JSON content. Defined below.
+        /// Classifier for JSON content. Defined below.
         /// </summary>
         [Input("jsonClassifier")]
         public Input<Inputs.ClassifierJsonClassifierGetArgs>? JsonClassifier { get; set; }
 
         /// <summary>
-        /// The name of the classifier.
+        /// Name of the classifier.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -283,7 +283,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A classifier for XML content. Defined below.
+        /// Classifier for XML content. Defined below.
         /// </summary>
         [Input("xmlClassifier")]
         public Input<Inputs.ClassifierXmlClassifierGetArgs>? XmlClassifier { get; set; }

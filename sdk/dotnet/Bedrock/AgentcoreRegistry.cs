@@ -46,9 +46,15 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var example = new Aws.Bedrock.AgentcoreRegistry("example", new()
     ///     {
+    ///         ApprovalConfigurations = new[]
+    ///         {
+    ///             new Aws.Bedrock.Inputs.AgentcoreRegistryApprovalConfigurationArgs
+    ///             {
+    ///                 AutoApproval = true,
+    ///             },
+    ///         },
     ///         Name = "example_registry",
     ///         Description = "MCP servers and tools for the platform team",
-    ///         AutoApproval = true,
     ///     });
     /// 
     /// });
@@ -94,12 +100,12 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// #### Required
     /// 
-    /// - `RegistryId` (String) Registry ID.
+    /// * `RegistryId` (String) Registry ID.
     /// 
     /// #### Optional
     /// 
-    /// * `AccountId` (String) AWS account ID for this resource.
-    /// * `Region` (String) AWS Region for this resource.
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
     /// 
     /// Using `pulumi import`, import a Bedrock AgentCore Registry by registry ID. For example:
     /// 
@@ -135,7 +141,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+        /// Name of the registry. Must be unique within your account, start with a letter or number, and contain only letters, numbers, underscores, hyphens, periods, and forward slashes. Maximum length of 64 characters.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -240,7 +246,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+        /// Name of the registry. Must be unique within your account, start with a letter or number, and contain only letters, numbers, underscores, hyphens, periods, and forward slashes. Maximum length of 64 characters.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -295,7 +301,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+        /// Name of the registry. Must be unique within your account, start with a letter or number, and contain only letters, numbers, underscores, hyphens, periods, and forward slashes. Maximum length of 64 characters.
         /// 
         /// The following arguments are optional:
         /// </summary>

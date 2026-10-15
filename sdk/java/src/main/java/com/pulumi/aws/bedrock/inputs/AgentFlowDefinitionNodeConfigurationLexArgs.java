@@ -30,14 +30,14 @@ public final class AgentFlowDefinitionNodeConfigurationLexArgs extends com.pulum
     }
 
     /**
-     * Region to invoke the Amazon Lex bot in.
+     * Locale to use when invoking the Amazon Lex bot, such as `en_US`.
      * 
      */
     @Import(name="localeId", required=true)
     private Output<String> localeId;
 
     /**
-     * @return Region to invoke the Amazon Lex bot in.
+     * @return Locale to use when invoking the Amazon Lex bot, such as `en_US`.
      * 
      */
     public Output<String> localeId() {
@@ -91,7 +91,7 @@ public final class AgentFlowDefinitionNodeConfigurationLexArgs extends com.pulum
         }
 
         /**
-         * @param localeId Region to invoke the Amazon Lex bot in.
+         * @param localeId Locale to use when invoking the Amazon Lex bot, such as `en_US`.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class AgentFlowDefinitionNodeConfigurationLexArgs extends com.pulum
         }
 
         /**
-         * @param localeId Region to invoke the Amazon Lex bot in.
+         * @param localeId Locale to use when invoking the Amazon Lex bot, such as `en_US`.
          * 
          * @return builder
          * 

@@ -32,14 +32,14 @@ public final class MemberState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The detector ID of the GuardDuty account where you want to create member accounts.
+     * Detector ID of the GuardDuty account where you want to create member accounts.
      * 
      */
     @Import(name="detectorId")
     private @Nullable Output<String> detectorId;
 
     /**
-     * @return The detector ID of the GuardDuty account where you want to create member accounts.
+     * @return Detector ID of the GuardDuty account where you want to create member accounts.
      * 
      */
     public Optional<Output<String>> detectorId() {
@@ -122,14 +122,14 @@ public final class MemberState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
+     * Status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
      * 
      */
     @Import(name="relationshipStatus")
     private @Nullable Output<String> relationshipStatus;
 
     /**
-     * @return The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
+     * @return Status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
      * 
      */
     public Optional<Output<String>> relationshipStatus() {
@@ -189,7 +189,7 @@ public final class MemberState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param detectorId The detector ID of the GuardDuty account where you want to create member accounts.
+         * @param detectorId Detector ID of the GuardDuty account where you want to create member accounts.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class MemberState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param detectorId The detector ID of the GuardDuty account where you want to create member accounts.
+         * @param detectorId Detector ID of the GuardDuty account where you want to create member accounts.
          * 
          * @return builder
          * 
@@ -315,7 +315,7 @@ public final class MemberState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param relationshipStatus The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
+         * @param relationshipStatus Status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class MemberState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param relationshipStatus The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
+         * @param relationshipStatus Status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
          * 
          * @return builder
          * 

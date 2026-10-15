@@ -334,16 +334,16 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
         import pulumi_aws as aws
 
         auth0 = aws.bedrock.AgentcoreOauth2CredentialProvider("auth0",
-            custom_oauth2_provider_config=[{
-                "custom": [{
-                    "oauthDiscovery": [{
-                        "discoveryUrl": "https://dev-company.auth0.com/.well-known/openid-configuration",
-                    }],
-                    "clientIdWo": "auth0-client-id",
-                    "clientSecretWo": "auth0-client-secret",
-                    "clientCredentialsWoVersion": 1,
-                }],
-            }],
+            oauth2_provider_config={
+                "custom_oauth2_provider_config": {
+                    "oauth_discovery": {
+                        "discovery_url": "https://dev-company.auth0.com/.well-known/openid-configuration",
+                    },
+                    "client_id_wo": "auth0-client-id",
+                    "client_secret_wo": "auth0-client-secret",
+                    "client_credentials_wo_version": 1,
+                },
+            },
             name="auth0-oauth-provider",
             credential_provider_vendor="CustomOauth2")
         ```
@@ -380,7 +380,7 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
 
         ## Import
 
-        > **Note:** OAuth2 client credentials are input-only in the AgentCore API and are not returned by the read operation. On import, `client_id`, `client_secret`, `client_secret_source`, `client_secret_config`, and the write-only `client_id_wo`/`client_secret_wo`/`client_credentials_wo_version` arguments cannot be recovered from the service, so the first `pulumi preview` after import shows them as additions. Run `pulumi up` once to reconcile state from your configuration; subsequent plans are clean.
+        > **Note:** This resource does not read OAuth2 client credentials back from the AgentCore API. On import, `client_id`, `client_secret`, `client_secret_source`, `client_secret_config`, `client_credentials_wo_version`, and the Microsoft `tenant_id` and `tenant_id_wo_version` arguments are not populated, so the first `pulumi preview` after import shows them as additions. Run `pulumi up` once to reconcile state from your configuration; subsequent plans are clean.
 
         ### Identity Schema
 
@@ -390,7 +390,7 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
 
         #### Optional
 
-        * `account_id` (String) Account ID where this resource is managed.
+        * `account_id` (String) AWS Account where this resource is managed.
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Bedrock AgentCore OAuth2 Credential Provider using `name`. For example:
@@ -447,16 +447,16 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
         import pulumi_aws as aws
 
         auth0 = aws.bedrock.AgentcoreOauth2CredentialProvider("auth0",
-            custom_oauth2_provider_config=[{
-                "custom": [{
-                    "oauthDiscovery": [{
-                        "discoveryUrl": "https://dev-company.auth0.com/.well-known/openid-configuration",
-                    }],
-                    "clientIdWo": "auth0-client-id",
-                    "clientSecretWo": "auth0-client-secret",
-                    "clientCredentialsWoVersion": 1,
-                }],
-            }],
+            oauth2_provider_config={
+                "custom_oauth2_provider_config": {
+                    "oauth_discovery": {
+                        "discovery_url": "https://dev-company.auth0.com/.well-known/openid-configuration",
+                    },
+                    "client_id_wo": "auth0-client-id",
+                    "client_secret_wo": "auth0-client-secret",
+                    "client_credentials_wo_version": 1,
+                },
+            },
             name="auth0-oauth-provider",
             credential_provider_vendor="CustomOauth2")
         ```
@@ -493,7 +493,7 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
 
         ## Import
 
-        > **Note:** OAuth2 client credentials are input-only in the AgentCore API and are not returned by the read operation. On import, `client_id`, `client_secret`, `client_secret_source`, `client_secret_config`, and the write-only `client_id_wo`/`client_secret_wo`/`client_credentials_wo_version` arguments cannot be recovered from the service, so the first `pulumi preview` after import shows them as additions. Run `pulumi up` once to reconcile state from your configuration; subsequent plans are clean.
+        > **Note:** This resource does not read OAuth2 client credentials back from the AgentCore API. On import, `client_id`, `client_secret`, `client_secret_source`, `client_secret_config`, `client_credentials_wo_version`, and the Microsoft `tenant_id` and `tenant_id_wo_version` arguments are not populated, so the first `pulumi preview` after import shows them as additions. Run `pulumi up` once to reconcile state from your configuration; subsequent plans are clean.
 
         ### Identity Schema
 
@@ -503,7 +503,7 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
 
         #### Optional
 
-        * `account_id` (String) Account ID where this resource is managed.
+        * `account_id` (String) AWS Account where this resource is managed.
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Bedrock AgentCore OAuth2 Credential Provider using `name`. For example:

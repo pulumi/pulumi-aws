@@ -11,12 +11,12 @@ import java.util.Objects;
 @CustomType
 public final class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest {
     /**
-     * @return The encryption-at-rest mode for encrypting Data Catalog data.
+     * @return Encryption-at-rest mode for encrypting Data Catalog data.
      * 
      */
     private String catalogEncryptionMode;
     /**
-     * @return The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
+     * @return ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
      * 
      */
     private String catalogEncryptionServiceRole;
@@ -28,14 +28,14 @@ public final class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingE
 
     private GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest() {}
     /**
-     * @return The encryption-at-rest mode for encrypting Data Catalog data.
+     * @return Encryption-at-rest mode for encrypting Data Catalog data.
      * 
      */
     public String catalogEncryptionMode() {
         return this.catalogEncryptionMode;
     }
     /**
-     * @return The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
+     * @return ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
      * 
      */
     public String catalogEncryptionServiceRole() {

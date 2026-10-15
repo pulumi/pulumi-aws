@@ -18,14 +18,14 @@ public final class NodeGroupWarmPoolConfigArgs extends com.pulumi.resources.Reso
     public static final NodeGroupWarmPoolConfigArgs Empty = new NodeGroupWarmPoolConfigArgs();
 
     /**
-     * Maximum number of instances that are allowed to be in the warm pool combined with the Auto Scaling Group. Use `-1` to specify an unlimited capacity.
+     * Maximum number of instances that are allowed to be in the warm pool combined with the Auto Scaling group. Use `-1` to specify an unlimited capacity.
      * 
      */
     @Import(name="maxGroupPreparedCapacity")
     private @Nullable Output<Integer> maxGroupPreparedCapacity;
 
     /**
-     * @return Maximum number of instances that are allowed to be in the warm pool combined with the Auto Scaling Group. Use `-1` to specify an unlimited capacity.
+     * @return Maximum number of instances that are allowed to be in the warm pool combined with the Auto Scaling group. Use `-1` to specify an unlimited capacity.
      * 
      */
     public Optional<Output<Integer>> maxGroupPreparedCapacity() {
@@ -63,14 +63,14 @@ public final class NodeGroupWarmPoolConfigArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Whether to return instances in the Auto Scaling Group to the warm pool on scale in. Not supported on Bottlerocket. Defaults to `false`.
+     * Whether to return instances in the Auto Scaling group to the warm pool on scale in. Not supported on Bottlerocket. Defaults to `false`.
      * 
      */
     @Import(name="reuseOnScaleIn")
     private @Nullable Output<Boolean> reuseOnScaleIn;
 
     /**
-     * @return Whether to return instances in the Auto Scaling Group to the warm pool on scale in. Not supported on Bottlerocket. Defaults to `false`.
+     * @return Whether to return instances in the Auto Scaling group to the warm pool on scale in. Not supported on Bottlerocket. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> reuseOnScaleIn() {
@@ -105,7 +105,7 @@ public final class NodeGroupWarmPoolConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param maxGroupPreparedCapacity Maximum number of instances that are allowed to be in the warm pool combined with the Auto Scaling Group. Use `-1` to specify an unlimited capacity.
+         * @param maxGroupPreparedCapacity Maximum number of instances that are allowed to be in the warm pool combined with the Auto Scaling group. Use `-1` to specify an unlimited capacity.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class NodeGroupWarmPoolConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param maxGroupPreparedCapacity Maximum number of instances that are allowed to be in the warm pool combined with the Auto Scaling Group. Use `-1` to specify an unlimited capacity.
+         * @param maxGroupPreparedCapacity Maximum number of instances that are allowed to be in the warm pool combined with the Auto Scaling group. Use `-1` to specify an unlimited capacity.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class NodeGroupWarmPoolConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param reuseOnScaleIn Whether to return instances in the Auto Scaling Group to the warm pool on scale in. Not supported on Bottlerocket. Defaults to `false`.
+         * @param reuseOnScaleIn Whether to return instances in the Auto Scaling group to the warm pool on scale in. Not supported on Bottlerocket. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class NodeGroupWarmPoolConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param reuseOnScaleIn Whether to return instances in the Auto Scaling Group to the warm pool on scale in. Not supported on Bottlerocket. Defaults to `false`.
+         * @param reuseOnScaleIn Whether to return instances in the Auto Scaling group to the warm pool on scale in. Not supported on Bottlerocket. Defaults to `false`.
          * 
          * @return builder
          * 

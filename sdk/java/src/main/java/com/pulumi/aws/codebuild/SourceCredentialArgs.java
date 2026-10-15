@@ -19,7 +19,7 @@ public final class SourceCredentialArgs extends com.pulumi.resources.ResourceArg
     /**
      * The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
      * repository. Valid values are `BASIC_AUTH`,
-     * `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
+     * `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAuth connection is not supported by the API.
      * 
      */
     @Import(name="authType", required=true)
@@ -28,7 +28,7 @@ public final class SourceCredentialArgs extends com.pulumi.resources.ResourceArg
     /**
      * @return The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
      * repository. Valid values are `BASIC_AUTH`,
-     * `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
+     * `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAuth connection is not supported by the API.
      * 
      */
     public Output<String> authType() {
@@ -132,7 +132,7 @@ public final class SourceCredentialArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param authType The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
          * repository. Valid values are `BASIC_AUTH`,
-         * `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
+         * `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAuth connection is not supported by the API.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class SourceCredentialArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param authType The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
          * repository. Valid values are `BASIC_AUTH`,
-         * `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
+         * `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAuth connection is not supported by the API.
          * 
          * @return builder
          * 

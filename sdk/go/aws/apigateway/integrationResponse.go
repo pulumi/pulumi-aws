@@ -14,7 +14,7 @@ import (
 
 // Provides an HTTP Method Integration Response for an API Gateway Resource.
 //
-// > **Note:** Depends on having `apigateway.Integration` inside your rest api. To ensure this
+// > **Note:** Depends on having `apigateway.Integration` inside your REST API. To ensure this
 // you might need to add an explicit `dependsOn` for clean runs.
 //
 // ## Example Usage

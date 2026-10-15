@@ -79,13 +79,13 @@ namespace Pulumi.Aws.GuardDuty
     public partial class Filter : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
+        /// Action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
         /// </summary>
         [Output("action")]
         public Output<string> Action { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the GuardDuty filter.
+        /// ARN of the GuardDuty filter.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -103,19 +103,19 @@ namespace Pulumi.Aws.GuardDuty
         public Output<string> DetectorId { get; private set; } = null!;
 
         /// <summary>
-        /// Represents the criteria to be used in the filter for querying findings. Contains one or more `Criterion` blocks, documented below.
+        /// Criteria to be used in the filter for querying findings. Contains one or more `Criterion` blocks, documented below.
         /// </summary>
         [Output("findingCriteria")]
         public Output<Outputs.FilterFindingCriteria> FindingCriteria { get; private set; } = null!;
 
         /// <summary>
-        /// The name of your filter.
+        /// Name of your filter.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
+        /// Position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
         /// </summary>
         [Output("rank")]
         public Output<int> Rank { get; private set; } = null!;
@@ -127,13 +127,13 @@ namespace Pulumi.Aws.GuardDuty
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags that you want to add to the Filter resource. A tag consists of a key and a value. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -185,7 +185,7 @@ namespace Pulumi.Aws.GuardDuty
     public sealed class FilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
+        /// Action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
         /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
@@ -203,19 +203,19 @@ namespace Pulumi.Aws.GuardDuty
         public Input<string> DetectorId { get; set; } = null!;
 
         /// <summary>
-        /// Represents the criteria to be used in the filter for querying findings. Contains one or more `Criterion` blocks, documented below.
+        /// Criteria to be used in the filter for querying findings. Contains one or more `Criterion` blocks, documented below.
         /// </summary>
         [Input("findingCriteria", required: true)]
         public Input<Inputs.FilterFindingCriteriaArgs> FindingCriteria { get; set; } = null!;
 
         /// <summary>
-        /// The name of your filter.
+        /// Name of your filter.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
+        /// Position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
         /// </summary>
         [Input("rank", required: true)]
         public Input<int> Rank { get; set; } = null!;
@@ -230,7 +230,7 @@ namespace Pulumi.Aws.GuardDuty
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags that you want to add to the Filter resource. A tag consists of a key and a value. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -247,13 +247,13 @@ namespace Pulumi.Aws.GuardDuty
     public sealed class FilterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
+        /// Action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
         /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }
 
         /// <summary>
-        /// The ARN of the GuardDuty filter.
+        /// ARN of the GuardDuty filter.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -271,19 +271,19 @@ namespace Pulumi.Aws.GuardDuty
         public Input<string>? DetectorId { get; set; }
 
         /// <summary>
-        /// Represents the criteria to be used in the filter for querying findings. Contains one or more `Criterion` blocks, documented below.
+        /// Criteria to be used in the filter for querying findings. Contains one or more `Criterion` blocks, documented below.
         /// </summary>
         [Input("findingCriteria")]
         public Input<Inputs.FilterFindingCriteriaGetArgs>? FindingCriteria { get; set; }
 
         /// <summary>
-        /// The name of your filter.
+        /// Name of your filter.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
+        /// Position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
         /// </summary>
         [Input("rank")]
         public Input<int>? Rank { get; set; }
@@ -298,7 +298,7 @@ namespace Pulumi.Aws.GuardDuty
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags that you want to add to the Filter resource. A tag consists of a key and a value. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -310,7 +310,7 @@ namespace Pulumi.Aws.GuardDuty
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

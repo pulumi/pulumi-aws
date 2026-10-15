@@ -12,7 +12,7 @@ namespace Pulumi.Aws.BedrockFoundation
     public static class GetModels
     {
         /// <summary>
-        /// Data source for managing AWS Bedrock Foundation Models.
+        /// Provides details about AWS Bedrock Foundation Models.
         /// 
         /// ## Example Usage
         /// 
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.BedrockFoundation
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Aws.BedrockFoundation.GetModels.Invoke();
+        ///     var example = Aws.BedrockFoundation.GetModels.Invoke();
         /// 
         /// });
         /// ```
@@ -41,7 +41,7 @@ namespace Pulumi.Aws.BedrockFoundation
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Aws.BedrockFoundation.GetModels.Invoke(new()
+        ///     var example = Aws.BedrockFoundation.GetModels.Invoke(new()
         ///     {
         ///         ByInferenceType = "ON_DEMAND",
         ///     });
@@ -53,7 +53,7 @@ namespace Pulumi.Aws.BedrockFoundation
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetModelsResult>("aws:bedrockfoundation/getModels:getModels", args ?? new GetModelsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data source for managing AWS Bedrock Foundation Models.
+        /// Provides details about AWS Bedrock Foundation Models.
         /// 
         /// ## Example Usage
         /// 
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.BedrockFoundation
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Aws.BedrockFoundation.GetModels.Invoke();
+        ///     var example = Aws.BedrockFoundation.GetModels.Invoke();
         /// 
         /// });
         /// ```
@@ -82,7 +82,7 @@ namespace Pulumi.Aws.BedrockFoundation
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Aws.BedrockFoundation.GetModels.Invoke(new()
+        ///     var example = Aws.BedrockFoundation.GetModels.Invoke(new()
         ///     {
         ///         ByInferenceType = "ON_DEMAND",
         ///     });
@@ -94,7 +94,7 @@ namespace Pulumi.Aws.BedrockFoundation
             => global::Pulumi.Deployment.Instance.Invoke<GetModelsResult>("aws:bedrockfoundation/getModels:getModels", args ?? new GetModelsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data source for managing AWS Bedrock Foundation Models.
+        /// Provides details about AWS Bedrock Foundation Models.
         /// 
         /// ## Example Usage
         /// 
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.BedrockFoundation
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Aws.BedrockFoundation.GetModels.Invoke();
+        ///     var example = Aws.BedrockFoundation.GetModels.Invoke();
         /// 
         /// });
         /// ```
@@ -123,7 +123,7 @@ namespace Pulumi.Aws.BedrockFoundation
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Aws.BedrockFoundation.GetModels.Invoke(new()
+        ///     var example = Aws.BedrockFoundation.GetModels.Invoke(new()
         ///     {
         ///         ByInferenceType = "ON_DEMAND",
         ///     });
@@ -139,7 +139,7 @@ namespace Pulumi.Aws.BedrockFoundation
     public sealed class GetModelsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Customization type to filter on. Valid values are `FINE_TUNING`.
+        /// Customization type to filter on. Valid values are `FINE_TUNING`, `CONTINUED_PRE_TRAINING`, and `DISTILLATION`.
         /// </summary>
         [Input("byCustomizationType")]
         public string? ByCustomizationType { get; set; }
@@ -177,7 +177,7 @@ namespace Pulumi.Aws.BedrockFoundation
     public sealed class GetModelsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Customization type to filter on. Valid values are `FINE_TUNING`.
+        /// Customization type to filter on. Valid values are `FINE_TUNING`, `CONTINUED_PRE_TRAINING`, and `DISTILLATION`.
         /// </summary>
         [Input("byCustomizationType")]
         public Input<string>? ByCustomizationType { get; set; }

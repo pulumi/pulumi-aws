@@ -81,14 +81,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
     }
 
     /**
-     * Whether this property is required. Defaults to `false`.
+     * Whether to mark this property as required. Defaults to `false`.
      * 
      */
     @Import(name="required")
     private @Nullable Output<Boolean> required;
 
     /**
-     * @return Whether this property is required. Defaults to `false`.
+     * @return Whether to mark this property as required. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> required() {
@@ -234,7 +234,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
         }
 
         /**
-         * @param required Whether this property is required. Defaults to `false`.
+         * @param required Whether to mark this property as required. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
         }
 
         /**
-         * @param required Whether this property is required. Defaults to `false`.
+         * @param required Whether to mark this property as required. Defaults to `false`.
          * 
          * @return builder
          * 

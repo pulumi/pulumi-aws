@@ -19,7 +19,7 @@ import (
 //
 // ## Example Usage
 //
-// ### Create an ssm document in JSON format
+// ### Create an SSM document in JSON format
 //
 // ```go
 // package main
@@ -66,7 +66,7 @@ import (
 //
 // ```
 //
-// ### Create an ssm document in YAML format
+// ### Create an SSM document in YAML format
 //
 // ```go
 // package main

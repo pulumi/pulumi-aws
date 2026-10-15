@@ -19,8 +19,8 @@ import java.util.concurrent.CompletableFuture;
 
 public final class AutoscalingFunctions {
     /**
-     * The Autoscaling Groups data source allows access to the list of AWS
-     * ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
+     * The Auto Scaling groups data source allows access to the list of AWS
+     * ASGs within a specific region. This will allow you to pass a list of Auto Scaling groups to other resources.
      * 
      * ## Example Usage
      * 
@@ -81,8 +81,8 @@ public final class AutoscalingFunctions {
         return getAmiIds(GetAmiIdsArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * The Autoscaling Groups data source allows access to the list of AWS
-     * ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
+     * The Auto Scaling groups data source allows access to the list of AWS
+     * ASGs within a specific region. This will allow you to pass a list of Auto Scaling groups to other resources.
      * 
      * ## Example Usage
      * 
@@ -143,8 +143,8 @@ public final class AutoscalingFunctions {
         return getAmiIdsPlain(GetAmiIdsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * The Autoscaling Groups data source allows access to the list of AWS
-     * ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
+     * The Auto Scaling groups data source allows access to the list of AWS
+     * ASGs within a specific region. This will allow you to pass a list of Auto Scaling groups to other resources.
      * 
      * ## Example Usage
      * 
@@ -205,8 +205,8 @@ public final class AutoscalingFunctions {
         return getAmiIds(args, InvokeOptions.Empty);
     }
     /**
-     * The Autoscaling Groups data source allows access to the list of AWS
-     * ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
+     * The Auto Scaling groups data source allows access to the list of AWS
+     * ASGs within a specific region. This will allow you to pass a list of Auto Scaling groups to other resources.
      * 
      * ## Example Usage
      * 
@@ -267,8 +267,8 @@ public final class AutoscalingFunctions {
         return getAmiIdsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * The Autoscaling Groups data source allows access to the list of AWS
-     * ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
+     * The Auto Scaling groups data source allows access to the list of AWS
+     * ASGs within a specific region. This will allow you to pass a list of Auto Scaling groups to other resources.
      * 
      * ## Example Usage
      * 
@@ -329,8 +329,8 @@ public final class AutoscalingFunctions {
         return Deployment.getInstance().invoke("aws:autoscaling/getAmiIds:getAmiIds", TypeShape.of(GetAmiIdsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * The Autoscaling Groups data source allows access to the list of AWS
-     * ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
+     * The Auto Scaling groups data source allows access to the list of AWS
+     * ASGs within a specific region. This will allow you to pass a list of Auto Scaling groups to other resources.
      * 
      * ## Example Usage
      * 
@@ -391,8 +391,8 @@ public final class AutoscalingFunctions {
         return Deployment.getInstance().invoke("aws:autoscaling/getAmiIds:getAmiIds", TypeShape.of(GetAmiIdsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * The Autoscaling Groups data source allows access to the list of AWS
-     * ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
+     * The Auto Scaling groups data source allows access to the list of AWS
+     * ASGs within a specific region. This will allow you to pass a list of Auto Scaling groups to other resources.
      * 
      * ## Example Usage
      * 
@@ -453,7 +453,7 @@ public final class AutoscalingFunctions {
         return Deployment.getInstance().invokeAsync("aws:autoscaling/getAmiIds:getAmiIds", TypeShape.of(GetAmiIdsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get information on an existing autoscaling group.
+     * Use this data source to get information on an existing Auto Scaling group.
      * 
      * ## Example Usage
      * 
@@ -493,7 +493,7 @@ public final class AutoscalingFunctions {
         return getGroup(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information on an existing autoscaling group.
+     * Use this data source to get information on an existing Auto Scaling group.
      * 
      * ## Example Usage
      * 
@@ -533,7 +533,7 @@ public final class AutoscalingFunctions {
         return getGroupPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information on an existing autoscaling group.
+     * Use this data source to get information on an existing Auto Scaling group.
      * 
      * ## Example Usage
      * 
@@ -573,7 +573,7 @@ public final class AutoscalingFunctions {
         return Deployment.getInstance().invoke("aws:autoscaling/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get information on an existing autoscaling group.
+     * Use this data source to get information on an existing Auto Scaling group.
      * 
      * ## Example Usage
      * 
@@ -613,7 +613,7 @@ public final class AutoscalingFunctions {
         return Deployment.getInstance().invoke("aws:autoscaling/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get information on an existing autoscaling group.
+     * Use this data source to get information on an existing Auto Scaling group.
      * 
      * ## Example Usage
      * 

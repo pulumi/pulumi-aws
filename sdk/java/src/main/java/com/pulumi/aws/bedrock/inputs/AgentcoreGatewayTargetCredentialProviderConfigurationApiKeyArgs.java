@@ -62,14 +62,14 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyAr
     }
 
     /**
-     * ARN of the OIDC provider for API key authentication.
+     * ARN of the API key credential provider.
      * 
      */
     @Import(name="providerArn", required=true)
     private Output<String> providerArn;
 
     /**
-     * @return ARN of the OIDC provider for API key authentication.
+     * @return ARN of the API key credential provider.
      * 
      */
     public Output<String> providerArn() {
@@ -167,7 +167,7 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyAr
         }
 
         /**
-         * @param providerArn ARN of the OIDC provider for API key authentication.
+         * @param providerArn ARN of the API key credential provider.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyAr
         }
 
         /**
-         * @param providerArn ARN of the OIDC provider for API key authentication.
+         * @param providerArn ARN of the API key credential provider.
          * 
          * @return builder
          * 

@@ -50,7 +50,7 @@ export function getContactFlow(args: GetContactFlowArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetContactFlowArgs {
     /**
-     * Returns information on a specific Contact Flow by contact flow id
+     * Returns information on a specific Contact Flow by contact flow ID
      */
     contactFlowId?: string;
     /**
@@ -156,7 +156,7 @@ export function getContactFlowOutput(args: GetContactFlowOutputArgs, opts?: pulu
  */
 export interface GetContactFlowOutputArgs {
     /**
-     * Returns information on a specific Contact Flow by contact flow id
+     * Returns information on a specific Contact Flow by contact flow ID
      */
     contactFlowId?: pulumi.Input<string | undefined>;
     /**

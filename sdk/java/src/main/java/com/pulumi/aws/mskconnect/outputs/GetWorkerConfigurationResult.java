@@ -40,7 +40,7 @@ public final class GetWorkerConfigurationResult {
     private String propertiesFileContent;
     private String region;
     /**
-     * @return A map of tags assigned to the resource.
+     * @return Map of tags assigned to the resource.
      * 
      */
     private Map<String,String> tags;
@@ -88,7 +88,7 @@ public final class GetWorkerConfigurationResult {
         return this.region;
     }
     /**
-     * @return A map of tags assigned to the resource.
+     * @return Map of tags assigned to the resource.
      * 
      */
     public Map<String,String> tags() {

@@ -18,7 +18,7 @@ public final class GetCatalogCreateTableDefaultPermission {
      */
     private List<String> permissions;
     /**
-     * @return Principal who is granted permissions. See `principal` below.
+     * @return Principal who is granted permissions. See `principal` Block below.
      * 
      */
     private List<GetCatalogCreateTableDefaultPermissionPrincipal> principals;
@@ -32,7 +32,7 @@ public final class GetCatalogCreateTableDefaultPermission {
         return this.permissions;
     }
     /**
-     * @return Principal who is granted permissions. See `principal` below.
+     * @return Principal who is granted permissions. See `principal` Block below.
      * 
      */
     public List<GetCatalogCreateTableDefaultPermissionPrincipal> principals() {

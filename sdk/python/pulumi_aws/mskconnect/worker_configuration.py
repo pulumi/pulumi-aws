@@ -30,10 +30,10 @@ class WorkerConfigurationArgs:
         :param pulumi.Input[_builtins.str] properties_file_content: Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] description: A summary description of the worker configuration.
-        :param pulumi.Input[_builtins.str] name: The name of the worker configuration.
+        :param pulumi.Input[_builtins.str] description: Summary description of the worker configuration.
+        :param pulumi.Input[_builtins.str] name: Name of the worker configuration.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "properties_file_content", properties_file_content)
         if description is not None:
@@ -63,7 +63,7 @@ class WorkerConfigurationArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A summary description of the worker configuration.
+        Summary description of the worker configuration.
         """
         return pulumi.get(self, "description")
 
@@ -75,7 +75,7 @@ class WorkerConfigurationArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the worker configuration.
+        Name of the worker configuration.
         """
         return pulumi.get(self, "name")
 
@@ -99,7 +99,7 @@ class WorkerConfigurationArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -123,15 +123,15 @@ class _WorkerConfigurationState:
         Input properties used for looking up and filtering WorkerConfiguration resources.
 
         :param pulumi.Input[_builtins.str] arn: the ARN of the worker configuration.
-        :param pulumi.Input[_builtins.str] description: A summary description of the worker configuration.
+        :param pulumi.Input[_builtins.str] description: Summary description of the worker configuration.
         :param pulumi.Input[_builtins.int] latest_revision: an ID of the latest successfully created revision of the worker configuration.
-        :param pulumi.Input[_builtins.str] name: The name of the worker configuration.
+        :param pulumi.Input[_builtins.str] name: Name of the worker configuration.
         :param pulumi.Input[_builtins.str] properties_file_content: Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -166,7 +166,7 @@ class _WorkerConfigurationState:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A summary description of the worker configuration.
+        Summary description of the worker configuration.
         """
         return pulumi.get(self, "description")
 
@@ -190,7 +190,7 @@ class _WorkerConfigurationState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the worker configuration.
+        Name of the worker configuration.
         """
         return pulumi.get(self, "name")
 
@@ -228,7 +228,7 @@ class _WorkerConfigurationState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -240,7 +240,7 @@ class _WorkerConfigurationState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -290,13 +290,13 @@ class WorkerConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: A summary description of the worker configuration.
-        :param pulumi.Input[_builtins.str] name: The name of the worker configuration.
+        :param pulumi.Input[_builtins.str] description: Summary description of the worker configuration.
+        :param pulumi.Input[_builtins.str] name: Name of the worker configuration.
         :param pulumi.Input[_builtins.str] properties_file_content: Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -396,15 +396,15 @@ class WorkerConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: the ARN of the worker configuration.
-        :param pulumi.Input[_builtins.str] description: A summary description of the worker configuration.
+        :param pulumi.Input[_builtins.str] description: Summary description of the worker configuration.
         :param pulumi.Input[_builtins.int] latest_revision: an ID of the latest successfully created revision of the worker configuration.
-        :param pulumi.Input[_builtins.str] name: The name of the worker configuration.
+        :param pulumi.Input[_builtins.str] name: Name of the worker configuration.
         :param pulumi.Input[_builtins.str] properties_file_content: Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -432,7 +432,7 @@ class WorkerConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        A summary description of the worker configuration.
+        Summary description of the worker configuration.
         """
         return pulumi.get(self, "description")
 
@@ -448,7 +448,7 @@ class WorkerConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the worker configuration.
+        Name of the worker configuration.
         """
         return pulumi.get(self, "name")
 
@@ -474,7 +474,7 @@ class WorkerConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -482,7 +482,7 @@ class WorkerConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

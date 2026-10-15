@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string> BotAliasArn { get; set; } = null!;
 
         /// <summary>
-        /// Region to invoke the Amazon Lex bot in.
+        /// Locale to use when invoking the Amazon Lex bot, such as `en_US`.
         /// </summary>
         [Input("localeId", required: true)]
         public Input<string> LocaleId { get; set; } = null!;

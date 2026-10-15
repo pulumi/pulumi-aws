@@ -139,7 +139,7 @@ namespace Pulumi.Aws.ElastiCache
     /// });
     /// ```
     /// 
-    /// ### Elasticache Cluster in Outpost
+    /// ### ElastiCache Cluster in Outpost
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

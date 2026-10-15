@@ -14,52 +14,172 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings
     {
         /// <summary>
-        /// The ad marker type for this output group.
+        /// List of markers used to insert ad avail markers in the HLS output.
         /// </summary>
         public readonly ImmutableArray<string> AdMarkers;
+        /// <summary>
+        /// Prepends a value to the URI of each media (segment) file in the manifest.
+        /// </summary>
         public readonly string? BaseUrlContent;
+        /// <summary>
+        /// Alternate base URL for content, used for redundant manifest configurations.
+        /// </summary>
         public readonly string? BaseUrlContent1;
+        /// <summary>
+        /// Prepends a value to the URI of each variant manifest file in the master manifest.
+        /// </summary>
         public readonly string? BaseUrlManifest;
+        /// <summary>
+        /// Alternate base URL for manifests, used for redundant manifest configurations.
+        /// </summary>
         public readonly string? BaseUrlManifest1;
+        /// <summary>
+        /// Mapping of up to 4 caption channels to caption languages. See `CaptionLanguageMappings` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping> CaptionLanguageMappings;
+        /// <summary>
+        /// How audio and caption language setting tags are written in the manifest.
+        /// </summary>
         public readonly string? CaptionLanguageSetting;
+        /// <summary>
+        /// When set to `Disabled`, sets the `#EXT-X-ALLOW-CACHE:no` tag in the manifest.
+        /// </summary>
         public readonly string? ClientCache;
+        /// <summary>
+        /// Specification to use for the codec in the manifest.
+        /// </summary>
         public readonly string? CodecSpecification;
+        /// <summary>
+        /// 128-bit, 16-byte hex value represented by a 32-character text string, used with the key for encrypting blocks.
+        /// </summary>
         public readonly string? ConstantIv;
+        /// <summary>
+        /// Place where the segments and manifests are written. See `Destination` Block for details.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestination Destination;
+        /// <summary>
+        /// Place for the media and manifest files.
+        /// </summary>
         public readonly string? DirectoryStructure;
+        /// <summary>
+        /// How the `EXT-X-DISCONTINUITY` tags are inserted.
+        /// </summary>
         public readonly string? DiscontinuityTags;
+        /// <summary>
+        /// Encryption type.
+        /// </summary>
         public readonly string? EncryptionType;
+        /// <summary>
+        /// Parameters that control the interactions with the CDN. See `HlsCdnSettings` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting> HlsCdnSettings;
+        /// <summary>
+        /// State of HLS ID3 segment tagging.
+        /// </summary>
         public readonly string? HlsId3SegmentTagging;
+        /// <summary>
+        /// When set to `Standard`, an I-Frame only playlist is written out for each video output in the output group.
+        /// </summary>
         public readonly string? IframeOnlyPlaylists;
+        /// <summary>
+        /// Behavior of the segment that is in progress at a channel restart or input switch.
+        /// </summary>
         public readonly string? IncompleteSegmentBehavior;
+        /// <summary>
+        /// Number of segments to keep in the manifest.
+        /// </summary>
         public readonly int? IndexNSegments;
+        /// <summary>
+        /// Parameter that controls output group behavior on an input loss.
+        /// </summary>
         public readonly string? InputLossAction;
+        /// <summary>
+        /// Whether the initialization vector is included in the key method on the segment.
+        /// </summary>
         public readonly string? IvInManifest;
+        /// <summary>
+        /// Whether the initialization vector follows the segment number or is from the group.
+        /// </summary>
         public readonly string? IvSource;
+        /// <summary>
+        /// Number of segments to retain in the destination directory.
+        /// </summary>
         public readonly int? KeepSegments;
+        /// <summary>
+        /// Value for the key URI format in the key method.
+        /// </summary>
         public readonly string? KeyFormat;
+        /// <summary>
+        /// Versions of the key format in the key method.
+        /// </summary>
         public readonly string? KeyFormatVersions;
+        /// <summary>
+        /// Key provider settings. See `KeyProviderSettings` Block for details.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings? KeyProviderSettings;
+        /// <summary>
+        /// Whether the manifest is compressed with gzip.
+        /// </summary>
         public readonly string? ManifestCompression;
+        /// <summary>
+        /// Format of the segment duration in the manifest.
+        /// </summary>
         public readonly string? ManifestDurationFormat;
+        /// <summary>
+        /// Minimum length, in seconds, for each segment.
+        /// </summary>
         public readonly int? MinSegmentLength;
+        /// <summary>
+        /// HLS mode.
+        /// </summary>
         public readonly string? Mode;
+        /// <summary>
+        /// Generation of the manifest and segments or only variant manifests.
+        /// </summary>
         public readonly string? OutputSelection;
+        /// <summary>
+        /// Whether to include an `EXT-X-PROGRAM-DATE-TIME` tag.
+        /// </summary>
         public readonly string? ProgramDateTime;
+        /// <summary>
+        /// Clock source for the `EXT-X-PROGRAM-DATE-TIME` tag.
+        /// </summary>
         public readonly string? ProgramDateTimeClock;
+        /// <summary>
+        /// Period, in seconds, between `EXT-X-PROGRAM-DATE-TIME` tags.
+        /// </summary>
         public readonly int? ProgramDateTimePeriod;
+        /// <summary>
+        /// When set to `Enabled`, writes a secondary manifest for each output group.
+        /// </summary>
         public readonly string? RedundantManifest;
+        /// <summary>
+        /// Length, in seconds, of each segment.
+        /// </summary>
         public readonly int? SegmentLength;
+        /// <summary>
+        /// Number of segments to write to a subdirectory before starting a new one.
+        /// </summary>
         public readonly int? SegmentsPerSubdirectory;
+        /// <summary>
+        /// Whether to include the resolution in the `EXT-X-STREAM-INF` tag.
+        /// </summary>
         public readonly string? StreamInfResolution;
         /// <summary>
-        /// Indicates ID3 frame that has the timecode.
+        /// ID3 frame used for timed metadata.
         /// </summary>
         public readonly string? TimedMetadataId3Frame;
+        /// <summary>
+        /// Period, in seconds, between ID3 frames for timed metadata.
+        /// </summary>
         public readonly int? TimedMetadataId3Period;
+        /// <summary>
+        /// Value, in milliseconds, to offset the program date time from the input timestamp.
+        /// </summary>
         public readonly int? TimestampDeltaMilliseconds;
+        /// <summary>
+        /// Whether segments are placed in subdirectories.
+        /// </summary>
         public readonly string? TsFileMode;
 
         [OutputConstructor]

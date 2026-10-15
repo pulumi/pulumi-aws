@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string? BgpLogGroupArn;
         /// <summary>
-        /// Set BGP log format. Default format is json. Possible values are: `Json` and `Text`. The default is `Json`.
+        /// Set BGP log format. Default format is JSON. Possible values are: `Json` and `Text`. The default is `Json`.
         /// </summary>
         public readonly string? BgpLogOutputFormat;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string? LogGroupArn;
         /// <summary>
-        /// Set log format. Default format is json. Possible values are: `Json` and `Text`. The default is `Json`.
+        /// Set log format. Default format is JSON. Possible values are: `Json` and `Text`. The default is `Json`.
         /// </summary>
         public readonly string? LogOutputFormat;
 

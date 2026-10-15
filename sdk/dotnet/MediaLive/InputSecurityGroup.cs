@@ -71,7 +71,7 @@ namespace Pulumi.Aws.MediaLive
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The list of inputs currently using this InputSecurityGroup.
+        /// List of inputs currently using this InputSecurityGroup.
         /// </summary>
         [Output("inputs")]
         public Output<ImmutableArray<string>> Inputs { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.Aws.MediaLive
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Whitelist rules. See Whitelist Rules for more details.
+        /// Whitelist rules. See `WhitelistRules` Block for more details.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -167,7 +167,7 @@ namespace Pulumi.Aws.MediaLive
         private InputList<Inputs.InputSecurityGroupWhitelistRuleArgs>? _whitelistRules;
 
         /// <summary>
-        /// Whitelist rules. See Whitelist Rules for more details.
+        /// Whitelist rules. See `WhitelistRules` Block for more details.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -195,7 +195,7 @@ namespace Pulumi.Aws.MediaLive
         private InputList<string>? _inputs;
 
         /// <summary>
-        /// The list of inputs currently using this InputSecurityGroup.
+        /// List of inputs currently using this InputSecurityGroup.
         /// </summary>
         public InputList<string> Inputs
         {
@@ -233,7 +233,7 @@ namespace Pulumi.Aws.MediaLive
         private InputList<Inputs.InputSecurityGroupWhitelistRuleGetArgs>? _whitelistRules;
 
         /// <summary>
-        /// Whitelist rules. See Whitelist Rules for more details.
+        /// Whitelist rules. See `WhitelistRules` Block for more details.
         /// 
         /// The following arguments are optional:
         /// </summary>

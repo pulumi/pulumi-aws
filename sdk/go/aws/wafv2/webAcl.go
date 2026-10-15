@@ -49,6 +49,8 @@ type WebAcl struct {
 	// Friendly description of the WebACL.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	LockToken   pulumi.StringOutput    `pulumi:"lockToken"`
+	// Monetization configuration for the web ACL. Provide this when any rule in the web ACL uses the `monetize` action. See `monetizationConfig` below for details.
+	MonetizationConfig WebAclMonetizationConfigPtrOutput `pulumi:"monetizationConfig"`
 	// Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -131,6 +133,8 @@ type webAclState struct {
 	// Friendly description of the WebACL.
 	Description *string `pulumi:"description"`
 	LockToken   *string `pulumi:"lockToken"`
+	// Monetization configuration for the web ACL. Provide this when any rule in the web ACL uses the `monetize` action. See `monetizationConfig` below for details.
+	MonetizationConfig *WebAclMonetizationConfig `pulumi:"monetizationConfig"`
 	// Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -175,6 +179,8 @@ type WebAclState struct {
 	// Friendly description of the WebACL.
 	Description pulumi.StringPtrInput
 	LockToken   pulumi.StringPtrInput
+	// Monetization configuration for the web ACL. Provide this when any rule in the web ACL uses the `monetize` action. See `monetizationConfig` below for details.
+	MonetizationConfig WebAclMonetizationConfigPtrInput
 	// Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -216,6 +222,8 @@ type webAclArgs struct {
 	DefaultAction WebAclDefaultAction `pulumi:"defaultAction"`
 	// Friendly description of the WebACL.
 	Description *string `pulumi:"description"`
+	// Monetization configuration for the web ACL. Provide this when any rule in the web ACL uses the `monetize` action. See `monetizationConfig` below for details.
+	MonetizationConfig *WebAclMonetizationConfig `pulumi:"monetizationConfig"`
 	// Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -252,6 +260,8 @@ type WebAclArgs struct {
 	DefaultAction WebAclDefaultActionInput
 	// Friendly description of the WebACL.
 	Description pulumi.StringPtrInput
+	// Monetization configuration for the web ACL. Provide this when any rule in the web ACL uses the `monetize` action. See `monetizationConfig` below for details.
+	MonetizationConfig WebAclMonetizationConfigPtrInput
 	// Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -411,6 +421,11 @@ func (o WebAclOutput) Description() pulumi.StringPtrOutput {
 
 func (o WebAclOutput) LockToken() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebAcl) pulumi.StringOutput { return v.LockToken }).(pulumi.StringOutput)
+}
+
+// Monetization configuration for the web ACL. Provide this when any rule in the web ACL uses the `monetize` action. See `monetizationConfig` below for details.
+func (o WebAclOutput) MonetizationConfig() WebAclMonetizationConfigPtrOutput {
+	return o.ApplyT(func(v *WebAcl) WebAclMonetizationConfigPtrOutput { return v.MonetizationConfig }).(WebAclMonetizationConfigPtrOutput)
 }
 
 // Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.

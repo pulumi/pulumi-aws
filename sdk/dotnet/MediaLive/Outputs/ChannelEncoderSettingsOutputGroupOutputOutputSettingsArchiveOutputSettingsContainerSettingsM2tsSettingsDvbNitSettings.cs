@@ -13,8 +13,17 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings
     {
+        /// <summary>
+        /// Numeric value placed in the Network Information Table.
+        /// </summary>
         public readonly int NetworkId;
+        /// <summary>
+        /// Network name text placed in the Network Information Table.
+        /// </summary>
         public readonly string NetworkName;
+        /// <summary>
+        /// Number of milliseconds between instances of this table in the output transport stream.
+        /// </summary>
         public readonly int? RepInterval;
 
         [OutputConstructor]

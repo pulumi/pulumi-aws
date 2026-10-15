@@ -319,49 +319,57 @@ public class Replicator extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Current version of the MSK Replicator.
+     * 
+     */
     @Export(name="currentVersion", refs={String.class}, tree="[0]")
     private Output<String> currentVersion;
 
+    /**
+     * @return Current version of the MSK Replicator.
+     * 
+     */
     public Output<String> currentVersion() {
         return this.currentVersion;
     }
     /**
-     * A summary description of the replicator.
+     * Summary description of the replicator.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A summary description of the replicator.
+     * @return Summary description of the replicator.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
+     * Source and target Kafka clusters for the replicator. Exactly two blocks are required. See `kafkaCluster` Block below.
      * 
      */
     @Export(name="kafkaClusters", refs={List.class,ReplicatorKafkaCluster.class}, tree="[0,1]")
     private Output<List<ReplicatorKafkaCluster>> kafkaClusters;
 
     /**
-     * @return The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
+     * @return Source and target Kafka clusters for the replicator. Exactly two blocks are required. See `kafkaCluster` Block below.
      * 
      */
     public Output<List<ReplicatorKafkaCluster>> kafkaClusters() {
         return this.kafkaClusters;
     }
     /**
-     * Configuration block for delivering replicator logs to customer destinations. Detailed below.
+     * Configuration block for delivering replicator logs to customer destinations. See `logDelivery` Block below.
      * 
      */
     @Export(name="logDelivery", refs={ReplicatorLogDelivery.class}, tree="[0]")
     private Output</* @Nullable */ ReplicatorLogDelivery> logDelivery;
 
     /**
-     * @return Configuration block for delivering replicator logs to customer destinations. Detailed below.
+     * @return Configuration block for delivering replicator logs to customer destinations. See `logDelivery` Block below.
      * 
      */
     public Output<Optional<ReplicatorLogDelivery>> logDelivery() {
@@ -382,70 +390,70 @@ public class Replicator extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
+     * List of replication configurations, where each configuration targets a given source cluster to target cluster replication flow. See `replicationInfoList` Block below.
      * 
      */
     @Export(name="replicationInfoList", refs={ReplicatorReplicationInfoList.class}, tree="[0]")
     private Output<ReplicatorReplicationInfoList> replicationInfoList;
 
     /**
-     * @return A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
+     * @return List of replication configurations, where each configuration targets a given source cluster to target cluster replication flow. See `replicationInfoList` Block below.
      * 
      */
     public Output<ReplicatorReplicationInfoList> replicationInfoList() {
         return this.replicationInfoList;
     }
     /**
-     * The name of the replicator.
+     * Name of the replicator.
      * 
      */
     @Export(name="replicatorName", refs={String.class}, tree="[0]")
     private Output<String> replicatorName;
 
     /**
-     * @return The name of the replicator.
+     * @return Name of the replicator.
      * 
      */
     public Output<String> replicatorName() {
         return this.replicatorName;
     }
     /**
-     * The ARN of the IAM role used by the replicator to access resources in the customer&#39;s account (e.g source and target clusters).
+     * ARN of the IAM role used by the replicator to access resources in the customer&#39;s account (e.g source and target clusters).
      * 
      */
     @Export(name="serviceExecutionRoleArn", refs={String.class}, tree="[0]")
     private Output<String> serviceExecutionRoleArn;
 
     /**
-     * @return The ARN of the IAM role used by the replicator to access resources in the customer&#39;s account (e.g source and target clusters).
+     * @return ARN of the IAM role used by the replicator to access resources in the customer&#39;s account (e.g source and target clusters).
      * 
      */
     public Output<String> serviceExecutionRoleArn() {
         return this.serviceExecutionRoleArn;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

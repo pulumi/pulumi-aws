@@ -190,14 +190,14 @@ public class DataQualityRuleset extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The time and date that this data quality ruleset was created.
+     * Time and date that this data quality ruleset was created.
      * 
      */
     @Export(name="createdOn", refs={String.class}, tree="[0]")
     private Output<String> createdOn;
 
     /**
-     * @return The time and date that this data quality ruleset was created.
+     * @return Time and date that this data quality ruleset was created.
      * 
      */
     public Output<String> createdOn() {
@@ -218,14 +218,14 @@ public class DataQualityRuleset extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * The time and date that this data quality ruleset was created.
+     * Time and date that this data quality ruleset was created.
      * 
      */
     @Export(name="lastModifiedOn", refs={String.class}, tree="[0]")
     private Output<String> lastModifiedOn;
 
     /**
-     * @return The time and date that this data quality ruleset was created.
+     * @return Time and date that this data quality ruleset was created.
      * 
      */
     public Output<String> lastModifiedOn() {
@@ -274,14 +274,14 @@ public class DataQualityRuleset extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
+     * Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
      * 
      */
     @Export(name="ruleset", refs={String.class}, tree="[0]")
     private Output<String> ruleset;
 
     /**
-     * @return A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
+     * @return Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
      * 
      */
     public Output<String> ruleset() {
@@ -302,28 +302,28 @@ public class DataQualityRuleset extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * A Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` below.
+     * Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` Block below.
      * 
      */
     @Export(name="targetTable", refs={DataQualityRulesetTargetTable.class}, tree="[0]")
     private Output</* @Nullable */ DataQualityRulesetTargetTable> targetTable;
 
     /**
-     * @return A Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` below.
+     * @return Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` Block below.
      * 
      */
     public Output<Optional<DataQualityRulesetTargetTable>> targetTable() {

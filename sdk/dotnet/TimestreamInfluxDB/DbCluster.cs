@@ -246,7 +246,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
     /// 
     /// #### InfluxDB V3 Clusters (when using V3 parameter groups)
     /// 
-    /// The following arguments are **forbidden** for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group):
+    /// The following arguments are **forbidden** for InfluxDB V3 clusters (when using an InfluxDB V3 DB parameter group):
     /// 
     /// * `AllocatedStorage`
     /// * `Bucket`
@@ -278,7 +278,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
     public partial class DbCluster : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. The argument `DbStorageType` places restrictions on this argument's minimum value. The following is a list of `DbStorageType` values and the corresponding minimum value for `AllocatedStorage`: `"InfluxIOIncludedT1": `20`, `"InfluxIOIncludedT2" and `"InfluxIOIncludedT3": `400`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+        /// Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. The argument `DbStorageType` places restrictions on this argument's minimum value. The following is a list of `DbStorageType` values and the corresponding minimum value for `AllocatedStorage`: `"InfluxIOIncludedT1": `20`, `"InfluxIOIncludedT2" and `"InfluxIOIncludedT3": `400`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 DB parameter group).
         /// </summary>
         [Output("allocatedStorage")]
         public Output<int?> AllocatedStorage { get; private set; } = null!;
@@ -290,7 +290,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization. Along with `Organization`, `Username`, and `Password`, this argument will be stored in the secret referred to by the `InfluxAuthParametersSecretArn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+        /// Name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization. Along with `Organization`, `Username`, and `Password`, this argument will be stored in the secret referred to by the `InfluxAuthParametersSecretArn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 DB parameter group).
         /// </summary>
         [Output("bucket")]
         public Output<string?> Bucket { get; private set; } = null!;
@@ -314,7 +314,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         public Output<string> DbStorageType { get; private set; } = null!;
 
         /// <summary>
-        /// Type of cluster to create. Valid options are: `"MULTI_NODE_READ_REPLICAS"`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+        /// Type of cluster to create. Valid options are: `"MULTI_NODE_READ_REPLICAS"`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 DB parameter group).
         /// </summary>
         [Output("deploymentType")]
         public Output<string> DeploymentType { get; private set; } = null!;
@@ -350,7 +350,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         public Output<Outputs.DbClusterLogDeliveryConfiguration?> LogDeliveryConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Maintenance schedule for the DB cluster, including the preferred maintenance window and timezone. This argument is updatable. This field is only supported for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+        /// Maintenance schedule for the DB cluster, including the preferred maintenance window and timezone. This argument is updatable. This field is only supported for InfluxDB V3 clusters (when using an InfluxDB V3 DB parameter group).
         /// </summary>
         [Output("maintenanceSchedule")]
         public Output<Outputs.DbClusterMaintenanceSchedule?> MaintenanceSchedule { get; private set; } = null!;
@@ -368,13 +368,13 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         public Output<string> NetworkType { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `Bucket`, `Username`, and `Password`, this argument will be stored in the secret referred to by the `InfluxAuthParametersSecretArn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+        /// Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `Bucket`, `Username`, and `Password`, this argument will be stored in the secret referred to by the `InfluxAuthParametersSecretArn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 DB parameter group).
         /// </summary>
         [Output("organization")]
         public Output<string?> Organization { get; private set; } = null!;
 
         /// <summary>
-        /// Password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `Bucket`, `Username`, and `Organization`, this argument will be stored in the secret referred to by the `InfluxAuthParametersSecretArn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group) as the AWS API rejects it.
+        /// Password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `Bucket`, `Username`, and `Organization`, this argument will be stored in the secret referred to by the `InfluxAuthParametersSecretArn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 DB parameter group) as the AWS API rejects it.
         /// </summary>
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
@@ -419,7 +419,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         public Output<Outputs.DbClusterTimeouts?> Timeouts { get; private set; } = null!;
 
         /// <summary>
-        /// Username of the initial admin user created in InfluxDB. Must start with a letter and can't end with a hyphen or contain two consecutive hyphens. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `Bucket`, `Organization`, and `Password`, this argument will be stored in the secret referred to by the `InfluxAuthParametersSecretArn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+        /// Username of the initial admin user created in InfluxDB. Must start with a letter and can't end with a hyphen or contain two consecutive hyphens. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `Bucket`, `Organization`, and `Password`, this argument will be stored in the secret referred to by the `InfluxAuthParametersSecretArn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 DB parameter group).
         /// </summary>
         [Output("username")]
         public Output<string?> Username { get; private set; } = null!;
@@ -489,13 +489,13 @@ namespace Pulumi.Aws.TimestreamInfluxDB
     public sealed class DbClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. The argument `DbStorageType` places restrictions on this argument's minimum value. The following is a list of `DbStorageType` values and the corresponding minimum value for `AllocatedStorage`: `"InfluxIOIncludedT1": `20`, `"InfluxIOIncludedT2" and `"InfluxIOIncludedT3": `400`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+        /// Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. The argument `DbStorageType` places restrictions on this argument's minimum value. The following is a list of `DbStorageType` values and the corresponding minimum value for `AllocatedStorage`: `"InfluxIOIncludedT1": `20`, `"InfluxIOIncludedT2" and `"InfluxIOIncludedT3": `400`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 DB parameter group).
         /// </summary>
         [Input("allocatedStorage")]
         public Input<int>? AllocatedStorage { get; set; }
 
         /// <summary>
-        /// Name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization. Along with `Organization`, `Username`, and `Password`, this argument will be stored in the secret referred to by the `InfluxAuthParametersSecretArn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+        /// Name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization. Along with `Organization`, `Username`, and `Password`, this argument will be stored in the secret referred to by the `InfluxAuthParametersSecretArn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 DB parameter group).
         /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
@@ -519,7 +519,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         public Input<string>? DbStorageType { get; set; }
 
         /// <summary>
-        /// Type of cluster to create. Valid options are: `"MULTI_NODE_READ_REPLICAS"`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+        /// Type of cluster to create. Valid options are: `"MULTI_NODE_READ_REPLICAS"`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 DB parameter group).
         /// </summary>
         [Input("deploymentType")]
         public Input<string>? DeploymentType { get; set; }
@@ -537,7 +537,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         public Input<Inputs.DbClusterLogDeliveryConfigurationArgs>? LogDeliveryConfiguration { get; set; }
 
         /// <summary>
-        /// Maintenance schedule for the DB cluster, including the preferred maintenance window and timezone. This argument is updatable. This field is only supported for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+        /// Maintenance schedule for the DB cluster, including the preferred maintenance window and timezone. This argument is updatable. This field is only supported for InfluxDB V3 clusters (when using an InfluxDB V3 DB parameter group).
         /// </summary>
         [Input("maintenanceSchedule")]
         public Input<Inputs.DbClusterMaintenanceScheduleArgs>? MaintenanceSchedule { get; set; }
@@ -555,7 +555,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         public Input<string>? NetworkType { get; set; }
 
         /// <summary>
-        /// Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `Bucket`, `Username`, and `Password`, this argument will be stored in the secret referred to by the `InfluxAuthParametersSecretArn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+        /// Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `Bucket`, `Username`, and `Password`, this argument will be stored in the secret referred to by the `InfluxAuthParametersSecretArn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 DB parameter group).
         /// </summary>
         [Input("organization")]
         public Input<string>? Organization { get; set; }
@@ -564,7 +564,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         private Input<string>? _password;
 
         /// <summary>
-        /// Password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `Bucket`, `Username`, and `Organization`, this argument will be stored in the secret referred to by the `InfluxAuthParametersSecretArn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group) as the AWS API rejects it.
+        /// Password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `Bucket`, `Username`, and `Organization`, this argument will be stored in the secret referred to by the `InfluxAuthParametersSecretArn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 DB parameter group) as the AWS API rejects it.
         /// </summary>
         public Input<string>? Password
         {
@@ -610,7 +610,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         public Input<Inputs.DbClusterTimeoutsArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// Username of the initial admin user created in InfluxDB. Must start with a letter and can't end with a hyphen or contain two consecutive hyphens. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `Bucket`, `Organization`, and `Password`, this argument will be stored in the secret referred to by the `InfluxAuthParametersSecretArn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+        /// Username of the initial admin user created in InfluxDB. Must start with a letter and can't end with a hyphen or contain two consecutive hyphens. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `Bucket`, `Organization`, and `Password`, this argument will be stored in the secret referred to by the `InfluxAuthParametersSecretArn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 DB parameter group).
         /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }
@@ -650,7 +650,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
     public sealed class DbClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. The argument `DbStorageType` places restrictions on this argument's minimum value. The following is a list of `DbStorageType` values and the corresponding minimum value for `AllocatedStorage`: `"InfluxIOIncludedT1": `20`, `"InfluxIOIncludedT2" and `"InfluxIOIncludedT3": `400`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+        /// Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. The argument `DbStorageType` places restrictions on this argument's minimum value. The following is a list of `DbStorageType` values and the corresponding minimum value for `AllocatedStorage`: `"InfluxIOIncludedT1": `20`, `"InfluxIOIncludedT2" and `"InfluxIOIncludedT3": `400`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 DB parameter group).
         /// </summary>
         [Input("allocatedStorage")]
         public Input<int>? AllocatedStorage { get; set; }
@@ -662,7 +662,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization. Along with `Organization`, `Username`, and `Password`, this argument will be stored in the secret referred to by the `InfluxAuthParametersSecretArn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+        /// Name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization. Along with `Organization`, `Username`, and `Password`, this argument will be stored in the secret referred to by the `InfluxAuthParametersSecretArn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 DB parameter group).
         /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
@@ -686,7 +686,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         public Input<string>? DbStorageType { get; set; }
 
         /// <summary>
-        /// Type of cluster to create. Valid options are: `"MULTI_NODE_READ_REPLICAS"`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+        /// Type of cluster to create. Valid options are: `"MULTI_NODE_READ_REPLICAS"`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 DB parameter group).
         /// </summary>
         [Input("deploymentType")]
         public Input<string>? DeploymentType { get; set; }
@@ -722,7 +722,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         public Input<Inputs.DbClusterLogDeliveryConfigurationGetArgs>? LogDeliveryConfiguration { get; set; }
 
         /// <summary>
-        /// Maintenance schedule for the DB cluster, including the preferred maintenance window and timezone. This argument is updatable. This field is only supported for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+        /// Maintenance schedule for the DB cluster, including the preferred maintenance window and timezone. This argument is updatable. This field is only supported for InfluxDB V3 clusters (when using an InfluxDB V3 DB parameter group).
         /// </summary>
         [Input("maintenanceSchedule")]
         public Input<Inputs.DbClusterMaintenanceScheduleGetArgs>? MaintenanceSchedule { get; set; }
@@ -740,7 +740,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         public Input<string>? NetworkType { get; set; }
 
         /// <summary>
-        /// Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `Bucket`, `Username`, and `Password`, this argument will be stored in the secret referred to by the `InfluxAuthParametersSecretArn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+        /// Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `Bucket`, `Username`, and `Password`, this argument will be stored in the secret referred to by the `InfluxAuthParametersSecretArn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 DB parameter group).
         /// </summary>
         [Input("organization")]
         public Input<string>? Organization { get; set; }
@@ -749,7 +749,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         private Input<string>? _password;
 
         /// <summary>
-        /// Password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `Bucket`, `Username`, and `Organization`, this argument will be stored in the secret referred to by the `InfluxAuthParametersSecretArn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group) as the AWS API rejects it.
+        /// Password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `Bucket`, `Username`, and `Organization`, this argument will be stored in the secret referred to by the `InfluxAuthParametersSecretArn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 DB parameter group) as the AWS API rejects it.
         /// </summary>
         public Input<string>? Password
         {
@@ -813,7 +813,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         public Input<Inputs.DbClusterTimeoutsGetArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// Username of the initial admin user created in InfluxDB. Must start with a letter and can't end with a hyphen or contain two consecutive hyphens. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `Bucket`, `Organization`, and `Password`, this argument will be stored in the secret referred to by the `InfluxAuthParametersSecretArn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+        /// Username of the initial admin user created in InfluxDB. Must start with a letter and can't end with a hyphen or contain two consecutive hyphens. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `Bucket`, `Organization`, and `Password`, this argument will be stored in the secret referred to by the `InfluxAuthParametersSecretArn` attribute. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 DB parameter group).
         /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }

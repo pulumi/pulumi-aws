@@ -54,21 +54,21 @@ type LookupQueueArgs struct {
 	Id string `pulumi:"id"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getQueue.
 type LookupQueueResult struct {
-	// The Arn of the queue.
+	// ARN of the queue.
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
-	// The same as `id`.
+	// Same as `id`.
 	Name   string `pulumi:"name"`
 	Region string `pulumi:"region"`
-	// The status of the queue.
+	// Status of the queue.
 	Status string `pulumi:"status"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -83,7 +83,7 @@ type LookupQueueOutputArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -106,7 +106,7 @@ func (o LookupQueueResultOutput) ToLookupQueueResultOutputWithContext(ctx contex
 	return o
 }
 
-// The Arn of the queue.
+// ARN of the queue.
 func (o LookupQueueResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQueueResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -115,7 +115,7 @@ func (o LookupQueueResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQueueResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The same as `id`.
+// Same as `id`.
 func (o LookupQueueResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQueueResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -124,12 +124,12 @@ func (o LookupQueueResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQueueResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The status of the queue.
+// Status of the queue.
 func (o LookupQueueResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQueueResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o LookupQueueResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupQueueResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

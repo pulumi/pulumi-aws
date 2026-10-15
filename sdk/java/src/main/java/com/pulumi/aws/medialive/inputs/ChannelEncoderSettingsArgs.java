@@ -26,14 +26,14 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
     public static final ChannelEncoderSettingsArgs Empty = new ChannelEncoderSettingsArgs();
 
     /**
-     * Audio descriptions for the channel. See Audio Descriptions for more details.
+     * Audio descriptions for the channel. See `audioDescriptions` Block for details.
      * 
      */
     @Import(name="audioDescriptions")
     private @Nullable Output<List<ChannelEncoderSettingsAudioDescriptionArgs>> audioDescriptions;
 
     /**
-     * @return Audio descriptions for the channel. See Audio Descriptions for more details.
+     * @return Audio descriptions for the channel. See `audioDescriptions` Block for details.
      * 
      */
     public Optional<Output<List<ChannelEncoderSettingsAudioDescriptionArgs>>> audioDescriptions() {
@@ -41,14 +41,14 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Settings for ad avail blanking. See Avail Blanking for more details.
+     * Settings for ad avail blanking. See `availBlanking` Block for details.
      * 
      */
     @Import(name="availBlanking")
     private @Nullable Output<ChannelEncoderSettingsAvailBlankingArgs> availBlanking;
 
     /**
-     * @return Settings for ad avail blanking. See Avail Blanking for more details.
+     * @return Settings for ad avail blanking. See `availBlanking` Block for details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsAvailBlankingArgs>> availBlanking() {
@@ -56,14 +56,14 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Caption Descriptions. See Caption Descriptions for more details.
+     * Caption descriptions for the channel. See `captionDescriptions` Block for details.
      * 
      */
     @Import(name="captionDescriptions")
     private @Nullable Output<List<ChannelEncoderSettingsCaptionDescriptionArgs>> captionDescriptions;
 
     /**
-     * @return Caption Descriptions. See Caption Descriptions for more details.
+     * @return Caption descriptions for the channel. See `captionDescriptions` Block for details.
      * 
      */
     public Optional<Output<List<ChannelEncoderSettingsCaptionDescriptionArgs>>> captionDescriptions() {
@@ -71,14 +71,14 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Configuration settings that apply to the event as a whole. See Global Configuration for more details.
+     * Configuration settings that apply to the event as a whole. See `globalConfiguration` Block for details.
      * 
      */
     @Import(name="globalConfiguration")
     private @Nullable Output<ChannelEncoderSettingsGlobalConfigurationArgs> globalConfiguration;
 
     /**
-     * @return Configuration settings that apply to the event as a whole. See Global Configuration for more details.
+     * @return Configuration settings that apply to the event as a whole. See `globalConfiguration` Block for details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsGlobalConfigurationArgs>> globalConfiguration() {
@@ -86,14 +86,14 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Settings for motion graphics. See Motion Graphics Configuration for more details.
+     * Settings for motion graphics. See `motionGraphicsConfiguration` Block for details.
      * 
      */
     @Import(name="motionGraphicsConfiguration")
     private @Nullable Output<ChannelEncoderSettingsMotionGraphicsConfigurationArgs> motionGraphicsConfiguration;
 
     /**
-     * @return Settings for motion graphics. See Motion Graphics Configuration for more details.
+     * @return Settings for motion graphics. See `motionGraphicsConfiguration` Block for details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsMotionGraphicsConfigurationArgs>> motionGraphicsConfiguration() {
@@ -101,14 +101,14 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Nielsen configuration settings. See Nielsen Configuration for more details.
+     * Nielsen configuration settings. See `nielsenConfiguration` Block for details.
      * 
      */
     @Import(name="nielsenConfiguration")
     private @Nullable Output<ChannelEncoderSettingsNielsenConfigurationArgs> nielsenConfiguration;
 
     /**
-     * @return Nielsen configuration settings. See Nielsen Configuration for more details.
+     * @return Nielsen configuration settings. See `nielsenConfiguration` Block for details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsNielsenConfigurationArgs>> nielsenConfiguration() {
@@ -116,14 +116,14 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Output groups for the channel. See Output Groups for more details.
+     * Output groups for the channel. See `outputGroups` Block for details.
      * 
      */
     @Import(name="outputGroups", required=true)
     private Output<List<ChannelEncoderSettingsOutputGroupArgs>> outputGroups;
 
     /**
-     * @return Output groups for the channel. See Output Groups for more details.
+     * @return Output groups for the channel. See `outputGroups` Block for details.
      * 
      */
     public Output<List<ChannelEncoderSettingsOutputGroupArgs>> outputGroups() {
@@ -131,14 +131,14 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Contains settings used to acquire and adjust timecode information from inputs. See Timecode Config for more details.
+     * Settings used to acquire and adjust timecode information from inputs. See `timecodeConfig` Block for details.
      * 
      */
     @Import(name="timecodeConfig", required=true)
     private Output<ChannelEncoderSettingsTimecodeConfigArgs> timecodeConfig;
 
     /**
-     * @return Contains settings used to acquire and adjust timecode information from inputs. See Timecode Config for more details.
+     * @return Settings used to acquire and adjust timecode information from inputs. See `timecodeConfig` Block for details.
      * 
      */
     public Output<ChannelEncoderSettingsTimecodeConfigArgs> timecodeConfig() {
@@ -146,14 +146,14 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Video Descriptions. See Video Descriptions for more details.
+     * Video descriptions for the channel. See `videoDescriptions` Block for details.
      * 
      */
     @Import(name="videoDescriptions")
     private @Nullable Output<List<ChannelEncoderSettingsVideoDescriptionArgs>> videoDescriptions;
 
     /**
-     * @return Video Descriptions. See Video Descriptions for more details.
+     * @return Video descriptions for the channel. See `videoDescriptions` Block for details.
      * 
      */
     public Optional<Output<List<ChannelEncoderSettingsVideoDescriptionArgs>>> videoDescriptions() {
@@ -193,7 +193,7 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param audioDescriptions Audio descriptions for the channel. See Audio Descriptions for more details.
+         * @param audioDescriptions Audio descriptions for the channel. See `audioDescriptions` Block for details.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param audioDescriptions Audio descriptions for the channel. See Audio Descriptions for more details.
+         * @param audioDescriptions Audio descriptions for the channel. See `audioDescriptions` Block for details.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param audioDescriptions Audio descriptions for the channel. See Audio Descriptions for more details.
+         * @param audioDescriptions Audio descriptions for the channel. See `audioDescriptions` Block for details.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param availBlanking Settings for ad avail blanking. See Avail Blanking for more details.
+         * @param availBlanking Settings for ad avail blanking. See `availBlanking` Block for details.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param availBlanking Settings for ad avail blanking. See Avail Blanking for more details.
+         * @param availBlanking Settings for ad avail blanking. See `availBlanking` Block for details.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param captionDescriptions Caption Descriptions. See Caption Descriptions for more details.
+         * @param captionDescriptions Caption descriptions for the channel. See `captionDescriptions` Block for details.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param captionDescriptions Caption Descriptions. See Caption Descriptions for more details.
+         * @param captionDescriptions Caption descriptions for the channel. See `captionDescriptions` Block for details.
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param captionDescriptions Caption Descriptions. See Caption Descriptions for more details.
+         * @param captionDescriptions Caption descriptions for the channel. See `captionDescriptions` Block for details.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param globalConfiguration Configuration settings that apply to the event as a whole. See Global Configuration for more details.
+         * @param globalConfiguration Configuration settings that apply to the event as a whole. See `globalConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -287,7 +287,7 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param globalConfiguration Configuration settings that apply to the event as a whole. See Global Configuration for more details.
+         * @param globalConfiguration Configuration settings that apply to the event as a whole. See `globalConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param motionGraphicsConfiguration Settings for motion graphics. See Motion Graphics Configuration for more details.
+         * @param motionGraphicsConfiguration Settings for motion graphics. See `motionGraphicsConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -308,7 +308,7 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param motionGraphicsConfiguration Settings for motion graphics. See Motion Graphics Configuration for more details.
+         * @param motionGraphicsConfiguration Settings for motion graphics. See `motionGraphicsConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param nielsenConfiguration Nielsen configuration settings. See Nielsen Configuration for more details.
+         * @param nielsenConfiguration Nielsen configuration settings. See `nielsenConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -329,7 +329,7 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param nielsenConfiguration Nielsen configuration settings. See Nielsen Configuration for more details.
+         * @param nielsenConfiguration Nielsen configuration settings. See `nielsenConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param outputGroups Output groups for the channel. See Output Groups for more details.
+         * @param outputGroups Output groups for the channel. See `outputGroups` Block for details.
          * 
          * @return builder
          * 
@@ -350,7 +350,7 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param outputGroups Output groups for the channel. See Output Groups for more details.
+         * @param outputGroups Output groups for the channel. See `outputGroups` Block for details.
          * 
          * @return builder
          * 
@@ -360,7 +360,7 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param outputGroups Output groups for the channel. See Output Groups for more details.
+         * @param outputGroups Output groups for the channel. See `outputGroups` Block for details.
          * 
          * @return builder
          * 
@@ -370,7 +370,7 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param timecodeConfig Contains settings used to acquire and adjust timecode information from inputs. See Timecode Config for more details.
+         * @param timecodeConfig Settings used to acquire and adjust timecode information from inputs. See `timecodeConfig` Block for details.
          * 
          * @return builder
          * 
@@ -381,7 +381,7 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param timecodeConfig Contains settings used to acquire and adjust timecode information from inputs. See Timecode Config for more details.
+         * @param timecodeConfig Settings used to acquire and adjust timecode information from inputs. See `timecodeConfig` Block for details.
          * 
          * @return builder
          * 
@@ -391,7 +391,7 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param videoDescriptions Video Descriptions. See Video Descriptions for more details.
+         * @param videoDescriptions Video descriptions for the channel. See `videoDescriptions` Block for details.
          * 
          * @return builder
          * 
@@ -402,7 +402,7 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param videoDescriptions Video Descriptions. See Video Descriptions for more details.
+         * @param videoDescriptions Video descriptions for the channel. See `videoDescriptions` Block for details.
          * 
          * @return builder
          * 
@@ -412,7 +412,7 @@ public final class ChannelEncoderSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param videoDescriptions Video Descriptions. See Video Descriptions for more details.
+         * @param videoDescriptions Video descriptions for the channel. See `videoDescriptions` Block for details.
          * 
          * @return builder
          * 

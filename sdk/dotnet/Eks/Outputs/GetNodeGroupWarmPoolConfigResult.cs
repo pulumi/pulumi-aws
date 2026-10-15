@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Eks.Outputs
     public sealed class GetNodeGroupWarmPoolConfigResult
     {
         /// <summary>
-        /// Maximum number of instances allowed to be in the warm pool combined with the Auto Scaling Group.
+        /// Maximum number of instances allowed to be in the warm pool combined with the Auto Scaling group.
         /// </summary>
         public readonly int MaxGroupPreparedCapacity;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Eks.Outputs
         /// </summary>
         public readonly string PoolState;
         /// <summary>
-        /// Whether instances in the Auto Scaling Group are returned to the warm pool on scale in.
+        /// Whether instances in the Auto Scaling group are returned to the warm pool on scale in.
         /// </summary>
         public readonly bool ReuseOnScaleIn;
 

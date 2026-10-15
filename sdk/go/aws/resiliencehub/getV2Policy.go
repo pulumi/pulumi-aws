@@ -76,6 +76,8 @@ type LookupV2PolicyResult struct {
 	// Name of the policy.
 	Name   string `pulumi:"name"`
 	Region string `pulumi:"region"`
+	// Whether the policy is shared with other member accounts of the organization.
+	SharingEnabled bool `pulumi:"sharingEnabled"`
 	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -153,6 +155,11 @@ func (o LookupV2PolicyResultOutput) Name() pulumi.StringOutput {
 
 func (o LookupV2PolicyResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupV2PolicyResult) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// Whether the policy is shared with other member accounts of the organization.
+func (o LookupV2PolicyResultOutput) SharingEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupV2PolicyResult) bool { return v.SharingEnabled }).(pulumi.BoolOutput)
 }
 
 // Map of tags assigned to the resource.

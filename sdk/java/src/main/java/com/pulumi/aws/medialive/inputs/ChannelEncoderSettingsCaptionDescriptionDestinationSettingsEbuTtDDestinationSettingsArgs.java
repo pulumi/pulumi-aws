@@ -16,14 +16,14 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEb
     public static final ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs Empty = new ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs();
 
     /**
-     * Complete this field if you want to include the name of the copyright holder in the copyright tag in the captions metadata.
+     * Name of the copyright holder to include in the copyright tag in the captions metadata.
      * 
      */
     @Import(name="copyrightHolder")
     private @Nullable Output<String> copyrightHolder;
 
     /**
-     * @return Complete this field if you want to include the name of the copyright holder in the copyright tag in the captions metadata.
+     * @return Name of the copyright holder to include in the copyright tag in the captions metadata.
      * 
      */
     public Optional<Output<String>> copyrightHolder() {
@@ -31,14 +31,14 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEb
     }
 
     /**
-     * Specifies how to handle the gap between the lines (in multi-line captions). - enabled: Fill with the captions background color (as specified in the input captions). - disabled: Leave the gap unfilled.
+     * How to handle the gap between the lines in multi-line captions. `enabled` fills the gap with the captions background color as specified in the input captions; `disabled` leaves the gap unfilled.
      * 
      */
     @Import(name="fillLineGap")
     private @Nullable Output<String> fillLineGap;
 
     /**
-     * @return Specifies how to handle the gap between the lines (in multi-line captions). - enabled: Fill with the captions background color (as specified in the input captions). - disabled: Leave the gap unfilled.
+     * @return How to handle the gap between the lines in multi-line captions. `enabled` fills the gap with the captions background color as specified in the input captions; `disabled` leaves the gap unfilled.
      * 
      */
     public Optional<Output<String>> fillLineGap() {
@@ -46,14 +46,14 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEb
     }
 
     /**
-     * Specifies the font family to include in the font data attached to the EBU-TT captions. Valid only if styleControl is set to include. If you leave this field empty, the font family is set to “monospaced”. (If styleControl is set to exclude, the font family is always set to “monospaced”.) You specify only the font family. All other style information (color, bold, position and so on) is copied from the input captions. The size is always set to 100% to allow the downstream player to choose the size. - Enter a list of font families, as a comma-separated list of font names, in order of preference. The name can be a font family (such as “Arial”), or a generic font family (such as “serif”), or “default” (to let the downstream player choose the font). - Leave blank to set the family to “monospace”.
+     * Font family to include in the font data attached to the EBU-TT captions. Valid only if `styleControl` is set to `include`. If you leave this field empty, the font family is set to monospaced. You specify only the font family; all other style information (color, bold, position, and so on) is copied from the input captions, and the size is always set to 100% to allow the downstream player to choose the size. Enter a comma-separated list of font names in order of preference, a generic font family such as serif, or default to let the downstream player choose the font.
      * 
      */
     @Import(name="fontFamily")
     private @Nullable Output<String> fontFamily;
 
     /**
-     * @return Specifies the font family to include in the font data attached to the EBU-TT captions. Valid only if styleControl is set to include. If you leave this field empty, the font family is set to “monospaced”. (If styleControl is set to exclude, the font family is always set to “monospaced”.) You specify only the font family. All other style information (color, bold, position and so on) is copied from the input captions. The size is always set to 100% to allow the downstream player to choose the size. - Enter a list of font families, as a comma-separated list of font names, in order of preference. The name can be a font family (such as “Arial”), or a generic font family (such as “serif”), or “default” (to let the downstream player choose the font). - Leave blank to set the family to “monospace”.
+     * @return Font family to include in the font data attached to the EBU-TT captions. Valid only if `styleControl` is set to `include`. If you leave this field empty, the font family is set to monospaced. You specify only the font family; all other style information (color, bold, position, and so on) is copied from the input captions, and the size is always set to 100% to allow the downstream player to choose the size. Enter a comma-separated list of font names in order of preference, a generic font family such as serif, or default to let the downstream player choose the font.
      * 
      */
     public Optional<Output<String>> fontFamily() {
@@ -61,14 +61,14 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEb
     }
 
     /**
-     * Specifies the style information (font color, font position, and so on) to include in the font data that is attached to the EBU-TT captions. - include: Take the style information (font color, font position, and so on) from the source captions and include that information in the font data attached to the EBU-TT captions. This option is valid only if the source captions are Embedded or Teletext. - exclude: In the font data attached to the EBU-TT captions, set the font family to “monospaced”. Do not include any other style information.
+     * Style information to include in the font data that is attached to the EBU-TT captions. `include` takes the style information from the source captions and includes it in the font data, valid only if the source captions are Embedded or Teletext. `exclude` sets the font family to monospaced and does not include any other style information.
      * 
      */
     @Import(name="styleControl")
     private @Nullable Output<String> styleControl;
 
     /**
-     * @return Specifies the style information (font color, font position, and so on) to include in the font data that is attached to the EBU-TT captions. - include: Take the style information (font color, font position, and so on) from the source captions and include that information in the font data attached to the EBU-TT captions. This option is valid only if the source captions are Embedded or Teletext. - exclude: In the font data attached to the EBU-TT captions, set the font family to “monospaced”. Do not include any other style information.
+     * @return Style information to include in the font data that is attached to the EBU-TT captions. `include` takes the style information from the source captions and includes it in the font data, valid only if the source captions are Embedded or Teletext. `exclude` sets the font family to monospaced and does not include any other style information.
      * 
      */
     public Optional<Output<String>> styleControl() {
@@ -103,7 +103,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEb
         }
 
         /**
-         * @param copyrightHolder Complete this field if you want to include the name of the copyright holder in the copyright tag in the captions metadata.
+         * @param copyrightHolder Name of the copyright holder to include in the copyright tag in the captions metadata.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEb
         }
 
         /**
-         * @param copyrightHolder Complete this field if you want to include the name of the copyright holder in the copyright tag in the captions metadata.
+         * @param copyrightHolder Name of the copyright holder to include in the copyright tag in the captions metadata.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEb
         }
 
         /**
-         * @param fillLineGap Specifies how to handle the gap between the lines (in multi-line captions). - enabled: Fill with the captions background color (as specified in the input captions). - disabled: Leave the gap unfilled.
+         * @param fillLineGap How to handle the gap between the lines in multi-line captions. `enabled` fills the gap with the captions background color as specified in the input captions; `disabled` leaves the gap unfilled.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEb
         }
 
         /**
-         * @param fillLineGap Specifies how to handle the gap between the lines (in multi-line captions). - enabled: Fill with the captions background color (as specified in the input captions). - disabled: Leave the gap unfilled.
+         * @param fillLineGap How to handle the gap between the lines in multi-line captions. `enabled` fills the gap with the captions background color as specified in the input captions; `disabled` leaves the gap unfilled.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEb
         }
 
         /**
-         * @param fontFamily Specifies the font family to include in the font data attached to the EBU-TT captions. Valid only if styleControl is set to include. If you leave this field empty, the font family is set to “monospaced”. (If styleControl is set to exclude, the font family is always set to “monospaced”.) You specify only the font family. All other style information (color, bold, position and so on) is copied from the input captions. The size is always set to 100% to allow the downstream player to choose the size. - Enter a list of font families, as a comma-separated list of font names, in order of preference. The name can be a font family (such as “Arial”), or a generic font family (such as “serif”), or “default” (to let the downstream player choose the font). - Leave blank to set the family to “monospace”.
+         * @param fontFamily Font family to include in the font data attached to the EBU-TT captions. Valid only if `styleControl` is set to `include`. If you leave this field empty, the font family is set to monospaced. You specify only the font family; all other style information (color, bold, position, and so on) is copied from the input captions, and the size is always set to 100% to allow the downstream player to choose the size. Enter a comma-separated list of font names in order of preference, a generic font family such as serif, or default to let the downstream player choose the font.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEb
         }
 
         /**
-         * @param fontFamily Specifies the font family to include in the font data attached to the EBU-TT captions. Valid only if styleControl is set to include. If you leave this field empty, the font family is set to “monospaced”. (If styleControl is set to exclude, the font family is always set to “monospaced”.) You specify only the font family. All other style information (color, bold, position and so on) is copied from the input captions. The size is always set to 100% to allow the downstream player to choose the size. - Enter a list of font families, as a comma-separated list of font names, in order of preference. The name can be a font family (such as “Arial”), or a generic font family (such as “serif”), or “default” (to let the downstream player choose the font). - Leave blank to set the family to “monospace”.
+         * @param fontFamily Font family to include in the font data attached to the EBU-TT captions. Valid only if `styleControl` is set to `include`. If you leave this field empty, the font family is set to monospaced. You specify only the font family; all other style information (color, bold, position, and so on) is copied from the input captions, and the size is always set to 100% to allow the downstream player to choose the size. Enter a comma-separated list of font names in order of preference, a generic font family such as serif, or default to let the downstream player choose the font.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEb
         }
 
         /**
-         * @param styleControl Specifies the style information (font color, font position, and so on) to include in the font data that is attached to the EBU-TT captions. - include: Take the style information (font color, font position, and so on) from the source captions and include that information in the font data attached to the EBU-TT captions. This option is valid only if the source captions are Embedded or Teletext. - exclude: In the font data attached to the EBU-TT captions, set the font family to “monospaced”. Do not include any other style information.
+         * @param styleControl Style information to include in the font data that is attached to the EBU-TT captions. `include` takes the style information from the source captions and includes it in the font data, valid only if the source captions are Embedded or Teletext. `exclude` sets the font family to monospaced and does not include any other style information.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEb
         }
 
         /**
-         * @param styleControl Specifies the style information (font color, font position, and so on) to include in the font data that is attached to the EBU-TT captions. - include: Take the style information (font color, font position, and so on) from the source captions and include that information in the font data attached to the EBU-TT captions. This option is valid only if the source captions are Embedded or Teletext. - exclude: In the font data attached to the EBU-TT captions, set the font family to “monospaced”. Do not include any other style information.
+         * @param styleControl Style information to include in the font data that is attached to the EBU-TT captions. `include` takes the style information from the source captions and includes it in the font data, valid only if the source captions are Embedded or Teletext. `exclude` sets the font family to monospaced and does not include any other style information.
          * 
          * @return builder
          * 

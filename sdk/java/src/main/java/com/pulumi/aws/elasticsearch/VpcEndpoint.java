@@ -15,7 +15,7 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Manages an [AWS Elasticsearch VPC Endpoint](https://docs.aws.amazon.com/elasticsearch-service/latest/APIReference/API_CreateVpcEndpoint.html). Creates an Amazon elasticsearch Service-managed VPC endpoint.
+ * Manages an [AWS Elasticsearch VPC Endpoint](https://docs.aws.amazon.com/elasticsearch-service/latest/APIReference/API_CreateVpcEndpoint.html). Creates an Amazon Elasticsearch Service-managed VPC endpoint.
  * 
  * ## Example Usage
  * 
@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import elasticsearch VPC endpoints using the `id`. For example:
+ * Using `pulumi import`, import Elasticsearch VPC endpoints using the `id`. For example:
  * 
  * ```sh
  * $ pulumi import aws:elasticsearch/vpcEndpoint:VpcEndpoint example endpoint-id

@@ -19,12 +19,12 @@ public final class InvocationLoggingConfigurationLoggingConfig {
      */
     private @Nullable InvocationLoggingConfigurationLoggingConfigCloudwatchConfig cloudwatchConfig;
     /**
-     * @return Set to include embeddings data in the log delivery. Defaults to `true`.
+     * @return Whether to include embeddings data in the log delivery. Defaults to `true`.
      * 
      */
     private @Nullable Boolean embeddingDataDeliveryEnabled;
     /**
-     * @return Set to include image data in the log delivery. Defaults to `true`.
+     * @return Whether to include image data in the log delivery. Defaults to `true`.
      * 
      */
     private @Nullable Boolean imageDataDeliveryEnabled;
@@ -34,12 +34,12 @@ public final class InvocationLoggingConfigurationLoggingConfig {
      */
     private @Nullable InvocationLoggingConfigurationLoggingConfigS3Config s3Config;
     /**
-     * @return Set to include text data in the log delivery. Defaults to `true`.
+     * @return Whether to include text data in the log delivery. Defaults to `true`.
      * 
      */
     private @Nullable Boolean textDataDeliveryEnabled;
     /**
-     * @return Set to include text data in the log delivery. Defaults to `true`.
+     * @return Whether to include video data in the log delivery. Defaults to `true`.
      * 
      */
     private @Nullable Boolean videoDataDeliveryEnabled;
@@ -53,14 +53,14 @@ public final class InvocationLoggingConfigurationLoggingConfig {
         return Optional.ofNullable(this.cloudwatchConfig);
     }
     /**
-     * @return Set to include embeddings data in the log delivery. Defaults to `true`.
+     * @return Whether to include embeddings data in the log delivery. Defaults to `true`.
      * 
      */
     public Optional<Boolean> embeddingDataDeliveryEnabled() {
         return Optional.ofNullable(this.embeddingDataDeliveryEnabled);
     }
     /**
-     * @return Set to include image data in the log delivery. Defaults to `true`.
+     * @return Whether to include image data in the log delivery. Defaults to `true`.
      * 
      */
     public Optional<Boolean> imageDataDeliveryEnabled() {
@@ -74,14 +74,14 @@ public final class InvocationLoggingConfigurationLoggingConfig {
         return Optional.ofNullable(this.s3Config);
     }
     /**
-     * @return Set to include text data in the log delivery. Defaults to `true`.
+     * @return Whether to include text data in the log delivery. Defaults to `true`.
      * 
      */
     public Optional<Boolean> textDataDeliveryEnabled() {
         return Optional.ofNullable(this.textDataDeliveryEnabled);
     }
     /**
-     * @return Set to include text data in the log delivery. Defaults to `true`.
+     * @return Whether to include video data in the log delivery. Defaults to `true`.
      * 
      */
     public Optional<Boolean> videoDataDeliveryEnabled() {

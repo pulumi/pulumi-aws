@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelEncoderSettingsNielsenConfiguration {
     /**
-     * @return Enter the Distributor ID assigned to your organization by Nielsen.
+     * @return Distributor ID assigned to your organization by Nielsen.
      * 
      */
     private @Nullable String distributorId;
@@ -24,7 +24,7 @@ public final class ChannelEncoderSettingsNielsenConfiguration {
 
     private ChannelEncoderSettingsNielsenConfiguration() {}
     /**
-     * @return Enter the Distributor ID assigned to your organization by Nielsen.
+     * @return Distributor ID assigned to your organization by Nielsen.
      * 
      */
     public Optional<String> distributorId() {

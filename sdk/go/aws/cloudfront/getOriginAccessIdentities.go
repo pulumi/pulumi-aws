@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
+// Use this data source to get ARNs, IDs and S3 canonical user IDs of Amazon CloudFront origin access identities.
 //
 // ## Example Usage
 //
@@ -92,7 +92,7 @@ type GetOriginAccessIdentitiesResult struct {
 	IamArns []string `pulumi:"iamArns"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// Set of ids of the matched origin access identities.
+	// Set of IDs of the matched origin access identities.
 	Ids []string `pulumi:"ids"`
 	// Set of S3 canonical user IDs of the matched origin access identities.
 	S3CanonicalUserIds []string `pulumi:"s3CanonicalUserIds"`
@@ -142,7 +142,7 @@ func (o GetOriginAccessIdentitiesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOriginAccessIdentitiesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Set of ids of the matched origin access identities.
+// Set of IDs of the matched origin access identities.
 func (o GetOriginAccessIdentitiesResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOriginAccessIdentitiesResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

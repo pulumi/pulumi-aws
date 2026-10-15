@@ -12,15 +12,27 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Service Description Table output behavior.
+        /// </summary>
         [Input("outputSdt")]
         public Input<string>? OutputSdt { get; set; }
 
+        /// <summary>
+        /// Number of milliseconds between instances of this table in the output transport stream.
+        /// </summary>
         [Input("repInterval")]
         public Input<int>? RepInterval { get; set; }
 
+        /// <summary>
+        /// Service name placed in the `ServiceDescriptor` in the Service Description Table.
+        /// </summary>
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
 
+        /// <summary>
+        /// Service provider name placed in the `ServiceDescriptor` in the Service Description Table.
+        /// </summary>
         [Input("serviceProviderName")]
         public Input<string>? ServiceProviderName { get; set; }
 

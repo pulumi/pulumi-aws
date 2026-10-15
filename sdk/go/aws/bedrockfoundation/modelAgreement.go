@@ -58,7 +58,7 @@ import (
 //
 // #### Required
 //
-// * `modelId` - Model ID argument of the Foundation Model Agreement.
+// * `modelId` (String) Model ID of the foundation model.
 //
 // #### Optional
 //
@@ -79,7 +79,7 @@ type ModelAgreement struct {
 	//
 	// The following arguments are optional:
 	OfferToken pulumi.StringOutput `pulumi:"offerToken"`
-	// Region where this action should be [run](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringOutput             `pulumi:"region"`
 	Timeouts ModelAgreementTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -126,7 +126,7 @@ type modelAgreementState struct {
 	//
 	// The following arguments are optional:
 	OfferToken *string `pulumi:"offerToken"`
-	// Region where this action should be [run](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string                 `pulumi:"region"`
 	Timeouts *ModelAgreementTimeouts `pulumi:"timeouts"`
 }
@@ -138,7 +138,7 @@ type ModelAgreementState struct {
 	//
 	// The following arguments are optional:
 	OfferToken pulumi.StringPtrInput
-	// Region where this action should be [run](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
 	Timeouts ModelAgreementTimeoutsPtrInput
 }
@@ -154,7 +154,7 @@ type modelAgreementArgs struct {
 	//
 	// The following arguments are optional:
 	OfferToken string `pulumi:"offerToken"`
-	// Region where this action should be [run](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string                 `pulumi:"region"`
 	Timeouts *ModelAgreementTimeouts `pulumi:"timeouts"`
 }
@@ -167,7 +167,7 @@ type ModelAgreementArgs struct {
 	//
 	// The following arguments are optional:
 	OfferToken pulumi.StringInput
-	// Region where this action should be [run](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
 	Timeouts ModelAgreementTimeoutsPtrInput
 }
@@ -271,7 +271,7 @@ func (o ModelAgreementOutput) OfferToken() pulumi.StringOutput {
 	return o.ApplyT(func(v *ModelAgreement) pulumi.StringOutput { return v.OfferToken }).(pulumi.StringOutput)
 }
 
-// Region where this action should be [run](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ModelAgreementOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ModelAgreement) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

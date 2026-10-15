@@ -34,14 +34,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
     }
 
     /**
-     * Indicates that AFD values will be written into the output stream.
+     * Whether AFD values are written into the output stream.
      * 
      */
     @Import(name="afdSignaling")
     private @Nullable Output<String> afdSignaling;
 
     /**
-     * @return Indicates that AFD values will be written into the output stream.
+     * @return Whether AFD values are written into the output stream.
      * 
      */
     public Optional<Output<String>> afdSignaling() {
@@ -63,22 +63,30 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         return Optional.ofNullable(this.bitrate);
     }
 
+    /**
+     * Percentage of the buffer that should initially be filled.
+     * 
+     */
     @Import(name="bufFillPct")
     private @Nullable Output<Integer> bufFillPct;
 
+    /**
+     * @return Percentage of the buffer that should initially be filled.
+     * 
+     */
     public Optional<Output<Integer>> bufFillPct() {
         return Optional.ofNullable(this.bufFillPct);
     }
 
     /**
-     * Size of buffer in bits.
+     * Size of the buffer in bits.
      * 
      */
     @Import(name="bufSize")
     private @Nullable Output<Integer> bufSize;
 
     /**
-     * @return Size of buffer in bits.
+     * @return Size of the buffer in bits.
      * 
      */
     public Optional<Output<Integer>> bufSize() {
@@ -86,14 +94,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
     }
 
     /**
-     * Includes color space metadata in the output.
+     * Whether color space metadata is included in the output.
      * 
      */
     @Import(name="colorMetadata")
     private @Nullable Output<String> colorMetadata;
 
     /**
-     * @return Includes color space metadata in the output.
+     * @return Whether color space metadata is included in the output.
      * 
      */
     public Optional<Output<String>> colorMetadata() {
@@ -116,14 +124,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
     }
 
     /**
-     * Filters to apply to an encode. See H264 Filter Settings for more details.
+     * Filters to apply to an encode. See `filterSettings` Block for details.
      * 
      */
     @Import(name="filterSettings")
     private @Nullable Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsArgs> filterSettings;
 
     /**
-     * @return Filters to apply to an encode. See H264 Filter Settings for more details.
+     * @return Filters to apply to an encode. See `filterSettings` Block for details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsArgs>> filterSettings() {
@@ -131,36 +139,44 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
     }
 
     /**
-     * Four bit AFD value to write on all frames of video in the output stream.
+     * Four-bit AFD value to write on all frames of video in the output stream.
      * 
      */
     @Import(name="fixedAfd")
     private @Nullable Output<String> fixedAfd;
 
     /**
-     * @return Four bit AFD value to write on all frames of video in the output stream.
+     * @return Four-bit AFD value to write on all frames of video in the output stream.
      * 
      */
     public Optional<Output<String>> fixedAfd() {
         return Optional.ofNullable(this.fixedAfd);
     }
 
+    /**
+     * Makes adjustments within each frame to reduce flicker on the I-frames.
+     * 
+     */
     @Import(name="flickerAq")
     private @Nullable Output<String> flickerAq;
 
+    /**
+     * @return Makes adjustments within each frame to reduce flicker on the I-frames.
+     * 
+     */
     public Optional<Output<String>> flickerAq() {
         return Optional.ofNullable(this.flickerAq);
     }
 
     /**
-     * Controls whether coding is performed on a field basis or on a frame basis.
+     * Whether coding is performed on a field basis or on a frame basis.
      * 
      */
     @Import(name="forceFieldPictures")
     private @Nullable Output<String> forceFieldPictures;
 
     /**
-     * @return Controls whether coding is performed on a field basis or on a frame basis.
+     * @return Whether coding is performed on a field basis or on a frame basis.
      * 
      */
     public Optional<Output<String>> forceFieldPictures() {
@@ -168,14 +184,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
     }
 
     /**
-     * Indicates how the output video frame rate is specified.
+     * How the output video frame rate is specified.
      * 
      */
     @Import(name="framerateControl")
     private @Nullable Output<String> framerateControl;
 
     /**
-     * @return Indicates how the output video frame rate is specified.
+     * @return How the output video frame rate is specified.
      * 
      */
     public Optional<Output<String>> framerateControl() {
@@ -258,14 +274,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
     }
 
     /**
-     * GOP size in units of either frames of seconds per `gopSizeUnits`.
+     * GOP size in units of either frames or seconds per `gopSizeUnits`.
      * 
      */
     @Import(name="gopSize")
     private @Nullable Output<Double> gopSize;
 
     /**
-     * @return GOP size in units of either frames of seconds per `gopSizeUnits`.
+     * @return GOP size in units of either frames or seconds per `gopSizeUnits`.
      * 
      */
     public Optional<Output<Double>> gopSize() {
@@ -273,14 +289,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
     }
 
     /**
-     * Indicates if the `gopSize` is specified in frames or seconds.
+     * Whether `gopSize` is specified in frames or seconds.
      * 
      */
     @Import(name="gopSizeUnits")
     private @Nullable Output<String> gopSizeUnits;
 
     /**
-     * @return Indicates if the `gopSize` is specified in frames or seconds.
+     * @return Whether `gopSize` is specified in frames or seconds.
      * 
      */
     public Optional<Output<String>> gopSizeUnits() {
@@ -318,14 +334,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
     }
 
     /**
-     * Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+     * Maximum bitrate, used to accommodate expected spikes in the complexity of the video.
      * 
      */
     @Import(name="maxBitrate")
     private @Nullable Output<Integer> maxBitrate;
 
     /**
-     * @return Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+     * @return Maximum bitrate, used to accommodate expected spikes in the complexity of the video.
      * 
      */
     public Optional<Output<Integer>> maxBitrate() {
@@ -333,14 +349,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
     }
 
     /**
-     * Min interval.
+     * Minimum interval, in frames, between two I-frames.
      * 
      */
     @Import(name="minIInterval")
     private @Nullable Output<Integer> minIInterval;
 
     /**
-     * @return Min interval.
+     * @return Minimum interval, in frames, between two I-frames.
      * 
      */
     public Optional<Output<Integer>> minIInterval() {
@@ -363,14 +379,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
     }
 
     /**
-     * Indicates how the output pixel aspect ratio is specified.
+     * How the output pixel aspect ratio is specified.
      * 
      */
     @Import(name="parControl")
     private @Nullable Output<String> parControl;
 
     /**
-     * @return Indicates how the output pixel aspect ratio is specified.
+     * @return How the output pixel aspect ratio is specified.
      * 
      */
     public Optional<Output<String>> parControl() {
@@ -378,14 +394,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
     }
 
     /**
-     * Pixel Aspect Ratio denominator.
+     * Pixel aspect ratio denominator.
      * 
      */
     @Import(name="parDenominator")
     private @Nullable Output<Integer> parDenominator;
 
     /**
-     * @return Pixel Aspect Ratio denominator.
+     * @return Pixel aspect ratio denominator.
      * 
      */
     public Optional<Output<Integer>> parDenominator() {
@@ -393,14 +409,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
     }
 
     /**
-     * Pixel Aspect Ratio numerator.
+     * Pixel aspect ratio numerator.
      * 
      */
     @Import(name="parNumerator")
     private @Nullable Output<Integer> parNumerator;
 
     /**
-     * @return Pixel Aspect Ratio numerator.
+     * @return Pixel aspect ratio numerator.
      * 
      */
     public Optional<Output<Integer>> parNumerator() {
@@ -438,14 +454,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
     }
 
     /**
-     * Controls the target quality for the video encode.
+     * Target quality for the video encode.
      * 
      */
     @Import(name="qvbrQualityLevel")
     private @Nullable Output<Integer> qvbrQualityLevel;
 
     /**
-     * @return Controls the target quality for the video encode.
+     * @return Target quality for the video encode.
      * 
      */
     public Optional<Output<Integer>> qvbrQualityLevel() {
@@ -468,14 +484,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
     }
 
     /**
-     * Sets the scan type of the output.
+     * Scan type of the output.
      * 
      */
     @Import(name="scanType")
     private @Nullable Output<String> scanType;
 
     /**
-     * @return Sets the scan type of the output.
+     * @return Scan type of the output.
      * 
      */
     public Optional<Output<String>> scanType() {
@@ -588,14 +604,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
     }
 
     /**
-     * Determines how timecodes should be inserted into the video elementary stream.
+     * How timecodes are inserted into the video elementary stream.
      * 
      */
     @Import(name="timecodeInsertion")
     private @Nullable Output<String> timecodeInsertion;
 
     /**
-     * @return Determines how timecodes should be inserted into the video elementary stream.
+     * @return How timecodes are inserted into the video elementary stream.
      * 
      */
     public Optional<Output<String>> timecodeInsertion() {
@@ -687,7 +703,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param afdSignaling Indicates that AFD values will be written into the output stream.
+         * @param afdSignaling Whether AFD values are written into the output stream.
          * 
          * @return builder
          * 
@@ -698,7 +714,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param afdSignaling Indicates that AFD values will be written into the output stream.
+         * @param afdSignaling Whether AFD values are written into the output stream.
          * 
          * @return builder
          * 
@@ -728,17 +744,29 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
             return bitrate(Output.of(bitrate));
         }
 
+        /**
+         * @param bufFillPct Percentage of the buffer that should initially be filled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bufFillPct(@Nullable Output<Integer> bufFillPct) {
             $.bufFillPct = bufFillPct;
             return this;
         }
 
+        /**
+         * @param bufFillPct Percentage of the buffer that should initially be filled.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bufFillPct(Integer bufFillPct) {
             return bufFillPct(Output.of(bufFillPct));
         }
 
         /**
-         * @param bufSize Size of buffer in bits.
+         * @param bufSize Size of the buffer in bits.
          * 
          * @return builder
          * 
@@ -749,7 +777,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param bufSize Size of buffer in bits.
+         * @param bufSize Size of the buffer in bits.
          * 
          * @return builder
          * 
@@ -759,7 +787,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param colorMetadata Includes color space metadata in the output.
+         * @param colorMetadata Whether color space metadata is included in the output.
          * 
          * @return builder
          * 
@@ -770,7 +798,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param colorMetadata Includes color space metadata in the output.
+         * @param colorMetadata Whether color space metadata is included in the output.
          * 
          * @return builder
          * 
@@ -801,7 +829,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param filterSettings Filters to apply to an encode. See H264 Filter Settings for more details.
+         * @param filterSettings Filters to apply to an encode. See `filterSettings` Block for details.
          * 
          * @return builder
          * 
@@ -812,7 +840,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param filterSettings Filters to apply to an encode. See H264 Filter Settings for more details.
+         * @param filterSettings Filters to apply to an encode. See `filterSettings` Block for details.
          * 
          * @return builder
          * 
@@ -822,7 +850,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param fixedAfd Four bit AFD value to write on all frames of video in the output stream.
+         * @param fixedAfd Four-bit AFD value to write on all frames of video in the output stream.
          * 
          * @return builder
          * 
@@ -833,7 +861,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param fixedAfd Four bit AFD value to write on all frames of video in the output stream.
+         * @param fixedAfd Four-bit AFD value to write on all frames of video in the output stream.
          * 
          * @return builder
          * 
@@ -842,17 +870,29 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
             return fixedAfd(Output.of(fixedAfd));
         }
 
+        /**
+         * @param flickerAq Makes adjustments within each frame to reduce flicker on the I-frames.
+         * 
+         * @return builder
+         * 
+         */
         public Builder flickerAq(@Nullable Output<String> flickerAq) {
             $.flickerAq = flickerAq;
             return this;
         }
 
+        /**
+         * @param flickerAq Makes adjustments within each frame to reduce flicker on the I-frames.
+         * 
+         * @return builder
+         * 
+         */
         public Builder flickerAq(String flickerAq) {
             return flickerAq(Output.of(flickerAq));
         }
 
         /**
-         * @param forceFieldPictures Controls whether coding is performed on a field basis or on a frame basis.
+         * @param forceFieldPictures Whether coding is performed on a field basis or on a frame basis.
          * 
          * @return builder
          * 
@@ -863,7 +903,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param forceFieldPictures Controls whether coding is performed on a field basis or on a frame basis.
+         * @param forceFieldPictures Whether coding is performed on a field basis or on a frame basis.
          * 
          * @return builder
          * 
@@ -873,7 +913,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param framerateControl Indicates how the output video frame rate is specified.
+         * @param framerateControl How the output video frame rate is specified.
          * 
          * @return builder
          * 
@@ -884,7 +924,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param framerateControl Indicates how the output video frame rate is specified.
+         * @param framerateControl How the output video frame rate is specified.
          * 
          * @return builder
          * 
@@ -999,7 +1039,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param gopSize GOP size in units of either frames of seconds per `gopSizeUnits`.
+         * @param gopSize GOP size in units of either frames or seconds per `gopSizeUnits`.
          * 
          * @return builder
          * 
@@ -1010,7 +1050,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param gopSize GOP size in units of either frames of seconds per `gopSizeUnits`.
+         * @param gopSize GOP size in units of either frames or seconds per `gopSizeUnits`.
          * 
          * @return builder
          * 
@@ -1020,7 +1060,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param gopSizeUnits Indicates if the `gopSize` is specified in frames or seconds.
+         * @param gopSizeUnits Whether `gopSize` is specified in frames or seconds.
          * 
          * @return builder
          * 
@@ -1031,7 +1071,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param gopSizeUnits Indicates if the `gopSize` is specified in frames or seconds.
+         * @param gopSizeUnits Whether `gopSize` is specified in frames or seconds.
          * 
          * @return builder
          * 
@@ -1083,7 +1123,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param maxBitrate Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+         * @param maxBitrate Maximum bitrate, used to accommodate expected spikes in the complexity of the video.
          * 
          * @return builder
          * 
@@ -1094,7 +1134,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param maxBitrate Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+         * @param maxBitrate Maximum bitrate, used to accommodate expected spikes in the complexity of the video.
          * 
          * @return builder
          * 
@@ -1104,7 +1144,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param minIInterval Min interval.
+         * @param minIInterval Minimum interval, in frames, between two I-frames.
          * 
          * @return builder
          * 
@@ -1115,7 +1155,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param minIInterval Min interval.
+         * @param minIInterval Minimum interval, in frames, between two I-frames.
          * 
          * @return builder
          * 
@@ -1146,7 +1186,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param parControl Indicates how the output pixel aspect ratio is specified.
+         * @param parControl How the output pixel aspect ratio is specified.
          * 
          * @return builder
          * 
@@ -1157,7 +1197,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param parControl Indicates how the output pixel aspect ratio is specified.
+         * @param parControl How the output pixel aspect ratio is specified.
          * 
          * @return builder
          * 
@@ -1167,7 +1207,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param parDenominator Pixel Aspect Ratio denominator.
+         * @param parDenominator Pixel aspect ratio denominator.
          * 
          * @return builder
          * 
@@ -1178,7 +1218,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param parDenominator Pixel Aspect Ratio denominator.
+         * @param parDenominator Pixel aspect ratio denominator.
          * 
          * @return builder
          * 
@@ -1188,7 +1228,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param parNumerator Pixel Aspect Ratio numerator.
+         * @param parNumerator Pixel aspect ratio numerator.
          * 
          * @return builder
          * 
@@ -1199,7 +1239,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param parNumerator Pixel Aspect Ratio numerator.
+         * @param parNumerator Pixel aspect ratio numerator.
          * 
          * @return builder
          * 
@@ -1251,7 +1291,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param qvbrQualityLevel Controls the target quality for the video encode.
+         * @param qvbrQualityLevel Target quality for the video encode.
          * 
          * @return builder
          * 
@@ -1262,7 +1302,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param qvbrQualityLevel Controls the target quality for the video encode.
+         * @param qvbrQualityLevel Target quality for the video encode.
          * 
          * @return builder
          * 
@@ -1293,7 +1333,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param scanType Sets the scan type of the output.
+         * @param scanType Scan type of the output.
          * 
          * @return builder
          * 
@@ -1304,7 +1344,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param scanType Sets the scan type of the output.
+         * @param scanType Scan type of the output.
          * 
          * @return builder
          * 
@@ -1461,7 +1501,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param timecodeInsertion Determines how timecodes should be inserted into the video elementary stream.
+         * @param timecodeInsertion How timecodes are inserted into the video elementary stream.
          * 
          * @return builder
          * 
@@ -1472,7 +1512,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         }
 
         /**
-         * @param timecodeInsertion Determines how timecodes should be inserted into the video elementary stream.
+         * @param timecodeInsertion How timecodes are inserted into the video elementary stream.
          * 
          * @return builder
          * 

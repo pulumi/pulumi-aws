@@ -79,7 +79,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Create an association with multiple instances with their instance ids
+ * ### Create an association with multiple instances with their instance IDs
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

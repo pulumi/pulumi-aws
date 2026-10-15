@@ -27,14 +27,14 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
     public static final ChannelArgs Empty = new ChannelArgs();
 
     /**
-     * Specification of CDI inputs for this channel. See CDI Input Specification for more details.
+     * Specification of CDI inputs for this channel. See `cdiInputSpecification` Block for details.
      * 
      */
     @Import(name="cdiInputSpecification")
     private @Nullable Output<ChannelCdiInputSpecificationArgs> cdiInputSpecification;
 
     /**
-     * @return Specification of CDI inputs for this channel. See CDI Input Specification for more details.
+     * @return Specification of CDI inputs for this channel. See `cdiInputSpecification` Block for details.
      * 
      */
     public Optional<Output<ChannelCdiInputSpecificationArgs>> cdiInputSpecification() {
@@ -42,14 +42,14 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Concise argument description.
+     * Class of the channel. Valid values: `STANDARD`, `SINGLE_PIPELINE`.
      * 
      */
     @Import(name="channelClass", required=true)
     private Output<String> channelClass;
 
     /**
-     * @return Concise argument description.
+     * @return Class of the channel. Valid values: `STANDARD`, `SINGLE_PIPELINE`.
      * 
      */
     public Output<String> channelClass() {
@@ -57,14 +57,14 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Destinations for channel. See Destinations for more details.
+     * Destinations for the channel. See `destinations` Block for details.
      * 
      */
     @Import(name="destinations", required=true)
     private Output<List<ChannelDestinationArgs>> destinations;
 
     /**
-     * @return Destinations for channel. See Destinations for more details.
+     * @return Destinations for the channel. See `destinations` Block for details.
      * 
      */
     public Output<List<ChannelDestinationArgs>> destinations() {
@@ -72,14 +72,14 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Encoder settings. See Encoder Settings for more details.
+     * Encoder settings. See `encoderSettings` Block for details.
      * 
      */
     @Import(name="encoderSettings", required=true)
     private Output<ChannelEncoderSettingsArgs> encoderSettings;
 
     /**
-     * @return Encoder settings. See Encoder Settings for more details.
+     * @return Encoder settings. See `encoderSettings` Block for details.
      * 
      */
     public Output<ChannelEncoderSettingsArgs> encoderSettings() {
@@ -87,14 +87,14 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Input attachments for the channel. See Input Attachments for more details.
+     * Input attachments for the channel. See `inputAttachments` Block for details.
      * 
      */
     @Import(name="inputAttachments", required=true)
     private Output<List<ChannelInputAttachmentArgs>> inputAttachments;
 
     /**
-     * @return Input attachments for the channel. See Input Attachments for more details.
+     * @return Input attachments for the channel. See `inputAttachments` Block for details.
      * 
      */
     public Output<List<ChannelInputAttachmentArgs>> inputAttachments() {
@@ -102,14 +102,14 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specification of network and file inputs for the channel.
+     * Specification of network and file inputs for the channel. See `inputSpecification` Block for details.
      * 
      */
     @Import(name="inputSpecification", required=true)
     private Output<ChannelInputSpecificationArgs> inputSpecification;
 
     /**
-     * @return Specification of network and file inputs for the channel.
+     * @return Specification of network and file inputs for the channel. See `inputSpecification` Block for details.
      * 
      */
     public Output<ChannelInputSpecificationArgs> inputSpecification() {
@@ -117,14 +117,14 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The log level to write to Cloudwatch logs.
+     * Level of verbosity for the logs written to CloudWatch Logs.
      * 
      */
     @Import(name="logLevel")
     private @Nullable Output<String> logLevel;
 
     /**
-     * @return The log level to write to Cloudwatch logs.
+     * @return Level of verbosity for the logs written to CloudWatch Logs.
      * 
      */
     public Optional<Output<String>> logLevel() {
@@ -132,14 +132,14 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Maintenance settings for this channel. See Maintenance for more details.
+     * Maintenance settings for this channel. See `maintenance` Block for details.
      * 
      */
     @Import(name="maintenance")
     private @Nullable Output<ChannelMaintenanceArgs> maintenance;
 
     /**
-     * @return Maintenance settings for this channel. See Maintenance for more details.
+     * @return Maintenance settings for this channel. See `maintenance` Block for details.
      * 
      */
     public Optional<Output<ChannelMaintenanceArgs>> maintenance() {
@@ -147,7 +147,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the Channel.
+     * Name of the channel.
      * 
      * The following arguments are optional:
      * 
@@ -156,7 +156,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the Channel.
+     * @return Name of the channel.
      * 
      * The following arguments are optional:
      * 
@@ -181,14 +181,14 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Concise argument description.
+     * ARN of the IAM role for the channel.
      * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
-     * @return Concise argument description.
+     * @return ARN of the IAM role for the channel.
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -196,14 +196,14 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether to start/stop channel. Default: `false`
+     * Whether to start/stop channel. Default: `false`.
      * 
      */
     @Import(name="startChannel")
     private @Nullable Output<Boolean> startChannel;
 
     /**
-     * @return Whether to start/stop channel. Default: `false`
+     * @return Whether to start/stop channel. Default: `false`.
      * 
      */
     public Optional<Output<Boolean>> startChannel() {
@@ -211,14 +211,14 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -226,14 +226,14 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Settings for the VPC outputs. See VPC for more details.
+     * Settings for the VPC outputs. See `vpc` Block for details.
      * 
      */
     @Import(name="vpc")
     private @Nullable Output<ChannelVpcArgs> vpc;
 
     /**
-     * @return Settings for the VPC outputs. See VPC for more details.
+     * @return Settings for the VPC outputs. See `vpc` Block for details.
      * 
      */
     public Optional<Output<ChannelVpcArgs>> vpc() {
@@ -278,7 +278,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cdiInputSpecification Specification of CDI inputs for this channel. See CDI Input Specification for more details.
+         * @param cdiInputSpecification Specification of CDI inputs for this channel. See `cdiInputSpecification` Block for details.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cdiInputSpecification Specification of CDI inputs for this channel. See CDI Input Specification for more details.
+         * @param cdiInputSpecification Specification of CDI inputs for this channel. See `cdiInputSpecification` Block for details.
          * 
          * @return builder
          * 
@@ -299,7 +299,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param channelClass Concise argument description.
+         * @param channelClass Class of the channel. Valid values: `STANDARD`, `SINGLE_PIPELINE`.
          * 
          * @return builder
          * 
@@ -310,7 +310,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param channelClass Concise argument description.
+         * @param channelClass Class of the channel. Valid values: `STANDARD`, `SINGLE_PIPELINE`.
          * 
          * @return builder
          * 
@@ -320,7 +320,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destinations Destinations for channel. See Destinations for more details.
+         * @param destinations Destinations for the channel. See `destinations` Block for details.
          * 
          * @return builder
          * 
@@ -331,7 +331,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destinations Destinations for channel. See Destinations for more details.
+         * @param destinations Destinations for the channel. See `destinations` Block for details.
          * 
          * @return builder
          * 
@@ -341,7 +341,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destinations Destinations for channel. See Destinations for more details.
+         * @param destinations Destinations for the channel. See `destinations` Block for details.
          * 
          * @return builder
          * 
@@ -351,7 +351,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encoderSettings Encoder settings. See Encoder Settings for more details.
+         * @param encoderSettings Encoder settings. See `encoderSettings` Block for details.
          * 
          * @return builder
          * 
@@ -362,7 +362,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encoderSettings Encoder settings. See Encoder Settings for more details.
+         * @param encoderSettings Encoder settings. See `encoderSettings` Block for details.
          * 
          * @return builder
          * 
@@ -372,7 +372,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inputAttachments Input attachments for the channel. See Input Attachments for more details.
+         * @param inputAttachments Input attachments for the channel. See `inputAttachments` Block for details.
          * 
          * @return builder
          * 
@@ -383,7 +383,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inputAttachments Input attachments for the channel. See Input Attachments for more details.
+         * @param inputAttachments Input attachments for the channel. See `inputAttachments` Block for details.
          * 
          * @return builder
          * 
@@ -393,7 +393,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inputAttachments Input attachments for the channel. See Input Attachments for more details.
+         * @param inputAttachments Input attachments for the channel. See `inputAttachments` Block for details.
          * 
          * @return builder
          * 
@@ -403,7 +403,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inputSpecification Specification of network and file inputs for the channel.
+         * @param inputSpecification Specification of network and file inputs for the channel. See `inputSpecification` Block for details.
          * 
          * @return builder
          * 
@@ -414,7 +414,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inputSpecification Specification of network and file inputs for the channel.
+         * @param inputSpecification Specification of network and file inputs for the channel. See `inputSpecification` Block for details.
          * 
          * @return builder
          * 
@@ -424,7 +424,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logLevel The log level to write to Cloudwatch logs.
+         * @param logLevel Level of verbosity for the logs written to CloudWatch Logs.
          * 
          * @return builder
          * 
@@ -435,7 +435,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logLevel The log level to write to Cloudwatch logs.
+         * @param logLevel Level of verbosity for the logs written to CloudWatch Logs.
          * 
          * @return builder
          * 
@@ -445,7 +445,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maintenance Maintenance settings for this channel. See Maintenance for more details.
+         * @param maintenance Maintenance settings for this channel. See `maintenance` Block for details.
          * 
          * @return builder
          * 
@@ -456,7 +456,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maintenance Maintenance settings for this channel. See Maintenance for more details.
+         * @param maintenance Maintenance settings for this channel. See `maintenance` Block for details.
          * 
          * @return builder
          * 
@@ -466,7 +466,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the Channel.
+         * @param name Name of the channel.
          * 
          * The following arguments are optional:
          * 
@@ -479,7 +479,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the Channel.
+         * @param name Name of the channel.
          * 
          * The following arguments are optional:
          * 
@@ -512,7 +512,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn Concise argument description.
+         * @param roleArn ARN of the IAM role for the channel.
          * 
          * @return builder
          * 
@@ -523,7 +523,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn Concise argument description.
+         * @param roleArn ARN of the IAM role for the channel.
          * 
          * @return builder
          * 
@@ -533,7 +533,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param startChannel Whether to start/stop channel. Default: `false`
+         * @param startChannel Whether to start/stop channel. Default: `false`.
          * 
          * @return builder
          * 
@@ -544,7 +544,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param startChannel Whether to start/stop channel. Default: `false`
+         * @param startChannel Whether to start/stop channel. Default: `false`.
          * 
          * @return builder
          * 
@@ -554,7 +554,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -565,7 +565,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -575,7 +575,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpc Settings for the VPC outputs. See VPC for more details.
+         * @param vpc Settings for the VPC outputs. See `vpc` Block for details.
          * 
          * @return builder
          * 
@@ -586,7 +586,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpc Settings for the VPC outputs. See VPC for more details.
+         * @param vpc Settings for the VPC outputs. See `vpc` Block for details.
          * 
          * @return builder
          * 

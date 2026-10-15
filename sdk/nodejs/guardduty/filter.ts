@@ -85,11 +85,11 @@ export class Filter extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
+     * Action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
      */
     declare public readonly action: pulumi.Output<string>;
     /**
-     * The ARN of the GuardDuty filter.
+     * ARN of the GuardDuty filter.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -101,15 +101,15 @@ export class Filter extends pulumi.CustomResource {
      */
     declare public readonly detectorId: pulumi.Output<string>;
     /**
-     * Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
+     * Criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
      */
     declare public readonly findingCriteria: pulumi.Output<outputs.guardduty.FilterFindingCriteria>;
     /**
-     * The name of your filter.
+     * Name of your filter.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
+     * Position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
      */
     declare public readonly rank: pulumi.Output<number>;
     /**
@@ -117,11 +117,11 @@ export class Filter extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Tags that you want to add to the Filter resource. A tag consists of a key and a value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -183,11 +183,11 @@ export class Filter extends pulumi.CustomResource {
  */
 export interface FilterState {
     /**
-     * Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
+     * Action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
      */
     action?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the GuardDuty filter.
+     * ARN of the GuardDuty filter.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -199,15 +199,15 @@ export interface FilterState {
      */
     detectorId?: pulumi.Input<string | undefined>;
     /**
-     * Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
+     * Criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
      */
     findingCriteria?: pulumi.Input<inputs.guardduty.FilterFindingCriteria | undefined>;
     /**
-     * The name of your filter.
+     * Name of your filter.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
+     * Position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
      */
     rank?: pulumi.Input<number | undefined>;
     /**
@@ -215,11 +215,11 @@ export interface FilterState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Tags that you want to add to the Filter resource. A tag consists of a key and a value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -229,7 +229,7 @@ export interface FilterState {
  */
 export interface FilterArgs {
     /**
-     * Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
+     * Action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
      */
     action: pulumi.Input<string>;
     /**
@@ -241,15 +241,15 @@ export interface FilterArgs {
      */
     detectorId: pulumi.Input<string>;
     /**
-     * Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
+     * Criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
      */
     findingCriteria: pulumi.Input<inputs.guardduty.FilterFindingCriteria>;
     /**
-     * The name of your filter.
+     * Name of your filter.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
+     * Position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
      */
     rank: pulumi.Input<number>;
     /**
@@ -257,7 +257,7 @@ export interface FilterArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Tags that you want to add to the Filter resource. A tag consists of a key and a value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

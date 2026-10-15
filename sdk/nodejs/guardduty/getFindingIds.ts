@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Data source for managing an AWS GuardDuty Finding Ids.
+ * Data source for managing an AWS GuardDuty Finding IDs.
  *
  * ## Example Usage
  *
@@ -48,18 +48,18 @@ export interface GetFindingIdsArgs {
 export interface GetFindingIdsResult {
     readonly detectorId: string;
     /**
-     * A list of finding IDs for the specified detector.
+     * List of finding IDs for the specified detector.
      */
     readonly findingIds: string[];
     /**
-     * Indicates whether findings are present for the specified detector.
+     * Whether findings are present for the specified detector.
      */
     readonly hasFindings: boolean;
     readonly id: string;
     readonly region: string;
 }
 /**
- * Data source for managing an AWS GuardDuty Finding Ids.
+ * Data source for managing an AWS GuardDuty Finding IDs.
  *
  * ## Example Usage
  *

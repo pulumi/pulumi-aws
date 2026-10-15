@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Oidc Usage
+ * ### OIDC Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -111,7 +111,7 @@ export class Workforce extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
+     * A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source IP Config details below.
      */
     declare public readonly sourceIpConfig: pulumi.Output<outputs.sagemaker.WorkforceSourceIpConfig>;
     /**
@@ -188,7 +188,7 @@ export interface WorkforceState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
+     * A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source IP Config details below.
      */
     sourceIpConfig?: pulumi.Input<inputs.sagemaker.WorkforceSourceIpConfig | undefined>;
     /**
@@ -222,7 +222,7 @@ export interface WorkforceArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
+     * A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source IP Config details below.
      */
     sourceIpConfig?: pulumi.Input<inputs.sagemaker.WorkforceSourceIpConfig | undefined>;
     /**

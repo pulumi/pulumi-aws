@@ -98,18 +98,18 @@ public class PeeringAttachment extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+     * Block describing whether dynamic routing is enabled or disabled for the transit gateway peering request. If not configured, the value is populated from the API. See options below for more details!
      * 
      */
     @Export(name="options", refs={PeeringAttachmentOptions.class}, tree="[0]")
-    private Output</* @Nullable */ PeeringAttachmentOptions> options;
+    private Output<PeeringAttachmentOptions> options;
 
     /**
-     * @return Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+     * @return Block describing whether dynamic routing is enabled or disabled for the transit gateway peering request. If not configured, the value is populated from the API. See options below for more details!
      * 
      */
-    public Output<Optional<PeeringAttachmentOptions>> options() {
-        return Codegen.optional(this.options);
+    public Output<PeeringAttachmentOptions> options() {
+        return this.options;
     }
     /**
      * Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.

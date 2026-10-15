@@ -14,7 +14,7 @@ namespace Pulumi.Aws.M2.Outputs
     public sealed class EnvironmentStorageConfigurationFsx
     {
         /// <summary>
-        /// Id of the FSX filesystem to mount.
+        /// ID of the FSx filesystem to mount.
         /// </summary>
         public readonly string FileSystemId;
         /// <summary>

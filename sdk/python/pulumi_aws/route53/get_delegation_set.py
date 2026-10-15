@@ -91,7 +91,7 @@ def get_delegation_set(id: Optional[_builtins.str] = None,
 
     ## Example Usage
 
-    The following example shows how to get a delegation set from its id.
+    The following example shows how to get a delegation set from its ID.
 
     ```python
     import pulumi
@@ -122,7 +122,7 @@ def get_delegation_set_output(id: pulumi.Input[Optional[_builtins.str]] = None,
 
     ## Example Usage
 
-    The following example shows how to get a delegation set from its id.
+    The following example shows how to get a delegation set from its ID.
 
     ```python
     import pulumi

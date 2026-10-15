@@ -249,7 +249,7 @@ import (
 //
 // #### Required
 //
-// - `harnessId` (String) ID of the harness.
+// * `harnessId` (String) ID of the harness.
 //
 // #### Optional
 //
@@ -276,17 +276,17 @@ type AgentcoreHarness struct {
 	EnvironmentArtifact AgentcoreHarnessEnvironmentArtifactPtrOutput `pulumi:"environmentArtifact"`
 	// Map of environment variables. Set to an empty map (`{}`) to remove all environment variables.
 	EnvironmentVariables pulumi.StringMapOutput `pulumi:"environmentVariables"`
-	// Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
+	// Compute environment configuration. See `environment` Block below. If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
 	Environments AgentcoreHarnessEnvironmentArrayOutput `pulumi:"environments"`
 	// ARN of the IAM role that the harness assumes to access AWS services.
 	ExecutionRoleArn pulumi.StringOutput `pulumi:"executionRoleArn"`
 	// Unique identifier of the Harness.
 	HarnessId pulumi.StringOutput `pulumi:"harnessId"`
-	// Name of the harness. Must be 1-40 characters, alphanumeric and underscores only.
+	// Name of the harness. Must be 1-40 characters, start with a letter, and contain only alphanumeric characters and underscores.
 	HarnessName pulumi.StringOutput `pulumi:"harnessName"`
 	// Maximum number of iterations the agent loop can perform.
 	MaxIterations pulumi.IntOutput `pulumi:"maxIterations"`
-	// Maximum number of tokens in the model response.
+	// Maximum total number of output tokens the agent can generate across all model calls within a single invocation.
 	MaxTokens pulumi.IntOutput `pulumi:"maxTokens"`
 	// Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`. Clearing this value will reset the memory configuration to default values.
 	Memory AgentcoreHarnessMemoryPtrOutput `pulumi:"memory"`
@@ -376,17 +376,17 @@ type agentcoreHarnessState struct {
 	EnvironmentArtifact *AgentcoreHarnessEnvironmentArtifact `pulumi:"environmentArtifact"`
 	// Map of environment variables. Set to an empty map (`{}`) to remove all environment variables.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
-	// Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
+	// Compute environment configuration. See `environment` Block below. If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
 	Environments []AgentcoreHarnessEnvironment `pulumi:"environments"`
 	// ARN of the IAM role that the harness assumes to access AWS services.
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// Unique identifier of the Harness.
 	HarnessId *string `pulumi:"harnessId"`
-	// Name of the harness. Must be 1-40 characters, alphanumeric and underscores only.
+	// Name of the harness. Must be 1-40 characters, start with a letter, and contain only alphanumeric characters and underscores.
 	HarnessName *string `pulumi:"harnessName"`
 	// Maximum number of iterations the agent loop can perform.
 	MaxIterations *int `pulumi:"maxIterations"`
-	// Maximum number of tokens in the model response.
+	// Maximum total number of output tokens the agent can generate across all model calls within a single invocation.
 	MaxTokens *int `pulumi:"maxTokens"`
 	// Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`. Clearing this value will reset the memory configuration to default values.
 	Memory *AgentcoreHarnessMemory `pulumi:"memory"`
@@ -428,17 +428,17 @@ type AgentcoreHarnessState struct {
 	EnvironmentArtifact AgentcoreHarnessEnvironmentArtifactPtrInput
 	// Map of environment variables. Set to an empty map (`{}`) to remove all environment variables.
 	EnvironmentVariables pulumi.StringMapInput
-	// Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
+	// Compute environment configuration. See `environment` Block below. If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
 	Environments AgentcoreHarnessEnvironmentArrayInput
 	// ARN of the IAM role that the harness assumes to access AWS services.
 	ExecutionRoleArn pulumi.StringPtrInput
 	// Unique identifier of the Harness.
 	HarnessId pulumi.StringPtrInput
-	// Name of the harness. Must be 1-40 characters, alphanumeric and underscores only.
+	// Name of the harness. Must be 1-40 characters, start with a letter, and contain only alphanumeric characters and underscores.
 	HarnessName pulumi.StringPtrInput
 	// Maximum number of iterations the agent loop can perform.
 	MaxIterations pulumi.IntPtrInput
-	// Maximum number of tokens in the model response.
+	// Maximum total number of output tokens the agent can generate across all model calls within a single invocation.
 	MaxTokens pulumi.IntPtrInput
 	// Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`. Clearing this value will reset the memory configuration to default values.
 	Memory AgentcoreHarnessMemoryPtrInput
@@ -480,15 +480,15 @@ type agentcoreHarnessArgs struct {
 	EnvironmentArtifact *AgentcoreHarnessEnvironmentArtifact `pulumi:"environmentArtifact"`
 	// Map of environment variables. Set to an empty map (`{}`) to remove all environment variables.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
-	// Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
+	// Compute environment configuration. See `environment` Block below. If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
 	Environments []AgentcoreHarnessEnvironment `pulumi:"environments"`
 	// ARN of the IAM role that the harness assumes to access AWS services.
 	ExecutionRoleArn string `pulumi:"executionRoleArn"`
-	// Name of the harness. Must be 1-40 characters, alphanumeric and underscores only.
+	// Name of the harness. Must be 1-40 characters, start with a letter, and contain only alphanumeric characters and underscores.
 	HarnessName string `pulumi:"harnessName"`
 	// Maximum number of iterations the agent loop can perform.
 	MaxIterations *int `pulumi:"maxIterations"`
-	// Maximum number of tokens in the model response.
+	// Maximum total number of output tokens the agent can generate across all model calls within a single invocation.
 	MaxTokens *int `pulumi:"maxTokens"`
 	// Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`. Clearing this value will reset the memory configuration to default values.
 	Memory *AgentcoreHarnessMemory `pulumi:"memory"`
@@ -523,15 +523,15 @@ type AgentcoreHarnessArgs struct {
 	EnvironmentArtifact AgentcoreHarnessEnvironmentArtifactPtrInput
 	// Map of environment variables. Set to an empty map (`{}`) to remove all environment variables.
 	EnvironmentVariables pulumi.StringMapInput
-	// Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
+	// Compute environment configuration. See `environment` Block below. If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
 	Environments AgentcoreHarnessEnvironmentArrayInput
 	// ARN of the IAM role that the harness assumes to access AWS services.
 	ExecutionRoleArn pulumi.StringInput
-	// Name of the harness. Must be 1-40 characters, alphanumeric and underscores only.
+	// Name of the harness. Must be 1-40 characters, start with a letter, and contain only alphanumeric characters and underscores.
 	HarnessName pulumi.StringInput
 	// Maximum number of iterations the agent loop can perform.
 	MaxIterations pulumi.IntPtrInput
-	// Maximum number of tokens in the model response.
+	// Maximum total number of output tokens the agent can generate across all model calls within a single invocation.
 	MaxTokens pulumi.IntPtrInput
 	// Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`. Clearing this value will reset the memory configuration to default values.
 	Memory AgentcoreHarnessMemoryPtrInput
@@ -675,7 +675,7 @@ func (o AgentcoreHarnessOutput) EnvironmentVariables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentcoreHarness) pulumi.StringMapOutput { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
 }
 
-// Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
+// Compute environment configuration. See `environment` Block below. If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
 func (o AgentcoreHarnessOutput) Environments() AgentcoreHarnessEnvironmentArrayOutput {
 	return o.ApplyT(func(v *AgentcoreHarness) AgentcoreHarnessEnvironmentArrayOutput { return v.Environments }).(AgentcoreHarnessEnvironmentArrayOutput)
 }
@@ -690,7 +690,7 @@ func (o AgentcoreHarnessOutput) HarnessId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreHarness) pulumi.StringOutput { return v.HarnessId }).(pulumi.StringOutput)
 }
 
-// Name of the harness. Must be 1-40 characters, alphanumeric and underscores only.
+// Name of the harness. Must be 1-40 characters, start with a letter, and contain only alphanumeric characters and underscores.
 func (o AgentcoreHarnessOutput) HarnessName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreHarness) pulumi.StringOutput { return v.HarnessName }).(pulumi.StringOutput)
 }
@@ -700,7 +700,7 @@ func (o AgentcoreHarnessOutput) MaxIterations() pulumi.IntOutput {
 	return o.ApplyT(func(v *AgentcoreHarness) pulumi.IntOutput { return v.MaxIterations }).(pulumi.IntOutput)
 }
 
-// Maximum number of tokens in the model response.
+// Maximum total number of output tokens the agent can generate across all model calls within a single invocation.
 func (o AgentcoreHarnessOutput) MaxTokens() pulumi.IntOutput {
 	return o.ApplyT(func(v *AgentcoreHarness) pulumi.IntOutput { return v.MaxTokens }).(pulumi.IntOutput)
 }

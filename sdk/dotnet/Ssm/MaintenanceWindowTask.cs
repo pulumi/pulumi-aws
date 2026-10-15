@@ -296,7 +296,7 @@ namespace Pulumi.Aws.Ssm
         public Output<string> ServiceRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+        /// The targets (either instances or window target IDs). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target IDs are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
         /// </summary>
         [Output("targets")]
         public Output<ImmutableArray<Outputs.MaintenanceWindowTaskTarget>> Targets { get; private set; } = null!;
@@ -320,7 +320,7 @@ namespace Pulumi.Aws.Ssm
         public Output<string> TaskType { get; private set; } = null!;
 
         /// <summary>
-        /// The Id of the maintenance window to register the task with.
+        /// The ID of the maintenance window to register the task with.
         /// </summary>
         [Output("windowId")]
         public Output<string> WindowId { get; private set; } = null!;
@@ -429,7 +429,7 @@ namespace Pulumi.Aws.Ssm
         private InputList<Inputs.MaintenanceWindowTaskTargetArgs>? _targets;
 
         /// <summary>
-        /// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+        /// The targets (either instances or window target IDs). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target IDs are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
         /// </summary>
         public InputList<Inputs.MaintenanceWindowTaskTargetArgs> Targets
         {
@@ -456,7 +456,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string> TaskType { get; set; } = null!;
 
         /// <summary>
-        /// The Id of the maintenance window to register the task with.
+        /// The ID of the maintenance window to register the task with.
         /// </summary>
         [Input("windowId", required: true)]
         public Input<string> WindowId { get; set; } = null!;
@@ -527,7 +527,7 @@ namespace Pulumi.Aws.Ssm
         private InputList<Inputs.MaintenanceWindowTaskTargetGetArgs>? _targets;
 
         /// <summary>
-        /// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+        /// The targets (either instances or window target IDs). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target IDs are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
         /// </summary>
         public InputList<Inputs.MaintenanceWindowTaskTargetGetArgs> Targets
         {
@@ -554,7 +554,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? TaskType { get; set; }
 
         /// <summary>
-        /// The Id of the maintenance window to register the task with.
+        /// The ID of the maintenance window to register the task with.
         /// </summary>
         [Input("windowId")]
         public Input<string>? WindowId { get; set; }

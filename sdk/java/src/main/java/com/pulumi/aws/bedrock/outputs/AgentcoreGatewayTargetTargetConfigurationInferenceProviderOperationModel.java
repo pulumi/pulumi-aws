@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperationModel {
+    /**
+     * @return Model ID or glob pattern that identifies the model (for example, `anthropic.claude-opus-*` or `openai.gpt-oss-*`).
+     * 
+     */
     private String model;
 
     private AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperationModel() {}
+    /**
+     * @return Model ID or glob pattern that identifies the model (for example, `anthropic.claude-opus-*` or `openai.gpt-oss-*`).
+     * 
+     */
     public String model() {
         return this.model;
     }

@@ -18,6 +18,12 @@ namespace Pulumi.Aws.ResilienceHub.Inputs
         [Input("clusterArn", required: true)]
         public Input<string> ClusterArn { get; set; } = null!;
 
+        /// <summary>
+        /// Kubernetes label selector that narrows discovery to the objects whose labels match. When omitted, all supported objects in the selected namespaces are discovered. See `LabelSelector` Block below.
+        /// </summary>
+        [Input("labelSelector")]
+        public Input<Inputs.V2InputSourceResourceConfigurationEksLabelSelectorArgs>? LabelSelector { get; set; }
+
         [Input("namespaces", required: true)]
         private InputList<string>? _namespaces;
 

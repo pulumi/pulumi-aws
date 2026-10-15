@@ -22,11 +22,11 @@ namespace Pulumi.Aws.Dms.Outputs
         /// </summary>
         public readonly string? BucketName;
         /// <summary>
-        /// The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+        /// The server-side encryption mode that you want to encrypt your intermediate `.csv` object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
         /// </summary>
         public readonly string? EncryptionMode;
         /// <summary>
-        /// ARN or Id of KMS Key to use when `EncryptionMode` is `SSE_KMS`.
+        /// ARN or ID of KMS Key to use when `EncryptionMode` is `SSE_KMS`.
         /// </summary>
         public readonly string? ServerSideEncryptionKmsKeyId;
         /// <summary>

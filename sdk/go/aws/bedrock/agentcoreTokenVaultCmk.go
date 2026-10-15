@@ -14,7 +14,7 @@ import (
 
 // Manages the AWS KMS customer master key (CMK) for a token vault.
 //
-// > Deletion of this resource will not modify the CMK, only remove the resource from state.
+// > **Note:** Deletion of this resource will not modify the CMK, only remove the resource from state.
 //
 // ## Example Usage
 //

@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *             .networkConfiguration(AgentcoreBrowserNetworkConfigurationArgs.builder()
  *                 .networkMode("PUBLIC")
  *                 .build())
- *             .name("example-browser")
+ *             .name("example_browser")
  *             .description("Browser for web data extraction")
  *             .build());
  * 
@@ -101,7 +101,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .networkMode("VPC")
  *                 .build())
- *             .name("vpc-browser")
+ *             .name("vpc_browser")
  *             .description("Browser with VPC configuration")
  *             .build());
  * 
@@ -176,7 +176,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .enabled(true)
  *                 .build())
- *             .name("example-browser")
+ *             .name("example_browser")
  *             .description("Browser with recording enabled")
  *             .executionRoleArn(example.arn())
  *             .build());

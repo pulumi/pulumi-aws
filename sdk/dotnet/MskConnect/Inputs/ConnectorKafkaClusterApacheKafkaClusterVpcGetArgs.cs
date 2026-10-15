@@ -16,7 +16,7 @@ namespace Pulumi.Aws.MskConnect.Inputs
         private InputList<string>? _securityGroups;
 
         /// <summary>
-        /// The security groups for the connector.
+        /// Security groups for the connector.
         /// </summary>
         public InputList<string> SecurityGroups
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.MskConnect.Inputs
         private InputList<string>? _subnets;
 
         /// <summary>
-        /// The subnets for the connector.
+        /// Subnets for the connector.
         /// </summary>
         public InputList<string> Subnets
         {

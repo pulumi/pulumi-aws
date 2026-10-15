@@ -17,35 +17,47 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorArgs extend
 
     public static final ChannelInputAttachmentInputSettingsCaptionSelectorArgs Empty = new ChannelInputAttachmentInputSettingsCaptionSelectorArgs();
 
+    /**
+     * When specified, indicates the three-letter language code of the caption track to extract from the source.
+     * 
+     */
     @Import(name="languageCode")
     private @Nullable Output<String> languageCode;
 
+    /**
+     * @return When specified, indicates the three-letter language code of the caption track to extract from the source.
+     * 
+     */
     public Optional<Output<String>> languageCode() {
         return Optional.ofNullable(this.languageCode);
     }
 
     /**
-     * Name of the Channel.
-     * 
-     * The following arguments are optional:
+     * Name of the caption selector.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the Channel.
-     * 
-     * The following arguments are optional:
+     * @return Name of the caption selector.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * Caption selector settings. See `caption_selector.selector_settings` Block for details.
+     * 
+     */
     @Import(name="selectorSettings")
     private @Nullable Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs> selectorSettings;
 
+    /**
+     * @return Caption selector settings. See `caption_selector.selector_settings` Block for details.
+     * 
+     */
     public Optional<Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs>> selectorSettings() {
         return Optional.ofNullable(this.selectorSettings);
     }
@@ -76,19 +88,29 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorArgs extend
             $ = new ChannelInputAttachmentInputSettingsCaptionSelectorArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param languageCode When specified, indicates the three-letter language code of the caption track to extract from the source.
+         * 
+         * @return builder
+         * 
+         */
         public Builder languageCode(@Nullable Output<String> languageCode) {
             $.languageCode = languageCode;
             return this;
         }
 
+        /**
+         * @param languageCode When specified, indicates the three-letter language code of the caption track to extract from the source.
+         * 
+         * @return builder
+         * 
+         */
         public Builder languageCode(String languageCode) {
             return languageCode(Output.of(languageCode));
         }
 
         /**
-         * @param name Name of the Channel.
-         * 
-         * The following arguments are optional:
+         * @param name Name of the caption selector.
          * 
          * @return builder
          * 
@@ -99,9 +121,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorArgs extend
         }
 
         /**
-         * @param name Name of the Channel.
-         * 
-         * The following arguments are optional:
+         * @param name Name of the caption selector.
          * 
          * @return builder
          * 
@@ -110,11 +130,23 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorArgs extend
             return name(Output.of(name));
         }
 
+        /**
+         * @param selectorSettings Caption selector settings. See `caption_selector.selector_settings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder selectorSettings(@Nullable Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs> selectorSettings) {
             $.selectorSettings = selectorSettings;
             return this;
         }
 
+        /**
+         * @param selectorSettings Caption selector settings. See `caption_selector.selector_settings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder selectorSettings(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs selectorSettings) {
             return selectorSettings(Output.of(selectorSettings));
         }

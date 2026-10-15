@@ -12,18 +12,33 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Amount of time, in milliseconds, to display black video when the input is lost.
+        /// </summary>
         [Input("blackFrameMsec")]
         public Input<int>? BlackFrameMsec { get; set; }
 
+        /// <summary>
+        /// Color to display, as a hexadecimal RGBA value, when `InputLossImageType` is `Color`.
+        /// </summary>
         [Input("inputLossImageColor")]
         public Input<string>? InputLossImageColor { get; set; }
 
+        /// <summary>
+        /// Image to display when `InputLossImageType` is `Slate`. See `InputLossImageSlate` Block for details.
+        /// </summary>
         [Input("inputLossImageSlate")]
         public Input<Inputs.ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateGetArgs>? InputLossImageSlate { get; set; }
 
+        /// <summary>
+        /// Whether to display a solid color or a slate image when input is lost.
+        /// </summary>
         [Input("inputLossImageType")]
         public Input<string>? InputLossImageType { get; set; }
 
+        /// <summary>
+        /// Amount of time, in milliseconds, to repeat the previous picture when the input is lost.
+        /// </summary>
         [Input("repeatFrameMsec")]
         public Input<int>? RepeatFrameMsec { get; set; }
 

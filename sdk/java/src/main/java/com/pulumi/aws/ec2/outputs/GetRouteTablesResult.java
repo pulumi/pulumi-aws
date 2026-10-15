@@ -22,7 +22,7 @@ public final class GetRouteTablesResult {
      */
     private String id;
     /**
-     * @return List of all the route table ids found.
+     * @return List of all the route table IDs found.
      * 
      */
     private List<String> ids;
@@ -42,7 +42,7 @@ public final class GetRouteTablesResult {
         return this.id;
     }
     /**
-     * @return List of all the route table ids found.
+     * @return List of all the route table IDs found.
      * 
      */
     public List<String> ids() {

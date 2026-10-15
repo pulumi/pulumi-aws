@@ -53,7 +53,7 @@ import (
 type User struct {
 	pulumi.CustomResourceState
 
-	// ARN of the appstream user.
+	// ARN of the AppStream user.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
 	AuthenticationType pulumi.StringOutput `pulumi:"authenticationType"`
@@ -111,7 +111,7 @@ func GetUser(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering User resources.
 type userState struct {
-	// ARN of the appstream user.
+	// ARN of the AppStream user.
 	Arn *string `pulumi:"arn"`
 	// Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
 	AuthenticationType *string `pulumi:"authenticationType"`
@@ -134,7 +134,7 @@ type userState struct {
 }
 
 type UserState struct {
-	// ARN of the appstream user.
+	// ARN of the AppStream user.
 	Arn pulumi.StringPtrInput
 	// Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
 	AuthenticationType pulumi.StringPtrInput
@@ -286,7 +286,7 @@ func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
 }
 
-// ARN of the appstream user.
+// ARN of the AppStream user.
 func (o UserOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

@@ -56,12 +56,12 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `policyEngineId` (String) Policy engine ID.
+ * * `policyEngineId` (String) Policy engine ID.
  *
  * #### Optional
  *
- * * `accountId` (String) AWS account ID for this resource.
- * * `region` (String) AWS Region for this resource.
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
  *
  * Using `pulumi import`, import a Bedrock AgentCore Policy Engine by policy engine ID. For example:
  *
@@ -102,7 +102,7 @@ export class AgentcorePolicyEngine extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * ARN of the KMS key used to encrypt the policy engine. If not set, AWS uses an AWS managed key.
+     * ARN of the KMS key used to encrypt the policy engine. If not set, the policy engine is encrypted with an AWS owned key.
      */
     declare public readonly encryptionKeyArn: pulumi.Output<string | undefined>;
     /**
@@ -181,7 +181,7 @@ export interface AgentcorePolicyEngineState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * ARN of the KMS key used to encrypt the policy engine. If not set, AWS uses an AWS managed key.
+     * ARN of the KMS key used to encrypt the policy engine. If not set, the policy engine is encrypted with an AWS owned key.
      */
     encryptionKeyArn?: pulumi.Input<string | undefined>;
     /**
@@ -222,7 +222,7 @@ export interface AgentcorePolicyEngineArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * ARN of the KMS key used to encrypt the policy engine. If not set, AWS uses an AWS managed key.
+     * ARN of the KMS key used to encrypt the policy engine. If not set, the policy engine is encrypted with an AWS owned key.
      */
     encryptionKeyArn?: pulumi.Input<string | undefined>;
     /**

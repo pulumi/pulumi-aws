@@ -14,12 +14,19 @@ namespace Pulumi.Aws.MediaLive.Inputs
     {
         [Input("inputChannelLevels", required: true)]
         private InputList<Inputs.ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgs>? _inputChannelLevels;
+
+        /// <summary>
+        /// Levels for each of the input channels. See `InputChannelLevels` Block for details.
+        /// </summary>
         public InputList<Inputs.ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgs> InputChannelLevels
         {
             get => _inputChannelLevels ?? (_inputChannelLevels = new InputList<Inputs.ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgs>());
             set => _inputChannelLevels = value;
         }
 
+        /// <summary>
+        /// Index of the output channel being produced.
+        /// </summary>
         [Input("outputChannel", required: true)]
         public Input<int> OutputChannel { get; set; } = null!;
 

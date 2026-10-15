@@ -15,23 +15,47 @@ public final class ClassificationJobUserPausedDetailArgs extends com.pulumi.reso
 
     public static final ClassificationJobUserPausedDetailArgs Empty = new ClassificationJobUserPausedDetailArgs();
 
+    /**
+     * Date and time, in UTC and extended RFC 3339 format, when the job or job run will expire and be cancelled if it isn&#39;t resumed.
+     * 
+     */
     @Import(name="jobExpiresAt")
     private @Nullable Output<String> jobExpiresAt;
 
+    /**
+     * @return Date and time, in UTC and extended RFC 3339 format, when the job or job run will expire and be cancelled if it isn&#39;t resumed.
+     * 
+     */
     public Optional<Output<String>> jobExpiresAt() {
         return Optional.ofNullable(this.jobExpiresAt);
     }
 
+    /**
+     * ARN of the AWS Health event that Macie sent to notify of the job or job run&#39;s imminent expiration.
+     * 
+     */
     @Import(name="jobImminentExpirationHealthEventArn")
     private @Nullable Output<String> jobImminentExpirationHealthEventArn;
 
+    /**
+     * @return ARN of the AWS Health event that Macie sent to notify of the job or job run&#39;s imminent expiration.
+     * 
+     */
     public Optional<Output<String>> jobImminentExpirationHealthEventArn() {
         return Optional.ofNullable(this.jobImminentExpirationHealthEventArn);
     }
 
+    /**
+     * Date and time, in UTC and extended RFC 3339 format, when the job was paused.
+     * 
+     */
     @Import(name="jobPausedAt")
     private @Nullable Output<String> jobPausedAt;
 
+    /**
+     * @return Date and time, in UTC and extended RFC 3339 format, when the job was paused.
+     * 
+     */
     public Optional<Output<String>> jobPausedAt() {
         return Optional.ofNullable(this.jobPausedAt);
     }
@@ -62,29 +86,65 @@ public final class ClassificationJobUserPausedDetailArgs extends com.pulumi.reso
             $ = new ClassificationJobUserPausedDetailArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param jobExpiresAt Date and time, in UTC and extended RFC 3339 format, when the job or job run will expire and be cancelled if it isn&#39;t resumed.
+         * 
+         * @return builder
+         * 
+         */
         public Builder jobExpiresAt(@Nullable Output<String> jobExpiresAt) {
             $.jobExpiresAt = jobExpiresAt;
             return this;
         }
 
+        /**
+         * @param jobExpiresAt Date and time, in UTC and extended RFC 3339 format, when the job or job run will expire and be cancelled if it isn&#39;t resumed.
+         * 
+         * @return builder
+         * 
+         */
         public Builder jobExpiresAt(String jobExpiresAt) {
             return jobExpiresAt(Output.of(jobExpiresAt));
         }
 
+        /**
+         * @param jobImminentExpirationHealthEventArn ARN of the AWS Health event that Macie sent to notify of the job or job run&#39;s imminent expiration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder jobImminentExpirationHealthEventArn(@Nullable Output<String> jobImminentExpirationHealthEventArn) {
             $.jobImminentExpirationHealthEventArn = jobImminentExpirationHealthEventArn;
             return this;
         }
 
+        /**
+         * @param jobImminentExpirationHealthEventArn ARN of the AWS Health event that Macie sent to notify of the job or job run&#39;s imminent expiration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder jobImminentExpirationHealthEventArn(String jobImminentExpirationHealthEventArn) {
             return jobImminentExpirationHealthEventArn(Output.of(jobImminentExpirationHealthEventArn));
         }
 
+        /**
+         * @param jobPausedAt Date and time, in UTC and extended RFC 3339 format, when the job was paused.
+         * 
+         * @return builder
+         * 
+         */
         public Builder jobPausedAt(@Nullable Output<String> jobPausedAt) {
             $.jobPausedAt = jobPausedAt;
             return this;
         }
 
+        /**
+         * @param jobPausedAt Date and time, in UTC and extended RFC 3339 format, when the job was paused.
+         * 
+         * @return builder
+         * 
+         */
         public Builder jobPausedAt(String jobPausedAt) {
             return jobPausedAt(Output.of(jobPausedAt));
         }

@@ -17,14 +17,14 @@ public final class CatalogTableOptimizerState extends com.pulumi.resources.Resou
     public static final CatalogTableOptimizerState Empty = new CatalogTableOptimizerState();
 
     /**
-     * The Catalog ID of the table.
+     * Catalog ID of the table.
      * 
      */
     @Import(name="catalogId")
     private @Nullable Output<String> catalogId;
 
     /**
-     * @return The Catalog ID of the table.
+     * @return Catalog ID of the table.
      * 
      */
     public Optional<Output<String>> catalogId() {
@@ -32,14 +32,14 @@ public final class CatalogTableOptimizerState extends com.pulumi.resources.Resou
     }
 
     /**
-     * A configuration block that defines the table optimizer settings. See Configuration for additional details.
+     * Configuration block that defines the table optimizer settings. See `configuration` Block for additional details.
      * 
      */
     @Import(name="configuration")
     private @Nullable Output<CatalogTableOptimizerConfigurationArgs> configuration;
 
     /**
-     * @return A configuration block that defines the table optimizer settings. See Configuration for additional details.
+     * @return Configuration block that defines the table optimizer settings. See `configuration` Block for additional details.
      * 
      */
     public Optional<Output<CatalogTableOptimizerConfigurationArgs>> configuration() {
@@ -47,14 +47,14 @@ public final class CatalogTableOptimizerState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The name of the database in the catalog in which the table resides.
+     * Name of the database in the catalog in which the table resides.
      * 
      */
     @Import(name="databaseName")
     private @Nullable Output<String> databaseName;
 
     /**
-     * @return The name of the database in the catalog in which the table resides.
+     * @return Name of the database in the catalog in which the table resides.
      * 
      */
     public Optional<Output<String>> databaseName() {
@@ -77,14 +77,14 @@ public final class CatalogTableOptimizerState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The name of the table.
+     * Name of the table.
      * 
      */
     @Import(name="tableName")
     private @Nullable Output<String> tableName;
 
     /**
-     * @return The name of the table.
+     * @return Name of the table.
      * 
      */
     public Optional<Output<String>> tableName() {
@@ -92,14 +92,14 @@ public final class CatalogTableOptimizerState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
+     * Type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
+     * @return Type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -136,7 +136,7 @@ public final class CatalogTableOptimizerState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param catalogId The Catalog ID of the table.
+         * @param catalogId Catalog ID of the table.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class CatalogTableOptimizerState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param catalogId The Catalog ID of the table.
+         * @param catalogId Catalog ID of the table.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class CatalogTableOptimizerState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param configuration A configuration block that defines the table optimizer settings. See Configuration for additional details.
+         * @param configuration Configuration block that defines the table optimizer settings. See `configuration` Block for additional details.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class CatalogTableOptimizerState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param configuration A configuration block that defines the table optimizer settings. See Configuration for additional details.
+         * @param configuration Configuration block that defines the table optimizer settings. See `configuration` Block for additional details.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class CatalogTableOptimizerState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param databaseName The name of the database in the catalog in which the table resides.
+         * @param databaseName Name of the database in the catalog in which the table resides.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class CatalogTableOptimizerState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param databaseName The name of the database in the catalog in which the table resides.
+         * @param databaseName Name of the database in the catalog in which the table resides.
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class CatalogTableOptimizerState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param tableName The name of the table.
+         * @param tableName Name of the table.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class CatalogTableOptimizerState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param tableName The name of the table.
+         * @param tableName Name of the table.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class CatalogTableOptimizerState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param type The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
+         * @param type Type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class CatalogTableOptimizerState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param type The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
+         * @param type Type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
          * 
          * @return builder
          * 

@@ -26,6 +26,7 @@ class RuleGroupArgs:
                  visibility_config: pulumi.Input['RuleGroupVisibilityConfigArgs'],
                  custom_response_bodies: pulumi.Input[Optional[Sequence[pulumi.Input['RuleGroupCustomResponseBodyArgs']]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 monetization_config: pulumi.Input[Optional['RuleGroupMonetizationConfigArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -40,6 +41,7 @@ class RuleGroupArgs:
         :param pulumi.Input['RuleGroupVisibilityConfigArgs'] visibility_config: Amazon CloudWatch metrics and web request sample collection configuration. See Visibility Configuration below for details.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomResponseBodyArgs']]] custom_response_bodies: Custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
         :param pulumi.Input[_builtins.str] description: Friendly description of the rule group.
+        :param pulumi.Input['RuleGroupMonetizationConfigArgs'] monetization_config: Monetization configuration for the rule group. Required when any rule uses the `monetize` action. See `monetization_config` below for details.
         :param pulumi.Input[_builtins.str] name: Friendly name of the rule group.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -54,6 +56,8 @@ class RuleGroupArgs:
             pulumi.set(__self__, "custom_response_bodies", custom_response_bodies)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if monetization_config is not None:
+            pulumi.set(__self__, "monetization_config", monetization_config)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if name_prefix is not None:
@@ -126,6 +130,18 @@ class RuleGroupArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="monetizationConfig")
+    def monetization_config(self) -> pulumi.Input[Optional['RuleGroupMonetizationConfigArgs']]:
+        """
+        Monetization configuration for the rule group. Required when any rule uses the `monetize` action. See `monetization_config` below for details.
+        """
+        return pulumi.get(self, "monetization_config")
+
+    @monetization_config.setter
+    def monetization_config(self, value: pulumi.Input[Optional['RuleGroupMonetizationConfigArgs']]):
+        pulumi.set(self, "monetization_config", value)
 
     @_builtins.property
     @pulumi.getter
@@ -208,6 +224,7 @@ class _RuleGroupState:
                  custom_response_bodies: pulumi.Input[Optional[Sequence[pulumi.Input['RuleGroupCustomResponseBodyArgs']]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  lock_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 monetization_config: pulumi.Input[Optional['RuleGroupMonetizationConfigArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -224,6 +241,7 @@ class _RuleGroupState:
         :param pulumi.Input[_builtins.int] capacity: Web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomResponseBodyArgs']]] custom_response_bodies: Custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
         :param pulumi.Input[_builtins.str] description: Friendly description of the rule group.
+        :param pulumi.Input['RuleGroupMonetizationConfigArgs'] monetization_config: Monetization configuration for the rule group. Required when any rule uses the `monetize` action. See `monetization_config` below for details.
         :param pulumi.Input[_builtins.str] name: Friendly name of the rule group.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -244,6 +262,8 @@ class _RuleGroupState:
             pulumi.set(__self__, "description", description)
         if lock_token is not None:
             pulumi.set(__self__, "lock_token", lock_token)
+        if monetization_config is not None:
+            pulumi.set(__self__, "monetization_config", monetization_config)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if name_prefix is not None:
@@ -319,6 +339,18 @@ class _RuleGroupState:
     @lock_token.setter
     def lock_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lock_token", value)
+
+    @_builtins.property
+    @pulumi.getter(name="monetizationConfig")
+    def monetization_config(self) -> pulumi.Input[Optional['RuleGroupMonetizationConfigArgs']]:
+        """
+        Monetization configuration for the rule group. Required when any rule uses the `monetize` action. See `monetization_config` below for details.
+        """
+        return pulumi.get(self, "monetization_config")
+
+    @monetization_config.setter
+    def monetization_config(self, value: pulumi.Input[Optional['RuleGroupMonetizationConfigArgs']]):
+        pulumi.set(self, "monetization_config", value)
 
     @_builtins.property
     @pulumi.getter
@@ -438,6 +470,7 @@ class RuleGroup(pulumi.CustomResource):
                  capacity: pulumi.Input[Optional[_builtins.int]] = None,
                  custom_response_bodies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupCustomResponseBodyArgs', 'RuleGroupCustomResponseBodyArgsDict', 'outputs.RuleGroupCustomResponseBody']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 monetization_config: pulumi.Input[Optional[Union['RuleGroupMonetizationConfigArgs', 'RuleGroupMonetizationConfigArgsDict', 'outputs.RuleGroupMonetizationConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -768,6 +801,7 @@ class RuleGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] capacity: Web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupCustomResponseBodyArgs', 'RuleGroupCustomResponseBodyArgsDict', 'outputs.RuleGroupCustomResponseBody']]]] custom_response_bodies: Custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
         :param pulumi.Input[_builtins.str] description: Friendly description of the rule group.
+        :param pulumi.Input[Union['RuleGroupMonetizationConfigArgs', 'RuleGroupMonetizationConfigArgsDict', 'outputs.RuleGroupMonetizationConfig']] monetization_config: Monetization configuration for the rule group. Required when any rule uses the `monetize` action. See `monetization_config` below for details.
         :param pulumi.Input[_builtins.str] name: Friendly name of the rule group.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -1117,6 +1151,7 @@ class RuleGroup(pulumi.CustomResource):
                  capacity: pulumi.Input[Optional[_builtins.int]] = None,
                  custom_response_bodies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupCustomResponseBodyArgs', 'RuleGroupCustomResponseBodyArgsDict', 'outputs.RuleGroupCustomResponseBody']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 monetization_config: pulumi.Input[Optional[Union['RuleGroupMonetizationConfigArgs', 'RuleGroupMonetizationConfigArgsDict', 'outputs.RuleGroupMonetizationConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1139,6 +1174,7 @@ class RuleGroup(pulumi.CustomResource):
             __props__.__dict__["capacity"] = capacity
             __props__.__dict__["custom_response_bodies"] = custom_response_bodies
             __props__.__dict__["description"] = description
+            __props__.__dict__["monetization_config"] = monetization_config
             __props__.__dict__["name"] = name
             __props__.__dict__["name_prefix"] = name_prefix
             __props__.__dict__["region"] = region
@@ -1169,6 +1205,7 @@ class RuleGroup(pulumi.CustomResource):
             custom_response_bodies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupCustomResponseBodyArgs', 'RuleGroupCustomResponseBodyArgsDict', 'outputs.RuleGroupCustomResponseBody']]]]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             lock_token: pulumi.Input[Optional[_builtins.str]] = None,
+            monetization_config: pulumi.Input[Optional[Union['RuleGroupMonetizationConfigArgs', 'RuleGroupMonetizationConfigArgsDict', 'outputs.RuleGroupMonetizationConfig']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1189,6 +1226,7 @@ class RuleGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] capacity: Web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupCustomResponseBodyArgs', 'RuleGroupCustomResponseBodyArgsDict', 'outputs.RuleGroupCustomResponseBody']]]] custom_response_bodies: Custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
         :param pulumi.Input[_builtins.str] description: Friendly description of the rule group.
+        :param pulumi.Input[Union['RuleGroupMonetizationConfigArgs', 'RuleGroupMonetizationConfigArgsDict', 'outputs.RuleGroupMonetizationConfig']] monetization_config: Monetization configuration for the rule group. Required when any rule uses the `monetize` action. See `monetization_config` below for details.
         :param pulumi.Input[_builtins.str] name: Friendly name of the rule group.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -1208,6 +1246,7 @@ class RuleGroup(pulumi.CustomResource):
         __props__.__dict__["custom_response_bodies"] = custom_response_bodies
         __props__.__dict__["description"] = description
         __props__.__dict__["lock_token"] = lock_token
+        __props__.__dict__["monetization_config"] = monetization_config
         __props__.__dict__["name"] = name
         __props__.__dict__["name_prefix"] = name_prefix
         __props__.__dict__["region"] = region
@@ -1255,6 +1294,14 @@ class RuleGroup(pulumi.CustomResource):
     @pulumi.getter(name="lockToken")
     def lock_token(self) -> pulumi.Output[_builtins.str]:
         return pulumi.get(self, "lock_token")
+
+    @_builtins.property
+    @pulumi.getter(name="monetizationConfig")
+    def monetization_config(self) -> pulumi.Output[Optional['outputs.RuleGroupMonetizationConfig']]:
+        """
+        Monetization configuration for the rule group. Required when any rule uses the `monetize` action. See `monetization_config` below for details.
+        """
+        return pulumi.get(self, "monetization_config")
 
     @_builtins.property
     @pulumi.getter

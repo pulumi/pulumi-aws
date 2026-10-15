@@ -49,13 +49,13 @@ namespace Pulumi.Aws.Grafana
     public partial class WorkspaceServiceAccount : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
+        /// Permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
         /// </summary>
         [Output("grafanaRole")]
         public Output<string> GrafanaRole { get; private set; } = null!;
 
         /// <summary>
-        /// A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
+        /// Name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Grafana
         public Output<string> ServiceAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The Grafana workspace with which the service account is associated.
+        /// Grafana workspace with which the service account is associated.
         /// </summary>
         [Output("workspaceId")]
         public Output<string> WorkspaceId { get; private set; } = null!;
@@ -125,13 +125,13 @@ namespace Pulumi.Aws.Grafana
     public sealed class WorkspaceServiceAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
+        /// Permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
         /// </summary>
         [Input("grafanaRole", required: true)]
         public Input<string> GrafanaRole { get; set; } = null!;
 
         /// <summary>
-        /// A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
+        /// Name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -143,7 +143,7 @@ namespace Pulumi.Aws.Grafana
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Grafana workspace with which the service account is associated.
+        /// Grafana workspace with which the service account is associated.
         /// </summary>
         [Input("workspaceId", required: true)]
         public Input<string> WorkspaceId { get; set; } = null!;
@@ -157,13 +157,13 @@ namespace Pulumi.Aws.Grafana
     public sealed class WorkspaceServiceAccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
+        /// Permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
         /// </summary>
         [Input("grafanaRole")]
         public Input<string>? GrafanaRole { get; set; }
 
         /// <summary>
-        /// A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
+        /// Name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -181,7 +181,7 @@ namespace Pulumi.Aws.Grafana
         public Input<string>? ServiceAccountId { get; set; }
 
         /// <summary>
-        /// The Grafana workspace with which the service account is associated.
+        /// Grafana workspace with which the service account is associated.
         /// </summary>
         [Input("workspaceId")]
         public Input<string>? WorkspaceId { get; set; }

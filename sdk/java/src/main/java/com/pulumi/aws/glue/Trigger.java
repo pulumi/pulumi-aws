@@ -256,14 +256,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:glue/trigger:Trigger")
 public class Trigger extends com.pulumi.resources.CustomResource {
     /**
-     * List of actions initiated by this trigger when it fires. See Actions Below.
+     * List of actions initiated by this trigger when it fires. See `actions` below.
      * 
      */
     @Export(name="actions", refs={List.class,TriggerAction.class}, tree="[0,1]")
     private Output<List<TriggerAction>> actions;
 
     /**
-     * @return List of actions initiated by this trigger when it fires. See Actions Below.
+     * @return List of actions initiated by this trigger when it fires. See `actions` below.
      * 
      */
     public Output<List<TriggerAction>> actions() {
@@ -284,14 +284,14 @@ public class Trigger extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * A description of the new trigger.
+     * Description of the new trigger.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A description of the new trigger.
+     * @return Description of the new trigger.
      * 
      */
     public Output<Optional<String>> description() {
@@ -312,42 +312,42 @@ public class Trigger extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enabled);
     }
     /**
-     * Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
+     * Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See `eventBatchingCondition`.
      * 
      */
     @Export(name="eventBatchingConditions", refs={List.class,TriggerEventBatchingCondition.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TriggerEventBatchingCondition>> eventBatchingConditions;
 
     /**
-     * @return Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
+     * @return Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See `eventBatchingCondition`.
      * 
      */
     public Output<Optional<List<TriggerEventBatchingCondition>>> eventBatchingConditions() {
         return Codegen.optional(this.eventBatchingConditions);
     }
     /**
-     * The name of the trigger.
+     * Name of the trigger.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the trigger.
+     * @return Name of the trigger.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
+     * Predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See `predicate` below.
      * 
      */
     @Export(name="predicate", refs={TriggerPredicate.class}, tree="[0]")
     private Output</* @Nullable */ TriggerPredicate> predicate;
 
     /**
-     * @return A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
+     * @return Predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See `predicate` below.
      * 
      */
     public Output<Optional<TriggerPredicate>> predicate() {
@@ -368,14 +368,14 @@ public class Trigger extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
+     * Cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
      * 
      */
     @Export(name="schedule", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> schedule;
 
     /**
-     * @return A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
+     * @return Cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
      * 
      */
     public Output<Optional<String>> schedule() {
@@ -396,14 +396,14 @@ public class Trigger extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.startOnCreation);
     }
     /**
-     * The current state of the trigger.
+     * Current state of the trigger.
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
-     * @return The current state of the trigger.
+     * @return Current state of the trigger.
      * 
      */
     public Output<String> state() {
@@ -424,42 +424,42 @@ public class Trigger extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
+     * Type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
+     * @return Type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
      * 
      */
     public Output<String> type() {
         return this.type;
     }
     /**
-     * A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
+     * Workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
      * 
      */
     @Export(name="workflowName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> workflowName;
 
     /**
-     * @return A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
+     * @return Workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
      * 
      */
     public Output<Optional<String>> workflowName() {

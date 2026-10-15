@@ -159,7 +159,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     declare public readonly idleTimeout: pulumi.Output<number | undefined>;
     /**
-     * A list of instance ids to place in the ELB pool.
+     * A list of instance IDs to place in the ELB pool.
      */
     declare public readonly instances: pulumi.Output<string[]>;
     /**
@@ -337,7 +337,7 @@ export interface LoadBalancerState {
      */
     idleTimeout?: pulumi.Input<number | undefined>;
     /**
-     * A list of instance ids to place in the ELB pool.
+     * A list of instance IDs to place in the ELB pool.
      */
     instances?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -436,7 +436,7 @@ export interface LoadBalancerArgs {
      */
     idleTimeout?: pulumi.Input<number | undefined>;
     /**
-     * A list of instance ids to place in the ELB pool.
+     * A list of instance IDs to place in the ELB pool.
      */
     instances?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**

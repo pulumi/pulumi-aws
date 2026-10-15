@@ -157,7 +157,7 @@ class VpcEndpoint(pulumi.CustomResource):
                  vpc_options: pulumi.Input[Optional[Union['VpcEndpointVpcOptionsArgs', 'VpcEndpointVpcOptionsArgsDict', 'outputs.VpcEndpointVpcOptions']]] = None,
                  __props__=None):
         """
-        Manages an [AWS Elasticsearch VPC Endpoint](https://docs.aws.amazon.com/elasticsearch-service/latest/APIReference/API_CreateVpcEndpoint.html). Creates an Amazon elasticsearch Service-managed VPC endpoint.
+        Manages an [AWS Elasticsearch VPC Endpoint](https://docs.aws.amazon.com/elasticsearch-service/latest/APIReference/API_CreateVpcEndpoint.html). Creates an Amazon Elasticsearch Service-managed VPC endpoint.
 
         ## Example Usage
 
@@ -183,7 +183,7 @@ class VpcEndpoint(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import elasticsearch VPC endpoints using the `id`. For example:
+        Using `pulumi import`, import Elasticsearch VPC endpoints using the `id`. For example:
 
         ```sh
         $ pulumi import aws:elasticsearch/vpcEndpoint:VpcEndpoint example endpoint-id
@@ -203,7 +203,7 @@ class VpcEndpoint(pulumi.CustomResource):
                  args: VpcEndpointArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an [AWS Elasticsearch VPC Endpoint](https://docs.aws.amazon.com/elasticsearch-service/latest/APIReference/API_CreateVpcEndpoint.html). Creates an Amazon elasticsearch Service-managed VPC endpoint.
+        Manages an [AWS Elasticsearch VPC Endpoint](https://docs.aws.amazon.com/elasticsearch-service/latest/APIReference/API_CreateVpcEndpoint.html). Creates an Amazon Elasticsearch Service-managed VPC endpoint.
 
         ## Example Usage
 
@@ -229,7 +229,7 @@ class VpcEndpoint(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import elasticsearch VPC endpoints using the `id`. For example:
+        Using `pulumi import`, import Elasticsearch VPC endpoints using the `id`. For example:
 
         ```sh
         $ pulumi import aws:elasticsearch/vpcEndpoint:VpcEndpoint example endpoint-id

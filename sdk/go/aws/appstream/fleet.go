@@ -61,7 +61,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `appstream.Fleet` using the id. For example:
+// Using `pulumi import`, import `appstream.Fleet` using the ID. For example:
 //
 // ```sh
 // $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
@@ -69,7 +69,7 @@ import (
 type Fleet struct {
 	pulumi.CustomResourceState
 
-	// ARN of the appstream fleet.
+	// ARN of the AppStream fleet.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Configuration block for the desired capacity of the fleet. See below.
 	ComputeCapacity FleetComputeCapacityOutput `pulumi:"computeCapacity"`
@@ -154,7 +154,7 @@ func GetFleet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Fleet resources.
 type fleetState struct {
-	// ARN of the appstream fleet.
+	// ARN of the AppStream fleet.
 	Arn *string `pulumi:"arn"`
 	// Configuration block for the desired capacity of the fleet. See below.
 	ComputeCapacity *FleetComputeCapacity `pulumi:"computeCapacity"`
@@ -204,7 +204,7 @@ type fleetState struct {
 }
 
 type FleetState struct {
-	// ARN of the appstream fleet.
+	// ARN of the AppStream fleet.
 	Arn pulumi.StringPtrInput
 	// Configuration block for the desired capacity of the fleet. See below.
 	ComputeCapacity FleetComputeCapacityPtrInput
@@ -431,7 +431,7 @@ func (o FleetOutput) ToFleetOutputWithContext(ctx context.Context) FleetOutput {
 	return o
 }
 
-// ARN of the appstream fleet.
+// ARN of the AppStream fleet.
 func (o FleetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

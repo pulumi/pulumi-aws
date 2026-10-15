@@ -52,7 +52,7 @@ class GetRegistryResult:
     @pulumi.getter
     def description(self) -> _builtins.str:
         """
-        A description of the registry.
+        Description of the registry.
         """
         return pulumi.get(self, "description")
 

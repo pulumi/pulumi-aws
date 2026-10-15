@@ -13,19 +13,27 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings {
+    /**
+     * @return Name of the audio selector in the input that MediaLive monitors to detect silence. Select your most important rendition. Leave blank if you did not create an audio selector in this input.
+     * 
+     */
     private String audioSelectorName;
     /**
-     * @return The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
+     * @return Amount of time, in milliseconds, that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
      * 
      */
     private @Nullable Integer audioSilenceThresholdMsec;
 
     private ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings() {}
+    /**
+     * @return Name of the audio selector in the input that MediaLive monitors to detect silence. Select your most important rendition. Leave blank if you did not create an audio selector in this input.
+     * 
+     */
     public String audioSelectorName() {
         return this.audioSelectorName;
     }
     /**
-     * @return The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
+     * @return Amount of time, in milliseconds, that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
      * 
      */
     public Optional<Integer> audioSilenceThresholdMsec() {

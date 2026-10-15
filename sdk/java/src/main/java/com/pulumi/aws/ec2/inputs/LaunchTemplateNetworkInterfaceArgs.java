@@ -35,14 +35,14 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
     }
 
     /**
-     * Associate a public ip address with the network interface. Boolean value, can be left unset.
+     * Associate a public IP address with the network interface. Boolean value, can be left unset.
      * 
      */
     @Import(name="associatePublicIpAddress")
     private @Nullable Output<String> associatePublicIpAddress;
 
     /**
-     * @return Associate a public ip address with the network interface. Boolean value, can be left unset.
+     * @return Associate a public IP address with the network interface. Boolean value, can be left unset.
      * 
      */
     public Optional<Output<String>> associatePublicIpAddress() {
@@ -432,7 +432,7 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param associatePublicIpAddress Associate a public ip address with the network interface. Boolean value, can be left unset.
+         * @param associatePublicIpAddress Associate a public IP address with the network interface. Boolean value, can be left unset.
          * 
          * @return builder
          * 
@@ -443,7 +443,7 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param associatePublicIpAddress Associate a public ip address with the network interface. Boolean value, can be left unset.
+         * @param associatePublicIpAddress Associate a public IP address with the network interface. Boolean value, can be left unset.
          * 
          * @return builder
          * 

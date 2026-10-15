@@ -34,14 +34,14 @@ public final class GetSecurityGroupArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * Id of the specific security group to retrieve.
+     * ID of the specific security group to retrieve.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return Id of the specific security group to retrieve.
+     * @return ID of the specific security group to retrieve.
      * 
      */
     public Optional<Output<String>> id() {
@@ -98,7 +98,7 @@ public final class GetSecurityGroupArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * Id of the VPC that the desired security group belongs to.
+     * ID of the VPC that the desired security group belongs to.
      * 
      * More complex filters can be expressed using one or more `filter` sub-blocks,
      * which take the following arguments:
@@ -108,7 +108,7 @@ public final class GetSecurityGroupArgs extends com.pulumi.resources.InvokeArgs 
     private @Nullable Output<String> vpcId;
 
     /**
-     * @return Id of the VPC that the desired security group belongs to.
+     * @return ID of the VPC that the desired security group belongs to.
      * 
      * More complex filters can be expressed using one or more `filter` sub-blocks,
      * which take the following arguments:
@@ -179,7 +179,7 @@ public final class GetSecurityGroupArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param id Id of the specific security group to retrieve.
+         * @param id ID of the specific security group to retrieve.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class GetSecurityGroupArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param id Id of the specific security group to retrieve.
+         * @param id ID of the specific security group to retrieve.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class GetSecurityGroupArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param vpcId Id of the VPC that the desired security group belongs to.
+         * @param vpcId ID of the VPC that the desired security group belongs to.
          * 
          * More complex filters can be expressed using one or more `filter` sub-blocks,
          * which take the following arguments:
@@ -281,7 +281,7 @@ public final class GetSecurityGroupArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param vpcId Id of the VPC that the desired security group belongs to.
+         * @param vpcId ID of the VPC that the desired security group belongs to.
          * 
          * More complex filters can be expressed using one or more `filter` sub-blocks,
          * which take the following arguments:

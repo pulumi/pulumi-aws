@@ -65,7 +65,7 @@ export interface GetVocabularyArgs {
      */
     tags?: {[key: string]: string};
     /**
-     * Returns information on a specific Vocabulary by Vocabulary id
+     * Returns information on a specific Vocabulary by Vocabulary ID
      *
      * > **NOTE:** `instanceId` and one of either `name` or `vocabularyId` is required.
      */
@@ -177,7 +177,7 @@ export interface GetVocabularyOutputArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Returns information on a specific Vocabulary by Vocabulary id
+     * Returns information on a specific Vocabulary by Vocabulary ID
      *
      * > **NOTE:** `instanceId` and one of either `name` or `vocabularyId` is required.
      */

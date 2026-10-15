@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 public final class VpcEndpointVpcOptions {
     private @Nullable List<String> availabilityZones;
     /**
-     * @return The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, elasticsearch Service uses the default security group for the VPC.
+     * @return The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, Elasticsearch Service uses the default security group for the VPC.
      * 
      */
     private @Nullable List<String> securityGroupIds;
@@ -31,7 +31,7 @@ public final class VpcEndpointVpcOptions {
         return this.availabilityZones == null ? List.of() : this.availabilityZones;
     }
     /**
-     * @return The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, elasticsearch Service uses the default security group for the VPC.
+     * @return The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, Elasticsearch Service uses the default security group for the VPC.
      * 
      */
     public List<String> securityGroupIds() {

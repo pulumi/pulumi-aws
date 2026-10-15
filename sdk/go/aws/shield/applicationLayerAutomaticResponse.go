@@ -64,7 +64,7 @@ type ApplicationLayerAutomaticResponse struct {
 
 	// One of `COUNT` or `BLOCK`
 	Action pulumi.StringOutput `pulumi:"action"`
-	// ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
+	// ARN of the resource to protect (CloudFront Distributions and ALBs only at this time).
 	ResourceArn pulumi.StringOutput                                `pulumi:"resourceArn"`
 	Timeouts    ApplicationLayerAutomaticResponseTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -107,7 +107,7 @@ func GetApplicationLayerAutomaticResponse(ctx *pulumi.Context,
 type applicationLayerAutomaticResponseState struct {
 	// One of `COUNT` or `BLOCK`
 	Action *string `pulumi:"action"`
-	// ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
+	// ARN of the resource to protect (CloudFront Distributions and ALBs only at this time).
 	ResourceArn *string                                    `pulumi:"resourceArn"`
 	Timeouts    *ApplicationLayerAutomaticResponseTimeouts `pulumi:"timeouts"`
 }
@@ -115,7 +115,7 @@ type applicationLayerAutomaticResponseState struct {
 type ApplicationLayerAutomaticResponseState struct {
 	// One of `COUNT` or `BLOCK`
 	Action pulumi.StringPtrInput
-	// ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
+	// ARN of the resource to protect (CloudFront Distributions and ALBs only at this time).
 	ResourceArn pulumi.StringPtrInput
 	Timeouts    ApplicationLayerAutomaticResponseTimeoutsPtrInput
 }
@@ -127,7 +127,7 @@ func (ApplicationLayerAutomaticResponseState) ElementType() reflect.Type {
 type applicationLayerAutomaticResponseArgs struct {
 	// One of `COUNT` or `BLOCK`
 	Action string `pulumi:"action"`
-	// ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
+	// ARN of the resource to protect (CloudFront Distributions and ALBs only at this time).
 	ResourceArn string                                     `pulumi:"resourceArn"`
 	Timeouts    *ApplicationLayerAutomaticResponseTimeouts `pulumi:"timeouts"`
 }
@@ -136,7 +136,7 @@ type applicationLayerAutomaticResponseArgs struct {
 type ApplicationLayerAutomaticResponseArgs struct {
 	// One of `COUNT` or `BLOCK`
 	Action pulumi.StringInput
-	// ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
+	// ARN of the resource to protect (CloudFront Distributions and ALBs only at this time).
 	ResourceArn pulumi.StringInput
 	Timeouts    ApplicationLayerAutomaticResponseTimeoutsPtrInput
 }
@@ -233,7 +233,7 @@ func (o ApplicationLayerAutomaticResponseOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationLayerAutomaticResponse) pulumi.StringOutput { return v.Action }).(pulumi.StringOutput)
 }
 
-// ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
+// ARN of the resource to protect (CloudFront Distributions and ALBs only at this time).
 func (o ApplicationLayerAutomaticResponseOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationLayerAutomaticResponse) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }

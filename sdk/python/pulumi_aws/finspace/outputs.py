@@ -426,7 +426,7 @@ class KxClusterSavedownStorageConfiguration(dict):
                  volume_name: Optional[_builtins.str] = None):
         """
         :param _builtins.int size: Size of temporary storage in gigabytes. Must be between 10 and 16000.
-        :param _builtins.str type: Type of writeable storage space for temporarily storing your savedown data. Valid value is `SDS01`, which represents 3000 IOPS and io2 ebs volume type.
+        :param _builtins.str type: Type of writeable storage space for temporarily storing your savedown data. Valid value is `SDS01`, which represents 3000 IOPS and io2 EBS volume type.
         :param _builtins.str volume_name: Name of the kdb volume that you want to use as writeable save-down storage for clusters.
         """
         if size is not None:
@@ -448,7 +448,7 @@ class KxClusterSavedownStorageConfiguration(dict):
     @pulumi.getter
     def type(self) -> Optional[_builtins.str]:
         """
-        Type of writeable storage space for temporarily storing your savedown data. Valid value is `SDS01`, which represents 3000 IOPS and io2 ebs volume type.
+        Type of writeable storage space for temporarily storing your savedown data. Valid value is `SDS01`, which represents 3000 IOPS and io2 EBS volume type.
         """
         return pulumi.get(self, "type")
 

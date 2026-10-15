@@ -162,9 +162,9 @@ type LookupClusterResult struct {
 	S3KeyPrefix string `pulumi:"s3KeyPrefix"`
 	// Tags associated to the cluster
 	Tags map[string]string `pulumi:"tags"`
-	// VPC Id associated with the cluster
+	// VPC ID associated with the cluster
 	VpcId string `pulumi:"vpcId"`
-	// The VPC security group Ids associated with the cluster
+	// The VPC security group IDs associated with the cluster
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
 
@@ -400,12 +400,12 @@ func (o LookupClusterResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupClusterResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// VPC Id associated with the cluster
+// VPC ID associated with the cluster
 func (o LookupClusterResultOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.VpcId }).(pulumi.StringOutput)
 }
 
-// The VPC security group Ids associated with the cluster
+// The VPC security group IDs associated with the cluster
 func (o LookupClusterResultOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []string { return v.VpcSecurityGroupIds }).(pulumi.StringArrayOutput)
 }

@@ -13,8 +13,17 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettings
     {
+        /// <summary>
+        /// List of audio rendition sets, separated by commas.
+        /// </summary>
         public readonly string? AudioRenditionSets;
+        /// <summary>
+        /// When set to `Passthrough`, passes through Nielsen ID3.
+        /// </summary>
         public readonly string? NielsenId3Behavior;
+        /// <summary>
+        /// When set to `Passthrough`, passes through timed metadata.
+        /// </summary>
         public readonly string? TimedMetadataBehavior;
 
         [OutputConstructor]

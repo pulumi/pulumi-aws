@@ -16,7 +16,7 @@ public final class GetModelAgreementOffersPlainArgs extends com.pulumi.resources
     public static final GetModelAgreementOffersPlainArgs Empty = new GetModelAgreementOffersPlainArgs();
 
     /**
-     * Model ID of the foundation model
+     * Model ID of the foundation model.
      * 
      * The following arguments are optional:
      * 
@@ -25,7 +25,7 @@ public final class GetModelAgreementOffersPlainArgs extends com.pulumi.resources
     private String modelId;
 
     /**
-     * @return Model ID of the foundation model
+     * @return Model ID of the foundation model.
      * 
      * The following arguments are optional:
      * 
@@ -91,7 +91,7 @@ public final class GetModelAgreementOffersPlainArgs extends com.pulumi.resources
         }
 
         /**
-         * @param modelId Model ID of the foundation model
+         * @param modelId Model ID of the foundation model.
          * 
          * The following arguments are optional:
          * 

@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<Inputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationGetArgs>? BedrockFoundationModelConfiguration { get; set; }
 
         /// <summary>
-        /// Parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
+        /// Parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`, `SMART_PARSING`, `MULTI_MODAL_EMBEDDINGS`.
         /// </summary>
         [Input("parsingStrategy", required: true)]
         public Input<string> ParsingStrategy { get; set; } = null!;

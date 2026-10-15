@@ -64,7 +64,7 @@ export class Bucket extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly availabilityZone: pulumi.Output<string>;
     /**
-     * Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+     * Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) CLI command to get a list of bundle IDs that you can specify.
      */
     declare public readonly bundleId: pulumi.Output<string>;
     /**
@@ -161,7 +161,7 @@ export interface BucketState {
      */
     availabilityZone?: pulumi.Input<string | undefined>;
     /**
-     * Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+     * Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) CLI command to get a list of bundle IDs that you can specify.
      */
     bundleId?: pulumi.Input<string | undefined>;
     /**
@@ -205,7 +205,7 @@ export interface BucketState {
  */
 export interface BucketArgs {
     /**
-     * Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+     * Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) CLI command to get a list of bundle IDs that you can specify.
      */
     bundleId: pulumi.Input<string>;
     /**

@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Mwaa.Outputs
     [OutputType]
     public sealed class EnvironmentLastUpdatedError
     {
+        /// <summary>
+        /// Error code of the last update error.
+        /// </summary>
         public readonly string? ErrorCode;
+        /// <summary>
+        /// Error message of the last update error.
+        /// </summary>
         public readonly string? ErrorMessage;
 
         [OutputConstructor]

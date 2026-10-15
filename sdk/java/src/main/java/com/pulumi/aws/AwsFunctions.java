@@ -2970,7 +2970,7 @@ public final class AwsFunctions {
      * }
      * </pre>
      * 
-     * ### Dynamically Apply Default Tags to Auto Scaling Group
+     * ### Dynamically Apply Default Tags to Auto Scaling group
      * 
      */
     public static Output<GetDefaultTagsResult> getDefaultTags() {
@@ -3015,7 +3015,7 @@ public final class AwsFunctions {
      * }
      * </pre>
      * 
-     * ### Dynamically Apply Default Tags to Auto Scaling Group
+     * ### Dynamically Apply Default Tags to Auto Scaling group
      * 
      */
     public static CompletableFuture<GetDefaultTagsResult> getDefaultTagsPlain() {
@@ -3060,7 +3060,7 @@ public final class AwsFunctions {
      * }
      * </pre>
      * 
-     * ### Dynamically Apply Default Tags to Auto Scaling Group
+     * ### Dynamically Apply Default Tags to Auto Scaling group
      * 
      */
     public static Output<GetDefaultTagsResult> getDefaultTags(GetDefaultTagsArgs args) {
@@ -3105,7 +3105,7 @@ public final class AwsFunctions {
      * }
      * </pre>
      * 
-     * ### Dynamically Apply Default Tags to Auto Scaling Group
+     * ### Dynamically Apply Default Tags to Auto Scaling group
      * 
      */
     public static CompletableFuture<GetDefaultTagsResult> getDefaultTagsPlain(GetDefaultTagsPlainArgs args) {
@@ -3150,7 +3150,7 @@ public final class AwsFunctions {
      * }
      * </pre>
      * 
-     * ### Dynamically Apply Default Tags to Auto Scaling Group
+     * ### Dynamically Apply Default Tags to Auto Scaling group
      * 
      */
     public static Output<GetDefaultTagsResult> getDefaultTags(GetDefaultTagsArgs args, InvokeOptions options) {
@@ -3195,7 +3195,7 @@ public final class AwsFunctions {
      * }
      * </pre>
      * 
-     * ### Dynamically Apply Default Tags to Auto Scaling Group
+     * ### Dynamically Apply Default Tags to Auto Scaling group
      * 
      */
     public static Output<GetDefaultTagsResult> getDefaultTags(GetDefaultTagsArgs args, InvokeOutputOptions options) {
@@ -3240,7 +3240,7 @@ public final class AwsFunctions {
      * }
      * </pre>
      * 
-     * ### Dynamically Apply Default Tags to Auto Scaling Group
+     * ### Dynamically Apply Default Tags to Auto Scaling group
      * 
      */
     public static CompletableFuture<GetDefaultTagsResult> getDefaultTagsPlain(GetDefaultTagsPlainArgs args, InvokeOptions options) {

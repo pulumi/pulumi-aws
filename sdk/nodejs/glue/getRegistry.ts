@@ -51,7 +51,7 @@ export interface GetRegistryResult {
      */
     readonly arn: string;
     /**
-     * A description of the registry.
+     * Description of the registry.
      */
     readonly description: string;
     readonly name: string;

@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get information about an AWS Cloudwatch Log Group
+// Use this data source to get information about an AWS CloudWatch Log Group
 //
 // ## Example Usage
 //
@@ -50,7 +50,7 @@ func LookupLogGroup(ctx *pulumi.Context, args *LookupLogGroupArgs, opts ...pulum
 
 // A collection of arguments for invoking getLogGroup.
 type LookupLogGroupArgs struct {
-	// Name of the Cloudwatch log group
+	// Name of the CloudWatch log group
 	Name string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -60,7 +60,7 @@ type LookupLogGroupArgs struct {
 
 // A collection of values returned by getLogGroup.
 type LookupLogGroupResult struct {
-	// ARN of the Cloudwatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
+	// ARN of the CloudWatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
 	Arn string `pulumi:"arn"`
 	// Creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 	CreationTime int `pulumi:"creationTime"`
@@ -87,7 +87,7 @@ func LookupLogGroupOutput(ctx *pulumi.Context, args LookupLogGroupOutputArgs, op
 
 // A collection of arguments for invoking getLogGroup.
 type LookupLogGroupOutputArgs struct {
-	// Name of the Cloudwatch log group
+	// Name of the CloudWatch log group
 	Name pulumi.StringInput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
@@ -114,7 +114,7 @@ func (o LookupLogGroupResultOutput) ToLookupLogGroupResultOutputWithContext(ctx 
 	return o
 }
 
-// ARN of the Cloudwatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
+// ARN of the CloudWatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
 func (o LookupLogGroupResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLogGroupResult) string { return v.Arn }).(pulumi.StringOutput)
 }

@@ -11,16 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class DetectorDatasourcesKubernetes {
     /**
-     * @return Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-     * See Kubernetes Audit Logs below for more details.
+     * @return Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html). See `auditLogs` below for more details.
      * 
      */
     private DetectorDatasourcesKubernetesAuditLogs auditLogs;
 
     private DetectorDatasourcesKubernetes() {}
     /**
-     * @return Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-     * See Kubernetes Audit Logs below for more details.
+     * @return Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html). See `auditLogs` below for more details.
      * 
      */
     public DetectorDatasourcesKubernetesAuditLogs auditLogs() {

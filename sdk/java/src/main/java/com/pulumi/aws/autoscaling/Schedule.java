@@ -93,14 +93,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:autoscaling/schedule:Schedule")
 public class Schedule extends com.pulumi.resources.CustomResource {
     /**
-     * ARN assigned by AWS to the autoscaling schedule.
+     * ARN assigned by AWS to the Auto Scaling schedule.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return ARN assigned by AWS to the autoscaling schedule.
+     * @return ARN assigned by AWS to the Auto Scaling schedule.
      * 
      */
     public Output<String> arn() {

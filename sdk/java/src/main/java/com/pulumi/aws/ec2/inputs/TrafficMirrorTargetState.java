@@ -47,14 +47,14 @@ public final class TrafficMirrorTargetState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
+     * The VPC Endpoint ID of the Gateway Load Balancer that is associated with the target.
      * 
      */
     @Import(name="gatewayLoadBalancerEndpointId")
     private @Nullable Output<String> gatewayLoadBalancerEndpointId;
 
     /**
-     * @return The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
+     * @return The VPC Endpoint ID of the Gateway Load Balancer that is associated with the target.
      * 
      */
     public Optional<Output<String>> gatewayLoadBalancerEndpointId() {
@@ -230,7 +230,7 @@ public final class TrafficMirrorTargetState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param gatewayLoadBalancerEndpointId The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
+         * @param gatewayLoadBalancerEndpointId The VPC Endpoint ID of the Gateway Load Balancer that is associated with the target.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class TrafficMirrorTargetState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param gatewayLoadBalancerEndpointId The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
+         * @param gatewayLoadBalancerEndpointId The VPC Endpoint ID of the Gateway Load Balancer that is associated with the target.
          * 
          * @return builder
          * 

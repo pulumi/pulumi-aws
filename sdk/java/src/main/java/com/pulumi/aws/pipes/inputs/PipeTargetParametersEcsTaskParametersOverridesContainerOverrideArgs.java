@@ -36,14 +36,14 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
     }
 
     /**
-     * Number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
+     * Number of CPU units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
      * 
      */
     @Import(name="cpu")
     private @Nullable Output<Integer> cpu;
 
     /**
-     * @return Number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
+     * @return Number of CPU units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
      * 
      */
     public Optional<Output<Integer>> cpu() {
@@ -203,7 +203,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
         }
 
         /**
-         * @param cpu Number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
+         * @param cpu Number of CPU units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
         }
 
         /**
-         * @param cpu Number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
+         * @param cpu Number of CPU units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
          * 
          * @return builder
          * 

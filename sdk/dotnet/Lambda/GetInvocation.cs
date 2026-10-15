@@ -312,7 +312,7 @@ namespace Pulumi.Aws.Lambda
         public string? Region { get; set; }
 
         /// <summary>
-        /// Tenant Id to serve invocations from specified tenant.
+        /// Tenant ID to serve invocations from specified tenant.
         /// </summary>
         [Input("tenantId")]
         public string? TenantId { get; set; }
@@ -352,7 +352,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Tenant Id to serve invocations from specified tenant.
+        /// Tenant ID to serve invocations from specified tenant.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }

@@ -20,6 +20,8 @@ namespace Pulumi.Aws.CloudFront.Inputs
 
         /// <summary>
         /// ARN of the CloudFront function.
+        /// 
+        /// #### `GRPC` config arguments
         /// </summary>
         [Input("functionArn", required: true)]
         public Input<string> FunctionArn { get; set; } = null!;

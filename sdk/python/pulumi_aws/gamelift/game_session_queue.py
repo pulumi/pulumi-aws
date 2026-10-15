@@ -35,7 +35,7 @@ class GameSessionQueueArgs:
         :param pulumi.Input[_builtins.str] custom_event_data: Information to be added to all events that are related to this game session queue.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destinations: List of fleet/alias ARNs used by session queue for placing game sessions.
         :param pulumi.Input[_builtins.str] name: Name of the session queue.
-        :param pulumi.Input[_builtins.str] notification_target: An SNS topic ARN that is set up to receive game session placement notifications.
+        :param pulumi.Input[_builtins.str] notification_target: SNS topic ARN that is set up to receive game session placement notifications.
         :param pulumi.Input[Sequence[pulumi.Input['GameSessionQueuePlayerLatencyPolicyArgs']]] player_latency_policies: One or more policies used to choose fleet based on player latency. See below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -98,7 +98,7 @@ class GameSessionQueueArgs:
     @pulumi.getter(name="notificationTarget")
     def notification_target(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        An SNS topic ARN that is set up to receive game session placement notifications.
+        SNS topic ARN that is set up to receive game session placement notifications.
         """
         return pulumi.get(self, "notification_target")
 
@@ -175,11 +175,11 @@ class _GameSessionQueueState:
         :param pulumi.Input[_builtins.str] custom_event_data: Information to be added to all events that are related to this game session queue.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destinations: List of fleet/alias ARNs used by session queue for placing game sessions.
         :param pulumi.Input[_builtins.str] name: Name of the session queue.
-        :param pulumi.Input[_builtins.str] notification_target: An SNS topic ARN that is set up to receive game session placement notifications.
+        :param pulumi.Input[_builtins.str] notification_target: SNS topic ARN that is set up to receive game session placement notifications.
         :param pulumi.Input[Sequence[pulumi.Input['GameSessionQueuePlayerLatencyPolicyArgs']]] player_latency_policies: One or more policies used to choose fleet based on player latency. See below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.int] timeout_in_seconds: Maximum time a game session request can remain in the queue.
         """
         if arn is not None:
@@ -255,7 +255,7 @@ class _GameSessionQueueState:
     @pulumi.getter(name="notificationTarget")
     def notification_target(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        An SNS topic ARN that is set up to receive game session placement notifications.
+        SNS topic ARN that is set up to receive game session placement notifications.
         """
         return pulumi.get(self, "notification_target")
 
@@ -303,7 +303,7 @@ class _GameSessionQueueState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -381,7 +381,7 @@ class GameSessionQueue(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] custom_event_data: Information to be added to all events that are related to this game session queue.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destinations: List of fleet/alias ARNs used by session queue for placing game sessions.
         :param pulumi.Input[_builtins.str] name: Name of the session queue.
-        :param pulumi.Input[_builtins.str] notification_target: An SNS topic ARN that is set up to receive game session placement notifications.
+        :param pulumi.Input[_builtins.str] notification_target: SNS topic ARN that is set up to receive game session placement notifications.
         :param pulumi.Input[Sequence[pulumi.Input[Union['GameSessionQueuePlayerLatencyPolicyArgs', 'GameSessionQueuePlayerLatencyPolicyArgsDict', 'outputs.GameSessionQueuePlayerLatencyPolicy']]]] player_latency_policies: One or more policies used to choose fleet based on player latency. See below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -503,11 +503,11 @@ class GameSessionQueue(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] custom_event_data: Information to be added to all events that are related to this game session queue.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destinations: List of fleet/alias ARNs used by session queue for placing game sessions.
         :param pulumi.Input[_builtins.str] name: Name of the session queue.
-        :param pulumi.Input[_builtins.str] notification_target: An SNS topic ARN that is set up to receive game session placement notifications.
+        :param pulumi.Input[_builtins.str] notification_target: SNS topic ARN that is set up to receive game session placement notifications.
         :param pulumi.Input[Sequence[pulumi.Input[Union['GameSessionQueuePlayerLatencyPolicyArgs', 'GameSessionQueuePlayerLatencyPolicyArgsDict', 'outputs.GameSessionQueuePlayerLatencyPolicy']]]] player_latency_policies: One or more policies used to choose fleet based on player latency. See below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.int] timeout_in_seconds: Maximum time a game session request can remain in the queue.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -562,7 +562,7 @@ class GameSessionQueue(pulumi.CustomResource):
     @pulumi.getter(name="notificationTarget")
     def notification_target(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        An SNS topic ARN that is set up to receive game session placement notifications.
+        SNS topic ARN that is set up to receive game session placement notifications.
         """
         return pulumi.get(self, "notification_target")
 
@@ -594,7 +594,7 @@ class GameSessionQueue(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

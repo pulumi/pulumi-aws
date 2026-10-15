@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Eks.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierResult> ControlPlaneScalingTiers;
         /// <summary>
-        /// Default eks platform version for the cluster version.
+        /// Default EKS platform version for the cluster version.
         /// </summary>
         public readonly string DefaultPlatformVersion;
         /// <summary>

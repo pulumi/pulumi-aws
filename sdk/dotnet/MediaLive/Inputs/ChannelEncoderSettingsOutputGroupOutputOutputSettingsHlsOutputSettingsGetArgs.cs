@@ -12,9 +12,15 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Only applicable when this output is referencing an H.265 video description. Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
+        /// </summary>
         [Input("h265PackagingType")]
         public Input<string>? H265PackagingType { get; set; }
 
+        /// <summary>
+        /// Settings regarding the underlying stream. See `HlsSettings` Block for details.
+        /// </summary>
         [Input("hlsSettings", required: true)]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsGetArgs> HlsSettings { get; set; } = null!;
 
@@ -24,6 +30,9 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("nameModifier")]
         public Input<string>? NameModifier { get; set; }
 
+        /// <summary>
+        /// String concatenated to the end of the destination filename.
+        /// </summary>
         [Input("segmentModifier")]
         public Input<string>? SegmentModifier { get; set; }
 

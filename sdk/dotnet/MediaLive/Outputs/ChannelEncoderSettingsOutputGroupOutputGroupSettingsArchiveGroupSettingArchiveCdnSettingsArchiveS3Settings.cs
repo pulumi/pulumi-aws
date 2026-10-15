@@ -14,7 +14,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3Settings
     {
         /// <summary>
-        /// Specify the canned ACL to apply to each S3 request.
+        /// Canned ACL to apply to each S3 request.
         /// </summary>
         public readonly string? CannedAcl;
 

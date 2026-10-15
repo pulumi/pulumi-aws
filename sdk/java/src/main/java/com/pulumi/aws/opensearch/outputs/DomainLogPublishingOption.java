@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DomainLogPublishingOption {
     /**
-     * @return ARN of the Cloudwatch log group to which log needs to be published.
+     * @return ARN of the CloudWatch log group to which log needs to be published.
      * 
      */
     private String cloudwatchLogGroupArn;
@@ -31,7 +31,7 @@ public final class DomainLogPublishingOption {
 
     private DomainLogPublishingOption() {}
     /**
-     * @return ARN of the Cloudwatch log group to which log needs to be published.
+     * @return ARN of the CloudWatch log group to which log needs to be published.
      * 
      */
     public String cloudwatchLogGroupArn() {

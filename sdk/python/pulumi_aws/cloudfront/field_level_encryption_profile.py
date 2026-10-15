@@ -219,7 +219,7 @@ class FieldLevelEncryptionProfile(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Cloudfront Field Level Encryption Profile using the `id`. For example:
+        Using `pulumi import`, import CloudFront Field Level Encryption Profile using the `id`. For example:
 
         ```sh
         $ pulumi import aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile profile K3D5EWEUDCCXON
@@ -268,7 +268,7 @@ class FieldLevelEncryptionProfile(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Cloudfront Field Level Encryption Profile using the `id`. For example:
+        Using `pulumi import`, import CloudFront Field Level Encryption Profile using the `id`. For example:
 
         ```sh
         $ pulumi import aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile profile K3D5EWEUDCCXON

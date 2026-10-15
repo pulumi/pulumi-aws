@@ -39,7 +39,7 @@ class AgentcoreAgentRuntimeArgs:
         """
         The set of arguments for constructing a AgentcoreAgentRuntime resource.
 
-        :param pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactArgs'] agent_runtime_artifact: Container artifact configuration. See `agent_runtime_artifact` below.
+        :param pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactArgs'] agent_runtime_artifact: Artifact configuration for the agent runtime, either a container image or code stored in Amazon S3. See `agent_runtime_artifact` below.
         :param pulumi.Input[_builtins.str] agent_runtime_name: Name of the agent runtime.
         :param pulumi.Input['AgentcoreAgentRuntimeNetworkConfigurationArgs'] network_configuration: Network configuration for the agent runtime. See `network_configuration` below.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that the agent runtime assumes to access AWS services.
@@ -87,7 +87,7 @@ class AgentcoreAgentRuntimeArgs:
     @pulumi.getter(name="agentRuntimeArtifact")
     def agent_runtime_artifact(self) -> pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactArgs']:
         """
-        Container artifact configuration. See `agent_runtime_artifact` below.
+        Artifact configuration for the agent runtime, either a container image or code stored in Amazon S3. See `agent_runtime_artifact` below.
         """
         return pulumi.get(self, "agent_runtime_artifact")
 
@@ -290,7 +290,7 @@ class _AgentcoreAgentRuntimeState:
         Input properties used for looking up and filtering AgentcoreAgentRuntime resources.
 
         :param pulumi.Input[_builtins.str] agent_runtime_arn: ARN of the Agent Runtime.
-        :param pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactArgs'] agent_runtime_artifact: Container artifact configuration. See `agent_runtime_artifact` below.
+        :param pulumi.Input['AgentcoreAgentRuntimeAgentRuntimeArtifactArgs'] agent_runtime_artifact: Artifact configuration for the agent runtime, either a container image or code stored in Amazon S3. See `agent_runtime_artifact` below.
         :param pulumi.Input[_builtins.str] agent_runtime_id: Unique identifier of the Agent Runtime.
         :param pulumi.Input[_builtins.str] agent_runtime_name: Name of the agent runtime.
         :param pulumi.Input[_builtins.str] agent_runtime_version: Version of the Agent Runtime.
@@ -368,7 +368,7 @@ class _AgentcoreAgentRuntimeState:
     @pulumi.getter(name="agentRuntimeArtifact")
     def agent_runtime_artifact(self) -> pulumi.Input[Optional['AgentcoreAgentRuntimeAgentRuntimeArtifactArgs']]:
         """
-        Container artifact configuration. See `agent_runtime_artifact` below.
+        Artifact configuration for the agent runtime, either a container image or code stored in Amazon S3. See `agent_runtime_artifact` below.
         """
         return pulumi.get(self, "agent_runtime_artifact")
 
@@ -771,7 +771,7 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AgentcoreAgentRuntimeAgentRuntimeArtifactArgs', 'AgentcoreAgentRuntimeAgentRuntimeArtifactArgsDict', 'outputs.AgentcoreAgentRuntimeAgentRuntimeArtifact']] agent_runtime_artifact: Container artifact configuration. See `agent_runtime_artifact` below.
+        :param pulumi.Input[Union['AgentcoreAgentRuntimeAgentRuntimeArtifactArgs', 'AgentcoreAgentRuntimeAgentRuntimeArtifactArgsDict', 'outputs.AgentcoreAgentRuntimeAgentRuntimeArtifact']] agent_runtime_artifact: Artifact configuration for the agent runtime, either a container image or code stored in Amazon S3. See `agent_runtime_artifact` below.
         :param pulumi.Input[_builtins.str] agent_runtime_name: Name of the agent runtime.
         :param pulumi.Input[Union['AgentcoreAgentRuntimeAuthorizerConfigurationArgs', 'AgentcoreAgentRuntimeAuthorizerConfigurationArgsDict', 'outputs.AgentcoreAgentRuntimeAuthorizerConfiguration']] authorizer_configuration: Authorization configuration for authenticating incoming requests. See `authorizer_configuration` below.
         :param pulumi.Input[_builtins.str] description: Description of the agent runtime.
@@ -1054,7 +1054,7 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] agent_runtime_arn: ARN of the Agent Runtime.
-        :param pulumi.Input[Union['AgentcoreAgentRuntimeAgentRuntimeArtifactArgs', 'AgentcoreAgentRuntimeAgentRuntimeArtifactArgsDict', 'outputs.AgentcoreAgentRuntimeAgentRuntimeArtifact']] agent_runtime_artifact: Container artifact configuration. See `agent_runtime_artifact` below.
+        :param pulumi.Input[Union['AgentcoreAgentRuntimeAgentRuntimeArtifactArgs', 'AgentcoreAgentRuntimeAgentRuntimeArtifactArgsDict', 'outputs.AgentcoreAgentRuntimeAgentRuntimeArtifact']] agent_runtime_artifact: Artifact configuration for the agent runtime, either a container image or code stored in Amazon S3. See `agent_runtime_artifact` below.
         :param pulumi.Input[_builtins.str] agent_runtime_id: Unique identifier of the Agent Runtime.
         :param pulumi.Input[_builtins.str] agent_runtime_name: Name of the agent runtime.
         :param pulumi.Input[_builtins.str] agent_runtime_version: Version of the Agent Runtime.
@@ -1113,7 +1113,7 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
     @pulumi.getter(name="agentRuntimeArtifact")
     def agent_runtime_artifact(self) -> pulumi.Output['outputs.AgentcoreAgentRuntimeAgentRuntimeArtifact']:
         """
-        Container artifact configuration. See `agent_runtime_artifact` below.
+        Artifact configuration for the agent runtime, either a container image or code stored in Amazon S3. See `agent_runtime_artifact` below.
         """
         return pulumi.get(self, "agent_runtime_artifact")
 

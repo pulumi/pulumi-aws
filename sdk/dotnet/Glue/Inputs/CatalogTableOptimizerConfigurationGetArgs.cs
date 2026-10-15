@@ -13,31 +13,31 @@ namespace Pulumi.Aws.Glue.Inputs
     public sealed class CatalogTableOptimizerConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The configuration block for a compaction optimizer. See Compaction Configuration for additional details.
+        /// Configuration block for a compaction optimizer. See `CompactionConfiguration` Block for additional details.
         /// </summary>
         [Input("compactionConfiguration")]
         public Input<Inputs.CatalogTableOptimizerConfigurationCompactionConfigurationGetArgs>? CompactionConfiguration { get; set; }
 
         /// <summary>
-        /// Indicates whether the table optimizer is enabled.
+        /// Whether the table optimizer is enabled.
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
+        /// Configuration block for an orphan file deletion optimizer. See `OrphanFileDeletionConfiguration` Block for additional details.
         /// </summary>
         [Input("orphanFileDeletionConfiguration")]
         public Input<Inputs.CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationGetArgs>? OrphanFileDeletionConfiguration { get; set; }
 
         /// <summary>
-        /// The configuration block for a snapshot retention optimizer. See Retention Configuration for additional details.
+        /// Configuration block for a snapshot retention optimizer. See `RetentionConfiguration` Block for additional details.
         /// </summary>
         [Input("retentionConfiguration")]
         public Input<Inputs.CatalogTableOptimizerConfigurationRetentionConfigurationGetArgs>? RetentionConfiguration { get; set; }
 
         /// <summary>
-        /// The ARN of the IAM role to use for the table optimizer.
+        /// ARN of the IAM role to use for the table optimizer.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;

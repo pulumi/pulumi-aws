@@ -82,7 +82,7 @@ export interface GetAssetsArgs {
 export interface GetAssetsResult {
     readonly arn: string;
     /**
-     * List of all the asset ids found. This data source will fail if none are found.
+     * List of all the asset IDs found. This data source will fail if none are found.
      */
     readonly assetIds: string[];
     readonly hostIdFilters?: string[];

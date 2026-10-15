@@ -62,7 +62,7 @@ public final class GetRoutingProfilePlainArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * Returns information on a specific Routing Profile by Routing Profile id
+     * Returns information on a specific Routing Profile by Routing Profile ID
      * 
      * &gt; **NOTE:** `instanceId` and one of either `name` or `routingProfileId` is required.
      * 
@@ -71,7 +71,7 @@ public final class GetRoutingProfilePlainArgs extends com.pulumi.resources.Invok
     private @Nullable String routingProfileId;
 
     /**
-     * @return Returns information on a specific Routing Profile by Routing Profile id
+     * @return Returns information on a specific Routing Profile by Routing Profile ID
      * 
      * &gt; **NOTE:** `instanceId` and one of either `name` or `routingProfileId` is required.
      * 
@@ -157,7 +157,7 @@ public final class GetRoutingProfilePlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param routingProfileId Returns information on a specific Routing Profile by Routing Profile id
+         * @param routingProfileId Returns information on a specific Routing Profile by Routing Profile ID
          * 
          * &gt; **NOTE:** `instanceId` and one of either `name` or `routingProfileId` is required.
          * 

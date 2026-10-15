@@ -60,42 +60,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:grafana/workspaceApiKey:WorkspaceApiKey")
 public class WorkspaceApiKey extends com.pulumi.resources.CustomResource {
     /**
-     * The key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
+     * Key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
      * 
      */
     @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
-     * @return The key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
+     * @return Key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
      * 
      */
     public Output<String> key() {
         return this.key;
     }
     /**
-     * Specifies the name of the API key. Key names must be unique to the workspace.
+     * Name of the API key. Key names must be unique to the workspace.
      * 
      */
     @Export(name="keyName", refs={String.class}, tree="[0]")
     private Output<String> keyName;
 
     /**
-     * @return Specifies the name of the API key. Key names must be unique to the workspace.
+     * @return Name of the API key. Key names must be unique to the workspace.
      * 
      */
     public Output<String> keyName() {
         return this.keyName;
     }
     /**
-     * Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
+     * Permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
      * 
      */
     @Export(name="keyRole", refs={String.class}, tree="[0]")
     private Output<String> keyRole;
 
     /**
-     * @return Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
+     * @return Permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
      * 
      */
     public Output<String> keyRole() {
@@ -116,28 +116,28 @@ public class WorkspaceApiKey extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
+     * Time in seconds until the API key expires. Keys can be valid for up to 30 days.
      * 
      */
     @Export(name="secondsToLive", refs={Integer.class}, tree="[0]")
     private Output<Integer> secondsToLive;
 
     /**
-     * @return Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
+     * @return Time in seconds until the API key expires. Keys can be valid for up to 30 days.
      * 
      */
     public Output<Integer> secondsToLive() {
         return this.secondsToLive;
     }
     /**
-     * The ID of the workspace that the API key is valid for.
+     * ID of the workspace that the API key is valid for.
      * 
      */
     @Export(name="workspaceId", refs={String.class}, tree="[0]")
     private Output<String> workspaceId;
 
     /**
-     * @return The ID of the workspace that the API key is valid for.
+     * @return ID of the workspace that the API key is valid for.
      * 
      */
     public Output<String> workspaceId() {

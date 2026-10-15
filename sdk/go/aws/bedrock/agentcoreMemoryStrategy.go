@@ -14,11 +14,7 @@ import (
 
 // Manages an AWS Bedrock AgentCore Memory Strategy. Memory strategies define how the agent processes and organizes information within a memory, such as semantic understanding, summarization, or custom processing logic.
 //
-// **Important Limitations:**
-//
-// - Each memory can have a maximum of 6 strategies total
-// - Only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory
-// - Multiple `CUSTOM` strategies are allowed (subject to the total limit of 6)
+// > **Note:** Each memory can have a maximum of 6 strategies. Only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory. Multiple `CUSTOM` strategies are allowed, subject to the total limit of 6.
 //
 // ## Example Usage
 //
@@ -37,7 +33,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreMemoryStrategy(ctx, "semantic", &bedrock.AgentcoreMemoryStrategyArgs{
-//				Name:        pulumi.String("semantic-strategy"),
+//				Name:        pulumi.String("semantic_strategy"),
 //				MemoryId:    pulumi.Any(example.Id),
 //				Type:        pulumi.String("SEMANTIC"),
 //				Description: pulumi.String("Semantic understanding strategy"),
@@ -69,7 +65,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreMemoryStrategy(ctx, "summary", &bedrock.AgentcoreMemoryStrategyArgs{
-//				Name:        pulumi.String("summary-strategy"),
+//				Name:        pulumi.String("summary_strategy"),
 //				MemoryId:    pulumi.Any(example.Id),
 //				Type:        pulumi.String("SUMMARIZATION"),
 //				Description: pulumi.String("Text summarization strategy"),
@@ -101,7 +97,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreMemoryStrategy(ctx, "user_pref", &bedrock.AgentcoreMemoryStrategyArgs{
-//				Name:        pulumi.String("user-preference-strategy"),
+//				Name:        pulumi.String("user_preference_strategy"),
 //				MemoryId:    pulumi.Any(example.Id),
 //				Type:        pulumi.String("USER_PREFERENCE"),
 //				Description: pulumi.String("User preference tracking strategy"),
@@ -133,7 +129,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreMemoryStrategy(ctx, "episodic", &bedrock.AgentcoreMemoryStrategyArgs{
-//				Name:        pulumi.String("episodic-strategy"),
+//				Name:        pulumi.String("episodic_strategy"),
 //				MemoryId:    pulumi.Any(example.Id),
 //				Type:        pulumi.String("EPISODIC"),
 //				Description: pulumi.String("Episodic memory strategy"),
@@ -176,7 +172,7 @@ import (
 //					},
 //					Type: pulumi.String("SEMANTIC_OVERRIDE"),
 //				},
-//				Name:                   pulumi.String("custom-semantic-strategy"),
+//				Name:                   pulumi.String("custom_semantic_strategy"),
 //				MemoryId:               pulumi.Any(example.Id),
 //				MemoryExecutionRoleArn: pulumi.Any(example.MemoryExecutionRoleArn),
 //				Type:                   pulumi.String("CUSTOM"),
@@ -216,7 +212,7 @@ import (
 //					},
 //					Type: pulumi.String("SUMMARY_OVERRIDE"),
 //				},
-//				Name:        pulumi.String("custom-summary-strategy"),
+//				Name:        pulumi.String("custom_summary_strategy"),
 //				MemoryId:    pulumi.Any(example.Id),
 //				Type:        pulumi.String("CUSTOM"),
 //				Description: pulumi.String("Custom summarization strategy"),
@@ -259,7 +255,7 @@ import (
 //					},
 //					Type: pulumi.String("USER_PREFERENCE_OVERRIDE"),
 //				},
-//				Name:        pulumi.String("custom-user-preference-strategy"),
+//				Name:        pulumi.String("custom_user_preference_strategy"),
 //				MemoryId:    pulumi.Any(example.Id),
 //				Type:        pulumi.String("CUSTOM"),
 //				Description: pulumi.String("Custom user preference tracking strategy"),
@@ -300,9 +296,16 @@ import (
 //						AppendToPrompt: pulumi.String("Extract key events and episodes from interactions"),
 //						ModelId:        pulumi.String("anthropic.claude-3-haiku-20240307-v1:0"),
 //					},
+//					Reflection: &bedrock.AgentcoreMemoryStrategyConfigurationReflectionArgs{
+//						AppendToPrompt: pulumi.String("Reflect on episodes to derive cross-session insights"),
+//						ModelId:        pulumi.String("anthropic.claude-3-sonnet-20240229-v1:0"),
+//						NamespaceTemplates: pulumi.StringArray{
+//							pulumi.String("/strategies/{memoryStrategyId}/actors/{actorId}"),
+//						},
+//					},
 //					Type: pulumi.String("EPISODIC_OVERRIDE"),
 //				},
-//				Name:                   pulumi.String("custom-episodic-strategy"),
+//				Name:                   pulumi.String("custom_episodic_strategy"),
 //				MemoryId:               pulumi.Any(example.Id),
 //				MemoryExecutionRoleArn: pulumi.Any(example.MemoryExecutionRoleArn),
 //				Type:                   pulumi.String("CUSTOM"),
@@ -336,78 +339,21 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreMemoryStrategy(ctx, "self_managed", &bedrock.AgentcoreMemoryStrategyArgs{
 //				Configuration: &bedrock.AgentcoreMemoryStrategyConfigurationArgs{
-//					SelfManaged: []map[string]interface{}{
-//						map[string]interface{}{
-//							"invocationConfiguration": []map[string]interface{}{
-//								map[string]interface{}{
-//									"topicArn":                  example.Arn,
-//									"payloadDeliveryBucketName": exampleAwsS3Bucket.Bucket,
-//								},
-//							},
-//							"triggerConditions": []map[string][]map[string]int{
-//								{
-//									"messageBasedTrigger": []map[string]int{
-//										{
-//											"messageCount": 12,
-//										},
-//									},
-//								},
-//							},
-//							"historicalContextWindowSize": 10,
-//						},
-//					},
-//					Type: pulumi.String("SELF_MANAGED"),
-//				},
-//				Name:                   pulumi.String("self-managed-strategy"),
-//				MemoryId:               pulumi.Any(exampleAwsBedrockagentcoreMemory.Id),
-//				MemoryExecutionRoleArn: pulumi.Any(exampleAwsBedrockagentcoreMemory.MemoryExecutionRoleArn),
-//				Type:                   pulumi.String("CUSTOM"),
-//				Description:            pulumi.String("Self-managed processing strategy"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Custom Strategy with Self-Managed Configuration
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := bedrock.NewAgentcoreMemoryStrategy(ctx, "self_managed", &bedrock.AgentcoreMemoryStrategyArgs{
-//				Configuration: &bedrock.AgentcoreMemoryStrategyConfigurationArgs{
 //					SelfManagedConfiguration: &bedrock.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationArgs{
+//						TriggerConditions: &bedrock.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsArgs{
+//							MessageBasedTrigger: &bedrock.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerArgs{
+//								MessageCount: pulumi.Int(12),
+//							},
+//						},
 //						InvocationConfiguration: &bedrock.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationArgs{
 //							TopicArn:                  pulumi.Any(example.Arn),
 //							PayloadDeliveryBucketName: pulumi.Any(exampleAwsS3Bucket.Bucket),
-//						},
-//						TriggerCondition: []map[string][]map[string]int{
-//							{
-//								"messageBasedTrigger": []map[string]int{
-//									{
-//										"messageCount": 12,
-//									},
-//								},
-//							},
 //						},
 //						HistoricalContextWindowSize: pulumi.Int(10),
 //					},
 //					Type: pulumi.String("SELF_MANAGED"),
 //				},
-//				Name:                   pulumi.String("self-managed-strategy"),
+//				Name:                   pulumi.String("self_managed_strategy"),
 //				MemoryId:               pulumi.Any(exampleAwsBedrockagentcoreMemory.Id),
 //				MemoryExecutionRoleArn: pulumi.Any(exampleAwsBedrockagentcoreMemory.MemoryExecutionRoleArn),
 //				Type:                   pulumi.String("CUSTOM"),
@@ -433,7 +379,7 @@ import (
 //
 // #### Optional
 //
-// * `accountId` (String) Account ID where this resource is managed.
+// * `accountId` (String) AWS Account where this resource is managed.
 // * `region` (String) Region where this resource is managed.
 //
 // Using `pulumi import`, import memory strategies using `memoryId` and `memoryStrategyId` separated by a comma (`,`). For example:
@@ -460,9 +406,9 @@ type AgentcoreMemoryStrategy struct {
 	MemoryStrategyId pulumi.StringOutput `pulumi:"memoryStrategyId"`
 	// Name of the memory strategy. Changing this forces a new resource, because the service API does not support renaming a strategy.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured for all strategies except `CUSTOM` strategies using `SELF_MANAGED` configuration.
+	// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured, except for `CUSTOM` strategies using `SELF_MANAGED` configuration, where neither can be configured.
 	NamespaceTemplates pulumi.StringArrayOutput `pulumi:"namespaceTemplates"`
-	// Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
+	// Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured, except for `CUSTOM` strategies using `SELF_MANAGED` configuration, where neither can be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
 	//
 	// Deprecated: namespaces is deprecated. Use namespaceTemplates instead.
 	Namespaces pulumi.StringArrayOutput `pulumi:"namespaces"`
@@ -529,9 +475,9 @@ type agentcoreMemoryStrategyState struct {
 	MemoryStrategyId *string `pulumi:"memoryStrategyId"`
 	// Name of the memory strategy. Changing this forces a new resource, because the service API does not support renaming a strategy.
 	Name *string `pulumi:"name"`
-	// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured for all strategies except `CUSTOM` strategies using `SELF_MANAGED` configuration.
+	// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured, except for `CUSTOM` strategies using `SELF_MANAGED` configuration, where neither can be configured.
 	NamespaceTemplates []string `pulumi:"namespaceTemplates"`
-	// Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
+	// Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured, except for `CUSTOM` strategies using `SELF_MANAGED` configuration, where neither can be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
 	//
 	// Deprecated: namespaces is deprecated. Use namespaceTemplates instead.
 	Namespaces []string `pulumi:"namespaces"`
@@ -563,9 +509,9 @@ type AgentcoreMemoryStrategyState struct {
 	MemoryStrategyId pulumi.StringPtrInput
 	// Name of the memory strategy. Changing this forces a new resource, because the service API does not support renaming a strategy.
 	Name pulumi.StringPtrInput
-	// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured for all strategies except `CUSTOM` strategies using `SELF_MANAGED` configuration.
+	// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured, except for `CUSTOM` strategies using `SELF_MANAGED` configuration, where neither can be configured.
 	NamespaceTemplates pulumi.StringArrayInput
-	// Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
+	// Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured, except for `CUSTOM` strategies using `SELF_MANAGED` configuration, where neither can be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
 	//
 	// Deprecated: namespaces is deprecated. Use namespaceTemplates instead.
 	Namespaces pulumi.StringArrayInput
@@ -599,9 +545,9 @@ type agentcoreMemoryStrategyArgs struct {
 	MemoryRecordSchema *AgentcoreMemoryStrategyMemoryRecordSchema `pulumi:"memoryRecordSchema"`
 	// Name of the memory strategy. Changing this forces a new resource, because the service API does not support renaming a strategy.
 	Name *string `pulumi:"name"`
-	// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured for all strategies except `CUSTOM` strategies using `SELF_MANAGED` configuration.
+	// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured, except for `CUSTOM` strategies using `SELF_MANAGED` configuration, where neither can be configured.
 	NamespaceTemplates []string `pulumi:"namespaceTemplates"`
-	// Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
+	// Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured, except for `CUSTOM` strategies using `SELF_MANAGED` configuration, where neither can be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
 	//
 	// Deprecated: namespaces is deprecated. Use namespaceTemplates instead.
 	Namespaces []string `pulumi:"namespaces"`
@@ -632,9 +578,9 @@ type AgentcoreMemoryStrategyArgs struct {
 	MemoryRecordSchema AgentcoreMemoryStrategyMemoryRecordSchemaPtrInput
 	// Name of the memory strategy. Changing this forces a new resource, because the service API does not support renaming a strategy.
 	Name pulumi.StringPtrInput
-	// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured for all strategies except `CUSTOM` strategies using `SELF_MANAGED` configuration.
+	// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured, except for `CUSTOM` strategies using `SELF_MANAGED` configuration, where neither can be configured.
 	NamespaceTemplates pulumi.StringArrayInput
-	// Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
+	// Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured, except for `CUSTOM` strategies using `SELF_MANAGED` configuration, where neither can be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
 	//
 	// Deprecated: namespaces is deprecated. Use namespaceTemplates instead.
 	Namespaces pulumi.StringArrayInput
@@ -775,12 +721,12 @@ func (o AgentcoreMemoryStrategyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreMemoryStrategy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured for all strategies except `CUSTOM` strategies using `SELF_MANAGED` configuration.
+// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured, except for `CUSTOM` strategies using `SELF_MANAGED` configuration, where neither can be configured.
 func (o AgentcoreMemoryStrategyOutput) NamespaceTemplates() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AgentcoreMemoryStrategy) pulumi.StringArrayOutput { return v.NamespaceTemplates }).(pulumi.StringArrayOutput)
 }
 
-// Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
+// Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured, except for `CUSTOM` strategies using `SELF_MANAGED` configuration, where neither can be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
 //
 // Deprecated: namespaces is deprecated. Use namespaceTemplates instead.
 func (o AgentcoreMemoryStrategyOutput) Namespaces() pulumi.StringArrayOutput {

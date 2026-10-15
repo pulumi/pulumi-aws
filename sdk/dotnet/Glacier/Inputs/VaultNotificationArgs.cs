@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Glacier.Inputs
         }
 
         /// <summary>
-        /// The SNS Topic ARN.
+        /// SNS Topic ARN.
         /// </summary>
         [Input("snsTopic", required: true)]
         public Input<string> SnsTopic { get; set; } = null!;

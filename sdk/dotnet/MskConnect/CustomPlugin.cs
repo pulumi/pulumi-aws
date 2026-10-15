@@ -71,13 +71,13 @@ namespace Pulumi.Aws.MskConnect
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the plugin file. Allowed values are `ZIP` and `JAR`.
+        /// Type of the plugin file. Allowed values are `ZIP` and `JAR`.
         /// </summary>
         [Output("contentType")]
         public Output<string> ContentType { get; private set; } = null!;
 
         /// <summary>
-        /// A summary description of the custom plugin.
+        /// Summary description of the custom plugin.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -95,7 +95,7 @@ namespace Pulumi.Aws.MskConnect
         public Output<Outputs.CustomPluginLocation> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the custom plugin..
+        /// Name of the custom plugin.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -113,13 +113,13 @@ namespace Pulumi.Aws.MskConnect
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -171,13 +171,13 @@ namespace Pulumi.Aws.MskConnect
     public sealed class CustomPluginArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of the plugin file. Allowed values are `ZIP` and `JAR`.
+        /// Type of the plugin file. Allowed values are `ZIP` and `JAR`.
         /// </summary>
         [Input("contentType", required: true)]
         public Input<string> ContentType { get; set; } = null!;
 
         /// <summary>
-        /// A summary description of the custom plugin.
+        /// Summary description of the custom plugin.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -189,7 +189,7 @@ namespace Pulumi.Aws.MskConnect
         public Input<Inputs.CustomPluginLocationArgs> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the custom plugin..
+        /// Name of the custom plugin.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -204,7 +204,7 @@ namespace Pulumi.Aws.MskConnect
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -227,13 +227,13 @@ namespace Pulumi.Aws.MskConnect
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The type of the plugin file. Allowed values are `ZIP` and `JAR`.
+        /// Type of the plugin file. Allowed values are `ZIP` and `JAR`.
         /// </summary>
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }
 
         /// <summary>
-        /// A summary description of the custom plugin.
+        /// Summary description of the custom plugin.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -251,7 +251,7 @@ namespace Pulumi.Aws.MskConnect
         public Input<Inputs.CustomPluginLocationGetArgs>? Location { get; set; }
 
         /// <summary>
-        /// The name of the custom plugin..
+        /// Name of the custom plugin.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -272,7 +272,7 @@ namespace Pulumi.Aws.MskConnect
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -284,7 +284,7 @@ namespace Pulumi.Aws.MskConnect
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

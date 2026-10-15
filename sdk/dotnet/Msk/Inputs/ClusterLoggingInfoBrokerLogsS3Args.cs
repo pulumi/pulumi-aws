@@ -18,6 +18,9 @@ namespace Pulumi.Aws.Msk.Inputs
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
+        /// <summary>
+        /// Whether to enable or disable streaming broker logs to S3.
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 

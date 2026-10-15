@@ -82,7 +82,7 @@ type IdentityProvider struct {
 	ProviderType pulumi.StringOutput `pulumi:"providerType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The user pool id
+	// The user pool ID
 	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
 }
 
@@ -140,7 +140,7 @@ type identityProviderState struct {
 	ProviderType *string `pulumi:"providerType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The user pool id
+	// The user pool ID
 	UserPoolId *string `pulumi:"userPoolId"`
 }
 
@@ -157,7 +157,7 @@ type IdentityProviderState struct {
 	ProviderType pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The user pool id
+	// The user pool ID
 	UserPoolId pulumi.StringPtrInput
 }
 
@@ -178,7 +178,7 @@ type identityProviderArgs struct {
 	ProviderType string `pulumi:"providerType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The user pool id
+	// The user pool ID
 	UserPoolId string `pulumi:"userPoolId"`
 }
 
@@ -196,7 +196,7 @@ type IdentityProviderArgs struct {
 	ProviderType pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The user pool id
+	// The user pool ID
 	UserPoolId pulumi.StringInput
 }
 
@@ -317,7 +317,7 @@ func (o IdentityProviderOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityProvider) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The user pool id
+// The user pool ID
 func (o IdentityProviderOutput) UserPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityProvider) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
 }

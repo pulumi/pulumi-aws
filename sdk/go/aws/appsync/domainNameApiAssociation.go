@@ -53,7 +53,7 @@ type DomainNameApiAssociation struct {
 
 	// API ID.
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
-	// Appsync domain name.
+	// AppSync domain name.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -97,7 +97,7 @@ func GetDomainNameApiAssociation(ctx *pulumi.Context,
 type domainNameApiAssociationState struct {
 	// API ID.
 	ApiId *string `pulumi:"apiId"`
-	// Appsync domain name.
+	// AppSync domain name.
 	DomainName *string `pulumi:"domainName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -106,7 +106,7 @@ type domainNameApiAssociationState struct {
 type DomainNameApiAssociationState struct {
 	// API ID.
 	ApiId pulumi.StringPtrInput
-	// Appsync domain name.
+	// AppSync domain name.
 	DomainName pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -119,7 +119,7 @@ func (DomainNameApiAssociationState) ElementType() reflect.Type {
 type domainNameApiAssociationArgs struct {
 	// API ID.
 	ApiId string `pulumi:"apiId"`
-	// Appsync domain name.
+	// AppSync domain name.
 	DomainName string `pulumi:"domainName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -129,7 +129,7 @@ type domainNameApiAssociationArgs struct {
 type DomainNameApiAssociationArgs struct {
 	// API ID.
 	ApiId pulumi.StringInput
-	// Appsync domain name.
+	// AppSync domain name.
 	DomainName pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -227,7 +227,7 @@ func (o DomainNameApiAssociationOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainNameApiAssociation) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
 
-// Appsync domain name.
+// AppSync domain name.
 func (o DomainNameApiAssociationOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainNameApiAssociation) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Specify the exact name of the desired autoscaling group.
+        /// Specify the exact name of the desired Auto Scaling group.
         /// </summary>
         public readonly string Name;
         /// <summary>

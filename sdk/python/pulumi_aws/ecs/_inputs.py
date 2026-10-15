@@ -248,7 +248,7 @@ __all__ = [
 class CapacityProviderAutoScalingGroupProviderArgsDict(TypedDict):
     auto_scaling_group_arn: pulumi.Input[_builtins.str]
     """
-    ARN of the associated auto scaling group.
+    ARN of the associated Auto Scaling group.
     """
     managed_draining: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -260,7 +260,7 @@ class CapacityProviderAutoScalingGroupProviderArgsDict(TypedDict):
     """
     managed_termination_protection: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
+    Enables or disables container-aware termination of instances in the Auto Scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
     """
 
 @pulumi.input_type
@@ -271,10 +271,10 @@ class CapacityProviderAutoScalingGroupProviderArgs:
                  managed_scaling: pulumi.Input[Optional['CapacityProviderAutoScalingGroupProviderManagedScalingArgs']] = None,
                  managed_termination_protection: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] auto_scaling_group_arn: ARN of the associated auto scaling group.
+        :param pulumi.Input[_builtins.str] auto_scaling_group_arn: ARN of the associated Auto Scaling group.
         :param pulumi.Input[_builtins.str] managed_draining: Enables or disables a graceful shutdown of instances without disturbing workloads. Valid values are `ENABLED` and `DISABLED`. The default value is `ENABLED` when a capacity provider is created.
         :param pulumi.Input['CapacityProviderAutoScalingGroupProviderManagedScalingArgs'] managed_scaling: Configuration block defining the parameters of the auto scaling. Detailed below.
-        :param pulumi.Input[_builtins.str] managed_termination_protection: Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
+        :param pulumi.Input[_builtins.str] managed_termination_protection: Enables or disables container-aware termination of instances in the Auto Scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
         """
         pulumi.set(__self__, "auto_scaling_group_arn", auto_scaling_group_arn)
         if managed_draining is not None:
@@ -288,7 +288,7 @@ class CapacityProviderAutoScalingGroupProviderArgs:
     @pulumi.getter(name="autoScalingGroupArn")
     def auto_scaling_group_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        ARN of the associated auto scaling group.
+        ARN of the associated Auto Scaling group.
         """
         return pulumi.get(self, "auto_scaling_group_arn")
 
@@ -324,7 +324,7 @@ class CapacityProviderAutoScalingGroupProviderArgs:
     @pulumi.getter(name="managedTerminationProtection")
     def managed_termination_protection(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
+        Enables or disables container-aware termination of instances in the Auto Scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
         """
         return pulumi.get(self, "managed_termination_protection")
 
@@ -7024,7 +7024,7 @@ class TaskDefinitionProxyConfigurationArgs:
 class TaskDefinitionRuntimePlatformArgsDict(TypedDict):
     cpu_architecture: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
+    Must be set to either `X86_64` or `ARM64`; see [CPU architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
     """
     operating_system_family: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -7037,7 +7037,7 @@ class TaskDefinitionRuntimePlatformArgs:
                  cpu_architecture: pulumi.Input[Optional[_builtins.str]] = None,
                  operating_system_family: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] cpu_architecture: Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
+        :param pulumi.Input[_builtins.str] cpu_architecture: Must be set to either `X86_64` or `ARM64`; see [CPU architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
         :param pulumi.Input[_builtins.str] operating_system_family: If the `requires_compatibilities` is `FARGATE` this field is required; must be set to a valid option from the [operating system family in the runtime platform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) setting
         """
         if cpu_architecture is not None:
@@ -7049,7 +7049,7 @@ class TaskDefinitionRuntimePlatformArgs:
     @pulumi.getter(name="cpuArchitecture")
     def cpu_architecture(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
+        Must be set to either `X86_64` or `ARM64`; see [CPU architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
         """
         return pulumi.get(self, "cpu_architecture")
 
@@ -7089,7 +7089,7 @@ class TaskDefinitionVolumeArgsDict(TypedDict):
     """
     fsx_windows_file_server_volume_configuration: NotRequired[pulumi.Input[Optional['TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgsDict']]]
     """
-    Configuration block for an FSX Windows File Server volume. Detailed below.
+    Configuration block for an FSx Windows File Server volume. Detailed below.
     """
     host_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -7115,7 +7115,7 @@ class TaskDefinitionVolumeArgs:
         :param pulumi.Input[_builtins.bool] configure_at_launch: Whether the volume should be configured at launch time. This is used to create Amazon EBS volumes for standalone tasks or tasks created as part of a service. Each task definition revision may only have one volume configured at launch in the volume configuration.
         :param pulumi.Input['TaskDefinitionVolumeDockerVolumeConfigurationArgs'] docker_volume_configuration: Configuration block to configure a docker volume. Detailed below.
         :param pulumi.Input['TaskDefinitionVolumeEfsVolumeConfigurationArgs'] efs_volume_configuration: Configuration block for an EFS volume. Detailed below.
-        :param pulumi.Input['TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs'] fsx_windows_file_server_volume_configuration: Configuration block for an FSX Windows File Server volume. Detailed below.
+        :param pulumi.Input['TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs'] fsx_windows_file_server_volume_configuration: Configuration block for an FSx Windows File Server volume. Detailed below.
         :param pulumi.Input[_builtins.str] host_path: Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
         :param pulumi.Input['TaskDefinitionVolumeS3filesVolumeConfigurationArgs'] s3files_volume_configuration: Configuration block for an S3 Files volume. Detailed below.
         """
@@ -7185,7 +7185,7 @@ class TaskDefinitionVolumeArgs:
     @pulumi.getter(name="fsxWindowsFileServerVolumeConfiguration")
     def fsx_windows_file_server_volume_configuration(self) -> pulumi.Input[Optional['TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs']]:
         """
-        Configuration block for an FSX Windows File Server volume. Detailed below.
+        Configuration block for an FSx Windows File Server volume. Detailed below.
         """
         return pulumi.get(self, "fsx_windows_file_server_volume_configuration")
 
@@ -8307,7 +8307,7 @@ class GetTaskExecutionOverridesContainerOverrideArgsDict(TypedDict):
     """
     cpu: NotRequired[_builtins.int]
     """
-    Number of cpu units reserved for the container, instead of the default value from the task definition.
+    Number of CPU units reserved for the container, instead of the default value from the task definition.
     """
     environments: NotRequired[Sequence['GetTaskExecutionOverridesContainerOverrideEnvironmentArgsDict']]
     """
@@ -8339,7 +8339,7 @@ class GetTaskExecutionOverridesContainerOverrideArgs:
         """
         :param _builtins.str name: Name of the container that receives the override. This parameter is required if any override is specified.
         :param Sequence[_builtins.str] commands: Command to send to the container that overrides the default command from the Docker image or the task definition.
-        :param _builtins.int cpu: Number of cpu units reserved for the container, instead of the default value from the task definition.
+        :param _builtins.int cpu: Number of CPU units reserved for the container, instead of the default value from the task definition.
         :param Sequence['GetTaskExecutionOverridesContainerOverrideEnvironmentArgs'] environments: Environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
         :param _builtins.int memory: Hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
         :param _builtins.int memory_reservation: Soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
@@ -8387,7 +8387,7 @@ class GetTaskExecutionOverridesContainerOverrideArgs:
     @pulumi.getter
     def cpu(self) -> Optional[_builtins.int]:
         """
-        Number of cpu units reserved for the container, instead of the default value from the task definition.
+        Number of CPU units reserved for the container, instead of the default value from the task definition.
         """
         return pulumi.get(self, "cpu")
 

@@ -96,154 +96,154 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration")
 public class WorkspaceSamlConfiguration extends com.pulumi.resources.CustomResource {
     /**
-     * The admin role values.
+     * Admin role values.
      * 
      */
     @Export(name="adminRoleValues", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> adminRoleValues;
 
     /**
-     * @return The admin role values.
+     * @return Admin role values.
      * 
      */
     public Output<Optional<List<String>>> adminRoleValues() {
         return Codegen.optional(this.adminRoleValues);
     }
     /**
-     * The allowed organizations.
+     * Allowed organizations.
      * 
      */
     @Export(name="allowedOrganizations", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> allowedOrganizations;
 
     /**
-     * @return The allowed organizations.
+     * @return Allowed organizations.
      * 
      */
     public Output<Optional<List<String>>> allowedOrganizations() {
         return Codegen.optional(this.allowedOrganizations);
     }
     /**
-     * The editor role values.
+     * Editor role values.
      * 
      */
     @Export(name="editorRoleValues", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> editorRoleValues;
 
     /**
-     * @return The editor role values.
+     * @return Editor role values.
      * 
      */
     public Output<List<String>> editorRoleValues() {
         return this.editorRoleValues;
     }
     /**
-     * The email assertion.
+     * Email assertion.
      * 
      */
     @Export(name="emailAssertion", refs={String.class}, tree="[0]")
     private Output<String> emailAssertion;
 
     /**
-     * @return The email assertion.
+     * @return Email assertion.
      * 
      */
     public Output<String> emailAssertion() {
         return this.emailAssertion;
     }
     /**
-     * The groups assertion.
+     * Groups assertion.
      * 
      */
     @Export(name="groupsAssertion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> groupsAssertion;
 
     /**
-     * @return The groups assertion.
+     * @return Groups assertion.
      * 
      */
     public Output<Optional<String>> groupsAssertion() {
         return Codegen.optional(this.groupsAssertion);
     }
     /**
-     * The IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
+     * IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
      * 
      */
     @Export(name="idpMetadataUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> idpMetadataUrl;
 
     /**
-     * @return The IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
+     * @return IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
      * 
      */
     public Output<Optional<String>> idpMetadataUrl() {
         return Codegen.optional(this.idpMetadataUrl);
     }
     /**
-     * The IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
+     * IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
      * 
      */
     @Export(name="idpMetadataXml", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> idpMetadataXml;
 
     /**
-     * @return The IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
+     * @return IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
      * 
      */
     public Output<Optional<String>> idpMetadataXml() {
         return Codegen.optional(this.idpMetadataXml);
     }
     /**
-     * The login assertion.
+     * Login assertion.
      * 
      */
     @Export(name="loginAssertion", refs={String.class}, tree="[0]")
     private Output<String> loginAssertion;
 
     /**
-     * @return The login assertion.
+     * @return Login assertion.
      * 
      */
     public Output<String> loginAssertion() {
         return this.loginAssertion;
     }
     /**
-     * The login validity duration.
+     * Login validity duration.
      * 
      */
     @Export(name="loginValidityDuration", refs={Integer.class}, tree="[0]")
     private Output<Integer> loginValidityDuration;
 
     /**
-     * @return The login validity duration.
+     * @return Login validity duration.
      * 
      */
     public Output<Integer> loginValidityDuration() {
         return this.loginValidityDuration;
     }
     /**
-     * The name assertion.
+     * Name assertion.
      * 
      */
     @Export(name="nameAssertion", refs={String.class}, tree="[0]")
     private Output<String> nameAssertion;
 
     /**
-     * @return The name assertion.
+     * @return Name assertion.
      * 
      */
     public Output<String> nameAssertion() {
         return this.nameAssertion;
     }
     /**
-     * The org assertion.
+     * Org assertion.
      * 
      */
     @Export(name="orgAssertion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> orgAssertion;
 
     /**
-     * @return The org assertion.
+     * @return Org assertion.
      * 
      */
     public Output<Optional<String>> orgAssertion() {
@@ -264,35 +264,35 @@ public class WorkspaceSamlConfiguration extends com.pulumi.resources.CustomResou
         return this.region;
     }
     /**
-     * The role assertion.
+     * Role assertion.
      * 
      */
     @Export(name="roleAssertion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleAssertion;
 
     /**
-     * @return The role assertion.
+     * @return Role assertion.
      * 
      */
     public Output<Optional<String>> roleAssertion() {
         return Codegen.optional(this.roleAssertion);
     }
     /**
-     * The status of the SAML configuration.
+     * Status of the SAML configuration.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The status of the SAML configuration.
+     * @return Status of the SAML configuration.
      * 
      */
     public Output<String> status() {
         return this.status;
     }
     /**
-     * The workspace id.
+     * Workspace ID.
      * 
      * The following arguments are optional:
      * 
@@ -301,7 +301,7 @@ public class WorkspaceSamlConfiguration extends com.pulumi.resources.CustomResou
     private Output<String> workspaceId;
 
     /**
-     * @return The workspace id.
+     * @return Workspace ID.
      * 
      * The following arguments are optional:
      * 

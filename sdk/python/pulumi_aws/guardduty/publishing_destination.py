@@ -28,9 +28,9 @@ class PublishingDestinationArgs:
         """
         The set of arguments for constructing a PublishingDestination resource.
 
-        :param pulumi.Input[_builtins.str] destination_arn: The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
-        :param pulumi.Input[_builtins.str] detector_id: The detector ID of the GuardDuty.
-        :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
+        :param pulumi.Input[_builtins.str] destination_arn: Bucket ARN and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+        :param pulumi.Input[_builtins.str] detector_id: Detector ID of the GuardDuty.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
         :param pulumi.Input[_builtins.str] destination_type: Currently there is only "S3" available as destination type which is also the default value
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -51,7 +51,7 @@ class PublishingDestinationArgs:
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+        Bucket ARN and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
         """
         return pulumi.get(self, "destination_arn")
 
@@ -63,7 +63,7 @@ class PublishingDestinationArgs:
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The detector ID of the GuardDuty.
+        Detector ID of the GuardDuty.
         """
         return pulumi.get(self, "detector_id")
 
@@ -75,7 +75,7 @@ class PublishingDestinationArgs:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
+        ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -138,16 +138,16 @@ class _PublishingDestinationState:
         Input properties used for looking up and filtering PublishingDestination resources.
 
         :param pulumi.Input[_builtins.str] arn: Resource ARN.
-        :param pulumi.Input[_builtins.str] destination_arn: The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+        :param pulumi.Input[_builtins.str] destination_arn: Bucket ARN and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
         :param pulumi.Input[_builtins.str] destination_id: Destination ID.
         :param pulumi.Input[_builtins.str] destination_type: Currently there is only "S3" available as destination type which is also the default value
-        :param pulumi.Input[_builtins.str] detector_id: The detector ID of the GuardDuty.
-        :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
+        :param pulumi.Input[_builtins.str] detector_id: Detector ID of the GuardDuty.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
                > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -184,7 +184,7 @@ class _PublishingDestinationState:
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+        Bucket ARN and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
         """
         return pulumi.get(self, "destination_arn")
 
@@ -220,7 +220,7 @@ class _PublishingDestinationState:
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The detector ID of the GuardDuty.
+        Detector ID of the GuardDuty.
         """
         return pulumi.get(self, "detector_id")
 
@@ -232,7 +232,7 @@ class _PublishingDestinationState:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
+        ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -270,7 +270,7 @@ class _PublishingDestinationState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -377,10 +377,10 @@ class PublishingDestination(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] destination_arn: The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+        :param pulumi.Input[_builtins.str] destination_arn: Bucket ARN and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
         :param pulumi.Input[_builtins.str] destination_type: Currently there is only "S3" available as destination type which is also the default value
-        :param pulumi.Input[_builtins.str] detector_id: The detector ID of the GuardDuty.
-        :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
+        :param pulumi.Input[_builtins.str] detector_id: Detector ID of the GuardDuty.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
@@ -547,16 +547,16 @@ class PublishingDestination(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: Resource ARN.
-        :param pulumi.Input[_builtins.str] destination_arn: The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+        :param pulumi.Input[_builtins.str] destination_arn: Bucket ARN and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
         :param pulumi.Input[_builtins.str] destination_id: Destination ID.
         :param pulumi.Input[_builtins.str] destination_type: Currently there is only "S3" available as destination type which is also the default value
-        :param pulumi.Input[_builtins.str] detector_id: The detector ID of the GuardDuty.
-        :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
+        :param pulumi.Input[_builtins.str] detector_id: Detector ID of the GuardDuty.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
                > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -585,7 +585,7 @@ class PublishingDestination(pulumi.CustomResource):
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+        Bucket ARN and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
         """
         return pulumi.get(self, "destination_arn")
 
@@ -609,7 +609,7 @@ class PublishingDestination(pulumi.CustomResource):
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The detector ID of the GuardDuty.
+        Detector ID of the GuardDuty.
         """
         return pulumi.get(self, "detector_id")
 
@@ -617,7 +617,7 @@ class PublishingDestination(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
+        ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -643,7 +643,7 @@ class PublishingDestination(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

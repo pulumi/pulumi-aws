@@ -467,70 +467,70 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.bootstrapBrokersTlsIpv6;
     }
     /**
-     * A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     * One or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
     @Export(name="bootstrapBrokersVpcConnectivitySaslIam", refs={String.class}, tree="[0]")
     private Output<String> bootstrapBrokersVpcConnectivitySaslIam;
 
     /**
-     * @return A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     * @return One or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
     public Output<String> bootstrapBrokersVpcConnectivitySaslIam() {
         return this.bootstrapBrokersVpcConnectivitySaslIam;
     }
     /**
-     * A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     * One or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
     @Export(name="bootstrapBrokersVpcConnectivitySaslScram", refs={String.class}, tree="[0]")
     private Output<String> bootstrapBrokersVpcConnectivitySaslScram;
 
     /**
-     * @return A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     * @return One or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
     public Output<String> bootstrapBrokersVpcConnectivitySaslScram() {
         return this.bootstrapBrokersVpcConnectivitySaslScram;
     }
     /**
-     * A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     * One or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
     @Export(name="bootstrapBrokersVpcConnectivityTls", refs={String.class}, tree="[0]")
     private Output<String> bootstrapBrokersVpcConnectivityTls;
 
     /**
-     * @return A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     * @return One or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
     public Output<String> bootstrapBrokersVpcConnectivityTls() {
         return this.bootstrapBrokersVpcConnectivityTls;
     }
     /**
-     * Configuration block for the broker nodes of the Kafka cluster. See brokerNodeGroupInfo Argument Reference below.
+     * Configuration block for the broker nodes of the Kafka cluster. See `brokerNodeGroupInfo` Block below.
      * 
      */
     @Export(name="brokerNodeGroupInfo", refs={ClusterBrokerNodeGroupInfo.class}, tree="[0]")
     private Output<ClusterBrokerNodeGroupInfo> brokerNodeGroupInfo;
 
     /**
-     * @return Configuration block for the broker nodes of the Kafka cluster. See brokerNodeGroupInfo Argument Reference below.
+     * @return Configuration block for the broker nodes of the Kafka cluster. See `brokerNodeGroupInfo` Block below.
      * 
      */
     public Output<ClusterBrokerNodeGroupInfo> brokerNodeGroupInfo() {
         return this.brokerNodeGroupInfo;
     }
     /**
-     * Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
+     * Configuration block for specifying a client authentication. See `clientAuthentication` Block below.
      * 
      */
     @Export(name="clientAuthentication", refs={ClusterClientAuthentication.class}, tree="[0]")
     private Output</* @Nullable */ ClusterClientAuthentication> clientAuthentication;
 
     /**
-     * @return Configuration block for specifying a client authentication. See clientAuthentication Argument Reference below.
+     * @return Configuration block for specifying a client authentication. See `clientAuthentication` Block below.
      * 
      */
     public Output<Optional<ClusterClientAuthentication>> clientAuthentication() {
@@ -565,14 +565,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.clusterUuid;
     }
     /**
-     * Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configurationInfo Argument Reference below.
+     * Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See `configurationInfo` Block below.
      * 
      */
     @Export(name="configurationInfo", refs={ClusterConfigurationInfo.class}, tree="[0]")
     private Output</* @Nullable */ ClusterConfigurationInfo> configurationInfo;
 
     /**
-     * @return Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configurationInfo Argument Reference below.
+     * @return Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See `configurationInfo` Block below.
      * 
      */
     public Output<Optional<ClusterConfigurationInfo>> configurationInfo() {
@@ -607,98 +607,98 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.customerActionStatus;
     }
     /**
-     * Configuration block for specifying encryption. See encryptionInfo Argument Reference below.
+     * Configuration block for specifying encryption. See `encryptionInfo` Block below.
      * 
      */
     @Export(name="encryptionInfo", refs={ClusterEncryptionInfo.class}, tree="[0]")
     private Output</* @Nullable */ ClusterEncryptionInfo> encryptionInfo;
 
     /**
-     * @return Configuration block for specifying encryption. See encryptionInfo Argument Reference below.
+     * @return Configuration block for specifying encryption. See `encryptionInfo` Block below.
      * 
      */
     public Output<Optional<ClusterEncryptionInfo>> encryptionInfo() {
         return Codegen.optional(this.encryptionInfo);
     }
     /**
-     * Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
+     * Desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html).
      * 
      */
     @Export(name="enhancedMonitoring", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> enhancedMonitoring;
 
     /**
-     * @return Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
+     * @return Desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html).
      * 
      */
     public Output<Optional<String>> enhancedMonitoring() {
         return Codegen.optional(this.enhancedMonitoring);
     }
     /**
-     * Specify the desired Kafka software version.
+     * Desired Kafka software version.
      * 
      */
     @Export(name="kafkaVersion", refs={String.class}, tree="[0]")
     private Output<String> kafkaVersion;
 
     /**
-     * @return Specify the desired Kafka software version.
+     * @return Desired Kafka software version.
      * 
      */
     public Output<String> kafkaVersion() {
         return this.kafkaVersion;
     }
     /**
-     * Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See loggingInfo Argument Reference below.
+     * Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See `loggingInfo` Block below.
      * 
      */
     @Export(name="loggingInfo", refs={ClusterLoggingInfo.class}, tree="[0]")
     private Output</* @Nullable */ ClusterLoggingInfo> loggingInfo;
 
     /**
-     * @return Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See loggingInfo Argument Reference below.
+     * @return Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See `loggingInfo` Block below.
      * 
      */
     public Output<Optional<ClusterLoggingInfo>> loggingInfo() {
         return Codegen.optional(this.loggingInfo);
     }
     /**
-     * The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
+     * Desired total number of broker nodes in the kafka cluster. It must be a multiple of the number of specified client subnets.
      * 
      */
     @Export(name="numberOfBrokerNodes", refs={Integer.class}, tree="[0]")
     private Output<Integer> numberOfBrokerNodes;
 
     /**
-     * @return The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
+     * @return Desired total number of broker nodes in the kafka cluster. It must be a multiple of the number of specified client subnets.
      * 
      */
     public Output<Integer> numberOfBrokerNodes() {
         return this.numberOfBrokerNodes;
     }
     /**
-     * Configuration block for JMX and Node monitoring for the MSK cluster. See openMonitoring Argument Reference below.
+     * Configuration block for JMX and Node monitoring for the MSK cluster. See `openMonitoring` Block below.
      * 
      */
     @Export(name="openMonitoring", refs={ClusterOpenMonitoring.class}, tree="[0]")
     private Output</* @Nullable */ ClusterOpenMonitoring> openMonitoring;
 
     /**
-     * @return Configuration block for JMX and Node monitoring for the MSK cluster. See openMonitoring Argument Reference below.
+     * @return Configuration block for JMX and Node monitoring for the MSK cluster. See `openMonitoring` Block below.
      * 
      */
     public Output<Optional<ClusterOpenMonitoring>> openMonitoring() {
         return Codegen.optional(this.openMonitoring);
     }
     /**
-     * Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+     * Configuration block for intelligent rebalancing. See `rebalancing` Block below. Only applicable to MSK Provisioned clusters with Express brokers.
      * 
      */
     @Export(name="rebalancing", refs={ClusterRebalancing.class}, tree="[0]")
     private Output<ClusterRebalancing> rebalancing;
 
     /**
-     * @return Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+     * @return Configuration block for intelligent rebalancing. See `rebalancing` Block below. Only applicable to MSK Provisioned clusters with Express brokers.
      * 
      */
     public Output<ClusterRebalancing> rebalancing() {
@@ -733,56 +733,56 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.storageMode;
     }
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+     * Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      * 
      */
     @Export(name="zookeeperConnectString", refs={String.class}, tree="[0]")
     private Output<String> zookeeperConnectString;
 
     /**
-     * @return A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+     * @return Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      * 
      */
     public Output<String> zookeeperConnectString() {
         return this.zookeeperConnectString;
     }
     /**
-     * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+     * Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      * 
      */
     @Export(name="zookeeperConnectStringTls", refs={String.class}, tree="[0]")
     private Output<String> zookeeperConnectStringTls;
 
     /**
-     * @return A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+     * @return Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      * 
      */
     public Output<String> zookeeperConnectStringTls() {

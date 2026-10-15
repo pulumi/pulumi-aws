@@ -8,6 +8,7 @@ import com.pulumi.aws.wafv2.inputs.RuleGroupRuleActionBlockArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleActionCaptchaArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleActionChallengeArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleActionCountArgs;
+import com.pulumi.aws.wafv2.inputs.RuleGroupRuleActionMonetizeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.Objects;
@@ -94,6 +95,21 @@ public final class RuleGroupRuleActionArgs extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.count);
     }
 
+    /**
+     * Instructs AWS WAF to monetize the web request, charging per request according to the rule group&#39;s `monetizationConfig`. See Monetize below for details.
+     * 
+     */
+    @Import(name="monetize")
+    private @Nullable Output<RuleGroupRuleActionMonetizeArgs> monetize;
+
+    /**
+     * @return Instructs AWS WAF to monetize the web request, charging per request according to the rule group&#39;s `monetizationConfig`. See Monetize below for details.
+     * 
+     */
+    public Optional<Output<RuleGroupRuleActionMonetizeArgs>> monetize() {
+        return Optional.ofNullable(this.monetize);
+    }
+
     private RuleGroupRuleActionArgs() {}
 
     private RuleGroupRuleActionArgs(RuleGroupRuleActionArgs $) {
@@ -102,6 +118,7 @@ public final class RuleGroupRuleActionArgs extends com.pulumi.resources.Resource
         this.captcha = $.captcha;
         this.challenge = $.challenge;
         this.count = $.count;
+        this.monetize = $.monetize;
     }
 
     public static Builder builder() {
@@ -225,6 +242,27 @@ public final class RuleGroupRuleActionArgs extends com.pulumi.resources.Resource
          */
         public Builder count(RuleGroupRuleActionCountArgs count) {
             return count(Output.of(count));
+        }
+
+        /**
+         * @param monetize Instructs AWS WAF to monetize the web request, charging per request according to the rule group&#39;s `monetizationConfig`. See Monetize below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monetize(@Nullable Output<RuleGroupRuleActionMonetizeArgs> monetize) {
+            $.monetize = monetize;
+            return this;
+        }
+
+        /**
+         * @param monetize Instructs AWS WAF to monetize the web request, charging per request according to the rule group&#39;s `monetizationConfig`. See Monetize below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monetize(RuleGroupRuleActionMonetizeArgs monetize) {
+            return monetize(Output.of(monetize));
         }
 
         public RuleGroupRuleActionArgs build() {

@@ -16,14 +16,14 @@ public final class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigura
     public static final CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs Empty = new CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs();
 
     /**
-     * The configuration for an Iceberg orphan file deletion optimizer.
+     * Configuration for an Iceberg orphan file deletion optimizer. See `configuration.orphan_file_deletion_configuration.iceberg_configuration` Block for additional details.
      * 
      */
     @Import(name="icebergConfiguration")
     private @Nullable Output<CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs> icebergConfiguration;
 
     /**
-     * @return The configuration for an Iceberg orphan file deletion optimizer.
+     * @return Configuration for an Iceberg orphan file deletion optimizer. See `configuration.orphan_file_deletion_configuration.iceberg_configuration` Block for additional details.
      * 
      */
     public Optional<Output<CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs>> icebergConfiguration() {
@@ -55,7 +55,7 @@ public final class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigura
         }
 
         /**
-         * @param icebergConfiguration The configuration for an Iceberg orphan file deletion optimizer.
+         * @param icebergConfiguration Configuration for an Iceberg orphan file deletion optimizer. See `configuration.orphan_file_deletion_configuration.iceberg_configuration` Block for additional details.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigura
         }
 
         /**
-         * @param icebergConfiguration The configuration for an Iceberg orphan file deletion optimizer.
+         * @param icebergConfiguration Configuration for an Iceberg orphan file deletion optimizer. See `configuration.orphan_file_deletion_configuration.iceberg_configuration` Block for additional details.
          * 
          * @return builder
          * 

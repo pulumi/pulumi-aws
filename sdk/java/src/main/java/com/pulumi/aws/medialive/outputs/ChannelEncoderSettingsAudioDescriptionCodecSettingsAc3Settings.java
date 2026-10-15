@@ -19,7 +19,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Setting
      */
     private @Nullable Double bitrate;
     /**
-     * @return Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
+     * @return Bitstream mode (bsmod) for the emitted AC-3 stream.
      * 
      */
     private @Nullable String bitstreamMode;
@@ -34,12 +34,12 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Setting
      */
     private @Nullable Integer dialnorm;
     /**
-     * @return If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
+     * @return When set to `filmStandard`, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
      * 
      */
     private @Nullable String drcProfile;
     /**
-     * @return When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+     * @return When set to `enabled`, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
      * 
      */
     private @Nullable String lfeFilter;
@@ -58,7 +58,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Setting
         return Optional.ofNullable(this.bitrate);
     }
     /**
-     * @return Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
+     * @return Bitstream mode (bsmod) for the emitted AC-3 stream.
      * 
      */
     public Optional<String> bitstreamMode() {
@@ -79,14 +79,14 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Setting
         return Optional.ofNullable(this.dialnorm);
     }
     /**
-     * @return If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
+     * @return When set to `filmStandard`, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
      * 
      */
     public Optional<String> drcProfile() {
         return Optional.ofNullable(this.drcProfile);
     }
     /**
-     * @return When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+     * @return When set to `enabled`, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
      * 
      */
     public Optional<String> lfeFilter() {

@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Iot
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the role that allows IoT to write to Cloudwatch logs.
+        /// The ARN of the role that allows IoT to write to CloudWatch logs.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
@@ -123,7 +123,7 @@ namespace Pulumi.Aws.Iot
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ARN of the role that allows IoT to write to Cloudwatch logs.
+        /// The ARN of the role that allows IoT to write to CloudWatch logs.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -155,7 +155,7 @@ namespace Pulumi.Aws.Iot
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ARN of the role that allows IoT to write to Cloudwatch logs.
+        /// The ARN of the role that allows IoT to write to CloudWatch logs.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }

@@ -27,7 +27,7 @@ class BucketArgs:
         """
         The set of arguments for constructing a Bucket resource.
 
-        :param pulumi.Input[_builtins.str] bundle_id: Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+        :param pulumi.Input[_builtins.str] bundle_id: Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) CLI command to get a list of bundle IDs that you can specify.
         :param pulumi.Input[_builtins.bool] force_delete: Whether to force delete non-empty buckets using `pulumi destroy`. AWS by default will not delete a bucket which is not empty, to prevent losing bucket data and affecting other resources in Lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
         :param pulumi.Input[_builtins.str] name: Name for the bucket.
                
@@ -49,7 +49,7 @@ class BucketArgs:
     @pulumi.getter(name="bundleId")
     def bundle_id(self) -> pulumi.Input[_builtins.str]:
         """
-        Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+        Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) CLI command to get a list of bundle IDs that you can specify.
         """
         return pulumi.get(self, "bundle_id")
 
@@ -127,7 +127,7 @@ class _BucketState:
 
         :param pulumi.Input[_builtins.str] arn: ARN of the Lightsail bucket.
         :param pulumi.Input[_builtins.str] availability_zone: Availability Zone. Follows the format us-east-2a (case-sensitive).
-        :param pulumi.Input[_builtins.str] bundle_id: Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+        :param pulumi.Input[_builtins.str] bundle_id: Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) CLI command to get a list of bundle IDs that you can specify.
         :param pulumi.Input[_builtins.str] created_at: Date and time when the bucket was created.
         :param pulumi.Input[_builtins.bool] force_delete: Whether to force delete non-empty buckets using `pulumi destroy`. AWS by default will not delete a bucket which is not empty, to prevent losing bucket data and affecting other resources in Lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
         :param pulumi.Input[_builtins.str] name: Name for the bucket.
@@ -190,7 +190,7 @@ class _BucketState:
     @pulumi.getter(name="bundleId")
     def bundle_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+        Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) CLI command to get a list of bundle IDs that you can specify.
         """
         return pulumi.get(self, "bundle_id")
 
@@ -334,7 +334,7 @@ class Bucket(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] bundle_id: Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+        :param pulumi.Input[_builtins.str] bundle_id: Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) CLI command to get a list of bundle IDs that you can specify.
         :param pulumi.Input[_builtins.bool] force_delete: Whether to force delete non-empty buckets using `pulumi destroy`. AWS by default will not delete a bucket which is not empty, to prevent losing bucket data and affecting other resources in Lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
         :param pulumi.Input[_builtins.str] name: Name for the bucket.
                
@@ -443,7 +443,7 @@ class Bucket(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Lightsail bucket.
         :param pulumi.Input[_builtins.str] availability_zone: Availability Zone. Follows the format us-east-2a (case-sensitive).
-        :param pulumi.Input[_builtins.str] bundle_id: Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+        :param pulumi.Input[_builtins.str] bundle_id: Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) CLI command to get a list of bundle IDs that you can specify.
         :param pulumi.Input[_builtins.str] created_at: Date and time when the bucket was created.
         :param pulumi.Input[_builtins.bool] force_delete: Whether to force delete non-empty buckets using `pulumi destroy`. AWS by default will not delete a bucket which is not empty, to prevent losing bucket data and affecting other resources in Lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
         :param pulumi.Input[_builtins.str] name: Name for the bucket.
@@ -492,7 +492,7 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter(name="bundleId")
     def bundle_id(self) -> pulumi.Output[_builtins.str]:
         """
-        Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+        Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) CLI command to get a list of bundle IDs that you can specify.
         """
         return pulumi.get(self, "bundle_id")
 

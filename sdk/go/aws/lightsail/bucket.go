@@ -55,7 +55,7 @@ type Bucket struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Availability Zone. Follows the format us-east-2a (case-sensitive).
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
-	// Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+	// Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) CLI command to get a list of bundle IDs that you can specify.
 	BundleId pulumi.StringOutput `pulumi:"bundleId"`
 	// Date and time when the bucket was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
@@ -114,7 +114,7 @@ type bucketState struct {
 	Arn *string `pulumi:"arn"`
 	// Availability Zone. Follows the format us-east-2a (case-sensitive).
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+	// Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) CLI command to get a list of bundle IDs that you can specify.
 	BundleId *string `pulumi:"bundleId"`
 	// Date and time when the bucket was created.
 	CreatedAt *string `pulumi:"createdAt"`
@@ -141,7 +141,7 @@ type BucketState struct {
 	Arn pulumi.StringPtrInput
 	// Availability Zone. Follows the format us-east-2a (case-sensitive).
 	AvailabilityZone pulumi.StringPtrInput
-	// Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+	// Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) CLI command to get a list of bundle IDs that you can specify.
 	BundleId pulumi.StringPtrInput
 	// Date and time when the bucket was created.
 	CreatedAt pulumi.StringPtrInput
@@ -168,7 +168,7 @@ func (BucketState) ElementType() reflect.Type {
 }
 
 type bucketArgs struct {
-	// Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+	// Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) CLI command to get a list of bundle IDs that you can specify.
 	BundleId string `pulumi:"bundleId"`
 	// Whether to force delete non-empty buckets using `pulumi destroy`. AWS by default will not delete a bucket which is not empty, to prevent losing bucket data and affecting other resources in Lightsail. If `forceDelete` is set to `true` the bucket will be deleted even when not empty.
 	ForceDelete *bool `pulumi:"forceDelete"`
@@ -184,7 +184,7 @@ type bucketArgs struct {
 
 // The set of arguments for constructing a Bucket resource.
 type BucketArgs struct {
-	// Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+	// Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) CLI command to get a list of bundle IDs that you can specify.
 	BundleId pulumi.StringInput
 	// Whether to force delete non-empty buckets using `pulumi destroy`. AWS by default will not delete a bucket which is not empty, to prevent losing bucket data and affecting other resources in Lightsail. If `forceDelete` is set to `true` the bucket will be deleted even when not empty.
 	ForceDelete pulumi.BoolPtrInput
@@ -295,7 +295,7 @@ func (o BucketOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
 
-// Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+// Bundle ID to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) CLI command to get a list of bundle IDs that you can specify.
 func (o BucketOutput) BundleId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.BundleId }).(pulumi.StringOutput)
 }

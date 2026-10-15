@@ -15,14 +15,14 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTt
     public static final ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs Empty = new ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs();
 
     /**
-     * This field is not currently supported and will not affect the output styling. Leave the default value.
+     * Whether to include style information when writing the TTML captions. This field is not currently supported and does not affect the output styling. Leave the default value.
      * 
      */
     @Import(name="styleControl", required=true)
     private Output<String> styleControl;
 
     /**
-     * @return This field is not currently supported and will not affect the output styling. Leave the default value.
+     * @return Whether to include style information when writing the TTML captions. This field is not currently supported and does not affect the output styling. Leave the default value.
      * 
      */
     public Output<String> styleControl() {
@@ -54,7 +54,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTt
         }
 
         /**
-         * @param styleControl This field is not currently supported and will not affect the output styling. Leave the default value.
+         * @param styleControl Whether to include style information when writing the TTML captions. This field is not currently supported and does not affect the output styling. Leave the default value.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTt
         }
 
         /**
-         * @param styleControl This field is not currently supported and will not affect the output styling. Leave the default value.
+         * @param styleControl Whether to include style information when writing the TTML captions. This field is not currently supported and does not affect the output styling. Leave the default value.
          * 
          * @return builder
          * 

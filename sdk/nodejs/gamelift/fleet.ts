@@ -102,13 +102,16 @@ export class Fleet extends pulumi.CustomResource {
      * ARN of an IAM role that instances in the fleet can assume.
      */
     declare public readonly instanceRoleArn: pulumi.Output<string | undefined>;
+    /**
+     * List of paths from which the fleet captures logs.
+     */
     declare public /*out*/ readonly logPaths: pulumi.Output<string[]>;
     /**
      * List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
      */
     declare public readonly metricGroups: pulumi.Output<string[]>;
     /**
-     * The name of the fleet.
+     * Name of the fleet.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -144,7 +147,7 @@ export class Fleet extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -254,13 +257,16 @@ export interface FleetState {
      * ARN of an IAM role that instances in the fleet can assume.
      */
     instanceRoleArn?: pulumi.Input<string | undefined>;
+    /**
+     * List of paths from which the fleet captures logs.
+     */
     logPaths?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
      */
     metricGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The name of the fleet.
+     * Name of the fleet.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -296,7 +302,7 @@ export interface FleetState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -338,7 +344,7 @@ export interface FleetArgs {
      */
     metricGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The name of the fleet.
+     * Name of the fleet.
      */
     name?: pulumi.Input<string | undefined>;
     /**

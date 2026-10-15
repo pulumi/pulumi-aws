@@ -18,7 +18,7 @@ namespace Pulumi.Aws.OpenSearch.Outputs
         /// </summary>
         public readonly string EntityId;
         /// <summary>
-        /// Metadata of the SAML application in xml format.
+        /// Metadata of the SAML application in XML format.
         /// </summary>
         public readonly string MetadataContent;
 

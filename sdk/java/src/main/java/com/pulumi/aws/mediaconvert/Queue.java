@@ -65,70 +65,70 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:mediaconvert/queue:Queue")
 public class Queue extends com.pulumi.resources.CustomResource {
     /**
-     * The Arn of the queue
+     * ARN of the queue
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Arn of the queue
+     * @return ARN of the queue
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+     * Maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
      * 
      */
     @Export(name="concurrentJobs", refs={Integer.class}, tree="[0]")
     private Output<Integer> concurrentJobs;
 
     /**
-     * @return The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+     * @return Maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
      * 
      */
     public Output<Integer> concurrentJobs() {
         return this.concurrentJobs;
     }
     /**
-     * A description of the queue
+     * Description of the queue
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A description of the queue
+     * @return Description of the queue
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * A unique identifier describing the queue
+     * Unique identifier describing the queue
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return A unique identifier describing the queue
+     * @return Unique identifier describing the queue
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
+     * Whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
      * 
      */
     @Export(name="pricingPlan", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> pricingPlan;
 
     /**
-     * @return Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
+     * @return Whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
      * 
      */
     public Output<Optional<String>> pricingPlan() {
@@ -149,56 +149,56 @@ public class Queue extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A detail pricing plan of the  reserved queue. See below.
+     * Detail pricing plan of the reserved queue. See below.
      * 
      */
     @Export(name="reservationPlanSettings", refs={QueueReservationPlanSettings.class}, tree="[0]")
     private Output<QueueReservationPlanSettings> reservationPlanSettings;
 
     /**
-     * @return A detail pricing plan of the  reserved queue. See below.
+     * @return Detail pricing plan of the reserved queue. See below.
      * 
      */
     public Output<QueueReservationPlanSettings> reservationPlanSettings() {
         return this.reservationPlanSettings;
     }
     /**
-     * A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+     * Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
-     * @return A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+     * @return Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
      * 
      */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
     }
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

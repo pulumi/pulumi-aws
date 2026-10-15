@@ -268,7 +268,7 @@ type AgentcoreAgentRuntime struct {
 
 	// ARN of the Agent Runtime.
 	AgentRuntimeArn pulumi.StringOutput `pulumi:"agentRuntimeArn"`
-	// Container artifact configuration. See `agentRuntimeArtifact` below.
+	// Artifact configuration for the agent runtime, either a container image or code stored in Amazon S3. See `agentRuntimeArtifact` below.
 	AgentRuntimeArtifact AgentcoreAgentRuntimeAgentRuntimeArtifactOutput `pulumi:"agentRuntimeArtifact"`
 	// Unique identifier of the Agent Runtime.
 	AgentRuntimeId pulumi.StringOutput `pulumi:"agentRuntimeId"`
@@ -353,7 +353,7 @@ func GetAgentcoreAgentRuntime(ctx *pulumi.Context,
 type agentcoreAgentRuntimeState struct {
 	// ARN of the Agent Runtime.
 	AgentRuntimeArn *string `pulumi:"agentRuntimeArn"`
-	// Container artifact configuration. See `agentRuntimeArtifact` below.
+	// Artifact configuration for the agent runtime, either a container image or code stored in Amazon S3. See `agentRuntimeArtifact` below.
 	AgentRuntimeArtifact *AgentcoreAgentRuntimeAgentRuntimeArtifact `pulumi:"agentRuntimeArtifact"`
 	// Unique identifier of the Agent Runtime.
 	AgentRuntimeId *string `pulumi:"agentRuntimeId"`
@@ -397,7 +397,7 @@ type agentcoreAgentRuntimeState struct {
 type AgentcoreAgentRuntimeState struct {
 	// ARN of the Agent Runtime.
 	AgentRuntimeArn pulumi.StringPtrInput
-	// Container artifact configuration. See `agentRuntimeArtifact` below.
+	// Artifact configuration for the agent runtime, either a container image or code stored in Amazon S3. See `agentRuntimeArtifact` below.
 	AgentRuntimeArtifact AgentcoreAgentRuntimeAgentRuntimeArtifactPtrInput
 	// Unique identifier of the Agent Runtime.
 	AgentRuntimeId pulumi.StringPtrInput
@@ -443,7 +443,7 @@ func (AgentcoreAgentRuntimeState) ElementType() reflect.Type {
 }
 
 type agentcoreAgentRuntimeArgs struct {
-	// Container artifact configuration. See `agentRuntimeArtifact` below.
+	// Artifact configuration for the agent runtime, either a container image or code stored in Amazon S3. See `agentRuntimeArtifact` below.
 	AgentRuntimeArtifact AgentcoreAgentRuntimeAgentRuntimeArtifact `pulumi:"agentRuntimeArtifact"`
 	// Name of the agent runtime.
 	AgentRuntimeName string `pulumi:"agentRuntimeName"`
@@ -478,7 +478,7 @@ type agentcoreAgentRuntimeArgs struct {
 
 // The set of arguments for constructing a AgentcoreAgentRuntime resource.
 type AgentcoreAgentRuntimeArgs struct {
-	// Container artifact configuration. See `agentRuntimeArtifact` below.
+	// Artifact configuration for the agent runtime, either a container image or code stored in Amazon S3. See `agentRuntimeArtifact` below.
 	AgentRuntimeArtifact AgentcoreAgentRuntimeAgentRuntimeArtifactInput
 	// Name of the agent runtime.
 	AgentRuntimeName pulumi.StringInput
@@ -603,7 +603,7 @@ func (o AgentcoreAgentRuntimeOutput) AgentRuntimeArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreAgentRuntime) pulumi.StringOutput { return v.AgentRuntimeArn }).(pulumi.StringOutput)
 }
 
-// Container artifact configuration. See `agentRuntimeArtifact` below.
+// Artifact configuration for the agent runtime, either a container image or code stored in Amazon S3. See `agentRuntimeArtifact` below.
 func (o AgentcoreAgentRuntimeOutput) AgentRuntimeArtifact() AgentcoreAgentRuntimeAgentRuntimeArtifactOutput {
 	return o.ApplyT(func(v *AgentcoreAgentRuntime) AgentcoreAgentRuntimeAgentRuntimeArtifactOutput {
 		return v.AgentRuntimeArtifact

@@ -12,7 +12,7 @@ namespace Pulumi.Aws.WafRegional
     public static class GetIpset
     {
         /// <summary>
-        /// `aws.wafregional.IpSet` Retrieves a WAF Regional IP Set Resource Id.
+        /// `aws.wafregional.IpSet` Retrieves a WAF Regional IP Set Resource ID.
         /// 
         /// ## Example Usage
         /// 
@@ -36,7 +36,7 @@ namespace Pulumi.Aws.WafRegional
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIpsetResult>("aws:wafregional/getIpset:getIpset", args ?? new GetIpsetArgs(), options.WithDefaults());
 
         /// <summary>
-        /// `aws.wafregional.IpSet` Retrieves a WAF Regional IP Set Resource Id.
+        /// `aws.wafregional.IpSet` Retrieves a WAF Regional IP Set Resource ID.
         /// 
         /// ## Example Usage
         /// 
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.WafRegional
             => global::Pulumi.Deployment.Instance.Invoke<GetIpsetResult>("aws:wafregional/getIpset:getIpset", args ?? new GetIpsetInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// `aws.wafregional.IpSet` Retrieves a WAF Regional IP Set Resource Id.
+        /// `aws.wafregional.IpSet` Retrieves a WAF Regional IP Set Resource ID.
         /// 
         /// ## Example Usage
         /// 

@@ -13,6 +13,9 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings
     {
+        /// <summary>
+        /// Settings to configure Nielsen watermarks in the audio encode. See `NielsenWatermarksSettings` Block for details.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings? NielsenWatermarksSettings;
 
         [OutputConstructor]

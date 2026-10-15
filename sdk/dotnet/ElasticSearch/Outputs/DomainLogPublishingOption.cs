@@ -14,7 +14,7 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
     public sealed class DomainLogPublishingOption
     {
         /// <summary>
-        /// ARN of the Cloudwatch log group to which log needs to be published.
+        /// ARN of the CloudWatch log group to which log needs to be published.
         /// </summary>
         public readonly string CloudwatchLogGroupArn;
         /// <summary>

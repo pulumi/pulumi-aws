@@ -286,7 +286,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> SourceIpamPoolId { get; private set; } = null!;
 
         /// <summary>
-        /// Resource to use to use to configure a resource planning IPAM Pool. If configured, the `Locale` of the parent pool must match the region that the vpc resides in.
+        /// Resource to use to use to configure a resource planning IPAM Pool. If configured, the `Locale` of the parent pool must match the region that the VPC resides in.
         /// </summary>
         [Output("sourceResource")]
         public Output<Outputs.VpcIpamPoolSourceResource?> SourceResource { get; private set; } = null!;
@@ -452,7 +452,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? SourceIpamPoolId { get; set; }
 
         /// <summary>
-        /// Resource to use to use to configure a resource planning IPAM Pool. If configured, the `Locale` of the parent pool must match the region that the vpc resides in.
+        /// Resource to use to use to configure a resource planning IPAM Pool. If configured, the `Locale` of the parent pool must match the region that the VPC resides in.
         /// </summary>
         [Input("sourceResource")]
         public Input<Inputs.VpcIpamPoolSourceResourceArgs>? SourceResource { get; set; }
@@ -592,7 +592,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? SourceIpamPoolId { get; set; }
 
         /// <summary>
-        /// Resource to use to use to configure a resource planning IPAM Pool. If configured, the `Locale` of the parent pool must match the region that the vpc resides in.
+        /// Resource to use to use to configure a resource planning IPAM Pool. If configured, the `Locale` of the parent pool must match the region that the VPC resides in.
         /// </summary>
         [Input("sourceResource")]
         public Input<Inputs.VpcIpamPoolSourceResourceGetArgs>? SourceResource { get; set; }

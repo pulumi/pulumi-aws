@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetWorkspaceResult {
     /**
-     * @return (Required) Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
+     * @return Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
      * 
      */
     private String accountAccessType;
@@ -23,7 +23,7 @@ public final class GetWorkspaceResult {
      */
     private String arn;
     /**
-     * @return (Required) Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
+     * @return Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
      * 
      */
     private List<String> authenticationProviders;
@@ -58,7 +58,7 @@ public final class GetWorkspaceResult {
      */
     private String id;
     /**
-     * @return The ID or ARN of the AWS KMS key for encrypting workspace data.
+     * @return ID or ARN of the AWS KMS key for encrypting workspace data.
      * 
      */
     private String kmsKeyId;
@@ -73,17 +73,17 @@ public final class GetWorkspaceResult {
      */
     private String name;
     /**
-     * @return The notification destinations.
+     * @return Notification destinations.
      * 
      */
     private List<String> notificationDestinations;
     /**
-     * @return The role name that the workspace uses to access resources through Amazon Organizations.
+     * @return Role name that the workspace uses to access resources through Amazon Organizations.
      * 
      */
     private String organizationRoleName;
     /**
-     * @return The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
+     * @return Amazon Organizations organizational units that the workspace is authorized to use data sources from.
      * 
      */
     private List<String> organizationalUnits;
@@ -98,6 +98,10 @@ public final class GetWorkspaceResult {
      * 
      */
     private String roleArn;
+    /**
+     * @return Status of the SAML configuration.
+     * 
+     */
     private String samlConfigurationStatus;
     /**
      * @return AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
@@ -118,7 +122,7 @@ public final class GetWorkspaceResult {
 
     private GetWorkspaceResult() {}
     /**
-     * @return (Required) Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
+     * @return Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
      * 
      */
     public String accountAccessType() {
@@ -132,7 +136,7 @@ public final class GetWorkspaceResult {
         return this.arn;
     }
     /**
-     * @return (Required) Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
+     * @return Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
      * 
      */
     public List<String> authenticationProviders() {
@@ -181,7 +185,7 @@ public final class GetWorkspaceResult {
         return this.id;
     }
     /**
-     * @return The ID or ARN of the AWS KMS key for encrypting workspace data.
+     * @return ID or ARN of the AWS KMS key for encrypting workspace data.
      * 
      */
     public String kmsKeyId() {
@@ -202,21 +206,21 @@ public final class GetWorkspaceResult {
         return this.name;
     }
     /**
-     * @return The notification destinations.
+     * @return Notification destinations.
      * 
      */
     public List<String> notificationDestinations() {
         return this.notificationDestinations;
     }
     /**
-     * @return The role name that the workspace uses to access resources through Amazon Organizations.
+     * @return Role name that the workspace uses to access resources through Amazon Organizations.
      * 
      */
     public String organizationRoleName() {
         return this.organizationRoleName;
     }
     /**
-     * @return The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
+     * @return Amazon Organizations organizational units that the workspace is authorized to use data sources from.
      * 
      */
     public List<String> organizationalUnits() {
@@ -239,6 +243,10 @@ public final class GetWorkspaceResult {
     public String roleArn() {
         return this.roleArn;
     }
+    /**
+     * @return Status of the SAML configuration.
+     * 
+     */
     public String samlConfigurationStatus() {
         return this.samlConfigurationStatus;
     }

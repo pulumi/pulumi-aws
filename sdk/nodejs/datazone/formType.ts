@@ -172,11 +172,11 @@ export class FormType extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Origin domain id of the Form Type.
+     * Origin domain ID of the Form Type.
      */
     declare public /*out*/ readonly originDomainId: pulumi.Output<string>;
     /**
-     * Origin project id of the Form Type.
+     * Origin project ID of the Form Type.
      */
     declare public /*out*/ readonly originProjectId: pulumi.Output<string>;
     /**
@@ -285,11 +285,11 @@ export interface FormTypeState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Origin domain id of the Form Type.
+     * Origin domain ID of the Form Type.
      */
     originDomainId?: pulumi.Input<string | undefined>;
     /**
-     * Origin project id of the Form Type.
+     * Origin project ID of the Form Type.
      */
     originProjectId?: pulumi.Input<string | undefined>;
     /**

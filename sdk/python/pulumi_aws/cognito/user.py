@@ -256,7 +256,7 @@ class _UserState:
         :param pulumi.Input[_builtins.str] password: The user's permanent password. This password must conform to the password policy specified by user pool the user belongs to. The welcome message always contains only `temporary_password` value. You can suppress sending the welcome message with the `message_action` argument. Amazon Cognito does not store the `password` value. Conflicts with `temporary_password`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] status: current user status.
-        :param pulumi.Input[_builtins.str] sub: unique user id that is never reassignable to another user.
+        :param pulumi.Input[_builtins.str] sub: unique user ID that is never reassignable to another user.
         :param pulumi.Input[_builtins.str] temporary_password: The user's temporary password. Conflicts with `password`.
         :param pulumi.Input[_builtins.str] user_pool_id: The user pool ID for the user pool where the user will be created.
         :param pulumi.Input[_builtins.str] username: The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
@@ -451,7 +451,7 @@ class _UserState:
     @pulumi.getter
     def sub(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        unique user id that is never reassignable to another user.
+        unique user ID that is never reassignable to another user.
         """
         return pulumi.get(self, "sub")
 
@@ -784,7 +784,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] password: The user's permanent password. This password must conform to the password policy specified by user pool the user belongs to. The welcome message always contains only `temporary_password` value. You can suppress sending the welcome message with the `message_action` argument. Amazon Cognito does not store the `password` value. Conflicts with `temporary_password`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] status: current user status.
-        :param pulumi.Input[_builtins.str] sub: unique user id that is never reassignable to another user.
+        :param pulumi.Input[_builtins.str] sub: unique user ID that is never reassignable to another user.
         :param pulumi.Input[_builtins.str] temporary_password: The user's temporary password. Conflicts with `password`.
         :param pulumi.Input[_builtins.str] user_pool_id: The user pool ID for the user pool where the user will be created.
         :param pulumi.Input[_builtins.str] username: The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
@@ -914,7 +914,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter
     def sub(self) -> pulumi.Output[_builtins.str]:
         """
-        unique user id that is never reassignable to another user.
+        unique user ID that is never reassignable to another user.
         """
         return pulumi.get(self, "sub")
 

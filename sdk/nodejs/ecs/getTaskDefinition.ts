@@ -87,7 +87,7 @@ export interface GetTaskDefinitionResult {
      */
     readonly containerDefinitions: string;
     /**
-     * Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
+     * Number of CPU units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
      */
     readonly cpu: string;
     /**

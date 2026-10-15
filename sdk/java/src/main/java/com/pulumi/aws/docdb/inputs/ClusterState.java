@@ -215,7 +215,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of log types to export to cloudwatch. If omitted, no logs will be exported.
+     * List of log types to export to CloudWatch. If omitted, no logs will be exported.
      * The following log types are supported: `audit`, `profiler`.
      * 
      */
@@ -223,7 +223,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<List<String>> enabledCloudwatchLogsExports;
 
     /**
-     * @return List of log types to export to cloudwatch. If omitted, no logs will be exported.
+     * @return List of log types to export to CloudWatch. If omitted, no logs will be exported.
      * The following log types are supported: `audit`, `profiler`.
      * 
      */
@@ -1008,7 +1008,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabledCloudwatchLogsExports List of log types to export to cloudwatch. If omitted, no logs will be exported.
+         * @param enabledCloudwatchLogsExports List of log types to export to CloudWatch. If omitted, no logs will be exported.
          * The following log types are supported: `audit`, `profiler`.
          * 
          * @return builder
@@ -1020,7 +1020,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabledCloudwatchLogsExports List of log types to export to cloudwatch. If omitted, no logs will be exported.
+         * @param enabledCloudwatchLogsExports List of log types to export to CloudWatch. If omitted, no logs will be exported.
          * The following log types are supported: `audit`, `profiler`.
          * 
          * @return builder
@@ -1031,7 +1031,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabledCloudwatchLogsExports List of log types to export to cloudwatch. If omitted, no logs will be exported.
+         * @param enabledCloudwatchLogsExports List of log types to export to CloudWatch. If omitted, no logs will be exported.
          * The following log types are supported: `audit`, `profiler`.
          * 
          * @return builder

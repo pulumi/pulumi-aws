@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class MLTransformSchema
     {
         /// <summary>
-        /// The type of data in the column.
+        /// Type of data in the column.
         /// </summary>
         public readonly string? DataType;
         /// <summary>
-        /// The name you assign to this ML Transform. It must be unique in your account.
+        /// Name you assign to this ML Transform. It must be unique in your account.
         /// </summary>
         public readonly string? Name;
 

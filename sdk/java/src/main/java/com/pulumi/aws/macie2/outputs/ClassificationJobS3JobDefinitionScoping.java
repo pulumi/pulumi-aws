@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClassificationJobS3JobDefinitionScoping {
     /**
-     * @return The property- or tag-based conditions that determine which objects to exclude from the analysis. (documented below)
+     * @return Property- or tag-based conditions that determine which objects to exclude from the analysis. See `scoping.excludes` Block for details.
      * 
      */
     private @Nullable ClassificationJobS3JobDefinitionScopingExcludes excludes;
     /**
-     * @return The property- or tag-based conditions that determine which objects to include in the analysis. (documented below)
+     * @return Property- or tag-based conditions that determine which objects to include in the analysis. See `scoping.includes` Block for details.
      * 
      */
     private @Nullable ClassificationJobS3JobDefinitionScopingIncludes includes;
 
     private ClassificationJobS3JobDefinitionScoping() {}
     /**
-     * @return The property- or tag-based conditions that determine which objects to exclude from the analysis. (documented below)
+     * @return Property- or tag-based conditions that determine which objects to exclude from the analysis. See `scoping.excludes` Block for details.
      * 
      */
     public Optional<ClassificationJobS3JobDefinitionScopingExcludes> excludes() {
         return Optional.ofNullable(this.excludes);
     }
     /**
-     * @return The property- or tag-based conditions that determine which objects to include in the analysis. (documented below)
+     * @return Property- or tag-based conditions that determine which objects to include in the analysis. See `scoping.includes` Block for details.
      * 
      */
     public Optional<ClassificationJobS3JobDefinitionScopingIncludes> includes() {

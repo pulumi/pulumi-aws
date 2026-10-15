@@ -149,7 +149,7 @@ namespace Pulumi.Aws.Glue
     public partial class PartitionIndex : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The catalog ID where the table resides.
+        /// Catalog ID where the table resides.
         /// </summary>
         [Output("catalogId")]
         public Output<string> CatalogId { get; private set; } = null!;
@@ -161,7 +161,7 @@ namespace Pulumi.Aws.Glue
         public Output<string> DatabaseName { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for a partition index. See `PartitionIndex` below.
+        /// Configuration block for a partition index. See `PartitionIndex` Block below.
         /// </summary>
         [Output("partitionIndex")]
         public Output<Outputs.PartitionIndexPartitionIndex> PartitionIndexConfig { get; private set; } = null!;
@@ -225,7 +225,7 @@ namespace Pulumi.Aws.Glue
     public sealed class PartitionIndexArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The catalog ID where the table resides.
+        /// Catalog ID where the table resides.
         /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
@@ -237,7 +237,7 @@ namespace Pulumi.Aws.Glue
         public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// Configuration block for a partition index. See `PartitionIndex` below.
+        /// Configuration block for a partition index. See `PartitionIndex` Block below.
         /// </summary>
         [Input("partitionIndex", required: true)]
         public Input<Inputs.PartitionIndexPartitionIndexArgs> PartitionIndexConfig { get; set; } = null!;
@@ -263,7 +263,7 @@ namespace Pulumi.Aws.Glue
     public sealed class PartitionIndexState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The catalog ID where the table resides.
+        /// Catalog ID where the table resides.
         /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
@@ -275,7 +275,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
-        /// Configuration block for a partition index. See `PartitionIndex` below.
+        /// Configuration block for a partition index. See `PartitionIndex` Block below.
         /// </summary>
         [Input("partitionIndex")]
         public Input<Inputs.PartitionIndexPartitionIndexGetArgs>? PartitionIndexConfig { get; set; }

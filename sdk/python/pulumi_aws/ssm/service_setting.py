@@ -186,6 +186,12 @@ class ServiceSetting(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `arn` (String) ARN of the service setting.
+
         Using `pulumi import`, import AWS SSM Service Setting using the `setting_id`. For example:
 
         ```sh
@@ -220,6 +226,12 @@ class ServiceSetting(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `arn` (String) ARN of the service setting.
 
         Using `pulumi import`, import AWS SSM Service Setting using the `setting_id`. For example:
 

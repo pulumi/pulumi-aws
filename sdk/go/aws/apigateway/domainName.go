@@ -23,7 +23,7 @@ import (
 // API Gateway domains can be defined as either 'edge-optimized' or 'regional'.  In an edge-optimized configuration,
 // API Gateway internally creates and manages a CloudFront distribution to route requests on the given hostname. In
 // addition to this resource it's necessary to create a DNS record corresponding to the given domain name which is an alias
-// (either Route53 alias or traditional CNAME) to the Cloudfront domain name exported in the `cloudfrontDomainName`
+// (either Route53 alias or traditional CNAME) to the CloudFront domain name exported in the `cloudfrontDomainName`
 // attribute.
 //
 // In a regional configuration, API Gateway does not create a CloudFront distribution to route requests to the API, though
@@ -198,7 +198,7 @@ type DomainName struct {
 	CertificatePrivateKey pulumi.StringPtrOutput `pulumi:"certificatePrivateKey"`
 	// Upload date associated with the domain certificate.
 	CertificateUploadDate pulumi.StringOutput `pulumi:"certificateUploadDate"`
-	// Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
+	// Hostname created by CloudFront to represent the distribution that implements this domain name mapping.
 	CloudfrontDomainName pulumi.StringOutput `pulumi:"cloudfrontDomainName"`
 	// For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`) that can be used to create a Route53 alias record for the distribution.
 	CloudfrontZoneId pulumi.StringOutput `pulumi:"cloudfrontZoneId"`
@@ -290,7 +290,7 @@ type domainNameState struct {
 	CertificatePrivateKey *string `pulumi:"certificatePrivateKey"`
 	// Upload date associated with the domain certificate.
 	CertificateUploadDate *string `pulumi:"certificateUploadDate"`
-	// Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
+	// Hostname created by CloudFront to represent the distribution that implements this domain name mapping.
 	CloudfrontDomainName *string `pulumi:"cloudfrontDomainName"`
 	// For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`) that can be used to create a Route53 alias record for the distribution.
 	CloudfrontZoneId *string `pulumi:"cloudfrontZoneId"`
@@ -343,7 +343,7 @@ type DomainNameState struct {
 	CertificatePrivateKey pulumi.StringPtrInput
 	// Upload date associated with the domain certificate.
 	CertificateUploadDate pulumi.StringPtrInput
-	// Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
+	// Hostname created by CloudFront to represent the distribution that implements this domain name mapping.
 	CloudfrontDomainName pulumi.StringPtrInput
 	// For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`) that can be used to create a Route53 alias record for the distribution.
 	CloudfrontZoneId pulumi.StringPtrInput
@@ -582,7 +582,7 @@ func (o DomainNameOutput) CertificateUploadDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.CertificateUploadDate }).(pulumi.StringOutput)
 }
 
-// Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
+// Hostname created by CloudFront to represent the distribution that implements this domain name mapping.
 func (o DomainNameOutput) CloudfrontDomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.CloudfrontDomainName }).(pulumi.StringOutput)
 }

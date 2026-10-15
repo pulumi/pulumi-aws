@@ -18,7 +18,7 @@ namespace Pulumi.Aws.FinSpace.Outputs
         /// </summary>
         public readonly int? Size;
         /// <summary>
-        /// Type of writeable storage space for temporarily storing your savedown data. Valid value is `SDS01`, which represents 3000 IOPS and io2 ebs volume type.
+        /// Type of writeable storage space for temporarily storing your savedown data. Valid value is `SDS01`, which represents 3000 IOPS and io2 EBS volume type.
         /// </summary>
         public readonly string? Type;
         /// <summary>

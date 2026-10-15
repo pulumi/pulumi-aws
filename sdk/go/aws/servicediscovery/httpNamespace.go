@@ -54,7 +54,7 @@ type HttpNamespace struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of an HTTP namespace.
 	HttpName pulumi.StringOutput `pulumi:"httpName"`
-	// The name of the http namespace.
+	// The name of the HTTP namespace.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -100,7 +100,7 @@ type httpNamespaceState struct {
 	Description *string `pulumi:"description"`
 	// The name of an HTTP namespace.
 	HttpName *string `pulumi:"httpName"`
-	// The name of the http namespace.
+	// The name of the HTTP namespace.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -117,7 +117,7 @@ type HttpNamespaceState struct {
 	Description pulumi.StringPtrInput
 	// The name of an HTTP namespace.
 	HttpName pulumi.StringPtrInput
-	// The name of the http namespace.
+	// The name of the HTTP namespace.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -134,7 +134,7 @@ func (HttpNamespaceState) ElementType() reflect.Type {
 type httpNamespaceArgs struct {
 	// The description that you specify for the namespace when you create it.
 	Description *string `pulumi:"description"`
-	// The name of the http namespace.
+	// The name of the HTTP namespace.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -146,7 +146,7 @@ type httpNamespaceArgs struct {
 type HttpNamespaceArgs struct {
 	// The description that you specify for the namespace when you create it.
 	Description pulumi.StringPtrInput
-	// The name of the http namespace.
+	// The name of the HTTP namespace.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -256,7 +256,7 @@ func (o HttpNamespaceOutput) HttpName() pulumi.StringOutput {
 	return o.ApplyT(func(v *HttpNamespace) pulumi.StringOutput { return v.HttpName }).(pulumi.StringOutput)
 }
 
-// The name of the http namespace.
+// The name of the HTTP namespace.
 func (o HttpNamespaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *HttpNamespace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

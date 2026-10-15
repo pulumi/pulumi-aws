@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
+ * The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group ID.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -86,7 +86,7 @@ export interface GetResolverFirewallRulesResult {
  *
  * ## Example Usage
  *
- * The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
+ * The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group ID.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

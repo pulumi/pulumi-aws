@@ -61,20 +61,20 @@ type LookupVpcConnectionArgs struct {
 // A collection of values returned by getVpcConnection.
 type LookupVpcConnectionResult struct {
 	Arn string `pulumi:"arn"`
-	// The authentication type for the client VPC Connection.
+	// Authentication type for the client VPC Connection.
 	Authentication string `pulumi:"authentication"`
-	// The list of subnets in the client VPC.
+	// List of subnets in the client VPC.
 	ClientSubnets []string `pulumi:"clientSubnets"`
 	// The provider-assigned unique ID for this managed resource.
 	Id     string `pulumi:"id"`
 	Region string `pulumi:"region"`
-	// The security groups attached to the ENIs for the broker nodes.
+	// Security groups attached to the ENIs for the broker nodes.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// Map of key-value pairs assigned to the VPC Connection.
 	Tags map[string]string `pulumi:"tags"`
 	// ARN of the cluster.
 	TargetClusterArn string `pulumi:"targetClusterArn"`
-	// The VPC ID of the remote client.
+	// VPC ID of the remote client.
 	VpcId string `pulumi:"vpcId"`
 }
 
@@ -116,12 +116,12 @@ func (o LookupVpcConnectionResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcConnectionResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The authentication type for the client VPC Connection.
+// Authentication type for the client VPC Connection.
 func (o LookupVpcConnectionResultOutput) Authentication() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcConnectionResult) string { return v.Authentication }).(pulumi.StringOutput)
 }
 
-// The list of subnets in the client VPC.
+// List of subnets in the client VPC.
 func (o LookupVpcConnectionResultOutput) ClientSubnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupVpcConnectionResult) []string { return v.ClientSubnets }).(pulumi.StringArrayOutput)
 }
@@ -135,7 +135,7 @@ func (o LookupVpcConnectionResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcConnectionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The security groups attached to the ENIs for the broker nodes.
+// Security groups attached to the ENIs for the broker nodes.
 func (o LookupVpcConnectionResultOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupVpcConnectionResult) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
@@ -150,7 +150,7 @@ func (o LookupVpcConnectionResultOutput) TargetClusterArn() pulumi.StringOutput 
 	return o.ApplyT(func(v LookupVpcConnectionResult) string { return v.TargetClusterArn }).(pulumi.StringOutput)
 }
 
-// The VPC ID of the remote client.
+// VPC ID of the remote client.
 func (o LookupVpcConnectionResultOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcConnectionResult) string { return v.VpcId }).(pulumi.StringOutput)
 }

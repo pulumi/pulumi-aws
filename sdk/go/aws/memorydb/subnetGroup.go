@@ -70,7 +70,7 @@ import (
 type SubnetGroup struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the subnet group.
+	// ARN of the subnet group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Description for the subnet group. Defaults to `"Managed by Pulumi"`.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -84,11 +84,11 @@ type SubnetGroup struct {
 	//
 	// The following arguments are optional:
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The VPC in which the subnet group exists.
+	// VPC in which the subnet group exists.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
@@ -125,7 +125,7 @@ func GetSubnetGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SubnetGroup resources.
 type subnetGroupState struct {
-	// The ARN of the subnet group.
+	// ARN of the subnet group.
 	Arn *string `pulumi:"arn"`
 	// Description for the subnet group. Defaults to `"Managed by Pulumi"`.
 	Description *string `pulumi:"description"`
@@ -139,16 +139,16 @@ type subnetGroupState struct {
 	//
 	// The following arguments are optional:
 	SubnetIds []string `pulumi:"subnetIds"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The VPC in which the subnet group exists.
+	// VPC in which the subnet group exists.
 	VpcId *string `pulumi:"vpcId"`
 }
 
 type SubnetGroupState struct {
-	// The ARN of the subnet group.
+	// ARN of the subnet group.
 	Arn pulumi.StringPtrInput
 	// Description for the subnet group. Defaults to `"Managed by Pulumi"`.
 	Description pulumi.StringPtrInput
@@ -162,11 +162,11 @@ type SubnetGroupState struct {
 	//
 	// The following arguments are optional:
 	SubnetIds pulumi.StringArrayInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The VPC in which the subnet group exists.
+	// VPC in which the subnet group exists.
 	VpcId pulumi.StringPtrInput
 }
 
@@ -187,7 +187,7 @@ type subnetGroupArgs struct {
 	//
 	// The following arguments are optional:
 	SubnetIds []string `pulumi:"subnetIds"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -205,7 +205,7 @@ type SubnetGroupArgs struct {
 	//
 	// The following arguments are optional:
 	SubnetIds pulumi.StringArrayInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -296,7 +296,7 @@ func (o SubnetGroupOutput) ToSubnetGroupOutputWithContext(ctx context.Context) S
 	return o
 }
 
-// The ARN of the subnet group.
+// ARN of the subnet group.
 func (o SubnetGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -328,17 +328,17 @@ func (o SubnetGroupOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o SubnetGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o SubnetGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The VPC in which the subnet group exists.
+// VPC in which the subnet group exists.
 func (o SubnetGroupOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

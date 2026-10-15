@@ -16,9 +16,9 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * Provides an AutoScaling Group with Notification support, via SNS Topics. Each of
+ * Provides an Auto Scaling group with Notification support, via SNS Topics. Each of
  * the `notifications` map to a [Notification Configuration](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeNotificationConfigurations.html) inside Amazon Web
- * Services, and are applied to each AutoScaling Group you supply.
+ * Services, and are applied to each Auto Scaling group you supply.
  * 
  * ## Example Usage
  * 
@@ -83,14 +83,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:autoscaling/notification:Notification")
 public class Notification extends com.pulumi.resources.CustomResource {
     /**
-     * List of AutoScaling Group Names
+     * List of Auto Scaling group Names
      * 
      */
     @Export(name="groupNames", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> groupNames;
 
     /**
-     * @return List of AutoScaling Group Names
+     * @return List of Auto Scaling group Names
      * 
      */
     public Output<List<String>> groupNames() {

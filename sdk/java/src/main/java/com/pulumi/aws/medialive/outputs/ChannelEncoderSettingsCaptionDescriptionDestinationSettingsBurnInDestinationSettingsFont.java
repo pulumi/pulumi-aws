@@ -23,7 +23,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
      */
     private String uri;
     /**
-     * @return Username to be used.
+     * @return Username for the server.
      * 
      */
     private @Nullable String username;
@@ -44,7 +44,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
         return this.uri;
     }
     /**
-     * @return Username to be used.
+     * @return Username for the server.
      * 
      */
     public Optional<String> username() {

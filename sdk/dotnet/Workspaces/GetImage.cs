@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Workspaces
     public static class GetImage
     {
         /// <summary>
-        /// Use this data source to get information about a Workspaces image.
+        /// Use this data source to get information about a WorkSpaces image.
         /// 
         /// ## Example Usage
         /// 
@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Workspaces
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetImageResult>("aws:workspaces/getImage:getImage", args ?? new GetImageArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get information about a Workspaces image.
+        /// Use this data source to get information about a WorkSpaces image.
         /// 
         /// ## Example Usage
         /// 
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Workspaces
             => global::Pulumi.Deployment.Instance.Invoke<GetImageResult>("aws:workspaces/getImage:getImage", args ?? new GetImageInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get information about a Workspaces image.
+        /// Use this data source to get information about a WorkSpaces image.
         /// 
         /// ## Example Usage
         /// 

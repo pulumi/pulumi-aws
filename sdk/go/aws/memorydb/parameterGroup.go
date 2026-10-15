@@ -59,11 +59,11 @@ import (
 type ParameterGroup struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the parameter group.
+	// ARN of the parameter group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Description for the parameter group. Defaults to `"Managed by Pulumi"`.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The engine version that the parameter group can be used with.
+	// Engine version that the parameter group can be used with.
 	//
 	// The following arguments are optional:
 	Family pulumi.StringOutput `pulumi:"family"`
@@ -75,9 +75,9 @@ type ParameterGroup struct {
 	Parameters ParameterGroupParameterArrayOutput `pulumi:"parameters"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -114,11 +114,11 @@ func GetParameterGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ParameterGroup resources.
 type parameterGroupState struct {
-	// The ARN of the parameter group.
+	// ARN of the parameter group.
 	Arn *string `pulumi:"arn"`
 	// Description for the parameter group. Defaults to `"Managed by Pulumi"`.
 	Description *string `pulumi:"description"`
-	// The engine version that the parameter group can be used with.
+	// Engine version that the parameter group can be used with.
 	//
 	// The following arguments are optional:
 	Family *string `pulumi:"family"`
@@ -130,18 +130,18 @@ type parameterGroupState struct {
 	Parameters []ParameterGroupParameter `pulumi:"parameters"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ParameterGroupState struct {
-	// The ARN of the parameter group.
+	// ARN of the parameter group.
 	Arn pulumi.StringPtrInput
 	// Description for the parameter group. Defaults to `"Managed by Pulumi"`.
 	Description pulumi.StringPtrInput
-	// The engine version that the parameter group can be used with.
+	// Engine version that the parameter group can be used with.
 	//
 	// The following arguments are optional:
 	Family pulumi.StringPtrInput
@@ -153,9 +153,9 @@ type ParameterGroupState struct {
 	Parameters ParameterGroupParameterArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -166,7 +166,7 @@ func (ParameterGroupState) ElementType() reflect.Type {
 type parameterGroupArgs struct {
 	// Description for the parameter group. Defaults to `"Managed by Pulumi"`.
 	Description *string `pulumi:"description"`
-	// The engine version that the parameter group can be used with.
+	// Engine version that the parameter group can be used with.
 	//
 	// The following arguments are optional:
 	Family string `pulumi:"family"`
@@ -178,7 +178,7 @@ type parameterGroupArgs struct {
 	Parameters []ParameterGroupParameter `pulumi:"parameters"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -186,7 +186,7 @@ type parameterGroupArgs struct {
 type ParameterGroupArgs struct {
 	// Description for the parameter group. Defaults to `"Managed by Pulumi"`.
 	Description pulumi.StringPtrInput
-	// The engine version that the parameter group can be used with.
+	// Engine version that the parameter group can be used with.
 	//
 	// The following arguments are optional:
 	Family pulumi.StringInput
@@ -198,7 +198,7 @@ type ParameterGroupArgs struct {
 	Parameters ParameterGroupParameterArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -289,7 +289,7 @@ func (o ParameterGroupOutput) ToParameterGroupOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The ARN of the parameter group.
+// ARN of the parameter group.
 func (o ParameterGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -299,7 +299,7 @@ func (o ParameterGroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The engine version that the parameter group can be used with.
+// Engine version that the parameter group can be used with.
 //
 // The following arguments are optional:
 func (o ParameterGroupOutput) Family() pulumi.StringOutput {
@@ -326,12 +326,12 @@ func (o ParameterGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ParameterGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ParameterGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

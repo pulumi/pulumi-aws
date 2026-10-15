@@ -19,7 +19,7 @@ public final class GetSnapshotResult {
      */
     private String arn;
     /**
-     * @return The configuration of the cluster from which the snapshot was taken.
+     * @return Configuration of the cluster from which the snapshot was taken.
      * 
      */
     private List<GetSnapshotClusterConfiguration> clusterConfigurations;
@@ -64,7 +64,7 @@ public final class GetSnapshotResult {
         return this.arn;
     }
     /**
-     * @return The configuration of the cluster from which the snapshot was taken.
+     * @return Configuration of the cluster from which the snapshot was taken.
      * 
      */
     public List<GetSnapshotClusterConfiguration> clusterConfigurations() {

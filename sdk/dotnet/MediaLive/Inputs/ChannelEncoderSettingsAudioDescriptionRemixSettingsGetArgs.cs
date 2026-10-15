@@ -14,15 +14,25 @@ namespace Pulumi.Aws.MediaLive.Inputs
     {
         [Input("channelMappings", required: true)]
         private InputList<Inputs.ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingGetArgs>? _channelMappings;
+
+        /// <summary>
+        /// Mapping of input channels to output channels. See `ChannelMappings` Block for details.
+        /// </summary>
         public InputList<Inputs.ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingGetArgs> ChannelMappings
         {
             get => _channelMappings ?? (_channelMappings = new InputList<Inputs.ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingGetArgs>());
             set => _channelMappings = value;
         }
 
+        /// <summary>
+        /// Number of input channels to be used.
+        /// </summary>
         [Input("channelsIn")]
         public Input<int>? ChannelsIn { get; set; }
 
+        /// <summary>
+        /// Number of output channels to be produced.
+        /// </summary>
         [Input("channelsOut")]
         public Input<int>? ChannelsOut { get; set; }
 

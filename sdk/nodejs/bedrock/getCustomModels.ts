@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Returns a list of Amazon Bedrock custom models.
+ * Provides details about Amazon Bedrock custom models.
  *
  * ## Example Usage
  *
@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = aws.bedrock.getCustomModels({});
+ * const example = aws.bedrock.getCustomModels({});
  * ```
  */
 export function getCustomModels(args?: GetCustomModelsArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomModelsResult> {
@@ -49,7 +49,7 @@ export interface GetCustomModelsResult {
     readonly region: string;
 }
 /**
- * Returns a list of Amazon Bedrock custom models.
+ * Provides details about Amazon Bedrock custom models.
  *
  * ## Example Usage
  *
@@ -57,7 +57,7 @@ export interface GetCustomModelsResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = aws.bedrock.getCustomModels({});
+ * const example = aws.bedrock.getCustomModels({});
  * ```
  */
 export function getCustomModelsOutput(args?: GetCustomModelsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomModelsResult> {

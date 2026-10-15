@@ -66,56 +66,56 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:mediapackage/channel:Channel")
 public class Channel extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the channel
+     * ARN of the channel
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the channel
+     * @return ARN of the channel
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * A unique identifier describing the channel
+     * Unique identifier describing the channel
      * 
      */
     @Export(name="channelId", refs={String.class}, tree="[0]")
     private Output<String> channelId;
 
     /**
-     * @return A unique identifier describing the channel
+     * @return Unique identifier describing the channel
      * 
      */
     public Output<String> channelId() {
         return this.channelId;
     }
     /**
-     * A description of the channel
+     * Description of the channel
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
-     * @return A description of the channel
+     * @return Description of the channel
      * 
      */
     public Output<String> description() {
         return this.description;
     }
     /**
-     * A single item list of HLS ingest information
+     * Single item list of HLS ingest information
      * 
      */
     @Export(name="hlsIngests", refs={List.class,ChannelHlsIngest.class}, tree="[0,1]")
     private Output<List<ChannelHlsIngest>> hlsIngests;
 
     /**
-     * @return A single item list of HLS ingest information
+     * @return Single item list of HLS ingest information
      * 
      */
     public Output<List<ChannelHlsIngest>> hlsIngests() {
@@ -136,28 +136,28 @@ public class Channel extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

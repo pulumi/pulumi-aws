@@ -17,6 +17,9 @@ namespace Pulumi.Aws.Glue.Outputs
         /// Name of the partition index.
         /// </summary>
         public readonly string? IndexName;
+        /// <summary>
+        /// Status of the partition index.
+        /// </summary>
         public readonly string? IndexStatus;
         /// <summary>
         /// Keys for the partition index.

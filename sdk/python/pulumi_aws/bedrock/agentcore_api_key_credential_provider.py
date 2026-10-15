@@ -32,12 +32,12 @@ class AgentcoreApiKeyCredentialProviderArgs:
         """
         The set of arguments for constructing a AgentcoreApiKeyCredentialProvider resource.
 
-        :param pulumi.Input[_builtins.str] api_key: API key value. Conflicts with `api_key_wo` and `api_key_secret_config`. This value will be visible in pulumi preview outputs and logs.
+        :param pulumi.Input[_builtins.str] api_key: API key value. Exactly one of `api_key`, `api_key_secret_config`, or `api_key_wo` must be set. This value is stored in plain text in the Terraform state; use `api_key_wo` to avoid this.
         :param pulumi.Input['AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs'] api_key_secret_config: Reference to a customer-managed AWS Secrets Manager secret that stores the API key. Requires `api_key_secret_source = "EXTERNAL"`. See below.
         :param pulumi.Input[_builtins.str] api_key_secret_source: Source of the secret backing the credential provider. Valid values are `MANAGED` (AgentCore creates and manages the secret from the supplied `api_key`) and `EXTERNAL` (the provider references a customer-managed AWS Secrets Manager secret via `api_key_secret_config`). Changing between `MANAGED` and `EXTERNAL` forces replacement of the resource.
         :param pulumi.Input[_builtins.str] api_key_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                Write-only API key value. Conflicts with `api_key` and `api_key_secret_config`. If set, requires `api_key_wo_version` to be set.
-        :param pulumi.Input[_builtins.int] api_key_wo_version: Required when `api_key_wo` is set. Changing this value triggers an update to `api_key_wo`.
+        :param pulumi.Input[_builtins.int] api_key_wo_version: Version used together with the write-only API key. Required when `api_key_wo` is set. Changing this value triggers an update to `api_key_wo`.
         :param pulumi.Input[_builtins.str] name: Name of the API Key credential provider. Forces replacement when changed.
                
                The following arguments are optional:
@@ -65,7 +65,7 @@ class AgentcoreApiKeyCredentialProviderArgs:
     @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        API key value. Conflicts with `api_key_wo` and `api_key_secret_config`. This value will be visible in pulumi preview outputs and logs.
+        API key value. Exactly one of `api_key`, `api_key_secret_config`, or `api_key_wo` must be set. This value is stored in plain text in the Terraform state; use `api_key_wo` to avoid this.
         """
         return pulumi.get(self, "api_key")
 
@@ -114,7 +114,7 @@ class AgentcoreApiKeyCredentialProviderArgs:
     @pulumi.getter(name="apiKeyWoVersion")
     def api_key_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Required when `api_key_wo` is set. Changing this value triggers an update to `api_key_wo`.
+        Version used together with the write-only API key. Required when `api_key_wo` is set. Changing this value triggers an update to `api_key_wo`.
         """
         return pulumi.get(self, "api_key_wo_version")
 
@@ -178,13 +178,13 @@ class _AgentcoreApiKeyCredentialProviderState:
         """
         Input properties used for looking up and filtering AgentcoreApiKeyCredentialProvider resources.
 
-        :param pulumi.Input[_builtins.str] api_key: API key value. Conflicts with `api_key_wo` and `api_key_secret_config`. This value will be visible in pulumi preview outputs and logs.
+        :param pulumi.Input[_builtins.str] api_key: API key value. Exactly one of `api_key`, `api_key_secret_config`, or `api_key_wo` must be set. This value is stored in plain text in the Terraform state; use `api_key_wo` to avoid this.
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreApiKeyCredentialProviderApiKeySecretArnArgs']]] api_key_secret_arns: ARN of the AWS Secrets Manager secret containing the API key.
         :param pulumi.Input['AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs'] api_key_secret_config: Reference to a customer-managed AWS Secrets Manager secret that stores the API key. Requires `api_key_secret_source = "EXTERNAL"`. See below.
         :param pulumi.Input[_builtins.str] api_key_secret_source: Source of the secret backing the credential provider. Valid values are `MANAGED` (AgentCore creates and manages the secret from the supplied `api_key`) and `EXTERNAL` (the provider references a customer-managed AWS Secrets Manager secret via `api_key_secret_config`). Changing between `MANAGED` and `EXTERNAL` forces replacement of the resource.
         :param pulumi.Input[_builtins.str] api_key_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                Write-only API key value. Conflicts with `api_key` and `api_key_secret_config`. If set, requires `api_key_wo_version` to be set.
-        :param pulumi.Input[_builtins.int] api_key_wo_version: Required when `api_key_wo` is set. Changing this value triggers an update to `api_key_wo`.
+        :param pulumi.Input[_builtins.int] api_key_wo_version: Version used together with the write-only API key. Required when `api_key_wo` is set. Changing this value triggers an update to `api_key_wo`.
         :param pulumi.Input[_builtins.str] credential_provider_arn: ARN of the API Key credential provider.
         :param pulumi.Input[_builtins.str] name: Name of the API Key credential provider. Forces replacement when changed.
                
@@ -220,7 +220,7 @@ class _AgentcoreApiKeyCredentialProviderState:
     @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        API key value. Conflicts with `api_key_wo` and `api_key_secret_config`. This value will be visible in pulumi preview outputs and logs.
+        API key value. Exactly one of `api_key`, `api_key_secret_config`, or `api_key_wo` must be set. This value is stored in plain text in the Terraform state; use `api_key_wo` to avoid this.
         """
         return pulumi.get(self, "api_key")
 
@@ -281,7 +281,7 @@ class _AgentcoreApiKeyCredentialProviderState:
     @pulumi.getter(name="apiKeyWoVersion")
     def api_key_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Required when `api_key_wo` is set. Changing this value triggers an update to `api_key_wo`.
+        Version used together with the write-only API key. Required when `api_key_wo` is set. Changing this value triggers an update to `api_key_wo`.
         """
         return pulumi.get(self, "api_key_wo_version")
 
@@ -436,12 +436,12 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] api_key: API key value. Conflicts with `api_key_wo` and `api_key_secret_config`. This value will be visible in pulumi preview outputs and logs.
+        :param pulumi.Input[_builtins.str] api_key: API key value. Exactly one of `api_key`, `api_key_secret_config`, or `api_key_wo` must be set. This value is stored in plain text in the Terraform state; use `api_key_wo` to avoid this.
         :param pulumi.Input[Union['AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs', 'AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgsDict', 'outputs.AgentcoreApiKeyCredentialProviderApiKeySecretConfig']] api_key_secret_config: Reference to a customer-managed AWS Secrets Manager secret that stores the API key. Requires `api_key_secret_source = "EXTERNAL"`. See below.
         :param pulumi.Input[_builtins.str] api_key_secret_source: Source of the secret backing the credential provider. Valid values are `MANAGED` (AgentCore creates and manages the secret from the supplied `api_key`) and `EXTERNAL` (the provider references a customer-managed AWS Secrets Manager secret via `api_key_secret_config`). Changing between `MANAGED` and `EXTERNAL` forces replacement of the resource.
         :param pulumi.Input[_builtins.str] api_key_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                Write-only API key value. Conflicts with `api_key` and `api_key_secret_config`. If set, requires `api_key_wo_version` to be set.
-        :param pulumi.Input[_builtins.int] api_key_wo_version: Required when `api_key_wo` is set. Changing this value triggers an update to `api_key_wo`.
+        :param pulumi.Input[_builtins.int] api_key_wo_version: Version used together with the write-only API key. Required when `api_key_wo` is set. Changing this value triggers an update to `api_key_wo`.
         :param pulumi.Input[_builtins.str] name: Name of the API Key credential provider. Forces replacement when changed.
                
                The following arguments are optional:
@@ -594,13 +594,13 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] api_key: API key value. Conflicts with `api_key_wo` and `api_key_secret_config`. This value will be visible in pulumi preview outputs and logs.
+        :param pulumi.Input[_builtins.str] api_key: API key value. Exactly one of `api_key`, `api_key_secret_config`, or `api_key_wo` must be set. This value is stored in plain text in the Terraform state; use `api_key_wo` to avoid this.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreApiKeyCredentialProviderApiKeySecretArnArgs', 'AgentcoreApiKeyCredentialProviderApiKeySecretArnArgsDict', 'outputs.AgentcoreApiKeyCredentialProviderApiKeySecretArn']]]] api_key_secret_arns: ARN of the AWS Secrets Manager secret containing the API key.
         :param pulumi.Input[Union['AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgs', 'AgentcoreApiKeyCredentialProviderApiKeySecretConfigArgsDict', 'outputs.AgentcoreApiKeyCredentialProviderApiKeySecretConfig']] api_key_secret_config: Reference to a customer-managed AWS Secrets Manager secret that stores the API key. Requires `api_key_secret_source = "EXTERNAL"`. See below.
         :param pulumi.Input[_builtins.str] api_key_secret_source: Source of the secret backing the credential provider. Valid values are `MANAGED` (AgentCore creates and manages the secret from the supplied `api_key`) and `EXTERNAL` (the provider references a customer-managed AWS Secrets Manager secret via `api_key_secret_config`). Changing between `MANAGED` and `EXTERNAL` forces replacement of the resource.
         :param pulumi.Input[_builtins.str] api_key_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                Write-only API key value. Conflicts with `api_key` and `api_key_secret_config`. If set, requires `api_key_wo_version` to be set.
-        :param pulumi.Input[_builtins.int] api_key_wo_version: Required when `api_key_wo` is set. Changing this value triggers an update to `api_key_wo`.
+        :param pulumi.Input[_builtins.int] api_key_wo_version: Version used together with the write-only API key. Required when `api_key_wo` is set. Changing this value triggers an update to `api_key_wo`.
         :param pulumi.Input[_builtins.str] credential_provider_arn: ARN of the API Key credential provider.
         :param pulumi.Input[_builtins.str] name: Name of the API Key credential provider. Forces replacement when changed.
                
@@ -630,7 +630,7 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
     @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        API key value. Conflicts with `api_key_wo` and `api_key_secret_config`. This value will be visible in pulumi preview outputs and logs.
+        API key value. Exactly one of `api_key`, `api_key_secret_config`, or `api_key_wo` must be set. This value is stored in plain text in the Terraform state; use `api_key_wo` to avoid this.
         """
         return pulumi.get(self, "api_key")
 
@@ -671,7 +671,7 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
     @pulumi.getter(name="apiKeyWoVersion")
     def api_key_wo_version(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        Required when `api_key_wo` is set. Changing this value triggers an update to `api_key_wo`.
+        Version used together with the write-only API key. Required when `api_key_wo` is set. Changing this value triggers an update to `api_key_wo`.
         """
         return pulumi.get(self, "api_key_wo_version")
 

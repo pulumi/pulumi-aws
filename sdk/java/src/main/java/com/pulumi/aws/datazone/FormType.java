@@ -265,28 +265,28 @@ public class FormType extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Origin domain id of the Form Type.
+     * Origin domain ID of the Form Type.
      * 
      */
     @Export(name="originDomainId", refs={String.class}, tree="[0]")
     private Output<String> originDomainId;
 
     /**
-     * @return Origin domain id of the Form Type.
+     * @return Origin domain ID of the Form Type.
      * 
      */
     public Output<String> originDomainId() {
         return this.originDomainId;
     }
     /**
-     * Origin project id of the Form Type.
+     * Origin project ID of the Form Type.
      * 
      */
     @Export(name="originProjectId", refs={String.class}, tree="[0]")
     private Output<String> originProjectId;
 
     /**
-     * @return Origin project id of the Form Type.
+     * @return Origin project ID of the Form Type.
      * 
      */
     public Output<String> originProjectId() {

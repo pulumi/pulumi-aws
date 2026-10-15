@@ -238,14 +238,14 @@ public class TrafficMirrorSession extends com.pulumi.resources.CustomResource {
         return this.trafficMirrorTargetId;
     }
     /**
-     * The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
+     * The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique ID is chosen at random.
      * 
      */
     @Export(name="virtualNetworkId", refs={Integer.class}, tree="[0]")
     private Output<Integer> virtualNetworkId;
 
     /**
-     * @return The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
+     * @return The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique ID is chosen at random.
      * 
      */
     public Output<Integer> virtualNetworkId() {

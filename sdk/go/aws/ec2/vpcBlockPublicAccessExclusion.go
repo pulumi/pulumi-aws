@@ -49,7 +49,7 @@ import (
 //
 // ```
 //
-// ### Usage with subnet id
+// ### Usage with subnet ID
 //
 // ```go
 // package main

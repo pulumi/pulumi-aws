@@ -217,7 +217,7 @@ def get_route(carrier_gateway_id: Optional[_builtins.str] = None,
 
     ## Example Usage
 
-    The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
+    The following example shows how one might use a CIDR value to find a network interface ID and use this to create a data source of that network interface.
 
     ```python
     import pulumi
@@ -313,7 +313,7 @@ def get_route_output(carrier_gateway_id: pulumi.Input[Optional[Optional[_builtin
 
     ## Example Usage
 
-    The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
+    The following example shows how one might use a CIDR value to find a network interface ID and use this to create a data source of that network interface.
 
     ```python
     import pulumi

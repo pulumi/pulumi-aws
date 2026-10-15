@@ -64,9 +64,17 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         return this.environmentId;
     }
 
+    /**
+     * Stop the application during deployment, even if it is running.
+     * 
+     */
     @Import(name="forceStop")
     private @Nullable Output<Boolean> forceStop;
 
+    /**
+     * @return Stop the application during deployment, even if it is running.
+     * 
+     */
     public Optional<Output<Boolean>> forceStop() {
         return Optional.ofNullable(this.forceStop);
     }
@@ -201,11 +209,23 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
             return environmentId(Output.of(environmentId));
         }
 
+        /**
+         * @param forceStop Stop the application during deployment, even if it is running.
+         * 
+         * @return builder
+         * 
+         */
         public Builder forceStop(@Nullable Output<Boolean> forceStop) {
             $.forceStop = forceStop;
             return this;
         }
 
+        /**
+         * @param forceStop Stop the application during deployment, even if it is running.
+         * 
+         * @return builder
+         * 
+         */
         public Builder forceStop(Boolean forceStop) {
             return forceStop(Output.of(forceStop));
         }

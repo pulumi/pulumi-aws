@@ -248,7 +248,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="cloudExadataInfrastructureId")
     def cloud_exadata_infrastructure_id(self) -> _builtins.str:
         """
-        Cloud exadata infrastructure id associated with this cloud autonomous VM cluster.
+        Cloud exadata infrastructure ID associated with this cloud autonomous VM cluster.
         """
         return pulumi.get(self, "cloud_exadata_infrastructure_id")
 

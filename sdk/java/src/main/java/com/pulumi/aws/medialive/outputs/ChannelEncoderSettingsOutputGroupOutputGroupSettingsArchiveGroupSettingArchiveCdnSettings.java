@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettings {
     /**
-     * @return Archive S3 Settings. See Archive S3 Settings for more details.
+     * @return Archive S3 settings. See `archiveS3Settings` Block for details.
      * 
      */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3Settings archiveS3Settings;
 
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettings() {}
     /**
-     * @return Archive S3 Settings. See Archive S3 Settings for more details.
+     * @return Archive S3 settings. See `archiveS3Settings` Block for details.
      * 
      */
     public Optional<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3Settings> archiveS3Settings() {

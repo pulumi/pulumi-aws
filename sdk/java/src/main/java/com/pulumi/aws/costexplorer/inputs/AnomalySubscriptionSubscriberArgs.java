@@ -15,14 +15,14 @@ public final class AnomalySubscriptionSubscriberArgs extends com.pulumi.resource
     public static final AnomalySubscriptionSubscriberArgs Empty = new AnomalySubscriptionSubscriberArgs();
 
     /**
-     * The address of the subscriber. If type is `SNS`, this will be the arn of the sns topic. If type is `EMAIL`, this will be the destination email address.
+     * The address of the subscriber. If type is `SNS`, this will be the ARN of the SNS topic. If type is `EMAIL`, this will be the destination email address.
      * 
      */
     @Import(name="address", required=true)
     private Output<String> address;
 
     /**
-     * @return The address of the subscriber. If type is `SNS`, this will be the arn of the sns topic. If type is `EMAIL`, this will be the destination email address.
+     * @return The address of the subscriber. If type is `SNS`, this will be the ARN of the SNS topic. If type is `EMAIL`, this will be the destination email address.
      * 
      */
     public Output<String> address() {
@@ -70,7 +70,7 @@ public final class AnomalySubscriptionSubscriberArgs extends com.pulumi.resource
         }
 
         /**
-         * @param address The address of the subscriber. If type is `SNS`, this will be the arn of the sns topic. If type is `EMAIL`, this will be the destination email address.
+         * @param address The address of the subscriber. If type is `SNS`, this will be the ARN of the SNS topic. If type is `EMAIL`, this will be the destination email address.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class AnomalySubscriptionSubscriberArgs extends com.pulumi.resource
         }
 
         /**
-         * @param address The address of the subscriber. If type is `SNS`, this will be the arn of the sns topic. If type is `EMAIL`, this will be the destination email address.
+         * @param address The address of the subscriber. If type is `SNS`, this will be the ARN of the SNS topic. If type is `EMAIL`, this will be the destination email address.
          * 
          * @return builder
          * 

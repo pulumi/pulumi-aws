@@ -39,7 +39,7 @@ public final class EndpointMysqlSettings {
      */
     private @Nullable Integer executeTimeout;
     /**
-     * @return Maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
+     * @return Maximum size (in KB) of any `.csv` file used to transfer data to a MySQL-compatible database.
      * 
      */
     private @Nullable Integer maxFileSize;
@@ -101,7 +101,7 @@ public final class EndpointMysqlSettings {
         return Optional.ofNullable(this.executeTimeout);
     }
     /**
-     * @return Maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
+     * @return Maximum size (in KB) of any `.csv` file used to transfer data to a MySQL-compatible database.
      * 
      */
     public Optional<Integer> maxFileSize() {

@@ -17,14 +17,14 @@ public final class IamPolicyAssignmentIdentitiesArgs extends com.pulumi.resource
     public static final IamPolicyAssignmentIdentitiesArgs Empty = new IamPolicyAssignmentIdentitiesArgs();
 
     /**
-     * Array of Quicksight group names to assign the policy to.
+     * Array of QuickSight group names to assign the policy to.
      * 
      */
     @Import(name="groups")
     private @Nullable Output<List<String>> groups;
 
     /**
-     * @return Array of Quicksight group names to assign the policy to.
+     * @return Array of QuickSight group names to assign the policy to.
      * 
      */
     public Optional<Output<List<String>>> groups() {
@@ -32,14 +32,14 @@ public final class IamPolicyAssignmentIdentitiesArgs extends com.pulumi.resource
     }
 
     /**
-     * Array of Quicksight user names to assign the policy to.
+     * Array of QuickSight user names to assign the policy to.
      * 
      */
     @Import(name="users")
     private @Nullable Output<List<String>> users;
 
     /**
-     * @return Array of Quicksight user names to assign the policy to.
+     * @return Array of QuickSight user names to assign the policy to.
      * 
      */
     public Optional<Output<List<String>>> users() {
@@ -72,7 +72,7 @@ public final class IamPolicyAssignmentIdentitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param groups Array of Quicksight group names to assign the policy to.
+         * @param groups Array of QuickSight group names to assign the policy to.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class IamPolicyAssignmentIdentitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param groups Array of Quicksight group names to assign the policy to.
+         * @param groups Array of QuickSight group names to assign the policy to.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class IamPolicyAssignmentIdentitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param groups Array of Quicksight group names to assign the policy to.
+         * @param groups Array of QuickSight group names to assign the policy to.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class IamPolicyAssignmentIdentitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param users Array of Quicksight user names to assign the policy to.
+         * @param users Array of QuickSight user names to assign the policy to.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class IamPolicyAssignmentIdentitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param users Array of Quicksight user names to assign the policy to.
+         * @param users Array of QuickSight user names to assign the policy to.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class IamPolicyAssignmentIdentitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param users Array of Quicksight user names to assign the policy to.
+         * @param users Array of QuickSight user names to assign the policy to.
          * 
          * @return builder
          * 

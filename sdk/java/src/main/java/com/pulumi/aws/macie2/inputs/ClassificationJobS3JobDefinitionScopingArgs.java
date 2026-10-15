@@ -17,14 +17,14 @@ public final class ClassificationJobS3JobDefinitionScopingArgs extends com.pulum
     public static final ClassificationJobS3JobDefinitionScopingArgs Empty = new ClassificationJobS3JobDefinitionScopingArgs();
 
     /**
-     * The property- or tag-based conditions that determine which objects to exclude from the analysis. (documented below)
+     * Property- or tag-based conditions that determine which objects to exclude from the analysis. See `scoping.excludes` Block for details.
      * 
      */
     @Import(name="excludes")
     private @Nullable Output<ClassificationJobS3JobDefinitionScopingExcludesArgs> excludes;
 
     /**
-     * @return The property- or tag-based conditions that determine which objects to exclude from the analysis. (documented below)
+     * @return Property- or tag-based conditions that determine which objects to exclude from the analysis. See `scoping.excludes` Block for details.
      * 
      */
     public Optional<Output<ClassificationJobS3JobDefinitionScopingExcludesArgs>> excludes() {
@@ -32,14 +32,14 @@ public final class ClassificationJobS3JobDefinitionScopingArgs extends com.pulum
     }
 
     /**
-     * The property- or tag-based conditions that determine which objects to include in the analysis. (documented below)
+     * Property- or tag-based conditions that determine which objects to include in the analysis. See `scoping.includes` Block for details.
      * 
      */
     @Import(name="includes")
     private @Nullable Output<ClassificationJobS3JobDefinitionScopingIncludesArgs> includes;
 
     /**
-     * @return The property- or tag-based conditions that determine which objects to include in the analysis. (documented below)
+     * @return Property- or tag-based conditions that determine which objects to include in the analysis. See `scoping.includes` Block for details.
      * 
      */
     public Optional<Output<ClassificationJobS3JobDefinitionScopingIncludesArgs>> includes() {
@@ -72,7 +72,7 @@ public final class ClassificationJobS3JobDefinitionScopingArgs extends com.pulum
         }
 
         /**
-         * @param excludes The property- or tag-based conditions that determine which objects to exclude from the analysis. (documented below)
+         * @param excludes Property- or tag-based conditions that determine which objects to exclude from the analysis. See `scoping.excludes` Block for details.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ClassificationJobS3JobDefinitionScopingArgs extends com.pulum
         }
 
         /**
-         * @param excludes The property- or tag-based conditions that determine which objects to exclude from the analysis. (documented below)
+         * @param excludes Property- or tag-based conditions that determine which objects to exclude from the analysis. See `scoping.excludes` Block for details.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ClassificationJobS3JobDefinitionScopingArgs extends com.pulum
         }
 
         /**
-         * @param includes The property- or tag-based conditions that determine which objects to include in the analysis. (documented below)
+         * @param includes Property- or tag-based conditions that determine which objects to include in the analysis. See `scoping.includes` Block for details.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ClassificationJobS3JobDefinitionScopingArgs extends com.pulum
         }
 
         /**
-         * @param includes The property- or tag-based conditions that determine which objects to include in the analysis. (documented below)
+         * @param includes Property- or tag-based conditions that determine which objects to include in the analysis. See `scoping.includes` Block for details.
          * 
          * @return builder
          * 

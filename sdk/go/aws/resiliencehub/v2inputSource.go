@@ -113,6 +113,51 @@ import (
 //
 // ```
 //
+// ### EKS Cluster Scoped by Labels
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/resiliencehub"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := resiliencehub.NewV2InputSource(ctx, "example", &resiliencehub.V2InputSourceArgs{
+//				ResourceConfiguration: &resiliencehub.V2InputSourceResourceConfigurationArgs{
+//					Eks: &resiliencehub.V2InputSourceResourceConfigurationEksArgs{
+//						LabelSelector: &resiliencehub.V2InputSourceResourceConfigurationEksLabelSelectorArgs{
+//							MatchExpressions: resiliencehub.V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArray{
+//								&resiliencehub.V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArgs{
+//									Key:      pulumi.String("deprecated"),
+//									Operator: pulumi.String("DOES_NOT_EXIST"),
+//								},
+//							},
+//							MatchLabels: pulumi.StringMap{
+//								"app": pulumi.String("payments"),
+//							},
+//						},
+//						ClusterArn: pulumi.String("arn:aws:eks:us-west-2:123456789012:cluster/my-cluster"),
+//						Namespaces: pulumi.StringArray{
+//							pulumi.String("default"),
+//						},
+//					},
+//				},
+//				ServiceArn: pulumi.Any(exampleAwsResiliencehubv2Service.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ### Identity Schema

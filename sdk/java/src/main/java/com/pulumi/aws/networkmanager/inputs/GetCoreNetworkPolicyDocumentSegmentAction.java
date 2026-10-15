@@ -65,14 +65,14 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction extends com.pulumi.
     }
 
     /**
-     * A list of strings. Valid values include `[&#34;blackhole&#34;]` or a list of attachment ids.
+     * A list of strings. Valid values include `[&#34;blackhole&#34;]` or a list of attachment IDs.
      * 
      */
     @Import(name="destinations")
     private @Nullable List<String> destinations;
 
     /**
-     * @return A list of strings. Valid values include `[&#34;blackhole&#34;]` or a list of attachment ids.
+     * @return A list of strings. Valid values include `[&#34;blackhole&#34;]` or a list of attachment IDs.
      * 
      */
     public Optional<List<String>> destinations() {
@@ -278,7 +278,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction extends com.pulumi.
         }
 
         /**
-         * @param destinations A list of strings. Valid values include `[&#34;blackhole&#34;]` or a list of attachment ids.
+         * @param destinations A list of strings. Valid values include `[&#34;blackhole&#34;]` or a list of attachment IDs.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction extends com.pulumi.
         }
 
         /**
-         * @param destinations A list of strings. Valid values include `[&#34;blackhole&#34;]` or a list of attachment ids.
+         * @param destinations A list of strings. Valid values include `[&#34;blackhole&#34;]` or a list of attachment IDs.
          * 
          * @return builder
          * 

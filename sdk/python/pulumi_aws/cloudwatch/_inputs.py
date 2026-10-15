@@ -193,6 +193,10 @@ __all__ = [
     'MetricAlarmEvaluationCriteriaArgsDict',
     'MetricAlarmEvaluationCriteriaPromqlCriteriaArgs',
     'MetricAlarmEvaluationCriteriaPromqlCriteriaArgsDict',
+    'MetricAlarmEvaluationWindowArgs',
+    'MetricAlarmEvaluationWindowArgsDict',
+    'MetricAlarmEvaluationWindowWallClockWindowArgs',
+    'MetricAlarmEvaluationWindowWallClockWindowArgsDict',
     'MetricAlarmMetricQueryArgs',
     'MetricAlarmMetricQueryArgsDict',
     'MetricAlarmMetricQueryMetricArgs',
@@ -207,10 +211,16 @@ __all__ = [
     'MetricStreamStatisticsConfigurationArgsDict',
     'MetricStreamStatisticsConfigurationIncludeMetricArgs',
     'MetricStreamStatisticsConfigurationIncludeMetricArgsDict',
+    'OtelEnrichmentExcludeFilterArgs',
+    'OtelEnrichmentExcludeFilterArgsDict',
+    'OtelEnrichmentIncludeFilterArgs',
+    'OtelEnrichmentIncludeFilterArgsDict',
     'OtelEnrichmentTimeoutsArgs',
     'OtelEnrichmentTimeoutsArgsDict',
     'PolicyDocumentArgs',
     'PolicyDocumentArgsDict',
+    'ResourceMetricsConfigurationMetricSelectionArgs',
+    'ResourceMetricsConfigurationMetricSelectionArgsDict',
     'GetLogDataProtectionPolicyDocumentConfigurationArgs',
     'GetLogDataProtectionPolicyDocumentConfigurationArgsDict',
     'GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgs',
@@ -518,7 +528,7 @@ class EventConnectionAuthParametersArgsDict(TypedDict):
     """
     invocation_http_parameters: NotRequired[pulumi.Input[Optional['EventConnectionAuthParametersInvocationHttpParametersArgsDict']]]
     """
-    Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+    Invocation HTTP Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation HTTP Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
     """
     oauth: NotRequired[pulumi.Input[Optional['EventConnectionAuthParametersOauthArgsDict']]]
     """
@@ -537,7 +547,7 @@ class EventConnectionAuthParametersArgs:
         :param pulumi.Input['EventConnectionAuthParametersApiKeyArgs'] api_key: Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
         :param pulumi.Input['EventConnectionAuthParametersBasicArgs'] basic: Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `api_key` and `oauth`. Documented below.
         :param pulumi.Input['EventConnectionAuthParametersConnectivityParametersArgs'] connectivity_parameters: Parameters used for `oauth` with private API. Documented below.
-        :param pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersArgs'] invocation_http_parameters: Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+        :param pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersArgs'] invocation_http_parameters: Invocation HTTP Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation HTTP Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
         :param pulumi.Input['EventConnectionAuthParametersOauthArgs'] oauth: Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `api_key`. Documented below.
         """
         if api_key is not None:
@@ -591,7 +601,7 @@ class EventConnectionAuthParametersArgs:
     @pulumi.getter(name="invocationHttpParameters")
     def invocation_http_parameters(self) -> pulumi.Input[Optional['EventConnectionAuthParametersInvocationHttpParametersArgs']]:
         """
-        Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+        Invocation HTTP Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation HTTP Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
         """
         return pulumi.get(self, "invocation_http_parameters")
 
@@ -1062,7 +1072,7 @@ class EventConnectionAuthParametersOauthArgsDict(TypedDict):
     """
     oauth_http_parameters: pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersArgsDict']
     """
-    OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+    OAuth HTTP Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
     """
     client_parameters: NotRequired[pulumi.Input[Optional['EventConnectionAuthParametersOauthClientParametersArgsDict']]]
     """
@@ -1079,7 +1089,7 @@ class EventConnectionAuthParametersOauthArgs:
         """
         :param pulumi.Input[_builtins.str] authorization_endpoint: The URL to the authorization endpoint.
         :param pulumi.Input[_builtins.str] http_method: A password for the authorization. Created and stored in AWS Secrets Manager.
-        :param pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersArgs'] oauth_http_parameters: OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+        :param pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersArgs'] oauth_http_parameters: OAuth HTTP Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
         :param pulumi.Input['EventConnectionAuthParametersOauthClientParametersArgs'] client_parameters: Contains the client parameters for OAuth authorization. Contains the following two parameters.
         """
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
@@ -1116,7 +1126,7 @@ class EventConnectionAuthParametersOauthArgs:
     @pulumi.getter(name="oauthHttpParameters")
     def oauth_http_parameters(self) -> pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersArgs']:
         """
-        OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+        OAuth HTTP Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
         """
         return pulumi.get(self, "oauth_http_parameters")
 
@@ -1977,7 +1987,7 @@ class EventTargetEcsTargetArgsDict(TypedDict):
     """
     tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
-    A map of tags to assign to ecs resources.
+    A map of tags to assign to ECS resources.
     """
     task_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -2012,7 +2022,7 @@ class EventTargetEcsTargetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['EventTargetEcsTargetPlacementConstraintArgs']]] placement_constraints: An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
         :param pulumi.Input[_builtins.str] platform_version: Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         :param pulumi.Input[_builtins.str] propagate_tags: Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. The only valid value is: `TASK_DEFINITION`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to ecs resources.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to ECS resources.
         :param pulumi.Input[_builtins.int] task_count: The number of tasks to create based on the TaskDefinition. Defaults to `1`.
         """
         pulumi.set(__self__, "task_definition_arn", task_definition_arn)
@@ -2177,7 +2187,7 @@ class EventTargetEcsTargetArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to ecs resources.
+        A map of tags to assign to ECS resources.
         """
         return pulumi.get(self, "tags")
 
@@ -5431,6 +5441,63 @@ class MetricAlarmEvaluationCriteriaPromqlCriteriaArgs:
         pulumi.set(self, "recovery_period", value)
 
 
+class MetricAlarmEvaluationWindowArgsDict(TypedDict):
+    wall_clock_window: pulumi.Input['MetricAlarmEvaluationWindowWallClockWindowArgsDict']
+    """
+    Aligns the evaluated range to fixed clock boundaries that match the alarm's `period` (for example the top of the hour, midnight, or the start of the calendar week), instead of the default rolling sliding window. Only alarms with a `period` of `60`, `300`, `3600`, `86400`, or `604800` seconds support a wall clock window. See `wall_clock_window` below.
+    """
+
+@pulumi.input_type
+class MetricAlarmEvaluationWindowArgs:
+    def __init__(__self__, *,
+                 wall_clock_window: pulumi.Input['MetricAlarmEvaluationWindowWallClockWindowArgs']):
+        """
+        :param pulumi.Input['MetricAlarmEvaluationWindowWallClockWindowArgs'] wall_clock_window: Aligns the evaluated range to fixed clock boundaries that match the alarm's `period` (for example the top of the hour, midnight, or the start of the calendar week), instead of the default rolling sliding window. Only alarms with a `period` of `60`, `300`, `3600`, `86400`, or `604800` seconds support a wall clock window. See `wall_clock_window` below.
+        """
+        pulumi.set(__self__, "wall_clock_window", wall_clock_window)
+
+    @_builtins.property
+    @pulumi.getter(name="wallClockWindow")
+    def wall_clock_window(self) -> pulumi.Input['MetricAlarmEvaluationWindowWallClockWindowArgs']:
+        """
+        Aligns the evaluated range to fixed clock boundaries that match the alarm's `period` (for example the top of the hour, midnight, or the start of the calendar week), instead of the default rolling sliding window. Only alarms with a `period` of `60`, `300`, `3600`, `86400`, or `604800` seconds support a wall clock window. See `wall_clock_window` below.
+        """
+        return pulumi.get(self, "wall_clock_window")
+
+    @wall_clock_window.setter
+    def wall_clock_window(self, value: pulumi.Input['MetricAlarmEvaluationWindowWallClockWindowArgs']):
+        pulumi.set(self, "wall_clock_window", value)
+
+
+class MetricAlarmEvaluationWindowWallClockWindowArgsDict(TypedDict):
+    timezone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Time zone to align the window to. Accepts an IANA time zone name (for example `America/New_York`), a fixed UTC offset (for example `+05:30`), or an offset-prefixed identifier (for example `UTC+05:30`). The offset must be a multiple of 5 minutes. Defaults to UTC. Only IANA time zone names observe daylight saving time.
+    """
+
+@pulumi.input_type
+class MetricAlarmEvaluationWindowWallClockWindowArgs:
+    def __init__(__self__, *,
+                 timezone: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] timezone: Time zone to align the window to. Accepts an IANA time zone name (for example `America/New_York`), a fixed UTC offset (for example `+05:30`), or an offset-prefixed identifier (for example `UTC+05:30`). The offset must be a multiple of 5 minutes. Defaults to UTC. Only IANA time zone names observe daylight saving time.
+        """
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
+
+    @_builtins.property
+    @pulumi.getter
+    def timezone(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Time zone to align the window to. Accepts an IANA time zone name (for example `America/New_York`), a fixed UTC offset (for example `+05:30`), or an offset-prefixed identifier (for example `UTC+05:30`). The offset must be a multiple of 5 minutes. Defaults to UTC. Only IANA time zone names observe daylight saving time.
+        """
+        return pulumi.get(self, "timezone")
+
+    @timezone.setter
+    def timezone(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "timezone", value)
+
+
 class MetricAlarmMetricQueryArgsDict(TypedDict):
     id: pulumi.Input[_builtins.str]
     """
@@ -5975,6 +6042,102 @@ class MetricStreamStatisticsConfigurationIncludeMetricArgs:
         pulumi.set(self, "namespace", value)
 
 
+class OtelEnrichmentExcludeFilterArgsDict(TypedDict):
+    namespace: pulumi.Input[_builtins.str]
+    """
+    Namespace of the metrics to select. Must be 1-255 characters and must not begin with a colon.
+    """
+    metric_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Names of the metrics to select within the namespace, up to 100. Omit to match every metric in the namespace.
+    """
+
+@pulumi.input_type
+class OtelEnrichmentExcludeFilterArgs:
+    def __init__(__self__, *,
+                 namespace: pulumi.Input[_builtins.str],
+                 metric_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] namespace: Namespace of the metrics to select. Must be 1-255 characters and must not begin with a colon.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] metric_names: Names of the metrics to select within the namespace, up to 100. Omit to match every metric in the namespace.
+        """
+        pulumi.set(__self__, "namespace", namespace)
+        if metric_names is not None:
+            pulumi.set(__self__, "metric_names", metric_names)
+
+    @_builtins.property
+    @pulumi.getter
+    def namespace(self) -> pulumi.Input[_builtins.str]:
+        """
+        Namespace of the metrics to select. Must be 1-255 characters and must not begin with a colon.
+        """
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "namespace", value)
+
+    @_builtins.property
+    @pulumi.getter(name="metricNames")
+    def metric_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Names of the metrics to select within the namespace, up to 100. Omit to match every metric in the namespace.
+        """
+        return pulumi.get(self, "metric_names")
+
+    @metric_names.setter
+    def metric_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "metric_names", value)
+
+
+class OtelEnrichmentIncludeFilterArgsDict(TypedDict):
+    namespace: pulumi.Input[_builtins.str]
+    """
+    Namespace of the metrics to select. Must be 1-255 characters and must not begin with a colon.
+    """
+    metric_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Names of the metrics to select within the namespace, up to 100. Omit to match every metric in the namespace.
+    """
+
+@pulumi.input_type
+class OtelEnrichmentIncludeFilterArgs:
+    def __init__(__self__, *,
+                 namespace: pulumi.Input[_builtins.str],
+                 metric_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] namespace: Namespace of the metrics to select. Must be 1-255 characters and must not begin with a colon.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] metric_names: Names of the metrics to select within the namespace, up to 100. Omit to match every metric in the namespace.
+        """
+        pulumi.set(__self__, "namespace", namespace)
+        if metric_names is not None:
+            pulumi.set(__self__, "metric_names", metric_names)
+
+    @_builtins.property
+    @pulumi.getter
+    def namespace(self) -> pulumi.Input[_builtins.str]:
+        """
+        Namespace of the metrics to select. Must be 1-255 characters and must not begin with a colon.
+        """
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "namespace", value)
+
+    @_builtins.property
+    @pulumi.getter(name="metricNames")
+    def metric_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Names of the metrics to select within the namespace, up to 100. Omit to match every metric in the namespace.
+        """
+        return pulumi.get(self, "metric_names")
+
+    @metric_names.setter
+    def metric_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "metric_names", value)
+
+
 class OtelEnrichmentTimeoutsArgsDict(TypedDict):
     create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -6072,6 +6235,34 @@ class PolicyDocumentArgs:
     @id.setter
     def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
+
+
+class ResourceMetricsConfigurationMetricSelectionArgsDict(TypedDict):
+    include_metrics: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Set of metric names to collect for the resource. CloudWatch collects only the metrics listed here. Between 1 and 500 names, each between 1 and 255 characters. For the OpenTelemetry metrics published by ElastiCache, see [OpenTelemetry metrics](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/otel-metrics.html).
+    """
+
+@pulumi.input_type
+class ResourceMetricsConfigurationMetricSelectionArgs:
+    def __init__(__self__, *,
+                 include_metrics: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] include_metrics: Set of metric names to collect for the resource. CloudWatch collects only the metrics listed here. Between 1 and 500 names, each between 1 and 255 characters. For the OpenTelemetry metrics published by ElastiCache, see [OpenTelemetry metrics](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/otel-metrics.html).
+        """
+        pulumi.set(__self__, "include_metrics", include_metrics)
+
+    @_builtins.property
+    @pulumi.getter(name="includeMetrics")
+    def include_metrics(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Set of metric names to collect for the resource. CloudWatch collects only the metrics listed here. Between 1 and 500 names, each between 1 and 255 characters. For the OpenTelemetry metrics published by ElastiCache, see [OpenTelemetry metrics](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/otel-metrics.html).
+        """
+        return pulumi.get(self, "include_metrics")
+
+    @include_metrics.setter
+    def include_metrics(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "include_metrics", value)
 
 
 class GetLogDataProtectionPolicyDocumentConfigurationArgsDict(TypedDict):

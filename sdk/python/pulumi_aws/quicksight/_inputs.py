@@ -754,9 +754,25 @@ class AnalysisSourceEntitySourceTemplateDataSetReferenceArgs:
 
 
 class CustomPermissionsCapabilitiesArgsDict(TypedDict):
+    action: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Ability to perform actions in external services through Action connectors. Valid values: `DENY`.
+    """
     add_or_run_anomaly_detection_for_analyses: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Ability to add or run anomaly detection. Valid values: `DENY`.
+    """
+    analysis: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Ability to perform analysis-related actions. Valid values: `DENY`.
+    """
+    automate: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Ability to perform automate-related actions. Valid values: `DENY`.
+    """
+    chat_agent: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Ability to perform chat-related actions. Valid values: `DENY`.
     """
     create_and_update_dashboard_email_reports: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -778,6 +794,10 @@ class CustomPermissionsCapabilitiesArgsDict(TypedDict):
     """
     Ability to create and update threshold alerts. Valid values: `DENY`.
     """
+    create_chat_agents: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Ability to create chat agents. Valid values: `DENY`.
+    """
     create_shared_folders: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Ability to create shared folders. Valid values: `DENY`.
@@ -785,6 +805,10 @@ class CustomPermissionsCapabilitiesArgsDict(TypedDict):
     create_spice_dataset: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Ability to create a SPICE dataset. Valid values: `DENY`.
+    """
+    dashboard: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Ability to perform dashboard-related actions. Valid values: `DENY`.
     """
     export_to_csv: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -810,17 +834,37 @@ class CustomPermissionsCapabilitiesArgsDict(TypedDict):
     """
     Ability to export to PDF files in scheduled email reports. Valid values: `DENY`.
     """
+    flow: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Ability to perform flow-related actions. Valid values: `DENY`.
+    """
     include_content_in_scheduled_reports_email: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Ability to include content in scheduled email reports. Valid values: `DENY`.
+    """
+    knowledge_base: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Ability to use knowledge bases to specify content from external applications. Valid values: `DENY`.
+    """
+    perform_flow_ui_task: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Ability to use UI Agent step to perform tasks on public websites. Valid values: `DENY`.
     """
     print_reports: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Ability to print reports. Valid values: `DENY`.
     """
+    publish_without_approval: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Ability to enable approvals for flow share. Valid values: `DENY`.
+    """
     rename_shared_folders: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Ability to rename shared folders. Valid values: `DENY`.
+    """
+    research: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Ability to perform research-related actions. Valid values: `DENY`.
     """
     share_analyses: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -838,9 +882,21 @@ class CustomPermissionsCapabilitiesArgsDict(TypedDict):
     """
     Ability to share datasets. Valid values: `DENY`.
     """
+    space: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Ability to perform space-related actions. Valid values: `DENY`.
+    """
     subscribe_dashboard_email_reports: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Ability to subscribe to email reports. Valid values: `DENY`.
+    """
+    use_agent_web_search: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Ability to use internet to enhance results in Chat Agents, Flows, and Quick Research. Valid values: `DENY`.
+    """
+    use_bedrock_models: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Ability to use Bedrock models for general knowledge step in flows. Valid values: `DENY`.
     """
     view_account_spice_capacity: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -850,56 +906,92 @@ class CustomPermissionsCapabilitiesArgsDict(TypedDict):
 @pulumi.input_type
 class CustomPermissionsCapabilitiesArgs:
     def __init__(__self__, *,
+                 action: pulumi.Input[Optional[_builtins.str]] = None,
                  add_or_run_anomaly_detection_for_analyses: pulumi.Input[Optional[_builtins.str]] = None,
+                 analysis: pulumi.Input[Optional[_builtins.str]] = None,
+                 automate: pulumi.Input[Optional[_builtins.str]] = None,
+                 chat_agent: pulumi.Input[Optional[_builtins.str]] = None,
                  create_and_update_dashboard_email_reports: pulumi.Input[Optional[_builtins.str]] = None,
                  create_and_update_data_sources: pulumi.Input[Optional[_builtins.str]] = None,
                  create_and_update_datasets: pulumi.Input[Optional[_builtins.str]] = None,
                  create_and_update_themes: pulumi.Input[Optional[_builtins.str]] = None,
                  create_and_update_threshold_alerts: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_chat_agents: pulumi.Input[Optional[_builtins.str]] = None,
                  create_shared_folders: pulumi.Input[Optional[_builtins.str]] = None,
                  create_spice_dataset: pulumi.Input[Optional[_builtins.str]] = None,
+                 dashboard: pulumi.Input[Optional[_builtins.str]] = None,
                  export_to_csv: pulumi.Input[Optional[_builtins.str]] = None,
                  export_to_csv_in_scheduled_reports: pulumi.Input[Optional[_builtins.str]] = None,
                  export_to_excel: pulumi.Input[Optional[_builtins.str]] = None,
                  export_to_excel_in_scheduled_reports: pulumi.Input[Optional[_builtins.str]] = None,
                  export_to_pdf: pulumi.Input[Optional[_builtins.str]] = None,
                  export_to_pdf_in_scheduled_reports: pulumi.Input[Optional[_builtins.str]] = None,
+                 flow: pulumi.Input[Optional[_builtins.str]] = None,
                  include_content_in_scheduled_reports_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 knowledge_base: pulumi.Input[Optional[_builtins.str]] = None,
+                 perform_flow_ui_task: pulumi.Input[Optional[_builtins.str]] = None,
                  print_reports: pulumi.Input[Optional[_builtins.str]] = None,
+                 publish_without_approval: pulumi.Input[Optional[_builtins.str]] = None,
                  rename_shared_folders: pulumi.Input[Optional[_builtins.str]] = None,
+                 research: pulumi.Input[Optional[_builtins.str]] = None,
                  share_analyses: pulumi.Input[Optional[_builtins.str]] = None,
                  share_dashboards: pulumi.Input[Optional[_builtins.str]] = None,
                  share_data_sources: pulumi.Input[Optional[_builtins.str]] = None,
                  share_datasets: pulumi.Input[Optional[_builtins.str]] = None,
+                 space: pulumi.Input[Optional[_builtins.str]] = None,
                  subscribe_dashboard_email_reports: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_agent_web_search: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_bedrock_models: pulumi.Input[Optional[_builtins.str]] = None,
                  view_account_spice_capacity: pulumi.Input[Optional[_builtins.str]] = None):
         """
+        :param pulumi.Input[_builtins.str] action: Ability to perform actions in external services through Action connectors. Valid values: `DENY`.
         :param pulumi.Input[_builtins.str] add_or_run_anomaly_detection_for_analyses: Ability to add or run anomaly detection. Valid values: `DENY`.
+        :param pulumi.Input[_builtins.str] analysis: Ability to perform analysis-related actions. Valid values: `DENY`.
+        :param pulumi.Input[_builtins.str] automate: Ability to perform automate-related actions. Valid values: `DENY`.
+        :param pulumi.Input[_builtins.str] chat_agent: Ability to perform chat-related actions. Valid values: `DENY`.
         :param pulumi.Input[_builtins.str] create_and_update_dashboard_email_reports: Ability to create and update email reports. Valid values: `DENY`.
         :param pulumi.Input[_builtins.str] create_and_update_data_sources: Ability to create and update data sources. Valid values: `DENY`.
         :param pulumi.Input[_builtins.str] create_and_update_datasets: Ability to create and update datasets. Valid values: `DENY`.
         :param pulumi.Input[_builtins.str] create_and_update_themes: Ability to create and update themes. Valid values: `DENY`.
         :param pulumi.Input[_builtins.str] create_and_update_threshold_alerts: Ability to create and update threshold alerts. Valid values: `DENY`.
+        :param pulumi.Input[_builtins.str] create_chat_agents: Ability to create chat agents. Valid values: `DENY`.
         :param pulumi.Input[_builtins.str] create_shared_folders: Ability to create shared folders. Valid values: `DENY`.
         :param pulumi.Input[_builtins.str] create_spice_dataset: Ability to create a SPICE dataset. Valid values: `DENY`.
+        :param pulumi.Input[_builtins.str] dashboard: Ability to perform dashboard-related actions. Valid values: `DENY`.
         :param pulumi.Input[_builtins.str] export_to_csv: Ability to export to CSV files from the UI. Valid values: `DENY`.
         :param pulumi.Input[_builtins.str] export_to_csv_in_scheduled_reports: Ability to export to CSV files in scheduled email reports. Valid values: `DENY`.
         :param pulumi.Input[_builtins.str] export_to_excel: Ability to export to Excel files from the UI. Valid values: `DENY`.
         :param pulumi.Input[_builtins.str] export_to_excel_in_scheduled_reports: Ability to export to Excel files in scheduled email reports. Valid values: `DENY`.
         :param pulumi.Input[_builtins.str] export_to_pdf: Ability to export to PDF files from the UI. Valid values: `DENY`.
         :param pulumi.Input[_builtins.str] export_to_pdf_in_scheduled_reports: Ability to export to PDF files in scheduled email reports. Valid values: `DENY`.
+        :param pulumi.Input[_builtins.str] flow: Ability to perform flow-related actions. Valid values: `DENY`.
         :param pulumi.Input[_builtins.str] include_content_in_scheduled_reports_email: Ability to include content in scheduled email reports. Valid values: `DENY`.
+        :param pulumi.Input[_builtins.str] knowledge_base: Ability to use knowledge bases to specify content from external applications. Valid values: `DENY`.
+        :param pulumi.Input[_builtins.str] perform_flow_ui_task: Ability to use UI Agent step to perform tasks on public websites. Valid values: `DENY`.
         :param pulumi.Input[_builtins.str] print_reports: Ability to print reports. Valid values: `DENY`.
+        :param pulumi.Input[_builtins.str] publish_without_approval: Ability to enable approvals for flow share. Valid values: `DENY`.
         :param pulumi.Input[_builtins.str] rename_shared_folders: Ability to rename shared folders. Valid values: `DENY`.
+        :param pulumi.Input[_builtins.str] research: Ability to perform research-related actions. Valid values: `DENY`.
         :param pulumi.Input[_builtins.str] share_analyses: Ability to share analyses. Valid values: `DENY`.
         :param pulumi.Input[_builtins.str] share_dashboards: Ability to share dashboards. Valid values: `DENY`.
         :param pulumi.Input[_builtins.str] share_data_sources: Ability to share data sources. Valid values: `DENY`.
         :param pulumi.Input[_builtins.str] share_datasets: Ability to share datasets. Valid values: `DENY`.
+        :param pulumi.Input[_builtins.str] space: Ability to perform space-related actions. Valid values: `DENY`.
         :param pulumi.Input[_builtins.str] subscribe_dashboard_email_reports: Ability to subscribe to email reports. Valid values: `DENY`.
+        :param pulumi.Input[_builtins.str] use_agent_web_search: Ability to use internet to enhance results in Chat Agents, Flows, and Quick Research. Valid values: `DENY`.
+        :param pulumi.Input[_builtins.str] use_bedrock_models: Ability to use Bedrock models for general knowledge step in flows. Valid values: `DENY`.
         :param pulumi.Input[_builtins.str] view_account_spice_capacity: Ability to view account SPICE capacity. Valid values: `DENY`.
         """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
         if add_or_run_anomaly_detection_for_analyses is not None:
             pulumi.set(__self__, "add_or_run_anomaly_detection_for_analyses", add_or_run_anomaly_detection_for_analyses)
+        if analysis is not None:
+            pulumi.set(__self__, "analysis", analysis)
+        if automate is not None:
+            pulumi.set(__self__, "automate", automate)
+        if chat_agent is not None:
+            pulumi.set(__self__, "chat_agent", chat_agent)
         if create_and_update_dashboard_email_reports is not None:
             pulumi.set(__self__, "create_and_update_dashboard_email_reports", create_and_update_dashboard_email_reports)
         if create_and_update_data_sources is not None:
@@ -910,10 +1002,14 @@ class CustomPermissionsCapabilitiesArgs:
             pulumi.set(__self__, "create_and_update_themes", create_and_update_themes)
         if create_and_update_threshold_alerts is not None:
             pulumi.set(__self__, "create_and_update_threshold_alerts", create_and_update_threshold_alerts)
+        if create_chat_agents is not None:
+            pulumi.set(__self__, "create_chat_agents", create_chat_agents)
         if create_shared_folders is not None:
             pulumi.set(__self__, "create_shared_folders", create_shared_folders)
         if create_spice_dataset is not None:
             pulumi.set(__self__, "create_spice_dataset", create_spice_dataset)
+        if dashboard is not None:
+            pulumi.set(__self__, "dashboard", dashboard)
         if export_to_csv is not None:
             pulumi.set(__self__, "export_to_csv", export_to_csv)
         if export_to_csv_in_scheduled_reports is not None:
@@ -926,12 +1022,22 @@ class CustomPermissionsCapabilitiesArgs:
             pulumi.set(__self__, "export_to_pdf", export_to_pdf)
         if export_to_pdf_in_scheduled_reports is not None:
             pulumi.set(__self__, "export_to_pdf_in_scheduled_reports", export_to_pdf_in_scheduled_reports)
+        if flow is not None:
+            pulumi.set(__self__, "flow", flow)
         if include_content_in_scheduled_reports_email is not None:
             pulumi.set(__self__, "include_content_in_scheduled_reports_email", include_content_in_scheduled_reports_email)
+        if knowledge_base is not None:
+            pulumi.set(__self__, "knowledge_base", knowledge_base)
+        if perform_flow_ui_task is not None:
+            pulumi.set(__self__, "perform_flow_ui_task", perform_flow_ui_task)
         if print_reports is not None:
             pulumi.set(__self__, "print_reports", print_reports)
+        if publish_without_approval is not None:
+            pulumi.set(__self__, "publish_without_approval", publish_without_approval)
         if rename_shared_folders is not None:
             pulumi.set(__self__, "rename_shared_folders", rename_shared_folders)
+        if research is not None:
+            pulumi.set(__self__, "research", research)
         if share_analyses is not None:
             pulumi.set(__self__, "share_analyses", share_analyses)
         if share_dashboards is not None:
@@ -940,10 +1046,28 @@ class CustomPermissionsCapabilitiesArgs:
             pulumi.set(__self__, "share_data_sources", share_data_sources)
         if share_datasets is not None:
             pulumi.set(__self__, "share_datasets", share_datasets)
+        if space is not None:
+            pulumi.set(__self__, "space", space)
         if subscribe_dashboard_email_reports is not None:
             pulumi.set(__self__, "subscribe_dashboard_email_reports", subscribe_dashboard_email_reports)
+        if use_agent_web_search is not None:
+            pulumi.set(__self__, "use_agent_web_search", use_agent_web_search)
+        if use_bedrock_models is not None:
+            pulumi.set(__self__, "use_bedrock_models", use_bedrock_models)
         if view_account_spice_capacity is not None:
             pulumi.set(__self__, "view_account_spice_capacity", view_account_spice_capacity)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Ability to perform actions in external services through Action connectors. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "action", value)
 
     @_builtins.property
     @pulumi.getter(name="addOrRunAnomalyDetectionForAnalyses")
@@ -956,6 +1080,42 @@ class CustomPermissionsCapabilitiesArgs:
     @add_or_run_anomaly_detection_for_analyses.setter
     def add_or_run_anomaly_detection_for_analyses(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "add_or_run_anomaly_detection_for_analyses", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def analysis(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Ability to perform analysis-related actions. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "analysis")
+
+    @analysis.setter
+    def analysis(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "analysis", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def automate(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Ability to perform automate-related actions. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "automate")
+
+    @automate.setter
+    def automate(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "automate", value)
+
+    @_builtins.property
+    @pulumi.getter(name="chatAgent")
+    def chat_agent(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Ability to perform chat-related actions. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "chat_agent")
+
+    @chat_agent.setter
+    def chat_agent(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "chat_agent", value)
 
     @_builtins.property
     @pulumi.getter(name="createAndUpdateDashboardEmailReports")
@@ -1018,6 +1178,18 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "create_and_update_threshold_alerts", value)
 
     @_builtins.property
+    @pulumi.getter(name="createChatAgents")
+    def create_chat_agents(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Ability to create chat agents. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "create_chat_agents")
+
+    @create_chat_agents.setter
+    def create_chat_agents(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "create_chat_agents", value)
+
+    @_builtins.property
     @pulumi.getter(name="createSharedFolders")
     def create_shared_folders(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -1040,6 +1212,18 @@ class CustomPermissionsCapabilitiesArgs:
     @create_spice_dataset.setter
     def create_spice_dataset(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create_spice_dataset", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def dashboard(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Ability to perform dashboard-related actions. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "dashboard")
+
+    @dashboard.setter
+    def dashboard(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "dashboard", value)
 
     @_builtins.property
     @pulumi.getter(name="exportToCsv")
@@ -1114,6 +1298,18 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "export_to_pdf_in_scheduled_reports", value)
 
     @_builtins.property
+    @pulumi.getter
+    def flow(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Ability to perform flow-related actions. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "flow")
+
+    @flow.setter
+    def flow(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "flow", value)
+
+    @_builtins.property
     @pulumi.getter(name="includeContentInScheduledReportsEmail")
     def include_content_in_scheduled_reports_email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -1124,6 +1320,30 @@ class CustomPermissionsCapabilitiesArgs:
     @include_content_in_scheduled_reports_email.setter
     def include_content_in_scheduled_reports_email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "include_content_in_scheduled_reports_email", value)
+
+    @_builtins.property
+    @pulumi.getter(name="knowledgeBase")
+    def knowledge_base(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Ability to use knowledge bases to specify content from external applications. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "knowledge_base")
+
+    @knowledge_base.setter
+    def knowledge_base(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "knowledge_base", value)
+
+    @_builtins.property
+    @pulumi.getter(name="performFlowUiTask")
+    def perform_flow_ui_task(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Ability to use UI Agent step to perform tasks on public websites. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "perform_flow_ui_task")
+
+    @perform_flow_ui_task.setter
+    def perform_flow_ui_task(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "perform_flow_ui_task", value)
 
     @_builtins.property
     @pulumi.getter(name="printReports")
@@ -1138,6 +1358,18 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "print_reports", value)
 
     @_builtins.property
+    @pulumi.getter(name="publishWithoutApproval")
+    def publish_without_approval(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Ability to enable approvals for flow share. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "publish_without_approval")
+
+    @publish_without_approval.setter
+    def publish_without_approval(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "publish_without_approval", value)
+
+    @_builtins.property
     @pulumi.getter(name="renameSharedFolders")
     def rename_shared_folders(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -1148,6 +1380,18 @@ class CustomPermissionsCapabilitiesArgs:
     @rename_shared_folders.setter
     def rename_shared_folders(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rename_shared_folders", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def research(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Ability to perform research-related actions. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "research")
+
+    @research.setter
+    def research(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "research", value)
 
     @_builtins.property
     @pulumi.getter(name="shareAnalyses")
@@ -1198,6 +1442,18 @@ class CustomPermissionsCapabilitiesArgs:
         pulumi.set(self, "share_datasets", value)
 
     @_builtins.property
+    @pulumi.getter
+    def space(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Ability to perform space-related actions. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "space")
+
+    @space.setter
+    def space(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "space", value)
+
+    @_builtins.property
     @pulumi.getter(name="subscribeDashboardEmailReports")
     def subscribe_dashboard_email_reports(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -1208,6 +1464,30 @@ class CustomPermissionsCapabilitiesArgs:
     @subscribe_dashboard_email_reports.setter
     def subscribe_dashboard_email_reports(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscribe_dashboard_email_reports", value)
+
+    @_builtins.property
+    @pulumi.getter(name="useAgentWebSearch")
+    def use_agent_web_search(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Ability to use internet to enhance results in Chat Agents, Flows, and Quick Research. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "use_agent_web_search")
+
+    @use_agent_web_search.setter
+    def use_agent_web_search(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "use_agent_web_search", value)
+
+    @_builtins.property
+    @pulumi.getter(name="useBedrockModels")
+    def use_bedrock_models(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Ability to use Bedrock models for general knowledge step in flows. Valid values: `DENY`.
+        """
+        return pulumi.get(self, "use_bedrock_models")
+
+    @use_bedrock_models.setter
+    def use_bedrock_models(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "use_bedrock_models", value)
 
     @_builtins.property
     @pulumi.getter(name="viewAccountSpiceCapacity")
@@ -1241,7 +1521,7 @@ class DashboardDashboardPublishOptionsArgsDict(TypedDict):
     """
     export_to_csv_option: NotRequired[pulumi.Input[Optional['DashboardDashboardPublishOptionsExportToCsvOptionArgsDict']]]
     """
-    Export to .csv option. See `export_to_csv_option`.
+    Export to `.csv` option. See `export_to_csv_option`.
     """
     export_with_hidden_fields_option: NotRequired[pulumi.Input[Optional['DashboardDashboardPublishOptionsExportWithHiddenFieldsOptionArgsDict']]]
     """
@@ -1282,7 +1562,7 @@ class DashboardDashboardPublishOptionsArgs:
         :param pulumi.Input['DashboardDashboardPublishOptionsDataPointDrillUpDownOptionArgs'] data_point_drill_up_down_option: Drill-down options of data points in a dashboard. See `data_point_drill_up_down_option`.
         :param pulumi.Input['DashboardDashboardPublishOptionsDataPointMenuLabelOptionArgs'] data_point_menu_label_option: Data point menu label options of a dashboard. See `data_point_menu_label_option`.
         :param pulumi.Input['DashboardDashboardPublishOptionsDataPointTooltipOptionArgs'] data_point_tooltip_option: Data point tool tip options of a dashboard. See `data_point_tooltip_option`.
-        :param pulumi.Input['DashboardDashboardPublishOptionsExportToCsvOptionArgs'] export_to_csv_option: Export to .csv option. See `export_to_csv_option`.
+        :param pulumi.Input['DashboardDashboardPublishOptionsExportToCsvOptionArgs'] export_to_csv_option: Export to `.csv` option. See `export_to_csv_option`.
         :param pulumi.Input['DashboardDashboardPublishOptionsExportWithHiddenFieldsOptionArgs'] export_with_hidden_fields_option: Whether hidden fields are exported with a dashboard. See `export_with_hidden_fields_option`.
         :param pulumi.Input['DashboardDashboardPublishOptionsSheetControlsOptionArgs'] sheet_controls_option: Sheet controls option. See `sheet_controls_option`.
         :param pulumi.Input['DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOptionArgs'] sheet_layout_element_maximization_option: Sheet layout maximization options of a dashboard. See `sheet_layout_element_maximization_option`.
@@ -1362,7 +1642,7 @@ class DashboardDashboardPublishOptionsArgs:
     @pulumi.getter(name="exportToCsvOption")
     def export_to_csv_option(self) -> pulumi.Input[Optional['DashboardDashboardPublishOptionsExportToCsvOptionArgs']]:
         """
-        Export to .csv option. See `export_to_csv_option`.
+        Export to `.csv` option. See `export_to_csv_option`.
         """
         return pulumi.get(self, "export_to_csv_option")
 
@@ -4568,7 +4848,7 @@ class DataSourceParametersArgsDict(TypedDict):
     """
     aws_iot_analytics: NotRequired[pulumi.Input[Optional['DataSourceParametersAwsIotAnalyticsArgsDict']]]
     """
-    Parameters for connecting to AWS IOT Analytics.
+    Parameters for connecting to AWS IoT Analytics.
     """
     databricks: NotRequired[pulumi.Input[Optional['DataSourceParametersDatabricksArgsDict']]]
     """
@@ -4664,7 +4944,7 @@ class DataSourceParametersArgs:
         :param pulumi.Input['DataSourceParametersAthenaArgs'] athena: Parameters for connecting to Athena.
         :param pulumi.Input['DataSourceParametersAuroraArgs'] aurora: Parameters for connecting to Aurora MySQL.
         :param pulumi.Input['DataSourceParametersAuroraPostgresqlArgs'] aurora_postgresql: Parameters for connecting to Aurora Postgresql.
-        :param pulumi.Input['DataSourceParametersAwsIotAnalyticsArgs'] aws_iot_analytics: Parameters for connecting to AWS IOT Analytics.
+        :param pulumi.Input['DataSourceParametersAwsIotAnalyticsArgs'] aws_iot_analytics: Parameters for connecting to AWS IoT Analytics.
         :param pulumi.Input['DataSourceParametersDatabricksArgs'] databricks: Parameters for connecting to Databricks.
         :param pulumi.Input['DataSourceParametersJiraArgs'] jira: Parameters for connecting to Jira.
         :param pulumi.Input['DataSourceParametersMariaDbArgs'] maria_db: Parameters for connecting to MariaDB.
@@ -4777,7 +5057,7 @@ class DataSourceParametersArgs:
     @pulumi.getter(name="awsIotAnalytics")
     def aws_iot_analytics(self) -> pulumi.Input[Optional['DataSourceParametersAwsIotAnalyticsArgs']]:
         """
-        Parameters for connecting to AWS IOT Analytics.
+        Parameters for connecting to AWS IoT Analytics.
         """
         return pulumi.get(self, "aws_iot_analytics")
 
@@ -6342,11 +6622,11 @@ class FolderPermissionArgs:
 class IamPolicyAssignmentIdentitiesArgsDict(TypedDict):
     groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    Array of Quicksight group names to assign the policy to.
+    Array of QuickSight group names to assign the policy to.
     """
     users: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    Array of Quicksight user names to assign the policy to.
+    Array of QuickSight user names to assign the policy to.
     """
 
 @pulumi.input_type
@@ -6355,8 +6635,8 @@ class IamPolicyAssignmentIdentitiesArgs:
                  groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  users: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups: Array of Quicksight group names to assign the policy to.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users: Array of Quicksight user names to assign the policy to.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups: Array of QuickSight group names to assign the policy to.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users: Array of QuickSight user names to assign the policy to.
         """
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
@@ -6367,7 +6647,7 @@ class IamPolicyAssignmentIdentitiesArgs:
     @pulumi.getter
     def groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Array of Quicksight group names to assign the policy to.
+        Array of QuickSight group names to assign the policy to.
         """
         return pulumi.get(self, "groups")
 
@@ -6379,7 +6659,7 @@ class IamPolicyAssignmentIdentitiesArgs:
     @pulumi.getter
     def users(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Array of Quicksight user names to assign the policy to.
+        Array of QuickSight user names to assign the policy to.
         """
         return pulumi.get(self, "users")
 

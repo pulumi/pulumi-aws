@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### Create an ssm document in JSON format
+ * ### Create an SSM document in JSON format
  * 
  * <pre>
  * {@code
@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### Create an ssm document in YAML format
+ * ### Create an SSM document in YAML format
  * 
  * <pre>
  * {@code

@@ -55,13 +55,13 @@ namespace Pulumi.Aws.MemoryDb
     public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the Access Control List to associate with the cluster.
+        /// Name of the Access Control List to associate with the cluster.
         /// </summary>
         [Output("aclName")]
         public Output<string> AclName { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the cluster.
+        /// ARN of the cluster.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.MemoryDb
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The engine that will run on your nodes. Supported values are `Redis` and `Valkey`.
+        /// Engine that will run on your nodes. Supported values are `Redis` and `Valkey`.
         /// </summary>
         [Output("engine")]
         public Output<string> Engine { get; private set; } = null!;
@@ -124,13 +124,13 @@ namespace Pulumi.Aws.MemoryDb
         public Output<string?> KmsKeyArn { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+        /// Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
         /// </summary>
         [Output("maintenanceWindow")]
         public Output<string> MaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
-        /// The multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
+        /// Multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
         /// </summary>
         [Output("multiRegionClusterName")]
         public Output<string?> MultiRegionClusterName { get; private set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.Aws.MemoryDb
         public Output<string> NetworkType { get; private set; } = null!;
 
         /// <summary>
-        /// The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+        /// Compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -162,25 +162,25 @@ namespace Pulumi.Aws.MemoryDb
         public Output<string> NodeType { get; private set; } = null!;
 
         /// <summary>
-        /// The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
+        /// Number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
         /// </summary>
         [Output("numReplicasPerShard")]
         public Output<int?> NumReplicasPerShard { get; private set; } = null!;
 
         /// <summary>
-        /// The number of shards in the cluster. Defaults to `1`.
+        /// Number of shards in the cluster. Defaults to `1`.
         /// </summary>
         [Output("numShards")]
         public Output<int?> NumShards { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the parameter group associated with the cluster.
+        /// Name of the parameter group associated with the cluster.
         /// </summary>
         [Output("parameterGroupName")]
         public Output<string> ParameterGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The port number on which each of the nodes accepts connections. Defaults to `6379`.
+        /// Port number on which each of the nodes accepts connections. Defaults to `6379`.
         /// </summary>
         [Output("port")]
         public Output<int> Port { get; private set; } = null!;
@@ -210,19 +210,19 @@ namespace Pulumi.Aws.MemoryDb
         public Output<ImmutableArray<string>> SnapshotArns { get; private set; } = null!;
 
         /// <summary>
-        /// The name of a snapshot from which to restore data into the new cluster.
+        /// Name of a snapshot from which to restore data into the new cluster.
         /// </summary>
         [Output("snapshotName")]
         public Output<string?> SnapshotName { get; private set; } = null!;
 
         /// <summary>
-        /// The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
+        /// Number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
         /// </summary>
         [Output("snapshotRetentionLimit")]
         public Output<int> SnapshotRetentionLimit { get; private set; } = null!;
 
         /// <summary>
-        /// The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
+        /// Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
         /// </summary>
         [Output("snapshotWindow")]
         public Output<string> SnapshotWindow { get; private set; } = null!;
@@ -234,25 +234,25 @@ namespace Pulumi.Aws.MemoryDb
         public Output<string?> SnsTopicArn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
+        /// Name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
         /// </summary>
         [Output("subnetGroupName")]
         public Output<string> SubnetGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// A flag to enable in-transit encryption on the cluster. When set to `False`, the `AclName` must be `open-access`. Defaults to `True`.
+        /// Whether to enable in-transit encryption on the cluster. When set to `False`, the `AclName` must be `open-access`. Defaults to `True`.
         /// </summary>
         [Output("tlsEnabled")]
         public Output<bool?> TlsEnabled { get; private set; } = null!;
@@ -304,7 +304,7 @@ namespace Pulumi.Aws.MemoryDb
     public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Access Control List to associate with the cluster.
+        /// Name of the Access Control List to associate with the cluster.
         /// </summary>
         [Input("aclName", required: true)]
         public Input<string> AclName { get; set; } = null!;
@@ -328,7 +328,7 @@ namespace Pulumi.Aws.MemoryDb
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The engine that will run on your nodes. Supported values are `Redis` and `Valkey`.
+        /// Engine that will run on your nodes. Supported values are `Redis` and `Valkey`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
@@ -358,13 +358,13 @@ namespace Pulumi.Aws.MemoryDb
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+        /// Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
         /// </summary>
         [Input("maintenanceWindow")]
         public Input<string>? MaintenanceWindow { get; set; }
 
         /// <summary>
-        /// The multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
+        /// Multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
         /// </summary>
         [Input("multiRegionClusterName")]
         public Input<string>? MultiRegionClusterName { get; set; }
@@ -388,7 +388,7 @@ namespace Pulumi.Aws.MemoryDb
         public Input<string>? NetworkType { get; set; }
 
         /// <summary>
-        /// The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+        /// Compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -396,25 +396,25 @@ namespace Pulumi.Aws.MemoryDb
         public Input<string> NodeType { get; set; } = null!;
 
         /// <summary>
-        /// The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
+        /// Number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
         /// </summary>
         [Input("numReplicasPerShard")]
         public Input<int>? NumReplicasPerShard { get; set; }
 
         /// <summary>
-        /// The number of shards in the cluster. Defaults to `1`.
+        /// Number of shards in the cluster. Defaults to `1`.
         /// </summary>
         [Input("numShards")]
         public Input<int>? NumShards { get; set; }
 
         /// <summary>
-        /// The name of the parameter group associated with the cluster.
+        /// Name of the parameter group associated with the cluster.
         /// </summary>
         [Input("parameterGroupName")]
         public Input<string>? ParameterGroupName { get; set; }
 
         /// <summary>
-        /// The port number on which each of the nodes accepts connections. Defaults to `6379`.
+        /// Port number on which each of the nodes accepts connections. Defaults to `6379`.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
@@ -450,19 +450,19 @@ namespace Pulumi.Aws.MemoryDb
         }
 
         /// <summary>
-        /// The name of a snapshot from which to restore data into the new cluster.
+        /// Name of a snapshot from which to restore data into the new cluster.
         /// </summary>
         [Input("snapshotName")]
         public Input<string>? SnapshotName { get; set; }
 
         /// <summary>
-        /// The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
+        /// Number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
         /// </summary>
         [Input("snapshotRetentionLimit")]
         public Input<int>? SnapshotRetentionLimit { get; set; }
 
         /// <summary>
-        /// The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
+        /// Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
         /// </summary>
         [Input("snapshotWindow")]
         public Input<string>? SnapshotWindow { get; set; }
@@ -474,7 +474,7 @@ namespace Pulumi.Aws.MemoryDb
         public Input<string>? SnsTopicArn { get; set; }
 
         /// <summary>
-        /// The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
+        /// Name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
         /// </summary>
         [Input("subnetGroupName")]
         public Input<string>? SubnetGroupName { get; set; }
@@ -483,7 +483,7 @@ namespace Pulumi.Aws.MemoryDb
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -492,7 +492,7 @@ namespace Pulumi.Aws.MemoryDb
         }
 
         /// <summary>
-        /// A flag to enable in-transit encryption on the cluster. When set to `False`, the `AclName` must be `open-access`. Defaults to `True`.
+        /// Whether to enable in-transit encryption on the cluster. When set to `False`, the `AclName` must be `open-access`. Defaults to `True`.
         /// </summary>
         [Input("tlsEnabled")]
         public Input<bool>? TlsEnabled { get; set; }
@@ -506,13 +506,13 @@ namespace Pulumi.Aws.MemoryDb
     public sealed class ClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Access Control List to associate with the cluster.
+        /// Name of the Access Control List to associate with the cluster.
         /// </summary>
         [Input("aclName")]
         public Input<string>? AclName { get; set; }
 
         /// <summary>
-        /// The ARN of the cluster.
+        /// ARN of the cluster.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -544,7 +544,7 @@ namespace Pulumi.Aws.MemoryDb
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The engine that will run on your nodes. Supported values are `Redis` and `Valkey`.
+        /// Engine that will run on your nodes. Supported values are `Redis` and `Valkey`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
@@ -580,13 +580,13 @@ namespace Pulumi.Aws.MemoryDb
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+        /// Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
         /// </summary>
         [Input("maintenanceWindow")]
         public Input<string>? MaintenanceWindow { get; set; }
 
         /// <summary>
-        /// The multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
+        /// Multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
         /// </summary>
         [Input("multiRegionClusterName")]
         public Input<string>? MultiRegionClusterName { get; set; }
@@ -610,7 +610,7 @@ namespace Pulumi.Aws.MemoryDb
         public Input<string>? NetworkType { get; set; }
 
         /// <summary>
-        /// The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+        /// Compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -618,25 +618,25 @@ namespace Pulumi.Aws.MemoryDb
         public Input<string>? NodeType { get; set; }
 
         /// <summary>
-        /// The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
+        /// Number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
         /// </summary>
         [Input("numReplicasPerShard")]
         public Input<int>? NumReplicasPerShard { get; set; }
 
         /// <summary>
-        /// The number of shards in the cluster. Defaults to `1`.
+        /// Number of shards in the cluster. Defaults to `1`.
         /// </summary>
         [Input("numShards")]
         public Input<int>? NumShards { get; set; }
 
         /// <summary>
-        /// The name of the parameter group associated with the cluster.
+        /// Name of the parameter group associated with the cluster.
         /// </summary>
         [Input("parameterGroupName")]
         public Input<string>? ParameterGroupName { get; set; }
 
         /// <summary>
-        /// The port number on which each of the nodes accepts connections. Defaults to `6379`.
+        /// Port number on which each of the nodes accepts connections. Defaults to `6379`.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
@@ -684,19 +684,19 @@ namespace Pulumi.Aws.MemoryDb
         }
 
         /// <summary>
-        /// The name of a snapshot from which to restore data into the new cluster.
+        /// Name of a snapshot from which to restore data into the new cluster.
         /// </summary>
         [Input("snapshotName")]
         public Input<string>? SnapshotName { get; set; }
 
         /// <summary>
-        /// The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
+        /// Number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
         /// </summary>
         [Input("snapshotRetentionLimit")]
         public Input<int>? SnapshotRetentionLimit { get; set; }
 
         /// <summary>
-        /// The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
+        /// Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
         /// </summary>
         [Input("snapshotWindow")]
         public Input<string>? SnapshotWindow { get; set; }
@@ -708,7 +708,7 @@ namespace Pulumi.Aws.MemoryDb
         public Input<string>? SnsTopicArn { get; set; }
 
         /// <summary>
-        /// The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
+        /// Name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
         /// </summary>
         [Input("subnetGroupName")]
         public Input<string>? SubnetGroupName { get; set; }
@@ -717,7 +717,7 @@ namespace Pulumi.Aws.MemoryDb
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -729,7 +729,7 @@ namespace Pulumi.Aws.MemoryDb
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -738,7 +738,7 @@ namespace Pulumi.Aws.MemoryDb
         }
 
         /// <summary>
-        /// A flag to enable in-transit encryption on the cluster. When set to `False`, the `AclName` must be `open-access`. Defaults to `True`.
+        /// Whether to enable in-transit encryption on the cluster. When set to `False`, the `AclName` must be `open-access`. Defaults to `True`.
         /// </summary>
         [Input("tlsEnabled")]
         public Input<bool>? TlsEnabled { get; set; }

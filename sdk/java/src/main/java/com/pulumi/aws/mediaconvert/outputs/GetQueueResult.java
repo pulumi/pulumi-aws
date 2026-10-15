@@ -12,31 +12,31 @@ import java.util.Objects;
 @CustomType
 public final class GetQueueResult {
     /**
-     * @return The Arn of the queue.
+     * @return ARN of the queue.
      * 
      */
     private String arn;
     private String id;
     /**
-     * @return The same as `id`.
+     * @return Same as `id`.
      * 
      */
     private String name;
     private String region;
     /**
-     * @return The status of the queue.
+     * @return Status of the queue.
      * 
      */
     private String status;
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     private Map<String,String> tags;
 
     private GetQueueResult() {}
     /**
-     * @return The Arn of the queue.
+     * @return ARN of the queue.
      * 
      */
     public String arn() {
@@ -46,7 +46,7 @@ public final class GetQueueResult {
         return this.id;
     }
     /**
-     * @return The same as `id`.
+     * @return Same as `id`.
      * 
      */
     public String name() {
@@ -56,14 +56,14 @@ public final class GetQueueResult {
         return this.region;
     }
     /**
-     * @return The status of the queue.
+     * @return Status of the queue.
      * 
      */
     public String status() {
         return this.status;
     }
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Map<String,String> tags() {

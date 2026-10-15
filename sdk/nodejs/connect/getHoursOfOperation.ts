@@ -52,7 +52,7 @@ export function getHoursOfOperation(args: GetHoursOfOperationArgs, opts?: pulumi
  */
 export interface GetHoursOfOperationArgs {
     /**
-     * Returns information on a specific Hours of Operation by hours of operation id
+     * Returns information on a specific Hours of Operation by hours of operation ID
      */
     hoursOfOperationId?: string;
     /**
@@ -162,7 +162,7 @@ export function getHoursOfOperationOutput(args: GetHoursOfOperationOutputArgs, o
  */
 export interface GetHoursOfOperationOutputArgs {
     /**
-     * Returns information on a specific Hours of Operation by hours of operation id
+     * Returns information on a specific Hours of Operation by hours of operation ID
      */
     hoursOfOperationId?: pulumi.Input<string | undefined>;
     /**

@@ -19,7 +19,7 @@ public final class TopicRuleIotAnalytic {
      */
     private @Nullable Boolean batchMode;
     /**
-     * @return Name of AWS IOT Analytics channel.
+     * @return Name of AWS IoT Analytics channel.
      * 
      */
     private String channelName;
@@ -38,7 +38,7 @@ public final class TopicRuleIotAnalytic {
         return Optional.ofNullable(this.batchMode);
     }
     /**
-     * @return Name of AWS IOT Analytics channel.
+     * @return Name of AWS IoT Analytics channel.
      * 
      */
     public String channelName() {

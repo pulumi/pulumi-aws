@@ -78,14 +78,14 @@ public final class AliasState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the fleet and/or routing type to use for the alias.
+     * Fleet and/or routing type to use for the alias.
      * 
      */
     @Import(name="routingStrategy")
     private @Nullable Output<AliasRoutingStrategyArgs> routingStrategy;
 
     /**
-     * @return Specifies the fleet and/or routing type to use for the alias.
+     * @return Fleet and/or routing type to use for the alias.
      * 
      */
     public Optional<Output<AliasRoutingStrategyArgs>> routingStrategy() {
@@ -108,14 +108,14 @@ public final class AliasState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -237,7 +237,7 @@ public final class AliasState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param routingStrategy Specifies the fleet and/or routing type to use for the alias.
+         * @param routingStrategy Fleet and/or routing type to use for the alias.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class AliasState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param routingStrategy Specifies the fleet and/or routing type to use for the alias.
+         * @param routingStrategy Fleet and/or routing type to use for the alias.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class AliasState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class AliasState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

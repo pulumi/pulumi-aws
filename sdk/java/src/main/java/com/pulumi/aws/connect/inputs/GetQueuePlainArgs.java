@@ -51,14 +51,14 @@ public final class GetQueuePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Returns information on a specific Queue by Queue id
+     * Returns information on a specific Queue by Queue ID
      * 
      */
     @Import(name="queueId")
     private @Nullable String queueId;
 
     /**
-     * @return Returns information on a specific Queue by Queue id
+     * @return Returns information on a specific Queue by Queue ID
      * 
      */
     public Optional<String> queueId() {
@@ -148,7 +148,7 @@ public final class GetQueuePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param queueId Returns information on a specific Queue by Queue id
+         * @param queueId Returns information on a specific Queue by Queue ID
          * 
          * @return builder
          * 

@@ -15,16 +15,14 @@ public final class OrganizationConfigurationDatasourcesKubernetesArgs extends co
     public static final OrganizationConfigurationDatasourcesKubernetesArgs Empty = new OrganizationConfigurationDatasourcesKubernetesArgs();
 
     /**
-     * Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-     * See Kubernetes Audit Logs below for more details.
+     * Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html). See `auditLogs` below for more details.
      * 
      */
     @Import(name="auditLogs", required=true)
     private Output<OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs> auditLogs;
 
     /**
-     * @return Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-     * See Kubernetes Audit Logs below for more details.
+     * @return Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html). See `auditLogs` below for more details.
      * 
      */
     public Output<OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs> auditLogs() {
@@ -56,8 +54,7 @@ public final class OrganizationConfigurationDatasourcesKubernetesArgs extends co
         }
 
         /**
-         * @param auditLogs Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-         * See Kubernetes Audit Logs below for more details.
+         * @param auditLogs Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html). See `auditLogs` below for more details.
          * 
          * @return builder
          * 
@@ -68,8 +65,7 @@ public final class OrganizationConfigurationDatasourcesKubernetesArgs extends co
         }
 
         /**
-         * @param auditLogs Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-         * See Kubernetes Audit Logs below for more details.
+         * @param auditLogs Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html). See `auditLogs` below for more details.
          * 
          * @return builder
          * 

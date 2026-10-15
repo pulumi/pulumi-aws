@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS OpenSearch Authorize Vpc Endpoint Access.
+// Resource for managing an AWS OpenSearch Authorize VPC Endpoint Access.
 //
 // ## Example Usage
 //
@@ -50,7 +50,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import OpenSearch Authorize Vpc Endpoint Access using the `domainName` and `account` separated by a comma (,). For example:
+// Using `pulumi import`, import OpenSearch Authorize VPC Endpoint Access using the `domainName` and `account` separated by a comma (,). For example:
 //
 // ```sh
 // $ pulumi import aws:opensearch/authorizeVpcEndpointAccess:AuthorizeVpcEndpointAccess example authorize_vpc_endpoint_access-id-12345678,123456789012

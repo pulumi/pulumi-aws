@@ -15,14 +15,14 @@ public final class InputSourceArgs extends com.pulumi.resources.ResourceArgs {
     public static final InputSourceArgs Empty = new InputSourceArgs();
 
     /**
-     * The key used to extract the password from EC2 Parameter store.
+     * Key used to extract the password from EC2 Parameter store.
      * 
      */
     @Import(name="passwordParam", required=true)
     private Output<String> passwordParam;
 
     /**
-     * @return The key used to extract the password from EC2 Parameter store.
+     * @return Key used to extract the password from EC2 Parameter store.
      * 
      */
     public Output<String> passwordParam() {
@@ -30,14 +30,14 @@ public final class InputSourceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The URL where the stream is pulled from.
+     * URL where the stream is pulled from.
      * 
      */
     @Import(name="url", required=true)
     private Output<String> url;
 
     /**
-     * @return The URL where the stream is pulled from.
+     * @return URL where the stream is pulled from.
      * 
      */
     public Output<String> url() {
@@ -45,14 +45,14 @@ public final class InputSourceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The username for the input source.
+     * Username for the input source.
      * 
      */
     @Import(name="username", required=true)
     private Output<String> username;
 
     /**
-     * @return The username for the input source.
+     * @return Username for the input source.
      * 
      */
     public Output<String> username() {
@@ -86,7 +86,7 @@ public final class InputSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordParam The key used to extract the password from EC2 Parameter store.
+         * @param passwordParam Key used to extract the password from EC2 Parameter store.
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class InputSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordParam The key used to extract the password from EC2 Parameter store.
+         * @param passwordParam Key used to extract the password from EC2 Parameter store.
          * 
          * @return builder
          * 
@@ -107,7 +107,7 @@ public final class InputSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param url The URL where the stream is pulled from.
+         * @param url URL where the stream is pulled from.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class InputSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param url The URL where the stream is pulled from.
+         * @param url URL where the stream is pulled from.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class InputSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param username The username for the input source.
+         * @param username Username for the input source.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class InputSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param username The username for the input source.
+         * @param username Username for the input source.
          * 
          * @return builder
          * 

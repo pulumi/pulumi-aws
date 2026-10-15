@@ -410,42 +410,42 @@ public class Job extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The command of the job. Defined below.
+     * Command of the job. Defined below.
      * 
      */
     @Export(name="command", refs={JobCommand.class}, tree="[0]")
     private Output<JobCommand> command;
 
     /**
-     * @return The command of the job. Defined below.
+     * @return Command of the job. Defined below.
      * 
      */
     public Output<JobCommand> command() {
         return this.command;
     }
     /**
-     * The list of connections used for this job.
+     * List of connections used for this job.
      * 
      */
     @Export(name="connections", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> connections;
 
     /**
-     * @return The list of connections used for this job.
+     * @return List of connections used for this job.
      * 
      */
     public Output<Optional<List<String>>> connections() {
         return Codegen.optional(this.connections);
     }
     /**
-     * The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
+     * Map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
      * 
      */
     @Export(name="defaultArguments", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> defaultArguments;
 
     /**
-     * @return The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
+     * @return Map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
      * 
      */
     public Output<Optional<Map<String,String>>> defaultArguments() {
@@ -466,14 +466,14 @@ public class Job extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
+     * Execution class for the job. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
      * 
      */
     @Export(name="executionClass", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> executionClass;
 
     /**
-     * @return Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
+     * @return Execution class for the job. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
      * 
      */
     public Output<Optional<String>> executionClass() {
@@ -494,98 +494,98 @@ public class Job extends com.pulumi.resources.CustomResource {
         return this.executionProperty;
     }
     /**
-     * The version of glue to use, for example &#34;1.0&#34;. Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+     * Version of glue to use, for example &#34;1.0&#34;. Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
      * 
      */
     @Export(name="glueVersion", refs={String.class}, tree="[0]")
     private Output<String> glueVersion;
 
     /**
-     * @return The version of glue to use, for example &#34;1.0&#34;. Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+     * @return Version of glue to use, for example &#34;1.0&#34;. Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
      * 
      */
     public Output<String> glueVersion() {
         return this.glueVersion;
     }
     /**
-     * Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
+     * How a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
      * 
      */
     @Export(name="jobMode", refs={String.class}, tree="[0]")
     private Output<String> jobMode;
 
     /**
-     * @return Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
+     * @return How a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
      * 
      */
     public Output<String> jobMode() {
         return this.jobMode;
     }
     /**
-     * Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
+     * Whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
      * 
      */
     @Export(name="jobRunQueuingEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> jobRunQueuingEnabled;
 
     /**
-     * @return Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
+     * @return Whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
      * 
      */
     public Output<Optional<Boolean>> jobRunQueuingEnabled() {
         return Codegen.optional(this.jobRunQueuingEnabled);
     }
     /**
-     * Specifies the day of the week and hour for the maintenance window for streaming jobs.
+     * Day of the week and hour for the maintenance window for streaming jobs.
      * 
      */
     @Export(name="maintenanceWindow", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> maintenanceWindow;
 
     /**
-     * @return Specifies the day of the week and hour for the maintenance window for streaming jobs.
+     * @return Day of the week and hour for the maintenance window for streaming jobs.
      * 
      */
     public Output<Optional<String>> maintenanceWindow() {
         return Codegen.optional(this.maintenanceWindow);
     }
     /**
-     * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
+     * Maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
      * 
      */
     @Export(name="maxCapacity", refs={Double.class}, tree="[0]")
     private Output<Double> maxCapacity;
 
     /**
-     * @return The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
+     * @return Maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
      * 
      */
     public Output<Double> maxCapacity() {
         return this.maxCapacity;
     }
     /**
-     * The maximum number of times to retry this job if it fails.
+     * Maximum number of times to retry this job if it fails.
      * 
      */
     @Export(name="maxRetries", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxRetries;
 
     /**
-     * @return The maximum number of times to retry this job if it fails.
+     * @return Maximum number of times to retry this job if it fails.
      * 
      */
     public Output<Optional<Integer>> maxRetries() {
         return Codegen.optional(this.maxRetries);
     }
     /**
-     * The name you assign to this job. It must be unique in your account.
+     * Name you assign to this job. It must be unique in your account.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name you assign to this job. It must be unique in your account.
+     * @return Name you assign to this job. It must be unique in your account.
      * 
      */
     public Output<String> name() {
@@ -620,14 +620,14 @@ public class Job extends com.pulumi.resources.CustomResource {
         return this.notificationProperty;
     }
     /**
-     * The number of workers of a defined workerType that are allocated when a job runs.
+     * Number of workers of a defined workerType that are allocated when a job runs.
      * 
      */
     @Export(name="numberOfWorkers", refs={Integer.class}, tree="[0]")
     private Output<Integer> numberOfWorkers;
 
     /**
-     * @return The number of workers of a defined workerType that are allocated when a job runs.
+     * @return Number of workers of a defined workerType that are allocated when a job runs.
      * 
      */
     public Output<Integer> numberOfWorkers() {
@@ -648,42 +648,42 @@ public class Job extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The ARN of the IAM role associated with this job.
+     * ARN of the IAM role associated with this job.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
-     * @return The ARN of the IAM role associated with this job.
+     * @return ARN of the IAM role associated with this job.
      * 
      */
     public Output<String> roleArn() {
         return this.roleArn;
     }
     /**
-     * The name of the Security Configuration to be associated with the job.
+     * Name of the Security Configuration to be associated with the job.
      * 
      */
     @Export(name="securityConfiguration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> securityConfiguration;
 
     /**
-     * @return The name of the Security Configuration to be associated with the job.
+     * @return Name of the Security Configuration to be associated with the job.
      * 
      */
     public Output<Optional<String>> securityConfiguration() {
         return Codegen.optional(this.securityConfiguration);
     }
     /**
-     * The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
+     * Details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
      * 
      */
     @Export(name="sourceControlDetails", refs={JobSourceControlDetails.class}, tree="[0]")
     private Output</* @Nullable */ JobSourceControlDetails> sourceControlDetails;
 
     /**
-     * @return The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
+     * @return Details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
      * 
      */
     public Output<Optional<JobSourceControlDetails>> sourceControlDetails() {
@@ -704,42 +704,42 @@ public class Job extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and 0 (unlimited) for `gluestreaming` jobs. Leave this attribute argument unconfigured for `glueray` jobs.
+     * Job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and 0 (unlimited) for `gluestreaming` jobs. Leave this attribute argument unconfigured for `glueray` jobs.
      * 
      */
     @Export(name="timeout", refs={Integer.class}, tree="[0]")
     private Output<Integer> timeout;
 
     /**
-     * @return The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and 0 (unlimited) for `gluestreaming` jobs. Leave this attribute argument unconfigured for `glueray` jobs.
+     * @return Job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and 0 (unlimited) for `gluestreaming` jobs. Leave this attribute argument unconfigured for `glueray` jobs.
      * 
      */
     public Output<Integer> timeout() {
         return this.timeout;
     }
     /**
-     * The type of predefined worker that is allocated when a job runs. Valid values: `Standard`, `G.1X`, `G.2X`, `G.025X`, `G.4X`, `G.8X`, `G.12X`, `G.16X`, `R.1X`, `R.2X`, `R.4X`, `R.8X`, `Z.2X` (Ray jobs). See the [AWS documentation](https://docs.aws.amazon.com/glue/latest/dg/worker-types.html) for details.
+     * Type of predefined worker that is allocated when a job runs. Valid values: `Standard`, `G.1X`, `G.2X`, `G.025X`, `G.4X`, `G.8X`, `G.12X`, `G.16X`, `R.1X`, `R.2X`, `R.4X`, `R.8X`, `Z.2X` (Ray jobs). See the [AWS documentation](https://docs.aws.amazon.com/glue/latest/dg/worker-types.html) for details.
      * 
      */
     @Export(name="workerType", refs={String.class}, tree="[0]")
     private Output<String> workerType;
 
     /**
-     * @return The type of predefined worker that is allocated when a job runs. Valid values: `Standard`, `G.1X`, `G.2X`, `G.025X`, `G.4X`, `G.8X`, `G.12X`, `G.16X`, `R.1X`, `R.2X`, `R.4X`, `R.8X`, `Z.2X` (Ray jobs). See the [AWS documentation](https://docs.aws.amazon.com/glue/latest/dg/worker-types.html) for details.
+     * @return Type of predefined worker that is allocated when a job runs. Valid values: `Standard`, `G.1X`, `G.2X`, `G.025X`, `G.4X`, `G.8X`, `G.12X`, `G.16X`, `R.1X`, `R.2X`, `R.4X`, `R.8X`, `Z.2X` (Ray jobs). See the [AWS documentation](https://docs.aws.amazon.com/glue/latest/dg/worker-types.html) for details.
      * 
      */
     public Output<String> workerType() {

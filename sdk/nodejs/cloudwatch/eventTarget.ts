@@ -349,7 +349,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Cloudwatch Log Group Usage
+ * ### CloudWatch Log Group Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -633,7 +633,7 @@ export class EventTarget extends pulumi.CustomResource {
      */
     declare public readonly sqsTarget: pulumi.Output<outputs.cloudwatch.EventTargetSqsTarget | undefined>;
     /**
-     * The unique target assignment ID. If missing, will generate a random, unique id.
+     * The unique target assignment ID. If missing, will generate a random, unique ID.
      */
     declare public readonly targetId: pulumi.Output<string>;
 
@@ -794,7 +794,7 @@ export interface EventTargetState {
      */
     sqsTarget?: pulumi.Input<inputs.cloudwatch.EventTargetSqsTarget | undefined>;
     /**
-     * The unique target assignment ID. If missing, will generate a random, unique id.
+     * The unique target assignment ID. If missing, will generate a random, unique ID.
      */
     targetId?: pulumi.Input<string | undefined>;
 }
@@ -887,7 +887,7 @@ export interface EventTargetArgs {
      */
     sqsTarget?: pulumi.Input<inputs.cloudwatch.EventTargetSqsTarget | undefined>;
     /**
-     * The unique target assignment ID. If missing, will generate a random, unique id.
+     * The unique target assignment ID. If missing, will generate a random, unique ID.
      */
     targetId?: pulumi.Input<string | undefined>;
 }

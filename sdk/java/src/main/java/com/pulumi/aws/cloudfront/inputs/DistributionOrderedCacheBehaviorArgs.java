@@ -129,14 +129,14 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
     }
 
     /**
-     * A config block that triggers a cloudfront function with specific actions (maximum 2).
+     * A config block that triggers a CloudFront function with specific actions (maximum 2).
      * 
      */
     @Import(name="functionAssociations")
     private @Nullable Output<List<DistributionOrderedCacheBehaviorFunctionAssociationArgs>> functionAssociations;
 
     /**
-     * @return A config block that triggers a cloudfront function with specific actions (maximum 2).
+     * @return A config block that triggers a CloudFront function with specific actions (maximum 2).
      * 
      */
     public Optional<Output<List<DistributionOrderedCacheBehaviorFunctionAssociationArgs>>> functionAssociations() {
@@ -144,14 +144,14 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
     }
 
     /**
-     * A config block that sets the grpc config.
+     * A config block that sets the gRPC config.
      * 
      */
     @Import(name="grpcConfig")
     private @Nullable Output<DistributionOrderedCacheBehaviorGrpcConfigArgs> grpcConfig;
 
     /**
-     * @return A config block that sets the grpc config.
+     * @return A config block that sets the gRPC config.
      * 
      */
     public Optional<Output<DistributionOrderedCacheBehaviorGrpcConfigArgs>> grpcConfig() {
@@ -550,7 +550,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param functionAssociations A config block that triggers a cloudfront function with specific actions (maximum 2).
+         * @param functionAssociations A config block that triggers a CloudFront function with specific actions (maximum 2).
          * 
          * @return builder
          * 
@@ -561,7 +561,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param functionAssociations A config block that triggers a cloudfront function with specific actions (maximum 2).
+         * @param functionAssociations A config block that triggers a CloudFront function with specific actions (maximum 2).
          * 
          * @return builder
          * 
@@ -571,7 +571,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param functionAssociations A config block that triggers a cloudfront function with specific actions (maximum 2).
+         * @param functionAssociations A config block that triggers a CloudFront function with specific actions (maximum 2).
          * 
          * @return builder
          * 
@@ -581,7 +581,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param grpcConfig A config block that sets the grpc config.
+         * @param grpcConfig A config block that sets the gRPC config.
          * 
          * @return builder
          * 
@@ -592,7 +592,7 @@ public final class DistributionOrderedCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param grpcConfig A config block that sets the grpc config.
+         * @param grpcConfig A config block that sets the gRPC config.
          * 
          * @return builder
          * 

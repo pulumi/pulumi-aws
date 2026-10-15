@@ -43,6 +43,12 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// * `arn` (String) ARN of the service setting.
+//
 // Using `pulumi import`, import AWS SSM Service Setting using the `settingId`. For example:
 //
 // ```sh

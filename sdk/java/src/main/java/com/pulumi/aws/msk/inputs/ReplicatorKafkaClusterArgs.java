@@ -20,14 +20,14 @@ public final class ReplicatorKafkaClusterArgs extends com.pulumi.resources.Resou
     public static final ReplicatorKafkaClusterArgs Empty = new ReplicatorKafkaClusterArgs();
 
     /**
-     * Details of an Amazon MSK cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
+     * Details of an Amazon MSK cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. See `amazonMskCluster` Block below.
      * 
      */
     @Import(name="amazonMskCluster")
     private @Nullable Output<ReplicatorKafkaClusterAmazonMskClusterArgs> amazonMskCluster;
 
     /**
-     * @return Details of an Amazon MSK cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
+     * @return Details of an Amazon MSK cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. See `amazonMskCluster` Block below.
      * 
      */
     public Optional<Output<ReplicatorKafkaClusterAmazonMskClusterArgs>> amazonMskCluster() {
@@ -35,14 +35,14 @@ public final class ReplicatorKafkaClusterArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
+     * Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. See `apacheKafkaCluster` Block below.
      * 
      */
     @Import(name="apacheKafkaCluster")
     private @Nullable Output<ReplicatorKafkaClusterApacheKafkaClusterArgs> apacheKafkaCluster;
 
     /**
-     * @return Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
+     * @return Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. See `apacheKafkaCluster` Block below.
      * 
      */
     public Optional<Output<ReplicatorKafkaClusterApacheKafkaClusterArgs>> apacheKafkaCluster() {
@@ -50,14 +50,14 @@ public final class ReplicatorKafkaClusterArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Details of the client authentication used by the Kafka cluster. Only valid for an `apacheKafkaCluster`. Detailed below.
+     * Details of the client authentication used by the Kafka cluster. Only valid for an `apacheKafkaCluster`. See `clientAuthentication` Block below.
      * 
      */
     @Import(name="clientAuthentication")
     private @Nullable Output<ReplicatorKafkaClusterClientAuthenticationArgs> clientAuthentication;
 
     /**
-     * @return Details of the client authentication used by the Kafka cluster. Only valid for an `apacheKafkaCluster`. Detailed below.
+     * @return Details of the client authentication used by the Kafka cluster. Only valid for an `apacheKafkaCluster`. See `clientAuthentication` Block below.
      * 
      */
     public Optional<Output<ReplicatorKafkaClusterClientAuthenticationArgs>> clientAuthentication() {
@@ -65,14 +65,14 @@ public final class ReplicatorKafkaClusterArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Details of encryption in transit to the Kafka cluster. Only valid for an `apacheKafkaCluster`. TLS encryption in transit is always applied to an `apacheKafkaCluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). Detailed below.
+     * Details of encryption in transit to the Kafka cluster. Only valid for an `apacheKafkaCluster`. TLS encryption in transit is always applied to an `apacheKafkaCluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). See `encryptionInTransit` Block below.
      * 
      */
     @Import(name="encryptionInTransit")
     private @Nullable Output<ReplicatorKafkaClusterEncryptionInTransitArgs> encryptionInTransit;
 
     /**
-     * @return Details of encryption in transit to the Kafka cluster. Only valid for an `apacheKafkaCluster`. TLS encryption in transit is always applied to an `apacheKafkaCluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). Detailed below.
+     * @return Details of encryption in transit to the Kafka cluster. Only valid for an `apacheKafkaCluster`. TLS encryption in transit is always applied to an `apacheKafkaCluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). See `encryptionInTransit` Block below.
      * 
      */
     public Optional<Output<ReplicatorKafkaClusterEncryptionInTransitArgs>> encryptionInTransit() {
@@ -80,14 +80,14 @@ public final class ReplicatorKafkaClusterArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazonMskCluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC.
+     * Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazonMskCluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC. See `vpcConfig` Block below.
      * 
      */
     @Import(name="vpcConfig")
     private @Nullable Output<ReplicatorKafkaClusterVpcConfigArgs> vpcConfig;
 
     /**
-     * @return Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazonMskCluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC.
+     * @return Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazonMskCluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC. See `vpcConfig` Block below.
      * 
      */
     public Optional<Output<ReplicatorKafkaClusterVpcConfigArgs>> vpcConfig() {
@@ -123,7 +123,7 @@ public final class ReplicatorKafkaClusterArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param amazonMskCluster Details of an Amazon MSK cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
+         * @param amazonMskCluster Details of an Amazon MSK cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. See `amazonMskCluster` Block below.
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class ReplicatorKafkaClusterArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param amazonMskCluster Details of an Amazon MSK cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
+         * @param amazonMskCluster Details of an Amazon MSK cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. See `amazonMskCluster` Block below.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class ReplicatorKafkaClusterArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param apacheKafkaCluster Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
+         * @param apacheKafkaCluster Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. See `apacheKafkaCluster` Block below.
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class ReplicatorKafkaClusterArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param apacheKafkaCluster Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
+         * @param apacheKafkaCluster Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. See `apacheKafkaCluster` Block below.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class ReplicatorKafkaClusterArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param clientAuthentication Details of the client authentication used by the Kafka cluster. Only valid for an `apacheKafkaCluster`. Detailed below.
+         * @param clientAuthentication Details of the client authentication used by the Kafka cluster. Only valid for an `apacheKafkaCluster`. See `clientAuthentication` Block below.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class ReplicatorKafkaClusterArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param clientAuthentication Details of the client authentication used by the Kafka cluster. Only valid for an `apacheKafkaCluster`. Detailed below.
+         * @param clientAuthentication Details of the client authentication used by the Kafka cluster. Only valid for an `apacheKafkaCluster`. See `clientAuthentication` Block below.
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class ReplicatorKafkaClusterArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param encryptionInTransit Details of encryption in transit to the Kafka cluster. Only valid for an `apacheKafkaCluster`. TLS encryption in transit is always applied to an `apacheKafkaCluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). Detailed below.
+         * @param encryptionInTransit Details of encryption in transit to the Kafka cluster. Only valid for an `apacheKafkaCluster`. TLS encryption in transit is always applied to an `apacheKafkaCluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). See `encryptionInTransit` Block below.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class ReplicatorKafkaClusterArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param encryptionInTransit Details of encryption in transit to the Kafka cluster. Only valid for an `apacheKafkaCluster`. TLS encryption in transit is always applied to an `apacheKafkaCluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). Detailed below.
+         * @param encryptionInTransit Details of encryption in transit to the Kafka cluster. Only valid for an `apacheKafkaCluster`. TLS encryption in transit is always applied to an `apacheKafkaCluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). See `encryptionInTransit` Block below.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class ReplicatorKafkaClusterArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param vpcConfig Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazonMskCluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC.
+         * @param vpcConfig Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazonMskCluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC. See `vpcConfig` Block below.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class ReplicatorKafkaClusterArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param vpcConfig Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazonMskCluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC.
+         * @param vpcConfig Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazonMskCluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC. See `vpcConfig` Block below.
          * 
          * @return builder
          * 

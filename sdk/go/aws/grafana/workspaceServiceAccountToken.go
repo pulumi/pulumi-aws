@@ -58,23 +58,23 @@ import (
 type WorkspaceServiceAccountToken struct {
 	pulumi.CustomResourceState
 
-	// Specifies when the service account token was created.
+	// When the service account token was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Specifies when the service account token will expire.
+	// When the service account token will expire.
 	ExpiresAt pulumi.StringOutput `pulumi:"expiresAt"`
-	// The key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
+	// Key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
 	Key pulumi.StringOutput `pulumi:"key"`
-	// A name for the token to create. The name must be unique within the workspace.
+	// Name for the token to create. The name must be unique within the workspace.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
 	SecondsToLive pulumi.IntOutput `pulumi:"secondsToLive"`
-	// The ID of the service account for which to create a token.
+	// ID of the service account for which to create a token.
 	ServiceAccountId pulumi.StringOutput `pulumi:"serviceAccountId"`
 	// Identifier of the service account token in the given Grafana workspace.
 	ServiceAccountTokenId pulumi.StringOutput `pulumi:"serviceAccountTokenId"`
-	// The Grafana workspace with which the service account token is associated.
+	// Grafana workspace with which the service account token is associated.
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
 }
 
@@ -121,44 +121,44 @@ func GetWorkspaceServiceAccountToken(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WorkspaceServiceAccountToken resources.
 type workspaceServiceAccountTokenState struct {
-	// Specifies when the service account token was created.
+	// When the service account token was created.
 	CreatedAt *string `pulumi:"createdAt"`
-	// Specifies when the service account token will expire.
+	// When the service account token will expire.
 	ExpiresAt *string `pulumi:"expiresAt"`
-	// The key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
+	// Key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
 	Key *string `pulumi:"key"`
-	// A name for the token to create. The name must be unique within the workspace.
+	// Name for the token to create. The name must be unique within the workspace.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
 	SecondsToLive *int `pulumi:"secondsToLive"`
-	// The ID of the service account for which to create a token.
+	// ID of the service account for which to create a token.
 	ServiceAccountId *string `pulumi:"serviceAccountId"`
 	// Identifier of the service account token in the given Grafana workspace.
 	ServiceAccountTokenId *string `pulumi:"serviceAccountTokenId"`
-	// The Grafana workspace with which the service account token is associated.
+	// Grafana workspace with which the service account token is associated.
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
 type WorkspaceServiceAccountTokenState struct {
-	// Specifies when the service account token was created.
+	// When the service account token was created.
 	CreatedAt pulumi.StringPtrInput
-	// Specifies when the service account token will expire.
+	// When the service account token will expire.
 	ExpiresAt pulumi.StringPtrInput
-	// The key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
+	// Key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
 	Key pulumi.StringPtrInput
-	// A name for the token to create. The name must be unique within the workspace.
+	// Name for the token to create. The name must be unique within the workspace.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
 	SecondsToLive pulumi.IntPtrInput
-	// The ID of the service account for which to create a token.
+	// ID of the service account for which to create a token.
 	ServiceAccountId pulumi.StringPtrInput
 	// Identifier of the service account token in the given Grafana workspace.
 	ServiceAccountTokenId pulumi.StringPtrInput
-	// The Grafana workspace with which the service account token is associated.
+	// Grafana workspace with which the service account token is associated.
 	WorkspaceId pulumi.StringPtrInput
 }
 
@@ -167,29 +167,29 @@ func (WorkspaceServiceAccountTokenState) ElementType() reflect.Type {
 }
 
 type workspaceServiceAccountTokenArgs struct {
-	// A name for the token to create. The name must be unique within the workspace.
+	// Name for the token to create. The name must be unique within the workspace.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
 	SecondsToLive int `pulumi:"secondsToLive"`
-	// The ID of the service account for which to create a token.
+	// ID of the service account for which to create a token.
 	ServiceAccountId string `pulumi:"serviceAccountId"`
-	// The Grafana workspace with which the service account token is associated.
+	// Grafana workspace with which the service account token is associated.
 	WorkspaceId string `pulumi:"workspaceId"`
 }
 
 // The set of arguments for constructing a WorkspaceServiceAccountToken resource.
 type WorkspaceServiceAccountTokenArgs struct {
-	// A name for the token to create. The name must be unique within the workspace.
+	// Name for the token to create. The name must be unique within the workspace.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
 	SecondsToLive pulumi.IntInput
-	// The ID of the service account for which to create a token.
+	// ID of the service account for which to create a token.
 	ServiceAccountId pulumi.StringInput
-	// The Grafana workspace with which the service account token is associated.
+	// Grafana workspace with which the service account token is associated.
 	WorkspaceId pulumi.StringInput
 }
 
@@ -280,22 +280,22 @@ func (o WorkspaceServiceAccountTokenOutput) ToWorkspaceServiceAccountTokenOutput
 	return o
 }
 
-// Specifies when the service account token was created.
+// When the service account token was created.
 func (o WorkspaceServiceAccountTokenOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceServiceAccountToken) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// Specifies when the service account token will expire.
+// When the service account token will expire.
 func (o WorkspaceServiceAccountTokenOutput) ExpiresAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceServiceAccountToken) pulumi.StringOutput { return v.ExpiresAt }).(pulumi.StringOutput)
 }
 
-// The key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
+// Key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
 func (o WorkspaceServiceAccountTokenOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceServiceAccountToken) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
 
-// A name for the token to create. The name must be unique within the workspace.
+// Name for the token to create. The name must be unique within the workspace.
 func (o WorkspaceServiceAccountTokenOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceServiceAccountToken) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -310,7 +310,7 @@ func (o WorkspaceServiceAccountTokenOutput) SecondsToLive() pulumi.IntOutput {
 	return o.ApplyT(func(v *WorkspaceServiceAccountToken) pulumi.IntOutput { return v.SecondsToLive }).(pulumi.IntOutput)
 }
 
-// The ID of the service account for which to create a token.
+// ID of the service account for which to create a token.
 func (o WorkspaceServiceAccountTokenOutput) ServiceAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceServiceAccountToken) pulumi.StringOutput { return v.ServiceAccountId }).(pulumi.StringOutput)
 }
@@ -320,7 +320,7 @@ func (o WorkspaceServiceAccountTokenOutput) ServiceAccountTokenId() pulumi.Strin
 	return o.ApplyT(func(v *WorkspaceServiceAccountToken) pulumi.StringOutput { return v.ServiceAccountTokenId }).(pulumi.StringOutput)
 }
 
-// The Grafana workspace with which the service account token is associated.
+// Grafana workspace with which the service account token is associated.
 func (o WorkspaceServiceAccountTokenOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceServiceAccountToken) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
 }

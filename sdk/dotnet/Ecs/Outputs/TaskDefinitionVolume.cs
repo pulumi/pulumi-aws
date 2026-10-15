@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly Outputs.TaskDefinitionVolumeEfsVolumeConfiguration? EfsVolumeConfiguration;
         /// <summary>
-        /// Configuration block for an FSX Windows File Server volume. Detailed below.
+        /// Configuration block for an FSx Windows File Server volume. Detailed below.
         /// </summary>
         public readonly Outputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration? FsxWindowsFileServerVolumeConfiguration;
         /// <summary>

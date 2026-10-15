@@ -106,7 +106,7 @@ class GetConnectorResult:
     @pulumi.getter(name="loggingRole")
     def logging_role(self) -> _builtins.str:
         """
-        ARN of the IAM role that allows a connector to turn on CLoudwatch logging for Amazon S3 events.
+        ARN of the IAM role that allows a connector to turn on CloudWatch logging for Amazon S3 events.
         """
         return pulumi.get(self, "logging_role")
 
@@ -127,7 +127,7 @@ class GetConnectorResult:
     @pulumi.getter(name="serviceManagedEgressIpAddresses")
     def service_managed_egress_ip_addresses(self) -> Sequence[_builtins.str]:
         """
-        List of egress Ip addresses.
+        List of egress IP addresses.
         """
         return pulumi.get(self, "service_managed_egress_ip_addresses")
 

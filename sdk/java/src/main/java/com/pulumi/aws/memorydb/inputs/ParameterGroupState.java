@@ -19,14 +19,14 @@ public final class ParameterGroupState extends com.pulumi.resources.ResourceArgs
     public static final ParameterGroupState Empty = new ParameterGroupState();
 
     /**
-     * The ARN of the parameter group.
+     * ARN of the parameter group.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the parameter group.
+     * @return ARN of the parameter group.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -49,7 +49,7 @@ public final class ParameterGroupState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The engine version that the parameter group can be used with.
+     * Engine version that the parameter group can be used with.
      * 
      * The following arguments are optional:
      * 
@@ -58,7 +58,7 @@ public final class ParameterGroupState extends com.pulumi.resources.ResourceArgs
     private @Nullable Output<String> family;
 
     /**
-     * @return The engine version that the parameter group can be used with.
+     * @return Engine version that the parameter group can be used with.
      * 
      * The following arguments are optional:
      * 
@@ -128,14 +128,14 @@ public final class ParameterGroupState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -143,14 +143,14 @@ public final class ParameterGroupState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -190,7 +190,7 @@ public final class ParameterGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn The ARN of the parameter group.
+         * @param arn ARN of the parameter group.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class ParameterGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn The ARN of the parameter group.
+         * @param arn ARN of the parameter group.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class ParameterGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param family The engine version that the parameter group can be used with.
+         * @param family Engine version that the parameter group can be used with.
          * 
          * The following arguments are optional:
          * 
@@ -245,7 +245,7 @@ public final class ParameterGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param family The engine version that the parameter group can be used with.
+         * @param family Engine version that the parameter group can be used with.
          * 
          * The following arguments are optional:
          * 
@@ -351,7 +351,7 @@ public final class ParameterGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -362,7 +362,7 @@ public final class ParameterGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -372,7 +372,7 @@ public final class ParameterGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -383,7 +383,7 @@ public final class ParameterGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

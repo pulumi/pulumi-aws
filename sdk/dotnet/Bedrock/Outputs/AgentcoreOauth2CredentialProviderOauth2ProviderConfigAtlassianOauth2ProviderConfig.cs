@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly int? ClientCredentialsWoVersion;
         /// <summary>
-        /// OAuth2 client ID. Conflicts with `ClientIdWo`. Must be used together with `ClientSecret`.
+        /// OAuth2 client ID. Conflicts with `ClientIdWo`. Must be used together with `ClientSecret` unless `ClientSecretSource` is `EXTERNAL`.
         /// </summary>
         public readonly string? ClientId;
         /// <summary>

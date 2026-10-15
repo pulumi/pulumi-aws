@@ -38,17 +38,17 @@ class CatalogArgs:
         The set of arguments for constructing a Catalog resource.
 
         :param pulumi.Input[_builtins.str] allow_full_table_external_data_access: Whether third-party engines can access data in Amazon S3 locations that are registered with Lake Formation. Valid values are `True` and `False`.
-        :param pulumi.Input['CatalogCatalogPropertiesArgs'] catalog_properties: Configuration block of properties for the catalog. See `catalog_properties` below.
-        :param pulumi.Input[Sequence[pulumi.Input['CatalogCreateDatabaseDefaultPermissionArgs']]] create_database_default_permissions: List of default permissions on databases for principals. See `create_database_default_permissions` below.
-        :param pulumi.Input[Sequence[pulumi.Input['CatalogCreateTableDefaultPermissionArgs']]] create_table_default_permissions: List of default permissions on tables for principals. See `create_table_default_permissions` below.
+        :param pulumi.Input['CatalogCatalogPropertiesArgs'] catalog_properties: Configuration block of properties for the catalog. See `catalog_properties` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['CatalogCreateDatabaseDefaultPermissionArgs']]] create_database_default_permissions: List of default permissions on databases for principals. See `create_database_default_permissions` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['CatalogCreateTableDefaultPermissionArgs']]] create_table_default_permissions: List of default permissions on tables for principals. See `create_table_default_permissions` Block below.
         :param pulumi.Input[_builtins.str] description: Description of the catalog.
-        :param pulumi.Input['CatalogFederatedCatalogArgs'] federated_catalog: Configuration block for a federated catalog. See `federated_catalog` below.
+        :param pulumi.Input['CatalogFederatedCatalogArgs'] federated_catalog: Configuration block for a federated catalog. See `federated_catalog` Block below.
         :param pulumi.Input[_builtins.str] name: Name of the catalog.
         :param pulumi.Input[_builtins.str] overwrite_child_resource_permissions_with_default: Whether to overwrite existing Lake Formation permissions on child resources with the default permissions. Valid values are `Accept` and `Deny`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Map of key-value pairs that define parameters and properties of the catalog.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['CatalogTargetRedshiftCatalogArgs'] target_redshift_catalog: Configuration block for a target Redshift catalog. See `target_redshift_catalog` below.
+        :param pulumi.Input['CatalogTargetRedshiftCatalogArgs'] target_redshift_catalog: Configuration block for a target Redshift catalog. See `target_redshift_catalog` Block below.
         """
         if allow_full_table_external_data_access is not None:
             pulumi.set(__self__, "allow_full_table_external_data_access", allow_full_table_external_data_access)
@@ -93,7 +93,7 @@ class CatalogArgs:
     @pulumi.getter(name="catalogProperties")
     def catalog_properties(self) -> pulumi.Input[Optional['CatalogCatalogPropertiesArgs']]:
         """
-        Configuration block of properties for the catalog. See `catalog_properties` below.
+        Configuration block of properties for the catalog. See `catalog_properties` Block below.
         """
         return pulumi.get(self, "catalog_properties")
 
@@ -105,7 +105,7 @@ class CatalogArgs:
     @pulumi.getter(name="createDatabaseDefaultPermissions")
     def create_database_default_permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CatalogCreateDatabaseDefaultPermissionArgs']]]]:
         """
-        List of default permissions on databases for principals. See `create_database_default_permissions` below.
+        List of default permissions on databases for principals. See `create_database_default_permissions` Block below.
         """
         return pulumi.get(self, "create_database_default_permissions")
 
@@ -117,7 +117,7 @@ class CatalogArgs:
     @pulumi.getter(name="createTableDefaultPermissions")
     def create_table_default_permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CatalogCreateTableDefaultPermissionArgs']]]]:
         """
-        List of default permissions on tables for principals. See `create_table_default_permissions` below.
+        List of default permissions on tables for principals. See `create_table_default_permissions` Block below.
         """
         return pulumi.get(self, "create_table_default_permissions")
 
@@ -141,7 +141,7 @@ class CatalogArgs:
     @pulumi.getter(name="federatedCatalog")
     def federated_catalog(self) -> pulumi.Input[Optional['CatalogFederatedCatalogArgs']]:
         """
-        Configuration block for a federated catalog. See `federated_catalog` below.
+        Configuration block for a federated catalog. See `federated_catalog` Block below.
         """
         return pulumi.get(self, "federated_catalog")
 
@@ -213,7 +213,7 @@ class CatalogArgs:
     @pulumi.getter(name="targetRedshiftCatalog")
     def target_redshift_catalog(self) -> pulumi.Input[Optional['CatalogTargetRedshiftCatalogArgs']]:
         """
-        Configuration block for a target Redshift catalog. See `target_redshift_catalog` below.
+        Configuration block for a target Redshift catalog. See `target_redshift_catalog` Block below.
         """
         return pulumi.get(self, "target_redshift_catalog")
 
@@ -258,19 +258,19 @@ class _CatalogState:
         :param pulumi.Input[_builtins.str] allow_full_table_external_data_access: Whether third-party engines can access data in Amazon S3 locations that are registered with Lake Formation. Valid values are `True` and `False`.
         :param pulumi.Input[_builtins.str] arn: ARN of the Glue Catalog.
         :param pulumi.Input[_builtins.str] catalog_id: ID of the parent catalog.
-        :param pulumi.Input['CatalogCatalogPropertiesArgs'] catalog_properties: Configuration block of properties for the catalog. See `catalog_properties` below.
-        :param pulumi.Input[Sequence[pulumi.Input['CatalogCreateDatabaseDefaultPermissionArgs']]] create_database_default_permissions: List of default permissions on databases for principals. See `create_database_default_permissions` below.
-        :param pulumi.Input[Sequence[pulumi.Input['CatalogCreateTableDefaultPermissionArgs']]] create_table_default_permissions: List of default permissions on tables for principals. See `create_table_default_permissions` below.
+        :param pulumi.Input['CatalogCatalogPropertiesArgs'] catalog_properties: Configuration block of properties for the catalog. See `catalog_properties` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['CatalogCreateDatabaseDefaultPermissionArgs']]] create_database_default_permissions: List of default permissions on databases for principals. See `create_database_default_permissions` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['CatalogCreateTableDefaultPermissionArgs']]] create_table_default_permissions: List of default permissions on tables for principals. See `create_table_default_permissions` Block below.
         :param pulumi.Input[_builtins.str] create_time: Time at which the catalog was created.
         :param pulumi.Input[_builtins.str] description: Description of the catalog.
-        :param pulumi.Input['CatalogFederatedCatalogArgs'] federated_catalog: Configuration block for a federated catalog. See `federated_catalog` below.
+        :param pulumi.Input['CatalogFederatedCatalogArgs'] federated_catalog: Configuration block for a federated catalog. See `federated_catalog` Block below.
         :param pulumi.Input[_builtins.str] name: Name of the catalog.
         :param pulumi.Input[_builtins.str] overwrite_child_resource_permissions_with_default: Whether to overwrite existing Lake Formation permissions on child resources with the default permissions. Valid values are `Accept` and `Deny`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Map of key-value pairs that define parameters and properties of the catalog.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input['CatalogTargetRedshiftCatalogArgs'] target_redshift_catalog: Configuration block for a target Redshift catalog. See `target_redshift_catalog` below.
+        :param pulumi.Input['CatalogTargetRedshiftCatalogArgs'] target_redshift_catalog: Configuration block for a target Redshift catalog. See `target_redshift_catalog` Block below.
         :param pulumi.Input[_builtins.str] update_time: Time at which the catalog was last updated.
         """
         if allow_full_table_external_data_access is not None:
@@ -350,7 +350,7 @@ class _CatalogState:
     @pulumi.getter(name="catalogProperties")
     def catalog_properties(self) -> pulumi.Input[Optional['CatalogCatalogPropertiesArgs']]:
         """
-        Configuration block of properties for the catalog. See `catalog_properties` below.
+        Configuration block of properties for the catalog. See `catalog_properties` Block below.
         """
         return pulumi.get(self, "catalog_properties")
 
@@ -362,7 +362,7 @@ class _CatalogState:
     @pulumi.getter(name="createDatabaseDefaultPermissions")
     def create_database_default_permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CatalogCreateDatabaseDefaultPermissionArgs']]]]:
         """
-        List of default permissions on databases for principals. See `create_database_default_permissions` below.
+        List of default permissions on databases for principals. See `create_database_default_permissions` Block below.
         """
         return pulumi.get(self, "create_database_default_permissions")
 
@@ -374,7 +374,7 @@ class _CatalogState:
     @pulumi.getter(name="createTableDefaultPermissions")
     def create_table_default_permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CatalogCreateTableDefaultPermissionArgs']]]]:
         """
-        List of default permissions on tables for principals. See `create_table_default_permissions` below.
+        List of default permissions on tables for principals. See `create_table_default_permissions` Block below.
         """
         return pulumi.get(self, "create_table_default_permissions")
 
@@ -410,7 +410,7 @@ class _CatalogState:
     @pulumi.getter(name="federatedCatalog")
     def federated_catalog(self) -> pulumi.Input[Optional['CatalogFederatedCatalogArgs']]:
         """
-        Configuration block for a federated catalog. See `federated_catalog` below.
+        Configuration block for a federated catalog. See `federated_catalog` Block below.
         """
         return pulumi.get(self, "federated_catalog")
 
@@ -494,7 +494,7 @@ class _CatalogState:
     @pulumi.getter(name="targetRedshiftCatalog")
     def target_redshift_catalog(self) -> pulumi.Input[Optional['CatalogTargetRedshiftCatalogArgs']]:
         """
-        Configuration block for a target Redshift catalog. See `target_redshift_catalog` below.
+        Configuration block for a target Redshift catalog. See `target_redshift_catalog` Block below.
         """
         return pulumi.get(self, "target_redshift_catalog")
 
@@ -655,17 +655,17 @@ class Catalog(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] allow_full_table_external_data_access: Whether third-party engines can access data in Amazon S3 locations that are registered with Lake Formation. Valid values are `True` and `False`.
-        :param pulumi.Input[Union['CatalogCatalogPropertiesArgs', 'CatalogCatalogPropertiesArgsDict', 'outputs.CatalogCatalogProperties']] catalog_properties: Configuration block of properties for the catalog. See `catalog_properties` below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogCreateDatabaseDefaultPermissionArgs', 'CatalogCreateDatabaseDefaultPermissionArgsDict', 'outputs.CatalogCreateDatabaseDefaultPermission']]]] create_database_default_permissions: List of default permissions on databases for principals. See `create_database_default_permissions` below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogCreateTableDefaultPermissionArgs', 'CatalogCreateTableDefaultPermissionArgsDict', 'outputs.CatalogCreateTableDefaultPermission']]]] create_table_default_permissions: List of default permissions on tables for principals. See `create_table_default_permissions` below.
+        :param pulumi.Input[Union['CatalogCatalogPropertiesArgs', 'CatalogCatalogPropertiesArgsDict', 'outputs.CatalogCatalogProperties']] catalog_properties: Configuration block of properties for the catalog. See `catalog_properties` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogCreateDatabaseDefaultPermissionArgs', 'CatalogCreateDatabaseDefaultPermissionArgsDict', 'outputs.CatalogCreateDatabaseDefaultPermission']]]] create_database_default_permissions: List of default permissions on databases for principals. See `create_database_default_permissions` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogCreateTableDefaultPermissionArgs', 'CatalogCreateTableDefaultPermissionArgsDict', 'outputs.CatalogCreateTableDefaultPermission']]]] create_table_default_permissions: List of default permissions on tables for principals. See `create_table_default_permissions` Block below.
         :param pulumi.Input[_builtins.str] description: Description of the catalog.
-        :param pulumi.Input[Union['CatalogFederatedCatalogArgs', 'CatalogFederatedCatalogArgsDict', 'outputs.CatalogFederatedCatalog']] federated_catalog: Configuration block for a federated catalog. See `federated_catalog` below.
+        :param pulumi.Input[Union['CatalogFederatedCatalogArgs', 'CatalogFederatedCatalogArgsDict', 'outputs.CatalogFederatedCatalog']] federated_catalog: Configuration block for a federated catalog. See `federated_catalog` Block below.
         :param pulumi.Input[_builtins.str] name: Name of the catalog.
         :param pulumi.Input[_builtins.str] overwrite_child_resource_permissions_with_default: Whether to overwrite existing Lake Formation permissions on child resources with the default permissions. Valid values are `Accept` and `Deny`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Map of key-value pairs that define parameters and properties of the catalog.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['CatalogTargetRedshiftCatalogArgs', 'CatalogTargetRedshiftCatalogArgsDict', 'outputs.CatalogTargetRedshiftCatalog']] target_redshift_catalog: Configuration block for a target Redshift catalog. See `target_redshift_catalog` below.
+        :param pulumi.Input[Union['CatalogTargetRedshiftCatalogArgs', 'CatalogTargetRedshiftCatalogArgsDict', 'outputs.CatalogTargetRedshiftCatalog']] target_redshift_catalog: Configuration block for a target Redshift catalog. See `target_redshift_catalog` Block below.
         """
         ...
     @overload
@@ -874,19 +874,19 @@ class Catalog(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] allow_full_table_external_data_access: Whether third-party engines can access data in Amazon S3 locations that are registered with Lake Formation. Valid values are `True` and `False`.
         :param pulumi.Input[_builtins.str] arn: ARN of the Glue Catalog.
         :param pulumi.Input[_builtins.str] catalog_id: ID of the parent catalog.
-        :param pulumi.Input[Union['CatalogCatalogPropertiesArgs', 'CatalogCatalogPropertiesArgsDict', 'outputs.CatalogCatalogProperties']] catalog_properties: Configuration block of properties for the catalog. See `catalog_properties` below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogCreateDatabaseDefaultPermissionArgs', 'CatalogCreateDatabaseDefaultPermissionArgsDict', 'outputs.CatalogCreateDatabaseDefaultPermission']]]] create_database_default_permissions: List of default permissions on databases for principals. See `create_database_default_permissions` below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogCreateTableDefaultPermissionArgs', 'CatalogCreateTableDefaultPermissionArgsDict', 'outputs.CatalogCreateTableDefaultPermission']]]] create_table_default_permissions: List of default permissions on tables for principals. See `create_table_default_permissions` below.
+        :param pulumi.Input[Union['CatalogCatalogPropertiesArgs', 'CatalogCatalogPropertiesArgsDict', 'outputs.CatalogCatalogProperties']] catalog_properties: Configuration block of properties for the catalog. See `catalog_properties` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogCreateDatabaseDefaultPermissionArgs', 'CatalogCreateDatabaseDefaultPermissionArgsDict', 'outputs.CatalogCreateDatabaseDefaultPermission']]]] create_database_default_permissions: List of default permissions on databases for principals. See `create_database_default_permissions` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogCreateTableDefaultPermissionArgs', 'CatalogCreateTableDefaultPermissionArgsDict', 'outputs.CatalogCreateTableDefaultPermission']]]] create_table_default_permissions: List of default permissions on tables for principals. See `create_table_default_permissions` Block below.
         :param pulumi.Input[_builtins.str] create_time: Time at which the catalog was created.
         :param pulumi.Input[_builtins.str] description: Description of the catalog.
-        :param pulumi.Input[Union['CatalogFederatedCatalogArgs', 'CatalogFederatedCatalogArgsDict', 'outputs.CatalogFederatedCatalog']] federated_catalog: Configuration block for a federated catalog. See `federated_catalog` below.
+        :param pulumi.Input[Union['CatalogFederatedCatalogArgs', 'CatalogFederatedCatalogArgsDict', 'outputs.CatalogFederatedCatalog']] federated_catalog: Configuration block for a federated catalog. See `federated_catalog` Block below.
         :param pulumi.Input[_builtins.str] name: Name of the catalog.
         :param pulumi.Input[_builtins.str] overwrite_child_resource_permissions_with_default: Whether to overwrite existing Lake Formation permissions on child resources with the default permissions. Valid values are `Accept` and `Deny`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Map of key-value pairs that define parameters and properties of the catalog.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['CatalogTargetRedshiftCatalogArgs', 'CatalogTargetRedshiftCatalogArgsDict', 'outputs.CatalogTargetRedshiftCatalog']] target_redshift_catalog: Configuration block for a target Redshift catalog. See `target_redshift_catalog` below.
+        :param pulumi.Input[Union['CatalogTargetRedshiftCatalogArgs', 'CatalogTargetRedshiftCatalogArgsDict', 'outputs.CatalogTargetRedshiftCatalog']] target_redshift_catalog: Configuration block for a target Redshift catalog. See `target_redshift_catalog` Block below.
         :param pulumi.Input[_builtins.str] update_time: Time at which the catalog was last updated.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -941,7 +941,7 @@ class Catalog(pulumi.CustomResource):
     @pulumi.getter(name="catalogProperties")
     def catalog_properties(self) -> pulumi.Output[Optional['outputs.CatalogCatalogProperties']]:
         """
-        Configuration block of properties for the catalog. See `catalog_properties` below.
+        Configuration block of properties for the catalog. See `catalog_properties` Block below.
         """
         return pulumi.get(self, "catalog_properties")
 
@@ -949,7 +949,7 @@ class Catalog(pulumi.CustomResource):
     @pulumi.getter(name="createDatabaseDefaultPermissions")
     def create_database_default_permissions(self) -> pulumi.Output[Optional[Sequence['outputs.CatalogCreateDatabaseDefaultPermission']]]:
         """
-        List of default permissions on databases for principals. See `create_database_default_permissions` below.
+        List of default permissions on databases for principals. See `create_database_default_permissions` Block below.
         """
         return pulumi.get(self, "create_database_default_permissions")
 
@@ -957,7 +957,7 @@ class Catalog(pulumi.CustomResource):
     @pulumi.getter(name="createTableDefaultPermissions")
     def create_table_default_permissions(self) -> pulumi.Output[Optional[Sequence['outputs.CatalogCreateTableDefaultPermission']]]:
         """
-        List of default permissions on tables for principals. See `create_table_default_permissions` below.
+        List of default permissions on tables for principals. See `create_table_default_permissions` Block below.
         """
         return pulumi.get(self, "create_table_default_permissions")
 
@@ -981,7 +981,7 @@ class Catalog(pulumi.CustomResource):
     @pulumi.getter(name="federatedCatalog")
     def federated_catalog(self) -> pulumi.Output[Optional['outputs.CatalogFederatedCatalog']]:
         """
-        Configuration block for a federated catalog. See `federated_catalog` below.
+        Configuration block for a federated catalog. See `federated_catalog` Block below.
         """
         return pulumi.get(self, "federated_catalog")
 
@@ -1037,7 +1037,7 @@ class Catalog(pulumi.CustomResource):
     @pulumi.getter(name="targetRedshiftCatalog")
     def target_redshift_catalog(self) -> pulumi.Output[Optional['outputs.CatalogTargetRedshiftCatalog']]:
         """
-        Configuration block for a target Redshift catalog. See `target_redshift_catalog` below.
+        Configuration block for a target Redshift catalog. See `target_redshift_catalog` Block below.
         """
         return pulumi.get(self, "target_redshift_catalog")
 

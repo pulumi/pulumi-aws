@@ -51,11 +51,11 @@ export interface GetVpcConnectionArgs {
 export interface GetVpcConnectionResult {
     readonly arn: string;
     /**
-     * The authentication type for the client VPC Connection.
+     * Authentication type for the client VPC Connection.
      */
     readonly authentication: string;
     /**
-     * The list of subnets in the client VPC.
+     * List of subnets in the client VPC.
      */
     readonly clientSubnets: string[];
     /**
@@ -64,7 +64,7 @@ export interface GetVpcConnectionResult {
     readonly id: string;
     readonly region: string;
     /**
-     * The security groups attached to the ENIs for the broker nodes.
+     * Security groups attached to the ENIs for the broker nodes.
      */
     readonly securityGroups: string[];
     /**
@@ -76,7 +76,7 @@ export interface GetVpcConnectionResult {
      */
     readonly targetClusterArn: string;
     /**
-     * The VPC ID of the remote client.
+     * VPC ID of the remote client.
      */
     readonly vpcId: string;
 }

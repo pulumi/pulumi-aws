@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentPromptVariantTemplateConfigurationChatMessage {
     /**
-     * @return Content for the message you pass to, or receive from a model. See `content` Block for more information.
+     * @return Content for the message you pass to, or receive from, a model. See `content` Block for more information.
      * 
      */
     private @Nullable AgentPromptVariantTemplateConfigurationChatMessageContent content;
@@ -26,7 +26,7 @@ public final class AgentPromptVariantTemplateConfigurationChatMessage {
 
     private AgentPromptVariantTemplateConfigurationChatMessage() {}
     /**
-     * @return Content for the message you pass to, or receive from a model. See `content` Block for more information.
+     * @return Content for the message you pass to, or receive from, a model. See `content` Block for more information.
      * 
      */
     public Optional<AgentPromptVariantTemplateConfigurationChatMessageContent> content() {

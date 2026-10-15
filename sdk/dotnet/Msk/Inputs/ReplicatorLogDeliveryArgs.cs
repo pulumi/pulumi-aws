@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Msk.Inputs
     public sealed class ReplicatorLogDeliveryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block for replicator log delivery. Detailed below.
+        /// Configuration block for replicator log delivery. See `ReplicatorLogDelivery` Block below.
         /// </summary>
         [Input("replicatorLogDelivery")]
         public Input<Inputs.ReplicatorLogDeliveryReplicatorLogDeliveryArgs>? LogDelivery { get; set; }

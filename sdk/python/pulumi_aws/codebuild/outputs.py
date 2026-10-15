@@ -1173,7 +1173,7 @@ class ProjectFileSystemLocation(dict):
                  type: Optional[_builtins.str] = None):
         """
         :param _builtins.str identifier: The name used to access a file system created by Amazon EFS. CodeBuild creates an
-               environment variable by appending the identifier in all capital letters to CODEBUILD\\_. For example, if you specify
+               environment variable by appending the identifier in all capital letters to `CODEBUILD_`. For example, if you specify
                my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
         :param _builtins.str location: A string that specifies the location of the file system created by Amazon EFS. Its format is
                `efs-dns-name:/directory-path`.
@@ -1197,7 +1197,7 @@ class ProjectFileSystemLocation(dict):
     def identifier(self) -> Optional[_builtins.str]:
         """
         The name used to access a file system created by Amazon EFS. CodeBuild creates an
-        environment variable by appending the identifier in all capital letters to CODEBUILD\\_. For example, if you specify
+        environment variable by appending the identifier in all capital letters to `CODEBUILD_`. For example, if you specify
         my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
         """
         return pulumi.get(self, "identifier")
@@ -1846,7 +1846,7 @@ class ProjectSecondarySourceBuildStatusConfig(dict):
         """
         :param _builtins.str context: Specifies the context of the build status CodeBuild sends to the source provider. The usage of
                this parameter depends on the source provider.
-        :param _builtins.str target_url: Specifies the target url of the build status CodeBuild sends to the source provider. The
+        :param _builtins.str target_url: Specifies the target URL of the build status CodeBuild sends to the source provider. The
                usage of this parameter depends on the source provider.
         """
         if context is not None:
@@ -1867,7 +1867,7 @@ class ProjectSecondarySourceBuildStatusConfig(dict):
     @pulumi.getter(name="targetUrl")
     def target_url(self) -> Optional[_builtins.str]:
         """
-        Specifies the target url of the build status CodeBuild sends to the source provider. The
+        Specifies the target URL of the build status CodeBuild sends to the source provider. The
         usage of this parameter depends on the source provider.
         """
         return pulumi.get(self, "target_url")
@@ -2179,7 +2179,7 @@ class ProjectSourceBuildStatusConfig(dict):
         """
         :param _builtins.str context: Specifies the context of the build status CodeBuild sends to the source provider. The usage of
                this parameter depends on the source provider.
-        :param _builtins.str target_url: Specifies the target url of the build status CodeBuild sends to the source provider. The
+        :param _builtins.str target_url: Specifies the target URL of the build status CodeBuild sends to the source provider. The
                usage of this parameter depends on the source provider.
         """
         if context is not None:
@@ -2200,7 +2200,7 @@ class ProjectSourceBuildStatusConfig(dict):
     @pulumi.getter(name="targetUrl")
     def target_url(self) -> Optional[_builtins.str]:
         """
-        Specifies the target url of the build status CodeBuild sends to the source provider. The
+        Specifies the target URL of the build status CodeBuild sends to the source provider. The
         usage of this parameter depends on the source provider.
         """
         return pulumi.get(self, "target_url")

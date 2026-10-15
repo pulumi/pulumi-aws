@@ -184,13 +184,13 @@ namespace Pulumi.Aws.GameLift
     public partial class GameServerGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the GameLift Game Server Group.
+        /// ARN of the GameLift Game Server Group.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the created EC2 Auto Scaling group.
+        /// ARN of the created EC2 Auto Scaling group.
         /// </summary>
         [Output("autoScalingGroupArn")]
         public Output<string> AutoScalingGroupArn { get; private set; } = null!;
@@ -199,26 +199,19 @@ namespace Pulumi.Aws.GameLift
         public Output<Outputs.GameServerGroupAutoScalingPolicy?> AutoScalingPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
-        /// Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
+        /// How GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances. Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
         /// </summary>
         [Output("balancingStrategy")]
         public Output<string> BalancingStrategy { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the game server group.
-        /// This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
+        /// Name of the game server group. This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
         /// </summary>
         [Output("gameServerGroupName")]
         public Output<string> GameServerGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether instances in the game server group are protected from early termination.
-        /// Unprotected instances that have active game servers running might be terminated during a scale-down event,
-        /// causing players to be dropped from the game.
-        /// Protected instances cannot be terminated while there are active game servers running except in the event
-        /// of a forced game server group deletion.
-        /// Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
+        /// Whether instances in the game server group are protected from early termination. Unprotected instances that have active game servers running might be terminated during a scale-down event, causing players to be dropped from the game. Protected instances cannot be terminated while there are active game servers running except in the event of a forced game server group deletion. Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
         /// </summary>
         [Output("gameServerProtectionPolicy")]
         public Output<string> GameServerProtectionPolicy { get; private set; } = null!;
@@ -230,15 +223,13 @@ namespace Pulumi.Aws.GameLift
         public Output<Outputs.GameServerGroupLaunchTemplate> LaunchTemplate { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum number of instances allowed in the EC2 Auto Scaling group.
-        /// During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
+        /// Maximum number of instances allowed in the EC2 Auto Scaling group. During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
         /// </summary>
         [Output("maxSize")]
         public Output<int> MaxSize { get; private set; } = null!;
 
         /// <summary>
-        /// The minimum number of instances allowed in the EC2 Auto Scaling group.
-        /// During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
+        /// Minimum number of instances allowed in the EC2 Auto Scaling group. During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
         /// </summary>
         [Output("minSize")]
         public Output<int> MinSize { get; private set; } = null!;
@@ -265,8 +256,7 @@ namespace Pulumi.Aws.GameLift
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// A list of VPC subnets to use with instances in the game server group.
-        /// By default, all GameLift FleetIQ-supported Availability Zones are used.
+        /// List of VPC subnets to use with instances in the game server group. By default, all GameLift FleetIQ-supported Availability Zones are used.
         /// </summary>
         [Output("vpcSubnets")]
         public Output<ImmutableArray<string>> VpcSubnets { get; private set; } = null!;
@@ -321,26 +311,19 @@ namespace Pulumi.Aws.GameLift
         public Input<Inputs.GameServerGroupAutoScalingPolicyArgs>? AutoScalingPolicy { get; set; }
 
         /// <summary>
-        /// Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
-        /// Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
+        /// How GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances. Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
         /// </summary>
         [Input("balancingStrategy")]
         public Input<string>? BalancingStrategy { get; set; }
 
         /// <summary>
-        /// Name of the game server group.
-        /// This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
+        /// Name of the game server group. This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
         /// </summary>
         [Input("gameServerGroupName", required: true)]
         public Input<string> GameServerGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Indicates whether instances in the game server group are protected from early termination.
-        /// Unprotected instances that have active game servers running might be terminated during a scale-down event,
-        /// causing players to be dropped from the game.
-        /// Protected instances cannot be terminated while there are active game servers running except in the event
-        /// of a forced game server group deletion.
-        /// Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
+        /// Whether instances in the game server group are protected from early termination. Unprotected instances that have active game servers running might be terminated during a scale-down event, causing players to be dropped from the game. Protected instances cannot be terminated while there are active game servers running except in the event of a forced game server group deletion. Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
         /// </summary>
         [Input("gameServerProtectionPolicy")]
         public Input<string>? GameServerProtectionPolicy { get; set; }
@@ -357,15 +340,13 @@ namespace Pulumi.Aws.GameLift
         public Input<Inputs.GameServerGroupLaunchTemplateArgs> LaunchTemplate { get; set; } = null!;
 
         /// <summary>
-        /// The maximum number of instances allowed in the EC2 Auto Scaling group.
-        /// During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
+        /// Maximum number of instances allowed in the EC2 Auto Scaling group. During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
         /// </summary>
         [Input("maxSize", required: true)]
         public Input<int> MaxSize { get; set; } = null!;
 
         /// <summary>
-        /// The minimum number of instances allowed in the EC2 Auto Scaling group.
-        /// During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
+        /// Minimum number of instances allowed in the EC2 Auto Scaling group. During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
         /// </summary>
         [Input("minSize", required: true)]
         public Input<int> MinSize { get; set; } = null!;
@@ -398,8 +379,7 @@ namespace Pulumi.Aws.GameLift
         private InputList<string>? _vpcSubnets;
 
         /// <summary>
-        /// A list of VPC subnets to use with instances in the game server group.
-        /// By default, all GameLift FleetIQ-supported Availability Zones are used.
+        /// List of VPC subnets to use with instances in the game server group. By default, all GameLift FleetIQ-supported Availability Zones are used.
         /// </summary>
         public InputList<string> VpcSubnets
         {
@@ -416,13 +396,13 @@ namespace Pulumi.Aws.GameLift
     public sealed class GameServerGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the GameLift Game Server Group.
+        /// ARN of the GameLift Game Server Group.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The ARN of the created EC2 Auto Scaling group.
+        /// ARN of the created EC2 Auto Scaling group.
         /// </summary>
         [Input("autoScalingGroupArn")]
         public Input<string>? AutoScalingGroupArn { get; set; }
@@ -431,26 +411,19 @@ namespace Pulumi.Aws.GameLift
         public Input<Inputs.GameServerGroupAutoScalingPolicyGetArgs>? AutoScalingPolicy { get; set; }
 
         /// <summary>
-        /// Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
-        /// Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
+        /// How GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances. Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
         /// </summary>
         [Input("balancingStrategy")]
         public Input<string>? BalancingStrategy { get; set; }
 
         /// <summary>
-        /// Name of the game server group.
-        /// This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
+        /// Name of the game server group. This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
         /// </summary>
         [Input("gameServerGroupName")]
         public Input<string>? GameServerGroupName { get; set; }
 
         /// <summary>
-        /// Indicates whether instances in the game server group are protected from early termination.
-        /// Unprotected instances that have active game servers running might be terminated during a scale-down event,
-        /// causing players to be dropped from the game.
-        /// Protected instances cannot be terminated while there are active game servers running except in the event
-        /// of a forced game server group deletion.
-        /// Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
+        /// Whether instances in the game server group are protected from early termination. Unprotected instances that have active game servers running might be terminated during a scale-down event, causing players to be dropped from the game. Protected instances cannot be terminated while there are active game servers running except in the event of a forced game server group deletion. Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
         /// </summary>
         [Input("gameServerProtectionPolicy")]
         public Input<string>? GameServerProtectionPolicy { get; set; }
@@ -467,15 +440,13 @@ namespace Pulumi.Aws.GameLift
         public Input<Inputs.GameServerGroupLaunchTemplateGetArgs>? LaunchTemplate { get; set; }
 
         /// <summary>
-        /// The maximum number of instances allowed in the EC2 Auto Scaling group.
-        /// During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
+        /// Maximum number of instances allowed in the EC2 Auto Scaling group. During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
         /// </summary>
         [Input("maxSize")]
         public Input<int>? MaxSize { get; set; }
 
         /// <summary>
-        /// The minimum number of instances allowed in the EC2 Auto Scaling group.
-        /// During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
+        /// Minimum number of instances allowed in the EC2 Auto Scaling group. During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
         /// </summary>
         [Input("minSize")]
         public Input<int>? MinSize { get; set; }
@@ -516,8 +487,7 @@ namespace Pulumi.Aws.GameLift
         private InputList<string>? _vpcSubnets;
 
         /// <summary>
-        /// A list of VPC subnets to use with instances in the game server group.
-        /// By default, all GameLift FleetIQ-supported Availability Zones are used.
+        /// List of VPC subnets to use with instances in the game server group. By default, all GameLift FleetIQ-supported Availability Zones are used.
         /// </summary>
         public InputList<string> VpcSubnets
         {

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Data source for managing db nodes linked to cloud vm cluster of Oracle Database@AWS.
+ * Data source for managing DB nodes linked to cloud vm cluster of Oracle Database@AWS.
  *
  * You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
  *
@@ -41,7 +41,7 @@ export interface GetDbNodeArgs {
      */
     cloudVmClusterId: string;
     /**
-     * Unique identifier of db node associated with vm cluster.
+     * Unique identifier of DB node associated with vm cluster.
      *
      * The following arguments are optional:
      */
@@ -172,7 +172,7 @@ export interface GetDbNodeResult {
     readonly vnicId: string;
 }
 /**
- * Data source for managing db nodes linked to cloud vm cluster of Oracle Database@AWS.
+ * Data source for managing DB nodes linked to cloud vm cluster of Oracle Database@AWS.
  *
  * You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
  *
@@ -208,7 +208,7 @@ export interface GetDbNodeOutputArgs {
      */
     cloudVmClusterId: pulumi.Input<string>;
     /**
-     * Unique identifier of db node associated with vm cluster.
+     * Unique identifier of DB node associated with vm cluster.
      *
      * The following arguments are optional:
      */

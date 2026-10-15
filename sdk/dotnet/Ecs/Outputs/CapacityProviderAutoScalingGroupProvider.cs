@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ecs.Outputs
     public sealed class CapacityProviderAutoScalingGroupProvider
     {
         /// <summary>
-        /// ARN of the associated auto scaling group.
+        /// ARN of the associated Auto Scaling group.
         /// </summary>
         public readonly string AutoScalingGroupArn;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly Outputs.CapacityProviderAutoScalingGroupProviderManagedScaling? ManagedScaling;
         /// <summary>
-        /// Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
+        /// Enables or disables container-aware termination of instances in the Auto Scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
         /// </summary>
         public readonly string? ManagedTerminationProtection;
 

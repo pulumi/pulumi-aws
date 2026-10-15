@@ -37,7 +37,7 @@ class InvocationArgs:
         :param pulumi.Input[_builtins.str] lifecycle_scope: Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
         :param pulumi.Input[_builtins.str] qualifier: Qualifier (i.e., version) of the Lambda function. Defaults to `$LATEST`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] tenant_id: Tenant Id to serve invocations from specified tenant.
+        :param pulumi.Input[_builtins.str] tenant_id: Tenant ID to serve invocations from specified tenant.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
         """
         pulumi.set(__self__, "function_name", function_name)
@@ -121,7 +121,7 @@ class InvocationArgs:
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Tenant Id to serve invocations from specified tenant.
+        Tenant ID to serve invocations from specified tenant.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -174,7 +174,7 @@ class _InvocationState:
         :param pulumi.Input[_builtins.str] qualifier: Qualifier (i.e., version) of the Lambda function. Defaults to `$LATEST`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] result: String result of the Lambda function invocation.
-        :param pulumi.Input[_builtins.str] tenant_id: Tenant Id to serve invocations from specified tenant.
+        :param pulumi.Input[_builtins.str] tenant_id: Tenant ID to serve invocations from specified tenant.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
         """
         if function_name is not None:
@@ -274,7 +274,7 @@ class _InvocationState:
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Tenant Id to serve invocations from specified tenant.
+        Tenant ID to serve invocations from specified tenant.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -434,7 +434,7 @@ class Invocation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] lifecycle_scope: Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
         :param pulumi.Input[_builtins.str] qualifier: Qualifier (i.e., version) of the Lambda function. Defaults to `$LATEST`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] tenant_id: Tenant Id to serve invocations from specified tenant.
+        :param pulumi.Input[_builtins.str] tenant_id: Tenant ID to serve invocations from specified tenant.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
         """
         ...
@@ -628,7 +628,7 @@ class Invocation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] qualifier: Qualifier (i.e., version) of the Lambda function. Defaults to `$LATEST`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] result: String result of the Lambda function invocation.
-        :param pulumi.Input[_builtins.str] tenant_id: Tenant Id to serve invocations from specified tenant.
+        :param pulumi.Input[_builtins.str] tenant_id: Tenant ID to serve invocations from specified tenant.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -700,7 +700,7 @@ class Invocation(pulumi.CustomResource):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Tenant Id to serve invocations from specified tenant.
+        Tenant ID to serve invocations from specified tenant.
         """
         return pulumi.get(self, "tenant_id")
 

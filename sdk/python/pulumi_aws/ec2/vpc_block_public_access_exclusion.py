@@ -289,7 +289,7 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
             internet_gateway_exclusion_mode="allow-bidirectional")
         ```
 
-        ### Usage with subnet id
+        ### Usage with subnet ID
 
         ```python
         import pulumi
@@ -346,7 +346,7 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
             internet_gateway_exclusion_mode="allow-bidirectional")
         ```
 
-        ### Usage with subnet id
+        ### Usage with subnet ID
 
         ```python
         import pulumi

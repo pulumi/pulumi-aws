@@ -23,6 +23,8 @@ import (
 //
 // import (
 //
+//	"encoding/json"
+//
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
@@ -98,18 +100,47 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			gatewayLambdaInvoke := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("lambda:InvokeFunction"),
+//						},
+//						Resources: pulumi.StringArray{
+//							example.Arn,
+//						},
+//					},
+//				},
+//			}, nil)
+//			_, err = iam.NewRolePolicy(ctx, "gateway_lambda_invoke", &iam.RolePolicyArgs{
+//				Name:   pulumi.String("example-gateway-lambda-invoke"),
+//				Role:   gatewayRole.ID().ToIDOutput().ToStringOutput(),
+//				Policy: gatewayLambdaInvoke.Json(),
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			exampleAgentcoreGateway, err := bedrock.NewAgentcoreGateway(ctx, "example", &bedrock.AgentcoreGatewayArgs{
 //				AuthorizerConfiguration: &bedrock.AgentcoreGatewayAuthorizerConfigurationArgs{
 //					CustomJwtAuthorizer: &bedrock.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs{
 //						DiscoveryUrl: pulumi.String("https://accounts.google.com/.well-known/openid-configuration"),
 //					},
 //				},
-//				Name:    pulumi.String("example-gateway"),
-//				RoleArn: gatewayRole.Arn,
+//				Name:           pulumi.String("example-gateway"),
+//				RoleArn:        gatewayRole.Arn,
+//				AuthorizerType: pulumi.String("CUSTOM_JWT"),
 //			})
 //			if err != nil {
 //				return err
 //			}
+//			tmpJSON0, err := json.Marshal(map[string]string{
+//				"type": "string",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
 //			_, err = bedrock.NewAgentcoreGatewayTarget(ctx, "example", &bedrock.AgentcoreGatewayTargetArgs{
 //				CredentialProviderConfiguration: &bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationArgs{
 //					GatewayIamRole: &bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs{},
@@ -135,13 +166,9 @@ import (
 //															Type: pulumi.String("string"),
 //														},
 //														&bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs{
-//															Items: []map[string]string{
-//																{
-//																	"type": "string",
-//																},
-//															},
-//															Name: pulumi.String("tags"),
-//															Type: pulumi.String("array"),
+//															Name:      pulumi.String("tags"),
+//															Type:      pulumi.String("array"),
+//															ItemsJson: pulumi.String(json0),
 //														},
 //													},
 //													Name: pulumi.String("options"),
@@ -177,134 +204,6 @@ import (
 //				Name:              pulumi.String("example-target"),
 //				GatewayIdentifier: exampleAgentcoreGateway.GatewayId,
 //				Description:       pulumi.String("Lambda function target for processing requests"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Target with API Key Authentication
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := bedrock.NewAgentcoreGatewayTarget(ctx, "api_key_example", &bedrock.AgentcoreGatewayTargetArgs{
-//				CredentialProviderConfiguration: &bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationArgs{
-//					ApiKey: &bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs{
-//						ProviderArn:             pulumi.String("arn:aws:iam::123456789012:oidc-provider/example.com"),
-//						CredentialLocation:      pulumi.String("HEADER"),
-//						CredentialParameterName: pulumi.String("X-API-Key"),
-//						CredentialPrefix:        pulumi.String("Bearer"),
-//					},
-//				},
-//				TargetConfiguration: &bedrock.AgentcoreGatewayTargetTargetConfigurationArgs{
-//					Mcp: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpArgs{
-//						Lambda: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs{
-//							ToolSchema: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs{
-//								InlinePayloads: bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArray{
-//									&bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs{
-//										InputSchema: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs{
-//											Type:        pulumi.String("string"),
-//											Description: pulumi.String("Simple string input for API calls"),
-//										},
-//										Name:        pulumi.String("api_tool"),
-//										Description: pulumi.String("External API integration tool"),
-//									},
-//								},
-//							},
-//							LambdaArn: pulumi.Any(example.Arn),
-//						},
-//					},
-//				},
-//				Name:              pulumi.String("api-target"),
-//				GatewayIdentifier: pulumi.Any(exampleAwsBedrockagentcoreGateway.GatewayId),
-//				Description:       pulumi.String("External API target with API key authentication"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Target with OAuth Authentication
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := bedrock.NewAgentcoreGatewayTarget(ctx, "oauth_example", &bedrock.AgentcoreGatewayTargetArgs{
-//				CredentialProviderConfiguration: &bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationArgs{
-//					Oauth: &bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs{
-//						ProviderArn: pulumi.String("arn:aws:iam::123456789012:oidc-provider/oauth.example.com"),
-//						Scopes: pulumi.StringArray{
-//							pulumi.String("read"),
-//							pulumi.String("write"),
-//						},
-//						GrantType:        pulumi.String("authorization_code"),
-//						DefaultReturnUrl: pulumi.String("https://myapp.example.com/callback"),
-//						CustomParameters: pulumi.StringMap{
-//							"client_type": pulumi.String("confidential"),
-//						},
-//					},
-//				},
-//				TargetConfiguration: &bedrock.AgentcoreGatewayTargetTargetConfigurationArgs{
-//					Mcp: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpArgs{
-//						Lambda: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs{
-//							ToolSchema: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs{
-//								InlinePayloads: bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArray{
-//									&bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs{
-//										InputSchema: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs{
-//											Items: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgs{
-//												Properties: bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArray{
-//													&bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArgs{
-//														Name:     pulumi.String("id"),
-//														Type:     pulumi.String("string"),
-//														Required: pulumi.Bool(true),
-//													},
-//													&bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArgs{
-//														Name: pulumi.String("value"),
-//														Type: pulumi.String("number"),
-//													},
-//												},
-//												Type: pulumi.String("object"),
-//											},
-//											Type: pulumi.String("array"),
-//										},
-//										Name:        pulumi.String("oauth_tool"),
-//										Description: pulumi.String("OAuth-authenticated service"),
-//									},
-//								},
-//							},
-//							LambdaArn: pulumi.Any(example.Arn),
-//						},
-//					},
-//				},
-//				Name:              pulumi.String("oauth-target"),
-//				GatewayIdentifier: pulumi.Any(exampleAwsBedrockagentcoreGateway.GatewayId),
 //			})
 //			if err != nil {
 //				return err
@@ -629,7 +528,7 @@ import (
 //
 // #### Optional
 //
-// * `accountId` (String) Account ID where this resource is managed.
+// * `accountId` (String) AWS Account where this resource is managed.
 // * `region` (String) Region where this resource is managed.
 //
 // Using `pulumi import`, import gateway targets using `gatewayIdentifier` and `targetId` separated by a comma (`,`). For example:

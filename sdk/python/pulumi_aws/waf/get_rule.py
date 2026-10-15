@@ -61,7 +61,7 @@ class AwaitableGetRuleResult(GetRuleResult):
 def get_rule(name: Optional[_builtins.str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRuleResult:
     """
-    `waf.Rule` Retrieves a WAF Rule Resource Id.
+    `waf.Rule` Retrieves a WAF Rule Resource ID.
 
     ## Example Usage
 
@@ -86,7 +86,7 @@ def get_rule(name: Optional[_builtins.str] = None,
 def get_rule_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRuleResult]:
     """
-    `waf.Rule` Retrieves a WAF Rule Resource Id.
+    `waf.Rule` Retrieves a WAF Rule Resource ID.
 
     ## Example Usage
 

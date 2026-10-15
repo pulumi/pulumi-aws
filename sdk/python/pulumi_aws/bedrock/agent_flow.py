@@ -403,7 +403,7 @@ class AgentFlow(pulumi.CustomResource):
                  timeouts: pulumi.Input[Optional[Union['AgentFlowTimeoutsArgs', 'AgentFlowTimeoutsArgsDict', 'outputs.AgentFlowTimeouts']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Bedrock Agents Flow.
+        Manages an AWS Bedrock Agents Flow.
 
         ## Example Usage
 
@@ -549,7 +549,7 @@ class AgentFlow(pulumi.CustomResource):
                  args: AgentFlowArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Bedrock Agents Flow.
+        Manages an AWS Bedrock Agents Flow.
 
         ## Example Usage
 

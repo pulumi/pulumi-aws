@@ -34,7 +34,7 @@ import (
 //				NetworkConfiguration: &bedrock.AgentcoreBrowserNetworkConfigurationArgs{
 //					NetworkMode: pulumi.String("PUBLIC"),
 //				},
-//				Name:        pulumi.String("example-browser"),
+//				Name:        pulumi.String("example_browser"),
 //				Description: pulumi.String("Browser for web data extraction"),
 //			})
 //			if err != nil {
@@ -73,7 +73,7 @@ import (
 //					},
 //					NetworkMode: pulumi.String("VPC"),
 //				},
-//				Name:        pulumi.String("vpc-browser"),
+//				Name:        pulumi.String("vpc_browser"),
 //				Description: pulumi.String("Browser with VPC configuration"),
 //			})
 //			if err != nil {
@@ -146,7 +146,7 @@ import (
 //					},
 //					Enabled: pulumi.Bool(true),
 //				},
-//				Name:             pulumi.String("example-browser"),
+//				Name:             pulumi.String("example_browser"),
 //				Description:      pulumi.String("Browser with recording enabled"),
 //				ExecutionRoleArn: example.Arn,
 //			})

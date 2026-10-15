@@ -16,14 +16,14 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationGatewayI
     public static final AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs Empty = new AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs();
 
     /**
-     * AWS Region used for SigV4 signing of upstream requests. Defaults to the gateway&#39;s Region when omitted. Only meaningful when `service` is set.
+     * AWS Region used for SigV4 signing of upstream requests. Defaults to the gateway&#39;s Region when omitted. Can only be set when `service` is set.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return AWS Region used for SigV4 signing of upstream requests. Defaults to the gateway&#39;s Region when omitted. Only meaningful when `service` is set.
+     * @return AWS Region used for SigV4 signing of upstream requests. Defaults to the gateway&#39;s Region when omitted. Can only be set when `service` is set.
      * 
      */
     public Optional<Output<String>> region() {
@@ -71,7 +71,7 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationGatewayI
         }
 
         /**
-         * @param region AWS Region used for SigV4 signing of upstream requests. Defaults to the gateway&#39;s Region when omitted. Only meaningful when `service` is set.
+         * @param region AWS Region used for SigV4 signing of upstream requests. Defaults to the gateway&#39;s Region when omitted. Can only be set when `service` is set.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationGatewayI
         }
 
         /**
-         * @param region AWS Region used for SigV4 signing of upstream requests. Defaults to the gateway&#39;s Region when omitted. Only meaningful when `service` is set.
+         * @param region AWS Region used for SigV4 signing of upstream requests. Defaults to the gateway&#39;s Region when omitted. Can only be set when `service` is set.
          * 
          * @return builder
          * 

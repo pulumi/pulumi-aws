@@ -18,7 +18,7 @@ public final class ClusterShardNodeEndpoint {
      */
     private @Nullable String address;
     /**
-     * @return The port number on which each of the nodes accepts connections. Defaults to `6379`.
+     * @return Port number on which each of the nodes accepts connections. Defaults to `6379`.
      * 
      */
     private @Nullable Integer port;
@@ -32,7 +32,7 @@ public final class ClusterShardNodeEndpoint {
         return Optional.ofNullable(this.address);
     }
     /**
-     * @return The port number on which each of the nodes accepts connections. Defaults to `6379`.
+     * @return Port number on which each of the nodes accepts connections. Defaults to `6379`.
      * 
      */
     public Optional<Integer> port() {

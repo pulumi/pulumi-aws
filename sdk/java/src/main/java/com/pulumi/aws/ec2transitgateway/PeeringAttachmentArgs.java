@@ -19,14 +19,14 @@ public final class PeeringAttachmentArgs extends com.pulumi.resources.ResourceAr
     public static final PeeringAttachmentArgs Empty = new PeeringAttachmentArgs();
 
     /**
-     * Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+     * Block describing whether dynamic routing is enabled or disabled for the transit gateway peering request. If not configured, the value is populated from the API. See options below for more details!
      * 
      */
     @Import(name="options")
     private @Nullable Output<PeeringAttachmentOptionsArgs> options;
 
     /**
-     * @return Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+     * @return Block describing whether dynamic routing is enabled or disabled for the transit gateway peering request. If not configured, the value is populated from the API. See options below for more details!
      * 
      */
     public Optional<Output<PeeringAttachmentOptionsArgs>> options() {
@@ -154,7 +154,7 @@ public final class PeeringAttachmentArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param options Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+         * @param options Block describing whether dynamic routing is enabled or disabled for the transit gateway peering request. If not configured, the value is populated from the API. See options below for more details!
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class PeeringAttachmentArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param options Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+         * @param options Block describing whether dynamic routing is enabled or disabled for the transit gateway peering request. If not configured, the value is populated from the API. See options below for more details!
          * 
          * @return builder
          * 

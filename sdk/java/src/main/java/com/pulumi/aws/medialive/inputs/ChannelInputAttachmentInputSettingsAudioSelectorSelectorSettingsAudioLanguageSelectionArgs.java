@@ -17,14 +17,14 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
     public static final ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArgs Empty = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArgs();
 
     /**
-     * Selects a specific three-letter language code from within an audio source.
+     * Three-letter language code from within an audio source.
      * 
      */
     @Import(name="languageCode", required=true)
     private Output<String> languageCode;
 
     /**
-     * @return Selects a specific three-letter language code from within an audio source.
+     * @return Three-letter language code from within an audio source.
      * 
      */
     public Output<String> languageCode() {
@@ -32,14 +32,14 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
     }
 
     /**
-     * When set to “strict”, the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If “loose”, then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can’t find one with the same language.
+     * How to handle a change in the language of the audio stream after it is selected. When set to `strict`, the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present, then mute is encoded until the language returns. When set to `loose`, the demux chooses another audio stream in the program with the same stream type on a PMT update if it cannot find one with the same language.
      * 
      */
     @Import(name="languageSelectionPolicy")
     private @Nullable Output<String> languageSelectionPolicy;
 
     /**
-     * @return When set to “strict”, the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If “loose”, then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can’t find one with the same language.
+     * @return How to handle a change in the language of the audio stream after it is selected. When set to `strict`, the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present, then mute is encoded until the language returns. When set to `loose`, the demux chooses another audio stream in the program with the same stream type on a PMT update if it cannot find one with the same language.
      * 
      */
     public Optional<Output<String>> languageSelectionPolicy() {
@@ -72,7 +72,7 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
         }
 
         /**
-         * @param languageCode Selects a specific three-letter language code from within an audio source.
+         * @param languageCode Three-letter language code from within an audio source.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
         }
 
         /**
-         * @param languageCode Selects a specific three-letter language code from within an audio source.
+         * @param languageCode Three-letter language code from within an audio source.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
         }
 
         /**
-         * @param languageSelectionPolicy When set to “strict”, the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If “loose”, then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can’t find one with the same language.
+         * @param languageSelectionPolicy How to handle a change in the language of the audio stream after it is selected. When set to `strict`, the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present, then mute is encoded until the language returns. When set to `loose`, the demux chooses another audio stream in the program with the same stream type on a PMT update if it cannot find one with the same language.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
         }
 
         /**
-         * @param languageSelectionPolicy When set to “strict”, the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If “loose”, then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can’t find one with the same language.
+         * @param languageSelectionPolicy How to handle a change in the language of the audio stream after it is selected. When set to `strict`, the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present, then mute is encoded until the language returns. When set to `loose`, the demux chooses another audio stream in the program with the same stream type on a PMT update if it cannot find one with the same language.
          * 
          * @return builder
          * 

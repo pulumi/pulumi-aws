@@ -90,7 +90,7 @@ class GetCatalogTableResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        The ARN of the Glue Table.
+        ARN of the Glue Table.
         """
         return pulumi.get(self, "arn")
 
@@ -284,9 +284,9 @@ def get_catalog_table(catalog_id: Optional[_builtins.str] = None,
     :param _builtins.str catalog_id: ID of the Glue Catalog and database where the table metadata resides. If omitted, this defaults to the current AWS Account ID.
     :param _builtins.str database_name: Name of the metadata database where the table metadata resides.
     :param _builtins.str name: Name of the table.
-    :param _builtins.str query_as_of_time: The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `transaction_id`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
+    :param _builtins.str query_as_of_time: Time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `transaction_id`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.int transaction_id: The transaction ID at which to read the table contents.
+    :param _builtins.int transaction_id: Transaction ID at which to read the table contents.
     """
     __args__ = dict()
     __args__['catalogId'] = catalog_id
@@ -342,9 +342,9 @@ def get_catalog_table_output(catalog_id: pulumi.Input[Optional[Optional[_builtin
     :param _builtins.str catalog_id: ID of the Glue Catalog and database where the table metadata resides. If omitted, this defaults to the current AWS Account ID.
     :param _builtins.str database_name: Name of the metadata database where the table metadata resides.
     :param _builtins.str name: Name of the table.
-    :param _builtins.str query_as_of_time: The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `transaction_id`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
+    :param _builtins.str query_as_of_time: Time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `transaction_id`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.int transaction_id: The transaction ID at which to read the table contents.
+    :param _builtins.int transaction_id: Transaction ID at which to read the table contents.
     """
     __args__ = dict()
     __args__['catalogId'] = catalog_id

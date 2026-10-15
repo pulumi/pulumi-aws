@@ -9,6 +9,7 @@ import com.pulumi.aws.resiliencehub.outputs.GetV2PolicyMultiAz;
 import com.pulumi.aws.resiliencehub.outputs.GetV2PolicyMultiRegion;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -53,6 +54,11 @@ public final class GetV2PolicyResult {
      */
     private String name;
     private String region;
+    /**
+     * @return Whether the policy is shared with other member accounts of the organization.
+     * 
+     */
+    private Boolean sharingEnabled;
     /**
      * @return Map of tags assigned to the resource.
      * 
@@ -116,6 +122,13 @@ public final class GetV2PolicyResult {
         return this.region;
     }
     /**
+     * @return Whether the policy is shared with other member accounts of the organization.
+     * 
+     */
+    public Boolean sharingEnabled() {
+        return this.sharingEnabled;
+    }
+    /**
      * @return Map of tags assigned to the resource.
      * 
      */
@@ -141,6 +154,7 @@ public final class GetV2PolicyResult {
         private List<GetV2PolicyMultiRegion> multiRegions;
         private String name;
         private String region;
+        private Boolean sharingEnabled;
         private Map<String,String> tags;
         public Builder() {}
         public Builder(GetV2PolicyResult defaults) {
@@ -154,6 +168,7 @@ public final class GetV2PolicyResult {
     	      this.multiRegions = defaults.multiRegions;
     	      this.name = defaults.name;
     	      this.region = defaults.region;
+    	      this.sharingEnabled = defaults.sharingEnabled;
     	      this.tags = defaults.tags;
         }
 
@@ -242,6 +257,14 @@ public final class GetV2PolicyResult {
             return this;
         }
         @CustomType.Setter
+        public Builder sharingEnabled(Boolean sharingEnabled) {
+            if (sharingEnabled == null) {
+              throw new MissingRequiredPropertyException("GetV2PolicyResult", "sharingEnabled");
+            }
+            this.sharingEnabled = sharingEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetV2PolicyResult", "tags");
@@ -260,6 +283,7 @@ public final class GetV2PolicyResult {
             _resultValue.multiRegions = multiRegions;
             _resultValue.name = name;
             _resultValue.region = region;
+            _resultValue.sharingEnabled = sharingEnabled;
             _resultValue.tags = tags;
             return _resultValue;
         }

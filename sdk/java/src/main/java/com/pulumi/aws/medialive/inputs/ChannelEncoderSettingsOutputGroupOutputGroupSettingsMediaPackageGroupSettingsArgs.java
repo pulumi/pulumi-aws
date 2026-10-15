@@ -15,14 +15,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPack
     public static final ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsArgs();
 
     /**
-     * A director and base filename where archive files should be written. See Destination for more details.
+     * MediaPackage channel destination. See `destination` Block for details.
      * 
      */
     @Import(name="destination", required=true)
     private Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestinationArgs> destination;
 
     /**
-     * @return A director and base filename where archive files should be written. See Destination for more details.
+     * @return MediaPackage channel destination. See `destination` Block for details.
      * 
      */
     public Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestinationArgs> destination() {
@@ -54,7 +54,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPack
         }
 
         /**
-         * @param destination A director and base filename where archive files should be written. See Destination for more details.
+         * @param destination MediaPackage channel destination. See `destination` Block for details.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPack
         }
 
         /**
-         * @param destination A director and base filename where archive files should be written. See Destination for more details.
+         * @param destination MediaPackage channel destination. See `destination` Block for details.
          * 
          * @return builder
          * 

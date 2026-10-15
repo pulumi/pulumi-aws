@@ -33,7 +33,7 @@ public final class TaskDefinitionVolume {
      */
     private @Nullable TaskDefinitionVolumeEfsVolumeConfiguration efsVolumeConfiguration;
     /**
-     * @return Configuration block for an FSX Windows File Server volume. Detailed below.
+     * @return Configuration block for an FSx Windows File Server volume. Detailed below.
      * 
      */
     private @Nullable TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration fsxWindowsFileServerVolumeConfiguration;
@@ -76,7 +76,7 @@ public final class TaskDefinitionVolume {
         return Optional.ofNullable(this.efsVolumeConfiguration);
     }
     /**
-     * @return Configuration block for an FSX Windows File Server volume. Detailed below.
+     * @return Configuration block for an FSx Windows File Server volume. Detailed below.
      * 
      */
     public Optional<TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration> fsxWindowsFileServerVolumeConfiguration() {

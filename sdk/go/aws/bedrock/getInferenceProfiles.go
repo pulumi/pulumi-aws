@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing AWS Bedrock Inference Profiles.
+// Provides details about AWS Bedrock Inference Profiles.
 //
 // ## Example Usage
 //

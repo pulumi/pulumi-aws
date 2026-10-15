@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.cloudwatch.MetricAlarmArgs;
 import com.pulumi.aws.cloudwatch.inputs.MetricAlarmState;
 import com.pulumi.aws.cloudwatch.outputs.MetricAlarmEvaluationCriteria;
+import com.pulumi.aws.cloudwatch.outputs.MetricAlarmEvaluationWindow;
 import com.pulumi.aws.cloudwatch.outputs.MetricAlarmMetricQuery;
 import com.pulumi.aws.cloudwatch.outputs.MetricAlarmWarmUpConfiguration;
 import com.pulumi.core.Output;
@@ -441,6 +442,54 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### With a Wall Clock Evaluation Window
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudwatch.MetricAlarm;
+ * import com.pulumi.aws.cloudwatch.MetricAlarmArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.MetricAlarmEvaluationWindowArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.MetricAlarmEvaluationWindowWallClockWindowArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new MetricAlarm("example", MetricAlarmArgs.builder()
+ *             .evaluationWindow(MetricAlarmEvaluationWindowArgs.builder()
+ *                 .wallClockWindow(MetricAlarmEvaluationWindowWallClockWindowArgs.builder()
+ *                     .timezone("America/New_York")
+ *                     .build())
+ *                 .build())
+ *             .name("example-daily-errors")
+ *             .comparisonOperator("GreaterThanThreshold")
+ *             .evaluationPeriods(1)
+ *             .metricName("Errors")
+ *             .namespace("ExampleApp")
+ *             .period(86400)
+ *             .statistic("Sum")
+ *             .threshold(0.0)
+ *             .alarmActions(exampleAwsSnsTopic.arn())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * &gt; **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extendedStatistic` parameters.
  * You must choose one or the other.
  * 
@@ -625,6 +674,20 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Integer>> evaluationPeriods() {
         return Codegen.optional(this.evaluationPeriods);
+    }
+    /**
+     * Configures the alarm to use a wall clock evaluation window instead of the default sliding window. Not supported for alarms that use `evaluationCriteria`. See `evaluationWindow` below.
+     * 
+     */
+    @Export(name="evaluationWindow", refs={MetricAlarmEvaluationWindow.class}, tree="[0]")
+    private Output</* @Nullable */ MetricAlarmEvaluationWindow> evaluationWindow;
+
+    /**
+     * @return Configures the alarm to use a wall clock evaluation window instead of the default sliding window. Not supported for alarms that use `evaluationCriteria`. See `evaluationWindow` below.
+     * 
+     */
+    public Output<Optional<MetricAlarmEvaluationWindow>> evaluationWindow() {
+        return Codegen.optional(this.evaluationWindow);
     }
     /**
      * The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.

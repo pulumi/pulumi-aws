@@ -318,7 +318,7 @@ class _EnvironmentState:
                the configuration.
         :param pulumi.Input[_builtins.str] application: Name of the application that contains the version
                to be deployed
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] autoscaling_groups: The autoscaling groups used by this Environment.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] autoscaling_groups: The Auto Scaling groups used by this Environment.
         :param pulumi.Input[_builtins.str] cname: Fully qualified DNS name for this Environment.
         :param pulumi.Input[_builtins.str] cname_prefix: Prefix to use for the fully qualified DNS name of
                the Environment.
@@ -348,7 +348,7 @@ class _EnvironmentState:
                template to use in deployment
         :param pulumi.Input[_builtins.str] tier: Elastic Beanstalk Environment tier. Valid values are `Worker`
                or `WebServer`. If tier is left blank `WebServer` will be used.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] triggers: Autoscaling triggers in use by this Environment.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] triggers: Auto Scaling triggers in use by this Environment.
         :param pulumi.Input[_builtins.str] version: The name of the Elastic Beanstalk Application Version
                to use in deployment.
         :param pulumi.Input[_builtins.str] wait_for_ready_timeout: The maximum
@@ -447,7 +447,7 @@ class _EnvironmentState:
     @pulumi.getter(name="autoscalingGroups")
     def autoscaling_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The autoscaling groups used by this Environment.
+        The Auto Scaling groups used by this Environment.
         """
         return pulumi.get(self, "autoscaling_groups")
 
@@ -686,7 +686,7 @@ class _EnvironmentState:
     @pulumi.getter
     def triggers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Autoscaling triggers in use by this Environment.
+        Auto Scaling triggers in use by this Environment.
         """
         return pulumi.get(self, "triggers")
 
@@ -959,7 +959,7 @@ class Environment(pulumi.CustomResource):
                the configuration.
         :param pulumi.Input[_builtins.str] application: Name of the application that contains the version
                to be deployed
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] autoscaling_groups: The autoscaling groups used by this Environment.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] autoscaling_groups: The Auto Scaling groups used by this Environment.
         :param pulumi.Input[_builtins.str] cname: Fully qualified DNS name for this Environment.
         :param pulumi.Input[_builtins.str] cname_prefix: Prefix to use for the fully qualified DNS name of
                the Environment.
@@ -989,7 +989,7 @@ class Environment(pulumi.CustomResource):
                template to use in deployment
         :param pulumi.Input[_builtins.str] tier: Elastic Beanstalk Environment tier. Valid values are `Worker`
                or `WebServer`. If tier is left blank `WebServer` will be used.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] triggers: Autoscaling triggers in use by this Environment.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] triggers: Auto Scaling triggers in use by this Environment.
         :param pulumi.Input[_builtins.str] version: The name of the Elastic Beanstalk Application Version
                to use in deployment.
         :param pulumi.Input[_builtins.str] wait_for_ready_timeout: The maximum
@@ -1056,7 +1056,7 @@ class Environment(pulumi.CustomResource):
     @pulumi.getter(name="autoscalingGroups")
     def autoscaling_groups(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        The autoscaling groups used by this Environment.
+        The Auto Scaling groups used by this Environment.
         """
         return pulumi.get(self, "autoscaling_groups")
 
@@ -1219,7 +1219,7 @@ class Environment(pulumi.CustomResource):
     @pulumi.getter
     def triggers(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        Autoscaling triggers in use by this Environment.
+        Auto Scaling triggers in use by this Environment.
         """
         return pulumi.get(self, "triggers")
 

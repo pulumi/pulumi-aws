@@ -154,14 +154,14 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Domain-specific endpoint for Dashboard without https scheme.
+     * Domain-specific endpoint for Dashboard without HTTPS scheme.
      * 
      */
     @Import(name="dashboardEndpoint")
     private @Nullable Output<String> dashboardEndpoint;
 
     /**
-     * @return Domain-specific endpoint for Dashboard without https scheme.
+     * @return Domain-specific endpoint for Dashboard without HTTPS scheme.
      * 
      */
     public Optional<Output<String>> dashboardEndpoint() {
@@ -169,14 +169,14 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
+     * V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without HTTPS scheme.
      * 
      */
     @Import(name="dashboardEndpointV2")
     private @Nullable Output<String> dashboardEndpointV2;
 
     /**
-     * @return V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
+     * @return V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without HTTPS scheme.
      * 
      */
     public Optional<Output<String>> dashboardEndpointV2() {
@@ -729,7 +729,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dashboardEndpoint Domain-specific endpoint for Dashboard without https scheme.
+         * @param dashboardEndpoint Domain-specific endpoint for Dashboard without HTTPS scheme.
          * 
          * @return builder
          * 
@@ -740,7 +740,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dashboardEndpoint Domain-specific endpoint for Dashboard without https scheme.
+         * @param dashboardEndpoint Domain-specific endpoint for Dashboard without HTTPS scheme.
          * 
          * @return builder
          * 
@@ -750,7 +750,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dashboardEndpointV2 V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
+         * @param dashboardEndpointV2 V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without HTTPS scheme.
          * 
          * @return builder
          * 
@@ -761,7 +761,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dashboardEndpointV2 V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
+         * @param dashboardEndpointV2 V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without HTTPS scheme.
          * 
          * @return builder
          * 

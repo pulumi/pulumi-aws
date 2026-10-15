@@ -17,14 +17,14 @@ public final class MLTransformInputRecordTableArgs extends com.pulumi.resources.
     public static final MLTransformInputRecordTableArgs Empty = new MLTransformInputRecordTableArgs();
 
     /**
-     * A unique identifier for the AWS Glue Data Catalog.
+     * Unique identifier for the AWS Glue Data Catalog.
      * 
      */
     @Import(name="catalogId")
     private @Nullable Output<String> catalogId;
 
     /**
-     * @return A unique identifier for the AWS Glue Data Catalog.
+     * @return Unique identifier for the AWS Glue Data Catalog.
      * 
      */
     public Optional<Output<String>> catalogId() {
@@ -32,14 +32,14 @@ public final class MLTransformInputRecordTableArgs extends com.pulumi.resources.
     }
 
     /**
-     * The name of the connection to the AWS Glue Data Catalog.
+     * Name of the connection to the AWS Glue Data Catalog.
      * 
      */
     @Import(name="connectionName")
     private @Nullable Output<String> connectionName;
 
     /**
-     * @return The name of the connection to the AWS Glue Data Catalog.
+     * @return Name of the connection to the AWS Glue Data Catalog.
      * 
      */
     public Optional<Output<String>> connectionName() {
@@ -47,14 +47,14 @@ public final class MLTransformInputRecordTableArgs extends com.pulumi.resources.
     }
 
     /**
-     * A database name in the AWS Glue Data Catalog.
+     * Database name in the AWS Glue Data Catalog.
      * 
      */
     @Import(name="databaseName", required=true)
     private Output<String> databaseName;
 
     /**
-     * @return A database name in the AWS Glue Data Catalog.
+     * @return Database name in the AWS Glue Data Catalog.
      * 
      */
     public Output<String> databaseName() {
@@ -62,14 +62,14 @@ public final class MLTransformInputRecordTableArgs extends com.pulumi.resources.
     }
 
     /**
-     * A table name in the AWS Glue Data Catalog.
+     * Table name in the AWS Glue Data Catalog.
      * 
      */
     @Import(name="tableName", required=true)
     private Output<String> tableName;
 
     /**
-     * @return A table name in the AWS Glue Data Catalog.
+     * @return Table name in the AWS Glue Data Catalog.
      * 
      */
     public Output<String> tableName() {
@@ -104,7 +104,7 @@ public final class MLTransformInputRecordTableArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param catalogId A unique identifier for the AWS Glue Data Catalog.
+         * @param catalogId Unique identifier for the AWS Glue Data Catalog.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class MLTransformInputRecordTableArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param catalogId A unique identifier for the AWS Glue Data Catalog.
+         * @param catalogId Unique identifier for the AWS Glue Data Catalog.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class MLTransformInputRecordTableArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param connectionName The name of the connection to the AWS Glue Data Catalog.
+         * @param connectionName Name of the connection to the AWS Glue Data Catalog.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class MLTransformInputRecordTableArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param connectionName The name of the connection to the AWS Glue Data Catalog.
+         * @param connectionName Name of the connection to the AWS Glue Data Catalog.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class MLTransformInputRecordTableArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param databaseName A database name in the AWS Glue Data Catalog.
+         * @param databaseName Database name in the AWS Glue Data Catalog.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class MLTransformInputRecordTableArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param databaseName A database name in the AWS Glue Data Catalog.
+         * @param databaseName Database name in the AWS Glue Data Catalog.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class MLTransformInputRecordTableArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param tableName A table name in the AWS Glue Data Catalog.
+         * @param tableName Table name in the AWS Glue Data Catalog.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class MLTransformInputRecordTableArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param tableName A table name in the AWS Glue Data Catalog.
+         * @param tableName Table name in the AWS Glue Data Catalog.
          * 
          * @return builder
          * 

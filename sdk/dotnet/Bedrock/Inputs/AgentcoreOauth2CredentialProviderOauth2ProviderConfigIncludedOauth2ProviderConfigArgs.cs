@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private Input<string>? _clientId;
 
         /// <summary>
-        /// OAuth2 client ID. Conflicts with `ClientIdWo`. Must be used together with `ClientSecret`.
+        /// OAuth2 client ID. Conflicts with `ClientIdWo`. Must be used together with `ClientSecret` unless `ClientSecretSource` is `EXTERNAL`.
         /// </summary>
         public Input<string>? ClientId
         {

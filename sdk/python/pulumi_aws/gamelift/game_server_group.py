@@ -36,25 +36,15 @@ class GameServerGroupArgs:
         """
         The set of arguments for constructing a GameServerGroup resource.
 
-        :param pulumi.Input[_builtins.str] game_server_group_name: Name of the game server group.
-               This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
-        :param pulumi.Input[_builtins.int] max_size: The maximum number of instances allowed in the EC2 Auto Scaling group.
-               During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
-        :param pulumi.Input[_builtins.int] min_size: The minimum number of instances allowed in the EC2 Auto Scaling group.
-               During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
+        :param pulumi.Input[_builtins.str] game_server_group_name: Name of the game server group. This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
+        :param pulumi.Input[_builtins.int] max_size: Maximum number of instances allowed in the EC2 Auto Scaling group. During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
+        :param pulumi.Input[_builtins.int] min_size: Minimum number of instances allowed in the EC2 Auto Scaling group. During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
         :param pulumi.Input[_builtins.str] role_arn: ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
-        :param pulumi.Input[_builtins.str] balancing_strategy: Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
-               Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
-        :param pulumi.Input[_builtins.str] game_server_protection_policy: Indicates whether instances in the game server group are protected from early termination.
-               Unprotected instances that have active game servers running might be terminated during a scale-down event,
-               causing players to be dropped from the game.
-               Protected instances cannot be terminated while there are active game servers running except in the event
-               of a forced game server group deletion.
-               Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
+        :param pulumi.Input[_builtins.str] balancing_strategy: How GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances. Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
+        :param pulumi.Input[_builtins.str] game_server_protection_policy: Whether instances in the game server group are protected from early termination. Unprotected instances that have active game servers running might be terminated during a scale-down event, causing players to be dropped from the game. Protected instances cannot be terminated while there are active game servers running except in the event of a forced game server group deletion. Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_subnets: A list of VPC subnets to use with instances in the game server group.
-               By default, all GameLift FleetIQ-supported Availability Zones are used.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_subnets: List of VPC subnets to use with instances in the game server group. By default, all GameLift FleetIQ-supported Availability Zones are used.
         """
         pulumi.set(__self__, "game_server_group_name", game_server_group_name)
         pulumi.set(__self__, "instance_definitions", instance_definitions)
@@ -79,8 +69,7 @@ class GameServerGroupArgs:
     @pulumi.getter(name="gameServerGroupName")
     def game_server_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the game server group.
-        This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
+        Name of the game server group. This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
         """
         return pulumi.get(self, "game_server_group_name")
 
@@ -110,8 +99,7 @@ class GameServerGroupArgs:
     @pulumi.getter(name="maxSize")
     def max_size(self) -> pulumi.Input[_builtins.int]:
         """
-        The maximum number of instances allowed in the EC2 Auto Scaling group.
-        During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
+        Maximum number of instances allowed in the EC2 Auto Scaling group. During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
         """
         return pulumi.get(self, "max_size")
 
@@ -123,8 +111,7 @@ class GameServerGroupArgs:
     @pulumi.getter(name="minSize")
     def min_size(self) -> pulumi.Input[_builtins.int]:
         """
-        The minimum number of instances allowed in the EC2 Auto Scaling group.
-        During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
+        Minimum number of instances allowed in the EC2 Auto Scaling group. During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
         """
         return pulumi.get(self, "min_size")
 
@@ -157,8 +144,7 @@ class GameServerGroupArgs:
     @pulumi.getter(name="balancingStrategy")
     def balancing_strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
-        Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
+        How GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances. Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
         """
         return pulumi.get(self, "balancing_strategy")
 
@@ -170,12 +156,7 @@ class GameServerGroupArgs:
     @pulumi.getter(name="gameServerProtectionPolicy")
     def game_server_protection_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Indicates whether instances in the game server group are protected from early termination.
-        Unprotected instances that have active game servers running might be terminated during a scale-down event,
-        causing players to be dropped from the game.
-        Protected instances cannot be terminated while there are active game servers running except in the event
-        of a forced game server group deletion.
-        Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
+        Whether instances in the game server group are protected from early termination. Unprotected instances that have active game servers running might be terminated during a scale-down event, causing players to be dropped from the game. Protected instances cannot be terminated while there are active game servers running except in the event of a forced game server group deletion. Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
         """
         return pulumi.get(self, "game_server_protection_policy")
 
@@ -211,8 +192,7 @@ class GameServerGroupArgs:
     @pulumi.getter(name="vpcSubnets")
     def vpc_subnets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of VPC subnets to use with instances in the game server group.
-        By default, all GameLift FleetIQ-supported Availability Zones are used.
+        List of VPC subnets to use with instances in the game server group. By default, all GameLift FleetIQ-supported Availability Zones are used.
         """
         return pulumi.get(self, "vpc_subnets")
 
@@ -242,27 +222,17 @@ class _GameServerGroupState:
         """
         Input properties used for looking up and filtering GameServerGroup resources.
 
-        :param pulumi.Input[_builtins.str] arn: The ARN of the GameLift Game Server Group.
-        :param pulumi.Input[_builtins.str] auto_scaling_group_arn: The ARN of the created EC2 Auto Scaling group.
-        :param pulumi.Input[_builtins.str] balancing_strategy: Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
-               Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
-        :param pulumi.Input[_builtins.str] game_server_group_name: Name of the game server group.
-               This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
-        :param pulumi.Input[_builtins.str] game_server_protection_policy: Indicates whether instances in the game server group are protected from early termination.
-               Unprotected instances that have active game servers running might be terminated during a scale-down event,
-               causing players to be dropped from the game.
-               Protected instances cannot be terminated while there are active game servers running except in the event
-               of a forced game server group deletion.
-               Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
-        :param pulumi.Input[_builtins.int] max_size: The maximum number of instances allowed in the EC2 Auto Scaling group.
-               During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
-        :param pulumi.Input[_builtins.int] min_size: The minimum number of instances allowed in the EC2 Auto Scaling group.
-               During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
+        :param pulumi.Input[_builtins.str] arn: ARN of the GameLift Game Server Group.
+        :param pulumi.Input[_builtins.str] auto_scaling_group_arn: ARN of the created EC2 Auto Scaling group.
+        :param pulumi.Input[_builtins.str] balancing_strategy: How GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances. Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
+        :param pulumi.Input[_builtins.str] game_server_group_name: Name of the game server group. This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
+        :param pulumi.Input[_builtins.str] game_server_protection_policy: Whether instances in the game server group are protected from early termination. Unprotected instances that have active game servers running might be terminated during a scale-down event, causing players to be dropped from the game. Protected instances cannot be terminated while there are active game servers running except in the event of a forced game server group deletion. Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
+        :param pulumi.Input[_builtins.int] max_size: Maximum number of instances allowed in the EC2 Auto Scaling group. During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
+        :param pulumi.Input[_builtins.int] min_size: Minimum number of instances allowed in the EC2 Auto Scaling group. During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_subnets: A list of VPC subnets to use with instances in the game server group.
-               By default, all GameLift FleetIQ-supported Availability Zones are used.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_subnets: List of VPC subnets to use with instances in the game server group. By default, all GameLift FleetIQ-supported Availability Zones are used.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -299,7 +269,7 @@ class _GameServerGroupState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the GameLift Game Server Group.
+        ARN of the GameLift Game Server Group.
         """
         return pulumi.get(self, "arn")
 
@@ -311,7 +281,7 @@ class _GameServerGroupState:
     @pulumi.getter(name="autoScalingGroupArn")
     def auto_scaling_group_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the created EC2 Auto Scaling group.
+        ARN of the created EC2 Auto Scaling group.
         """
         return pulumi.get(self, "auto_scaling_group_arn")
 
@@ -332,8 +302,7 @@ class _GameServerGroupState:
     @pulumi.getter(name="balancingStrategy")
     def balancing_strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
-        Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
+        How GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances. Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
         """
         return pulumi.get(self, "balancing_strategy")
 
@@ -345,8 +314,7 @@ class _GameServerGroupState:
     @pulumi.getter(name="gameServerGroupName")
     def game_server_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Name of the game server group.
-        This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
+        Name of the game server group. This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
         """
         return pulumi.get(self, "game_server_group_name")
 
@@ -358,12 +326,7 @@ class _GameServerGroupState:
     @pulumi.getter(name="gameServerProtectionPolicy")
     def game_server_protection_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Indicates whether instances in the game server group are protected from early termination.
-        Unprotected instances that have active game servers running might be terminated during a scale-down event,
-        causing players to be dropped from the game.
-        Protected instances cannot be terminated while there are active game servers running except in the event
-        of a forced game server group deletion.
-        Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
+        Whether instances in the game server group are protected from early termination. Unprotected instances that have active game servers running might be terminated during a scale-down event, causing players to be dropped from the game. Protected instances cannot be terminated while there are active game servers running except in the event of a forced game server group deletion. Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
         """
         return pulumi.get(self, "game_server_protection_policy")
 
@@ -393,8 +356,7 @@ class _GameServerGroupState:
     @pulumi.getter(name="maxSize")
     def max_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The maximum number of instances allowed in the EC2 Auto Scaling group.
-        During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
+        Maximum number of instances allowed in the EC2 Auto Scaling group. During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
         """
         return pulumi.get(self, "max_size")
 
@@ -406,8 +368,7 @@ class _GameServerGroupState:
     @pulumi.getter(name="minSize")
     def min_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The minimum number of instances allowed in the EC2 Auto Scaling group.
-        During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
+        Minimum number of instances allowed in the EC2 Auto Scaling group. During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
         """
         return pulumi.get(self, "min_size")
 
@@ -464,8 +425,7 @@ class _GameServerGroupState:
     @pulumi.getter(name="vpcSubnets")
     def vpc_subnets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of VPC subnets to use with instances in the game server group.
-        By default, all GameLift FleetIQ-supported Availability Zones are used.
+        List of VPC subnets to use with instances in the game server group. By default, all GameLift FleetIQ-supported Availability Zones are used.
         """
         return pulumi.get(self, "vpc_subnets")
 
@@ -601,25 +561,15 @@ class GameServerGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] balancing_strategy: Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
-               Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
-        :param pulumi.Input[_builtins.str] game_server_group_name: Name of the game server group.
-               This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
-        :param pulumi.Input[_builtins.str] game_server_protection_policy: Indicates whether instances in the game server group are protected from early termination.
-               Unprotected instances that have active game servers running might be terminated during a scale-down event,
-               causing players to be dropped from the game.
-               Protected instances cannot be terminated while there are active game servers running except in the event
-               of a forced game server group deletion.
-               Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
-        :param pulumi.Input[_builtins.int] max_size: The maximum number of instances allowed in the EC2 Auto Scaling group.
-               During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
-        :param pulumi.Input[_builtins.int] min_size: The minimum number of instances allowed in the EC2 Auto Scaling group.
-               During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
+        :param pulumi.Input[_builtins.str] balancing_strategy: How GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances. Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
+        :param pulumi.Input[_builtins.str] game_server_group_name: Name of the game server group. This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
+        :param pulumi.Input[_builtins.str] game_server_protection_policy: Whether instances in the game server group are protected from early termination. Unprotected instances that have active game servers running might be terminated during a scale-down event, causing players to be dropped from the game. Protected instances cannot be terminated while there are active game servers running except in the event of a forced game server group deletion. Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
+        :param pulumi.Input[_builtins.int] max_size: Maximum number of instances allowed in the EC2 Auto Scaling group. During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
+        :param pulumi.Input[_builtins.int] min_size: Minimum number of instances allowed in the EC2 Auto Scaling group. During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_subnets: A list of VPC subnets to use with instances in the game server group.
-               By default, all GameLift FleetIQ-supported Availability Zones are used.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_subnets: List of VPC subnets to use with instances in the game server group. By default, all GameLift FleetIQ-supported Availability Zones are used.
         """
         ...
     @overload
@@ -828,27 +778,17 @@ class GameServerGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the GameLift Game Server Group.
-        :param pulumi.Input[_builtins.str] auto_scaling_group_arn: The ARN of the created EC2 Auto Scaling group.
-        :param pulumi.Input[_builtins.str] balancing_strategy: Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
-               Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
-        :param pulumi.Input[_builtins.str] game_server_group_name: Name of the game server group.
-               This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
-        :param pulumi.Input[_builtins.str] game_server_protection_policy: Indicates whether instances in the game server group are protected from early termination.
-               Unprotected instances that have active game servers running might be terminated during a scale-down event,
-               causing players to be dropped from the game.
-               Protected instances cannot be terminated while there are active game servers running except in the event
-               of a forced game server group deletion.
-               Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
-        :param pulumi.Input[_builtins.int] max_size: The maximum number of instances allowed in the EC2 Auto Scaling group.
-               During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
-        :param pulumi.Input[_builtins.int] min_size: The minimum number of instances allowed in the EC2 Auto Scaling group.
-               During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
+        :param pulumi.Input[_builtins.str] arn: ARN of the GameLift Game Server Group.
+        :param pulumi.Input[_builtins.str] auto_scaling_group_arn: ARN of the created EC2 Auto Scaling group.
+        :param pulumi.Input[_builtins.str] balancing_strategy: How GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances. Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
+        :param pulumi.Input[_builtins.str] game_server_group_name: Name of the game server group. This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
+        :param pulumi.Input[_builtins.str] game_server_protection_policy: Whether instances in the game server group are protected from early termination. Unprotected instances that have active game servers running might be terminated during a scale-down event, causing players to be dropped from the game. Protected instances cannot be terminated while there are active game servers running except in the event of a forced game server group deletion. Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
+        :param pulumi.Input[_builtins.int] max_size: Maximum number of instances allowed in the EC2 Auto Scaling group. During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
+        :param pulumi.Input[_builtins.int] min_size: Minimum number of instances allowed in the EC2 Auto Scaling group. During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_subnets: A list of VPC subnets to use with instances in the game server group.
-               By default, all GameLift FleetIQ-supported Availability Zones are used.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_subnets: List of VPC subnets to use with instances in the game server group. By default, all GameLift FleetIQ-supported Availability Zones are used.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -875,7 +815,7 @@ class GameServerGroup(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the GameLift Game Server Group.
+        ARN of the GameLift Game Server Group.
         """
         return pulumi.get(self, "arn")
 
@@ -883,7 +823,7 @@ class GameServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="autoScalingGroupArn")
     def auto_scaling_group_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the created EC2 Auto Scaling group.
+        ARN of the created EC2 Auto Scaling group.
         """
         return pulumi.get(self, "auto_scaling_group_arn")
 
@@ -896,8 +836,7 @@ class GameServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="balancingStrategy")
     def balancing_strategy(self) -> pulumi.Output[_builtins.str]:
         """
-        Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
-        Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
+        How GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances. Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
         """
         return pulumi.get(self, "balancing_strategy")
 
@@ -905,8 +844,7 @@ class GameServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="gameServerGroupName")
     def game_server_group_name(self) -> pulumi.Output[_builtins.str]:
         """
-        Name of the game server group.
-        This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
+        Name of the game server group. This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
         """
         return pulumi.get(self, "game_server_group_name")
 
@@ -914,12 +852,7 @@ class GameServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="gameServerProtectionPolicy")
     def game_server_protection_policy(self) -> pulumi.Output[_builtins.str]:
         """
-        Indicates whether instances in the game server group are protected from early termination.
-        Unprotected instances that have active game servers running might be terminated during a scale-down event,
-        causing players to be dropped from the game.
-        Protected instances cannot be terminated while there are active game servers running except in the event
-        of a forced game server group deletion.
-        Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
+        Whether instances in the game server group are protected from early termination. Unprotected instances that have active game servers running might be terminated during a scale-down event, causing players to be dropped from the game. Protected instances cannot be terminated while there are active game servers running except in the event of a forced game server group deletion. Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
         """
         return pulumi.get(self, "game_server_protection_policy")
 
@@ -937,8 +870,7 @@ class GameServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="maxSize")
     def max_size(self) -> pulumi.Output[_builtins.int]:
         """
-        The maximum number of instances allowed in the EC2 Auto Scaling group.
-        During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
+        Maximum number of instances allowed in the EC2 Auto Scaling group. During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
         """
         return pulumi.get(self, "max_size")
 
@@ -946,8 +878,7 @@ class GameServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="minSize")
     def min_size(self) -> pulumi.Output[_builtins.int]:
         """
-        The minimum number of instances allowed in the EC2 Auto Scaling group.
-        During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
+        Minimum number of instances allowed in the EC2 Auto Scaling group. During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
         """
         return pulumi.get(self, "min_size")
 
@@ -984,8 +915,7 @@ class GameServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="vpcSubnets")
     def vpc_subnets(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        A list of VPC subnets to use with instances in the game server group.
-        By default, all GameLift FleetIQ-supported Availability Zones are used.
+        List of VPC subnets to use with instances in the game server group. By default, all GameLift FleetIQ-supported Availability Zones are used.
         """
         return pulumi.get(self, "vpc_subnets")
 

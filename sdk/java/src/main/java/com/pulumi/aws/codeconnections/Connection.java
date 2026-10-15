@@ -75,28 +75,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:codeconnections/connection:Connection")
 public class Connection extends com.pulumi.resources.CustomResource {
     /**
-     * The codeconnections connection ARN.
+     * The CodeConnections connection ARN.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The codeconnections connection ARN.
+     * @return The CodeConnections connection ARN.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The codeconnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
+     * The CodeConnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
      * 
      */
     @Export(name="connectionStatus", refs={String.class}, tree="[0]")
     private Output<String> connectionStatus;
 
     /**
-     * @return The codeconnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
+     * @return The CodeConnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
      * 
      */
     public Output<String> connectionStatus() {

@@ -18,11 +18,11 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly double? Bitrate;
         /// <summary>
-        /// Mono, Stereo, or 5.1 channel layout.
+        /// Mono, stereo, or 5.1 channel layout.
         /// </summary>
         public readonly string? CodingMode;
         /// <summary>
-        /// Set to "broadcasterMixedAd" when input contains pre-mixed main audio + AD (narration) as a stereo pair.
+        /// Set to `broadcasterMixedAd` when input contains pre-mixed main audio and AD (narration) as a stereo pair.
         /// </summary>
         public readonly string? InputType;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly string? Profile;
         /// <summary>
-        /// The rate control mode.
+        /// Rate control mode.
         /// </summary>
         public readonly string? RateControlMode;
         /// <summary>
@@ -42,11 +42,11 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly double? SampleRate;
         /// <summary>
-        /// Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
+        /// Whether to use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
         /// </summary>
         public readonly string? Spec;
         /// <summary>
-        /// VBR Quality Level - Only used if rateControlMode is VBR.
+        /// VBR quality level. Only used if `RateControlMode` is `VBR`.
         /// </summary>
         public readonly string? VbrQuality;
 

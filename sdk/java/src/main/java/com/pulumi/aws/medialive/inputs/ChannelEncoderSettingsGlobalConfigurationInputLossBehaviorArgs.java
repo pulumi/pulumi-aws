@@ -17,37 +17,77 @@ public final class ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArg
 
     public static final ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs Empty = new ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs();
 
+    /**
+     * Amount of time, in milliseconds, to display black video when the input is lost.
+     * 
+     */
     @Import(name="blackFrameMsec")
     private @Nullable Output<Integer> blackFrameMsec;
 
+    /**
+     * @return Amount of time, in milliseconds, to display black video when the input is lost.
+     * 
+     */
     public Optional<Output<Integer>> blackFrameMsec() {
         return Optional.ofNullable(this.blackFrameMsec);
     }
 
+    /**
+     * Color to display, as a hexadecimal RGBA value, when `inputLossImageType` is `color`.
+     * 
+     */
     @Import(name="inputLossImageColor")
     private @Nullable Output<String> inputLossImageColor;
 
+    /**
+     * @return Color to display, as a hexadecimal RGBA value, when `inputLossImageType` is `color`.
+     * 
+     */
     public Optional<Output<String>> inputLossImageColor() {
         return Optional.ofNullable(this.inputLossImageColor);
     }
 
+    /**
+     * Image to display when `inputLossImageType` is `slate`. See `inputLossImageSlate` Block for details.
+     * 
+     */
     @Import(name="inputLossImageSlate")
     private @Nullable Output<ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgs> inputLossImageSlate;
 
+    /**
+     * @return Image to display when `inputLossImageType` is `slate`. See `inputLossImageSlate` Block for details.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgs>> inputLossImageSlate() {
         return Optional.ofNullable(this.inputLossImageSlate);
     }
 
+    /**
+     * Whether to display a solid color or a slate image when input is lost.
+     * 
+     */
     @Import(name="inputLossImageType")
     private @Nullable Output<String> inputLossImageType;
 
+    /**
+     * @return Whether to display a solid color or a slate image when input is lost.
+     * 
+     */
     public Optional<Output<String>> inputLossImageType() {
         return Optional.ofNullable(this.inputLossImageType);
     }
 
+    /**
+     * Amount of time, in milliseconds, to repeat the previous picture when the input is lost.
+     * 
+     */
     @Import(name="repeatFrameMsec")
     private @Nullable Output<Integer> repeatFrameMsec;
 
+    /**
+     * @return Amount of time, in milliseconds, to repeat the previous picture when the input is lost.
+     * 
+     */
     public Optional<Output<Integer>> repeatFrameMsec() {
         return Optional.ofNullable(this.repeatFrameMsec);
     }
@@ -80,47 +120,107 @@ public final class ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArg
             $ = new ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param blackFrameMsec Amount of time, in milliseconds, to display black video when the input is lost.
+         * 
+         * @return builder
+         * 
+         */
         public Builder blackFrameMsec(@Nullable Output<Integer> blackFrameMsec) {
             $.blackFrameMsec = blackFrameMsec;
             return this;
         }
 
+        /**
+         * @param blackFrameMsec Amount of time, in milliseconds, to display black video when the input is lost.
+         * 
+         * @return builder
+         * 
+         */
         public Builder blackFrameMsec(Integer blackFrameMsec) {
             return blackFrameMsec(Output.of(blackFrameMsec));
         }
 
+        /**
+         * @param inputLossImageColor Color to display, as a hexadecimal RGBA value, when `inputLossImageType` is `color`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inputLossImageColor(@Nullable Output<String> inputLossImageColor) {
             $.inputLossImageColor = inputLossImageColor;
             return this;
         }
 
+        /**
+         * @param inputLossImageColor Color to display, as a hexadecimal RGBA value, when `inputLossImageType` is `color`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inputLossImageColor(String inputLossImageColor) {
             return inputLossImageColor(Output.of(inputLossImageColor));
         }
 
+        /**
+         * @param inputLossImageSlate Image to display when `inputLossImageType` is `slate`. See `inputLossImageSlate` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inputLossImageSlate(@Nullable Output<ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgs> inputLossImageSlate) {
             $.inputLossImageSlate = inputLossImageSlate;
             return this;
         }
 
+        /**
+         * @param inputLossImageSlate Image to display when `inputLossImageType` is `slate`. See `inputLossImageSlate` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inputLossImageSlate(ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgs inputLossImageSlate) {
             return inputLossImageSlate(Output.of(inputLossImageSlate));
         }
 
+        /**
+         * @param inputLossImageType Whether to display a solid color or a slate image when input is lost.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inputLossImageType(@Nullable Output<String> inputLossImageType) {
             $.inputLossImageType = inputLossImageType;
             return this;
         }
 
+        /**
+         * @param inputLossImageType Whether to display a solid color or a slate image when input is lost.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inputLossImageType(String inputLossImageType) {
             return inputLossImageType(Output.of(inputLossImageType));
         }
 
+        /**
+         * @param repeatFrameMsec Amount of time, in milliseconds, to repeat the previous picture when the input is lost.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repeatFrameMsec(@Nullable Output<Integer> repeatFrameMsec) {
             $.repeatFrameMsec = repeatFrameMsec;
             return this;
         }
 
+        /**
+         * @param repeatFrameMsec Amount of time, in milliseconds, to repeat the previous picture when the input is lost.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repeatFrameMsec(Integer repeatFrameMsec) {
             return repeatFrameMsec(Output.of(repeatFrameMsec));
         }

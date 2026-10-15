@@ -17,12 +17,12 @@ public final class CrossAccountAttachmentResource {
      */
     private @Nullable String cidrBlock;
     /**
-     * @return The endpoint ID for the endpoint that is specified as a AWS resource.
+     * @return Endpoint ID for the endpoint that is specified as a AWS resource.
      * 
      */
     private @Nullable String endpointId;
     /**
-     * @return The AWS Region where a shared endpoint resource is located.
+     * @return AWS Region where a shared endpoint resource is located.
      * 
      */
     private @Nullable String region;
@@ -36,14 +36,14 @@ public final class CrossAccountAttachmentResource {
         return Optional.ofNullable(this.cidrBlock);
     }
     /**
-     * @return The endpoint ID for the endpoint that is specified as a AWS resource.
+     * @return Endpoint ID for the endpoint that is specified as a AWS resource.
      * 
      */
     public Optional<String> endpointId() {
         return Optional.ofNullable(this.endpointId);
     }
     /**
-     * @return The AWS Region where a shared endpoint resource is located.
+     * @return AWS Region where a shared endpoint resource is located.
      * 
      */
     public Optional<String> region() {

@@ -18,14 +18,14 @@ public final class NotificationState extends com.pulumi.resources.ResourceArgs {
     public static final NotificationState Empty = new NotificationState();
 
     /**
-     * List of AutoScaling Group Names
+     * List of Auto Scaling group Names
      * 
      */
     @Import(name="groupNames")
     private @Nullable Output<List<String>> groupNames;
 
     /**
-     * @return List of AutoScaling Group Names
+     * @return List of Auto Scaling group Names
      * 
      */
     public Optional<Output<List<String>>> groupNames() {
@@ -107,7 +107,7 @@ public final class NotificationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupNames List of AutoScaling Group Names
+         * @param groupNames List of Auto Scaling group Names
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class NotificationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupNames List of AutoScaling Group Names
+         * @param groupNames List of Auto Scaling group Names
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class NotificationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupNames List of AutoScaling Group Names
+         * @param groupNames List of Auto Scaling group Names
          * 
          * @return builder
          * 

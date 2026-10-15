@@ -26,7 +26,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncluded
      */
     private @Nullable Integer clientCredentialsWoVersion;
     /**
-     * @return OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
+     * @return OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret` unless `clientSecretSource` is `EXTERNAL`.
      * 
      */
     private @Nullable String clientId;
@@ -89,7 +89,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncluded
         return Optional.ofNullable(this.clientCredentialsWoVersion);
     }
     /**
-     * @return OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
+     * @return OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret` unless `clientSecretSource` is `EXTERNAL`.
      * 
      */
     public Optional<String> clientId() {

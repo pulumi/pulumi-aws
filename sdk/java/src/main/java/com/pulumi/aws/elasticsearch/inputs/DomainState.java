@@ -245,14 +245,14 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Domain-specific endpoint for kibana without https scheme.
+     * Domain-specific endpoint for kibana without HTTPS scheme.
      * 
      */
     @Import(name="kibanaEndpoint")
     private @Nullable Output<String> kibanaEndpoint;
 
     /**
-     * @return Domain-specific endpoint for kibana without https scheme.
+     * @return Domain-specific endpoint for kibana without HTTPS scheme.
      * 
      */
     public Optional<Output<String>> kibanaEndpoint() {
@@ -728,7 +728,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kibanaEndpoint Domain-specific endpoint for kibana without https scheme.
+         * @param kibanaEndpoint Domain-specific endpoint for kibana without HTTPS scheme.
          * 
          * @return builder
          * 
@@ -739,7 +739,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kibanaEndpoint Domain-specific endpoint for kibana without https scheme.
+         * @param kibanaEndpoint Domain-specific endpoint for kibana without HTTPS scheme.
          * 
          * @return builder
          * 

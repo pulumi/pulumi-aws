@@ -18,14 +18,14 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagC
     public static final ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionArgs Empty = new ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionArgs();
 
     /**
-     * The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
+     * Operator to use in the condition. Valid combinations of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator).
      * 
      */
     @Import(name="comparator")
     private @Nullable Output<String> comparator;
 
     /**
-     * @return The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
+     * @return Operator to use in the condition. Valid combinations of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator).
      * 
      */
     public Optional<Output<String>> comparator() {
@@ -33,14 +33,14 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagC
     }
 
     /**
-     * The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
+     * Tag key and value pairs to use in the condition. One or more blocks are allowed. See `s3_job_definition.bucket_criteria.includes.and.tag_criterion.tag_values` Block for details.
      * 
      */
     @Import(name="tagValues")
     private @Nullable Output<List<ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueArgs>> tagValues;
 
     /**
-     * @return The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
+     * @return Tag key and value pairs to use in the condition. One or more blocks are allowed. See `s3_job_definition.bucket_criteria.includes.and.tag_criterion.tag_values` Block for details.
      * 
      */
     public Optional<Output<List<ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueArgs>>> tagValues() {
@@ -73,7 +73,7 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagC
         }
 
         /**
-         * @param comparator The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
+         * @param comparator Operator to use in the condition. Valid combinations of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator).
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagC
         }
 
         /**
-         * @param comparator The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
+         * @param comparator Operator to use in the condition. Valid combinations of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator).
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagC
         }
 
         /**
-         * @param tagValues The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
+         * @param tagValues Tag key and value pairs to use in the condition. One or more blocks are allowed. See `s3_job_definition.bucket_criteria.includes.and.tag_criterion.tag_values` Block for details.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagC
         }
 
         /**
-         * @param tagValues The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
+         * @param tagValues Tag key and value pairs to use in the condition. One or more blocks are allowed. See `s3_job_definition.bucket_criteria.includes.and.tag_criterion.tag_values` Block for details.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagC
         }
 
         /**
-         * @param tagValues The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
+         * @param tagValues Tag key and value pairs to use in the condition. One or more blocks are allowed. See `s3_job_definition.bucket_criteria.includes.and.tag_criterion.tag_values` Block for details.
          * 
          * @return builder
          * 

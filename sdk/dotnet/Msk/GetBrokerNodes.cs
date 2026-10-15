@@ -134,6 +134,9 @@ namespace Pulumi.Aws.Msk
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// List of MSK Broker Nodes, sorted by broker ID in ascending order. See `NodeInfoList` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetBrokerNodesNodeInfoListResult> NodeInfoLists;
         public readonly string Region;
 

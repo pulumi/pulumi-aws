@@ -16,62 +16,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ReplicatorKafkaCluster {
     /**
-     * @return Details of an Amazon MSK cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
+     * @return Details of an Amazon MSK cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. See `amazonMskCluster` Block below.
      * 
      */
     private @Nullable ReplicatorKafkaClusterAmazonMskCluster amazonMskCluster;
     /**
-     * @return Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
+     * @return Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. See `apacheKafkaCluster` Block below.
      * 
      */
     private @Nullable ReplicatorKafkaClusterApacheKafkaCluster apacheKafkaCluster;
     /**
-     * @return Details of the client authentication used by the Kafka cluster. Only valid for an `apacheKafkaCluster`. Detailed below.
+     * @return Details of the client authentication used by the Kafka cluster. Only valid for an `apacheKafkaCluster`. See `clientAuthentication` Block below.
      * 
      */
     private @Nullable ReplicatorKafkaClusterClientAuthentication clientAuthentication;
     /**
-     * @return Details of encryption in transit to the Kafka cluster. Only valid for an `apacheKafkaCluster`. TLS encryption in transit is always applied to an `apacheKafkaCluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). Detailed below.
+     * @return Details of encryption in transit to the Kafka cluster. Only valid for an `apacheKafkaCluster`. TLS encryption in transit is always applied to an `apacheKafkaCluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). See `encryptionInTransit` Block below.
      * 
      */
     private @Nullable ReplicatorKafkaClusterEncryptionInTransit encryptionInTransit;
     /**
-     * @return Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazonMskCluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC.
+     * @return Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazonMskCluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC. See `vpcConfig` Block below.
      * 
      */
     private @Nullable ReplicatorKafkaClusterVpcConfig vpcConfig;
 
     private ReplicatorKafkaCluster() {}
     /**
-     * @return Details of an Amazon MSK cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
+     * @return Details of an Amazon MSK cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. See `amazonMskCluster` Block below.
      * 
      */
     public Optional<ReplicatorKafkaClusterAmazonMskCluster> amazonMskCluster() {
         return Optional.ofNullable(this.amazonMskCluster);
     }
     /**
-     * @return Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
+     * @return Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. See `apacheKafkaCluster` Block below.
      * 
      */
     public Optional<ReplicatorKafkaClusterApacheKafkaCluster> apacheKafkaCluster() {
         return Optional.ofNullable(this.apacheKafkaCluster);
     }
     /**
-     * @return Details of the client authentication used by the Kafka cluster. Only valid for an `apacheKafkaCluster`. Detailed below.
+     * @return Details of the client authentication used by the Kafka cluster. Only valid for an `apacheKafkaCluster`. See `clientAuthentication` Block below.
      * 
      */
     public Optional<ReplicatorKafkaClusterClientAuthentication> clientAuthentication() {
         return Optional.ofNullable(this.clientAuthentication);
     }
     /**
-     * @return Details of encryption in transit to the Kafka cluster. Only valid for an `apacheKafkaCluster`. TLS encryption in transit is always applied to an `apacheKafkaCluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). Detailed below.
+     * @return Details of encryption in transit to the Kafka cluster. Only valid for an `apacheKafkaCluster`. TLS encryption in transit is always applied to an `apacheKafkaCluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). See `encryptionInTransit` Block below.
      * 
      */
     public Optional<ReplicatorKafkaClusterEncryptionInTransit> encryptionInTransit() {
         return Optional.ofNullable(this.encryptionInTransit);
     }
     /**
-     * @return Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazonMskCluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC.
+     * @return Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazonMskCluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC. See `vpcConfig` Block below.
      * 
      */
     public Optional<ReplicatorKafkaClusterVpcConfig> vpcConfig() {

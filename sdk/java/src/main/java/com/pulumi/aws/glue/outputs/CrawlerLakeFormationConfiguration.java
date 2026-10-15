@@ -18,7 +18,7 @@ public final class CrawlerLakeFormationConfiguration {
      */
     private @Nullable String accountId;
     /**
-     * @return Specifies whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
+     * @return Whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
      * 
      */
     private @Nullable Boolean useLakeFormationCredentials;
@@ -32,7 +32,7 @@ public final class CrawlerLakeFormationConfiguration {
         return Optional.ofNullable(this.accountId);
     }
     /**
-     * @return Specifies whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
+     * @return Whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
      * 
      */
     public Optional<Boolean> useLakeFormationCredentials() {

@@ -18,7 +18,7 @@ public final class ProjectSecondarySourceBuildStatusConfig {
      */
     private @Nullable String context;
     /**
-     * @return Specifies the target url of the build status CodeBuild sends to the source provider. The
+     * @return Specifies the target URL of the build status CodeBuild sends to the source provider. The
      * usage of this parameter depends on the source provider.
      * 
      */
@@ -34,7 +34,7 @@ public final class ProjectSecondarySourceBuildStatusConfig {
         return Optional.ofNullable(this.context);
     }
     /**
-     * @return Specifies the target url of the build status CodeBuild sends to the source provider. The
+     * @return Specifies the target URL of the build status CodeBuild sends to the source provider. The
      * usage of this parameter depends on the source provider.
      * 
      */

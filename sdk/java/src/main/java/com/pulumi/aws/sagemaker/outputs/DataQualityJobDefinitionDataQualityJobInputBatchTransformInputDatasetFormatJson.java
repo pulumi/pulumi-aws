@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJson {
     /**
-     * @return Indicates if the file should be read as a json object per line.
+     * @return Indicates if the file should be read as a JSON object per line.
      * 
      */
     private @Nullable Boolean line;
 
     private DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJson() {}
     /**
-     * @return Indicates if the file should be read as a json object per line.
+     * @return Indicates if the file should be read as a JSON object per line.
      * 
      */
     public Optional<Boolean> line() {

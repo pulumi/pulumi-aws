@@ -104,6 +104,8 @@ __all__ = [
     'LogTransformerTransformerConfigUpperCaseString',
     'MetricAlarmEvaluationCriteria',
     'MetricAlarmEvaluationCriteriaPromqlCriteria',
+    'MetricAlarmEvaluationWindow',
+    'MetricAlarmEvaluationWindowWallClockWindow',
     'MetricAlarmMetricQuery',
     'MetricAlarmMetricQueryMetric',
     'MetricAlarmWarmUpConfiguration',
@@ -111,7 +113,10 @@ __all__ = [
     'MetricStreamIncludeFilter',
     'MetricStreamStatisticsConfiguration',
     'MetricStreamStatisticsConfigurationIncludeMetric',
+    'OtelEnrichmentExcludeFilter',
+    'OtelEnrichmentIncludeFilter',
     'OtelEnrichmentTimeouts',
+    'ResourceMetricsConfigurationMetricSelection',
     'GetContributorManagedInsightRulesManagedRuleResult',
     'GetContributorManagedInsightRulesManagedRuleRuleStateResult',
     'GetEventBusDeadLetterConfigResult',
@@ -384,7 +389,7 @@ class EventConnectionAuthParameters(dict):
         :param 'EventConnectionAuthParametersApiKeyArgs' api_key: Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
         :param 'EventConnectionAuthParametersBasicArgs' basic: Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `api_key` and `oauth`. Documented below.
         :param 'EventConnectionAuthParametersConnectivityParametersArgs' connectivity_parameters: Parameters used for `oauth` with private API. Documented below.
-        :param 'EventConnectionAuthParametersInvocationHttpParametersArgs' invocation_http_parameters: Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+        :param 'EventConnectionAuthParametersInvocationHttpParametersArgs' invocation_http_parameters: Invocation HTTP Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation HTTP Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
         :param 'EventConnectionAuthParametersOauthArgs' oauth: Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `api_key`. Documented below.
         """
         if api_key is not None:
@@ -426,7 +431,7 @@ class EventConnectionAuthParameters(dict):
     @pulumi.getter(name="invocationHttpParameters")
     def invocation_http_parameters(self) -> Optional['outputs.EventConnectionAuthParametersInvocationHttpParameters']:
         """
-        Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+        Invocation HTTP Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation HTTP Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
         """
         return pulumi.get(self, "invocation_http_parameters")
 
@@ -850,7 +855,7 @@ class EventConnectionAuthParametersOauth(dict):
         """
         :param _builtins.str authorization_endpoint: The URL to the authorization endpoint.
         :param _builtins.str http_method: A password for the authorization. Created and stored in AWS Secrets Manager.
-        :param 'EventConnectionAuthParametersOauthOauthHttpParametersArgs' oauth_http_parameters: OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+        :param 'EventConnectionAuthParametersOauthOauthHttpParametersArgs' oauth_http_parameters: OAuth HTTP Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
         :param 'EventConnectionAuthParametersOauthClientParametersArgs' client_parameters: Contains the client parameters for OAuth authorization. Contains the following two parameters.
         """
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
@@ -879,7 +884,7 @@ class EventConnectionAuthParametersOauth(dict):
     @pulumi.getter(name="oauthHttpParameters")
     def oauth_http_parameters(self) -> 'outputs.EventConnectionAuthParametersOauthOauthHttpParameters':
         """
-        OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+        OAuth HTTP Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
         """
         return pulumi.get(self, "oauth_http_parameters")
 
@@ -1669,7 +1674,7 @@ class EventTargetEcsTarget(dict):
         :param Sequence['EventTargetEcsTargetPlacementConstraintArgs'] placement_constraints: An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
         :param _builtins.str platform_version: Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         :param _builtins.str propagate_tags: Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. The only valid value is: `TASK_DEFINITION`.
-        :param Mapping[str, _builtins.str] tags: A map of tags to assign to ecs resources.
+        :param Mapping[str, _builtins.str] tags: A map of tags to assign to ECS resources.
         :param _builtins.int task_count: The number of tasks to create based on the TaskDefinition. Defaults to `1`.
         """
         pulumi.set(__self__, "task_definition_arn", task_definition_arn)
@@ -1790,7 +1795,7 @@ class EventTargetEcsTarget(dict):
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        A map of tags to assign to ecs resources.
+        A map of tags to assign to ECS resources.
         """
         return pulumi.get(self, "tags")
 
@@ -4440,6 +4445,60 @@ class MetricAlarmEvaluationCriteriaPromqlCriteria(dict):
 
 
 @pulumi.output_type
+class MetricAlarmEvaluationWindow(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "wallClockWindow":
+            suggest = "wall_clock_window"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MetricAlarmEvaluationWindow. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MetricAlarmEvaluationWindow.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MetricAlarmEvaluationWindow.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 wall_clock_window: 'outputs.MetricAlarmEvaluationWindowWallClockWindow'):
+        """
+        :param 'MetricAlarmEvaluationWindowWallClockWindowArgs' wall_clock_window: Aligns the evaluated range to fixed clock boundaries that match the alarm's `period` (for example the top of the hour, midnight, or the start of the calendar week), instead of the default rolling sliding window. Only alarms with a `period` of `60`, `300`, `3600`, `86400`, or `604800` seconds support a wall clock window. See `wall_clock_window` below.
+        """
+        pulumi.set(__self__, "wall_clock_window", wall_clock_window)
+
+    @_builtins.property
+    @pulumi.getter(name="wallClockWindow")
+    def wall_clock_window(self) -> 'outputs.MetricAlarmEvaluationWindowWallClockWindow':
+        """
+        Aligns the evaluated range to fixed clock boundaries that match the alarm's `period` (for example the top of the hour, midnight, or the start of the calendar week), instead of the default rolling sliding window. Only alarms with a `period` of `60`, `300`, `3600`, `86400`, or `604800` seconds support a wall clock window. See `wall_clock_window` below.
+        """
+        return pulumi.get(self, "wall_clock_window")
+
+
+@pulumi.output_type
+class MetricAlarmEvaluationWindowWallClockWindow(dict):
+    def __init__(__self__, *,
+                 timezone: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str timezone: Time zone to align the window to. Accepts an IANA time zone name (for example `America/New_York`), a fixed UTC offset (for example `+05:30`), or an offset-prefixed identifier (for example `UTC+05:30`). The offset must be a multiple of 5 minutes. Defaults to UTC. Only IANA time zone names observe daylight saving time.
+        """
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
+
+    @_builtins.property
+    @pulumi.getter
+    def timezone(self) -> Optional[_builtins.str]:
+        """
+        Time zone to align the window to. Accepts an IANA time zone name (for example `America/New_York`), a fixed UTC offset (for example `+05:30`), or an offset-prefixed identifier (for example `UTC+05:30`). The offset must be a multiple of 5 minutes. Defaults to UTC. Only IANA time zone names observe daylight saving time.
+        """
+        return pulumi.get(self, "timezone")
+
+
+@pulumi.output_type
 class MetricAlarmMetricQuery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -4901,6 +4960,100 @@ class MetricStreamStatisticsConfigurationIncludeMetric(dict):
 
 
 @pulumi.output_type
+class OtelEnrichmentExcludeFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricNames":
+            suggest = "metric_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OtelEnrichmentExcludeFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OtelEnrichmentExcludeFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OtelEnrichmentExcludeFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 namespace: _builtins.str,
+                 metric_names: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.str namespace: Namespace of the metrics to select. Must be 1-255 characters and must not begin with a colon.
+        :param Sequence[_builtins.str] metric_names: Names of the metrics to select within the namespace, up to 100. Omit to match every metric in the namespace.
+        """
+        pulumi.set(__self__, "namespace", namespace)
+        if metric_names is not None:
+            pulumi.set(__self__, "metric_names", metric_names)
+
+    @_builtins.property
+    @pulumi.getter
+    def namespace(self) -> _builtins.str:
+        """
+        Namespace of the metrics to select. Must be 1-255 characters and must not begin with a colon.
+        """
+        return pulumi.get(self, "namespace")
+
+    @_builtins.property
+    @pulumi.getter(name="metricNames")
+    def metric_names(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Names of the metrics to select within the namespace, up to 100. Omit to match every metric in the namespace.
+        """
+        return pulumi.get(self, "metric_names")
+
+
+@pulumi.output_type
+class OtelEnrichmentIncludeFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricNames":
+            suggest = "metric_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OtelEnrichmentIncludeFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OtelEnrichmentIncludeFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OtelEnrichmentIncludeFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 namespace: _builtins.str,
+                 metric_names: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.str namespace: Namespace of the metrics to select. Must be 1-255 characters and must not begin with a colon.
+        :param Sequence[_builtins.str] metric_names: Names of the metrics to select within the namespace, up to 100. Omit to match every metric in the namespace.
+        """
+        pulumi.set(__self__, "namespace", namespace)
+        if metric_names is not None:
+            pulumi.set(__self__, "metric_names", metric_names)
+
+    @_builtins.property
+    @pulumi.getter
+    def namespace(self) -> _builtins.str:
+        """
+        Namespace of the metrics to select. Must be 1-255 characters and must not begin with a colon.
+        """
+        return pulumi.get(self, "namespace")
+
+    @_builtins.property
+    @pulumi.getter(name="metricNames")
+    def metric_names(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Names of the metrics to select within the namespace, up to 100. Omit to match every metric in the namespace.
+        """
+        return pulumi.get(self, "metric_names")
+
+
+@pulumi.output_type
 class OtelEnrichmentTimeouts(dict):
     def __init__(__self__, *,
                  create: Optional[_builtins.str] = None,
@@ -4929,6 +5082,41 @@ class OtelEnrichmentTimeouts(dict):
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
+
+
+@pulumi.output_type
+class ResourceMetricsConfigurationMetricSelection(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeMetrics":
+            suggest = "include_metrics"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceMetricsConfigurationMetricSelection. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceMetricsConfigurationMetricSelection.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceMetricsConfigurationMetricSelection.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 include_metrics: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] include_metrics: Set of metric names to collect for the resource. CloudWatch collects only the metrics listed here. Between 1 and 500 names, each between 1 and 255 characters. For the OpenTelemetry metrics published by ElastiCache, see [OpenTelemetry metrics](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/otel-metrics.html).
+        """
+        pulumi.set(__self__, "include_metrics", include_metrics)
+
+    @_builtins.property
+    @pulumi.getter(name="includeMetrics")
+    def include_metrics(self) -> Sequence[_builtins.str]:
+        """
+        Set of metric names to collect for the resource. CloudWatch collects only the metrics listed here. Between 1 and 500 names, each between 1 and 255 characters. For the OpenTelemetry metrics published by ElastiCache, see [OpenTelemetry metrics](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/otel-metrics.html).
+        """
+        return pulumi.get(self, "include_metrics")
 
 
 @pulumi.output_type

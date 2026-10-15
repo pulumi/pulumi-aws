@@ -182,14 +182,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * unique user id that is never reassignable to another user.
+     * unique user ID that is never reassignable to another user.
      * 
      */
     @Import(name="sub")
     private @Nullable Output<String> sub;
 
     /**
-     * @return unique user id that is never reassignable to another user.
+     * @return unique user ID that is never reassignable to another user.
      * 
      */
     public Optional<Output<String>> sub() {
@@ -545,7 +545,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sub unique user id that is never reassignable to another user.
+         * @param sub unique user ID that is never reassignable to another user.
          * 
          * @return builder
          * 
@@ -556,7 +556,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sub unique user id that is never reassignable to another user.
+         * @param sub unique user ID that is never reassignable to another user.
          * 
          * @return builder
          * 

@@ -33,14 +33,14 @@ public final class CatalogCreateDatabaseDefaultPermissionArgs extends com.pulumi
     }
 
     /**
-     * Principal who is granted permissions. See `principal` below.
+     * Principal who is granted permissions. See `principal` Block below.
      * 
      */
     @Import(name="principal")
     private @Nullable Output<CatalogCreateDatabaseDefaultPermissionPrincipalArgs> principal;
 
     /**
-     * @return Principal who is granted permissions. See `principal` below.
+     * @return Principal who is granted permissions. See `principal` Block below.
      * 
      */
     public Optional<Output<CatalogCreateDatabaseDefaultPermissionPrincipalArgs>> principal() {
@@ -104,7 +104,7 @@ public final class CatalogCreateDatabaseDefaultPermissionArgs extends com.pulumi
         }
 
         /**
-         * @param principal Principal who is granted permissions. See `principal` below.
+         * @param principal Principal who is granted permissions. See `principal` Block below.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class CatalogCreateDatabaseDefaultPermissionArgs extends com.pulumi
         }
 
         /**
-         * @param principal Principal who is granted permissions. See `principal` below.
+         * @param principal Principal who is granted permissions. See `principal` Block below.
          * 
          * @return builder
          * 

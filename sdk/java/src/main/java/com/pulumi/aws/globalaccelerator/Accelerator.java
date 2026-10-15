@@ -96,158 +96,154 @@ public class Accelerator extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The attributes of the accelerator. Fields documented below.
+     * Configuration block with accelerator attributes. See `attributes` below.
      * 
      */
     @Export(name="attributes", refs={AcceleratorAttributes.class}, tree="[0]")
     private Output</* @Nullable */ AcceleratorAttributes> attributes;
 
     /**
-     * @return The attributes of the accelerator. Fields documented below.
+     * @return Configuration block with accelerator attributes. See `attributes` below.
      * 
      */
     public Output<Optional<AcceleratorAttributes>> attributes() {
         return Codegen.optional(this.attributes);
     }
     /**
-     * The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
+     * DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
      * 
      */
     @Export(name="dnsName", refs={String.class}, tree="[0]")
     private Output<String> dnsName;
 
     /**
-     * @return The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
+     * @return DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
      * 
      */
     public Output<String> dnsName() {
         return this.dnsName;
     }
     /**
-     * DNS name that Global Accelerator creates that points to a dual-stack accelerator&#39;s four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
+     * DNS name that points to a dual-stack accelerator&#39;s four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
      * 
      */
     @Export(name="dualStackDnsName", refs={String.class}, tree="[0]")
     private Output<String> dualStackDnsName;
 
     /**
-     * @return DNS name that Global Accelerator creates that points to a dual-stack accelerator&#39;s four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
+     * @return DNS name that points to a dual-stack accelerator&#39;s four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
      * 
      */
     public Output<String> dualStackDnsName() {
         return this.dualStackDnsName;
     }
     /**
-     * Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
+     * Whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
+     * @return Whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
      * 
      */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
     /**
-     * -  The Global Accelerator Route 53 zone ID that can be used to
-     *    route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-     *    is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+     * Global Accelerator Route 53 zone ID used to route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the accelerator. This is an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
      * 
      */
     @Export(name="hostedZoneId", refs={String.class}, tree="[0]")
     private Output<String> hostedZoneId;
 
     /**
-     * @return -  The Global Accelerator Route 53 zone ID that can be used to
-     * route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-     * is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+     * @return Global Accelerator Route 53 zone ID used to route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the accelerator. This is an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
      * 
      */
     public Output<String> hostedZoneId() {
         return this.hostedZoneId;
     }
     /**
-     * The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
+     * Value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
      * 
      */
     @Export(name="ipAddressType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ipAddressType;
 
     /**
-     * @return The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
+     * @return Value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
      * 
      */
     public Output<Optional<String>> ipAddressType() {
         return Codegen.optional(this.ipAddressType);
     }
     /**
-     * The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+     * IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
      * 
      */
     @Export(name="ipAddresses", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> ipAddresses;
 
     /**
-     * @return The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+     * @return IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
      * 
      */
     public Output<Optional<List<String>>> ipAddresses() {
         return Codegen.optional(this.ipAddresses);
     }
     /**
-     * IP address set associated with the accelerator.
+     * IP address set associated with the accelerator. See `ipSets` below.
      * 
      */
     @Export(name="ipSets", refs={List.class,AcceleratorIpSet.class}, tree="[0,1]")
     private Output<List<AcceleratorIpSet>> ipSets;
 
     /**
-     * @return IP address set associated with the accelerator.
+     * @return IP address set associated with the accelerator. See `ipSets` below.
      * 
      */
     public Output<List<AcceleratorIpSet>> ipSets() {
         return this.ipSets;
     }
     /**
-     * The name of the accelerator.
+     * Name of the accelerator.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the accelerator.
+     * @return Name of the accelerator.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

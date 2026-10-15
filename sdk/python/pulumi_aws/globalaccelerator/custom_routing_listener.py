@@ -27,7 +27,7 @@ class CustomRoutingListenerArgs:
         The set of arguments for constructing a CustomRoutingListener resource.
 
         :param pulumi.Input[_builtins.str] accelerator_arn: ARN of a custom routing accelerator.
-        :param pulumi.Input[Sequence[pulumi.Input['CustomRoutingListenerPortRangeArgs']]] port_ranges: The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['CustomRoutingListenerPortRangeArgs']]] port_ranges: Port ranges for the connections from clients to the accelerator. See `port_range` below.
         """
         pulumi.set(__self__, "accelerator_arn", accelerator_arn)
         pulumi.set(__self__, "port_ranges", port_ranges)
@@ -48,7 +48,7 @@ class CustomRoutingListenerArgs:
     @pulumi.getter(name="portRanges")
     def port_ranges(self) -> pulumi.Input[Sequence[pulumi.Input['CustomRoutingListenerPortRangeArgs']]]:
         """
-        The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+        Port ranges for the connections from clients to the accelerator. See `port_range` below.
         """
         return pulumi.get(self, "port_ranges")
 
@@ -67,7 +67,8 @@ class _CustomRoutingListenerState:
         Input properties used for looking up and filtering CustomRoutingListener resources.
 
         :param pulumi.Input[_builtins.str] accelerator_arn: ARN of a custom routing accelerator.
-        :param pulumi.Input[Sequence[pulumi.Input['CustomRoutingListenerPortRangeArgs']]] port_ranges: The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+        :param pulumi.Input[_builtins.str] arn: ARN of the custom routing listener.
+        :param pulumi.Input[Sequence[pulumi.Input['CustomRoutingListenerPortRangeArgs']]] port_ranges: Port ranges for the connections from clients to the accelerator. See `port_range` below.
         """
         if accelerator_arn is not None:
             pulumi.set(__self__, "accelerator_arn", accelerator_arn)
@@ -91,6 +92,9 @@ class _CustomRoutingListenerState:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the custom routing listener.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -101,7 +105,7 @@ class _CustomRoutingListenerState:
     @pulumi.getter(name="portRanges")
     def port_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CustomRoutingListenerPortRangeArgs']]]]:
         """
-        The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+        Port ranges for the connections from clients to the accelerator. See `port_range` below.
         """
         return pulumi.get(self, "port_ranges")
 
@@ -163,7 +167,7 @@ class CustomRoutingListener(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] accelerator_arn: ARN of a custom routing accelerator.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomRoutingListenerPortRangeArgs', 'CustomRoutingListenerPortRangeArgsDict', 'outputs.CustomRoutingListenerPortRange']]]] port_ranges: The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomRoutingListenerPortRangeArgs', 'CustomRoutingListenerPortRangeArgsDict', 'outputs.CustomRoutingListenerPortRange']]]] port_ranges: Port ranges for the connections from clients to the accelerator. See `port_range` below.
         """
         ...
     @overload
@@ -266,7 +270,8 @@ class CustomRoutingListener(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] accelerator_arn: ARN of a custom routing accelerator.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomRoutingListenerPortRangeArgs', 'CustomRoutingListenerPortRangeArgsDict', 'outputs.CustomRoutingListenerPortRange']]]] port_ranges: The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+        :param pulumi.Input[_builtins.str] arn: ARN of the custom routing listener.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomRoutingListenerPortRangeArgs', 'CustomRoutingListenerPortRangeArgsDict', 'outputs.CustomRoutingListenerPortRange']]]] port_ranges: Port ranges for the connections from clients to the accelerator. See `port_range` below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -288,13 +293,16 @@ class CustomRoutingListener(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
+        """
+        ARN of the custom routing listener.
+        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="portRanges")
     def port_ranges(self) -> pulumi.Output[Sequence['outputs.CustomRoutingListenerPortRange']]:
         """
-        The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+        Port ranges for the connections from clients to the accelerator. See `port_range` below.
         """
         return pulumi.get(self, "port_ranges")
 

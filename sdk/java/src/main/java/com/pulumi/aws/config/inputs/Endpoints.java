@@ -1200,6 +1200,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String pricingplanmanager;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String prometheus;
     /**
      * @return Use this to override the default service endpoint URL
@@ -3301,6 +3306,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> pricingplanmanager() {
+        return Optional.ofNullable(this.pricingplanmanager);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> prometheus() {
         return Optional.ofNullable(this.prometheus);
     }
@@ -4160,6 +4172,7 @@ public final class Endpoints {
         private @Nullable String pipes;
         private @Nullable String polly;
         private @Nullable String pricing;
+        private @Nullable String pricingplanmanager;
         private @Nullable String prometheus;
         private @Nullable String prometheusservice;
         private @Nullable String qbusiness;
@@ -4488,6 +4501,7 @@ public final class Endpoints {
     	      this.pipes = defaults.pipes;
     	      this.polly = defaults.polly;
     	      this.pricing = defaults.pricing;
+    	      this.pricingplanmanager = defaults.pricingplanmanager;
     	      this.prometheus = defaults.prometheus;
     	      this.prometheusservice = defaults.prometheusservice;
     	      this.qbusiness = defaults.qbusiness;
@@ -6001,6 +6015,12 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder pricingplanmanager(@Nullable String pricingplanmanager) {
+
+            this.pricingplanmanager = pricingplanmanager;
+            return this;
+        }
+        @CustomType.Setter
         public Builder prometheus(@Nullable String prometheus) {
 
             this.prometheus = prometheus;
@@ -6767,6 +6787,7 @@ public final class Endpoints {
             _resultValue.pipes = pipes;
             _resultValue.polly = polly;
             _resultValue.pricing = pricing;
+            _resultValue.pricingplanmanager = pricingplanmanager;
             _resultValue.prometheus = prometheus;
             _resultValue.prometheusservice = prometheusservice;
             _resultValue.qbusiness = qbusiness;

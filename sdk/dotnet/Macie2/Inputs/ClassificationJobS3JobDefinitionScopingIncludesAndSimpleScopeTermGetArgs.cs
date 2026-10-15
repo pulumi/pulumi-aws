@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Macie2.Inputs
     public sealed class ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The operator to use in a condition. Valid values are: `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`
+        /// Operator to use in a condition. Valid values are `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`.
         /// </summary>
         [Input("comparator")]
         public Input<string>? Comparator { get; set; }
 
         /// <summary>
-        /// The object property to use in the condition.
+        /// Object property to use in the condition.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Macie2.Inputs
         private InputList<string>? _values;
 
         /// <summary>
-        /// An array that lists the values to use in the condition.
+        /// Array that lists the values to use in the condition.
         /// </summary>
         public InputList<string> Values
         {

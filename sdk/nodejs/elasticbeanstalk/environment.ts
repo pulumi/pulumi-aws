@@ -83,7 +83,7 @@ export class Environment extends pulumi.CustomResource {
     declare public readonly application: pulumi.Output<string>;
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The autoscaling groups used by this Environment.
+     * The Auto Scaling groups used by this Environment.
      */
     declare public /*out*/ readonly autoscalingGroups: pulumi.Output<string[]>;
     /**
@@ -170,7 +170,7 @@ export class Environment extends pulumi.CustomResource {
      */
     declare public readonly tier: pulumi.Output<string | undefined>;
     /**
-     * Autoscaling triggers in use by this Environment.
+     * Auto Scaling triggers in use by this Environment.
      */
     declare public /*out*/ readonly triggers: pulumi.Output<string[]>;
     /**
@@ -277,7 +277,7 @@ export interface EnvironmentState {
     application?: pulumi.Input<string | Application | undefined>;
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The autoscaling groups used by this Environment.
+     * The Auto Scaling groups used by this Environment.
      */
     autoscalingGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -364,7 +364,7 @@ export interface EnvironmentState {
      */
     tier?: pulumi.Input<string | undefined>;
     /**
-     * Autoscaling triggers in use by this Environment.
+     * Auto Scaling triggers in use by this Environment.
      */
     triggers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**

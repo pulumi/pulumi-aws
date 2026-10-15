@@ -15,16 +15,32 @@ public final class EnvironmentLastUpdatedErrorArgs extends com.pulumi.resources.
 
     public static final EnvironmentLastUpdatedErrorArgs Empty = new EnvironmentLastUpdatedErrorArgs();
 
+    /**
+     * Error code of the last update error.
+     * 
+     */
     @Import(name="errorCode")
     private @Nullable Output<String> errorCode;
 
+    /**
+     * @return Error code of the last update error.
+     * 
+     */
     public Optional<Output<String>> errorCode() {
         return Optional.ofNullable(this.errorCode);
     }
 
+    /**
+     * Error message of the last update error.
+     * 
+     */
     @Import(name="errorMessage")
     private @Nullable Output<String> errorMessage;
 
+    /**
+     * @return Error message of the last update error.
+     * 
+     */
     public Optional<Output<String>> errorMessage() {
         return Optional.ofNullable(this.errorMessage);
     }
@@ -54,20 +70,44 @@ public final class EnvironmentLastUpdatedErrorArgs extends com.pulumi.resources.
             $ = new EnvironmentLastUpdatedErrorArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param errorCode Error code of the last update error.
+         * 
+         * @return builder
+         * 
+         */
         public Builder errorCode(@Nullable Output<String> errorCode) {
             $.errorCode = errorCode;
             return this;
         }
 
+        /**
+         * @param errorCode Error code of the last update error.
+         * 
+         * @return builder
+         * 
+         */
         public Builder errorCode(String errorCode) {
             return errorCode(Output.of(errorCode));
         }
 
+        /**
+         * @param errorMessage Error message of the last update error.
+         * 
+         * @return builder
+         * 
+         */
         public Builder errorMessage(@Nullable Output<String> errorMessage) {
             $.errorMessage = errorMessage;
             return this;
         }
 
+        /**
+         * @param errorMessage Error message of the last update error.
+         * 
+         * @return builder
+         * 
+         */
         public Builder errorMessage(String errorMessage) {
             return errorMessage(Output.of(errorMessage));
         }

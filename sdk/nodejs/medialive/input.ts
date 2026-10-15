@@ -92,19 +92,19 @@ export class Input extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly attachedChannels: pulumi.Output<string[]>;
     /**
-     * Destination settings for PUSH type inputs. See Destinations for more details.
+     * Destination settings for PUSH type inputs. See `destinations` Block for more details.
      */
     declare public readonly destinations: pulumi.Output<outputs.medialive.InputDestination[] | undefined>;
     /**
-     * The input class.
+     * Input class.
      */
     declare public /*out*/ readonly inputClass: pulumi.Output<string>;
     /**
-     * Settings for the devices. See Input Devices for more details.
+     * Settings for the devices. See `inputDevices` Block for more details.
      */
     declare public readonly inputDevices: pulumi.Output<outputs.medialive.InputInputDevice[]>;
     /**
-     * A list of IDs for all Inputs which are partners of this one.
+     * IDs for all Inputs which are partners of this one.
      */
     declare public /*out*/ readonly inputPartnerIds: pulumi.Output<string[]>;
     /**
@@ -116,7 +116,7 @@ export class Input extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly inputSourceType: pulumi.Output<string>;
     /**
-     * A list of the MediaConnect Flows. See Media Connect Flows for more details.
+     * MediaConnect Flows. See `mediaConnectFlows` Block for more details.
      */
     declare public readonly mediaConnectFlows: pulumi.Output<outputs.medialive.InputMediaConnectFlow[]>;
     /**
@@ -128,26 +128,26 @@ export class Input extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The ARN of the role this input assumes during and after creation.
+     * ARN of the role this input assumes during and after creation.
      */
     declare public readonly roleArn: pulumi.Output<string>;
     /**
-     * The source URLs for a PULL-type input. See Sources for more details.
+     * Source URLs for a PULL-type input. See `sources` Block for more details.
      */
     declare public readonly sources: pulumi.Output<outputs.medialive.InputSource[]>;
     /**
-     * A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The different types of inputs that AWS Elemental MediaLive supports.
+     * Type of input that AWS Elemental MediaLive supports.
      *
      * The following arguments are optional:
      */
     declare public readonly type: pulumi.Output<string>;
     /**
-     * Settings for a private VPC Input. See VPC for more details.
+     * Settings for a private VPC Input. See `vpc` Block for more details.
      */
     declare public readonly vpc: pulumi.Output<outputs.medialive.InputVpc | undefined>;
 
@@ -222,19 +222,19 @@ export interface InputState {
      */
     attachedChannels?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Destination settings for PUSH type inputs. See Destinations for more details.
+     * Destination settings for PUSH type inputs. See `destinations` Block for more details.
      */
     destinations?: pulumi.Input<pulumi.Input<inputs.medialive.InputDestination>[] | undefined>;
     /**
-     * The input class.
+     * Input class.
      */
     inputClass?: pulumi.Input<string | undefined>;
     /**
-     * Settings for the devices. See Input Devices for more details.
+     * Settings for the devices. See `inputDevices` Block for more details.
      */
     inputDevices?: pulumi.Input<pulumi.Input<inputs.medialive.InputInputDevice>[] | undefined>;
     /**
-     * A list of IDs for all Inputs which are partners of this one.
+     * IDs for all Inputs which are partners of this one.
      */
     inputPartnerIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -246,7 +246,7 @@ export interface InputState {
      */
     inputSourceType?: pulumi.Input<string | undefined>;
     /**
-     * A list of the MediaConnect Flows. See Media Connect Flows for more details.
+     * MediaConnect Flows. See `mediaConnectFlows` Block for more details.
      */
     mediaConnectFlows?: pulumi.Input<pulumi.Input<inputs.medialive.InputMediaConnectFlow>[] | undefined>;
     /**
@@ -258,26 +258,26 @@ export interface InputState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the role this input assumes during and after creation.
+     * ARN of the role this input assumes during and after creation.
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**
-     * The source URLs for a PULL-type input. See Sources for more details.
+     * Source URLs for a PULL-type input. See `sources` Block for more details.
      */
     sources?: pulumi.Input<pulumi.Input<inputs.medialive.InputSource>[] | undefined>;
     /**
-     * A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The different types of inputs that AWS Elemental MediaLive supports.
+     * Type of input that AWS Elemental MediaLive supports.
      *
      * The following arguments are optional:
      */
     type?: pulumi.Input<string | undefined>;
     /**
-     * Settings for a private VPC Input. See VPC for more details.
+     * Settings for a private VPC Input. See `vpc` Block for more details.
      */
     vpc?: pulumi.Input<inputs.medialive.InputVpc | undefined>;
 }
@@ -287,11 +287,11 @@ export interface InputState {
  */
 export interface InputArgs {
     /**
-     * Destination settings for PUSH type inputs. See Destinations for more details.
+     * Destination settings for PUSH type inputs. See `destinations` Block for more details.
      */
     destinations?: pulumi.Input<pulumi.Input<inputs.medialive.InputDestination>[] | undefined>;
     /**
-     * Settings for the devices. See Input Devices for more details.
+     * Settings for the devices. See `inputDevices` Block for more details.
      */
     inputDevices?: pulumi.Input<pulumi.Input<inputs.medialive.InputInputDevice>[] | undefined>;
     /**
@@ -299,7 +299,7 @@ export interface InputArgs {
      */
     inputSecurityGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * A list of the MediaConnect Flows. See Media Connect Flows for more details.
+     * MediaConnect Flows. See `mediaConnectFlows` Block for more details.
      */
     mediaConnectFlows?: pulumi.Input<pulumi.Input<inputs.medialive.InputMediaConnectFlow>[] | undefined>;
     /**
@@ -311,25 +311,25 @@ export interface InputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the role this input assumes during and after creation.
+     * ARN of the role this input assumes during and after creation.
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**
-     * The source URLs for a PULL-type input. See Sources for more details.
+     * Source URLs for a PULL-type input. See `sources` Block for more details.
      */
     sources?: pulumi.Input<pulumi.Input<inputs.medialive.InputSource>[] | undefined>;
     /**
-     * A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The different types of inputs that AWS Elemental MediaLive supports.
+     * Type of input that AWS Elemental MediaLive supports.
      *
      * The following arguments are optional:
      */
     type: pulumi.Input<string>;
     /**
-     * Settings for a private VPC Input. See VPC for more details.
+     * Settings for a private VPC Input. See `vpc` Block for more details.
      */
     vpc?: pulumi.Input<inputs.medialive.InputVpc | undefined>;
 }

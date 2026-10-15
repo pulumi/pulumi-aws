@@ -88,7 +88,7 @@ type LookupSecurityProfileArgs struct {
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Returns information on a specific Security Profile by Security Profile id
+	// Returns information on a specific Security Profile by Security Profile ID
 	SecurityProfileId *string `pulumi:"securityProfileId"`
 	// Map of tags to assign to the Security Profile.
 	Tags map[string]string `pulumi:"tags"`
@@ -129,7 +129,7 @@ type LookupSecurityProfileOutputArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Returns information on a specific Security Profile by Security Profile id
+	// Returns information on a specific Security Profile by Security Profile ID
 	SecurityProfileId pulumi.StringPtrInput `pulumi:"securityProfileId"`
 	// Map of tags to assign to the Security Profile.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

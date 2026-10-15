@@ -198,7 +198,7 @@ namespace Pulumi.Aws.GuardDuty
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+        /// Bucket ARN and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
         /// </summary>
         [Output("destinationArn")]
         public Output<string> DestinationArn { get; private set; } = null!;
@@ -216,13 +216,13 @@ namespace Pulumi.Aws.GuardDuty
         public Output<string?> DestinationType { get; private set; } = null!;
 
         /// <summary>
-        /// The detector ID of the GuardDuty.
+        /// Detector ID of the GuardDuty.
         /// </summary>
         [Output("detectorId")]
         public Output<string> DetectorId { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
+        /// ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
         /// </summary>
         [Output("kmsKeyArn")]
         public Output<string> KmsKeyArn { get; private set; } = null!;
@@ -242,7 +242,7 @@ namespace Pulumi.Aws.GuardDuty
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -294,7 +294,7 @@ namespace Pulumi.Aws.GuardDuty
     public sealed class PublishingDestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+        /// Bucket ARN and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
         /// </summary>
         [Input("destinationArn", required: true)]
         public Input<string> DestinationArn { get; set; } = null!;
@@ -306,13 +306,13 @@ namespace Pulumi.Aws.GuardDuty
         public Input<string>? DestinationType { get; set; }
 
         /// <summary>
-        /// The detector ID of the GuardDuty.
+        /// Detector ID of the GuardDuty.
         /// </summary>
         [Input("detectorId", required: true)]
         public Input<string> DetectorId { get; set; } = null!;
 
         /// <summary>
-        /// The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
+        /// ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
         /// </summary>
         [Input("kmsKeyArn", required: true)]
         public Input<string> KmsKeyArn { get; set; } = null!;
@@ -352,7 +352,7 @@ namespace Pulumi.Aws.GuardDuty
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+        /// Bucket ARN and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
         /// </summary>
         [Input("destinationArn")]
         public Input<string>? DestinationArn { get; set; }
@@ -370,13 +370,13 @@ namespace Pulumi.Aws.GuardDuty
         public Input<string>? DestinationType { get; set; }
 
         /// <summary>
-        /// The detector ID of the GuardDuty.
+        /// Detector ID of the GuardDuty.
         /// </summary>
         [Input("detectorId")]
         public Input<string>? DetectorId { get; set; }
 
         /// <summary>
-        /// The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
+        /// ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
@@ -405,7 +405,7 @@ namespace Pulumi.Aws.GuardDuty
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

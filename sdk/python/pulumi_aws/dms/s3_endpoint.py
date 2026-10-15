@@ -77,19 +77,19 @@ class S3EndpointArgs:
         :param pulumi.Input[_builtins.str] service_access_role_arn: ARN of the IAM role with permissions to the S3 Bucket.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] add_column_name: Whether to add column name information to the .csv output file. Default is `false`.
+        :param pulumi.Input[_builtins.bool] add_column_name: Whether to add column name information to the `.csv` output file. Default is `false`.
         :param pulumi.Input[_builtins.bool] add_trailing_padding_character: Whether to add padding. Default is `false`. (Ignored for source endpoints.)
         :param pulumi.Input[_builtins.str] bucket_folder: S3 object prefix.
         :param pulumi.Input[_builtins.str] canned_acl_for_objects: Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
-        :param pulumi.Input[_builtins.bool] cdc_inserts_and_updates: Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
-        :param pulumi.Input[_builtins.bool] cdc_inserts_only: Whether to write insert operations to .csv or .parquet output files. Default is `false`.
+        :param pulumi.Input[_builtins.bool] cdc_inserts_and_updates: Whether to write insert and update operations to `.csv` or .parquet output files. Default is `false`.
+        :param pulumi.Input[_builtins.bool] cdc_inserts_only: Whether to write insert operations to `.csv` or .parquet output files. Default is `false`.
         :param pulumi.Input[_builtins.int] cdc_max_batch_interval: Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. (AWS default is `60`.)
         :param pulumi.Input[_builtins.int] cdc_min_file_size: Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
         :param pulumi.Input[_builtins.str] cdc_path: Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
         :param pulumi.Input[_builtins.str] certificate_arn: ARN for the certificate.
         :param pulumi.Input[_builtins.str] compression_type: Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
         :param pulumi.Input[_builtins.str] csv_delimiter: Delimiter used to separate columns in the source files. Default is `,`.
-        :param pulumi.Input[_builtins.str] csv_no_sup_value: Only applies if output files for a CDC load are written in .csv format. If `use_csv_no_sup_value` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `use_csv_no_sup_value`. (Ignored for source endpoints.)
+        :param pulumi.Input[_builtins.str] csv_no_sup_value: Only applies if output files for a CDC load are written in `.csv` format. If `use_csv_no_sup_value` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `use_csv_no_sup_value`. (Ignored for source endpoints.)
         :param pulumi.Input[_builtins.str] csv_null_value: String to as null when writing to the target. (AWS default is `NULL`.)
         :param pulumi.Input[_builtins.str] csv_row_delimiter: Delimiter used to separate rows in the source files. Default is newline (_i.e._, `\\n`).
         :param pulumi.Input[_builtins.str] data_format: Output format for the files that AWS DMS uses to create S3 objects. Valid values are `csv` and `parquet`.  (Ignored for source endpoints -- only `csv` is valid.)
@@ -102,14 +102,14 @@ class S3EndpointArgs:
         :param pulumi.Input[_builtins.int] dict_page_size_limit: Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
         :param pulumi.Input[_builtins.bool] enable_statistics: Whether to enable statistics for Parquet pages and row groups. Default is `true`.
         :param pulumi.Input[_builtins.str] encoding_type: Type of encoding to use. Value values are `rle-dictionary`, `plain`, and `plain-dictionary`. (AWS default is `rle-dictionary`.)
-        :param pulumi.Input[_builtins.str] encryption_mode: Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
+        :param pulumi.Input[_builtins.str] encryption_mode: Server-side encryption mode that you want to encrypt your `.csv` or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Bucket owner to prevent sniping. Value is an AWS account ID.
         :param pulumi.Input[_builtins.str] external_table_definition: JSON document that describes how AWS DMS should interpret the data. Required for `source` endpoints.
         :param pulumi.Input[_builtins.bool] glue_catalog_generation: Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
-        :param pulumi.Input[_builtins.int] ignore_header_rows: When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
-        :param pulumi.Input[_builtins.bool] include_op_for_full_load: Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
+        :param pulumi.Input[_builtins.int] ignore_header_rows: When this value is set to `1`, DMS ignores the first row header in a `.csv` file. (AWS default is `0`.)
+        :param pulumi.Input[_builtins.bool] include_op_for_full_load: Whether to enable a full load to write INSERT operations to the `.csv` output files only to indicate how the rows were added to the source database. Default is `false`.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
-        :param pulumi.Input[_builtins.int] max_file_size: Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
+        :param pulumi.Input[_builtins.int] max_file_size: Maximum size (in KB) of any `.csv` file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
         :param pulumi.Input[_builtins.bool] parquet_timestamp_in_millisecond: Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
         :param pulumi.Input[_builtins.str] parquet_version: Version of the .parquet file format. Valid values are `parquet-1-0` and `parquet-2-0`. (AWS default is `parquet-1-0`.) (Ignored for source endpoints.)
         :param pulumi.Input[_builtins.bool] preserve_transactions: Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`. (Ignored for source endpoints.)
@@ -275,7 +275,7 @@ class S3EndpointArgs:
     @pulumi.getter(name="addColumnName")
     def add_column_name(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether to add column name information to the .csv output file. Default is `false`.
+        Whether to add column name information to the `.csv` output file. Default is `false`.
         """
         return pulumi.get(self, "add_column_name")
 
@@ -323,7 +323,7 @@ class S3EndpointArgs:
     @pulumi.getter(name="cdcInsertsAndUpdates")
     def cdc_inserts_and_updates(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
+        Whether to write insert and update operations to `.csv` or .parquet output files. Default is `false`.
         """
         return pulumi.get(self, "cdc_inserts_and_updates")
 
@@ -335,7 +335,7 @@ class S3EndpointArgs:
     @pulumi.getter(name="cdcInsertsOnly")
     def cdc_inserts_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether to write insert operations to .csv or .parquet output files. Default is `false`.
+        Whether to write insert operations to `.csv` or .parquet output files. Default is `false`.
         """
         return pulumi.get(self, "cdc_inserts_only")
 
@@ -419,7 +419,7 @@ class S3EndpointArgs:
     @pulumi.getter(name="csvNoSupValue")
     def csv_no_sup_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Only applies if output files for a CDC load are written in .csv format. If `use_csv_no_sup_value` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `use_csv_no_sup_value`. (Ignored for source endpoints.)
+        Only applies if output files for a CDC load are written in `.csv` format. If `use_csv_no_sup_value` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `use_csv_no_sup_value`. (Ignored for source endpoints.)
         """
         return pulumi.get(self, "csv_no_sup_value")
 
@@ -575,7 +575,7 @@ class S3EndpointArgs:
     @pulumi.getter(name="encryptionMode")
     def encryption_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
+        Server-side encryption mode that you want to encrypt your `.csv` or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
         """
         return pulumi.get(self, "encryption_mode")
 
@@ -623,7 +623,7 @@ class S3EndpointArgs:
     @pulumi.getter(name="ignoreHeaderRows")
     def ignore_header_rows(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
+        When this value is set to `1`, DMS ignores the first row header in a `.csv` file. (AWS default is `0`.)
         """
         return pulumi.get(self, "ignore_header_rows")
 
@@ -635,7 +635,7 @@ class S3EndpointArgs:
     @pulumi.getter(name="includeOpForFullLoad")
     def include_op_for_full_load(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
+        Whether to enable a full load to write INSERT operations to the `.csv` output files only to indicate how the rows were added to the source database. Default is `false`.
         """
         return pulumi.get(self, "include_op_for_full_load")
 
@@ -660,7 +660,7 @@ class S3EndpointArgs:
     @pulumi.getter(name="maxFileSize")
     def max_file_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
+        Maximum size (in KB) of any `.csv` file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
         """
         return pulumi.get(self, "max_file_size")
 
@@ -873,20 +873,20 @@ class _S3EndpointState:
         """
         Input properties used for looking up and filtering S3Endpoint resources.
 
-        :param pulumi.Input[_builtins.bool] add_column_name: Whether to add column name information to the .csv output file. Default is `false`.
+        :param pulumi.Input[_builtins.bool] add_column_name: Whether to add column name information to the `.csv` output file. Default is `false`.
         :param pulumi.Input[_builtins.bool] add_trailing_padding_character: Whether to add padding. Default is `false`. (Ignored for source endpoints.)
         :param pulumi.Input[_builtins.str] bucket_folder: S3 object prefix.
         :param pulumi.Input[_builtins.str] bucket_name: S3 bucket name.
         :param pulumi.Input[_builtins.str] canned_acl_for_objects: Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
-        :param pulumi.Input[_builtins.bool] cdc_inserts_and_updates: Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
-        :param pulumi.Input[_builtins.bool] cdc_inserts_only: Whether to write insert operations to .csv or .parquet output files. Default is `false`.
+        :param pulumi.Input[_builtins.bool] cdc_inserts_and_updates: Whether to write insert and update operations to `.csv` or .parquet output files. Default is `false`.
+        :param pulumi.Input[_builtins.bool] cdc_inserts_only: Whether to write insert operations to `.csv` or .parquet output files. Default is `false`.
         :param pulumi.Input[_builtins.int] cdc_max_batch_interval: Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. (AWS default is `60`.)
         :param pulumi.Input[_builtins.int] cdc_min_file_size: Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
         :param pulumi.Input[_builtins.str] cdc_path: Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
         :param pulumi.Input[_builtins.str] certificate_arn: ARN for the certificate.
         :param pulumi.Input[_builtins.str] compression_type: Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
         :param pulumi.Input[_builtins.str] csv_delimiter: Delimiter used to separate columns in the source files. Default is `,`.
-        :param pulumi.Input[_builtins.str] csv_no_sup_value: Only applies if output files for a CDC load are written in .csv format. If `use_csv_no_sup_value` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `use_csv_no_sup_value`. (Ignored for source endpoints.)
+        :param pulumi.Input[_builtins.str] csv_no_sup_value: Only applies if output files for a CDC load are written in `.csv` format. If `use_csv_no_sup_value` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `use_csv_no_sup_value`. (Ignored for source endpoints.)
         :param pulumi.Input[_builtins.str] csv_null_value: String to as null when writing to the target. (AWS default is `NULL`.)
         :param pulumi.Input[_builtins.str] csv_row_delimiter: Delimiter used to separate rows in the source files. Default is newline (_i.e._, `\\n`).
         :param pulumi.Input[_builtins.str] data_format: Output format for the files that AWS DMS uses to create S3 objects. Valid values are `csv` and `parquet`.  (Ignored for source endpoints -- only `csv` is valid.)
@@ -899,7 +899,7 @@ class _S3EndpointState:
         :param pulumi.Input[_builtins.int] dict_page_size_limit: Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
         :param pulumi.Input[_builtins.bool] enable_statistics: Whether to enable statistics for Parquet pages and row groups. Default is `true`.
         :param pulumi.Input[_builtins.str] encoding_type: Type of encoding to use. Value values are `rle-dictionary`, `plain`, and `plain-dictionary`. (AWS default is `rle-dictionary`.)
-        :param pulumi.Input[_builtins.str] encryption_mode: Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
+        :param pulumi.Input[_builtins.str] encryption_mode: Server-side encryption mode that you want to encrypt your `.csv` or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
         :param pulumi.Input[_builtins.str] endpoint_arn: ARN for the endpoint.
         :param pulumi.Input[_builtins.str] endpoint_id: Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
         :param pulumi.Input[_builtins.str] endpoint_type: Type of endpoint. Valid values are `source`, `target`.
@@ -908,10 +908,10 @@ class _S3EndpointState:
         :param pulumi.Input[_builtins.str] external_id: Can be used for cross-account validation. Use it in another account with `dms.S3Endpoint` to create the endpoint cross-account.
         :param pulumi.Input[_builtins.str] external_table_definition: JSON document that describes how AWS DMS should interpret the data. Required for `source` endpoints.
         :param pulumi.Input[_builtins.bool] glue_catalog_generation: Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
-        :param pulumi.Input[_builtins.int] ignore_header_rows: When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
-        :param pulumi.Input[_builtins.bool] include_op_for_full_load: Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
+        :param pulumi.Input[_builtins.int] ignore_header_rows: When this value is set to `1`, DMS ignores the first row header in a `.csv` file. (AWS default is `0`.)
+        :param pulumi.Input[_builtins.bool] include_op_for_full_load: Whether to enable a full load to write INSERT operations to the `.csv` output files only to indicate how the rows were added to the source database. Default is `false`.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
-        :param pulumi.Input[_builtins.int] max_file_size: Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
+        :param pulumi.Input[_builtins.int] max_file_size: Maximum size (in KB) of any `.csv` file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
         :param pulumi.Input[_builtins.bool] parquet_timestamp_in_millisecond: Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
         :param pulumi.Input[_builtins.str] parquet_version: Version of the .parquet file format. Valid values are `parquet-1-0` and `parquet-2-0`. (AWS default is `parquet-1-0`.) (Ignored for source endpoints.)
         :param pulumi.Input[_builtins.bool] preserve_transactions: Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`. (Ignored for source endpoints.)
@@ -1046,7 +1046,7 @@ class _S3EndpointState:
     @pulumi.getter(name="addColumnName")
     def add_column_name(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether to add column name information to the .csv output file. Default is `false`.
+        Whether to add column name information to the `.csv` output file. Default is `false`.
         """
         return pulumi.get(self, "add_column_name")
 
@@ -1106,7 +1106,7 @@ class _S3EndpointState:
     @pulumi.getter(name="cdcInsertsAndUpdates")
     def cdc_inserts_and_updates(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
+        Whether to write insert and update operations to `.csv` or .parquet output files. Default is `false`.
         """
         return pulumi.get(self, "cdc_inserts_and_updates")
 
@@ -1118,7 +1118,7 @@ class _S3EndpointState:
     @pulumi.getter(name="cdcInsertsOnly")
     def cdc_inserts_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether to write insert operations to .csv or .parquet output files. Default is `false`.
+        Whether to write insert operations to `.csv` or .parquet output files. Default is `false`.
         """
         return pulumi.get(self, "cdc_inserts_only")
 
@@ -1202,7 +1202,7 @@ class _S3EndpointState:
     @pulumi.getter(name="csvNoSupValue")
     def csv_no_sup_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Only applies if output files for a CDC load are written in .csv format. If `use_csv_no_sup_value` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `use_csv_no_sup_value`. (Ignored for source endpoints.)
+        Only applies if output files for a CDC load are written in `.csv` format. If `use_csv_no_sup_value` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `use_csv_no_sup_value`. (Ignored for source endpoints.)
         """
         return pulumi.get(self, "csv_no_sup_value")
 
@@ -1358,7 +1358,7 @@ class _S3EndpointState:
     @pulumi.getter(name="encryptionMode")
     def encryption_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
+        Server-side encryption mode that you want to encrypt your `.csv` or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
         """
         return pulumi.get(self, "encryption_mode")
 
@@ -1466,7 +1466,7 @@ class _S3EndpointState:
     @pulumi.getter(name="ignoreHeaderRows")
     def ignore_header_rows(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
+        When this value is set to `1`, DMS ignores the first row header in a `.csv` file. (AWS default is `0`.)
         """
         return pulumi.get(self, "ignore_header_rows")
 
@@ -1478,7 +1478,7 @@ class _S3EndpointState:
     @pulumi.getter(name="includeOpForFullLoad")
     def include_op_for_full_load(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
+        Whether to enable a full load to write INSERT operations to the `.csv` output files only to indicate how the rows were added to the source database. Default is `false`.
         """
         return pulumi.get(self, "include_op_for_full_load")
 
@@ -1503,7 +1503,7 @@ class _S3EndpointState:
     @pulumi.getter(name="maxFileSize")
     def max_file_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
+        Maximum size (in KB) of any `.csv` file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
         """
         return pulumi.get(self, "max_file_size")
 
@@ -1845,20 +1845,20 @@ class S3Endpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] add_column_name: Whether to add column name information to the .csv output file. Default is `false`.
+        :param pulumi.Input[_builtins.bool] add_column_name: Whether to add column name information to the `.csv` output file. Default is `false`.
         :param pulumi.Input[_builtins.bool] add_trailing_padding_character: Whether to add padding. Default is `false`. (Ignored for source endpoints.)
         :param pulumi.Input[_builtins.str] bucket_folder: S3 object prefix.
         :param pulumi.Input[_builtins.str] bucket_name: S3 bucket name.
         :param pulumi.Input[_builtins.str] canned_acl_for_objects: Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
-        :param pulumi.Input[_builtins.bool] cdc_inserts_and_updates: Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
-        :param pulumi.Input[_builtins.bool] cdc_inserts_only: Whether to write insert operations to .csv or .parquet output files. Default is `false`.
+        :param pulumi.Input[_builtins.bool] cdc_inserts_and_updates: Whether to write insert and update operations to `.csv` or .parquet output files. Default is `false`.
+        :param pulumi.Input[_builtins.bool] cdc_inserts_only: Whether to write insert operations to `.csv` or .parquet output files. Default is `false`.
         :param pulumi.Input[_builtins.int] cdc_max_batch_interval: Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. (AWS default is `60`.)
         :param pulumi.Input[_builtins.int] cdc_min_file_size: Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
         :param pulumi.Input[_builtins.str] cdc_path: Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
         :param pulumi.Input[_builtins.str] certificate_arn: ARN for the certificate.
         :param pulumi.Input[_builtins.str] compression_type: Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
         :param pulumi.Input[_builtins.str] csv_delimiter: Delimiter used to separate columns in the source files. Default is `,`.
-        :param pulumi.Input[_builtins.str] csv_no_sup_value: Only applies if output files for a CDC load are written in .csv format. If `use_csv_no_sup_value` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `use_csv_no_sup_value`. (Ignored for source endpoints.)
+        :param pulumi.Input[_builtins.str] csv_no_sup_value: Only applies if output files for a CDC load are written in `.csv` format. If `use_csv_no_sup_value` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `use_csv_no_sup_value`. (Ignored for source endpoints.)
         :param pulumi.Input[_builtins.str] csv_null_value: String to as null when writing to the target. (AWS default is `NULL`.)
         :param pulumi.Input[_builtins.str] csv_row_delimiter: Delimiter used to separate rows in the source files. Default is newline (_i.e._, `\\n`).
         :param pulumi.Input[_builtins.str] data_format: Output format for the files that AWS DMS uses to create S3 objects. Valid values are `csv` and `parquet`.  (Ignored for source endpoints -- only `csv` is valid.)
@@ -1871,16 +1871,16 @@ class S3Endpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] dict_page_size_limit: Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
         :param pulumi.Input[_builtins.bool] enable_statistics: Whether to enable statistics for Parquet pages and row groups. Default is `true`.
         :param pulumi.Input[_builtins.str] encoding_type: Type of encoding to use. Value values are `rle-dictionary`, `plain`, and `plain-dictionary`. (AWS default is `rle-dictionary`.)
-        :param pulumi.Input[_builtins.str] encryption_mode: Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
+        :param pulumi.Input[_builtins.str] encryption_mode: Server-side encryption mode that you want to encrypt your `.csv` or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
         :param pulumi.Input[_builtins.str] endpoint_id: Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
         :param pulumi.Input[_builtins.str] endpoint_type: Type of endpoint. Valid values are `source`, `target`.
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Bucket owner to prevent sniping. Value is an AWS account ID.
         :param pulumi.Input[_builtins.str] external_table_definition: JSON document that describes how AWS DMS should interpret the data. Required for `source` endpoints.
         :param pulumi.Input[_builtins.bool] glue_catalog_generation: Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
-        :param pulumi.Input[_builtins.int] ignore_header_rows: When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
-        :param pulumi.Input[_builtins.bool] include_op_for_full_load: Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
+        :param pulumi.Input[_builtins.int] ignore_header_rows: When this value is set to `1`, DMS ignores the first row header in a `.csv` file. (AWS default is `0`.)
+        :param pulumi.Input[_builtins.bool] include_op_for_full_load: Whether to enable a full load to write INSERT operations to the `.csv` output files only to indicate how the rows were added to the source database. Default is `false`.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
-        :param pulumi.Input[_builtins.int] max_file_size: Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
+        :param pulumi.Input[_builtins.int] max_file_size: Maximum size (in KB) of any `.csv` file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
         :param pulumi.Input[_builtins.bool] parquet_timestamp_in_millisecond: Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
         :param pulumi.Input[_builtins.str] parquet_version: Version of the .parquet file format. Valid values are `parquet-1-0` and `parquet-2-0`. (AWS default is `parquet-1-0`.) (Ignored for source endpoints.)
         :param pulumi.Input[_builtins.bool] preserve_transactions: Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`. (Ignored for source endpoints.)
@@ -2202,20 +2202,20 @@ class S3Endpoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] add_column_name: Whether to add column name information to the .csv output file. Default is `false`.
+        :param pulumi.Input[_builtins.bool] add_column_name: Whether to add column name information to the `.csv` output file. Default is `false`.
         :param pulumi.Input[_builtins.bool] add_trailing_padding_character: Whether to add padding. Default is `false`. (Ignored for source endpoints.)
         :param pulumi.Input[_builtins.str] bucket_folder: S3 object prefix.
         :param pulumi.Input[_builtins.str] bucket_name: S3 bucket name.
         :param pulumi.Input[_builtins.str] canned_acl_for_objects: Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
-        :param pulumi.Input[_builtins.bool] cdc_inserts_and_updates: Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
-        :param pulumi.Input[_builtins.bool] cdc_inserts_only: Whether to write insert operations to .csv or .parquet output files. Default is `false`.
+        :param pulumi.Input[_builtins.bool] cdc_inserts_and_updates: Whether to write insert and update operations to `.csv` or .parquet output files. Default is `false`.
+        :param pulumi.Input[_builtins.bool] cdc_inserts_only: Whether to write insert operations to `.csv` or .parquet output files. Default is `false`.
         :param pulumi.Input[_builtins.int] cdc_max_batch_interval: Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. (AWS default is `60`.)
         :param pulumi.Input[_builtins.int] cdc_min_file_size: Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
         :param pulumi.Input[_builtins.str] cdc_path: Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
         :param pulumi.Input[_builtins.str] certificate_arn: ARN for the certificate.
         :param pulumi.Input[_builtins.str] compression_type: Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
         :param pulumi.Input[_builtins.str] csv_delimiter: Delimiter used to separate columns in the source files. Default is `,`.
-        :param pulumi.Input[_builtins.str] csv_no_sup_value: Only applies if output files for a CDC load are written in .csv format. If `use_csv_no_sup_value` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `use_csv_no_sup_value`. (Ignored for source endpoints.)
+        :param pulumi.Input[_builtins.str] csv_no_sup_value: Only applies if output files for a CDC load are written in `.csv` format. If `use_csv_no_sup_value` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `use_csv_no_sup_value`. (Ignored for source endpoints.)
         :param pulumi.Input[_builtins.str] csv_null_value: String to as null when writing to the target. (AWS default is `NULL`.)
         :param pulumi.Input[_builtins.str] csv_row_delimiter: Delimiter used to separate rows in the source files. Default is newline (_i.e._, `\\n`).
         :param pulumi.Input[_builtins.str] data_format: Output format for the files that AWS DMS uses to create S3 objects. Valid values are `csv` and `parquet`.  (Ignored for source endpoints -- only `csv` is valid.)
@@ -2228,7 +2228,7 @@ class S3Endpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] dict_page_size_limit: Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
         :param pulumi.Input[_builtins.bool] enable_statistics: Whether to enable statistics for Parquet pages and row groups. Default is `true`.
         :param pulumi.Input[_builtins.str] encoding_type: Type of encoding to use. Value values are `rle-dictionary`, `plain`, and `plain-dictionary`. (AWS default is `rle-dictionary`.)
-        :param pulumi.Input[_builtins.str] encryption_mode: Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
+        :param pulumi.Input[_builtins.str] encryption_mode: Server-side encryption mode that you want to encrypt your `.csv` or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
         :param pulumi.Input[_builtins.str] endpoint_arn: ARN for the endpoint.
         :param pulumi.Input[_builtins.str] endpoint_id: Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
         :param pulumi.Input[_builtins.str] endpoint_type: Type of endpoint. Valid values are `source`, `target`.
@@ -2237,10 +2237,10 @@ class S3Endpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] external_id: Can be used for cross-account validation. Use it in another account with `dms.S3Endpoint` to create the endpoint cross-account.
         :param pulumi.Input[_builtins.str] external_table_definition: JSON document that describes how AWS DMS should interpret the data. Required for `source` endpoints.
         :param pulumi.Input[_builtins.bool] glue_catalog_generation: Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
-        :param pulumi.Input[_builtins.int] ignore_header_rows: When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
-        :param pulumi.Input[_builtins.bool] include_op_for_full_load: Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
+        :param pulumi.Input[_builtins.int] ignore_header_rows: When this value is set to `1`, DMS ignores the first row header in a `.csv` file. (AWS default is `0`.)
+        :param pulumi.Input[_builtins.bool] include_op_for_full_load: Whether to enable a full load to write INSERT operations to the `.csv` output files only to indicate how the rows were added to the source database. Default is `false`.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
-        :param pulumi.Input[_builtins.int] max_file_size: Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
+        :param pulumi.Input[_builtins.int] max_file_size: Maximum size (in KB) of any `.csv` file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
         :param pulumi.Input[_builtins.bool] parquet_timestamp_in_millisecond: Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
         :param pulumi.Input[_builtins.str] parquet_version: Version of the .parquet file format. Valid values are `parquet-1-0` and `parquet-2-0`. (AWS default is `parquet-1-0`.) (Ignored for source endpoints.)
         :param pulumi.Input[_builtins.bool] preserve_transactions: Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`. (Ignored for source endpoints.)
@@ -2323,7 +2323,7 @@ class S3Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="addColumnName")
     def add_column_name(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Whether to add column name information to the .csv output file. Default is `false`.
+        Whether to add column name information to the `.csv` output file. Default is `false`.
         """
         return pulumi.get(self, "add_column_name")
 
@@ -2363,7 +2363,7 @@ class S3Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="cdcInsertsAndUpdates")
     def cdc_inserts_and_updates(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
+        Whether to write insert and update operations to `.csv` or .parquet output files. Default is `false`.
         """
         return pulumi.get(self, "cdc_inserts_and_updates")
 
@@ -2371,7 +2371,7 @@ class S3Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="cdcInsertsOnly")
     def cdc_inserts_only(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Whether to write insert operations to .csv or .parquet output files. Default is `false`.
+        Whether to write insert operations to `.csv` or .parquet output files. Default is `false`.
         """
         return pulumi.get(self, "cdc_inserts_only")
 
@@ -2427,7 +2427,7 @@ class S3Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="csvNoSupValue")
     def csv_no_sup_value(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Only applies if output files for a CDC load are written in .csv format. If `use_csv_no_sup_value` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `use_csv_no_sup_value`. (Ignored for source endpoints.)
+        Only applies if output files for a CDC load are written in `.csv` format. If `use_csv_no_sup_value` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `use_csv_no_sup_value`. (Ignored for source endpoints.)
         """
         return pulumi.get(self, "csv_no_sup_value")
 
@@ -2531,7 +2531,7 @@ class S3Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="encryptionMode")
     def encryption_mode(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
+        Server-side encryption mode that you want to encrypt your `.csv` or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
         """
         return pulumi.get(self, "encryption_mode")
 
@@ -2603,7 +2603,7 @@ class S3Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="ignoreHeaderRows")
     def ignore_header_rows(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
+        When this value is set to `1`, DMS ignores the first row header in a `.csv` file. (AWS default is `0`.)
         """
         return pulumi.get(self, "ignore_header_rows")
 
@@ -2611,7 +2611,7 @@ class S3Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="includeOpForFullLoad")
     def include_op_for_full_load(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
+        Whether to enable a full load to write INSERT operations to the `.csv` output files only to indicate how the rows were added to the source database. Default is `false`.
         """
         return pulumi.get(self, "include_op_for_full_load")
 
@@ -2628,7 +2628,7 @@ class S3Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="maxFileSize")
     def max_file_size(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
+        Maximum size (in KB) of any `.csv` file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
         """
         return pulumi.get(self, "max_file_size")
 

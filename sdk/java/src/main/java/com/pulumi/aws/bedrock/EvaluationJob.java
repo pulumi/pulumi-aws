@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
 /**
  * Manages an Amazon Bedrock evaluation job. An evaluation job assesses model or knowledge base performance using either automated metrics or human workers.
  * 
- * &gt; Amazon Bedrock does not support permanently deleting an evaluation job. Destroying this resource stops the job (if it is still running) using the [StopEvaluationJob](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_StopEvaluationJob.html) API, then removes it from Terraform state. Set `skipDestroy` to leave the job in its current state instead.
+ * &gt; **Note:** Amazon Bedrock does not support permanently deleting an evaluation job. Destroying this resource stops the job (if it is still running) using the [StopEvaluationJob](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_StopEvaluationJob.html) API, then removes it from Terraform state. Set `skipDestroy` to leave the job in its current state instead.
  * 
  * ## Example Usage
  * 
@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `jobArn` (String) ARN of the evaluation job.
+ * * `jobArn` (String) ARN of the evaluation job.
  * 
  * Using `pulumi import`, import Bedrock Evaluation Job using the `jobArn`. For example:
  * 
@@ -350,9 +350,17 @@ public class EvaluationJob extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

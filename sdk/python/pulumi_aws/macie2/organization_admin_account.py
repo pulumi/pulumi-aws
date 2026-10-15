@@ -24,7 +24,7 @@ class OrganizationAdminAccountArgs:
         """
         The set of arguments for constructing a OrganizationAdminAccount resource.
 
-        :param pulumi.Input[_builtins.str] admin_account_id: The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
+        :param pulumi.Input[_builtins.str] admin_account_id: AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "admin_account_id", admin_account_id)
@@ -35,7 +35,7 @@ class OrganizationAdminAccountArgs:
     @pulumi.getter(name="adminAccountId")
     def admin_account_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
+        AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
         """
         return pulumi.get(self, "admin_account_id")
 
@@ -64,7 +64,7 @@ class _OrganizationAdminAccountState:
         """
         Input properties used for looking up and filtering OrganizationAdminAccount resources.
 
-        :param pulumi.Input[_builtins.str] admin_account_id: The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
+        :param pulumi.Input[_builtins.str] admin_account_id: AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if admin_account_id is not None:
@@ -76,7 +76,7 @@ class _OrganizationAdminAccountState:
     @pulumi.getter(name="adminAccountId")
     def admin_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
+        AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
         """
         return pulumi.get(self, "admin_account_id")
 
@@ -122,7 +122,7 @@ class OrganizationAdminAccount(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `macie2.OrganizationAdminAccount` using the id. For example:
+        Using `pulumi import`, import `macie2.OrganizationAdminAccount` using the ID. For example:
 
         ```sh
         $ pulumi import aws:macie2/organizationAdminAccount:OrganizationAdminAccount example abcd1
@@ -131,7 +131,7 @@ class OrganizationAdminAccount(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] admin_account_id: The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
+        :param pulumi.Input[_builtins.str] admin_account_id: AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -156,7 +156,7 @@ class OrganizationAdminAccount(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `macie2.OrganizationAdminAccount` using the id. For example:
+        Using `pulumi import`, import `macie2.OrganizationAdminAccount` using the ID. For example:
 
         ```sh
         $ pulumi import aws:macie2/organizationAdminAccount:OrganizationAdminAccount example abcd1
@@ -212,7 +212,7 @@ class OrganizationAdminAccount(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] admin_account_id: The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
+        :param pulumi.Input[_builtins.str] admin_account_id: AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -227,7 +227,7 @@ class OrganizationAdminAccount(pulumi.CustomResource):
     @pulumi.getter(name="adminAccountId")
     def admin_account_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
+        AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
         """
         return pulumi.get(self, "admin_account_id")
 

@@ -16,9 +16,9 @@ var _ = internal.GetEnvOrDefault
 type CatalogCatalogProperties struct {
 	// Map of custom key-value pairs for the catalog properties.
 	CustomProperties map[string]string `pulumi:"customProperties"`
-	// Configuration block for data lake access properties. See `dataLakeAccessProperties` below.
+	// Configuration block for data lake access properties. See `dataLakeAccessProperties` Block below.
 	DataLakeAccessProperties *CatalogCatalogPropertiesDataLakeAccessProperties `pulumi:"dataLakeAccessProperties"`
-	// Configuration block for Iceberg optimization properties. See `icebergOptimizationProperties` below.
+	// Configuration block for Iceberg optimization properties. See `icebergOptimizationProperties` Block below.
 	IcebergOptimizationProperties *CatalogCatalogPropertiesIcebergOptimizationProperties `pulumi:"icebergOptimizationProperties"`
 }
 
@@ -36,9 +36,9 @@ type CatalogCatalogPropertiesInput interface {
 type CatalogCatalogPropertiesArgs struct {
 	// Map of custom key-value pairs for the catalog properties.
 	CustomProperties pulumi.StringMapInput `pulumi:"customProperties"`
-	// Configuration block for data lake access properties. See `dataLakeAccessProperties` below.
+	// Configuration block for data lake access properties. See `dataLakeAccessProperties` Block below.
 	DataLakeAccessProperties CatalogCatalogPropertiesDataLakeAccessPropertiesPtrInput `pulumi:"dataLakeAccessProperties"`
-	// Configuration block for Iceberg optimization properties. See `icebergOptimizationProperties` below.
+	// Configuration block for Iceberg optimization properties. See `icebergOptimizationProperties` Block below.
 	IcebergOptimizationProperties CatalogCatalogPropertiesIcebergOptimizationPropertiesPtrInput `pulumi:"icebergOptimizationProperties"`
 }
 
@@ -124,14 +124,14 @@ func (o CatalogCatalogPropertiesOutput) CustomProperties() pulumi.StringMapOutpu
 	return o.ApplyT(func(v CatalogCatalogProperties) map[string]string { return v.CustomProperties }).(pulumi.StringMapOutput)
 }
 
-// Configuration block for data lake access properties. See `dataLakeAccessProperties` below.
+// Configuration block for data lake access properties. See `dataLakeAccessProperties` Block below.
 func (o CatalogCatalogPropertiesOutput) DataLakeAccessProperties() CatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput {
 	return o.ApplyT(func(v CatalogCatalogProperties) *CatalogCatalogPropertiesDataLakeAccessProperties {
 		return v.DataLakeAccessProperties
 	}).(CatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput)
 }
 
-// Configuration block for Iceberg optimization properties. See `icebergOptimizationProperties` below.
+// Configuration block for Iceberg optimization properties. See `icebergOptimizationProperties` Block below.
 func (o CatalogCatalogPropertiesOutput) IcebergOptimizationProperties() CatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutput {
 	return o.ApplyT(func(v CatalogCatalogProperties) *CatalogCatalogPropertiesIcebergOptimizationProperties {
 		return v.IcebergOptimizationProperties
@@ -172,7 +172,7 @@ func (o CatalogCatalogPropertiesPtrOutput) CustomProperties() pulumi.StringMapOu
 	}).(pulumi.StringMapOutput)
 }
 
-// Configuration block for data lake access properties. See `dataLakeAccessProperties` below.
+// Configuration block for data lake access properties. See `dataLakeAccessProperties` Block below.
 func (o CatalogCatalogPropertiesPtrOutput) DataLakeAccessProperties() CatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput {
 	return o.ApplyT(func(v *CatalogCatalogProperties) *CatalogCatalogPropertiesDataLakeAccessProperties {
 		if v == nil {
@@ -182,7 +182,7 @@ func (o CatalogCatalogPropertiesPtrOutput) DataLakeAccessProperties() CatalogCat
 	}).(CatalogCatalogPropertiesDataLakeAccessPropertiesPtrOutput)
 }
 
-// Configuration block for Iceberg optimization properties. See `icebergOptimizationProperties` below.
+// Configuration block for Iceberg optimization properties. See `icebergOptimizationProperties` Block below.
 func (o CatalogCatalogPropertiesPtrOutput) IcebergOptimizationProperties() CatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutput {
 	return o.ApplyT(func(v *CatalogCatalogProperties) *CatalogCatalogPropertiesIcebergOptimizationProperties {
 		if v == nil {
@@ -661,7 +661,7 @@ func (o CatalogCatalogPropertiesIcebergOptimizationPropertiesPtrOutput) RoleArn(
 type CatalogCreateDatabaseDefaultPermission struct {
 	// Permissions that are granted to the principal. Valid values include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`.
 	Permissions []string `pulumi:"permissions"`
-	// Principal who is granted permissions. See `principal` below.
+	// Principal who is granted permissions. See `principal` Block below.
 	Principal *CatalogCreateDatabaseDefaultPermissionPrincipal `pulumi:"principal"`
 }
 
@@ -679,7 +679,7 @@ type CatalogCreateDatabaseDefaultPermissionInput interface {
 type CatalogCreateDatabaseDefaultPermissionArgs struct {
 	// Permissions that are granted to the principal. Valid values include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`.
 	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
-	// Principal who is granted permissions. See `principal` below.
+	// Principal who is granted permissions. See `principal` Block below.
 	Principal CatalogCreateDatabaseDefaultPermissionPrincipalPtrInput `pulumi:"principal"`
 }
 
@@ -739,7 +739,7 @@ func (o CatalogCreateDatabaseDefaultPermissionOutput) Permissions() pulumi.Strin
 	return o.ApplyT(func(v CatalogCreateDatabaseDefaultPermission) []string { return v.Permissions }).(pulumi.StringArrayOutput)
 }
 
-// Principal who is granted permissions. See `principal` below.
+// Principal who is granted permissions. See `principal` Block below.
 func (o CatalogCreateDatabaseDefaultPermissionOutput) Principal() CatalogCreateDatabaseDefaultPermissionPrincipalPtrOutput {
 	return o.ApplyT(func(v CatalogCreateDatabaseDefaultPermission) *CatalogCreateDatabaseDefaultPermissionPrincipal {
 		return v.Principal
@@ -906,7 +906,7 @@ func (o CatalogCreateDatabaseDefaultPermissionPrincipalPtrOutput) DataLakePrinci
 type CatalogCreateTableDefaultPermission struct {
 	// Permissions that are granted to the principal. Valid values include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`.
 	Permissions []string `pulumi:"permissions"`
-	// Principal who is granted permissions. See `principal` below.
+	// Principal who is granted permissions. See `principal` Block below.
 	Principal *CatalogCreateTableDefaultPermissionPrincipal `pulumi:"principal"`
 }
 
@@ -924,7 +924,7 @@ type CatalogCreateTableDefaultPermissionInput interface {
 type CatalogCreateTableDefaultPermissionArgs struct {
 	// Permissions that are granted to the principal. Valid values include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`.
 	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
-	// Principal who is granted permissions. See `principal` below.
+	// Principal who is granted permissions. See `principal` Block below.
 	Principal CatalogCreateTableDefaultPermissionPrincipalPtrInput `pulumi:"principal"`
 }
 
@@ -984,7 +984,7 @@ func (o CatalogCreateTableDefaultPermissionOutput) Permissions() pulumi.StringAr
 	return o.ApplyT(func(v CatalogCreateTableDefaultPermission) []string { return v.Permissions }).(pulumi.StringArrayOutput)
 }
 
-// Principal who is granted permissions. See `principal` below.
+// Principal who is granted permissions. See `principal` Block below.
 func (o CatalogCreateTableDefaultPermissionOutput) Principal() CatalogCreateTableDefaultPermissionPrincipalPtrOutput {
 	return o.ApplyT(func(v CatalogCreateTableDefaultPermission) *CatalogCreateTableDefaultPermissionPrincipal {
 		return v.Principal
@@ -1149,9 +1149,9 @@ func (o CatalogCreateTableDefaultPermissionPrincipalPtrOutput) DataLakePrincipal
 }
 
 type CatalogDatabaseCreateTableDefaultPermission struct {
-	// The permissions that are granted to the principal.
+	// Permissions that are granted to the principal.
 	Permissions []string `pulumi:"permissions"`
-	// The principal who is granted permissions.. See `principal` below.
+	// Principal who is granted permissions.. See `principal` Block below.
 	Principal *CatalogDatabaseCreateTableDefaultPermissionPrincipal `pulumi:"principal"`
 }
 
@@ -1167,9 +1167,9 @@ type CatalogDatabaseCreateTableDefaultPermissionInput interface {
 }
 
 type CatalogDatabaseCreateTableDefaultPermissionArgs struct {
-	// The permissions that are granted to the principal.
+	// Permissions that are granted to the principal.
 	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
-	// The principal who is granted permissions.. See `principal` below.
+	// Principal who is granted permissions.. See `principal` Block below.
 	Principal CatalogDatabaseCreateTableDefaultPermissionPrincipalPtrInput `pulumi:"principal"`
 }
 
@@ -1224,12 +1224,12 @@ func (o CatalogDatabaseCreateTableDefaultPermissionOutput) ToCatalogDatabaseCrea
 	return o
 }
 
-// The permissions that are granted to the principal.
+// Permissions that are granted to the principal.
 func (o CatalogDatabaseCreateTableDefaultPermissionOutput) Permissions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CatalogDatabaseCreateTableDefaultPermission) []string { return v.Permissions }).(pulumi.StringArrayOutput)
 }
 
-// The principal who is granted permissions.. See `principal` below.
+// Principal who is granted permissions.. See `principal` Block below.
 func (o CatalogDatabaseCreateTableDefaultPermissionOutput) Principal() CatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutput {
 	return o.ApplyT(func(v CatalogDatabaseCreateTableDefaultPermission) *CatalogDatabaseCreateTableDefaultPermissionPrincipal {
 		return v.Principal
@@ -1257,7 +1257,7 @@ func (o CatalogDatabaseCreateTableDefaultPermissionArrayOutput) Index(i pulumi.I
 }
 
 type CatalogDatabaseCreateTableDefaultPermissionPrincipal struct {
-	// An identifier for the Lake Formation principal.
+	// Identifier for the Lake Formation principal.
 	DataLakePrincipalIdentifier *string `pulumi:"dataLakePrincipalIdentifier"`
 }
 
@@ -1273,7 +1273,7 @@ type CatalogDatabaseCreateTableDefaultPermissionPrincipalInput interface {
 }
 
 type CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs struct {
-	// An identifier for the Lake Formation principal.
+	// Identifier for the Lake Formation principal.
 	DataLakePrincipalIdentifier pulumi.StringPtrInput `pulumi:"dataLakePrincipalIdentifier"`
 }
 
@@ -1354,7 +1354,7 @@ func (o CatalogDatabaseCreateTableDefaultPermissionPrincipalOutput) ToCatalogDat
 	}).(CatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutput)
 }
 
-// An identifier for the Lake Formation principal.
+// Identifier for the Lake Formation principal.
 func (o CatalogDatabaseCreateTableDefaultPermissionPrincipalOutput) DataLakePrincipalIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CatalogDatabaseCreateTableDefaultPermissionPrincipal) *string {
 		return v.DataLakePrincipalIdentifier
@@ -1385,7 +1385,7 @@ func (o CatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutput) Elem() Ca
 	}).(CatalogDatabaseCreateTableDefaultPermissionPrincipalOutput)
 }
 
-// An identifier for the Lake Formation principal.
+// Identifier for the Lake Formation principal.
 func (o CatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutput) DataLakePrincipalIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogDatabaseCreateTableDefaultPermissionPrincipal) *string {
 		if v == nil {
@@ -2932,7 +2932,6 @@ type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField st
 	// Documentation or description text that provides additional context about the purpose and usage of this field. Length between 0 and 255 characters.
 	Doc *string `pulumi:"doc"`
 	// Catalog ID, database name, and table name, separated by colons (`:`).
-	// * `partition_index[*].index_status` - Status of the partition index.
 	Id int `pulumi:"id"`
 	// Default value as JSON used to populate the field's value for all records that were written before the field was added to the schema.
 	InitialDefault *string `pulumi:"initialDefault"`
@@ -2962,7 +2961,6 @@ type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArg
 	// Documentation or description text that provides additional context about the purpose and usage of this field. Length between 0 and 255 characters.
 	Doc pulumi.StringPtrInput `pulumi:"doc"`
 	// Catalog ID, database name, and table name, separated by colons (`:`).
-	// * `partition_index[*].index_status` - Status of the partition index.
 	Id pulumi.IntInput `pulumi:"id"`
 	// Default value as JSON used to populate the field's value for all records that were written before the field was added to the schema.
 	InitialDefault pulumi.StringPtrInput `pulumi:"initialDefault"`
@@ -3034,7 +3032,6 @@ func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField
 }
 
 // Catalog ID, database name, and table name, separated by colons (`:`).
-// * `partition_index[*].index_status` - Status of the partition index.
 func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField) int { return v.Id }).(pulumi.IntOutput)
 }
@@ -3376,15 +3373,15 @@ func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFi
 }
 
 type CatalogTableOptimizerConfiguration struct {
-	// The configuration block for a compaction optimizer. See Compaction Configuration for additional details.
+	// Configuration block for a compaction optimizer. See `compactionConfiguration` Block for additional details.
 	CompactionConfiguration *CatalogTableOptimizerConfigurationCompactionConfiguration `pulumi:"compactionConfiguration"`
-	// Indicates whether the table optimizer is enabled.
+	// Whether the table optimizer is enabled.
 	Enabled bool `pulumi:"enabled"`
-	// The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
+	// Configuration block for an orphan file deletion optimizer. See `orphanFileDeletionConfiguration` Block for additional details.
 	OrphanFileDeletionConfiguration *CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration `pulumi:"orphanFileDeletionConfiguration"`
-	// The configuration block for a snapshot retention optimizer. See Retention Configuration for additional details.
+	// Configuration block for a snapshot retention optimizer. See `retentionConfiguration` Block for additional details.
 	RetentionConfiguration *CatalogTableOptimizerConfigurationRetentionConfiguration `pulumi:"retentionConfiguration"`
-	// The ARN of the IAM role to use for the table optimizer.
+	// ARN of the IAM role to use for the table optimizer.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -3400,15 +3397,15 @@ type CatalogTableOptimizerConfigurationInput interface {
 }
 
 type CatalogTableOptimizerConfigurationArgs struct {
-	// The configuration block for a compaction optimizer. See Compaction Configuration for additional details.
+	// Configuration block for a compaction optimizer. See `compactionConfiguration` Block for additional details.
 	CompactionConfiguration CatalogTableOptimizerConfigurationCompactionConfigurationPtrInput `pulumi:"compactionConfiguration"`
-	// Indicates whether the table optimizer is enabled.
+	// Whether the table optimizer is enabled.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
+	// Configuration block for an orphan file deletion optimizer. See `orphanFileDeletionConfiguration` Block for additional details.
 	OrphanFileDeletionConfiguration CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrInput `pulumi:"orphanFileDeletionConfiguration"`
-	// The configuration block for a snapshot retention optimizer. See Retention Configuration for additional details.
+	// Configuration block for a snapshot retention optimizer. See `retentionConfiguration` Block for additional details.
 	RetentionConfiguration CatalogTableOptimizerConfigurationRetentionConfigurationPtrInput `pulumi:"retentionConfiguration"`
-	// The ARN of the IAM role to use for the table optimizer.
+	// ARN of the IAM role to use for the table optimizer.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -3489,33 +3486,33 @@ func (o CatalogTableOptimizerConfigurationOutput) ToCatalogTableOptimizerConfigu
 	}).(CatalogTableOptimizerConfigurationPtrOutput)
 }
 
-// The configuration block for a compaction optimizer. See Compaction Configuration for additional details.
+// Configuration block for a compaction optimizer. See `compactionConfiguration` Block for additional details.
 func (o CatalogTableOptimizerConfigurationOutput) CompactionConfiguration() CatalogTableOptimizerConfigurationCompactionConfigurationPtrOutput {
 	return o.ApplyT(func(v CatalogTableOptimizerConfiguration) *CatalogTableOptimizerConfigurationCompactionConfiguration {
 		return v.CompactionConfiguration
 	}).(CatalogTableOptimizerConfigurationCompactionConfigurationPtrOutput)
 }
 
-// Indicates whether the table optimizer is enabled.
+// Whether the table optimizer is enabled.
 func (o CatalogTableOptimizerConfigurationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v CatalogTableOptimizerConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
+// Configuration block for an orphan file deletion optimizer. See `orphanFileDeletionConfiguration` Block for additional details.
 func (o CatalogTableOptimizerConfigurationOutput) OrphanFileDeletionConfiguration() CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutput {
 	return o.ApplyT(func(v CatalogTableOptimizerConfiguration) *CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration {
 		return v.OrphanFileDeletionConfiguration
 	}).(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutput)
 }
 
-// The configuration block for a snapshot retention optimizer. See Retention Configuration for additional details.
+// Configuration block for a snapshot retention optimizer. See `retentionConfiguration` Block for additional details.
 func (o CatalogTableOptimizerConfigurationOutput) RetentionConfiguration() CatalogTableOptimizerConfigurationRetentionConfigurationPtrOutput {
 	return o.ApplyT(func(v CatalogTableOptimizerConfiguration) *CatalogTableOptimizerConfigurationRetentionConfiguration {
 		return v.RetentionConfiguration
 	}).(CatalogTableOptimizerConfigurationRetentionConfigurationPtrOutput)
 }
 
-// The ARN of the IAM role to use for the table optimizer.
+// ARN of the IAM role to use for the table optimizer.
 func (o CatalogTableOptimizerConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v CatalogTableOptimizerConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -3544,7 +3541,7 @@ func (o CatalogTableOptimizerConfigurationPtrOutput) Elem() CatalogTableOptimize
 	}).(CatalogTableOptimizerConfigurationOutput)
 }
 
-// The configuration block for a compaction optimizer. See Compaction Configuration for additional details.
+// Configuration block for a compaction optimizer. See `compactionConfiguration` Block for additional details.
 func (o CatalogTableOptimizerConfigurationPtrOutput) CompactionConfiguration() CatalogTableOptimizerConfigurationCompactionConfigurationPtrOutput {
 	return o.ApplyT(func(v *CatalogTableOptimizerConfiguration) *CatalogTableOptimizerConfigurationCompactionConfiguration {
 		if v == nil {
@@ -3554,7 +3551,7 @@ func (o CatalogTableOptimizerConfigurationPtrOutput) CompactionConfiguration() C
 	}).(CatalogTableOptimizerConfigurationCompactionConfigurationPtrOutput)
 }
 
-// Indicates whether the table optimizer is enabled.
+// Whether the table optimizer is enabled.
 func (o CatalogTableOptimizerConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CatalogTableOptimizerConfiguration) *bool {
 		if v == nil {
@@ -3564,7 +3561,7 @@ func (o CatalogTableOptimizerConfigurationPtrOutput) Enabled() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
+// Configuration block for an orphan file deletion optimizer. See `orphanFileDeletionConfiguration` Block for additional details.
 func (o CatalogTableOptimizerConfigurationPtrOutput) OrphanFileDeletionConfiguration() CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutput {
 	return o.ApplyT(func(v *CatalogTableOptimizerConfiguration) *CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration {
 		if v == nil {
@@ -3574,7 +3571,7 @@ func (o CatalogTableOptimizerConfigurationPtrOutput) OrphanFileDeletionConfigura
 	}).(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutput)
 }
 
-// The configuration block for a snapshot retention optimizer. See Retention Configuration for additional details.
+// Configuration block for a snapshot retention optimizer. See `retentionConfiguration` Block for additional details.
 func (o CatalogTableOptimizerConfigurationPtrOutput) RetentionConfiguration() CatalogTableOptimizerConfigurationRetentionConfigurationPtrOutput {
 	return o.ApplyT(func(v *CatalogTableOptimizerConfiguration) *CatalogTableOptimizerConfigurationRetentionConfiguration {
 		if v == nil {
@@ -3584,7 +3581,7 @@ func (o CatalogTableOptimizerConfigurationPtrOutput) RetentionConfiguration() Ca
 	}).(CatalogTableOptimizerConfigurationRetentionConfigurationPtrOutput)
 }
 
-// The ARN of the IAM role to use for the table optimizer.
+// ARN of the IAM role to use for the table optimizer.
 func (o CatalogTableOptimizerConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogTableOptimizerConfiguration) *string {
 		if v == nil {
@@ -3595,7 +3592,7 @@ func (o CatalogTableOptimizerConfigurationPtrOutput) RoleArn() pulumi.StringPtrO
 }
 
 type CatalogTableOptimizerConfigurationCompactionConfiguration struct {
-	// The configuration for an Iceberg compaction optimizer.
+	// Configuration for an Iceberg compaction optimizer. See `configuration.compaction_configuration.iceberg_configuration` Block for additional details.
 	IcebergConfiguration *CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration `pulumi:"icebergConfiguration"`
 }
 
@@ -3611,7 +3608,7 @@ type CatalogTableOptimizerConfigurationCompactionConfigurationInput interface {
 }
 
 type CatalogTableOptimizerConfigurationCompactionConfigurationArgs struct {
-	// The configuration for an Iceberg compaction optimizer.
+	// Configuration for an Iceberg compaction optimizer. See `configuration.compaction_configuration.iceberg_configuration` Block for additional details.
 	IcebergConfiguration CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrInput `pulumi:"icebergConfiguration"`
 }
 
@@ -3692,7 +3689,7 @@ func (o CatalogTableOptimizerConfigurationCompactionConfigurationOutput) ToCatal
 	}).(CatalogTableOptimizerConfigurationCompactionConfigurationPtrOutput)
 }
 
-// The configuration for an Iceberg compaction optimizer.
+// Configuration for an Iceberg compaction optimizer. See `configuration.compaction_configuration.iceberg_configuration` Block for additional details.
 func (o CatalogTableOptimizerConfigurationCompactionConfigurationOutput) IcebergConfiguration() CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutput {
 	return o.ApplyT(func(v CatalogTableOptimizerConfigurationCompactionConfiguration) *CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration {
 		return v.IcebergConfiguration
@@ -3723,7 +3720,7 @@ func (o CatalogTableOptimizerConfigurationCompactionConfigurationPtrOutput) Elem
 	}).(CatalogTableOptimizerConfigurationCompactionConfigurationOutput)
 }
 
-// The configuration for an Iceberg compaction optimizer.
+// Configuration for an Iceberg compaction optimizer. See `configuration.compaction_configuration.iceberg_configuration` Block for additional details.
 func (o CatalogTableOptimizerConfigurationCompactionConfigurationPtrOutput) IcebergConfiguration() CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutput {
 	return o.ApplyT(func(v *CatalogTableOptimizerConfigurationCompactionConfiguration) *CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration {
 		if v == nil {
@@ -3734,11 +3731,11 @@ func (o CatalogTableOptimizerConfigurationCompactionConfigurationPtrOutput) Iceb
 }
 
 type CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration struct {
-	// The minimum number of deletes that must be present in a data file to make it eligible for compaction. Defaults to `1`.
+	// Minimum number of deletes that must be present in a data file to make it eligible for compaction. Defaults to `1`.
 	DeleteFileThreshold *int `pulumi:"deleteFileThreshold"`
-	// The minimum number of data files that must be present in a partition before compaction will actually compact files. Defaults to `100`.
+	// Minimum number of data files that must be present in a partition before compaction will actually compact files. Defaults to `100`.
 	MinInputFiles *int `pulumi:"minInputFiles"`
-	// The strategy to use for compaction. Valid values are `binpack`, `sort` and `z-order` Defaults to `binpack`.
+	// Strategy to use for compaction. Valid values are `binpack`, `sort` and `z-order` Defaults to `binpack`.
 	Strategy *string `pulumi:"strategy"`
 }
 
@@ -3754,11 +3751,11 @@ type CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurati
 }
 
 type CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationArgs struct {
-	// The minimum number of deletes that must be present in a data file to make it eligible for compaction. Defaults to `1`.
+	// Minimum number of deletes that must be present in a data file to make it eligible for compaction. Defaults to `1`.
 	DeleteFileThreshold pulumi.IntPtrInput `pulumi:"deleteFileThreshold"`
-	// The minimum number of data files that must be present in a partition before compaction will actually compact files. Defaults to `100`.
+	// Minimum number of data files that must be present in a partition before compaction will actually compact files. Defaults to `100`.
 	MinInputFiles pulumi.IntPtrInput `pulumi:"minInputFiles"`
-	// The strategy to use for compaction. Valid values are `binpack`, `sort` and `z-order` Defaults to `binpack`.
+	// Strategy to use for compaction. Valid values are `binpack`, `sort` and `z-order` Defaults to `binpack`.
 	Strategy pulumi.StringPtrInput `pulumi:"strategy"`
 }
 
@@ -3839,21 +3836,21 @@ func (o CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigur
 	}).(CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutput)
 }
 
-// The minimum number of deletes that must be present in a data file to make it eligible for compaction. Defaults to `1`.
+// Minimum number of deletes that must be present in a data file to make it eligible for compaction. Defaults to `1`.
 func (o CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationOutput) DeleteFileThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration) *int {
 		return v.DeleteFileThreshold
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of data files that must be present in a partition before compaction will actually compact files. Defaults to `100`.
+// Minimum number of data files that must be present in a partition before compaction will actually compact files. Defaults to `100`.
 func (o CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationOutput) MinInputFiles() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration) *int {
 		return v.MinInputFiles
 	}).(pulumi.IntPtrOutput)
 }
 
-// The strategy to use for compaction. Valid values are `binpack`, `sort` and `z-order` Defaults to `binpack`.
+// Strategy to use for compaction. Valid values are `binpack`, `sort` and `z-order` Defaults to `binpack`.
 func (o CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationOutput) Strategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration) *string {
 		return v.Strategy
@@ -3884,7 +3881,7 @@ func (o CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigur
 	}).(CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationOutput)
 }
 
-// The minimum number of deletes that must be present in a data file to make it eligible for compaction. Defaults to `1`.
+// Minimum number of deletes that must be present in a data file to make it eligible for compaction. Defaults to `1`.
 func (o CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutput) DeleteFileThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration) *int {
 		if v == nil {
@@ -3894,7 +3891,7 @@ func (o CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigur
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of data files that must be present in a partition before compaction will actually compact files. Defaults to `100`.
+// Minimum number of data files that must be present in a partition before compaction will actually compact files. Defaults to `100`.
 func (o CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutput) MinInputFiles() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration) *int {
 		if v == nil {
@@ -3904,7 +3901,7 @@ func (o CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigur
 	}).(pulumi.IntPtrOutput)
 }
 
-// The strategy to use for compaction. Valid values are `binpack`, `sort` and `z-order` Defaults to `binpack`.
+// Strategy to use for compaction. Valid values are `binpack`, `sort` and `z-order` Defaults to `binpack`.
 func (o CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutput) Strategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration) *string {
 		if v == nil {
@@ -3915,7 +3912,7 @@ func (o CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigur
 }
 
 type CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration struct {
-	// The configuration for an Iceberg orphan file deletion optimizer.
+	// Configuration for an Iceberg orphan file deletion optimizer. See `configuration.orphan_file_deletion_configuration.iceberg_configuration` Block for additional details.
 	IcebergConfiguration *CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration `pulumi:"icebergConfiguration"`
 }
 
@@ -3931,7 +3928,7 @@ type CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationInput inte
 }
 
 type CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs struct {
-	// The configuration for an Iceberg orphan file deletion optimizer.
+	// Configuration for an Iceberg orphan file deletion optimizer. See `configuration.orphan_file_deletion_configuration.iceberg_configuration` Block for additional details.
 	IcebergConfiguration CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrInput `pulumi:"icebergConfiguration"`
 }
 
@@ -4012,7 +4009,7 @@ func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationOutput)
 	}).(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutput)
 }
 
-// The configuration for an Iceberg orphan file deletion optimizer.
+// Configuration for an Iceberg orphan file deletion optimizer. See `configuration.orphan_file_deletion_configuration.iceberg_configuration` Block for additional details.
 func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationOutput) IcebergConfiguration() CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput {
 	return o.ApplyT(func(v CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration) *CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration {
 		return v.IcebergConfiguration
@@ -4043,7 +4040,7 @@ func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutp
 	}).(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationOutput)
 }
 
-// The configuration for an Iceberg orphan file deletion optimizer.
+// Configuration for an Iceberg orphan file deletion optimizer. See `configuration.orphan_file_deletion_configuration.iceberg_configuration` Block for additional details.
 func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutput) IcebergConfiguration() CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput {
 	return o.ApplyT(func(v *CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration) *CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration {
 		if v == nil {
@@ -4054,11 +4051,11 @@ func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutp
 }
 
 type CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration struct {
-	// Specifies a directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table's location.
+	// Directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table's location.
 	Location *string `pulumi:"location"`
-	// The number of days that orphan files should be retained before file deletion. Defaults to `3`.
+	// Number of days that orphan files should be retained before file deletion. Defaults to `3`.
 	OrphanFileRetentionPeriodInDays *int `pulumi:"orphanFileRetentionPeriodInDays"`
-	// interval in hours between orphan file deletion job runs. Defaults to `24`.
+	// Interval in hours between retention job runs. Defaults to `24`.
 	RunRateInHours *int `pulumi:"runRateInHours"`
 }
 
@@ -4074,11 +4071,11 @@ type CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergCon
 }
 
 type CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs struct {
-	// Specifies a directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table's location.
+	// Directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table's location.
 	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The number of days that orphan files should be retained before file deletion. Defaults to `3`.
+	// Number of days that orphan files should be retained before file deletion. Defaults to `3`.
 	OrphanFileRetentionPeriodInDays pulumi.IntPtrInput `pulumi:"orphanFileRetentionPeriodInDays"`
-	// interval in hours between orphan file deletion job runs. Defaults to `24`.
+	// Interval in hours between retention job runs. Defaults to `24`.
 	RunRateInHours pulumi.IntPtrInput `pulumi:"runRateInHours"`
 }
 
@@ -4159,21 +4156,21 @@ func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIceberg
 	}).(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput)
 }
 
-// Specifies a directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table's location.
+// Directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table's location.
 func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration) *string {
 		return v.Location
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of days that orphan files should be retained before file deletion. Defaults to `3`.
+// Number of days that orphan files should be retained before file deletion. Defaults to `3`.
 func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationOutput) OrphanFileRetentionPeriodInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration) *int {
 		return v.OrphanFileRetentionPeriodInDays
 	}).(pulumi.IntPtrOutput)
 }
 
-// interval in hours between orphan file deletion job runs. Defaults to `24`.
+// Interval in hours between retention job runs. Defaults to `24`.
 func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationOutput) RunRateInHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration) *int {
 		return v.RunRateInHours
@@ -4204,7 +4201,7 @@ func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIceberg
 	}).(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationOutput)
 }
 
-// Specifies a directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table's location.
+// Directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table's location.
 func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration) *string {
 		if v == nil {
@@ -4214,7 +4211,7 @@ func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIceberg
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of days that orphan files should be retained before file deletion. Defaults to `3`.
+// Number of days that orphan files should be retained before file deletion. Defaults to `3`.
 func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput) OrphanFileRetentionPeriodInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration) *int {
 		if v == nil {
@@ -4224,7 +4221,7 @@ func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIceberg
 	}).(pulumi.IntPtrOutput)
 }
 
-// interval in hours between orphan file deletion job runs. Defaults to `24`.
+// Interval in hours between retention job runs. Defaults to `24`.
 func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput) RunRateInHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration) *int {
 		if v == nil {
@@ -4235,7 +4232,7 @@ func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIceberg
 }
 
 type CatalogTableOptimizerConfigurationRetentionConfiguration struct {
-	// The configuration for an Iceberg snapshot retention optimizer.
+	// Configuration for an Iceberg snapshot retention optimizer. See `configuration.retention_configuration.iceberg_configuration` Block for additional details.
 	IcebergConfiguration *CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration `pulumi:"icebergConfiguration"`
 }
 
@@ -4251,7 +4248,7 @@ type CatalogTableOptimizerConfigurationRetentionConfigurationInput interface {
 }
 
 type CatalogTableOptimizerConfigurationRetentionConfigurationArgs struct {
-	// The configuration for an Iceberg snapshot retention optimizer.
+	// Configuration for an Iceberg snapshot retention optimizer. See `configuration.retention_configuration.iceberg_configuration` Block for additional details.
 	IcebergConfiguration CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrInput `pulumi:"icebergConfiguration"`
 }
 
@@ -4332,7 +4329,7 @@ func (o CatalogTableOptimizerConfigurationRetentionConfigurationOutput) ToCatalo
 	}).(CatalogTableOptimizerConfigurationRetentionConfigurationPtrOutput)
 }
 
-// The configuration for an Iceberg snapshot retention optimizer.
+// Configuration for an Iceberg snapshot retention optimizer. See `configuration.retention_configuration.iceberg_configuration` Block for additional details.
 func (o CatalogTableOptimizerConfigurationRetentionConfigurationOutput) IcebergConfiguration() CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput {
 	return o.ApplyT(func(v CatalogTableOptimizerConfigurationRetentionConfiguration) *CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration {
 		return v.IcebergConfiguration
@@ -4363,7 +4360,7 @@ func (o CatalogTableOptimizerConfigurationRetentionConfigurationPtrOutput) Elem(
 	}).(CatalogTableOptimizerConfigurationRetentionConfigurationOutput)
 }
 
-// The configuration for an Iceberg snapshot retention optimizer.
+// Configuration for an Iceberg snapshot retention optimizer. See `configuration.retention_configuration.iceberg_configuration` Block for additional details.
 func (o CatalogTableOptimizerConfigurationRetentionConfigurationPtrOutput) IcebergConfiguration() CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput {
 	return o.ApplyT(func(v *CatalogTableOptimizerConfigurationRetentionConfiguration) *CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration {
 		if v == nil {
@@ -4376,11 +4373,11 @@ func (o CatalogTableOptimizerConfigurationRetentionConfigurationPtrOutput) Icebe
 type CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration struct {
 	// If set to `false`, snapshots are only deleted from table metadata, and the underlying data and metadata files are not deleted. Defaults to `false`.
 	CleanExpiredFiles *bool `pulumi:"cleanExpiredFiles"`
-	// The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
+	// Number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
 	NumberOfSnapshotsToRetain *int `pulumi:"numberOfSnapshotsToRetain"`
 	// Interval in hours between retention job runs. Defaults to `24`.
 	RunRateInHours *int `pulumi:"runRateInHours"`
-	// The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
+	// Number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
 	SnapshotRetentionPeriodInDays *int `pulumi:"snapshotRetentionPeriodInDays"`
 }
 
@@ -4398,11 +4395,11 @@ type CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguratio
 type CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs struct {
 	// If set to `false`, snapshots are only deleted from table metadata, and the underlying data and metadata files are not deleted. Defaults to `false`.
 	CleanExpiredFiles pulumi.BoolPtrInput `pulumi:"cleanExpiredFiles"`
-	// The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
+	// Number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
 	NumberOfSnapshotsToRetain pulumi.IntPtrInput `pulumi:"numberOfSnapshotsToRetain"`
 	// Interval in hours between retention job runs. Defaults to `24`.
 	RunRateInHours pulumi.IntPtrInput `pulumi:"runRateInHours"`
-	// The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
+	// Number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
 	SnapshotRetentionPeriodInDays pulumi.IntPtrInput `pulumi:"snapshotRetentionPeriodInDays"`
 }
 
@@ -4490,7 +4487,7 @@ func (o CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigura
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
+// Number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
 func (o CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationOutput) NumberOfSnapshotsToRetain() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration) *int {
 		return v.NumberOfSnapshotsToRetain
@@ -4504,7 +4501,7 @@ func (o CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigura
 	}).(pulumi.IntPtrOutput)
 }
 
-// The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
+// Number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
 func (o CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationOutput) SnapshotRetentionPeriodInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration) *int {
 		return v.SnapshotRetentionPeriodInDays
@@ -4545,7 +4542,7 @@ func (o CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigura
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
+// Number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
 func (o CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput) NumberOfSnapshotsToRetain() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration) *int {
 		if v == nil {
@@ -4565,7 +4562,7 @@ func (o CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigura
 	}).(pulumi.IntPtrOutput)
 }
 
-// The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
+// Number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
 func (o CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput) SnapshotRetentionPeriodInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration) *int {
 		if v == nil {
@@ -4577,7 +4574,8 @@ func (o CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigura
 
 type CatalogTablePartitionIndex struct {
 	// Name of the partition index.
-	IndexName   string  `pulumi:"indexName"`
+	IndexName string `pulumi:"indexName"`
+	// Status of the partition index.
 	IndexStatus *string `pulumi:"indexStatus"`
 	// Keys for the partition index.
 	Keys []string `pulumi:"keys"`
@@ -4596,7 +4594,8 @@ type CatalogTablePartitionIndexInput interface {
 
 type CatalogTablePartitionIndexArgs struct {
 	// Name of the partition index.
-	IndexName   pulumi.StringInput    `pulumi:"indexName"`
+	IndexName pulumi.StringInput `pulumi:"indexName"`
+	// Status of the partition index.
 	IndexStatus pulumi.StringPtrInput `pulumi:"indexStatus"`
 	// Keys for the partition index.
 	Keys pulumi.StringArrayInput `pulumi:"keys"`
@@ -4658,6 +4657,7 @@ func (o CatalogTablePartitionIndexOutput) IndexName() pulumi.StringOutput {
 	return o.ApplyT(func(v CatalogTablePartitionIndex) string { return v.IndexName }).(pulumi.StringOutput)
 }
 
+// Status of the partition index.
 func (o CatalogTablePartitionIndexOutput) IndexStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CatalogTablePartitionIndex) *string { return v.IndexStatus }).(pulumi.StringPtrOutput)
 }
@@ -7064,21 +7064,21 @@ func (o CatalogTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 type ClassifierCsvClassifier struct {
 	// Enables the processing of files that contain only one column.
 	AllowSingleColumn *bool `pulumi:"allowSingleColumn"`
-	// Indicates whether the CSV file contains a header. This can be one of "ABSENT", "PRESENT", or "UNKNOWN".
+	// Whether the CSV file contains a header. This can be one of "ABSENT", "PRESENT", or "UNKNOWN".
 	ContainsHeader *string `pulumi:"containsHeader"`
 	// Enables the custom datatype to be configured.
 	CustomDatatypeConfigured *bool `pulumi:"customDatatypeConfigured"`
-	// A list of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
+	// List of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
 	CustomDatatypes []string `pulumi:"customDatatypes"`
-	// The delimiter used in the CSV to separate columns.
+	// Delimiter used in the CSV to separate columns.
 	Delimiter *string `pulumi:"delimiter"`
-	// Specifies whether to trim column values.
+	// Whether to trim column values.
 	DisableValueTrimming *bool `pulumi:"disableValueTrimming"`
-	// A list of strings representing column names.
+	// List of strings representing column names.
 	Headers []string `pulumi:"headers"`
-	// A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+	// Custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
 	QuoteSymbol *string `pulumi:"quoteSymbol"`
-	// The SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
+	// SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
 	Serde *string `pulumi:"serde"`
 }
 
@@ -7096,21 +7096,21 @@ type ClassifierCsvClassifierInput interface {
 type ClassifierCsvClassifierArgs struct {
 	// Enables the processing of files that contain only one column.
 	AllowSingleColumn pulumi.BoolPtrInput `pulumi:"allowSingleColumn"`
-	// Indicates whether the CSV file contains a header. This can be one of "ABSENT", "PRESENT", or "UNKNOWN".
+	// Whether the CSV file contains a header. This can be one of "ABSENT", "PRESENT", or "UNKNOWN".
 	ContainsHeader pulumi.StringPtrInput `pulumi:"containsHeader"`
 	// Enables the custom datatype to be configured.
 	CustomDatatypeConfigured pulumi.BoolPtrInput `pulumi:"customDatatypeConfigured"`
-	// A list of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
+	// List of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
 	CustomDatatypes pulumi.StringArrayInput `pulumi:"customDatatypes"`
-	// The delimiter used in the CSV to separate columns.
+	// Delimiter used in the CSV to separate columns.
 	Delimiter pulumi.StringPtrInput `pulumi:"delimiter"`
-	// Specifies whether to trim column values.
+	// Whether to trim column values.
 	DisableValueTrimming pulumi.BoolPtrInput `pulumi:"disableValueTrimming"`
-	// A list of strings representing column names.
+	// List of strings representing column names.
 	Headers pulumi.StringArrayInput `pulumi:"headers"`
-	// A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+	// Custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
 	QuoteSymbol pulumi.StringPtrInput `pulumi:"quoteSymbol"`
-	// The SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
+	// SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
 	Serde pulumi.StringPtrInput `pulumi:"serde"`
 }
 
@@ -7196,7 +7196,7 @@ func (o ClassifierCsvClassifierOutput) AllowSingleColumn() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v ClassifierCsvClassifier) *bool { return v.AllowSingleColumn }).(pulumi.BoolPtrOutput)
 }
 
-// Indicates whether the CSV file contains a header. This can be one of "ABSENT", "PRESENT", or "UNKNOWN".
+// Whether the CSV file contains a header. This can be one of "ABSENT", "PRESENT", or "UNKNOWN".
 func (o ClassifierCsvClassifierOutput) ContainsHeader() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClassifierCsvClassifier) *string { return v.ContainsHeader }).(pulumi.StringPtrOutput)
 }
@@ -7206,32 +7206,32 @@ func (o ClassifierCsvClassifierOutput) CustomDatatypeConfigured() pulumi.BoolPtr
 	return o.ApplyT(func(v ClassifierCsvClassifier) *bool { return v.CustomDatatypeConfigured }).(pulumi.BoolPtrOutput)
 }
 
-// A list of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
+// List of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
 func (o ClassifierCsvClassifierOutput) CustomDatatypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClassifierCsvClassifier) []string { return v.CustomDatatypes }).(pulumi.StringArrayOutput)
 }
 
-// The delimiter used in the CSV to separate columns.
+// Delimiter used in the CSV to separate columns.
 func (o ClassifierCsvClassifierOutput) Delimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClassifierCsvClassifier) *string { return v.Delimiter }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether to trim column values.
+// Whether to trim column values.
 func (o ClassifierCsvClassifierOutput) DisableValueTrimming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClassifierCsvClassifier) *bool { return v.DisableValueTrimming }).(pulumi.BoolPtrOutput)
 }
 
-// A list of strings representing column names.
+// List of strings representing column names.
 func (o ClassifierCsvClassifierOutput) Headers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClassifierCsvClassifier) []string { return v.Headers }).(pulumi.StringArrayOutput)
 }
 
-// A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+// Custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
 func (o ClassifierCsvClassifierOutput) QuoteSymbol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClassifierCsvClassifier) *string { return v.QuoteSymbol }).(pulumi.StringPtrOutput)
 }
 
-// The SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
+// SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
 func (o ClassifierCsvClassifierOutput) Serde() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClassifierCsvClassifier) *string { return v.Serde }).(pulumi.StringPtrOutput)
 }
@@ -7270,7 +7270,7 @@ func (o ClassifierCsvClassifierPtrOutput) AllowSingleColumn() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Indicates whether the CSV file contains a header. This can be one of "ABSENT", "PRESENT", or "UNKNOWN".
+// Whether the CSV file contains a header. This can be one of "ABSENT", "PRESENT", or "UNKNOWN".
 func (o ClassifierCsvClassifierPtrOutput) ContainsHeader() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClassifierCsvClassifier) *string {
 		if v == nil {
@@ -7290,7 +7290,7 @@ func (o ClassifierCsvClassifierPtrOutput) CustomDatatypeConfigured() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A list of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
+// List of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
 func (o ClassifierCsvClassifierPtrOutput) CustomDatatypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClassifierCsvClassifier) []string {
 		if v == nil {
@@ -7300,7 +7300,7 @@ func (o ClassifierCsvClassifierPtrOutput) CustomDatatypes() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// The delimiter used in the CSV to separate columns.
+// Delimiter used in the CSV to separate columns.
 func (o ClassifierCsvClassifierPtrOutput) Delimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClassifierCsvClassifier) *string {
 		if v == nil {
@@ -7310,7 +7310,7 @@ func (o ClassifierCsvClassifierPtrOutput) Delimiter() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether to trim column values.
+// Whether to trim column values.
 func (o ClassifierCsvClassifierPtrOutput) DisableValueTrimming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClassifierCsvClassifier) *bool {
 		if v == nil {
@@ -7320,7 +7320,7 @@ func (o ClassifierCsvClassifierPtrOutput) DisableValueTrimming() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A list of strings representing column names.
+// List of strings representing column names.
 func (o ClassifierCsvClassifierPtrOutput) Headers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClassifierCsvClassifier) []string {
 		if v == nil {
@@ -7330,7 +7330,7 @@ func (o ClassifierCsvClassifierPtrOutput) Headers() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+// Custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
 func (o ClassifierCsvClassifierPtrOutput) QuoteSymbol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClassifierCsvClassifier) *string {
 		if v == nil {
@@ -7340,7 +7340,7 @@ func (o ClassifierCsvClassifierPtrOutput) QuoteSymbol() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
+// SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
 func (o ClassifierCsvClassifierPtrOutput) Serde() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClassifierCsvClassifier) *string {
 		if v == nil {
@@ -7351,11 +7351,11 @@ func (o ClassifierCsvClassifierPtrOutput) Serde() pulumi.StringPtrOutput {
 }
 
 type ClassifierGrokClassifier struct {
-	// An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
+	// Identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
 	Classification string `pulumi:"classification"`
 	// Custom grok patterns used by this classifier.
 	CustomPatterns *string `pulumi:"customPatterns"`
-	// The grok pattern used by this classifier.
+	// Grok pattern used by this classifier.
 	GrokPattern string `pulumi:"grokPattern"`
 }
 
@@ -7371,11 +7371,11 @@ type ClassifierGrokClassifierInput interface {
 }
 
 type ClassifierGrokClassifierArgs struct {
-	// An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
+	// Identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
 	Classification pulumi.StringInput `pulumi:"classification"`
 	// Custom grok patterns used by this classifier.
 	CustomPatterns pulumi.StringPtrInput `pulumi:"customPatterns"`
-	// The grok pattern used by this classifier.
+	// Grok pattern used by this classifier.
 	GrokPattern pulumi.StringInput `pulumi:"grokPattern"`
 }
 
@@ -7456,7 +7456,7 @@ func (o ClassifierGrokClassifierOutput) ToClassifierGrokClassifierPtrOutputWithC
 	}).(ClassifierGrokClassifierPtrOutput)
 }
 
-// An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
+// Identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
 func (o ClassifierGrokClassifierOutput) Classification() pulumi.StringOutput {
 	return o.ApplyT(func(v ClassifierGrokClassifier) string { return v.Classification }).(pulumi.StringOutput)
 }
@@ -7466,7 +7466,7 @@ func (o ClassifierGrokClassifierOutput) CustomPatterns() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v ClassifierGrokClassifier) *string { return v.CustomPatterns }).(pulumi.StringPtrOutput)
 }
 
-// The grok pattern used by this classifier.
+// Grok pattern used by this classifier.
 func (o ClassifierGrokClassifierOutput) GrokPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v ClassifierGrokClassifier) string { return v.GrokPattern }).(pulumi.StringOutput)
 }
@@ -7495,7 +7495,7 @@ func (o ClassifierGrokClassifierPtrOutput) Elem() ClassifierGrokClassifierOutput
 	}).(ClassifierGrokClassifierOutput)
 }
 
-// An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
+// Identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
 func (o ClassifierGrokClassifierPtrOutput) Classification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClassifierGrokClassifier) *string {
 		if v == nil {
@@ -7515,7 +7515,7 @@ func (o ClassifierGrokClassifierPtrOutput) CustomPatterns() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The grok pattern used by this classifier.
+// Grok pattern used by this classifier.
 func (o ClassifierGrokClassifierPtrOutput) GrokPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClassifierGrokClassifier) *string {
 		if v == nil {
@@ -7526,7 +7526,7 @@ func (o ClassifierGrokClassifierPtrOutput) GrokPattern() pulumi.StringPtrOutput 
 }
 
 type ClassifierJsonClassifier struct {
-	// A `JsonPath` string defining the JSON data for the classifier to classify. AWS Glue supports a subset of `JsonPath`, as described in [Writing JsonPath Custom Classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json).
+	// `JsonPath` string defining the JSON data for the classifier to classify. AWS Glue supports a subset of `JsonPath`, as described in [Writing JsonPath Custom Classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json).
 	JsonPath string `pulumi:"jsonPath"`
 }
 
@@ -7542,7 +7542,7 @@ type ClassifierJsonClassifierInput interface {
 }
 
 type ClassifierJsonClassifierArgs struct {
-	// A `JsonPath` string defining the JSON data for the classifier to classify. AWS Glue supports a subset of `JsonPath`, as described in [Writing JsonPath Custom Classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json).
+	// `JsonPath` string defining the JSON data for the classifier to classify. AWS Glue supports a subset of `JsonPath`, as described in [Writing JsonPath Custom Classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json).
 	JsonPath pulumi.StringInput `pulumi:"jsonPath"`
 }
 
@@ -7623,7 +7623,7 @@ func (o ClassifierJsonClassifierOutput) ToClassifierJsonClassifierPtrOutputWithC
 	}).(ClassifierJsonClassifierPtrOutput)
 }
 
-// A `JsonPath` string defining the JSON data for the classifier to classify. AWS Glue supports a subset of `JsonPath`, as described in [Writing JsonPath Custom Classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json).
+// `JsonPath` string defining the JSON data for the classifier to classify. AWS Glue supports a subset of `JsonPath`, as described in [Writing JsonPath Custom Classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json).
 func (o ClassifierJsonClassifierOutput) JsonPath() pulumi.StringOutput {
 	return o.ApplyT(func(v ClassifierJsonClassifier) string { return v.JsonPath }).(pulumi.StringOutput)
 }
@@ -7652,7 +7652,7 @@ func (o ClassifierJsonClassifierPtrOutput) Elem() ClassifierJsonClassifierOutput
 	}).(ClassifierJsonClassifierOutput)
 }
 
-// A `JsonPath` string defining the JSON data for the classifier to classify. AWS Glue supports a subset of `JsonPath`, as described in [Writing JsonPath Custom Classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json).
+// `JsonPath` string defining the JSON data for the classifier to classify. AWS Glue supports a subset of `JsonPath`, as described in [Writing JsonPath Custom Classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json).
 func (o ClassifierJsonClassifierPtrOutput) JsonPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClassifierJsonClassifier) *string {
 		if v == nil {
@@ -7663,9 +7663,9 @@ func (o ClassifierJsonClassifierPtrOutput) JsonPath() pulumi.StringPtrOutput {
 }
 
 type ClassifierXmlClassifier struct {
-	// An identifier of the data format that the classifier matches.
+	// Identifier of the data format that the classifier matches.
 	Classification string `pulumi:"classification"`
-	// The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by `/>`). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `<row item_a="A" item_b="B"></row>` is okay, but `<row item_a="A" item_b="B" />` is not).
+	// XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by `/>`). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `<row item_a="A" item_b="B"></row>` is okay, but `<row item_a="A" item_b="B" />` is not).
 	RowTag string `pulumi:"rowTag"`
 }
 
@@ -7681,9 +7681,9 @@ type ClassifierXmlClassifierInput interface {
 }
 
 type ClassifierXmlClassifierArgs struct {
-	// An identifier of the data format that the classifier matches.
+	// Identifier of the data format that the classifier matches.
 	Classification pulumi.StringInput `pulumi:"classification"`
-	// The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by `/>`). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `<row item_a="A" item_b="B"></row>` is okay, but `<row item_a="A" item_b="B" />` is not).
+	// XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by `/>`). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `<row item_a="A" item_b="B"></row>` is okay, but `<row item_a="A" item_b="B" />` is not).
 	RowTag pulumi.StringInput `pulumi:"rowTag"`
 }
 
@@ -7764,12 +7764,12 @@ func (o ClassifierXmlClassifierOutput) ToClassifierXmlClassifierPtrOutputWithCon
 	}).(ClassifierXmlClassifierPtrOutput)
 }
 
-// An identifier of the data format that the classifier matches.
+// Identifier of the data format that the classifier matches.
 func (o ClassifierXmlClassifierOutput) Classification() pulumi.StringOutput {
 	return o.ApplyT(func(v ClassifierXmlClassifier) string { return v.Classification }).(pulumi.StringOutput)
 }
 
-// The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by `/>`). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `<row item_a="A" item_b="B"></row>` is okay, but `<row item_a="A" item_b="B" />` is not).
+// XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by `/>`). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `<row item_a="A" item_b="B"></row>` is okay, but `<row item_a="A" item_b="B" />` is not).
 func (o ClassifierXmlClassifierOutput) RowTag() pulumi.StringOutput {
 	return o.ApplyT(func(v ClassifierXmlClassifier) string { return v.RowTag }).(pulumi.StringOutput)
 }
@@ -7798,7 +7798,7 @@ func (o ClassifierXmlClassifierPtrOutput) Elem() ClassifierXmlClassifierOutput {
 	}).(ClassifierXmlClassifierOutput)
 }
 
-// An identifier of the data format that the classifier matches.
+// Identifier of the data format that the classifier matches.
 func (o ClassifierXmlClassifierPtrOutput) Classification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClassifierXmlClassifier) *string {
 		if v == nil {
@@ -7808,7 +7808,7 @@ func (o ClassifierXmlClassifierPtrOutput) Classification() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by `/>`). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `<row item_a="A" item_b="B"></row>` is okay, but `<row item_a="A" item_b="B" />` is not).
+// XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by `/>`). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `<row item_a="A" item_b="B"></row>` is okay, but `<row item_a="A" item_b="B" />` is not).
 func (o ClassifierXmlClassifierPtrOutput) RowTag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClassifierXmlClassifier) *string {
 		if v == nil {
@@ -9150,19 +9150,19 @@ func (o ConnectionPhysicalConnectionRequirementsPtrOutput) SubnetId() pulumi.Str
 }
 
 type CrawlerCatalogTarget struct {
-	// The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
+	// Name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
 	ConnectionName *string `pulumi:"connectionName"`
-	// The name of the Glue database to be synchronized.
+	// Name of the Glue database to be synchronized.
 	DatabaseName string `pulumi:"databaseName"`
-	// A valid Amazon SQS ARN.
+	// Valid Amazon SQS ARN.
+	DlqEventQueueArn *string `pulumi:"dlqEventQueueArn"`
+	// Valid Amazon SQS ARN.
+	EventQueueArn *string `pulumi:"eventQueueArn"`
+	// List of catalog tables to be synchronized.
 	//
 	// > **Note:** `deletionBehavior` of catalog target doesn't support `DEPRECATE_IN_DATABASE`.
 	//
 	// > **Note:** `configuration` for catalog target crawlers will have `{ ... "Grouping": { "TableGroupingPolicy": "CombineCompatibleSchemas"} }` by default.
-	DlqEventQueueArn *string `pulumi:"dlqEventQueueArn"`
-	// A valid Amazon SQS ARN.
-	EventQueueArn *string `pulumi:"eventQueueArn"`
-	// A list of catalog tables to be synchronized.
 	Tables []string `pulumi:"tables"`
 }
 
@@ -9178,19 +9178,19 @@ type CrawlerCatalogTargetInput interface {
 }
 
 type CrawlerCatalogTargetArgs struct {
-	// The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
+	// Name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
 	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
-	// The name of the Glue database to be synchronized.
+	// Name of the Glue database to be synchronized.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// A valid Amazon SQS ARN.
+	// Valid Amazon SQS ARN.
+	DlqEventQueueArn pulumi.StringPtrInput `pulumi:"dlqEventQueueArn"`
+	// Valid Amazon SQS ARN.
+	EventQueueArn pulumi.StringPtrInput `pulumi:"eventQueueArn"`
+	// List of catalog tables to be synchronized.
 	//
 	// > **Note:** `deletionBehavior` of catalog target doesn't support `DEPRECATE_IN_DATABASE`.
 	//
 	// > **Note:** `configuration` for catalog target crawlers will have `{ ... "Grouping": { "TableGroupingPolicy": "CombineCompatibleSchemas"} }` by default.
-	DlqEventQueueArn pulumi.StringPtrInput `pulumi:"dlqEventQueueArn"`
-	// A valid Amazon SQS ARN.
-	EventQueueArn pulumi.StringPtrInput `pulumi:"eventQueueArn"`
-	// A list of catalog tables to be synchronized.
 	Tables pulumi.StringArrayInput `pulumi:"tables"`
 }
 
@@ -9245,31 +9245,31 @@ func (o CrawlerCatalogTargetOutput) ToCrawlerCatalogTargetOutputWithContext(ctx 
 	return o
 }
 
-// The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
+// Name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
 func (o CrawlerCatalogTargetOutput) ConnectionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerCatalogTarget) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
 }
 
-// The name of the Glue database to be synchronized.
+// Name of the Glue database to be synchronized.
 func (o CrawlerCatalogTargetOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v CrawlerCatalogTarget) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// A valid Amazon SQS ARN.
-//
-// > **Note:** `deletionBehavior` of catalog target doesn't support `DEPRECATE_IN_DATABASE`.
-//
-// > **Note:** `configuration` for catalog target crawlers will have `{ ... "Grouping": { "TableGroupingPolicy": "CombineCompatibleSchemas"} }` by default.
+// Valid Amazon SQS ARN.
 func (o CrawlerCatalogTargetOutput) DlqEventQueueArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerCatalogTarget) *string { return v.DlqEventQueueArn }).(pulumi.StringPtrOutput)
 }
 
-// A valid Amazon SQS ARN.
+// Valid Amazon SQS ARN.
 func (o CrawlerCatalogTargetOutput) EventQueueArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerCatalogTarget) *string { return v.EventQueueArn }).(pulumi.StringPtrOutput)
 }
 
-// A list of catalog tables to be synchronized.
+// List of catalog tables to be synchronized.
+//
+// > **Note:** `deletionBehavior` of catalog target doesn't support `DEPRECATE_IN_DATABASE`.
+//
+// > **Note:** `configuration` for catalog target crawlers will have `{ ... "Grouping": { "TableGroupingPolicy": "CombineCompatibleSchemas"} }` by default.
 func (o CrawlerCatalogTargetOutput) Tables() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CrawlerCatalogTarget) []string { return v.Tables }).(pulumi.StringArrayOutput)
 }
@@ -9295,13 +9295,13 @@ func (o CrawlerCatalogTargetArrayOutput) Index(i pulumi.IntInput) CrawlerCatalog
 }
 
 type CrawlerDeltaTarget struct {
-	// The name of the connection to use to connect to the Delta table target.
+	// Name of the connection to use to connect to the Delta table target.
 	ConnectionName *string `pulumi:"connectionName"`
-	// Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
+	// Whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
 	CreateNativeDeltaTable *bool `pulumi:"createNativeDeltaTable"`
-	// A list of the Amazon S3 paths to the Delta tables.
+	// List of the Amazon S3 paths to the Delta tables.
 	DeltaTables []string `pulumi:"deltaTables"`
-	// Specifies whether to write the manifest files to the Delta table path.
+	// Whether to write the manifest files to the Delta table path.
 	WriteManifest bool `pulumi:"writeManifest"`
 }
 
@@ -9317,13 +9317,13 @@ type CrawlerDeltaTargetInput interface {
 }
 
 type CrawlerDeltaTargetArgs struct {
-	// The name of the connection to use to connect to the Delta table target.
+	// Name of the connection to use to connect to the Delta table target.
 	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
-	// Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
+	// Whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
 	CreateNativeDeltaTable pulumi.BoolPtrInput `pulumi:"createNativeDeltaTable"`
-	// A list of the Amazon S3 paths to the Delta tables.
+	// List of the Amazon S3 paths to the Delta tables.
 	DeltaTables pulumi.StringArrayInput `pulumi:"deltaTables"`
-	// Specifies whether to write the manifest files to the Delta table path.
+	// Whether to write the manifest files to the Delta table path.
 	WriteManifest pulumi.BoolInput `pulumi:"writeManifest"`
 }
 
@@ -9378,22 +9378,22 @@ func (o CrawlerDeltaTargetOutput) ToCrawlerDeltaTargetOutputWithContext(ctx cont
 	return o
 }
 
-// The name of the connection to use to connect to the Delta table target.
+// Name of the connection to use to connect to the Delta table target.
 func (o CrawlerDeltaTargetOutput) ConnectionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerDeltaTarget) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
+// Whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
 func (o CrawlerDeltaTargetOutput) CreateNativeDeltaTable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CrawlerDeltaTarget) *bool { return v.CreateNativeDeltaTable }).(pulumi.BoolPtrOutput)
 }
 
-// A list of the Amazon S3 paths to the Delta tables.
+// List of the Amazon S3 paths to the Delta tables.
 func (o CrawlerDeltaTargetOutput) DeltaTables() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CrawlerDeltaTarget) []string { return v.DeltaTables }).(pulumi.StringArrayOutput)
 }
 
-// Specifies whether to write the manifest files to the Delta table path.
+// Whether to write the manifest files to the Delta table path.
 func (o CrawlerDeltaTargetOutput) WriteManifest() pulumi.BoolOutput {
 	return o.ApplyT(func(v CrawlerDeltaTarget) bool { return v.WriteManifest }).(pulumi.BoolOutput)
 }
@@ -9419,11 +9419,11 @@ func (o CrawlerDeltaTargetArrayOutput) Index(i pulumi.IntInput) CrawlerDeltaTarg
 }
 
 type CrawlerDynamodbTarget struct {
-	// The name of the DynamoDB table to crawl.
+	// Name of the DynamoDB table to crawl.
 	Path string `pulumi:"path"`
-	// Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
+	// Whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
 	ScanAll *bool `pulumi:"scanAll"`
-	// The percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
+	// Percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
 	ScanRate *float64 `pulumi:"scanRate"`
 }
 
@@ -9439,11 +9439,11 @@ type CrawlerDynamodbTargetInput interface {
 }
 
 type CrawlerDynamodbTargetArgs struct {
-	// The name of the DynamoDB table to crawl.
+	// Name of the DynamoDB table to crawl.
 	Path pulumi.StringInput `pulumi:"path"`
-	// Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
+	// Whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
 	ScanAll pulumi.BoolPtrInput `pulumi:"scanAll"`
-	// The percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
+	// Percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
 	ScanRate pulumi.Float64PtrInput `pulumi:"scanRate"`
 }
 
@@ -9498,17 +9498,17 @@ func (o CrawlerDynamodbTargetOutput) ToCrawlerDynamodbTargetOutputWithContext(ct
 	return o
 }
 
-// The name of the DynamoDB table to crawl.
+// Name of the DynamoDB table to crawl.
 func (o CrawlerDynamodbTargetOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v CrawlerDynamodbTarget) string { return v.Path }).(pulumi.StringOutput)
 }
 
-// Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
+// Whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
 func (o CrawlerDynamodbTargetOutput) ScanAll() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CrawlerDynamodbTarget) *bool { return v.ScanAll }).(pulumi.BoolPtrOutput)
 }
 
-// The percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
+// Percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
 func (o CrawlerDynamodbTargetOutput) ScanRate() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v CrawlerDynamodbTarget) *float64 { return v.ScanRate }).(pulumi.Float64PtrOutput)
 }
@@ -9534,11 +9534,11 @@ func (o CrawlerDynamodbTargetArrayOutput) Index(i pulumi.IntInput) CrawlerDynamo
 }
 
 type CrawlerHudiTarget struct {
-	// The name of the connection to use to connect to the Hudi target.
+	// Name of the connection to use to connect to the Hudi target.
 	ConnectionName *string `pulumi:"connectionName"`
-	// A list of glob patterns used to exclude from the crawl.
+	// List of glob patterns used to exclude from the crawl.
 	Exclusions []string `pulumi:"exclusions"`
-	// The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Hudi metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
+	// Maximum depth of Amazon S3 paths that the crawler can traverse to discover the Hudi metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
 	MaximumTraversalDepth int `pulumi:"maximumTraversalDepth"`
 	// One or more Amazon S3 paths that contains Hudi metadata folders as s3://bucket/prefix.
 	Paths []string `pulumi:"paths"`
@@ -9556,11 +9556,11 @@ type CrawlerHudiTargetInput interface {
 }
 
 type CrawlerHudiTargetArgs struct {
-	// The name of the connection to use to connect to the Hudi target.
+	// Name of the connection to use to connect to the Hudi target.
 	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
-	// A list of glob patterns used to exclude from the crawl.
+	// List of glob patterns used to exclude from the crawl.
 	Exclusions pulumi.StringArrayInput `pulumi:"exclusions"`
-	// The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Hudi metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
+	// Maximum depth of Amazon S3 paths that the crawler can traverse to discover the Hudi metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
 	MaximumTraversalDepth pulumi.IntInput `pulumi:"maximumTraversalDepth"`
 	// One or more Amazon S3 paths that contains Hudi metadata folders as s3://bucket/prefix.
 	Paths pulumi.StringArrayInput `pulumi:"paths"`
@@ -9617,17 +9617,17 @@ func (o CrawlerHudiTargetOutput) ToCrawlerHudiTargetOutputWithContext(ctx contex
 	return o
 }
 
-// The name of the connection to use to connect to the Hudi target.
+// Name of the connection to use to connect to the Hudi target.
 func (o CrawlerHudiTargetOutput) ConnectionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerHudiTarget) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
 }
 
-// A list of glob patterns used to exclude from the crawl.
+// List of glob patterns used to exclude from the crawl.
 func (o CrawlerHudiTargetOutput) Exclusions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CrawlerHudiTarget) []string { return v.Exclusions }).(pulumi.StringArrayOutput)
 }
 
-// The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Hudi metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
+// Maximum depth of Amazon S3 paths that the crawler can traverse to discover the Hudi metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
 func (o CrawlerHudiTargetOutput) MaximumTraversalDepth() pulumi.IntOutput {
 	return o.ApplyT(func(v CrawlerHudiTarget) int { return v.MaximumTraversalDepth }).(pulumi.IntOutput)
 }
@@ -9658,11 +9658,11 @@ func (o CrawlerHudiTargetArrayOutput) Index(i pulumi.IntInput) CrawlerHudiTarget
 }
 
 type CrawlerIcebergTarget struct {
-	// The name of the connection to use to connect to the Iceberg target.
+	// Name of the connection to use to connect to the Iceberg target.
 	ConnectionName *string `pulumi:"connectionName"`
-	// A list of glob patterns used to exclude from the crawl.
+	// List of glob patterns used to exclude from the crawl.
 	Exclusions []string `pulumi:"exclusions"`
-	// The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
+	// Maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
 	MaximumTraversalDepth int `pulumi:"maximumTraversalDepth"`
 	// One or more Amazon S3 paths that contains Iceberg metadata folders as s3://bucket/prefix.
 	Paths []string `pulumi:"paths"`
@@ -9680,11 +9680,11 @@ type CrawlerIcebergTargetInput interface {
 }
 
 type CrawlerIcebergTargetArgs struct {
-	// The name of the connection to use to connect to the Iceberg target.
+	// Name of the connection to use to connect to the Iceberg target.
 	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
-	// A list of glob patterns used to exclude from the crawl.
+	// List of glob patterns used to exclude from the crawl.
 	Exclusions pulumi.StringArrayInput `pulumi:"exclusions"`
-	// The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
+	// Maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
 	MaximumTraversalDepth pulumi.IntInput `pulumi:"maximumTraversalDepth"`
 	// One or more Amazon S3 paths that contains Iceberg metadata folders as s3://bucket/prefix.
 	Paths pulumi.StringArrayInput `pulumi:"paths"`
@@ -9741,17 +9741,17 @@ func (o CrawlerIcebergTargetOutput) ToCrawlerIcebergTargetOutputWithContext(ctx 
 	return o
 }
 
-// The name of the connection to use to connect to the Iceberg target.
+// Name of the connection to use to connect to the Iceberg target.
 func (o CrawlerIcebergTargetOutput) ConnectionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerIcebergTarget) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
 }
 
-// A list of glob patterns used to exclude from the crawl.
+// List of glob patterns used to exclude from the crawl.
 func (o CrawlerIcebergTargetOutput) Exclusions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CrawlerIcebergTarget) []string { return v.Exclusions }).(pulumi.StringArrayOutput)
 }
 
-// The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
+// Maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
 func (o CrawlerIcebergTargetOutput) MaximumTraversalDepth() pulumi.IntOutput {
 	return o.ApplyT(func(v CrawlerIcebergTarget) int { return v.MaximumTraversalDepth }).(pulumi.IntOutput)
 }
@@ -9782,13 +9782,13 @@ func (o CrawlerIcebergTargetArrayOutput) Index(i pulumi.IntInput) CrawlerIceberg
 }
 
 type CrawlerJdbcTarget struct {
-	// The name of the connection to use to connect to the JDBC target.
+	// Name of the connection to use to connect to the JDBC target.
 	ConnectionName string `pulumi:"connectionName"`
 	// Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata intable responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
 	EnableAdditionalMetadatas []string `pulumi:"enableAdditionalMetadatas"`
-	// A list of glob patterns used to exclude from the crawl.
+	// List of glob patterns used to exclude from the crawl.
 	Exclusions []string `pulumi:"exclusions"`
-	// The path of the JDBC target.
+	// Path of the JDBC target.
 	Path string `pulumi:"path"`
 }
 
@@ -9804,13 +9804,13 @@ type CrawlerJdbcTargetInput interface {
 }
 
 type CrawlerJdbcTargetArgs struct {
-	// The name of the connection to use to connect to the JDBC target.
+	// Name of the connection to use to connect to the JDBC target.
 	ConnectionName pulumi.StringInput `pulumi:"connectionName"`
 	// Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata intable responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
 	EnableAdditionalMetadatas pulumi.StringArrayInput `pulumi:"enableAdditionalMetadatas"`
-	// A list of glob patterns used to exclude from the crawl.
+	// List of glob patterns used to exclude from the crawl.
 	Exclusions pulumi.StringArrayInput `pulumi:"exclusions"`
-	// The path of the JDBC target.
+	// Path of the JDBC target.
 	Path pulumi.StringInput `pulumi:"path"`
 }
 
@@ -9865,7 +9865,7 @@ func (o CrawlerJdbcTargetOutput) ToCrawlerJdbcTargetOutputWithContext(ctx contex
 	return o
 }
 
-// The name of the connection to use to connect to the JDBC target.
+// Name of the connection to use to connect to the JDBC target.
 func (o CrawlerJdbcTargetOutput) ConnectionName() pulumi.StringOutput {
 	return o.ApplyT(func(v CrawlerJdbcTarget) string { return v.ConnectionName }).(pulumi.StringOutput)
 }
@@ -9875,12 +9875,12 @@ func (o CrawlerJdbcTargetOutput) EnableAdditionalMetadatas() pulumi.StringArrayO
 	return o.ApplyT(func(v CrawlerJdbcTarget) []string { return v.EnableAdditionalMetadatas }).(pulumi.StringArrayOutput)
 }
 
-// A list of glob patterns used to exclude from the crawl.
+// List of glob patterns used to exclude from the crawl.
 func (o CrawlerJdbcTargetOutput) Exclusions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CrawlerJdbcTarget) []string { return v.Exclusions }).(pulumi.StringArrayOutput)
 }
 
-// The path of the JDBC target.
+// Path of the JDBC target.
 func (o CrawlerJdbcTargetOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v CrawlerJdbcTarget) string { return v.Path }).(pulumi.StringOutput)
 }
@@ -9908,7 +9908,7 @@ func (o CrawlerJdbcTargetArrayOutput) Index(i pulumi.IntInput) CrawlerJdbcTarget
 type CrawlerLakeFormationConfiguration struct {
 	// Required for cross account crawls. For same account crawls as the target data, this can omitted.
 	AccountId *string `pulumi:"accountId"`
-	// Specifies whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
+	// Whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
 	UseLakeFormationCredentials *bool `pulumi:"useLakeFormationCredentials"`
 }
 
@@ -9926,7 +9926,7 @@ type CrawlerLakeFormationConfigurationInput interface {
 type CrawlerLakeFormationConfigurationArgs struct {
 	// Required for cross account crawls. For same account crawls as the target data, this can omitted.
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
-	// Specifies whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
+	// Whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
 	UseLakeFormationCredentials pulumi.BoolPtrInput `pulumi:"useLakeFormationCredentials"`
 }
 
@@ -10012,7 +10012,7 @@ func (o CrawlerLakeFormationConfigurationOutput) AccountId() pulumi.StringPtrOut
 	return o.ApplyT(func(v CrawlerLakeFormationConfiguration) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
+// Whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
 func (o CrawlerLakeFormationConfigurationOutput) UseLakeFormationCredentials() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CrawlerLakeFormationConfiguration) *bool { return v.UseLakeFormationCredentials }).(pulumi.BoolPtrOutput)
 }
@@ -10051,7 +10051,7 @@ func (o CrawlerLakeFormationConfigurationPtrOutput) AccountId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
+// Whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
 func (o CrawlerLakeFormationConfigurationPtrOutput) UseLakeFormationCredentials() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CrawlerLakeFormationConfiguration) *bool {
 		if v == nil {
@@ -10062,7 +10062,7 @@ func (o CrawlerLakeFormationConfigurationPtrOutput) UseLakeFormationCredentials(
 }
 
 type CrawlerLineageConfiguration struct {
-	// Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
+	// Whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
 	CrawlerLineageSettings *string `pulumi:"crawlerLineageSettings"`
 }
 
@@ -10078,7 +10078,7 @@ type CrawlerLineageConfigurationInput interface {
 }
 
 type CrawlerLineageConfigurationArgs struct {
-	// Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
+	// Whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
 	CrawlerLineageSettings pulumi.StringPtrInput `pulumi:"crawlerLineageSettings"`
 }
 
@@ -10159,7 +10159,7 @@ func (o CrawlerLineageConfigurationOutput) ToCrawlerLineageConfigurationPtrOutpu
 	}).(CrawlerLineageConfigurationPtrOutput)
 }
 
-// Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
+// Whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
 func (o CrawlerLineageConfigurationOutput) CrawlerLineageSettings() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerLineageConfiguration) *string { return v.CrawlerLineageSettings }).(pulumi.StringPtrOutput)
 }
@@ -10188,7 +10188,7 @@ func (o CrawlerLineageConfigurationPtrOutput) Elem() CrawlerLineageConfiguration
 	}).(CrawlerLineageConfigurationOutput)
 }
 
-// Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
+// Whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
 func (o CrawlerLineageConfigurationPtrOutput) CrawlerLineageSettings() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CrawlerLineageConfiguration) *string {
 		if v == nil {
@@ -10199,11 +10199,11 @@ func (o CrawlerLineageConfigurationPtrOutput) CrawlerLineageSettings() pulumi.St
 }
 
 type CrawlerMongodbTarget struct {
-	// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+	// Name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
 	ConnectionName string `pulumi:"connectionName"`
-	// The path of the Amazon DocumentDB or MongoDB target (database/collection).
+	// Path of the Amazon DocumentDB or MongoDB target (database/collection).
 	Path string `pulumi:"path"`
-	// Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
+	// Whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
 	ScanAll *bool `pulumi:"scanAll"`
 }
 
@@ -10219,11 +10219,11 @@ type CrawlerMongodbTargetInput interface {
 }
 
 type CrawlerMongodbTargetArgs struct {
-	// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+	// Name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
 	ConnectionName pulumi.StringInput `pulumi:"connectionName"`
-	// The path of the Amazon DocumentDB or MongoDB target (database/collection).
+	// Path of the Amazon DocumentDB or MongoDB target (database/collection).
 	Path pulumi.StringInput `pulumi:"path"`
-	// Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
+	// Whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
 	ScanAll pulumi.BoolPtrInput `pulumi:"scanAll"`
 }
 
@@ -10278,17 +10278,17 @@ func (o CrawlerMongodbTargetOutput) ToCrawlerMongodbTargetOutputWithContext(ctx 
 	return o
 }
 
-// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+// Name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
 func (o CrawlerMongodbTargetOutput) ConnectionName() pulumi.StringOutput {
 	return o.ApplyT(func(v CrawlerMongodbTarget) string { return v.ConnectionName }).(pulumi.StringOutput)
 }
 
-// The path of the Amazon DocumentDB or MongoDB target (database/collection).
+// Path of the Amazon DocumentDB or MongoDB target (database/collection).
 func (o CrawlerMongodbTargetOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v CrawlerMongodbTarget) string { return v.Path }).(pulumi.StringOutput)
 }
 
-// Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
+// Whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
 func (o CrawlerMongodbTargetOutput) ScanAll() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CrawlerMongodbTarget) *bool { return v.ScanAll }).(pulumi.BoolPtrOutput)
 }
@@ -10314,7 +10314,7 @@ func (o CrawlerMongodbTargetArrayOutput) Index(i pulumi.IntInput) CrawlerMongodb
 }
 
 type CrawlerRecrawlPolicy struct {
-	// Specifies whether to crawl the entire dataset again, crawl only folders that were added since the last crawler run, or crawl what S3 notifies the crawler of via SQS. Valid Values are: `CRAWL_EVENT_MODE`, `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
+	// Whether to crawl the entire dataset again, crawl only folders that were added since the last crawler run, or crawl what S3 notifies the crawler of via SQS. Valid Values are: `CRAWL_EVENT_MODE`, `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
 	RecrawlBehavior *string `pulumi:"recrawlBehavior"`
 }
 
@@ -10330,7 +10330,7 @@ type CrawlerRecrawlPolicyInput interface {
 }
 
 type CrawlerRecrawlPolicyArgs struct {
-	// Specifies whether to crawl the entire dataset again, crawl only folders that were added since the last crawler run, or crawl what S3 notifies the crawler of via SQS. Valid Values are: `CRAWL_EVENT_MODE`, `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
+	// Whether to crawl the entire dataset again, crawl only folders that were added since the last crawler run, or crawl what S3 notifies the crawler of via SQS. Valid Values are: `CRAWL_EVENT_MODE`, `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
 	RecrawlBehavior pulumi.StringPtrInput `pulumi:"recrawlBehavior"`
 }
 
@@ -10411,7 +10411,7 @@ func (o CrawlerRecrawlPolicyOutput) ToCrawlerRecrawlPolicyPtrOutputWithContext(c
 	}).(CrawlerRecrawlPolicyPtrOutput)
 }
 
-// Specifies whether to crawl the entire dataset again, crawl only folders that were added since the last crawler run, or crawl what S3 notifies the crawler of via SQS. Valid Values are: `CRAWL_EVENT_MODE`, `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
+// Whether to crawl the entire dataset again, crawl only folders that were added since the last crawler run, or crawl what S3 notifies the crawler of via SQS. Valid Values are: `CRAWL_EVENT_MODE`, `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
 func (o CrawlerRecrawlPolicyOutput) RecrawlBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerRecrawlPolicy) *string { return v.RecrawlBehavior }).(pulumi.StringPtrOutput)
 }
@@ -10440,7 +10440,7 @@ func (o CrawlerRecrawlPolicyPtrOutput) Elem() CrawlerRecrawlPolicyOutput {
 	}).(CrawlerRecrawlPolicyOutput)
 }
 
-// Specifies whether to crawl the entire dataset again, crawl only folders that were added since the last crawler run, or crawl what S3 notifies the crawler of via SQS. Valid Values are: `CRAWL_EVENT_MODE`, `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
+// Whether to crawl the entire dataset again, crawl only folders that were added since the last crawler run, or crawl what S3 notifies the crawler of via SQS. Valid Values are: `CRAWL_EVENT_MODE`, `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
 func (o CrawlerRecrawlPolicyPtrOutput) RecrawlBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CrawlerRecrawlPolicy) *string {
 		if v == nil {
@@ -10451,15 +10451,15 @@ func (o CrawlerRecrawlPolicyPtrOutput) RecrawlBehavior() pulumi.StringPtrOutput 
 }
 
 type CrawlerS3Target struct {
-	// The name of a connection which allows crawler to access data in S3 within a VPC.
+	// Name of a connection which allows crawler to access data in S3 within a VPC.
 	ConnectionName *string `pulumi:"connectionName"`
-	// The ARN of the dead-letter SQS queue.
+	// ARN of the dead-letter SQS queue.
 	DlqEventQueueArn *string `pulumi:"dlqEventQueueArn"`
-	// The ARN of the SQS queue to receive S3 notifications from.
+	// ARN of the SQS queue to receive S3 notifications from.
 	EventQueueArn *string `pulumi:"eventQueueArn"`
-	// A list of glob patterns used to exclude from the crawl.
+	// List of glob patterns used to exclude from the crawl.
 	Exclusions []string `pulumi:"exclusions"`
-	// The path to the Amazon S3 target.
+	// Path to the Amazon S3 target.
 	Path string `pulumi:"path"`
 	// Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
 	SampleSize *int `pulumi:"sampleSize"`
@@ -10477,15 +10477,15 @@ type CrawlerS3TargetInput interface {
 }
 
 type CrawlerS3TargetArgs struct {
-	// The name of a connection which allows crawler to access data in S3 within a VPC.
+	// Name of a connection which allows crawler to access data in S3 within a VPC.
 	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
-	// The ARN of the dead-letter SQS queue.
+	// ARN of the dead-letter SQS queue.
 	DlqEventQueueArn pulumi.StringPtrInput `pulumi:"dlqEventQueueArn"`
-	// The ARN of the SQS queue to receive S3 notifications from.
+	// ARN of the SQS queue to receive S3 notifications from.
 	EventQueueArn pulumi.StringPtrInput `pulumi:"eventQueueArn"`
-	// A list of glob patterns used to exclude from the crawl.
+	// List of glob patterns used to exclude from the crawl.
 	Exclusions pulumi.StringArrayInput `pulumi:"exclusions"`
-	// The path to the Amazon S3 target.
+	// Path to the Amazon S3 target.
 	Path pulumi.StringInput `pulumi:"path"`
 	// Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
 	SampleSize pulumi.IntPtrInput `pulumi:"sampleSize"`
@@ -10542,27 +10542,27 @@ func (o CrawlerS3TargetOutput) ToCrawlerS3TargetOutputWithContext(ctx context.Co
 	return o
 }
 
-// The name of a connection which allows crawler to access data in S3 within a VPC.
+// Name of a connection which allows crawler to access data in S3 within a VPC.
 func (o CrawlerS3TargetOutput) ConnectionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerS3Target) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the dead-letter SQS queue.
+// ARN of the dead-letter SQS queue.
 func (o CrawlerS3TargetOutput) DlqEventQueueArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerS3Target) *string { return v.DlqEventQueueArn }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the SQS queue to receive S3 notifications from.
+// ARN of the SQS queue to receive S3 notifications from.
 func (o CrawlerS3TargetOutput) EventQueueArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerS3Target) *string { return v.EventQueueArn }).(pulumi.StringPtrOutput)
 }
 
-// A list of glob patterns used to exclude from the crawl.
+// List of glob patterns used to exclude from the crawl.
 func (o CrawlerS3TargetOutput) Exclusions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CrawlerS3Target) []string { return v.Exclusions }).(pulumi.StringArrayOutput)
 }
 
-// The path to the Amazon S3 target.
+// Path to the Amazon S3 target.
 func (o CrawlerS3TargetOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v CrawlerS3Target) string { return v.Path }).(pulumi.StringOutput)
 }
@@ -10593,9 +10593,9 @@ func (o CrawlerS3TargetArrayOutput) Index(i pulumi.IntInput) CrawlerS3TargetOutp
 }
 
 type CrawlerSchemaChangePolicy struct {
-	// The deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
+	// Deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
 	DeleteBehavior *string `pulumi:"deleteBehavior"`
-	// The update behavior when the crawler finds a changed schema. Valid values: `LOG` or `UPDATE_IN_DATABASE`. Defaults to `UPDATE_IN_DATABASE`.
+	// Update behavior when the crawler finds a changed schema. Valid values: `LOG` or `UPDATE_IN_DATABASE`. Defaults to `UPDATE_IN_DATABASE`.
 	UpdateBehavior *string `pulumi:"updateBehavior"`
 }
 
@@ -10611,9 +10611,9 @@ type CrawlerSchemaChangePolicyInput interface {
 }
 
 type CrawlerSchemaChangePolicyArgs struct {
-	// The deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
+	// Deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
 	DeleteBehavior pulumi.StringPtrInput `pulumi:"deleteBehavior"`
-	// The update behavior when the crawler finds a changed schema. Valid values: `LOG` or `UPDATE_IN_DATABASE`. Defaults to `UPDATE_IN_DATABASE`.
+	// Update behavior when the crawler finds a changed schema. Valid values: `LOG` or `UPDATE_IN_DATABASE`. Defaults to `UPDATE_IN_DATABASE`.
 	UpdateBehavior pulumi.StringPtrInput `pulumi:"updateBehavior"`
 }
 
@@ -10694,12 +10694,12 @@ func (o CrawlerSchemaChangePolicyOutput) ToCrawlerSchemaChangePolicyPtrOutputWit
 	}).(CrawlerSchemaChangePolicyPtrOutput)
 }
 
-// The deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
+// Deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
 func (o CrawlerSchemaChangePolicyOutput) DeleteBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerSchemaChangePolicy) *string { return v.DeleteBehavior }).(pulumi.StringPtrOutput)
 }
 
-// The update behavior when the crawler finds a changed schema. Valid values: `LOG` or `UPDATE_IN_DATABASE`. Defaults to `UPDATE_IN_DATABASE`.
+// Update behavior when the crawler finds a changed schema. Valid values: `LOG` or `UPDATE_IN_DATABASE`. Defaults to `UPDATE_IN_DATABASE`.
 func (o CrawlerSchemaChangePolicyOutput) UpdateBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerSchemaChangePolicy) *string { return v.UpdateBehavior }).(pulumi.StringPtrOutput)
 }
@@ -10728,7 +10728,7 @@ func (o CrawlerSchemaChangePolicyPtrOutput) Elem() CrawlerSchemaChangePolicyOutp
 	}).(CrawlerSchemaChangePolicyOutput)
 }
 
-// The deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
+// Deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
 func (o CrawlerSchemaChangePolicyPtrOutput) DeleteBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CrawlerSchemaChangePolicy) *string {
 		if v == nil {
@@ -10738,7 +10738,7 @@ func (o CrawlerSchemaChangePolicyPtrOutput) DeleteBehavior() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The update behavior when the crawler finds a changed schema. Valid values: `LOG` or `UPDATE_IN_DATABASE`. Defaults to `UPDATE_IN_DATABASE`.
+// Update behavior when the crawler finds a changed schema. Valid values: `LOG` or `UPDATE_IN_DATABASE`. Defaults to `UPDATE_IN_DATABASE`.
 func (o CrawlerSchemaChangePolicyPtrOutput) UpdateBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CrawlerSchemaChangePolicy) *string {
 		if v == nil {
@@ -10749,9 +10749,9 @@ func (o CrawlerSchemaChangePolicyPtrOutput) UpdateBehavior() pulumi.StringPtrOut
 }
 
 type DataCatalogEncryptionSettingsDataCatalogEncryptionSettings struct {
-	// When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
+	// When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see `connectionPasswordEncryption` Block.
 	ConnectionPasswordEncryption DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption `pulumi:"connectionPasswordEncryption"`
-	// Specifies the encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
+	// Encryption-at-rest configuration for the Data Catalog. see `encryptionAtRest` Block.
 	EncryptionAtRest DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest `pulumi:"encryptionAtRest"`
 }
 
@@ -10767,9 +10767,9 @@ type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsInput interface {
 }
 
 type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs struct {
-	// When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
+	// When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see `connectionPasswordEncryption` Block.
 	ConnectionPasswordEncryption DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionInput `pulumi:"connectionPasswordEncryption"`
-	// Specifies the encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
+	// Encryption-at-rest configuration for the Data Catalog. see `encryptionAtRest` Block.
 	EncryptionAtRest DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestInput `pulumi:"encryptionAtRest"`
 }
 
@@ -10850,14 +10850,14 @@ func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput) ToData
 	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput)
 }
 
-// When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
+// When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see `connectionPasswordEncryption` Block.
 func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput) ConnectionPasswordEncryption() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput {
 	return o.ApplyT(func(v DataCatalogEncryptionSettingsDataCatalogEncryptionSettings) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption {
 		return v.ConnectionPasswordEncryption
 	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput)
 }
 
-// Specifies the encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
+// Encryption-at-rest configuration for the Data Catalog. see `encryptionAtRest` Block.
 func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput) EncryptionAtRest() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput {
 	return o.ApplyT(func(v DataCatalogEncryptionSettingsDataCatalogEncryptionSettings) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest {
 		return v.EncryptionAtRest
@@ -10888,7 +10888,7 @@ func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput) Ele
 	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput)
 }
 
-// When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
+// When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see `connectionPasswordEncryption` Block.
 func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput) ConnectionPasswordEncryption() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
 	return o.ApplyT(func(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettings) *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption {
 		if v == nil {
@@ -10898,7 +10898,7 @@ func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput) Con
 	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput)
 }
 
-// Specifies the encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
+// Encryption-at-rest configuration for the Data Catalog. see `encryptionAtRest` Block.
 func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput) EncryptionAtRest() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
 	return o.ApplyT(func(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettings) *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest {
 		if v == nil {
@@ -10909,7 +10909,7 @@ func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput) Enc
 }
 
 type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption struct {
-	// A KMS key ARN that is used to encrypt the connection password. If connection password protection is enabled, the caller of CreateConnection and UpdateConnection needs at least `kms:Encrypt` permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog.
+	// KMS key ARN that is used to encrypt the connection password. If connection password protection is enabled, the caller of CreateConnection and UpdateConnection needs at least `kms:Encrypt` permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog.
 	AwsKmsKeyId *string `pulumi:"awsKmsKeyId"`
 	// When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
 	ReturnConnectionPasswordEncrypted bool `pulumi:"returnConnectionPasswordEncrypted"`
@@ -10927,7 +10927,7 @@ type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswor
 }
 
 type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs struct {
-	// A KMS key ARN that is used to encrypt the connection password. If connection password protection is enabled, the caller of CreateConnection and UpdateConnection needs at least `kms:Encrypt` permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog.
+	// KMS key ARN that is used to encrypt the connection password. If connection password protection is enabled, the caller of CreateConnection and UpdateConnection needs at least `kms:Encrypt` permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog.
 	AwsKmsKeyId pulumi.StringPtrInput `pulumi:"awsKmsKeyId"`
 	// When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
 	ReturnConnectionPasswordEncrypted pulumi.BoolInput `pulumi:"returnConnectionPasswordEncrypted"`
@@ -11010,7 +11010,7 @@ func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPass
 	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput)
 }
 
-// A KMS key ARN that is used to encrypt the connection password. If connection password protection is enabled, the caller of CreateConnection and UpdateConnection needs at least `kms:Encrypt` permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog.
+// KMS key ARN that is used to encrypt the connection password. If connection password protection is enabled, the caller of CreateConnection and UpdateConnection needs at least `kms:Encrypt` permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog.
 func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput) AwsKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption) *string {
 		return v.AwsKmsKeyId
@@ -11048,7 +11048,7 @@ func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPass
 	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput)
 }
 
-// A KMS key ARN that is used to encrypt the connection password. If connection password protection is enabled, the caller of CreateConnection and UpdateConnection needs at least `kms:Encrypt` permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog.
+// KMS key ARN that is used to encrypt the connection password. If connection password protection is enabled, the caller of CreateConnection and UpdateConnection needs at least `kms:Encrypt` permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog.
 func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput) AwsKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption) *string {
 		if v == nil {
@@ -11069,11 +11069,11 @@ func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPass
 }
 
 type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest struct {
-	// The encryption-at-rest mode for encrypting Data Catalog data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-KMS-WITH-SERVICE-ROLE`.
+	// Encryption-at-rest mode for encrypting Data Catalog data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-KMS-WITH-SERVICE-ROLE`.
 	CatalogEncryptionMode string `pulumi:"catalogEncryptionMode"`
-	// The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
+	// ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
 	CatalogEncryptionServiceRole *string `pulumi:"catalogEncryptionServiceRole"`
-	// The ARN of the AWS KMS key to use for encryption at rest.
+	// ARN of the AWS KMS key to use for encryption at rest.
 	SseAwsKmsKeyId *string `pulumi:"sseAwsKmsKeyId"`
 }
 
@@ -11089,11 +11089,11 @@ type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestI
 }
 
 type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs struct {
-	// The encryption-at-rest mode for encrypting Data Catalog data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-KMS-WITH-SERVICE-ROLE`.
+	// Encryption-at-rest mode for encrypting Data Catalog data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-KMS-WITH-SERVICE-ROLE`.
 	CatalogEncryptionMode pulumi.StringInput `pulumi:"catalogEncryptionMode"`
-	// The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
+	// ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
 	CatalogEncryptionServiceRole pulumi.StringPtrInput `pulumi:"catalogEncryptionServiceRole"`
-	// The ARN of the AWS KMS key to use for encryption at rest.
+	// ARN of the AWS KMS key to use for encryption at rest.
 	SseAwsKmsKeyId pulumi.StringPtrInput `pulumi:"sseAwsKmsKeyId"`
 }
 
@@ -11174,21 +11174,21 @@ func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRe
 	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput)
 }
 
-// The encryption-at-rest mode for encrypting Data Catalog data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-KMS-WITH-SERVICE-ROLE`.
+// Encryption-at-rest mode for encrypting Data Catalog data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-KMS-WITH-SERVICE-ROLE`.
 func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput) CatalogEncryptionMode() pulumi.StringOutput {
 	return o.ApplyT(func(v DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest) string {
 		return v.CatalogEncryptionMode
 	}).(pulumi.StringOutput)
 }
 
-// The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
+// ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
 func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput) CatalogEncryptionServiceRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest) *string {
 		return v.CatalogEncryptionServiceRole
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the AWS KMS key to use for encryption at rest.
+// ARN of the AWS KMS key to use for encryption at rest.
 func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput) SseAwsKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest) *string {
 		return v.SseAwsKmsKeyId
@@ -11219,7 +11219,7 @@ func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRe
 	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput)
 }
 
-// The encryption-at-rest mode for encrypting Data Catalog data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-KMS-WITH-SERVICE-ROLE`.
+// Encryption-at-rest mode for encrypting Data Catalog data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-KMS-WITH-SERVICE-ROLE`.
 func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput) CatalogEncryptionMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest) *string {
 		if v == nil {
@@ -11229,7 +11229,7 @@ func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRe
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
+// ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
 func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput) CatalogEncryptionServiceRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest) *string {
 		if v == nil {
@@ -11239,7 +11239,7 @@ func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRe
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the AWS KMS key to use for encryption at rest.
+// ARN of the AWS KMS key to use for encryption at rest.
 func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput) SseAwsKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest) *string {
 		if v == nil {
@@ -11250,7 +11250,7 @@ func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRe
 }
 
 type DataQualityRulesetTargetTable struct {
-	// The catalog id where the AWS Glue table exists.
+	// Catalog ID where the AWS Glue table exists.
 	CatalogId *string `pulumi:"catalogId"`
 	// Name of the database where the AWS Glue table exists.
 	DatabaseName string `pulumi:"databaseName"`
@@ -11270,7 +11270,7 @@ type DataQualityRulesetTargetTableInput interface {
 }
 
 type DataQualityRulesetTargetTableArgs struct {
-	// The catalog id where the AWS Glue table exists.
+	// Catalog ID where the AWS Glue table exists.
 	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
 	// Name of the database where the AWS Glue table exists.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
@@ -11355,7 +11355,7 @@ func (o DataQualityRulesetTargetTableOutput) ToDataQualityRulesetTargetTablePtrO
 	}).(DataQualityRulesetTargetTablePtrOutput)
 }
 
-// The catalog id where the AWS Glue table exists.
+// Catalog ID where the AWS Glue table exists.
 func (o DataQualityRulesetTargetTableOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataQualityRulesetTargetTable) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
@@ -11394,7 +11394,7 @@ func (o DataQualityRulesetTargetTablePtrOutput) Elem() DataQualityRulesetTargetT
 	}).(DataQualityRulesetTargetTableOutput)
 }
 
-// The catalog id where the AWS Glue table exists.
+// Catalog ID where the AWS Glue table exists.
 func (o DataQualityRulesetTargetTablePtrOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataQualityRulesetTargetTable) *string {
 		if v == nil {
@@ -11425,13 +11425,13 @@ func (o DataQualityRulesetTargetTablePtrOutput) TableName() pulumi.StringPtrOutp
 }
 
 type JobCommand struct {
-	// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
+	// Name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
 	Name *string `pulumi:"name"`
-	// The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.11 when `glueVersion` is set to 5.0.
+	// Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.11 when `glueVersion` is set to 5.0.
 	PythonVersion *string `pulumi:"pythonVersion"`
 	// In Ray jobs, runtime is used to specify the versions of Ray, Python and additional libraries available in your environment. This field is not used in other job types. For supported runtime environment values, see [Working with Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/ray-jobs-section.html#author-job-ray-runtimes) in the Glue Developer Guide.
 	Runtime *string `pulumi:"runtime"`
-	// Specifies the S3 path to a script that executes a job.
+	// S3 path to a script that executes a job.
 	ScriptLocation string `pulumi:"scriptLocation"`
 }
 
@@ -11447,13 +11447,13 @@ type JobCommandInput interface {
 }
 
 type JobCommandArgs struct {
-	// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
+	// Name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.11 when `glueVersion` is set to 5.0.
+	// Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.11 when `glueVersion` is set to 5.0.
 	PythonVersion pulumi.StringPtrInput `pulumi:"pythonVersion"`
 	// In Ray jobs, runtime is used to specify the versions of Ray, Python and additional libraries available in your environment. This field is not used in other job types. For supported runtime environment values, see [Working with Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/ray-jobs-section.html#author-job-ray-runtimes) in the Glue Developer Guide.
 	Runtime pulumi.StringPtrInput `pulumi:"runtime"`
-	// Specifies the S3 path to a script that executes a job.
+	// S3 path to a script that executes a job.
 	ScriptLocation pulumi.StringInput `pulumi:"scriptLocation"`
 }
 
@@ -11534,12 +11534,12 @@ func (o JobCommandOutput) ToJobCommandPtrOutputWithContext(ctx context.Context) 
 	}).(JobCommandPtrOutput)
 }
 
-// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
+// Name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
 func (o JobCommandOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobCommand) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.11 when `glueVersion` is set to 5.0.
+// Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.11 when `glueVersion` is set to 5.0.
 func (o JobCommandOutput) PythonVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobCommand) *string { return v.PythonVersion }).(pulumi.StringPtrOutput)
 }
@@ -11549,7 +11549,7 @@ func (o JobCommandOutput) Runtime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobCommand) *string { return v.Runtime }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the S3 path to a script that executes a job.
+// S3 path to a script that executes a job.
 func (o JobCommandOutput) ScriptLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v JobCommand) string { return v.ScriptLocation }).(pulumi.StringOutput)
 }
@@ -11578,7 +11578,7 @@ func (o JobCommandPtrOutput) Elem() JobCommandOutput {
 	}).(JobCommandOutput)
 }
 
-// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
+// Name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
 func (o JobCommandPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobCommand) *string {
 		if v == nil {
@@ -11588,7 +11588,7 @@ func (o JobCommandPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.11 when `glueVersion` is set to 5.0.
+// Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.11 when `glueVersion` is set to 5.0.
 func (o JobCommandPtrOutput) PythonVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobCommand) *string {
 		if v == nil {
@@ -11608,7 +11608,7 @@ func (o JobCommandPtrOutput) Runtime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the S3 path to a script that executes a job.
+// S3 path to a script that executes a job.
 func (o JobCommandPtrOutput) ScriptLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobCommand) *string {
 		if v == nil {
@@ -11619,7 +11619,7 @@ func (o JobCommandPtrOutput) ScriptLocation() pulumi.StringPtrOutput {
 }
 
 type JobExecutionProperty struct {
-	// The maximum number of concurrent runs allowed for a job. The default is 1.
+	// Maximum number of concurrent runs allowed for a job. The default is 1.
 	MaxConcurrentRuns *int `pulumi:"maxConcurrentRuns"`
 }
 
@@ -11635,7 +11635,7 @@ type JobExecutionPropertyInput interface {
 }
 
 type JobExecutionPropertyArgs struct {
-	// The maximum number of concurrent runs allowed for a job. The default is 1.
+	// Maximum number of concurrent runs allowed for a job. The default is 1.
 	MaxConcurrentRuns pulumi.IntPtrInput `pulumi:"maxConcurrentRuns"`
 }
 
@@ -11716,7 +11716,7 @@ func (o JobExecutionPropertyOutput) ToJobExecutionPropertyPtrOutputWithContext(c
 	}).(JobExecutionPropertyPtrOutput)
 }
 
-// The maximum number of concurrent runs allowed for a job. The default is 1.
+// Maximum number of concurrent runs allowed for a job. The default is 1.
 func (o JobExecutionPropertyOutput) MaxConcurrentRuns() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobExecutionProperty) *int { return v.MaxConcurrentRuns }).(pulumi.IntPtrOutput)
 }
@@ -11745,7 +11745,7 @@ func (o JobExecutionPropertyPtrOutput) Elem() JobExecutionPropertyOutput {
 	}).(JobExecutionPropertyOutput)
 }
 
-// The maximum number of concurrent runs allowed for a job. The default is 1.
+// Maximum number of concurrent runs allowed for a job. The default is 1.
 func (o JobExecutionPropertyPtrOutput) MaxConcurrentRuns() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobExecutionProperty) *int {
 		if v == nil {
@@ -11893,21 +11893,21 @@ func (o JobNotificationPropertyPtrOutput) NotifyDelayAfter() pulumi.IntPtrOutput
 }
 
 type JobSourceControlDetails struct {
-	// The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token. Valid values are: `PERSONAL_ACCESS_TOKEN` and `AWS_SECRETS_MANAGER`.
+	// Type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token. Valid values are: `PERSONAL_ACCESS_TOKEN` and `AWS_SECRETS_MANAGER`.
 	AuthStrategy *string `pulumi:"authStrategy"`
-	// The value of an authorization token.
+	// Value of an authorization token.
 	AuthToken *string `pulumi:"authToken"`
-	// A branch in the remote repository.
+	// Branch in the remote repository.
 	Branch *string `pulumi:"branch"`
-	// A folder in the remote repository.
+	// Folder in the remote repository.
 	Folder *string `pulumi:"folder"`
-	// The last commit ID for a commit in the remote repository.
+	// Last commit ID for a commit in the remote repository.
 	LastCommitId *string `pulumi:"lastCommitId"`
-	// The owner of the remote repository that contains the job artifacts.
+	// Owner of the remote repository that contains the job artifacts.
 	Owner *string `pulumi:"owner"`
-	// The provider for the remote repository. Valid values are: `GITHUB`, `GITLAB`, `BITBUCKET`, and `AWS_CODE_COMMIT`.
+	// Provider for the remote repository. Valid values are: `GITHUB`, `GITLAB`, `BITBUCKET`, and `AWS_CODE_COMMIT`.
 	Provider *string `pulumi:"provider"`
-	// The name of the remote repository that contains the job artifacts.
+	// Name of the remote repository that contains the job artifacts.
 	Repository *string `pulumi:"repository"`
 }
 
@@ -11923,21 +11923,21 @@ type JobSourceControlDetailsInput interface {
 }
 
 type JobSourceControlDetailsArgs struct {
-	// The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token. Valid values are: `PERSONAL_ACCESS_TOKEN` and `AWS_SECRETS_MANAGER`.
+	// Type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token. Valid values are: `PERSONAL_ACCESS_TOKEN` and `AWS_SECRETS_MANAGER`.
 	AuthStrategy pulumi.StringPtrInput `pulumi:"authStrategy"`
-	// The value of an authorization token.
+	// Value of an authorization token.
 	AuthToken pulumi.StringPtrInput `pulumi:"authToken"`
-	// A branch in the remote repository.
+	// Branch in the remote repository.
 	Branch pulumi.StringPtrInput `pulumi:"branch"`
-	// A folder in the remote repository.
+	// Folder in the remote repository.
 	Folder pulumi.StringPtrInput `pulumi:"folder"`
-	// The last commit ID for a commit in the remote repository.
+	// Last commit ID for a commit in the remote repository.
 	LastCommitId pulumi.StringPtrInput `pulumi:"lastCommitId"`
-	// The owner of the remote repository that contains the job artifacts.
+	// Owner of the remote repository that contains the job artifacts.
 	Owner pulumi.StringPtrInput `pulumi:"owner"`
-	// The provider for the remote repository. Valid values are: `GITHUB`, `GITLAB`, `BITBUCKET`, and `AWS_CODE_COMMIT`.
+	// Provider for the remote repository. Valid values are: `GITHUB`, `GITLAB`, `BITBUCKET`, and `AWS_CODE_COMMIT`.
 	Provider pulumi.StringPtrInput `pulumi:"provider"`
-	// The name of the remote repository that contains the job artifacts.
+	// Name of the remote repository that contains the job artifacts.
 	Repository pulumi.StringPtrInput `pulumi:"repository"`
 }
 
@@ -12018,42 +12018,42 @@ func (o JobSourceControlDetailsOutput) ToJobSourceControlDetailsPtrOutputWithCon
 	}).(JobSourceControlDetailsPtrOutput)
 }
 
-// The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token. Valid values are: `PERSONAL_ACCESS_TOKEN` and `AWS_SECRETS_MANAGER`.
+// Type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token. Valid values are: `PERSONAL_ACCESS_TOKEN` and `AWS_SECRETS_MANAGER`.
 func (o JobSourceControlDetailsOutput) AuthStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobSourceControlDetails) *string { return v.AuthStrategy }).(pulumi.StringPtrOutput)
 }
 
-// The value of an authorization token.
+// Value of an authorization token.
 func (o JobSourceControlDetailsOutput) AuthToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobSourceControlDetails) *string { return v.AuthToken }).(pulumi.StringPtrOutput)
 }
 
-// A branch in the remote repository.
+// Branch in the remote repository.
 func (o JobSourceControlDetailsOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobSourceControlDetails) *string { return v.Branch }).(pulumi.StringPtrOutput)
 }
 
-// A folder in the remote repository.
+// Folder in the remote repository.
 func (o JobSourceControlDetailsOutput) Folder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobSourceControlDetails) *string { return v.Folder }).(pulumi.StringPtrOutput)
 }
 
-// The last commit ID for a commit in the remote repository.
+// Last commit ID for a commit in the remote repository.
 func (o JobSourceControlDetailsOutput) LastCommitId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobSourceControlDetails) *string { return v.LastCommitId }).(pulumi.StringPtrOutput)
 }
 
-// The owner of the remote repository that contains the job artifacts.
+// Owner of the remote repository that contains the job artifacts.
 func (o JobSourceControlDetailsOutput) Owner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobSourceControlDetails) *string { return v.Owner }).(pulumi.StringPtrOutput)
 }
 
-// The provider for the remote repository. Valid values are: `GITHUB`, `GITLAB`, `BITBUCKET`, and `AWS_CODE_COMMIT`.
+// Provider for the remote repository. Valid values are: `GITHUB`, `GITLAB`, `BITBUCKET`, and `AWS_CODE_COMMIT`.
 func (o JobSourceControlDetailsOutput) Provider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobSourceControlDetails) *string { return v.Provider }).(pulumi.StringPtrOutput)
 }
 
-// The name of the remote repository that contains the job artifacts.
+// Name of the remote repository that contains the job artifacts.
 func (o JobSourceControlDetailsOutput) Repository() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobSourceControlDetails) *string { return v.Repository }).(pulumi.StringPtrOutput)
 }
@@ -12082,7 +12082,7 @@ func (o JobSourceControlDetailsPtrOutput) Elem() JobSourceControlDetailsOutput {
 	}).(JobSourceControlDetailsOutput)
 }
 
-// The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token. Valid values are: `PERSONAL_ACCESS_TOKEN` and `AWS_SECRETS_MANAGER`.
+// Type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token. Valid values are: `PERSONAL_ACCESS_TOKEN` and `AWS_SECRETS_MANAGER`.
 func (o JobSourceControlDetailsPtrOutput) AuthStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobSourceControlDetails) *string {
 		if v == nil {
@@ -12092,7 +12092,7 @@ func (o JobSourceControlDetailsPtrOutput) AuthStrategy() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value of an authorization token.
+// Value of an authorization token.
 func (o JobSourceControlDetailsPtrOutput) AuthToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobSourceControlDetails) *string {
 		if v == nil {
@@ -12102,7 +12102,7 @@ func (o JobSourceControlDetailsPtrOutput) AuthToken() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A branch in the remote repository.
+// Branch in the remote repository.
 func (o JobSourceControlDetailsPtrOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobSourceControlDetails) *string {
 		if v == nil {
@@ -12112,7 +12112,7 @@ func (o JobSourceControlDetailsPtrOutput) Branch() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A folder in the remote repository.
+// Folder in the remote repository.
 func (o JobSourceControlDetailsPtrOutput) Folder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobSourceControlDetails) *string {
 		if v == nil {
@@ -12122,7 +12122,7 @@ func (o JobSourceControlDetailsPtrOutput) Folder() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The last commit ID for a commit in the remote repository.
+// Last commit ID for a commit in the remote repository.
 func (o JobSourceControlDetailsPtrOutput) LastCommitId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobSourceControlDetails) *string {
 		if v == nil {
@@ -12132,7 +12132,7 @@ func (o JobSourceControlDetailsPtrOutput) LastCommitId() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The owner of the remote repository that contains the job artifacts.
+// Owner of the remote repository that contains the job artifacts.
 func (o JobSourceControlDetailsPtrOutput) Owner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobSourceControlDetails) *string {
 		if v == nil {
@@ -12142,7 +12142,7 @@ func (o JobSourceControlDetailsPtrOutput) Owner() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The provider for the remote repository. Valid values are: `GITHUB`, `GITLAB`, `BITBUCKET`, and `AWS_CODE_COMMIT`.
+// Provider for the remote repository. Valid values are: `GITHUB`, `GITLAB`, `BITBUCKET`, and `AWS_CODE_COMMIT`.
 func (o JobSourceControlDetailsPtrOutput) Provider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobSourceControlDetails) *string {
 		if v == nil {
@@ -12152,7 +12152,7 @@ func (o JobSourceControlDetailsPtrOutput) Provider() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the remote repository that contains the job artifacts.
+// Name of the remote repository that contains the job artifacts.
 func (o JobSourceControlDetailsPtrOutput) Repository() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobSourceControlDetails) *string {
 		if v == nil {
@@ -12163,13 +12163,13 @@ func (o JobSourceControlDetailsPtrOutput) Repository() pulumi.StringPtrOutput {
 }
 
 type MLTransformInputRecordTable struct {
-	// A unique identifier for the AWS Glue Data Catalog.
+	// Unique identifier for the AWS Glue Data Catalog.
 	CatalogId *string `pulumi:"catalogId"`
-	// The name of the connection to the AWS Glue Data Catalog.
+	// Name of the connection to the AWS Glue Data Catalog.
 	ConnectionName *string `pulumi:"connectionName"`
-	// A database name in the AWS Glue Data Catalog.
+	// Database name in the AWS Glue Data Catalog.
 	DatabaseName string `pulumi:"databaseName"`
-	// A table name in the AWS Glue Data Catalog.
+	// Table name in the AWS Glue Data Catalog.
 	TableName string `pulumi:"tableName"`
 }
 
@@ -12185,13 +12185,13 @@ type MLTransformInputRecordTableInput interface {
 }
 
 type MLTransformInputRecordTableArgs struct {
-	// A unique identifier for the AWS Glue Data Catalog.
+	// Unique identifier for the AWS Glue Data Catalog.
 	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
-	// The name of the connection to the AWS Glue Data Catalog.
+	// Name of the connection to the AWS Glue Data Catalog.
 	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
-	// A database name in the AWS Glue Data Catalog.
+	// Database name in the AWS Glue Data Catalog.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// A table name in the AWS Glue Data Catalog.
+	// Table name in the AWS Glue Data Catalog.
 	TableName pulumi.StringInput `pulumi:"tableName"`
 }
 
@@ -12246,22 +12246,22 @@ func (o MLTransformInputRecordTableOutput) ToMLTransformInputRecordTableOutputWi
 	return o
 }
 
-// A unique identifier for the AWS Glue Data Catalog.
+// Unique identifier for the AWS Glue Data Catalog.
 func (o MLTransformInputRecordTableOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MLTransformInputRecordTable) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
 
-// The name of the connection to the AWS Glue Data Catalog.
+// Name of the connection to the AWS Glue Data Catalog.
 func (o MLTransformInputRecordTableOutput) ConnectionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MLTransformInputRecordTable) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
 }
 
-// A database name in the AWS Glue Data Catalog.
+// Database name in the AWS Glue Data Catalog.
 func (o MLTransformInputRecordTableOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v MLTransformInputRecordTable) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// A table name in the AWS Glue Data Catalog.
+// Table name in the AWS Glue Data Catalog.
 func (o MLTransformInputRecordTableOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v MLTransformInputRecordTable) string { return v.TableName }).(pulumi.StringOutput)
 }
@@ -12287,9 +12287,9 @@ func (o MLTransformInputRecordTableArrayOutput) Index(i pulumi.IntInput) MLTrans
 }
 
 type MLTransformParameters struct {
-	// The parameters for the find matches algorithm. see Find Matches Parameters.
+	// Parameters for the find matches algorithm. See `findMatchesParameters`.
 	FindMatchesParameters MLTransformParametersFindMatchesParameters `pulumi:"findMatchesParameters"`
-	// The type of machine learning transform. For information about the types of machine learning transforms, see [Creating Machine Learning Transforms](http://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html).
+	// Type of machine learning transform. For information about the types of machine learning transforms, see [Creating Machine Learning Transforms](http://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html).
 	TransformType string `pulumi:"transformType"`
 }
 
@@ -12305,9 +12305,9 @@ type MLTransformParametersInput interface {
 }
 
 type MLTransformParametersArgs struct {
-	// The parameters for the find matches algorithm. see Find Matches Parameters.
+	// Parameters for the find matches algorithm. See `findMatchesParameters`.
 	FindMatchesParameters MLTransformParametersFindMatchesParametersInput `pulumi:"findMatchesParameters"`
-	// The type of machine learning transform. For information about the types of machine learning transforms, see [Creating Machine Learning Transforms](http://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html).
+	// Type of machine learning transform. For information about the types of machine learning transforms, see [Creating Machine Learning Transforms](http://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html).
 	TransformType pulumi.StringInput `pulumi:"transformType"`
 }
 
@@ -12388,14 +12388,14 @@ func (o MLTransformParametersOutput) ToMLTransformParametersPtrOutputWithContext
 	}).(MLTransformParametersPtrOutput)
 }
 
-// The parameters for the find matches algorithm. see Find Matches Parameters.
+// Parameters for the find matches algorithm. See `findMatchesParameters`.
 func (o MLTransformParametersOutput) FindMatchesParameters() MLTransformParametersFindMatchesParametersOutput {
 	return o.ApplyT(func(v MLTransformParameters) MLTransformParametersFindMatchesParameters {
 		return v.FindMatchesParameters
 	}).(MLTransformParametersFindMatchesParametersOutput)
 }
 
-// The type of machine learning transform. For information about the types of machine learning transforms, see [Creating Machine Learning Transforms](http://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html).
+// Type of machine learning transform. For information about the types of machine learning transforms, see [Creating Machine Learning Transforms](http://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html).
 func (o MLTransformParametersOutput) TransformType() pulumi.StringOutput {
 	return o.ApplyT(func(v MLTransformParameters) string { return v.TransformType }).(pulumi.StringOutput)
 }
@@ -12424,7 +12424,7 @@ func (o MLTransformParametersPtrOutput) Elem() MLTransformParametersOutput {
 	}).(MLTransformParametersOutput)
 }
 
-// The parameters for the find matches algorithm. see Find Matches Parameters.
+// Parameters for the find matches algorithm. See `findMatchesParameters`.
 func (o MLTransformParametersPtrOutput) FindMatchesParameters() MLTransformParametersFindMatchesParametersPtrOutput {
 	return o.ApplyT(func(v *MLTransformParameters) *MLTransformParametersFindMatchesParameters {
 		if v == nil {
@@ -12434,7 +12434,7 @@ func (o MLTransformParametersPtrOutput) FindMatchesParameters() MLTransformParam
 	}).(MLTransformParametersFindMatchesParametersPtrOutput)
 }
 
-// The type of machine learning transform. For information about the types of machine learning transforms, see [Creating Machine Learning Transforms](http://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html).
+// Type of machine learning transform. For information about the types of machine learning transforms, see [Creating Machine Learning Transforms](http://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html).
 func (o MLTransformParametersPtrOutput) TransformType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MLTransformParameters) *string {
 		if v == nil {
@@ -12445,13 +12445,13 @@ func (o MLTransformParametersPtrOutput) TransformType() pulumi.StringPtrOutput {
 }
 
 type MLTransformParametersFindMatchesParameters struct {
-	// The value that is selected when tuning your transform for a balance between accuracy and cost.
+	// Value that is selected when tuning your transform for a balance between accuracy and cost.
 	AccuracyCostTradeOff *float64 `pulumi:"accuracyCostTradeOff"`
-	// The value to switch on or off to force the output to match the provided labels from users.
+	// Value to switch on or off to force the output to match the provided labels from users.
 	EnforceProvidedLabels *bool `pulumi:"enforceProvidedLabels"`
-	// The value selected when tuning your transform for a balance between precision and recall.
+	// Value selected when tuning your transform for a balance between precision and recall.
 	PrecisionRecallTradeOff *float64 `pulumi:"precisionRecallTradeOff"`
-	// The name of a column that uniquely identifies rows in the source table.
+	// Name of a column that uniquely identifies rows in the source table.
 	PrimaryKeyColumnName *string `pulumi:"primaryKeyColumnName"`
 }
 
@@ -12467,13 +12467,13 @@ type MLTransformParametersFindMatchesParametersInput interface {
 }
 
 type MLTransformParametersFindMatchesParametersArgs struct {
-	// The value that is selected when tuning your transform for a balance between accuracy and cost.
+	// Value that is selected when tuning your transform for a balance between accuracy and cost.
 	AccuracyCostTradeOff pulumi.Float64PtrInput `pulumi:"accuracyCostTradeOff"`
-	// The value to switch on or off to force the output to match the provided labels from users.
+	// Value to switch on or off to force the output to match the provided labels from users.
 	EnforceProvidedLabels pulumi.BoolPtrInput `pulumi:"enforceProvidedLabels"`
-	// The value selected when tuning your transform for a balance between precision and recall.
+	// Value selected when tuning your transform for a balance between precision and recall.
 	PrecisionRecallTradeOff pulumi.Float64PtrInput `pulumi:"precisionRecallTradeOff"`
-	// The name of a column that uniquely identifies rows in the source table.
+	// Name of a column that uniquely identifies rows in the source table.
 	PrimaryKeyColumnName pulumi.StringPtrInput `pulumi:"primaryKeyColumnName"`
 }
 
@@ -12554,22 +12554,22 @@ func (o MLTransformParametersFindMatchesParametersOutput) ToMLTransformParameter
 	}).(MLTransformParametersFindMatchesParametersPtrOutput)
 }
 
-// The value that is selected when tuning your transform for a balance between accuracy and cost.
+// Value that is selected when tuning your transform for a balance between accuracy and cost.
 func (o MLTransformParametersFindMatchesParametersOutput) AccuracyCostTradeOff() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v MLTransformParametersFindMatchesParameters) *float64 { return v.AccuracyCostTradeOff }).(pulumi.Float64PtrOutput)
 }
 
-// The value to switch on or off to force the output to match the provided labels from users.
+// Value to switch on or off to force the output to match the provided labels from users.
 func (o MLTransformParametersFindMatchesParametersOutput) EnforceProvidedLabels() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MLTransformParametersFindMatchesParameters) *bool { return v.EnforceProvidedLabels }).(pulumi.BoolPtrOutput)
 }
 
-// The value selected when tuning your transform for a balance between precision and recall.
+// Value selected when tuning your transform for a balance between precision and recall.
 func (o MLTransformParametersFindMatchesParametersOutput) PrecisionRecallTradeOff() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v MLTransformParametersFindMatchesParameters) *float64 { return v.PrecisionRecallTradeOff }).(pulumi.Float64PtrOutput)
 }
 
-// The name of a column that uniquely identifies rows in the source table.
+// Name of a column that uniquely identifies rows in the source table.
 func (o MLTransformParametersFindMatchesParametersOutput) PrimaryKeyColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MLTransformParametersFindMatchesParameters) *string { return v.PrimaryKeyColumnName }).(pulumi.StringPtrOutput)
 }
@@ -12598,7 +12598,7 @@ func (o MLTransformParametersFindMatchesParametersPtrOutput) Elem() MLTransformP
 	}).(MLTransformParametersFindMatchesParametersOutput)
 }
 
-// The value that is selected when tuning your transform for a balance between accuracy and cost.
+// Value that is selected when tuning your transform for a balance between accuracy and cost.
 func (o MLTransformParametersFindMatchesParametersPtrOutput) AccuracyCostTradeOff() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *MLTransformParametersFindMatchesParameters) *float64 {
 		if v == nil {
@@ -12608,7 +12608,7 @@ func (o MLTransformParametersFindMatchesParametersPtrOutput) AccuracyCostTradeOf
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The value to switch on or off to force the output to match the provided labels from users.
+// Value to switch on or off to force the output to match the provided labels from users.
 func (o MLTransformParametersFindMatchesParametersPtrOutput) EnforceProvidedLabels() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MLTransformParametersFindMatchesParameters) *bool {
 		if v == nil {
@@ -12618,7 +12618,7 @@ func (o MLTransformParametersFindMatchesParametersPtrOutput) EnforceProvidedLabe
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value selected when tuning your transform for a balance between precision and recall.
+// Value selected when tuning your transform for a balance between precision and recall.
 func (o MLTransformParametersFindMatchesParametersPtrOutput) PrecisionRecallTradeOff() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *MLTransformParametersFindMatchesParameters) *float64 {
 		if v == nil {
@@ -12628,7 +12628,7 @@ func (o MLTransformParametersFindMatchesParametersPtrOutput) PrecisionRecallTrad
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The name of a column that uniquely identifies rows in the source table.
+// Name of a column that uniquely identifies rows in the source table.
 func (o MLTransformParametersFindMatchesParametersPtrOutput) PrimaryKeyColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MLTransformParametersFindMatchesParameters) *string {
 		if v == nil {
@@ -12639,9 +12639,9 @@ func (o MLTransformParametersFindMatchesParametersPtrOutput) PrimaryKeyColumnNam
 }
 
 type MLTransformSchema struct {
-	// The type of data in the column.
+	// Type of data in the column.
 	DataType *string `pulumi:"dataType"`
-	// The name you assign to this ML Transform. It must be unique in your account.
+	// Name you assign to this ML Transform. It must be unique in your account.
 	Name *string `pulumi:"name"`
 }
 
@@ -12657,9 +12657,9 @@ type MLTransformSchemaInput interface {
 }
 
 type MLTransformSchemaArgs struct {
-	// The type of data in the column.
+	// Type of data in the column.
 	DataType pulumi.StringPtrInput `pulumi:"dataType"`
-	// The name you assign to this ML Transform. It must be unique in your account.
+	// Name you assign to this ML Transform. It must be unique in your account.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -12714,12 +12714,12 @@ func (o MLTransformSchemaOutput) ToMLTransformSchemaOutputWithContext(ctx contex
 	return o
 }
 
-// The type of data in the column.
+// Type of data in the column.
 func (o MLTransformSchemaOutput) DataType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MLTransformSchema) *string { return v.DataType }).(pulumi.StringPtrOutput)
 }
 
-// The name you assign to this ML Transform. It must be unique in your account.
+// Name you assign to this ML Transform. It must be unique in your account.
 func (o MLTransformSchemaOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MLTransformSchema) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -12746,7 +12746,8 @@ func (o MLTransformSchemaArrayOutput) Index(i pulumi.IntInput) MLTransformSchema
 
 type PartitionIndexPartitionIndex struct {
 	// Name of the partition index.
-	IndexName   *string `pulumi:"indexName"`
+	IndexName *string `pulumi:"indexName"`
+	// Status of the partition index.
 	IndexStatus *string `pulumi:"indexStatus"`
 	// Keys for the partition index.
 	Keys []string `pulumi:"keys"`
@@ -12765,7 +12766,8 @@ type PartitionIndexPartitionIndexInput interface {
 
 type PartitionIndexPartitionIndexArgs struct {
 	// Name of the partition index.
-	IndexName   pulumi.StringPtrInput `pulumi:"indexName"`
+	IndexName pulumi.StringPtrInput `pulumi:"indexName"`
+	// Status of the partition index.
 	IndexStatus pulumi.StringPtrInput `pulumi:"indexStatus"`
 	// Keys for the partition index.
 	Keys pulumi.StringArrayInput `pulumi:"keys"`
@@ -12853,6 +12855,7 @@ func (o PartitionIndexPartitionIndexOutput) IndexName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PartitionIndexPartitionIndex) *string { return v.IndexName }).(pulumi.StringPtrOutput)
 }
 
+// Status of the partition index.
 func (o PartitionIndexPartitionIndexOutput) IndexStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PartitionIndexPartitionIndex) *string { return v.IndexStatus }).(pulumi.StringPtrOutput)
 }
@@ -12896,6 +12899,7 @@ func (o PartitionIndexPartitionIndexPtrOutput) IndexName() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Status of the partition index.
 func (o PartitionIndexPartitionIndexPtrOutput) IndexStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PartitionIndexPartitionIndex) *string {
 		if v == nil {
@@ -12918,19 +12922,19 @@ func (o PartitionIndexPartitionIndexPtrOutput) Keys() pulumi.StringArrayOutput {
 type PartitionStorageDescriptor struct {
 	// List of locations that point to the path where a Delta table is located.
 	AdditionalLocations []string `pulumi:"additionalLocations"`
-	// A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+	// List of reducer grouping columns, clustering columns, and bucketing columns in the table.
 	BucketColumns []string `pulumi:"bucketColumns"`
-	// A list of the Columns in the table.
+	// List of the `columns` in the table.
 	Columns []PartitionStorageDescriptorColumn `pulumi:"columns"`
 	// True if the data in the table is compressed, or False if not.
 	Compressed *bool `pulumi:"compressed"`
-	// The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+	// Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
 	InputFormat *string `pulumi:"inputFormat"`
-	// The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+	// Physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
 	Location *string `pulumi:"location"`
 	// Must be specified if the table contains any dimension columns.
 	NumberOfBuckets *int `pulumi:"numberOfBuckets"`
-	// The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+	// Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
 	OutputFormat *string `pulumi:"outputFormat"`
 	// User-supplied properties in key-value form.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -12938,7 +12942,7 @@ type PartitionStorageDescriptor struct {
 	SerDeInfo *PartitionStorageDescriptorSerDeInfo `pulumi:"serDeInfo"`
 	// Information about values that appear very frequently in a column (skewed values).
 	SkewedInfo *PartitionStorageDescriptorSkewedInfo `pulumi:"skewedInfo"`
-	// A list of Order objects specifying the sort order of each bucket in the table.
+	// List of `sortColumns` objects specifying the sort order of each bucket in the table.
 	SortColumns []PartitionStorageDescriptorSortColumn `pulumi:"sortColumns"`
 	// True if the table data is stored in subdirectories, or False if not.
 	StoredAsSubDirectories *bool `pulumi:"storedAsSubDirectories"`
@@ -12958,19 +12962,19 @@ type PartitionStorageDescriptorInput interface {
 type PartitionStorageDescriptorArgs struct {
 	// List of locations that point to the path where a Delta table is located.
 	AdditionalLocations pulumi.StringArrayInput `pulumi:"additionalLocations"`
-	// A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+	// List of reducer grouping columns, clustering columns, and bucketing columns in the table.
 	BucketColumns pulumi.StringArrayInput `pulumi:"bucketColumns"`
-	// A list of the Columns in the table.
+	// List of the `columns` in the table.
 	Columns PartitionStorageDescriptorColumnArrayInput `pulumi:"columns"`
 	// True if the data in the table is compressed, or False if not.
 	Compressed pulumi.BoolPtrInput `pulumi:"compressed"`
-	// The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+	// Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
 	InputFormat pulumi.StringPtrInput `pulumi:"inputFormat"`
-	// The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+	// Physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
 	Location pulumi.StringPtrInput `pulumi:"location"`
 	// Must be specified if the table contains any dimension columns.
 	NumberOfBuckets pulumi.IntPtrInput `pulumi:"numberOfBuckets"`
-	// The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+	// Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
 	OutputFormat pulumi.StringPtrInput `pulumi:"outputFormat"`
 	// User-supplied properties in key-value form.
 	Parameters pulumi.StringMapInput `pulumi:"parameters"`
@@ -12978,7 +12982,7 @@ type PartitionStorageDescriptorArgs struct {
 	SerDeInfo PartitionStorageDescriptorSerDeInfoPtrInput `pulumi:"serDeInfo"`
 	// Information about values that appear very frequently in a column (skewed values).
 	SkewedInfo PartitionStorageDescriptorSkewedInfoPtrInput `pulumi:"skewedInfo"`
-	// A list of Order objects specifying the sort order of each bucket in the table.
+	// List of `sortColumns` objects specifying the sort order of each bucket in the table.
 	SortColumns PartitionStorageDescriptorSortColumnArrayInput `pulumi:"sortColumns"`
 	// True if the table data is stored in subdirectories, or False if not.
 	StoredAsSubDirectories pulumi.BoolPtrInput `pulumi:"storedAsSubDirectories"`
@@ -13066,12 +13070,12 @@ func (o PartitionStorageDescriptorOutput) AdditionalLocations() pulumi.StringArr
 	return o.ApplyT(func(v PartitionStorageDescriptor) []string { return v.AdditionalLocations }).(pulumi.StringArrayOutput)
 }
 
-// A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+// List of reducer grouping columns, clustering columns, and bucketing columns in the table.
 func (o PartitionStorageDescriptorOutput) BucketColumns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PartitionStorageDescriptor) []string { return v.BucketColumns }).(pulumi.StringArrayOutput)
 }
 
-// A list of the Columns in the table.
+// List of the `columns` in the table.
 func (o PartitionStorageDescriptorOutput) Columns() PartitionStorageDescriptorColumnArrayOutput {
 	return o.ApplyT(func(v PartitionStorageDescriptor) []PartitionStorageDescriptorColumn { return v.Columns }).(PartitionStorageDescriptorColumnArrayOutput)
 }
@@ -13081,12 +13085,12 @@ func (o PartitionStorageDescriptorOutput) Compressed() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PartitionStorageDescriptor) *bool { return v.Compressed }).(pulumi.BoolPtrOutput)
 }
 
-// The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+// Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
 func (o PartitionStorageDescriptorOutput) InputFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PartitionStorageDescriptor) *string { return v.InputFormat }).(pulumi.StringPtrOutput)
 }
 
-// The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+// Physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
 func (o PartitionStorageDescriptorOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PartitionStorageDescriptor) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
@@ -13096,7 +13100,7 @@ func (o PartitionStorageDescriptorOutput) NumberOfBuckets() pulumi.IntPtrOutput 
 	return o.ApplyT(func(v PartitionStorageDescriptor) *int { return v.NumberOfBuckets }).(pulumi.IntPtrOutput)
 }
 
-// The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+// Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
 func (o PartitionStorageDescriptorOutput) OutputFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PartitionStorageDescriptor) *string { return v.OutputFormat }).(pulumi.StringPtrOutput)
 }
@@ -13116,7 +13120,7 @@ func (o PartitionStorageDescriptorOutput) SkewedInfo() PartitionStorageDescripto
 	return o.ApplyT(func(v PartitionStorageDescriptor) *PartitionStorageDescriptorSkewedInfo { return v.SkewedInfo }).(PartitionStorageDescriptorSkewedInfoPtrOutput)
 }
 
-// A list of Order objects specifying the sort order of each bucket in the table.
+// List of `sortColumns` objects specifying the sort order of each bucket in the table.
 func (o PartitionStorageDescriptorOutput) SortColumns() PartitionStorageDescriptorSortColumnArrayOutput {
 	return o.ApplyT(func(v PartitionStorageDescriptor) []PartitionStorageDescriptorSortColumn { return v.SortColumns }).(PartitionStorageDescriptorSortColumnArrayOutput)
 }
@@ -13160,7 +13164,7 @@ func (o PartitionStorageDescriptorPtrOutput) AdditionalLocations() pulumi.String
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+// List of reducer grouping columns, clustering columns, and bucketing columns in the table.
 func (o PartitionStorageDescriptorPtrOutput) BucketColumns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PartitionStorageDescriptor) []string {
 		if v == nil {
@@ -13170,7 +13174,7 @@ func (o PartitionStorageDescriptorPtrOutput) BucketColumns() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of the Columns in the table.
+// List of the `columns` in the table.
 func (o PartitionStorageDescriptorPtrOutput) Columns() PartitionStorageDescriptorColumnArrayOutput {
 	return o.ApplyT(func(v *PartitionStorageDescriptor) []PartitionStorageDescriptorColumn {
 		if v == nil {
@@ -13190,7 +13194,7 @@ func (o PartitionStorageDescriptorPtrOutput) Compressed() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+// Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
 func (o PartitionStorageDescriptorPtrOutput) InputFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PartitionStorageDescriptor) *string {
 		if v == nil {
@@ -13200,7 +13204,7 @@ func (o PartitionStorageDescriptorPtrOutput) InputFormat() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+// Physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
 func (o PartitionStorageDescriptorPtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PartitionStorageDescriptor) *string {
 		if v == nil {
@@ -13220,7 +13224,7 @@ func (o PartitionStorageDescriptorPtrOutput) NumberOfBuckets() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+// Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
 func (o PartitionStorageDescriptorPtrOutput) OutputFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PartitionStorageDescriptor) *string {
 		if v == nil {
@@ -13260,7 +13264,7 @@ func (o PartitionStorageDescriptorPtrOutput) SkewedInfo() PartitionStorageDescri
 	}).(PartitionStorageDescriptorSkewedInfoPtrOutput)
 }
 
-// A list of Order objects specifying the sort order of each bucket in the table.
+// List of `sortColumns` objects specifying the sort order of each bucket in the table.
 func (o PartitionStorageDescriptorPtrOutput) SortColumns() PartitionStorageDescriptorSortColumnArrayOutput {
 	return o.ApplyT(func(v *PartitionStorageDescriptor) []PartitionStorageDescriptorSortColumn {
 		if v == nil {
@@ -13283,8 +13287,9 @@ func (o PartitionStorageDescriptorPtrOutput) StoredAsSubDirectories() pulumi.Boo
 type PartitionStorageDescriptorColumn struct {
 	// Free-form text comment.
 	Comment *string `pulumi:"comment"`
-	Name    string  `pulumi:"name"`
-	// The datatype of data in the Column.
+	// Name of the Column.
+	Name string `pulumi:"name"`
+	// Datatype of data in the Column.
 	Type *string `pulumi:"type"`
 }
 
@@ -13302,8 +13307,9 @@ type PartitionStorageDescriptorColumnInput interface {
 type PartitionStorageDescriptorColumnArgs struct {
 	// Free-form text comment.
 	Comment pulumi.StringPtrInput `pulumi:"comment"`
-	Name    pulumi.StringInput    `pulumi:"name"`
-	// The datatype of data in the Column.
+	// Name of the Column.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Datatype of data in the Column.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -13363,11 +13369,12 @@ func (o PartitionStorageDescriptorColumnOutput) Comment() pulumi.StringPtrOutput
 	return o.ApplyT(func(v PartitionStorageDescriptorColumn) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
+// Name of the Column.
 func (o PartitionStorageDescriptorColumnOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PartitionStorageDescriptorColumn) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The datatype of data in the Column.
+// Datatype of data in the Column.
 func (o PartitionStorageDescriptorColumnOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PartitionStorageDescriptorColumn) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -13395,7 +13402,7 @@ func (o PartitionStorageDescriptorColumnArrayOutput) Index(i pulumi.IntInput) Pa
 type PartitionStorageDescriptorSerDeInfo struct {
 	// Name of the SerDe.
 	Name *string `pulumi:"name"`
-	// A map of initialization parameters for the SerDe, in key-value form.
+	// Map of initialization parameters for the SerDe, in key-value form.
 	Parameters map[string]string `pulumi:"parameters"`
 	// Usually the class that implements the SerDe. An example is: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
 	SerializationLibrary *string `pulumi:"serializationLibrary"`
@@ -13415,7 +13422,7 @@ type PartitionStorageDescriptorSerDeInfoInput interface {
 type PartitionStorageDescriptorSerDeInfoArgs struct {
 	// Name of the SerDe.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// A map of initialization parameters for the SerDe, in key-value form.
+	// Map of initialization parameters for the SerDe, in key-value form.
 	Parameters pulumi.StringMapInput `pulumi:"parameters"`
 	// Usually the class that implements the SerDe. An example is: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
 	SerializationLibrary pulumi.StringPtrInput `pulumi:"serializationLibrary"`
@@ -13503,7 +13510,7 @@ func (o PartitionStorageDescriptorSerDeInfoOutput) Name() pulumi.StringPtrOutput
 	return o.ApplyT(func(v PartitionStorageDescriptorSerDeInfo) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// A map of initialization parameters for the SerDe, in key-value form.
+// Map of initialization parameters for the SerDe, in key-value form.
 func (o PartitionStorageDescriptorSerDeInfoOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v PartitionStorageDescriptorSerDeInfo) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
@@ -13547,7 +13554,7 @@ func (o PartitionStorageDescriptorSerDeInfoPtrOutput) Name() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// A map of initialization parameters for the SerDe, in key-value form.
+// Map of initialization parameters for the SerDe, in key-value form.
 func (o PartitionStorageDescriptorSerDeInfoPtrOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PartitionStorageDescriptorSerDeInfo) map[string]string {
 		if v == nil {
@@ -13568,11 +13575,11 @@ func (o PartitionStorageDescriptorSerDeInfoPtrOutput) SerializationLibrary() pul
 }
 
 type PartitionStorageDescriptorSkewedInfo struct {
-	// A list of names of columns that contain skewed values.
+	// List of names of columns that contain skewed values.
 	SkewedColumnNames []string `pulumi:"skewedColumnNames"`
-	// A list of values that appear so frequently as to be considered skewed.
+	// List of values that appear so frequently as to be considered skewed.
 	SkewedColumnValueLocationMaps map[string]string `pulumi:"skewedColumnValueLocationMaps"`
-	// A map of skewed values to the columns that contain them.
+	// Map of skewed values to the columns that contain them.
 	SkewedColumnValues []string `pulumi:"skewedColumnValues"`
 }
 
@@ -13588,11 +13595,11 @@ type PartitionStorageDescriptorSkewedInfoInput interface {
 }
 
 type PartitionStorageDescriptorSkewedInfoArgs struct {
-	// A list of names of columns that contain skewed values.
+	// List of names of columns that contain skewed values.
 	SkewedColumnNames pulumi.StringArrayInput `pulumi:"skewedColumnNames"`
-	// A list of values that appear so frequently as to be considered skewed.
+	// List of values that appear so frequently as to be considered skewed.
 	SkewedColumnValueLocationMaps pulumi.StringMapInput `pulumi:"skewedColumnValueLocationMaps"`
-	// A map of skewed values to the columns that contain them.
+	// Map of skewed values to the columns that contain them.
 	SkewedColumnValues pulumi.StringArrayInput `pulumi:"skewedColumnValues"`
 }
 
@@ -13673,17 +13680,17 @@ func (o PartitionStorageDescriptorSkewedInfoOutput) ToPartitionStorageDescriptor
 	}).(PartitionStorageDescriptorSkewedInfoPtrOutput)
 }
 
-// A list of names of columns that contain skewed values.
+// List of names of columns that contain skewed values.
 func (o PartitionStorageDescriptorSkewedInfoOutput) SkewedColumnNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PartitionStorageDescriptorSkewedInfo) []string { return v.SkewedColumnNames }).(pulumi.StringArrayOutput)
 }
 
-// A list of values that appear so frequently as to be considered skewed.
+// List of values that appear so frequently as to be considered skewed.
 func (o PartitionStorageDescriptorSkewedInfoOutput) SkewedColumnValueLocationMaps() pulumi.StringMapOutput {
 	return o.ApplyT(func(v PartitionStorageDescriptorSkewedInfo) map[string]string { return v.SkewedColumnValueLocationMaps }).(pulumi.StringMapOutput)
 }
 
-// A map of skewed values to the columns that contain them.
+// Map of skewed values to the columns that contain them.
 func (o PartitionStorageDescriptorSkewedInfoOutput) SkewedColumnValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PartitionStorageDescriptorSkewedInfo) []string { return v.SkewedColumnValues }).(pulumi.StringArrayOutput)
 }
@@ -13712,7 +13719,7 @@ func (o PartitionStorageDescriptorSkewedInfoPtrOutput) Elem() PartitionStorageDe
 	}).(PartitionStorageDescriptorSkewedInfoOutput)
 }
 
-// A list of names of columns that contain skewed values.
+// List of names of columns that contain skewed values.
 func (o PartitionStorageDescriptorSkewedInfoPtrOutput) SkewedColumnNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PartitionStorageDescriptorSkewedInfo) []string {
 		if v == nil {
@@ -13722,7 +13729,7 @@ func (o PartitionStorageDescriptorSkewedInfoPtrOutput) SkewedColumnNames() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of values that appear so frequently as to be considered skewed.
+// List of values that appear so frequently as to be considered skewed.
 func (o PartitionStorageDescriptorSkewedInfoPtrOutput) SkewedColumnValueLocationMaps() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PartitionStorageDescriptorSkewedInfo) map[string]string {
 		if v == nil {
@@ -13732,7 +13739,7 @@ func (o PartitionStorageDescriptorSkewedInfoPtrOutput) SkewedColumnValueLocation
 	}).(pulumi.StringMapOutput)
 }
 
-// A map of skewed values to the columns that contain them.
+// Map of skewed values to the columns that contain them.
 func (o PartitionStorageDescriptorSkewedInfoPtrOutput) SkewedColumnValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PartitionStorageDescriptorSkewedInfo) []string {
 		if v == nil {
@@ -13743,9 +13750,9 @@ func (o PartitionStorageDescriptorSkewedInfoPtrOutput) SkewedColumnValues() pulu
 }
 
 type PartitionStorageDescriptorSortColumn struct {
-	// The name of the column.
+	// Name of the column.
 	Column string `pulumi:"column"`
-	// Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
+	// Order the column is sorted in: ascending (`1`) or descending (`0`).
 	SortOrder int `pulumi:"sortOrder"`
 }
 
@@ -13761,9 +13768,9 @@ type PartitionStorageDescriptorSortColumnInput interface {
 }
 
 type PartitionStorageDescriptorSortColumnArgs struct {
-	// The name of the column.
+	// Name of the column.
 	Column pulumi.StringInput `pulumi:"column"`
-	// Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
+	// Order the column is sorted in: ascending (`1`) or descending (`0`).
 	SortOrder pulumi.IntInput `pulumi:"sortOrder"`
 }
 
@@ -13818,12 +13825,12 @@ func (o PartitionStorageDescriptorSortColumnOutput) ToPartitionStorageDescriptor
 	return o
 }
 
-// The name of the column.
+// Name of the column.
 func (o PartitionStorageDescriptorSortColumnOutput) Column() pulumi.StringOutput {
 	return o.ApplyT(func(v PartitionStorageDescriptorSortColumn) string { return v.Column }).(pulumi.StringOutput)
 }
 
-// Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
+// Order the column is sorted in: ascending (`1`) or descending (`0`).
 func (o PartitionStorageDescriptorSortColumnOutput) SortOrder() pulumi.IntOutput {
 	return o.ApplyT(func(v PartitionStorageDescriptorSortColumn) int { return v.SortOrder }).(pulumi.IntOutput)
 }
@@ -13849,9 +13856,11 @@ func (o PartitionStorageDescriptorSortColumnArrayOutput) Index(i pulumi.IntInput
 }
 
 type SecurityConfigurationEncryptionConfiguration struct {
-	CloudwatchEncryption   SecurityConfigurationEncryptionConfigurationCloudwatchEncryption   `pulumi:"cloudwatchEncryption"`
+	// `cloudwatchEncryption` block as described below, which contains encryption configuration for CloudWatch.
+	CloudwatchEncryption SecurityConfigurationEncryptionConfigurationCloudwatchEncryption `pulumi:"cloudwatchEncryption"`
+	// `jobBookmarksEncryption` block as described below, which contains encryption configuration for job bookmarks.
 	JobBookmarksEncryption SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption `pulumi:"jobBookmarksEncryption"`
-	// A ` s3Encryption  ` block as described below, which contains encryption configuration for S3 data.
+	// `s3Encryption` block as described below, which contains encryption configuration for S3 data.
 	S3Encryption SecurityConfigurationEncryptionConfigurationS3Encryption `pulumi:"s3Encryption"`
 }
 
@@ -13867,9 +13876,11 @@ type SecurityConfigurationEncryptionConfigurationInput interface {
 }
 
 type SecurityConfigurationEncryptionConfigurationArgs struct {
-	CloudwatchEncryption   SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionInput   `pulumi:"cloudwatchEncryption"`
+	// `cloudwatchEncryption` block as described below, which contains encryption configuration for CloudWatch.
+	CloudwatchEncryption SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionInput `pulumi:"cloudwatchEncryption"`
+	// `jobBookmarksEncryption` block as described below, which contains encryption configuration for job bookmarks.
 	JobBookmarksEncryption SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionInput `pulumi:"jobBookmarksEncryption"`
-	// A ` s3Encryption  ` block as described below, which contains encryption configuration for S3 data.
+	// `s3Encryption` block as described below, which contains encryption configuration for S3 data.
 	S3Encryption SecurityConfigurationEncryptionConfigurationS3EncryptionInput `pulumi:"s3Encryption"`
 }
 
@@ -13950,19 +13961,21 @@ func (o SecurityConfigurationEncryptionConfigurationOutput) ToSecurityConfigurat
 	}).(SecurityConfigurationEncryptionConfigurationPtrOutput)
 }
 
+// `cloudwatchEncryption` block as described below, which contains encryption configuration for CloudWatch.
 func (o SecurityConfigurationEncryptionConfigurationOutput) CloudwatchEncryption() SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput {
 	return o.ApplyT(func(v SecurityConfigurationEncryptionConfiguration) SecurityConfigurationEncryptionConfigurationCloudwatchEncryption {
 		return v.CloudwatchEncryption
 	}).(SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput)
 }
 
+// `jobBookmarksEncryption` block as described below, which contains encryption configuration for job bookmarks.
 func (o SecurityConfigurationEncryptionConfigurationOutput) JobBookmarksEncryption() SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput {
 	return o.ApplyT(func(v SecurityConfigurationEncryptionConfiguration) SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption {
 		return v.JobBookmarksEncryption
 	}).(SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput)
 }
 
-// A ` s3Encryption  ` block as described below, which contains encryption configuration for S3 data.
+// `s3Encryption` block as described below, which contains encryption configuration for S3 data.
 func (o SecurityConfigurationEncryptionConfigurationOutput) S3Encryption() SecurityConfigurationEncryptionConfigurationS3EncryptionOutput {
 	return o.ApplyT(func(v SecurityConfigurationEncryptionConfiguration) SecurityConfigurationEncryptionConfigurationS3Encryption {
 		return v.S3Encryption
@@ -13993,6 +14006,7 @@ func (o SecurityConfigurationEncryptionConfigurationPtrOutput) Elem() SecurityCo
 	}).(SecurityConfigurationEncryptionConfigurationOutput)
 }
 
+// `cloudwatchEncryption` block as described below, which contains encryption configuration for CloudWatch.
 func (o SecurityConfigurationEncryptionConfigurationPtrOutput) CloudwatchEncryption() SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutput {
 	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfiguration) *SecurityConfigurationEncryptionConfigurationCloudwatchEncryption {
 		if v == nil {
@@ -14002,6 +14016,7 @@ func (o SecurityConfigurationEncryptionConfigurationPtrOutput) CloudwatchEncrypt
 	}).(SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutput)
 }
 
+// `jobBookmarksEncryption` block as described below, which contains encryption configuration for job bookmarks.
 func (o SecurityConfigurationEncryptionConfigurationPtrOutput) JobBookmarksEncryption() SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutput {
 	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfiguration) *SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption {
 		if v == nil {
@@ -14011,7 +14026,7 @@ func (o SecurityConfigurationEncryptionConfigurationPtrOutput) JobBookmarksEncry
 	}).(SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutput)
 }
 
-// A ` s3Encryption  ` block as described below, which contains encryption configuration for S3 data.
+// `s3Encryption` block as described below, which contains encryption configuration for S3 data.
 func (o SecurityConfigurationEncryptionConfigurationPtrOutput) S3Encryption() SecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput {
 	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfiguration) *SecurityConfigurationEncryptionConfigurationS3Encryption {
 		if v == nil {
@@ -14496,15 +14511,15 @@ func (o SecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput) S3Enc
 type TriggerAction struct {
 	// Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
 	Arguments map[string]string `pulumi:"arguments"`
-	// The name of the crawler to be executed. Conflicts with `jobName`.
+	// Name of the crawler to be executed. Conflicts with `jobName`.
 	CrawlerName *string `pulumi:"crawlerName"`
-	// The name of a job to be executed. Conflicts with `crawlerName`.
+	// Name of a job to be executed. Conflicts with `crawlerName`.
 	JobName *string `pulumi:"jobName"`
-	// Specifies configuration properties of a job run notification. See Notification Property details below.
+	// Configuration properties of a job run notification. See `notificationProperty` details below.
 	NotificationProperty *TriggerActionNotificationProperty `pulumi:"notificationProperty"`
-	// The name of the Security Configuration structure to be used with this action.
+	// Name of the Security Configuration structure to be used with this action.
 	SecurityConfiguration *string `pulumi:"securityConfiguration"`
-	// The job run timeout in minutes. It overrides the timeout value of the job.
+	// Job run timeout in minutes. It overrides the timeout value of the job.
 	Timeout *int `pulumi:"timeout"`
 }
 
@@ -14522,15 +14537,15 @@ type TriggerActionInput interface {
 type TriggerActionArgs struct {
 	// Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
 	Arguments pulumi.StringMapInput `pulumi:"arguments"`
-	// The name of the crawler to be executed. Conflicts with `jobName`.
+	// Name of the crawler to be executed. Conflicts with `jobName`.
 	CrawlerName pulumi.StringPtrInput `pulumi:"crawlerName"`
-	// The name of a job to be executed. Conflicts with `crawlerName`.
+	// Name of a job to be executed. Conflicts with `crawlerName`.
 	JobName pulumi.StringPtrInput `pulumi:"jobName"`
-	// Specifies configuration properties of a job run notification. See Notification Property details below.
+	// Configuration properties of a job run notification. See `notificationProperty` details below.
 	NotificationProperty TriggerActionNotificationPropertyPtrInput `pulumi:"notificationProperty"`
-	// The name of the Security Configuration structure to be used with this action.
+	// Name of the Security Configuration structure to be used with this action.
 	SecurityConfiguration pulumi.StringPtrInput `pulumi:"securityConfiguration"`
-	// The job run timeout in minutes. It overrides the timeout value of the job.
+	// Job run timeout in minutes. It overrides the timeout value of the job.
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
 }
 
@@ -14590,27 +14605,27 @@ func (o TriggerActionOutput) Arguments() pulumi.StringMapOutput {
 	return o.ApplyT(func(v TriggerAction) map[string]string { return v.Arguments }).(pulumi.StringMapOutput)
 }
 
-// The name of the crawler to be executed. Conflicts with `jobName`.
+// Name of the crawler to be executed. Conflicts with `jobName`.
 func (o TriggerActionOutput) CrawlerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TriggerAction) *string { return v.CrawlerName }).(pulumi.StringPtrOutput)
 }
 
-// The name of a job to be executed. Conflicts with `crawlerName`.
+// Name of a job to be executed. Conflicts with `crawlerName`.
 func (o TriggerActionOutput) JobName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TriggerAction) *string { return v.JobName }).(pulumi.StringPtrOutput)
 }
 
-// Specifies configuration properties of a job run notification. See Notification Property details below.
+// Configuration properties of a job run notification. See `notificationProperty` details below.
 func (o TriggerActionOutput) NotificationProperty() TriggerActionNotificationPropertyPtrOutput {
 	return o.ApplyT(func(v TriggerAction) *TriggerActionNotificationProperty { return v.NotificationProperty }).(TriggerActionNotificationPropertyPtrOutput)
 }
 
-// The name of the Security Configuration structure to be used with this action.
+// Name of the Security Configuration structure to be used with this action.
 func (o TriggerActionOutput) SecurityConfiguration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TriggerAction) *string { return v.SecurityConfiguration }).(pulumi.StringPtrOutput)
 }
 
-// The job run timeout in minutes. It overrides the timeout value of the job.
+// Job run timeout in minutes. It overrides the timeout value of the job.
 func (o TriggerActionOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TriggerAction) *int { return v.Timeout }).(pulumi.IntPtrOutput)
 }
@@ -14773,7 +14788,7 @@ func (o TriggerActionNotificationPropertyPtrOutput) NotifyDelayAfter() pulumi.In
 }
 
 type TriggerEventBatchingCondition struct {
-	// Number of events that must be received from Amazon EventBridge before EventBridge  event trigger fires.
+	// Number of events that must be received from Amazon EventBridge before EventBridge event trigger fires.
 	BatchSize int `pulumi:"batchSize"`
 	// Window of time in seconds after which EventBridge event trigger fires. Window starts when first event is received. Default value is `900`.
 	BatchWindow *int `pulumi:"batchWindow"`
@@ -14791,7 +14806,7 @@ type TriggerEventBatchingConditionInput interface {
 }
 
 type TriggerEventBatchingConditionArgs struct {
-	// Number of events that must be received from Amazon EventBridge before EventBridge  event trigger fires.
+	// Number of events that must be received from Amazon EventBridge before EventBridge event trigger fires.
 	BatchSize pulumi.IntInput `pulumi:"batchSize"`
 	// Window of time in seconds after which EventBridge event trigger fires. Window starts when first event is received. Default value is `900`.
 	BatchWindow pulumi.IntPtrInput `pulumi:"batchWindow"`
@@ -14848,7 +14863,7 @@ func (o TriggerEventBatchingConditionOutput) ToTriggerEventBatchingConditionOutp
 	return o
 }
 
-// Number of events that must be received from Amazon EventBridge before EventBridge  event trigger fires.
+// Number of events that must be received from Amazon EventBridge before EventBridge event trigger fires.
 func (o TriggerEventBatchingConditionOutput) BatchSize() pulumi.IntOutput {
 	return o.ApplyT(func(v TriggerEventBatchingCondition) int { return v.BatchSize }).(pulumi.IntOutput)
 }
@@ -14879,7 +14894,7 @@ func (o TriggerEventBatchingConditionArrayOutput) Index(i pulumi.IntInput) Trigg
 }
 
 type TriggerPredicate struct {
-	// A list of the conditions that determine when the trigger will fire. See Conditions.
+	// List of the conditions that determine when the trigger will fire. See `conditions`.
 	Conditions []TriggerPredicateCondition `pulumi:"conditions"`
 	// How to handle multiple conditions. Defaults to `AND`. Valid values are `AND` or `ANY`.
 	Logical *string `pulumi:"logical"`
@@ -14897,7 +14912,7 @@ type TriggerPredicateInput interface {
 }
 
 type TriggerPredicateArgs struct {
-	// A list of the conditions that determine when the trigger will fire. See Conditions.
+	// List of the conditions that determine when the trigger will fire. See `conditions`.
 	Conditions TriggerPredicateConditionArrayInput `pulumi:"conditions"`
 	// How to handle multiple conditions. Defaults to `AND`. Valid values are `AND` or `ANY`.
 	Logical pulumi.StringPtrInput `pulumi:"logical"`
@@ -14980,7 +14995,7 @@ func (o TriggerPredicateOutput) ToTriggerPredicatePtrOutputWithContext(ctx conte
 	}).(TriggerPredicatePtrOutput)
 }
 
-// A list of the conditions that determine when the trigger will fire. See Conditions.
+// List of the conditions that determine when the trigger will fire. See `conditions`.
 func (o TriggerPredicateOutput) Conditions() TriggerPredicateConditionArrayOutput {
 	return o.ApplyT(func(v TriggerPredicate) []TriggerPredicateCondition { return v.Conditions }).(TriggerPredicateConditionArrayOutput)
 }
@@ -15014,7 +15029,7 @@ func (o TriggerPredicatePtrOutput) Elem() TriggerPredicateOutput {
 	}).(TriggerPredicateOutput)
 }
 
-// A list of the conditions that determine when the trigger will fire. See Conditions.
+// List of the conditions that determine when the trigger will fire. See `conditions`.
 func (o TriggerPredicatePtrOutput) Conditions() TriggerPredicateConditionArrayOutput {
 	return o.ApplyT(func(v *TriggerPredicate) []TriggerPredicateCondition {
 		if v == nil {
@@ -15035,15 +15050,15 @@ func (o TriggerPredicatePtrOutput) Logical() pulumi.StringPtrOutput {
 }
 
 type TriggerPredicateCondition struct {
-	// The condition crawl state. Currently, the values supported are `RUNNING`, `SUCCEEDED`, `CANCELLED`, and `FAILED`. If this is specified, `crawlerName` must also be specified. Conflicts with `state`.
+	// Condition crawl state. Currently, the values supported are `RUNNING`, `SUCCEEDED`, `CANCELLED`, and `FAILED`. If this is specified, `crawlerName` must also be specified. Conflicts with `state`.
 	CrawlState *string `pulumi:"crawlState"`
-	// The name of the crawler to watch. If this is specified, `crawlState` must also be specified. Conflicts with `jobName`.
+	// Name of the crawler to watch. If this is specified, `crawlState` must also be specified. Conflicts with `jobName`.
 	CrawlerName *string `pulumi:"crawlerName"`
-	// The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawlerName`.
+	// Name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawlerName`.
 	JobName *string `pulumi:"jobName"`
-	// A logical operator. Defaults to `EQUALS`.
+	// Logical operator. Defaults to `EQUALS`.
 	LogicalOperator *string `pulumi:"logicalOperator"`
-	// The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `jobName` must also be specified. Conflicts with `crawlerState`.
+	// Condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `jobName` must also be specified. Conflicts with `crawlerState`.
 	State *string `pulumi:"state"`
 }
 
@@ -15059,15 +15074,15 @@ type TriggerPredicateConditionInput interface {
 }
 
 type TriggerPredicateConditionArgs struct {
-	// The condition crawl state. Currently, the values supported are `RUNNING`, `SUCCEEDED`, `CANCELLED`, and `FAILED`. If this is specified, `crawlerName` must also be specified. Conflicts with `state`.
+	// Condition crawl state. Currently, the values supported are `RUNNING`, `SUCCEEDED`, `CANCELLED`, and `FAILED`. If this is specified, `crawlerName` must also be specified. Conflicts with `state`.
 	CrawlState pulumi.StringPtrInput `pulumi:"crawlState"`
-	// The name of the crawler to watch. If this is specified, `crawlState` must also be specified. Conflicts with `jobName`.
+	// Name of the crawler to watch. If this is specified, `crawlState` must also be specified. Conflicts with `jobName`.
 	CrawlerName pulumi.StringPtrInput `pulumi:"crawlerName"`
-	// The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawlerName`.
+	// Name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawlerName`.
 	JobName pulumi.StringPtrInput `pulumi:"jobName"`
-	// A logical operator. Defaults to `EQUALS`.
+	// Logical operator. Defaults to `EQUALS`.
 	LogicalOperator pulumi.StringPtrInput `pulumi:"logicalOperator"`
-	// The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `jobName` must also be specified. Conflicts with `crawlerState`.
+	// Condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `jobName` must also be specified. Conflicts with `crawlerState`.
 	State pulumi.StringPtrInput `pulumi:"state"`
 }
 
@@ -15122,27 +15137,27 @@ func (o TriggerPredicateConditionOutput) ToTriggerPredicateConditionOutputWithCo
 	return o
 }
 
-// The condition crawl state. Currently, the values supported are `RUNNING`, `SUCCEEDED`, `CANCELLED`, and `FAILED`. If this is specified, `crawlerName` must also be specified. Conflicts with `state`.
+// Condition crawl state. Currently, the values supported are `RUNNING`, `SUCCEEDED`, `CANCELLED`, and `FAILED`. If this is specified, `crawlerName` must also be specified. Conflicts with `state`.
 func (o TriggerPredicateConditionOutput) CrawlState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TriggerPredicateCondition) *string { return v.CrawlState }).(pulumi.StringPtrOutput)
 }
 
-// The name of the crawler to watch. If this is specified, `crawlState` must also be specified. Conflicts with `jobName`.
+// Name of the crawler to watch. If this is specified, `crawlState` must also be specified. Conflicts with `jobName`.
 func (o TriggerPredicateConditionOutput) CrawlerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TriggerPredicateCondition) *string { return v.CrawlerName }).(pulumi.StringPtrOutput)
 }
 
-// The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawlerName`.
+// Name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawlerName`.
 func (o TriggerPredicateConditionOutput) JobName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TriggerPredicateCondition) *string { return v.JobName }).(pulumi.StringPtrOutput)
 }
 
-// A logical operator. Defaults to `EQUALS`.
+// Logical operator. Defaults to `EQUALS`.
 func (o TriggerPredicateConditionOutput) LogicalOperator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TriggerPredicateCondition) *string { return v.LogicalOperator }).(pulumi.StringPtrOutput)
 }
 
-// The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `jobName` must also be specified. Conflicts with `crawlerState`.
+// Condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `jobName` must also be specified. Conflicts with `crawlerState`.
 func (o TriggerPredicateConditionOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TriggerPredicateCondition) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -15168,9 +15183,9 @@ func (o TriggerPredicateConditionArrayOutput) Index(i pulumi.IntInput) TriggerPr
 }
 
 type UserDefinedFunctionResourceUri struct {
-	// The type of the resource. can be one of `JAR`, `FILE`, and `ARCHIVE`.
+	// Type of the resource. can be one of `JAR`, `FILE`, and `ARCHIVE`.
 	ResourceType string `pulumi:"resourceType"`
-	// The URI for accessing the resource.
+	// URI for accessing the resource.
 	Uri string `pulumi:"uri"`
 }
 
@@ -15186,9 +15201,9 @@ type UserDefinedFunctionResourceUriInput interface {
 }
 
 type UserDefinedFunctionResourceUriArgs struct {
-	// The type of the resource. can be one of `JAR`, `FILE`, and `ARCHIVE`.
+	// Type of the resource. can be one of `JAR`, `FILE`, and `ARCHIVE`.
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// The URI for accessing the resource.
+	// URI for accessing the resource.
 	Uri pulumi.StringInput `pulumi:"uri"`
 }
 
@@ -15243,12 +15258,12 @@ func (o UserDefinedFunctionResourceUriOutput) ToUserDefinedFunctionResourceUriOu
 	return o
 }
 
-// The type of the resource. can be one of `JAR`, `FILE`, and `ARCHIVE`.
+// Type of the resource. can be one of `JAR`, `FILE`, and `ARCHIVE`.
 func (o UserDefinedFunctionResourceUriOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v UserDefinedFunctionResourceUri) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// The URI for accessing the resource.
+// URI for accessing the resource.
 func (o UserDefinedFunctionResourceUriOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v UserDefinedFunctionResourceUri) string { return v.Uri }).(pulumi.StringOutput)
 }
@@ -15276,9 +15291,9 @@ func (o UserDefinedFunctionResourceUriArrayOutput) Index(i pulumi.IntInput) User
 type GetCatalogCatalogProperty struct {
 	// Map of custom key-value pairs for the catalog properties.
 	CustomProperties map[string]string `pulumi:"customProperties"`
-	// Data lake access properties. See `dataLakeAccessProperties` below.
+	// Data lake access properties. See `dataLakeAccessProperties` Block below.
 	DataLakeAccessProperties []GetCatalogCatalogPropertyDataLakeAccessProperty `pulumi:"dataLakeAccessProperties"`
-	// Iceberg optimization properties. See `icebergOptimizationProperties` below.
+	// Iceberg optimization properties. See `icebergOptimizationProperties` Block below.
 	IcebergOptimizationProperties []GetCatalogCatalogPropertyIcebergOptimizationProperty `pulumi:"icebergOptimizationProperties"`
 }
 
@@ -15296,9 +15311,9 @@ type GetCatalogCatalogPropertyInput interface {
 type GetCatalogCatalogPropertyArgs struct {
 	// Map of custom key-value pairs for the catalog properties.
 	CustomProperties pulumi.StringMapInput `pulumi:"customProperties"`
-	// Data lake access properties. See `dataLakeAccessProperties` below.
+	// Data lake access properties. See `dataLakeAccessProperties` Block below.
 	DataLakeAccessProperties GetCatalogCatalogPropertyDataLakeAccessPropertyArrayInput `pulumi:"dataLakeAccessProperties"`
-	// Iceberg optimization properties. See `icebergOptimizationProperties` below.
+	// Iceberg optimization properties. See `icebergOptimizationProperties` Block below.
 	IcebergOptimizationProperties GetCatalogCatalogPropertyIcebergOptimizationPropertyArrayInput `pulumi:"icebergOptimizationProperties"`
 }
 
@@ -15358,14 +15373,14 @@ func (o GetCatalogCatalogPropertyOutput) CustomProperties() pulumi.StringMapOutp
 	return o.ApplyT(func(v GetCatalogCatalogProperty) map[string]string { return v.CustomProperties }).(pulumi.StringMapOutput)
 }
 
-// Data lake access properties. See `dataLakeAccessProperties` below.
+// Data lake access properties. See `dataLakeAccessProperties` Block below.
 func (o GetCatalogCatalogPropertyOutput) DataLakeAccessProperties() GetCatalogCatalogPropertyDataLakeAccessPropertyArrayOutput {
 	return o.ApplyT(func(v GetCatalogCatalogProperty) []GetCatalogCatalogPropertyDataLakeAccessProperty {
 		return v.DataLakeAccessProperties
 	}).(GetCatalogCatalogPropertyDataLakeAccessPropertyArrayOutput)
 }
 
-// Iceberg optimization properties. See `icebergOptimizationProperties` below.
+// Iceberg optimization properties. See `icebergOptimizationProperties` Block below.
 func (o GetCatalogCatalogPropertyOutput) IcebergOptimizationProperties() GetCatalogCatalogPropertyIcebergOptimizationPropertyArrayOutput {
 	return o.ApplyT(func(v GetCatalogCatalogProperty) []GetCatalogCatalogPropertyIcebergOptimizationProperty {
 		return v.IcebergOptimizationProperties
@@ -15553,10 +15568,14 @@ func (o GetCatalogCatalogPropertyDataLakeAccessPropertyArrayOutput) Index(i pulu
 }
 
 type GetCatalogCatalogPropertyIcebergOptimizationProperty struct {
-	Compaction         map[string]string `pulumi:"compaction"`
+	// Map of key-value pairs for compaction settings.
+	Compaction map[string]string `pulumi:"compaction"`
+	// Map of key-value pairs for orphan file deletion settings.
 	OrphanFileDeletion map[string]string `pulumi:"orphanFileDeletion"`
-	Retention          map[string]string `pulumi:"retention"`
-	RoleArn            string            `pulumi:"roleArn"`
+	// Map of key-value pairs for retention settings.
+	Retention map[string]string `pulumi:"retention"`
+	// ARN of the IAM role for Iceberg optimization.
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // GetCatalogCatalogPropertyIcebergOptimizationPropertyInput is an input type that accepts GetCatalogCatalogPropertyIcebergOptimizationPropertyArgs and GetCatalogCatalogPropertyIcebergOptimizationPropertyOutput values.
@@ -15571,10 +15590,14 @@ type GetCatalogCatalogPropertyIcebergOptimizationPropertyInput interface {
 }
 
 type GetCatalogCatalogPropertyIcebergOptimizationPropertyArgs struct {
-	Compaction         pulumi.StringMapInput `pulumi:"compaction"`
+	// Map of key-value pairs for compaction settings.
+	Compaction pulumi.StringMapInput `pulumi:"compaction"`
+	// Map of key-value pairs for orphan file deletion settings.
 	OrphanFileDeletion pulumi.StringMapInput `pulumi:"orphanFileDeletion"`
-	Retention          pulumi.StringMapInput `pulumi:"retention"`
-	RoleArn            pulumi.StringInput    `pulumi:"roleArn"`
+	// Map of key-value pairs for retention settings.
+	Retention pulumi.StringMapInput `pulumi:"retention"`
+	// ARN of the IAM role for Iceberg optimization.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (GetCatalogCatalogPropertyIcebergOptimizationPropertyArgs) ElementType() reflect.Type {
@@ -15628,20 +15651,24 @@ func (o GetCatalogCatalogPropertyIcebergOptimizationPropertyOutput) ToGetCatalog
 	return o
 }
 
+// Map of key-value pairs for compaction settings.
 func (o GetCatalogCatalogPropertyIcebergOptimizationPropertyOutput) Compaction() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetCatalogCatalogPropertyIcebergOptimizationProperty) map[string]string { return v.Compaction }).(pulumi.StringMapOutput)
 }
 
+// Map of key-value pairs for orphan file deletion settings.
 func (o GetCatalogCatalogPropertyIcebergOptimizationPropertyOutput) OrphanFileDeletion() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetCatalogCatalogPropertyIcebergOptimizationProperty) map[string]string {
 		return v.OrphanFileDeletion
 	}).(pulumi.StringMapOutput)
 }
 
+// Map of key-value pairs for retention settings.
 func (o GetCatalogCatalogPropertyIcebergOptimizationPropertyOutput) Retention() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetCatalogCatalogPropertyIcebergOptimizationProperty) map[string]string { return v.Retention }).(pulumi.StringMapOutput)
 }
 
+// ARN of the IAM role for Iceberg optimization.
 func (o GetCatalogCatalogPropertyIcebergOptimizationPropertyOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCatalogCatalogPropertyIcebergOptimizationProperty) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -15669,7 +15696,7 @@ func (o GetCatalogCatalogPropertyIcebergOptimizationPropertyArrayOutput) Index(i
 type GetCatalogCreateDatabaseDefaultPermission struct {
 	// Permissions that are granted to the principal.
 	Permissions []string `pulumi:"permissions"`
-	// Principal who is granted permissions. See `principal` below.
+	// Principal who is granted permissions. See `principal` Block below.
 	Principals []GetCatalogCreateDatabaseDefaultPermissionPrincipal `pulumi:"principals"`
 }
 
@@ -15687,7 +15714,7 @@ type GetCatalogCreateDatabaseDefaultPermissionInput interface {
 type GetCatalogCreateDatabaseDefaultPermissionArgs struct {
 	// Permissions that are granted to the principal.
 	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
-	// Principal who is granted permissions. See `principal` below.
+	// Principal who is granted permissions. See `principal` Block below.
 	Principals GetCatalogCreateDatabaseDefaultPermissionPrincipalArrayInput `pulumi:"principals"`
 }
 
@@ -15747,7 +15774,7 @@ func (o GetCatalogCreateDatabaseDefaultPermissionOutput) Permissions() pulumi.St
 	return o.ApplyT(func(v GetCatalogCreateDatabaseDefaultPermission) []string { return v.Permissions }).(pulumi.StringArrayOutput)
 }
 
-// Principal who is granted permissions. See `principal` below.
+// Principal who is granted permissions. See `principal` Block below.
 func (o GetCatalogCreateDatabaseDefaultPermissionOutput) Principals() GetCatalogCreateDatabaseDefaultPermissionPrincipalArrayOutput {
 	return o.ApplyT(func(v GetCatalogCreateDatabaseDefaultPermission) []GetCatalogCreateDatabaseDefaultPermissionPrincipal {
 		return v.Principals
@@ -15876,7 +15903,7 @@ func (o GetCatalogCreateDatabaseDefaultPermissionPrincipalArrayOutput) Index(i p
 type GetCatalogCreateTableDefaultPermission struct {
 	// Permissions that are granted to the principal.
 	Permissions []string `pulumi:"permissions"`
-	// Principal who is granted permissions. See `principal` below.
+	// Principal who is granted permissions. See `principal` Block below.
 	Principals []GetCatalogCreateTableDefaultPermissionPrincipal `pulumi:"principals"`
 }
 
@@ -15894,7 +15921,7 @@ type GetCatalogCreateTableDefaultPermissionInput interface {
 type GetCatalogCreateTableDefaultPermissionArgs struct {
 	// Permissions that are granted to the principal.
 	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
-	// Principal who is granted permissions. See `principal` below.
+	// Principal who is granted permissions. See `principal` Block below.
 	Principals GetCatalogCreateTableDefaultPermissionPrincipalArrayInput `pulumi:"principals"`
 }
 
@@ -15954,7 +15981,7 @@ func (o GetCatalogCreateTableDefaultPermissionOutput) Permissions() pulumi.Strin
 	return o.ApplyT(func(v GetCatalogCreateTableDefaultPermission) []string { return v.Permissions }).(pulumi.StringArrayOutput)
 }
 
-// Principal who is granted permissions. See `principal` below.
+// Principal who is granted permissions. See `principal` Block below.
 func (o GetCatalogCreateTableDefaultPermissionOutput) Principals() GetCatalogCreateTableDefaultPermissionPrincipalArrayOutput {
 	return o.ApplyT(func(v GetCatalogCreateTableDefaultPermission) []GetCatalogCreateTableDefaultPermissionPrincipal {
 		return v.Principals
@@ -16195,7 +16222,8 @@ func (o GetCatalogFederatedCatalogArrayOutput) Index(i pulumi.IntInput) GetCatal
 
 type GetCatalogTablePartitionIndex struct {
 	// Name of the partition index.
-	IndexName   string `pulumi:"indexName"`
+	IndexName string `pulumi:"indexName"`
+	// Status of the partition index.
 	IndexStatus string `pulumi:"indexStatus"`
 	// Keys for the partition index.
 	Keys []string `pulumi:"keys"`
@@ -16214,7 +16242,8 @@ type GetCatalogTablePartitionIndexInput interface {
 
 type GetCatalogTablePartitionIndexArgs struct {
 	// Name of the partition index.
-	IndexName   pulumi.StringInput `pulumi:"indexName"`
+	IndexName pulumi.StringInput `pulumi:"indexName"`
+	// Status of the partition index.
 	IndexStatus pulumi.StringInput `pulumi:"indexStatus"`
 	// Keys for the partition index.
 	Keys pulumi.StringArrayInput `pulumi:"keys"`
@@ -16276,6 +16305,7 @@ func (o GetCatalogTablePartitionIndexOutput) IndexName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCatalogTablePartitionIndex) string { return v.IndexName }).(pulumi.StringOutput)
 }
 
+// Status of the partition index.
 func (o GetCatalogTablePartitionIndexOutput) IndexStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCatalogTablePartitionIndex) string { return v.IndexStatus }).(pulumi.StringOutput)
 }
@@ -18442,9 +18472,9 @@ func (o GetConnectionPhysicalConnectionRequirementArrayOutput) Index(i pulumi.In
 }
 
 type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting struct {
-	// When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
+	// When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see `connectionPasswordEncryption` Block.
 	ConnectionPasswordEncryptions []GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption `pulumi:"connectionPasswordEncryptions"`
-	// Encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
+	// Encryption-at-rest configuration for the Data Catalog. see `encryptionAtRest` Block.
 	EncryptionAtRests []GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest `pulumi:"encryptionAtRests"`
 }
 
@@ -18460,9 +18490,9 @@ type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingInput interface
 }
 
 type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArgs struct {
-	// When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
+	// When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see `connectionPasswordEncryption` Block.
 	ConnectionPasswordEncryptions GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayInput `pulumi:"connectionPasswordEncryptions"`
-	// Encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
+	// Encryption-at-rest configuration for the Data Catalog. see `encryptionAtRest` Block.
 	EncryptionAtRests GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayInput `pulumi:"encryptionAtRests"`
 }
 
@@ -18517,14 +18547,14 @@ func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutput) ToGe
 	return o
 }
 
-// When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
+// When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see `connectionPasswordEncryption` Block.
 func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutput) ConnectionPasswordEncryptions() GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayOutput {
 	return o.ApplyT(func(v GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting) []GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption {
 		return v.ConnectionPasswordEncryptions
 	}).(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayOutput)
 }
 
-// Encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
+// Encryption-at-rest configuration for the Data Catalog. see `encryptionAtRest` Block.
 func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutput) EncryptionAtRests() GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayOutput {
 	return o.ApplyT(func(v GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting) []GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest {
 		return v.EncryptionAtRests
@@ -18662,9 +18692,9 @@ func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPa
 }
 
 type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest struct {
-	// The encryption-at-rest mode for encrypting Data Catalog data.
+	// Encryption-at-rest mode for encrypting Data Catalog data.
 	CatalogEncryptionMode string `pulumi:"catalogEncryptionMode"`
-	// The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
+	// ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
 	CatalogEncryptionServiceRole string `pulumi:"catalogEncryptionServiceRole"`
 	// ARN of the AWS KMS key to use for encryption at rest.
 	SseAwsKmsKeyId string `pulumi:"sseAwsKmsKeyId"`
@@ -18682,9 +18712,9 @@ type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRes
 }
 
 type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArgs struct {
-	// The encryption-at-rest mode for encrypting Data Catalog data.
+	// Encryption-at-rest mode for encrypting Data Catalog data.
 	CatalogEncryptionMode pulumi.StringInput `pulumi:"catalogEncryptionMode"`
-	// The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
+	// ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
 	CatalogEncryptionServiceRole pulumi.StringInput `pulumi:"catalogEncryptionServiceRole"`
 	// ARN of the AWS KMS key to use for encryption at rest.
 	SseAwsKmsKeyId pulumi.StringInput `pulumi:"sseAwsKmsKeyId"`
@@ -18741,14 +18771,14 @@ func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAt
 	return o
 }
 
-// The encryption-at-rest mode for encrypting Data Catalog data.
+// Encryption-at-rest mode for encrypting Data Catalog data.
 func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput) CatalogEncryptionMode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest) string {
 		return v.CatalogEncryptionMode
 	}).(pulumi.StringOutput)
 }
 
-// The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
+// ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
 func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput) CatalogEncryptionServiceRole() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest) string {
 		return v.CatalogEncryptionServiceRole

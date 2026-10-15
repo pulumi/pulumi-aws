@@ -75,15 +75,15 @@ export class DevEndpoint extends pulumi.CustomResource {
     }
 
     /**
-     * A map of arguments used to configure the endpoint.
+     * Map of arguments used to configure the endpoint.
      */
     declare public readonly arguments: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The ARN of the endpoint.
+     * ARN of the endpoint.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The AWS availability zone where this endpoint is located.
+     * AWS availability zone where this endpoint is located.
      */
     declare public /*out*/ readonly availabilityZone: pulumi.Output<string>;
     /**
@@ -95,7 +95,7 @@ export class DevEndpoint extends pulumi.CustomResource {
      */
     declare public readonly extraPythonLibsS3Path: pulumi.Output<string | undefined>;
     /**
-     * The reason for a current failure in this endpoint.
+     * Reason for a current failure in this endpoint.
      */
     declare public /*out*/ readonly failureReason: pulumi.Output<string>;
     /**
@@ -103,31 +103,31 @@ export class DevEndpoint extends pulumi.CustomResource {
      */
     declare public readonly glueVersion: pulumi.Output<string | undefined>;
     /**
-     * The name of this endpoint. It must be unique in your account.
+     * Name of this endpoint. It must be unique in your account.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `workerType`.
+     * Number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `workerType`.
      */
     declare public readonly numberOfNodes: pulumi.Output<number | undefined>;
     /**
-     * The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
+     * Number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
      */
     declare public readonly numberOfWorkers: pulumi.Output<number | undefined>;
     /**
-     * A private IP address to access the endpoint within a VPC, if this endpoint is created within one.
+     * Private IP address to access the endpoint within a VPC, if this endpoint is created within one.
      */
     declare public /*out*/ readonly privateAddress: pulumi.Output<string>;
     /**
-     * The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
+     * Public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
      */
     declare public /*out*/ readonly publicAddress: pulumi.Output<string>;
     /**
-     * The public key to be used by this endpoint for authentication.
+     * Public key to be used by this endpoint for authentication.
      */
     declare public readonly publicKey: pulumi.Output<string | undefined>;
     /**
-     * A list of public keys to be used by this endpoint for authentication.
+     * List of public keys to be used by this endpoint for authentication.
      */
     declare public readonly publicKeys: pulumi.Output<string[] | undefined>;
     /**
@@ -135,11 +135,11 @@ export class DevEndpoint extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The IAM role for this endpoint.
+     * IAM role for this endpoint.
      */
     declare public readonly roleArn: pulumi.Output<string>;
     /**
-     * The name of the Security Configuration structure to be used with this endpoint.
+     * Name of the Security Configuration structure to be used with this endpoint.
      */
     declare public readonly securityConfiguration: pulumi.Output<string | undefined>;
     /**
@@ -147,11 +147,11 @@ export class DevEndpoint extends pulumi.CustomResource {
      */
     declare public readonly securityGroupIds: pulumi.Output<string[] | undefined>;
     /**
-     * The current status of this endpoint.
+     * Current status of this endpoint.
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
-     * The subnet ID for the new endpoint to use.
+     * Subnet ID for the new endpoint to use.
      */
     declare public readonly subnetId: pulumi.Output<string | undefined>;
     /**
@@ -159,23 +159,23 @@ export class DevEndpoint extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * he ID of the VPC used by this endpoint.
+     * ID of the VPC used by this endpoint.
      */
     declare public /*out*/ readonly vpcId: pulumi.Output<string>;
     /**
-     * The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
+     * Type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
      */
     declare public readonly workerType: pulumi.Output<string | undefined>;
     /**
-     * The YARN endpoint address used by this endpoint.
+     * YARN endpoint address used by this endpoint.
      */
     declare public /*out*/ readonly yarnEndpointAddress: pulumi.Output<string>;
     /**
-     * The Apache Zeppelin port for the remote Apache Spark interpreter.
+     * Apache Zeppelin port for the remote Apache Spark interpreter.
      */
     declare public /*out*/ readonly zeppelinRemoteSparkInterpreterPort: pulumi.Output<number>;
 
@@ -260,15 +260,15 @@ export class DevEndpoint extends pulumi.CustomResource {
  */
 export interface DevEndpointState {
     /**
-     * A map of arguments used to configure the endpoint.
+     * Map of arguments used to configure the endpoint.
      */
     arguments?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The ARN of the endpoint.
+     * ARN of the endpoint.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The AWS availability zone where this endpoint is located.
+     * AWS availability zone where this endpoint is located.
      */
     availabilityZone?: pulumi.Input<string | undefined>;
     /**
@@ -280,7 +280,7 @@ export interface DevEndpointState {
      */
     extraPythonLibsS3Path?: pulumi.Input<string | undefined>;
     /**
-     * The reason for a current failure in this endpoint.
+     * Reason for a current failure in this endpoint.
      */
     failureReason?: pulumi.Input<string | undefined>;
     /**
@@ -288,31 +288,31 @@ export interface DevEndpointState {
      */
     glueVersion?: pulumi.Input<string | undefined>;
     /**
-     * The name of this endpoint. It must be unique in your account.
+     * Name of this endpoint. It must be unique in your account.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `workerType`.
+     * Number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `workerType`.
      */
     numberOfNodes?: pulumi.Input<number | undefined>;
     /**
-     * The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
+     * Number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
      */
     numberOfWorkers?: pulumi.Input<number | undefined>;
     /**
-     * A private IP address to access the endpoint within a VPC, if this endpoint is created within one.
+     * Private IP address to access the endpoint within a VPC, if this endpoint is created within one.
      */
     privateAddress?: pulumi.Input<string | undefined>;
     /**
-     * The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
+     * Public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
      */
     publicAddress?: pulumi.Input<string | undefined>;
     /**
-     * The public key to be used by this endpoint for authentication.
+     * Public key to be used by this endpoint for authentication.
      */
     publicKey?: pulumi.Input<string | undefined>;
     /**
-     * A list of public keys to be used by this endpoint for authentication.
+     * List of public keys to be used by this endpoint for authentication.
      */
     publicKeys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -320,11 +320,11 @@ export interface DevEndpointState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The IAM role for this endpoint.
+     * IAM role for this endpoint.
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**
-     * The name of the Security Configuration structure to be used with this endpoint.
+     * Name of the Security Configuration structure to be used with this endpoint.
      */
     securityConfiguration?: pulumi.Input<string | undefined>;
     /**
@@ -332,11 +332,11 @@ export interface DevEndpointState {
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The current status of this endpoint.
+     * Current status of this endpoint.
      */
     status?: pulumi.Input<string | undefined>;
     /**
-     * The subnet ID for the new endpoint to use.
+     * Subnet ID for the new endpoint to use.
      */
     subnetId?: pulumi.Input<string | undefined>;
     /**
@@ -344,23 +344,23 @@ export interface DevEndpointState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * he ID of the VPC used by this endpoint.
+     * ID of the VPC used by this endpoint.
      */
     vpcId?: pulumi.Input<string | undefined>;
     /**
-     * The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
+     * Type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
      */
     workerType?: pulumi.Input<string | undefined>;
     /**
-     * The YARN endpoint address used by this endpoint.
+     * YARN endpoint address used by this endpoint.
      */
     yarnEndpointAddress?: pulumi.Input<string | undefined>;
     /**
-     * The Apache Zeppelin port for the remote Apache Spark interpreter.
+     * Apache Zeppelin port for the remote Apache Spark interpreter.
      */
     zeppelinRemoteSparkInterpreterPort?: pulumi.Input<number | undefined>;
 }
@@ -370,7 +370,7 @@ export interface DevEndpointState {
  */
 export interface DevEndpointArgs {
     /**
-     * A map of arguments used to configure the endpoint.
+     * Map of arguments used to configure the endpoint.
      */
     arguments?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -386,23 +386,23 @@ export interface DevEndpointArgs {
      */
     glueVersion?: pulumi.Input<string | undefined>;
     /**
-     * The name of this endpoint. It must be unique in your account.
+     * Name of this endpoint. It must be unique in your account.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `workerType`.
+     * Number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `workerType`.
      */
     numberOfNodes?: pulumi.Input<number | undefined>;
     /**
-     * The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
+     * Number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
      */
     numberOfWorkers?: pulumi.Input<number | undefined>;
     /**
-     * The public key to be used by this endpoint for authentication.
+     * Public key to be used by this endpoint for authentication.
      */
     publicKey?: pulumi.Input<string | undefined>;
     /**
-     * A list of public keys to be used by this endpoint for authentication.
+     * List of public keys to be used by this endpoint for authentication.
      */
     publicKeys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -410,11 +410,11 @@ export interface DevEndpointArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The IAM role for this endpoint.
+     * IAM role for this endpoint.
      */
     roleArn: pulumi.Input<string>;
     /**
-     * The name of the Security Configuration structure to be used with this endpoint.
+     * Name of the Security Configuration structure to be used with this endpoint.
      */
     securityConfiguration?: pulumi.Input<string | undefined>;
     /**
@@ -422,7 +422,7 @@ export interface DevEndpointArgs {
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The subnet ID for the new endpoint to use.
+     * Subnet ID for the new endpoint to use.
      */
     subnetId?: pulumi.Input<string | undefined>;
     /**
@@ -430,7 +430,7 @@ export interface DevEndpointArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
+     * Type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
      */
     workerType?: pulumi.Input<string | undefined>;
 }

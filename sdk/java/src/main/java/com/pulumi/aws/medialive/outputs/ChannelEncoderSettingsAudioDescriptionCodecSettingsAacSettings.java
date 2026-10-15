@@ -18,12 +18,12 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
      */
     private @Nullable Double bitrate;
     /**
-     * @return Mono, Stereo, or 5.1 channel layout.
+     * @return Mono, stereo, or 5.1 channel layout.
      * 
      */
     private @Nullable String codingMode;
     /**
-     * @return Set to &#34;broadcasterMixedAd&#34; when input contains pre-mixed main audio + AD (narration) as a stereo pair.
+     * @return Set to `broadcasterMixedAd` when input contains pre-mixed main audio and AD (narration) as a stereo pair.
      * 
      */
     private @Nullable String inputType;
@@ -33,7 +33,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
      */
     private @Nullable String profile;
     /**
-     * @return The rate control mode.
+     * @return Rate control mode.
      * 
      */
     private @Nullable String rateControlMode;
@@ -48,12 +48,12 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
      */
     private @Nullable Double sampleRate;
     /**
-     * @return Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
+     * @return Whether to use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
      * 
      */
     private @Nullable String spec;
     /**
-     * @return VBR Quality Level - Only used if rateControlMode is VBR.
+     * @return VBR quality level. Only used if `rateControlMode` is `VBR`.
      * 
      */
     private @Nullable String vbrQuality;
@@ -67,14 +67,14 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
         return Optional.ofNullable(this.bitrate);
     }
     /**
-     * @return Mono, Stereo, or 5.1 channel layout.
+     * @return Mono, stereo, or 5.1 channel layout.
      * 
      */
     public Optional<String> codingMode() {
         return Optional.ofNullable(this.codingMode);
     }
     /**
-     * @return Set to &#34;broadcasterMixedAd&#34; when input contains pre-mixed main audio + AD (narration) as a stereo pair.
+     * @return Set to `broadcasterMixedAd` when input contains pre-mixed main audio and AD (narration) as a stereo pair.
      * 
      */
     public Optional<String> inputType() {
@@ -88,7 +88,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
         return Optional.ofNullable(this.profile);
     }
     /**
-     * @return The rate control mode.
+     * @return Rate control mode.
      * 
      */
     public Optional<String> rateControlMode() {
@@ -109,14 +109,14 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
         return Optional.ofNullable(this.sampleRate);
     }
     /**
-     * @return Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
+     * @return Whether to use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
      * 
      */
     public Optional<String> spec() {
         return Optional.ofNullable(this.spec);
     }
     /**
-     * @return VBR Quality Level - Only used if rateControlMode is VBR.
+     * @return VBR quality level. Only used if `rateControlMode` is `VBR`.
      * 
      */
     public Optional<String> vbrQuality() {

@@ -29,6 +29,27 @@ import * as utilities from "../utilities";
  * const example = new aws.observabilityadmin.TelemetryEvaluation("example", {});
  * ```
  *
+ * ### All Regions
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.observabilityadmin.TelemetryEvaluation("example", {allRegions: true});
+ * ```
+ *
+ * ### Specific Regions
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.observabilityadmin.TelemetryEvaluation("example", {regions: [
+ *     "us-east-1",
+ *     "eu-west-1",
+ * ]});
+ * ```
+ *
  * ## Import
  *
  * ### Identity Schema
@@ -73,6 +94,10 @@ export class TelemetryEvaluation extends pulumi.CustomResource {
     }
 
     /**
+     * Whether to start telemetry evaluation in all AWS Regions where CloudWatch Observability Admin is available. The current region becomes the home region. Mutually exclusive with `regions`.
+     */
+    declare public readonly allRegions: pulumi.Output<boolean | undefined>;
+    /**
      * Reason for the failure status. Only populated if `status` is `FAILED_START` or `FAILED_STOP`.
      */
     declare public /*out*/ readonly failureReason: pulumi.Output<string>;
@@ -80,6 +105,10 @@ export class TelemetryEvaluation extends pulumi.CustomResource {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     declare public readonly region: pulumi.Output<string>;
+    /**
+     * List of AWS Regions to include in multi-region telemetry evaluation. The current region is always implicitly included. Mutually exclusive with `allRegions`.
+     */
+    declare public readonly regions: pulumi.Output<string[] | undefined>;
     /**
      * Onboarding status of the telemetry config feature. Valid values: `NOT_STARTED`, `STARTING`, `FAILED_START`, `RUNNING`, `STOPPING`, `FAILED_STOP`, `STOPPED`.
      */
@@ -99,13 +128,17 @@ export class TelemetryEvaluation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TelemetryEvaluationState | undefined;
+            resourceInputs["allRegions"] = state?.allRegions;
             resourceInputs["failureReason"] = state?.failureReason;
             resourceInputs["region"] = state?.region;
+            resourceInputs["regions"] = state?.regions;
             resourceInputs["status"] = state?.status;
             resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as TelemetryEvaluationArgs | undefined;
+            resourceInputs["allRegions"] = args?.allRegions;
             resourceInputs["region"] = args?.region;
+            resourceInputs["regions"] = args?.regions;
             resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["failureReason"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -120,6 +153,10 @@ export class TelemetryEvaluation extends pulumi.CustomResource {
  */
 export interface TelemetryEvaluationState {
     /**
+     * Whether to start telemetry evaluation in all AWS Regions where CloudWatch Observability Admin is available. The current region becomes the home region. Mutually exclusive with `regions`.
+     */
+    allRegions?: pulumi.Input<boolean | undefined>;
+    /**
      * Reason for the failure status. Only populated if `status` is `FAILED_START` or `FAILED_STOP`.
      */
     failureReason?: pulumi.Input<string | undefined>;
@@ -127,6 +164,10 @@ export interface TelemetryEvaluationState {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
+    /**
+     * List of AWS Regions to include in multi-region telemetry evaluation. The current region is always implicitly included. Mutually exclusive with `allRegions`.
+     */
+    regions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Onboarding status of the telemetry config feature. Valid values: `NOT_STARTED`, `STARTING`, `FAILED_START`, `RUNNING`, `STOPPING`, `FAILED_STOP`, `STOPPED`.
      */
@@ -139,8 +180,16 @@ export interface TelemetryEvaluationState {
  */
 export interface TelemetryEvaluationArgs {
     /**
+     * Whether to start telemetry evaluation in all AWS Regions where CloudWatch Observability Admin is available. The current region becomes the home region. Mutually exclusive with `regions`.
+     */
+    allRegions?: pulumi.Input<boolean | undefined>;
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
+    /**
+     * List of AWS Regions to include in multi-region telemetry evaluation. The current region is always implicitly included. Mutually exclusive with `allRegions`.
+     */
+    regions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     timeouts?: pulumi.Input<inputs.observabilityadmin.TelemetryEvaluationTimeouts | undefined>;
 }

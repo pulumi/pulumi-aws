@@ -280,7 +280,7 @@ class _ImageBuilderState:
 
         :param pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]] access_endpoints: Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
         :param pulumi.Input[_builtins.str] appstream_agent_version: Version of the AppStream 2.0 agent to use for this image builder.
-        :param pulumi.Input[_builtins.str] arn: ARN of the appstream image builder.
+        :param pulumi.Input[_builtins.str] arn: ARN of the AppStream image builder.
         :param pulumi.Input[_builtins.str] created_time: Date and time, in UTC and extended RFC 3339 format, when the image builder was created.
         :param pulumi.Input[_builtins.str] description: Description to display.
         :param pulumi.Input[_builtins.str] display_name: Human-readable friendly name for the AppStream image builder.
@@ -364,7 +364,7 @@ class _ImageBuilderState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ARN of the appstream image builder.
+        ARN of the AppStream image builder.
         """
         return pulumi.get(self, "arn")
 
@@ -762,7 +762,7 @@ class ImageBuilder(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ImageBuilderAccessEndpointArgs', 'ImageBuilderAccessEndpointArgsDict', 'outputs.ImageBuilderAccessEndpoint']]]] access_endpoints: Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
         :param pulumi.Input[_builtins.str] appstream_agent_version: Version of the AppStream 2.0 agent to use for this image builder.
-        :param pulumi.Input[_builtins.str] arn: ARN of the appstream image builder.
+        :param pulumi.Input[_builtins.str] arn: ARN of the AppStream image builder.
         :param pulumi.Input[_builtins.str] created_time: Date and time, in UTC and extended RFC 3339 format, when the image builder was created.
         :param pulumi.Input[_builtins.str] description: Description to display.
         :param pulumi.Input[_builtins.str] display_name: Human-readable friendly name for the AppStream image builder.
@@ -825,7 +825,7 @@ class ImageBuilder(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        ARN of the appstream image builder.
+        ARN of the AppStream image builder.
         """
         return pulumi.get(self, "arn")
 

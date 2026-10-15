@@ -13,38 +13,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings {
     /**
-     * @return If upconvert, 608 data is both passed through via the “608 compatibility bytes” fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
+     * @return When set to `upconvert`, 608 data is both passed through via the &#34;608 compatibility bytes&#34; fields of the 708 wrapper and translated into 708. 708 data present in the source content is discarded.
      * 
      */
     private @Nullable String convert608To708;
     /**
-     * @return Set to “auto” to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
+     * @return Set to `auto` to handle streams with intermittent or non-aligned SCTE-20 and Embedded captions.
      * 
      */
     private @Nullable String scte20Detection;
     /**
-     * @return Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
+     * @return 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
      * 
      */
     private @Nullable Integer source608ChannelNumber;
 
     private ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings() {}
     /**
-     * @return If upconvert, 608 data is both passed through via the “608 compatibility bytes” fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
+     * @return When set to `upconvert`, 608 data is both passed through via the &#34;608 compatibility bytes&#34; fields of the 708 wrapper and translated into 708. 708 data present in the source content is discarded.
      * 
      */
     public Optional<String> convert608To708() {
         return Optional.ofNullable(this.convert608To708);
     }
     /**
-     * @return Set to “auto” to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
+     * @return Set to `auto` to handle streams with intermittent or non-aligned SCTE-20 and Embedded captions.
      * 
      */
     public Optional<String> scte20Detection() {
         return Optional.ofNullable(this.scte20Detection);
     }
     /**
-     * @return Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
+     * @return 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
      * 
      */
     public Optional<Integer> source608ChannelNumber() {

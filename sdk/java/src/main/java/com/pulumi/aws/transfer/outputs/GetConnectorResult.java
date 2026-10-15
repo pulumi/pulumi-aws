@@ -37,7 +37,7 @@ public final class GetConnectorResult {
     private List<GetConnectorEgressConfig> egressConfigs;
     private String id;
     /**
-     * @return ARN of the IAM role that allows a connector to turn on CLoudwatch logging for Amazon S3 events.
+     * @return ARN of the IAM role that allows a connector to turn on CloudWatch logging for Amazon S3 events.
      * 
      */
     private String loggingRole;
@@ -48,7 +48,7 @@ public final class GetConnectorResult {
      */
     private String securityPolicyName;
     /**
-     * @return List of egress Ip addresses.
+     * @return List of egress IP addresses.
      * 
      */
     private List<String> serviceManagedEgressIpAddresses;
@@ -101,7 +101,7 @@ public final class GetConnectorResult {
         return this.id;
     }
     /**
-     * @return ARN of the IAM role that allows a connector to turn on CLoudwatch logging for Amazon S3 events.
+     * @return ARN of the IAM role that allows a connector to turn on CloudWatch logging for Amazon S3 events.
      * 
      */
     public String loggingRole() {
@@ -118,7 +118,7 @@ public final class GetConnectorResult {
         return this.securityPolicyName;
     }
     /**
-     * @return List of egress Ip addresses.
+     * @return List of egress IP addresses.
      * 
      */
     public List<String> serviceManagedEgressIpAddresses() {

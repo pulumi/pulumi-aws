@@ -81,14 +81,20 @@ export class MeteringPolicyEntry extends pulumi.CustomResource {
      * Destination CIDR block to match. If not specified, all destination CIDR blocks are matched.
      */
     declare public readonly destinationCidrBlock: pulumi.Output<string | undefined>;
+    /**
+     * Destination port range to match. If not specified, all destination ports are matched.
+     */
     declare public readonly destinationPortRange: pulumi.Output<string | undefined>;
+    /**
+     * Destination Transit Gateway attachment ID to match.
+     */
     declare public readonly destinationTransitGatewayAttachmentId: pulumi.Output<string | undefined>;
     /**
-     * Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+     * Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `vpn-concentrator`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`, `network-function`, `client-vpn`.
      */
     declare public readonly destinationTransitGatewayAttachmentType: pulumi.Output<string | undefined>;
     /**
-     * The account to charge for matching traffic. Valid values are `source-attachment-owner` or `destination-attachment-owner`.
+     * The account to charge for matching traffic. Valid values are `source-attachment-owner`, `destination-attachment-owner`, or `transit-gateway-owner`.
      */
     declare public readonly meteredAccount: pulumi.Output<string>;
     /**
@@ -107,10 +113,16 @@ export class MeteringPolicyEntry extends pulumi.CustomResource {
      * Source CIDR block to match. If not specified, all source CIDR blocks are matched.
      */
     declare public readonly sourceCidrBlock: pulumi.Output<string | undefined>;
+    /**
+     * Source port range to match. If not specified, all source ports are matched.
+     */
     declare public readonly sourcePortRange: pulumi.Output<string | undefined>;
+    /**
+     * Source Transit Gateway attachment ID to match.
+     */
     declare public readonly sourceTransitGatewayAttachmentId: pulumi.Output<string | undefined>;
     /**
-     * Source attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+     * Source attachment resource type to match. Valid values are `vpc`, `vpn`, `vpn-concentrator`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`, `network-function`, `client-vpn`.
      */
     declare public readonly sourceTransitGatewayAttachmentType: pulumi.Output<string | undefined>;
     declare public readonly timeouts: pulumi.Output<outputs.ec2transitgateway.MeteringPolicyEntryTimeouts | undefined>;
@@ -187,14 +199,20 @@ export interface MeteringPolicyEntryState {
      * Destination CIDR block to match. If not specified, all destination CIDR blocks are matched.
      */
     destinationCidrBlock?: pulumi.Input<string | undefined>;
+    /**
+     * Destination port range to match. If not specified, all destination ports are matched.
+     */
     destinationPortRange?: pulumi.Input<string | undefined>;
+    /**
+     * Destination Transit Gateway attachment ID to match.
+     */
     destinationTransitGatewayAttachmentId?: pulumi.Input<string | undefined>;
     /**
-     * Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+     * Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `vpn-concentrator`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`, `network-function`, `client-vpn`.
      */
     destinationTransitGatewayAttachmentType?: pulumi.Input<string | undefined>;
     /**
-     * The account to charge for matching traffic. Valid values are `source-attachment-owner` or `destination-attachment-owner`.
+     * The account to charge for matching traffic. Valid values are `source-attachment-owner`, `destination-attachment-owner`, or `transit-gateway-owner`.
      */
     meteredAccount?: pulumi.Input<string | undefined>;
     /**
@@ -213,10 +231,16 @@ export interface MeteringPolicyEntryState {
      * Source CIDR block to match. If not specified, all source CIDR blocks are matched.
      */
     sourceCidrBlock?: pulumi.Input<string | undefined>;
+    /**
+     * Source port range to match. If not specified, all source ports are matched.
+     */
     sourcePortRange?: pulumi.Input<string | undefined>;
+    /**
+     * Source Transit Gateway attachment ID to match.
+     */
     sourceTransitGatewayAttachmentId?: pulumi.Input<string | undefined>;
     /**
-     * Source attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+     * Source attachment resource type to match. Valid values are `vpc`, `vpn`, `vpn-concentrator`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`, `network-function`, `client-vpn`.
      */
     sourceTransitGatewayAttachmentType?: pulumi.Input<string | undefined>;
     timeouts?: pulumi.Input<inputs.ec2transitgateway.MeteringPolicyEntryTimeouts | undefined>;
@@ -236,14 +260,20 @@ export interface MeteringPolicyEntryArgs {
      * Destination CIDR block to match. If not specified, all destination CIDR blocks are matched.
      */
     destinationCidrBlock?: pulumi.Input<string | undefined>;
+    /**
+     * Destination port range to match. If not specified, all destination ports are matched.
+     */
     destinationPortRange?: pulumi.Input<string | undefined>;
+    /**
+     * Destination Transit Gateway attachment ID to match.
+     */
     destinationTransitGatewayAttachmentId?: pulumi.Input<string | undefined>;
     /**
-     * Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+     * Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `vpn-concentrator`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`, `network-function`, `client-vpn`.
      */
     destinationTransitGatewayAttachmentType?: pulumi.Input<string | undefined>;
     /**
-     * The account to charge for matching traffic. Valid values are `source-attachment-owner` or `destination-attachment-owner`.
+     * The account to charge for matching traffic. Valid values are `source-attachment-owner`, `destination-attachment-owner`, or `transit-gateway-owner`.
      */
     meteredAccount: pulumi.Input<string>;
     /**
@@ -262,10 +292,16 @@ export interface MeteringPolicyEntryArgs {
      * Source CIDR block to match. If not specified, all source CIDR blocks are matched.
      */
     sourceCidrBlock?: pulumi.Input<string | undefined>;
+    /**
+     * Source port range to match. If not specified, all source ports are matched.
+     */
     sourcePortRange?: pulumi.Input<string | undefined>;
+    /**
+     * Source Transit Gateway attachment ID to match.
+     */
     sourceTransitGatewayAttachmentId?: pulumi.Input<string | undefined>;
     /**
-     * Source attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+     * Source attachment resource type to match. Valid values are `vpc`, `vpn`, `vpn-concentrator`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`, `network-function`, `client-vpn`.
      */
     sourceTransitGatewayAttachmentType?: pulumi.Input<string | undefined>;
     timeouts?: pulumi.Input<inputs.ec2transitgateway.MeteringPolicyEntryTimeouts | undefined>;

@@ -33,7 +33,7 @@ namespace Pulumi.Aws
         /// });
         /// ```
         /// 
-        /// ### Dynamically Apply Default Tags to Auto Scaling Group
+        /// ### Dynamically Apply Default Tags to Auto Scaling group
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -86,7 +86,7 @@ namespace Pulumi.Aws
         /// });
         /// ```
         /// 
-        /// ### Dynamically Apply Default Tags to Auto Scaling Group
+        /// ### Dynamically Apply Default Tags to Auto Scaling group
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -139,7 +139,7 @@ namespace Pulumi.Aws
         /// });
         /// ```
         /// 
-        /// ### Dynamically Apply Default Tags to Auto Scaling Group
+        /// ### Dynamically Apply Default Tags to Auto Scaling group
         /// 
         /// ```csharp
         /// using System.Collections.Generic;

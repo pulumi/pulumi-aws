@@ -282,7 +282,7 @@ type DeploymentGroup struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
 	AutoRollbackConfiguration DeploymentGroupAutoRollbackConfigurationPtrOutput `pulumi:"autoRollbackConfiguration"`
-	// Autoscaling groups associated with the deployment group.
+	// Auto Scaling groups associated with the deployment group.
 	AutoscalingGroups pulumi.StringArrayOutput `pulumi:"autoscalingGroups"`
 	// Configuration block of the blue/green deployment options for a deployment group (documented below).
 	BlueGreenDeploymentConfig DeploymentGroupBlueGreenDeploymentConfigOutput `pulumi:"blueGreenDeploymentConfig"`
@@ -369,7 +369,7 @@ type deploymentGroupState struct {
 	Arn *string `pulumi:"arn"`
 	// Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
 	AutoRollbackConfiguration *DeploymentGroupAutoRollbackConfiguration `pulumi:"autoRollbackConfiguration"`
-	// Autoscaling groups associated with the deployment group.
+	// Auto Scaling groups associated with the deployment group.
 	AutoscalingGroups []string `pulumi:"autoscalingGroups"`
 	// Configuration block of the blue/green deployment options for a deployment group (documented below).
 	BlueGreenDeploymentConfig *DeploymentGroupBlueGreenDeploymentConfig `pulumi:"blueGreenDeploymentConfig"`
@@ -418,7 +418,7 @@ type DeploymentGroupState struct {
 	Arn pulumi.StringPtrInput
 	// Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
 	AutoRollbackConfiguration DeploymentGroupAutoRollbackConfigurationPtrInput
-	// Autoscaling groups associated with the deployment group.
+	// Auto Scaling groups associated with the deployment group.
 	AutoscalingGroups pulumi.StringArrayInput
 	// Configuration block of the blue/green deployment options for a deployment group (documented below).
 	BlueGreenDeploymentConfig DeploymentGroupBlueGreenDeploymentConfigPtrInput
@@ -469,7 +469,7 @@ type deploymentGroupArgs struct {
 	AppName string `pulumi:"appName"`
 	// Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
 	AutoRollbackConfiguration *DeploymentGroupAutoRollbackConfiguration `pulumi:"autoRollbackConfiguration"`
-	// Autoscaling groups associated with the deployment group.
+	// Auto Scaling groups associated with the deployment group.
 	AutoscalingGroups []string `pulumi:"autoscalingGroups"`
 	// Configuration block of the blue/green deployment options for a deployment group (documented below).
 	BlueGreenDeploymentConfig *DeploymentGroupBlueGreenDeploymentConfig `pulumi:"blueGreenDeploymentConfig"`
@@ -511,7 +511,7 @@ type DeploymentGroupArgs struct {
 	AppName pulumi.StringInput
 	// Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
 	AutoRollbackConfiguration DeploymentGroupAutoRollbackConfigurationPtrInput
-	// Autoscaling groups associated with the deployment group.
+	// Auto Scaling groups associated with the deployment group.
 	AutoscalingGroups pulumi.StringArrayInput
 	// Configuration block of the blue/green deployment options for a deployment group (documented below).
 	BlueGreenDeploymentConfig DeploymentGroupBlueGreenDeploymentConfigPtrInput
@@ -654,7 +654,7 @@ func (o DeploymentGroupOutput) AutoRollbackConfiguration() DeploymentGroupAutoRo
 	}).(DeploymentGroupAutoRollbackConfigurationPtrOutput)
 }
 
-// Autoscaling groups associated with the deployment group.
+// Auto Scaling groups associated with the deployment group.
 func (o DeploymentGroupOutput) AutoscalingGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DeploymentGroup) pulumi.StringArrayOutput { return v.AutoscalingGroups }).(pulumi.StringArrayOutput)
 }

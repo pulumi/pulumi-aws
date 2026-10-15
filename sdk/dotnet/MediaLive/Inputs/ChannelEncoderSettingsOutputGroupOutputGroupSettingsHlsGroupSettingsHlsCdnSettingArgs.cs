@@ -12,18 +12,33 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Akamai settings. See `HlsAkamaiSettings` Block for details.
+        /// </summary>
         [Input("hlsAkamaiSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsArgs>? HlsAkamaiSettings { get; set; }
 
+        /// <summary>
+        /// Basic put settings. See `HlsBasicPutSettings` Block for details.
+        /// </summary>
         [Input("hlsBasicPutSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsArgs>? HlsBasicPutSettings { get; set; }
 
+        /// <summary>
+        /// Media store settings. See `HlsMediaStoreSettings` Block for details.
+        /// </summary>
         [Input("hlsMediaStoreSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsArgs>? HlsMediaStoreSettings { get; set; }
 
+        /// <summary>
+        /// S3 settings. See `HlsS3Settings` Block for details.
+        /// </summary>
         [Input("hlsS3Settings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3SettingsArgs>? HlsS3Settings { get; set; }
 
+        /// <summary>
+        /// WebDAV settings. See `HlsWebdavSettings` Block for details.
+        /// </summary>
         [Input("hlsWebdavSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsArgs>? HlsWebdavSettings { get; set; }
 

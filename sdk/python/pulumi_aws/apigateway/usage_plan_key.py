@@ -28,7 +28,7 @@ class UsagePlanKeyArgs:
 
         :param pulumi.Input[_builtins.str] key_id: Identifier of the API key resource.
         :param pulumi.Input[_builtins.str] key_type: Type of the API key resource. Currently, the valid key type is API_KEY.
-        :param pulumi.Input[_builtins.str] usage_plan_id: Id of the usage plan resource representing to associate the key to.
+        :param pulumi.Input[_builtins.str] usage_plan_id: ID of the usage plan resource representing to associate the key to.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "key_id", key_id)
@@ -65,7 +65,7 @@ class UsagePlanKeyArgs:
     @pulumi.getter(name="usagePlanId")
     def usage_plan_id(self) -> pulumi.Input[_builtins.str]:
         """
-        Id of the usage plan resource representing to associate the key to.
+        ID of the usage plan resource representing to associate the key to.
         """
         return pulumi.get(self, "usage_plan_id")
 
@@ -102,7 +102,7 @@ class _UsagePlanKeyState:
         :param pulumi.Input[_builtins.str] key_type: Type of the API key resource. Currently, the valid key type is API_KEY.
         :param pulumi.Input[_builtins.str] name: Name of a usage plan key.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] usage_plan_id: Id of the usage plan resource representing to associate the key to.
+        :param pulumi.Input[_builtins.str] usage_plan_id: ID of the usage plan resource representing to associate the key to.
         :param pulumi.Input[_builtins.str] value: Value of a usage plan key.
         """
         if key_id is not None:
@@ -170,7 +170,7 @@ class _UsagePlanKeyState:
     @pulumi.getter(name="usagePlanId")
     def usage_plan_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Id of the usage plan resource representing to associate the key to.
+        ID of the usage plan resource representing to associate the key to.
         """
         return pulumi.get(self, "usage_plan_id")
 
@@ -240,7 +240,7 @@ class UsagePlanKey(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] key_id: Identifier of the API key resource.
         :param pulumi.Input[_builtins.str] key_type: Type of the API key resource. Currently, the valid key type is API_KEY.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] usage_plan_id: Id of the usage plan resource representing to associate the key to.
+        :param pulumi.Input[_builtins.str] usage_plan_id: ID of the usage plan resource representing to associate the key to.
         """
         ...
     @overload
@@ -348,7 +348,7 @@ class UsagePlanKey(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] key_type: Type of the API key resource. Currently, the valid key type is API_KEY.
         :param pulumi.Input[_builtins.str] name: Name of a usage plan key.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] usage_plan_id: Id of the usage plan resource representing to associate the key to.
+        :param pulumi.Input[_builtins.str] usage_plan_id: ID of the usage plan resource representing to associate the key to.
         :param pulumi.Input[_builtins.str] value: Value of a usage plan key.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -399,7 +399,7 @@ class UsagePlanKey(pulumi.CustomResource):
     @pulumi.getter(name="usagePlanId")
     def usage_plan_id(self) -> pulumi.Output[_builtins.str]:
         """
-        Id of the usage plan resource representing to associate the key to.
+        ID of the usage plan resource representing to associate the key to.
         """
         return pulumi.get(self, "usage_plan_id")
 

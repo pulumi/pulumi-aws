@@ -146,7 +146,7 @@ def get_instances(filters: Optional[Sequence[Union['GetInstancesFilterArgs', 'Ge
     or to make it easier for an operator to connect through bastion host(s).
 
     > **Note:** It's strongly discouraged to use this data source for querying ephemeral
-    instances (e.g., managed via autoscaling group), as the output may change at any time
+    instances (e.g., managed via Auto Scaling group), as the output may change at any time
     and you'd need to re-run `apply` every time an instance comes up or dies.
 
     ## Example Usage
@@ -214,7 +214,7 @@ def get_instances_output(filters: pulumi.Input[Optional[Optional[Sequence[Union[
     or to make it easier for an operator to connect through bastion host(s).
 
     > **Note:** It's strongly discouraged to use this data source for querying ephemeral
-    instances (e.g., managed via autoscaling group), as the output may change at any time
+    instances (e.g., managed via Auto Scaling group), as the output may change at any time
     and you'd need to re-run `apply` every time an instance comes up or dies.
 
     ## Example Usage

@@ -62,7 +62,7 @@ class GetSubnetsResult:
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
         """
-        List of all the subnet ids found.
+        List of all the subnet IDs found.
         """
         return pulumi.get(self, "ids")
 

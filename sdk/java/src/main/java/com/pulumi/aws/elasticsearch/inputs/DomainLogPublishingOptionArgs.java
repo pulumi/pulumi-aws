@@ -18,14 +18,14 @@ public final class DomainLogPublishingOptionArgs extends com.pulumi.resources.Re
     public static final DomainLogPublishingOptionArgs Empty = new DomainLogPublishingOptionArgs();
 
     /**
-     * ARN of the Cloudwatch log group to which log needs to be published.
+     * ARN of the CloudWatch log group to which log needs to be published.
      * 
      */
     @Import(name="cloudwatchLogGroupArn", required=true)
     private Output<String> cloudwatchLogGroupArn;
 
     /**
-     * @return ARN of the Cloudwatch log group to which log needs to be published.
+     * @return ARN of the CloudWatch log group to which log needs to be published.
      * 
      */
     public Output<String> cloudwatchLogGroupArn() {
@@ -89,7 +89,7 @@ public final class DomainLogPublishingOptionArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param cloudwatchLogGroupArn ARN of the Cloudwatch log group to which log needs to be published.
+         * @param cloudwatchLogGroupArn ARN of the CloudWatch log group to which log needs to be published.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class DomainLogPublishingOptionArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param cloudwatchLogGroupArn ARN of the Cloudwatch log group to which log needs to be published.
+         * @param cloudwatchLogGroupArn ARN of the CloudWatch log group to which log needs to be published.
          * 
          * @return builder
          * 

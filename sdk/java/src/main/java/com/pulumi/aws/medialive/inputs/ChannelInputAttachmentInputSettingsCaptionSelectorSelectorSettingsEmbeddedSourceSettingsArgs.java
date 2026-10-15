@@ -17,14 +17,14 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
     public static final ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgs Empty = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgs();
 
     /**
-     * If upconvert, 608 data is both passed through via the “608 compatibility bytes” fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
+     * When set to `upconvert`, 608 data is both passed through via the &#34;608 compatibility bytes&#34; fields of the 708 wrapper and translated into 708. 708 data present in the source content is discarded.
      * 
      */
     @Import(name="convert608To708")
     private @Nullable Output<String> convert608To708;
 
     /**
-     * @return If upconvert, 608 data is both passed through via the “608 compatibility bytes” fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
+     * @return When set to `upconvert`, 608 data is both passed through via the &#34;608 compatibility bytes&#34; fields of the 708 wrapper and translated into 708. 708 data present in the source content is discarded.
      * 
      */
     public Optional<Output<String>> convert608To708() {
@@ -32,14 +32,14 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
     }
 
     /**
-     * Set to “auto” to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
+     * Set to `auto` to handle streams with intermittent or non-aligned SCTE-20 and Embedded captions.
      * 
      */
     @Import(name="scte20Detection")
     private @Nullable Output<String> scte20Detection;
 
     /**
-     * @return Set to “auto” to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
+     * @return Set to `auto` to handle streams with intermittent or non-aligned SCTE-20 and Embedded captions.
      * 
      */
     public Optional<Output<String>> scte20Detection() {
@@ -47,14 +47,14 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
     }
 
     /**
-     * Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
+     * 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
      * 
      */
     @Import(name="source608ChannelNumber")
     private @Nullable Output<Integer> source608ChannelNumber;
 
     /**
-     * @return Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
+     * @return 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
      * 
      */
     public Optional<Output<Integer>> source608ChannelNumber() {
@@ -88,7 +88,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         /**
-         * @param convert608To708 If upconvert, 608 data is both passed through via the “608 compatibility bytes” fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
+         * @param convert608To708 When set to `upconvert`, 608 data is both passed through via the &#34;608 compatibility bytes&#34; fields of the 708 wrapper and translated into 708. 708 data present in the source content is discarded.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         /**
-         * @param convert608To708 If upconvert, 608 data is both passed through via the “608 compatibility bytes” fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
+         * @param convert608To708 When set to `upconvert`, 608 data is both passed through via the &#34;608 compatibility bytes&#34; fields of the 708 wrapper and translated into 708. 708 data present in the source content is discarded.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         /**
-         * @param scte20Detection Set to “auto” to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
+         * @param scte20Detection Set to `auto` to handle streams with intermittent or non-aligned SCTE-20 and Embedded captions.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         /**
-         * @param scte20Detection Set to “auto” to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
+         * @param scte20Detection Set to `auto` to handle streams with intermittent or non-aligned SCTE-20 and Embedded captions.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         /**
-         * @param source608ChannelNumber Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
+         * @param source608ChannelNumber 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         /**
-         * @param source608ChannelNumber Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
+         * @param source608ChannelNumber 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
          * 
          * @return builder
          * 

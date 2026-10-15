@@ -31,7 +31,7 @@ class ParameterGroupArgs:
         """
         The set of arguments for constructing a ParameterGroup resource.
 
-        :param pulumi.Input[_builtins.str] family: The engine version that the parameter group can be used with.
+        :param pulumi.Input[_builtins.str] family: Engine version that the parameter group can be used with.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] description: Description for the parameter group. Defaults to `"Managed by Pulumi"`.
@@ -39,7 +39,7 @@ class ParameterGroupArgs:
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]] parameters: Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "family", family)
         if description is not None:
@@ -59,7 +59,7 @@ class ParameterGroupArgs:
     @pulumi.getter
     def family(self) -> pulumi.Input[_builtins.str]:
         """
-        The engine version that the parameter group can be used with.
+        Engine version that the parameter group can be used with.
 
         The following arguments are optional:
         """
@@ -133,7 +133,7 @@ class ParameterGroupArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -157,17 +157,17 @@ class _ParameterGroupState:
         """
         Input properties used for looking up and filtering ParameterGroup resources.
 
-        :param pulumi.Input[_builtins.str] arn: The ARN of the parameter group.
+        :param pulumi.Input[_builtins.str] arn: ARN of the parameter group.
         :param pulumi.Input[_builtins.str] description: Description for the parameter group. Defaults to `"Managed by Pulumi"`.
-        :param pulumi.Input[_builtins.str] family: The engine version that the parameter group can be used with.
+        :param pulumi.Input[_builtins.str] family: Engine version that the parameter group can be used with.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] name: Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]] parameters: Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -192,7 +192,7 @@ class _ParameterGroupState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the parameter group.
+        ARN of the parameter group.
         """
         return pulumi.get(self, "arn")
 
@@ -216,7 +216,7 @@ class _ParameterGroupState:
     @pulumi.getter
     def family(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The engine version that the parameter group can be used with.
+        Engine version that the parameter group can be used with.
 
         The following arguments are optional:
         """
@@ -278,7 +278,7 @@ class _ParameterGroupState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -290,7 +290,7 @@ class _ParameterGroupState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -345,14 +345,14 @@ class ParameterGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description for the parameter group. Defaults to `"Managed by Pulumi"`.
-        :param pulumi.Input[_builtins.str] family: The engine version that the parameter group can be used with.
+        :param pulumi.Input[_builtins.str] family: Engine version that the parameter group can be used with.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] name: Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ParameterGroupParameterArgs', 'ParameterGroupParameterArgsDict', 'outputs.ParameterGroupParameter']]]] parameters: Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -457,17 +457,17 @@ class ParameterGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the parameter group.
+        :param pulumi.Input[_builtins.str] arn: ARN of the parameter group.
         :param pulumi.Input[_builtins.str] description: Description for the parameter group. Defaults to `"Managed by Pulumi"`.
-        :param pulumi.Input[_builtins.str] family: The engine version that the parameter group can be used with.
+        :param pulumi.Input[_builtins.str] family: Engine version that the parameter group can be used with.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] name: Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ParameterGroupParameterArgs', 'ParameterGroupParameterArgsDict', 'outputs.ParameterGroupParameter']]]] parameters: Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -488,7 +488,7 @@ class ParameterGroup(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the parameter group.
+        ARN of the parameter group.
         """
         return pulumi.get(self, "arn")
 
@@ -504,7 +504,7 @@ class ParameterGroup(pulumi.CustomResource):
     @pulumi.getter
     def family(self) -> pulumi.Output[_builtins.str]:
         """
-        The engine version that the parameter group can be used with.
+        Engine version that the parameter group can be used with.
 
         The following arguments are optional:
         """
@@ -546,7 +546,7 @@ class ParameterGroup(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -554,7 +554,7 @@ class ParameterGroup(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

@@ -134,50 +134,51 @@ import (
 type Workspace struct {
 	pulumi.CustomResourceState
 
-	// The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
+	// Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
 	AccountAccessType pulumi.StringOutput `pulumi:"accountAccessType"`
 	// ARN of the Grafana workspace.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
+	// Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
 	AuthenticationProviders pulumi.StringArrayOutput `pulumi:"authenticationProviders"`
-	// The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
+	// Configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
 	Configuration pulumi.StringOutput `pulumi:"configuration"`
-	// The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
+	// Data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
 	DataSources pulumi.StringArrayOutput `pulumi:"dataSources"`
-	// The workspace description.
+	// Workspace description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The endpoint of the Grafana workspace.
+	// Endpoint of the Grafana workspace.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
-	// Specifies the version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4`, `12.4` and `13.2`. If not specified, defaults to the latest version.
+	// Version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4`, `12.4` and `13.2`. If not specified, defaults to the latest version.
 	GrafanaVersion pulumi.StringOutput `pulumi:"grafanaVersion"`
-	// The ARN of the AWS KMS key for encrypting workspace data.
+	// ARN of the AWS KMS key for encrypting workspace data.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
-	// The Grafana workspace name.
+	// Grafana workspace name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Configuration for network access to your workspace.See Network Access Control below.
+	// Configuration for network access to your workspace. See `networkAccessControl` Block below.
 	NetworkAccessControl WorkspaceNetworkAccessControlPtrOutput `pulumi:"networkAccessControl"`
-	// The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
+	// Notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
 	NotificationDestinations pulumi.StringArrayOutput `pulumi:"notificationDestinations"`
-	// The role name that the workspace uses to access resources through Amazon Organizations.
+	// Role name that the workspace uses to access resources through Amazon Organizations.
 	OrganizationRoleName pulumi.StringPtrOutput `pulumi:"organizationRoleName"`
-	// The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
+	// Amazon Organizations organizational units that the workspace is authorized to use data sources from.
 	OrganizationalUnits pulumi.StringArrayOutput `pulumi:"organizationalUnits"`
-	// The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+	// Permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
 	//
 	// The following arguments are optional:
 	PermissionType pulumi.StringOutput `pulumi:"permissionType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The IAM role ARN that the workspace assumes.
-	RoleArn                 pulumi.StringPtrOutput `pulumi:"roleArn"`
-	SamlConfigurationStatus pulumi.StringOutput    `pulumi:"samlConfigurationStatus"`
-	// The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
+	// IAM role ARN that the workspace assumes.
+	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
+	// Status of the SAML configuration.
+	SamlConfigurationStatus pulumi.StringOutput `pulumi:"samlConfigurationStatus"`
+	// AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
 	StackSetName pulumi.StringPtrOutput `pulumi:"stackSetName"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
+	// Configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See `vpcConfiguration` Block below.
 	VpcConfiguration WorkspaceVpcConfigurationPtrOutput `pulumi:"vpcConfiguration"`
 }
 
@@ -220,98 +221,100 @@ func GetWorkspace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workspace resources.
 type workspaceState struct {
-	// The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
+	// Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
 	AccountAccessType *string `pulumi:"accountAccessType"`
 	// ARN of the Grafana workspace.
 	Arn *string `pulumi:"arn"`
-	// The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
+	// Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
 	AuthenticationProviders []string `pulumi:"authenticationProviders"`
-	// The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
+	// Configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
 	Configuration *string `pulumi:"configuration"`
-	// The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
+	// Data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
 	DataSources []string `pulumi:"dataSources"`
-	// The workspace description.
+	// Workspace description.
 	Description *string `pulumi:"description"`
-	// The endpoint of the Grafana workspace.
+	// Endpoint of the Grafana workspace.
 	Endpoint *string `pulumi:"endpoint"`
-	// Specifies the version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4`, `12.4` and `13.2`. If not specified, defaults to the latest version.
+	// Version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4`, `12.4` and `13.2`. If not specified, defaults to the latest version.
 	GrafanaVersion *string `pulumi:"grafanaVersion"`
-	// The ARN of the AWS KMS key for encrypting workspace data.
+	// ARN of the AWS KMS key for encrypting workspace data.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The Grafana workspace name.
+	// Grafana workspace name.
 	Name *string `pulumi:"name"`
-	// Configuration for network access to your workspace.See Network Access Control below.
+	// Configuration for network access to your workspace. See `networkAccessControl` Block below.
 	NetworkAccessControl *WorkspaceNetworkAccessControl `pulumi:"networkAccessControl"`
-	// The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
+	// Notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
 	NotificationDestinations []string `pulumi:"notificationDestinations"`
-	// The role name that the workspace uses to access resources through Amazon Organizations.
+	// Role name that the workspace uses to access resources through Amazon Organizations.
 	OrganizationRoleName *string `pulumi:"organizationRoleName"`
-	// The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
+	// Amazon Organizations organizational units that the workspace is authorized to use data sources from.
 	OrganizationalUnits []string `pulumi:"organizationalUnits"`
-	// The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+	// Permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
 	//
 	// The following arguments are optional:
 	PermissionType *string `pulumi:"permissionType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The IAM role ARN that the workspace assumes.
-	RoleArn                 *string `pulumi:"roleArn"`
+	// IAM role ARN that the workspace assumes.
+	RoleArn *string `pulumi:"roleArn"`
+	// Status of the SAML configuration.
 	SamlConfigurationStatus *string `pulumi:"samlConfigurationStatus"`
-	// The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
+	// AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
 	StackSetName *string `pulumi:"stackSetName"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
+	// Configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See `vpcConfiguration` Block below.
 	VpcConfiguration *WorkspaceVpcConfiguration `pulumi:"vpcConfiguration"`
 }
 
 type WorkspaceState struct {
-	// The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
+	// Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
 	AccountAccessType pulumi.StringPtrInput
 	// ARN of the Grafana workspace.
 	Arn pulumi.StringPtrInput
-	// The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
+	// Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
 	AuthenticationProviders pulumi.StringArrayInput
-	// The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
+	// Configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
 	Configuration pulumi.StringPtrInput
-	// The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
+	// Data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
 	DataSources pulumi.StringArrayInput
-	// The workspace description.
+	// Workspace description.
 	Description pulumi.StringPtrInput
-	// The endpoint of the Grafana workspace.
+	// Endpoint of the Grafana workspace.
 	Endpoint pulumi.StringPtrInput
-	// Specifies the version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4`, `12.4` and `13.2`. If not specified, defaults to the latest version.
+	// Version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4`, `12.4` and `13.2`. If not specified, defaults to the latest version.
 	GrafanaVersion pulumi.StringPtrInput
-	// The ARN of the AWS KMS key for encrypting workspace data.
+	// ARN of the AWS KMS key for encrypting workspace data.
 	KmsKeyId pulumi.StringPtrInput
-	// The Grafana workspace name.
+	// Grafana workspace name.
 	Name pulumi.StringPtrInput
-	// Configuration for network access to your workspace.See Network Access Control below.
+	// Configuration for network access to your workspace. See `networkAccessControl` Block below.
 	NetworkAccessControl WorkspaceNetworkAccessControlPtrInput
-	// The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
+	// Notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
 	NotificationDestinations pulumi.StringArrayInput
-	// The role name that the workspace uses to access resources through Amazon Organizations.
+	// Role name that the workspace uses to access resources through Amazon Organizations.
 	OrganizationRoleName pulumi.StringPtrInput
-	// The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
+	// Amazon Organizations organizational units that the workspace is authorized to use data sources from.
 	OrganizationalUnits pulumi.StringArrayInput
-	// The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+	// Permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
 	//
 	// The following arguments are optional:
 	PermissionType pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The IAM role ARN that the workspace assumes.
-	RoleArn                 pulumi.StringPtrInput
+	// IAM role ARN that the workspace assumes.
+	RoleArn pulumi.StringPtrInput
+	// Status of the SAML configuration.
 	SamlConfigurationStatus pulumi.StringPtrInput
-	// The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
+	// AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
 	StackSetName pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
+	// Configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See `vpcConfiguration` Block below.
 	VpcConfiguration WorkspaceVpcConfigurationPtrInput
 }
 
@@ -320,85 +323,85 @@ func (WorkspaceState) ElementType() reflect.Type {
 }
 
 type workspaceArgs struct {
-	// The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
+	// Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
 	AccountAccessType string `pulumi:"accountAccessType"`
-	// The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
+	// Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
 	AuthenticationProviders []string `pulumi:"authenticationProviders"`
-	// The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
+	// Configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
 	Configuration *string `pulumi:"configuration"`
-	// The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
+	// Data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
 	DataSources []string `pulumi:"dataSources"`
-	// The workspace description.
+	// Workspace description.
 	Description *string `pulumi:"description"`
-	// Specifies the version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4`, `12.4` and `13.2`. If not specified, defaults to the latest version.
+	// Version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4`, `12.4` and `13.2`. If not specified, defaults to the latest version.
 	GrafanaVersion *string `pulumi:"grafanaVersion"`
-	// The ARN of the AWS KMS key for encrypting workspace data.
+	// ARN of the AWS KMS key for encrypting workspace data.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The Grafana workspace name.
+	// Grafana workspace name.
 	Name *string `pulumi:"name"`
-	// Configuration for network access to your workspace.See Network Access Control below.
+	// Configuration for network access to your workspace. See `networkAccessControl` Block below.
 	NetworkAccessControl *WorkspaceNetworkAccessControl `pulumi:"networkAccessControl"`
-	// The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
+	// Notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
 	NotificationDestinations []string `pulumi:"notificationDestinations"`
-	// The role name that the workspace uses to access resources through Amazon Organizations.
+	// Role name that the workspace uses to access resources through Amazon Organizations.
 	OrganizationRoleName *string `pulumi:"organizationRoleName"`
-	// The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
+	// Amazon Organizations organizational units that the workspace is authorized to use data sources from.
 	OrganizationalUnits []string `pulumi:"organizationalUnits"`
-	// The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+	// Permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
 	//
 	// The following arguments are optional:
 	PermissionType string `pulumi:"permissionType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The IAM role ARN that the workspace assumes.
+	// IAM role ARN that the workspace assumes.
 	RoleArn *string `pulumi:"roleArn"`
-	// The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
+	// AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
 	StackSetName *string `pulumi:"stackSetName"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags map[string]string `pulumi:"tags"`
-	// The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
+	// Configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See `vpcConfiguration` Block below.
 	VpcConfiguration *WorkspaceVpcConfiguration `pulumi:"vpcConfiguration"`
 }
 
 // The set of arguments for constructing a Workspace resource.
 type WorkspaceArgs struct {
-	// The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
+	// Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
 	AccountAccessType pulumi.StringInput
-	// The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
+	// Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
 	AuthenticationProviders pulumi.StringArrayInput
-	// The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
+	// Configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
 	Configuration pulumi.StringPtrInput
-	// The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
+	// Data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
 	DataSources pulumi.StringArrayInput
-	// The workspace description.
+	// Workspace description.
 	Description pulumi.StringPtrInput
-	// Specifies the version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4`, `12.4` and `13.2`. If not specified, defaults to the latest version.
+	// Version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4`, `12.4` and `13.2`. If not specified, defaults to the latest version.
 	GrafanaVersion pulumi.StringPtrInput
-	// The ARN of the AWS KMS key for encrypting workspace data.
+	// ARN of the AWS KMS key for encrypting workspace data.
 	KmsKeyId pulumi.StringPtrInput
-	// The Grafana workspace name.
+	// Grafana workspace name.
 	Name pulumi.StringPtrInput
-	// Configuration for network access to your workspace.See Network Access Control below.
+	// Configuration for network access to your workspace. See `networkAccessControl` Block below.
 	NetworkAccessControl WorkspaceNetworkAccessControlPtrInput
-	// The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
+	// Notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
 	NotificationDestinations pulumi.StringArrayInput
-	// The role name that the workspace uses to access resources through Amazon Organizations.
+	// Role name that the workspace uses to access resources through Amazon Organizations.
 	OrganizationRoleName pulumi.StringPtrInput
-	// The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
+	// Amazon Organizations organizational units that the workspace is authorized to use data sources from.
 	OrganizationalUnits pulumi.StringArrayInput
-	// The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+	// Permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
 	//
 	// The following arguments are optional:
 	PermissionType pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The IAM role ARN that the workspace assumes.
+	// IAM role ARN that the workspace assumes.
 	RoleArn pulumi.StringPtrInput
-	// The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
+	// AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
 	StackSetName pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapInput
-	// The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
+	// Configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See `vpcConfiguration` Block below.
 	VpcConfiguration WorkspaceVpcConfigurationPtrInput
 }
 
@@ -489,7 +492,7 @@ func (o WorkspaceOutput) ToWorkspaceOutputWithContext(ctx context.Context) Works
 	return o
 }
 
-// The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
+// Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
 func (o WorkspaceOutput) AccountAccessType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.AccountAccessType }).(pulumi.StringOutput)
 }
@@ -499,67 +502,67 @@ func (o WorkspaceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
+// Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
 func (o WorkspaceOutput) AuthenticationProviders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringArrayOutput { return v.AuthenticationProviders }).(pulumi.StringArrayOutput)
 }
 
-// The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
+// Configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
 func (o WorkspaceOutput) Configuration() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Configuration }).(pulumi.StringOutput)
 }
 
-// The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
+// Data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
 func (o WorkspaceOutput) DataSources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringArrayOutput { return v.DataSources }).(pulumi.StringArrayOutput)
 }
 
-// The workspace description.
+// Workspace description.
 func (o WorkspaceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The endpoint of the Grafana workspace.
+// Endpoint of the Grafana workspace.
 func (o WorkspaceOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// Specifies the version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4`, `12.4` and `13.2`. If not specified, defaults to the latest version.
+// Version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4`, `12.4` and `13.2`. If not specified, defaults to the latest version.
 func (o WorkspaceOutput) GrafanaVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.GrafanaVersion }).(pulumi.StringOutput)
 }
 
-// The ARN of the AWS KMS key for encrypting workspace data.
+// ARN of the AWS KMS key for encrypting workspace data.
 func (o WorkspaceOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
-// The Grafana workspace name.
+// Grafana workspace name.
 func (o WorkspaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Configuration for network access to your workspace.See Network Access Control below.
+// Configuration for network access to your workspace. See `networkAccessControl` Block below.
 func (o WorkspaceOutput) NetworkAccessControl() WorkspaceNetworkAccessControlPtrOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceNetworkAccessControlPtrOutput { return v.NetworkAccessControl }).(WorkspaceNetworkAccessControlPtrOutput)
 }
 
-// The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
+// Notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
 func (o WorkspaceOutput) NotificationDestinations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringArrayOutput { return v.NotificationDestinations }).(pulumi.StringArrayOutput)
 }
 
-// The role name that the workspace uses to access resources through Amazon Organizations.
+// Role name that the workspace uses to access resources through Amazon Organizations.
 func (o WorkspaceOutput) OrganizationRoleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.OrganizationRoleName }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
+// Amazon Organizations organizational units that the workspace is authorized to use data sources from.
 func (o WorkspaceOutput) OrganizationalUnits() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringArrayOutput { return v.OrganizationalUnits }).(pulumi.StringArrayOutput)
 }
 
-// The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+// Permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
 //
 // The following arguments are optional:
 func (o WorkspaceOutput) PermissionType() pulumi.StringOutput {
@@ -571,16 +574,17 @@ func (o WorkspaceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The IAM role ARN that the workspace assumes.
+// IAM role ARN that the workspace assumes.
 func (o WorkspaceOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// Status of the SAML configuration.
 func (o WorkspaceOutput) SamlConfigurationStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.SamlConfigurationStatus }).(pulumi.StringOutput)
 }
 
-// The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
+// AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
 func (o WorkspaceOutput) StackSetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.StackSetName }).(pulumi.StringPtrOutput)
 }
@@ -595,7 +599,7 @@ func (o WorkspaceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
+// Configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See `vpcConfiguration` Block below.
 func (o WorkspaceOutput) VpcConfiguration() WorkspaceVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceVpcConfigurationPtrOutput { return v.VpcConfiguration }).(WorkspaceVpcConfigurationPtrOutput)
 }

@@ -15,7 +15,7 @@ import (
 // Provides a CodeBuild Source Credentials Resource.
 //
 // > **NOTE:
-// ** [Codebuild only allows a single credential per given server type in a given region](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_codebuild.GitHubSourceCredentials.html).
+// ** [CodeBuild only allows a single credential per given server type in a given region](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_codebuild.GitHubSourceCredentials.html).
 // Therefore, when you define `codebuild.SourceCredential`,
 // `codebuild.Project` resource defined in the same module will use it.
 //
@@ -112,7 +112,7 @@ import (
 //
 // - `arn` (String) ARN of the CodeBuild source credential.
 //
-// Using `pulumi import`, import CodeBuild Source Credential using the CodeBuild Source Credential arn. For example:
+// Using `pulumi import`, import CodeBuild Source Credential using the CodeBuild Source Credential ARN. For example:
 //
 // ```sh
 // $ pulumi import aws:codebuild/sourceCredential:SourceCredential example arn:aws:codebuild:us-west-2:123456789:token:github
@@ -124,7 +124,7 @@ type SourceCredential struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
 	// repository. Valid values are `BASIC_AUTH`,
-	// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
+	// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAuth connection is not supported by the API.
 	AuthType pulumi.StringOutput `pulumi:"authType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -189,7 +189,7 @@ type sourceCredentialState struct {
 	Arn *string `pulumi:"arn"`
 	// The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
 	// repository. Valid values are `BASIC_AUTH`,
-	// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
+	// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAuth connection is not supported by the API.
 	AuthType *string `pulumi:"authType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -209,7 +209,7 @@ type SourceCredentialState struct {
 	Arn pulumi.StringPtrInput
 	// The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
 	// repository. Valid values are `BASIC_AUTH`,
-	// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
+	// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAuth connection is not supported by the API.
 	AuthType pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -231,7 +231,7 @@ func (SourceCredentialState) ElementType() reflect.Type {
 type sourceCredentialArgs struct {
 	// The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
 	// repository. Valid values are `BASIC_AUTH`,
-	// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
+	// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAuth connection is not supported by the API.
 	AuthType string `pulumi:"authType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -250,7 +250,7 @@ type sourceCredentialArgs struct {
 type SourceCredentialArgs struct {
 	// The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
 	// repository. Valid values are `BASIC_AUTH`,
-	// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
+	// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAuth connection is not supported by the API.
 	AuthType pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -359,7 +359,7 @@ func (o SourceCredentialOutput) Arn() pulumi.StringOutput {
 
 // The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
 // repository. Valid values are `BASIC_AUTH`,
-// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
+// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAuth connection is not supported by the API.
 func (o SourceCredentialOutput) AuthType() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceCredential) pulumi.StringOutput { return v.AuthType }).(pulumi.StringOutput)
 }

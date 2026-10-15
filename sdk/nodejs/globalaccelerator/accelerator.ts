@@ -76,49 +76,47 @@ export class Accelerator extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The attributes of the accelerator. Fields documented below.
+     * Configuration block with accelerator attributes. See `attributes` below.
      */
     declare public readonly attributes: pulumi.Output<outputs.globalaccelerator.AcceleratorAttributes | undefined>;
     /**
-     * The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
+     * DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
      */
     declare public /*out*/ readonly dnsName: pulumi.Output<string>;
     /**
-     * DNS name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
+     * DNS name that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
      */
     declare public /*out*/ readonly dualStackDnsName: pulumi.Output<string>;
     /**
-     * Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
+     * Whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
      */
     declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
-     * -  The Global Accelerator Route 53 zone ID that can be used to
-     *    route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-     *    is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+     * Global Accelerator Route 53 zone ID used to route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the accelerator. This is an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
      */
     declare public /*out*/ readonly hostedZoneId: pulumi.Output<string>;
     /**
-     * The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
+     * Value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
      */
     declare public readonly ipAddressType: pulumi.Output<string | undefined>;
     /**
-     * The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+     * IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
      */
     declare public readonly ipAddresses: pulumi.Output<string[] | undefined>;
     /**
-     * IP address set associated with the accelerator.
+     * IP address set associated with the accelerator. See `ipSets` below.
      */
     declare public /*out*/ readonly ipSets: pulumi.Output<outputs.globalaccelerator.AcceleratorIpSet[]>;
     /**
-     * The name of the accelerator.
+     * Name of the accelerator.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -176,49 +174,47 @@ export interface AcceleratorState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The attributes of the accelerator. Fields documented below.
+     * Configuration block with accelerator attributes. See `attributes` below.
      */
     attributes?: pulumi.Input<inputs.globalaccelerator.AcceleratorAttributes | undefined>;
     /**
-     * The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
+     * DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
      */
     dnsName?: pulumi.Input<string | undefined>;
     /**
-     * DNS name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
+     * DNS name that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
      */
     dualStackDnsName?: pulumi.Input<string | undefined>;
     /**
-     * Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
+     * Whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
      */
     enabled?: pulumi.Input<boolean | undefined>;
     /**
-     * -  The Global Accelerator Route 53 zone ID that can be used to
-     *    route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-     *    is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+     * Global Accelerator Route 53 zone ID used to route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the accelerator. This is an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
      */
     hostedZoneId?: pulumi.Input<string | undefined>;
     /**
-     * The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
+     * Value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
      */
     ipAddressType?: pulumi.Input<string | undefined>;
     /**
-     * The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+     * IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
      */
     ipAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * IP address set associated with the accelerator.
+     * IP address set associated with the accelerator. See `ipSets` below.
      */
     ipSets?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.AcceleratorIpSet>[] | undefined>;
     /**
-     * The name of the accelerator.
+     * Name of the accelerator.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -228,27 +224,27 @@ export interface AcceleratorState {
  */
 export interface AcceleratorArgs {
     /**
-     * The attributes of the accelerator. Fields documented below.
+     * Configuration block with accelerator attributes. See `attributes` below.
      */
     attributes?: pulumi.Input<inputs.globalaccelerator.AcceleratorAttributes | undefined>;
     /**
-     * Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
+     * Whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
      */
     enabled?: pulumi.Input<boolean | undefined>;
     /**
-     * The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
+     * Value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
      */
     ipAddressType?: pulumi.Input<string | undefined>;
     /**
-     * The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+     * IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
      */
     ipAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The name of the accelerator.
+     * Name of the accelerator.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

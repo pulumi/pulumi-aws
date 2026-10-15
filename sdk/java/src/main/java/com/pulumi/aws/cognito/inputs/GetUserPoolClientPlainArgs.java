@@ -16,14 +16,14 @@ public final class GetUserPoolClientPlainArgs extends com.pulumi.resources.Invok
     public static final GetUserPoolClientPlainArgs Empty = new GetUserPoolClientPlainArgs();
 
     /**
-     * Client Id of the user pool.
+     * Client ID of the user pool.
      * 
      */
     @Import(name="clientId", required=true)
     private String clientId;
 
     /**
-     * @return Client Id of the user pool.
+     * @return Client ID of the user pool.
      * 
      */
     public String clientId() {
@@ -87,7 +87,7 @@ public final class GetUserPoolClientPlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param clientId Client Id of the user pool.
+         * @param clientId Client ID of the user pool.
          * 
          * @return builder
          * 

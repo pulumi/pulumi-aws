@@ -120,14 +120,14 @@ public class Environment extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The autoscaling groups used by this Environment.
+     * The Auto Scaling groups used by this Environment.
      * 
      */
     @Export(name="autoscalingGroups", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> autoscalingGroups;
 
     /**
-     * @return The autoscaling groups used by this Environment.
+     * @return The Auto Scaling groups used by this Environment.
      * 
      */
     public Output<List<String>> autoscalingGroups() {
@@ -408,14 +408,14 @@ public class Environment extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tier);
     }
     /**
-     * Autoscaling triggers in use by this Environment.
+     * Auto Scaling triggers in use by this Environment.
      * 
      */
     @Export(name="triggers", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> triggers;
 
     /**
-     * @return Autoscaling triggers in use by this Environment.
+     * @return Auto Scaling triggers in use by this Environment.
      * 
      */
     public Output<List<String>> triggers() {

@@ -47,6 +47,61 @@ import (
 //
 // ```
 //
+// ### All Regions
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/observabilityadmin"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := observabilityadmin.NewTelemetryEvaluation(ctx, "example", &observabilityadmin.TelemetryEvaluationArgs{
+//				AllRegions: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Specific Regions
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/observabilityadmin"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := observabilityadmin.NewTelemetryEvaluation(ctx, "example", &observabilityadmin.TelemetryEvaluationArgs{
+//				Regions: pulumi.StringArray{
+//					pulumi.String("us-east-1"),
+//					pulumi.String("eu-west-1"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ### Identity Schema
@@ -64,10 +119,14 @@ import (
 type TelemetryEvaluation struct {
 	pulumi.CustomResourceState
 
+	// Whether to start telemetry evaluation in all AWS Regions where CloudWatch Observability Admin is available. The current region becomes the home region. Mutually exclusive with `regions`.
+	AllRegions pulumi.BoolPtrOutput `pulumi:"allRegions"`
 	// Reason for the failure status. Only populated if `status` is `FAILED_START` or `FAILED_STOP`.
 	FailureReason pulumi.StringOutput `pulumi:"failureReason"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
+	// List of AWS Regions to include in multi-region telemetry evaluation. The current region is always implicitly included. Mutually exclusive with `allRegions`.
+	Regions pulumi.StringArrayOutput `pulumi:"regions"`
 	// Onboarding status of the telemetry config feature. Valid values: `NOT_STARTED`, `STARTING`, `FAILED_START`, `RUNNING`, `STOPPING`, `FAILED_STOP`, `STOPPED`.
 	Status   pulumi.StringOutput                  `pulumi:"status"`
 	Timeouts TelemetryEvaluationTimeoutsPtrOutput `pulumi:"timeouts"`
@@ -103,20 +162,28 @@ func GetTelemetryEvaluation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TelemetryEvaluation resources.
 type telemetryEvaluationState struct {
+	// Whether to start telemetry evaluation in all AWS Regions where CloudWatch Observability Admin is available. The current region becomes the home region. Mutually exclusive with `regions`.
+	AllRegions *bool `pulumi:"allRegions"`
 	// Reason for the failure status. Only populated if `status` is `FAILED_START` or `FAILED_STOP`.
 	FailureReason *string `pulumi:"failureReason"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
+	// List of AWS Regions to include in multi-region telemetry evaluation. The current region is always implicitly included. Mutually exclusive with `allRegions`.
+	Regions []string `pulumi:"regions"`
 	// Onboarding status of the telemetry config feature. Valid values: `NOT_STARTED`, `STARTING`, `FAILED_START`, `RUNNING`, `STOPPING`, `FAILED_STOP`, `STOPPED`.
 	Status   *string                      `pulumi:"status"`
 	Timeouts *TelemetryEvaluationTimeouts `pulumi:"timeouts"`
 }
 
 type TelemetryEvaluationState struct {
+	// Whether to start telemetry evaluation in all AWS Regions where CloudWatch Observability Admin is available. The current region becomes the home region. Mutually exclusive with `regions`.
+	AllRegions pulumi.BoolPtrInput
 	// Reason for the failure status. Only populated if `status` is `FAILED_START` or `FAILED_STOP`.
 	FailureReason pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
+	// List of AWS Regions to include in multi-region telemetry evaluation. The current region is always implicitly included. Mutually exclusive with `allRegions`.
+	Regions pulumi.StringArrayInput
 	// Onboarding status of the telemetry config feature. Valid values: `NOT_STARTED`, `STARTING`, `FAILED_START`, `RUNNING`, `STOPPING`, `FAILED_STOP`, `STOPPED`.
 	Status   pulumi.StringPtrInput
 	Timeouts TelemetryEvaluationTimeoutsPtrInput
@@ -127,15 +194,23 @@ func (TelemetryEvaluationState) ElementType() reflect.Type {
 }
 
 type telemetryEvaluationArgs struct {
+	// Whether to start telemetry evaluation in all AWS Regions where CloudWatch Observability Admin is available. The current region becomes the home region. Mutually exclusive with `regions`.
+	AllRegions *bool `pulumi:"allRegions"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   *string                      `pulumi:"region"`
+	Region *string `pulumi:"region"`
+	// List of AWS Regions to include in multi-region telemetry evaluation. The current region is always implicitly included. Mutually exclusive with `allRegions`.
+	Regions  []string                     `pulumi:"regions"`
 	Timeouts *TelemetryEvaluationTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a TelemetryEvaluation resource.
 type TelemetryEvaluationArgs struct {
+	// Whether to start telemetry evaluation in all AWS Regions where CloudWatch Observability Admin is available. The current region becomes the home region. Mutually exclusive with `regions`.
+	AllRegions pulumi.BoolPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   pulumi.StringPtrInput
+	Region pulumi.StringPtrInput
+	// List of AWS Regions to include in multi-region telemetry evaluation. The current region is always implicitly included. Mutually exclusive with `allRegions`.
+	Regions  pulumi.StringArrayInput
 	Timeouts TelemetryEvaluationTimeoutsPtrInput
 }
 
@@ -226,6 +301,11 @@ func (o TelemetryEvaluationOutput) ToTelemetryEvaluationOutputWithContext(ctx co
 	return o
 }
 
+// Whether to start telemetry evaluation in all AWS Regions where CloudWatch Observability Admin is available. The current region becomes the home region. Mutually exclusive with `regions`.
+func (o TelemetryEvaluationOutput) AllRegions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TelemetryEvaluation) pulumi.BoolPtrOutput { return v.AllRegions }).(pulumi.BoolPtrOutput)
+}
+
 // Reason for the failure status. Only populated if `status` is `FAILED_START` or `FAILED_STOP`.
 func (o TelemetryEvaluationOutput) FailureReason() pulumi.StringOutput {
 	return o.ApplyT(func(v *TelemetryEvaluation) pulumi.StringOutput { return v.FailureReason }).(pulumi.StringOutput)
@@ -234,6 +314,11 @@ func (o TelemetryEvaluationOutput) FailureReason() pulumi.StringOutput {
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TelemetryEvaluationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TelemetryEvaluation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
+// List of AWS Regions to include in multi-region telemetry evaluation. The current region is always implicitly included. Mutually exclusive with `allRegions`.
+func (o TelemetryEvaluationOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TelemetryEvaluation) pulumi.StringArrayOutput { return v.Regions }).(pulumi.StringArrayOutput)
 }
 
 // Onboarding status of the telemetry config feature. Valid values: `NOT_STARTED`, `STARTING`, `FAILED_START`, `RUNNING`, `STOPPING`, `FAILED_STOP`, `STOPPED`.

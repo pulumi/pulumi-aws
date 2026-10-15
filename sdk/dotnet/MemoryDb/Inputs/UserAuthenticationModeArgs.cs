@@ -12,9 +12,6 @@ namespace Pulumi.Aws.MemoryDb.Inputs
 
     public sealed class UserAuthenticationModeArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Number of passwords belonging to the user if `Type` is set to `Password`.
-        /// </summary>
         [Input("passwordCount")]
         public Input<int>? PasswordCount { get; set; }
 
@@ -35,7 +32,7 @@ namespace Pulumi.Aws.MemoryDb.Inputs
         }
 
         /// <summary>
-        /// Specifies the authentication type. Valid values are: `Password` or `Iam`.
+        /// Type of authentication. Valid values are `Password` or `Iam`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

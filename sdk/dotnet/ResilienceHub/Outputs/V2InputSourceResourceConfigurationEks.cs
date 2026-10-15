@@ -18,6 +18,10 @@ namespace Pulumi.Aws.ResilienceHub.Outputs
         /// </summary>
         public readonly string ClusterArn;
         /// <summary>
+        /// Kubernetes label selector that narrows discovery to the objects whose labels match. When omitted, all supported objects in the selected namespaces are discovered. See `LabelSelector` Block below.
+        /// </summary>
+        public readonly Outputs.V2InputSourceResourceConfigurationEksLabelSelector? LabelSelector;
+        /// <summary>
         /// List of Kubernetes namespaces within the EKS cluster.
         /// </summary>
         public readonly ImmutableArray<string> Namespaces;
@@ -26,9 +30,12 @@ namespace Pulumi.Aws.ResilienceHub.Outputs
         private V2InputSourceResourceConfigurationEks(
             string clusterArn,
 
+            Outputs.V2InputSourceResourceConfigurationEksLabelSelector? labelSelector,
+
             ImmutableArray<string> namespaces)
         {
             ClusterArn = clusterArn;
+            LabelSelector = labelSelector;
             Namespaces = namespaces;
         }
     }

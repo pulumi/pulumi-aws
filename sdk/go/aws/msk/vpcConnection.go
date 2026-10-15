@@ -67,21 +67,21 @@ type VpcConnection struct {
 
 	// ARN of the VPC connection.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
+	// Authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
 	Authentication pulumi.StringOutput `pulumi:"authentication"`
-	// The list of subnets in the client VPC to connect to.
+	// List of subnets in the client VPC to connect to.
 	ClientSubnets pulumi.StringArrayOutput `pulumi:"clientSubnets"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The security groups to attach to the ENIs for the broker nodes.
+	// Security groups to attach to the ENIs for the broker nodes.
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// ARN of the cluster.
 	TargetClusterArn pulumi.StringOutput `pulumi:"targetClusterArn"`
-	// The VPC ID of the remote client.
+	// VPC ID of the remote client.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
@@ -132,42 +132,42 @@ func GetVpcConnection(ctx *pulumi.Context,
 type vpcConnectionState struct {
 	// ARN of the VPC connection.
 	Arn *string `pulumi:"arn"`
-	// The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
+	// Authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
 	Authentication *string `pulumi:"authentication"`
-	// The list of subnets in the client VPC to connect to.
+	// List of subnets in the client VPC to connect to.
 	ClientSubnets []string `pulumi:"clientSubnets"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The security groups to attach to the ENIs for the broker nodes.
+	// Security groups to attach to the ENIs for the broker nodes.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// ARN of the cluster.
 	TargetClusterArn *string `pulumi:"targetClusterArn"`
-	// The VPC ID of the remote client.
+	// VPC ID of the remote client.
 	VpcId *string `pulumi:"vpcId"`
 }
 
 type VpcConnectionState struct {
 	// ARN of the VPC connection.
 	Arn pulumi.StringPtrInput
-	// The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
+	// Authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
 	Authentication pulumi.StringPtrInput
-	// The list of subnets in the client VPC to connect to.
+	// List of subnets in the client VPC to connect to.
 	ClientSubnets pulumi.StringArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The security groups to attach to the ENIs for the broker nodes.
+	// Security groups to attach to the ENIs for the broker nodes.
 	SecurityGroups pulumi.StringArrayInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// ARN of the cluster.
 	TargetClusterArn pulumi.StringPtrInput
-	// The VPC ID of the remote client.
+	// VPC ID of the remote client.
 	VpcId pulumi.StringPtrInput
 }
 
@@ -176,37 +176,37 @@ func (VpcConnectionState) ElementType() reflect.Type {
 }
 
 type vpcConnectionArgs struct {
-	// The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
+	// Authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
 	Authentication string `pulumi:"authentication"`
-	// The list of subnets in the client VPC to connect to.
+	// List of subnets in the client VPC to connect to.
 	ClientSubnets []string `pulumi:"clientSubnets"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The security groups to attach to the ENIs for the broker nodes.
+	// Security groups to attach to the ENIs for the broker nodes.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// ARN of the cluster.
 	TargetClusterArn string `pulumi:"targetClusterArn"`
-	// The VPC ID of the remote client.
+	// VPC ID of the remote client.
 	VpcId string `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a VpcConnection resource.
 type VpcConnectionArgs struct {
-	// The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
+	// Authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
 	Authentication pulumi.StringInput
-	// The list of subnets in the client VPC to connect to.
+	// List of subnets in the client VPC to connect to.
 	ClientSubnets pulumi.StringArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The security groups to attach to the ENIs for the broker nodes.
+	// Security groups to attach to the ENIs for the broker nodes.
 	SecurityGroups pulumi.StringArrayInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// ARN of the cluster.
 	TargetClusterArn pulumi.StringInput
-	// The VPC ID of the remote client.
+	// VPC ID of the remote client.
 	VpcId pulumi.StringInput
 }
 
@@ -302,12 +302,12 @@ func (o VpcConnectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
+// Authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
 func (o VpcConnectionOutput) Authentication() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringOutput { return v.Authentication }).(pulumi.StringOutput)
 }
 
-// The list of subnets in the client VPC to connect to.
+// List of subnets in the client VPC to connect to.
 func (o VpcConnectionOutput) ClientSubnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringArrayOutput { return v.ClientSubnets }).(pulumi.StringArrayOutput)
 }
@@ -317,17 +317,17 @@ func (o VpcConnectionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The security groups to attach to the ENIs for the broker nodes.
+// Security groups to attach to the ENIs for the broker nodes.
 func (o VpcConnectionOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringArrayOutput { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VpcConnectionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VpcConnectionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
@@ -337,7 +337,7 @@ func (o VpcConnectionOutput) TargetClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringOutput { return v.TargetClusterArn }).(pulumi.StringOutput)
 }
 
-// The VPC ID of the remote client.
+// VPC ID of the remote client.
 func (o VpcConnectionOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

@@ -143,14 +143,14 @@ public class UsagePlanKey extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Id of the usage plan resource representing to associate the key to.
+     * ID of the usage plan resource representing to associate the key to.
      * 
      */
     @Export(name="usagePlanId", refs={String.class}, tree="[0]")
     private Output<String> usagePlanId;
 
     /**
-     * @return Id of the usage plan resource representing to associate the key to.
+     * @return ID of the usage plan resource representing to associate the key to.
      * 
      */
     public Output<String> usagePlanId() {

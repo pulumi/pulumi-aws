@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Agents for Amazon Bedrock Knowledge Base.
+// Manages an AWS Agents for Amazon Bedrock Knowledge Base.
 //
 // ## Example Usage
 //

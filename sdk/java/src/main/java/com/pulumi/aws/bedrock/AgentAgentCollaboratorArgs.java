@@ -19,22 +19,30 @@ public final class AgentAgentCollaboratorArgs extends com.pulumi.resources.Resou
 
     public static final AgentAgentCollaboratorArgs Empty = new AgentAgentCollaboratorArgs();
 
+    /**
+     * Agent descriptor for the agent collaborator. See `agentDescriptor` Block for details.
+     * 
+     */
     @Import(name="agentDescriptor", required=true)
     private Output<AgentAgentCollaboratorAgentDescriptorArgs> agentDescriptor;
 
+    /**
+     * @return Agent descriptor for the agent collaborator. See `agentDescriptor` Block for details.
+     * 
+     */
     public Output<AgentAgentCollaboratorAgentDescriptorArgs> agentDescriptor() {
         return this.agentDescriptor;
     }
 
     /**
-     * ID if the agent to associate the collaborator.
+     * ID of the agent to associate the collaborator with.
      * 
      */
     @Import(name="agentId", required=true)
     private Output<String> agentId;
 
     /**
-     * @return ID if the agent to associate the collaborator.
+     * @return ID of the agent to associate the collaborator with.
      * 
      */
     public Output<String> agentId() {
@@ -42,14 +50,14 @@ public final class AgentAgentCollaboratorArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Version of the agent to associate the collaborator. Defaults to `DRAFT`.
+     * Version of the agent to associate the collaborator with. Defaults to `DRAFT`.
      * 
      */
     @Import(name="agentVersion")
     private @Nullable Output<String> agentVersion;
 
     /**
-     * @return Version of the agent to associate the collaborator. Defaults to `DRAFT`.
+     * @return Version of the agent to associate the collaborator with. Defaults to `DRAFT`.
      * 
      */
     public Optional<Output<String>> agentVersion() {
@@ -174,17 +182,29 @@ public final class AgentAgentCollaboratorArgs extends com.pulumi.resources.Resou
             $ = new AgentAgentCollaboratorArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param agentDescriptor Agent descriptor for the agent collaborator. See `agentDescriptor` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder agentDescriptor(Output<AgentAgentCollaboratorAgentDescriptorArgs> agentDescriptor) {
             $.agentDescriptor = agentDescriptor;
             return this;
         }
 
+        /**
+         * @param agentDescriptor Agent descriptor for the agent collaborator. See `agentDescriptor` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder agentDescriptor(AgentAgentCollaboratorAgentDescriptorArgs agentDescriptor) {
             return agentDescriptor(Output.of(agentDescriptor));
         }
 
         /**
-         * @param agentId ID if the agent to associate the collaborator.
+         * @param agentId ID of the agent to associate the collaborator with.
          * 
          * @return builder
          * 
@@ -195,7 +215,7 @@ public final class AgentAgentCollaboratorArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param agentId ID if the agent to associate the collaborator.
+         * @param agentId ID of the agent to associate the collaborator with.
          * 
          * @return builder
          * 
@@ -205,7 +225,7 @@ public final class AgentAgentCollaboratorArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param agentVersion Version of the agent to associate the collaborator. Defaults to `DRAFT`.
+         * @param agentVersion Version of the agent to associate the collaborator with. Defaults to `DRAFT`.
          * 
          * @return builder
          * 
@@ -216,7 +236,7 @@ public final class AgentAgentCollaboratorArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param agentVersion Version of the agent to associate the collaborator. Defaults to `DRAFT`.
+         * @param agentVersion Version of the agent to associate the collaborator with. Defaults to `DRAFT`.
          * 
          * @return builder
          * 

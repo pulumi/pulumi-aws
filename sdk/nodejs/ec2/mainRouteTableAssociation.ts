@@ -51,7 +51,7 @@ export class MainRouteTableAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * Used internally, see **Notes** below
+     * Original route table ID, used internally; see __Notes__ below
      */
     declare public /*out*/ readonly originalRouteTableId: pulumi.Output<string>;
     /**
@@ -59,12 +59,11 @@ export class MainRouteTableAssociation extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The ID of the Route Table to set as the new
-     * main route table for the target VPC
+     * ID of the Route Table to set as the new main route table for the target VPC
      */
     declare public readonly routeTableId: pulumi.Output<string>;
     /**
-     * The ID of the VPC whose main route table should be set
+     * ID of the VPC whose main route table should be set
      */
     declare public readonly vpcId: pulumi.Output<string>;
 
@@ -108,7 +107,7 @@ export class MainRouteTableAssociation extends pulumi.CustomResource {
  */
 export interface MainRouteTableAssociationState {
     /**
-     * Used internally, see **Notes** below
+     * Original route table ID, used internally; see __Notes__ below
      */
     originalRouteTableId?: pulumi.Input<string | undefined>;
     /**
@@ -116,12 +115,11 @@ export interface MainRouteTableAssociationState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the Route Table to set as the new
-     * main route table for the target VPC
+     * ID of the Route Table to set as the new main route table for the target VPC
      */
     routeTableId?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the VPC whose main route table should be set
+     * ID of the VPC whose main route table should be set
      */
     vpcId?: pulumi.Input<string | undefined>;
 }
@@ -135,12 +133,11 @@ export interface MainRouteTableAssociationArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the Route Table to set as the new
-     * main route table for the target VPC
+     * ID of the Route Table to set as the new main route table for the target VPC
      */
     routeTableId: pulumi.Input<string>;
     /**
-     * The ID of the VPC whose main route table should be set
+     * ID of the VPC whose main route table should be set
      */
     vpcId: pulumi.Input<string>;
 }

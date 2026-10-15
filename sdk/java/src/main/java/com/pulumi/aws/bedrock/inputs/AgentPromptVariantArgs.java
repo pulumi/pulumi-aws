@@ -22,14 +22,14 @@ public final class AgentPromptVariantArgs extends com.pulumi.resources.ResourceA
     public static final AgentPromptVariantArgs Empty = new AgentPromptVariantArgs();
 
     /**
-     * Model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
+     * Model-specific inference configurations that aren’t in the `inferenceConfiguration` block. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
      * 
      */
     @Import(name="additionalModelRequestFields")
     private @Nullable Output<String> additionalModelRequestFields;
 
     /**
-     * @return Model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
+     * @return Model-specific inference configurations that aren’t in the `inferenceConfiguration` block. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
      * 
      */
     public Optional<Output<String>> additionalModelRequestFields() {
@@ -173,7 +173,7 @@ public final class AgentPromptVariantArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param additionalModelRequestFields Model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
+         * @param additionalModelRequestFields Model-specific inference configurations that aren’t in the `inferenceConfiguration` block. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class AgentPromptVariantArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param additionalModelRequestFields Model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
+         * @param additionalModelRequestFields Model-specific inference configurations that aren’t in the `inferenceConfiguration` block. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
          * 
          * @return builder
          * 

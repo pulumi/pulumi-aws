@@ -10,11 +10,11 @@ import * as utilities from "../utilities";
 import {InstanceProfile} from "../iam";
 
 /**
- * Provides a resource to create a new launch configuration, used for autoscaling groups.
+ * Provides a resource to create a new launch configuration, used for Auto Scaling groups.
  *
  * > **WARNING:** The use of launch configurations is discouraged in favor of launch templates. Read more in the [AWS EC2 Documentation](https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-configurations.html).
  *
- * > **Note** When using `aws.ec2.LaunchConfiguration` with `aws.autoscaling.Group`, it is recommended to use the `namePrefix` (Optional) instead of the `name` (Optional) attribute.
+ * > **Note** When using `aws.ec2.LaunchConfiguration` with `aws.autoscaling.Group`, it is recommended to use the `namePrefix` (Optional) instead of the `name` (Optional) attribute. This will allow Terraform lifecycles to detect changes to the launch configuration and update the Auto Scaling group correctly.
  *
  * ## Example Usage
  *
@@ -87,7 +87,7 @@ export class LaunchConfiguration extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Associate a public ip address with an instance in a VPC.
+     * Associate a public IP address with an instance in a VPC.
      */
     declare public readonly associatePublicIpAddress: pulumi.Output<boolean | undefined>;
     /**
@@ -149,7 +149,7 @@ export class LaunchConfiguration extends pulumi.CustomResource {
      */
     declare public readonly rootBlockDevice: pulumi.Output<outputs.ec2.LaunchConfigurationRootBlockDevice>;
     /**
-     * A list of associated security group IDS.
+     * A list of associated security group IDs.
      */
     declare public readonly securityGroups: pulumi.Output<string[] | undefined>;
     /**
@@ -241,7 +241,7 @@ export interface LaunchConfigurationState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * Associate a public ip address with an instance in a VPC.
+     * Associate a public IP address with an instance in a VPC.
      */
     associatePublicIpAddress?: pulumi.Input<boolean | undefined>;
     /**
@@ -303,7 +303,7 @@ export interface LaunchConfigurationState {
      */
     rootBlockDevice?: pulumi.Input<inputs.ec2.LaunchConfigurationRootBlockDevice | undefined>;
     /**
-     * A list of associated security group IDS.
+     * A list of associated security group IDs.
      */
     securityGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -325,7 +325,7 @@ export interface LaunchConfigurationState {
  */
 export interface LaunchConfigurationArgs {
     /**
-     * Associate a public ip address with an instance in a VPC.
+     * Associate a public IP address with an instance in a VPC.
      */
     associatePublicIpAddress?: pulumi.Input<boolean | undefined>;
     /**
@@ -387,7 +387,7 @@ export interface LaunchConfigurationArgs {
      */
     rootBlockDevice?: pulumi.Input<inputs.ec2.LaunchConfigurationRootBlockDevice | undefined>;
     /**
-     * A list of associated security group IDS.
+     * A list of associated security group IDs.
      */
     securityGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**

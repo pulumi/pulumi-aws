@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Waf
     public static class GetRule
     {
         /// <summary>
-        /// `aws.waf.Rule` Retrieves a WAF Rule Resource Id.
+        /// `aws.waf.Rule` Retrieves a WAF Rule Resource ID.
         /// 
         /// ## Example Usage
         /// 
@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Waf
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRuleResult>("aws:waf/getRule:getRule", args ?? new GetRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// `aws.waf.Rule` Retrieves a WAF Rule Resource Id.
+        /// `aws.waf.Rule` Retrieves a WAF Rule Resource ID.
         /// 
         /// ## Example Usage
         /// 
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Waf
             => global::Pulumi.Deployment.Instance.Invoke<GetRuleResult>("aws:waf/getRule:getRule", args ?? new GetRuleInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// `aws.waf.Rule` Retrieves a WAF Rule Resource Id.
+        /// `aws.waf.Rule` Retrieves a WAF Rule Resource ID.
         /// 
         /// ## Example Usage
         /// 

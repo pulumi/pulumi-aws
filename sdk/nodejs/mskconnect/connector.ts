@@ -113,15 +113,15 @@ export class Connector extends pulumi.CustomResource {
      */
     declare public readonly capacity: pulumi.Output<outputs.mskconnect.ConnectorCapacity>;
     /**
-     * A map of keys to values that represent the configuration for the connector.
+     * Map of keys to values that represent the configuration for the connector.
      */
     declare public readonly connectorConfiguration: pulumi.Output<{[key: string]: string}>;
     /**
-     * A summary description of the connector.
+     * Summary description of the connector.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * Specifies which Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
+     * Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
      */
     declare public readonly kafkaCluster: pulumi.Output<outputs.mskconnect.ConnectorKafkaCluster>;
     /**
@@ -133,7 +133,7 @@ export class Connector extends pulumi.CustomResource {
      */
     declare public readonly kafkaClusterEncryptionInTransit: pulumi.Output<outputs.mskconnect.ConnectorKafkaClusterEncryptionInTransit>;
     /**
-     * The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.
+     * Version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.
      */
     declare public readonly kafkaconnectVersion: pulumi.Output<string>;
     /**
@@ -141,11 +141,11 @@ export class Connector extends pulumi.CustomResource {
      */
     declare public readonly logDelivery: pulumi.Output<outputs.mskconnect.ConnectorLogDelivery | undefined>;
     /**
-     * The name of the connector.
+     * Name of the connector.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Specifies which plugins to use for the connector. See `plugin` Block for details.
+     * Plugins to use for the connector. See `plugin` Block for details.
      */
     declare public readonly plugins: pulumi.Output<outputs.mskconnect.ConnectorPlugin[]>;
     /**
@@ -159,19 +159,19 @@ export class Connector extends pulumi.CustomResource {
      */
     declare public readonly serviceExecutionRoleArn: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The current version of the connector.
+     * Current version of the connector.
      */
     declare public /*out*/ readonly version: pulumi.Output<string>;
     /**
-     * Specifies which worker configuration to use with the connector. See `workerConfiguration` Block for details.
+     * Worker configuration to use with the connector. See `workerConfiguration` Block for details.
      */
     declare public readonly workerConfiguration: pulumi.Output<outputs.mskconnect.ConnectorWorkerConfiguration | undefined>;
 
@@ -267,15 +267,15 @@ export interface ConnectorState {
      */
     capacity?: pulumi.Input<inputs.mskconnect.ConnectorCapacity | undefined>;
     /**
-     * A map of keys to values that represent the configuration for the connector.
+     * Map of keys to values that represent the configuration for the connector.
      */
     connectorConfiguration?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A summary description of the connector.
+     * Summary description of the connector.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * Specifies which Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
+     * Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
      */
     kafkaCluster?: pulumi.Input<inputs.mskconnect.ConnectorKafkaCluster | undefined>;
     /**
@@ -287,7 +287,7 @@ export interface ConnectorState {
      */
     kafkaClusterEncryptionInTransit?: pulumi.Input<inputs.mskconnect.ConnectorKafkaClusterEncryptionInTransit | undefined>;
     /**
-     * The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.
+     * Version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.
      */
     kafkaconnectVersion?: pulumi.Input<string | undefined>;
     /**
@@ -295,11 +295,11 @@ export interface ConnectorState {
      */
     logDelivery?: pulumi.Input<inputs.mskconnect.ConnectorLogDelivery | undefined>;
     /**
-     * The name of the connector.
+     * Name of the connector.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Specifies which plugins to use for the connector. See `plugin` Block for details.
+     * Plugins to use for the connector. See `plugin` Block for details.
      */
     plugins?: pulumi.Input<pulumi.Input<inputs.mskconnect.ConnectorPlugin>[] | undefined>;
     /**
@@ -313,19 +313,19 @@ export interface ConnectorState {
      */
     serviceExecutionRoleArn?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The current version of the connector.
+     * Current version of the connector.
      */
     version?: pulumi.Input<string | undefined>;
     /**
-     * Specifies which worker configuration to use with the connector. See `workerConfiguration` Block for details.
+     * Worker configuration to use with the connector. See `workerConfiguration` Block for details.
      */
     workerConfiguration?: pulumi.Input<inputs.mskconnect.ConnectorWorkerConfiguration | undefined>;
 }
@@ -339,15 +339,15 @@ export interface ConnectorArgs {
      */
     capacity: pulumi.Input<inputs.mskconnect.ConnectorCapacity>;
     /**
-     * A map of keys to values that represent the configuration for the connector.
+     * Map of keys to values that represent the configuration for the connector.
      */
     connectorConfiguration: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A summary description of the connector.
+     * Summary description of the connector.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * Specifies which Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
+     * Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
      */
     kafkaCluster: pulumi.Input<inputs.mskconnect.ConnectorKafkaCluster>;
     /**
@@ -359,7 +359,7 @@ export interface ConnectorArgs {
      */
     kafkaClusterEncryptionInTransit: pulumi.Input<inputs.mskconnect.ConnectorKafkaClusterEncryptionInTransit>;
     /**
-     * The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.
+     * Version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.
      */
     kafkaconnectVersion: pulumi.Input<string>;
     /**
@@ -367,11 +367,11 @@ export interface ConnectorArgs {
      */
     logDelivery?: pulumi.Input<inputs.mskconnect.ConnectorLogDelivery | undefined>;
     /**
-     * The name of the connector.
+     * Name of the connector.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Specifies which plugins to use for the connector. See `plugin` Block for details.
+     * Plugins to use for the connector. See `plugin` Block for details.
      */
     plugins: pulumi.Input<pulumi.Input<inputs.mskconnect.ConnectorPlugin>[]>;
     /**
@@ -385,11 +385,11 @@ export interface ConnectorArgs {
      */
     serviceExecutionRoleArn: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Specifies which worker configuration to use with the connector. See `workerConfiguration` Block for details.
+     * Worker configuration to use with the connector. See `workerConfiguration` Block for details.
      */
     workerConfiguration?: pulumi.Input<inputs.mskconnect.ConnectorWorkerConfiguration | undefined>;
 }

@@ -18,14 +18,14 @@ public final class ChannelEncoderSettingsTimecodeConfigArgs extends com.pulumi.r
     public static final ChannelEncoderSettingsTimecodeConfigArgs Empty = new ChannelEncoderSettingsTimecodeConfigArgs();
 
     /**
-     * The source for the timecode that will be associated with the events outputs.
+     * Source for the timecode associated with the event outputs.
      * 
      */
     @Import(name="source", required=true)
     private Output<String> source;
 
     /**
-     * @return The source for the timecode that will be associated with the events outputs.
+     * @return Source for the timecode associated with the event outputs.
      * 
      */
     public Output<String> source() {
@@ -33,14 +33,14 @@ public final class ChannelEncoderSettingsTimecodeConfigArgs extends com.pulumi.r
     }
 
     /**
-     * Threshold in frames beyond which output timecode is resynchronized to the input timecode.
+     * Threshold, in frames, beyond which output timecode is resynchronized to the input timecode.
      * 
      */
     @Import(name="syncThreshold")
     private @Nullable Output<Integer> syncThreshold;
 
     /**
-     * @return Threshold in frames beyond which output timecode is resynchronized to the input timecode.
+     * @return Threshold, in frames, beyond which output timecode is resynchronized to the input timecode.
      * 
      */
     public Optional<Output<Integer>> syncThreshold() {
@@ -73,7 +73,7 @@ public final class ChannelEncoderSettingsTimecodeConfigArgs extends com.pulumi.r
         }
 
         /**
-         * @param source The source for the timecode that will be associated with the events outputs.
+         * @param source Source for the timecode associated with the event outputs.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class ChannelEncoderSettingsTimecodeConfigArgs extends com.pulumi.r
         }
 
         /**
-         * @param source The source for the timecode that will be associated with the events outputs.
+         * @param source Source for the timecode associated with the event outputs.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class ChannelEncoderSettingsTimecodeConfigArgs extends com.pulumi.r
         }
 
         /**
-         * @param syncThreshold Threshold in frames beyond which output timecode is resynchronized to the input timecode.
+         * @param syncThreshold Threshold, in frames, beyond which output timecode is resynchronized to the input timecode.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class ChannelEncoderSettingsTimecodeConfigArgs extends com.pulumi.r
         }
 
         /**
-         * @param syncThreshold Threshold in frames beyond which output timecode is resynchronized to the input timecode.
+         * @param syncThreshold Threshold, in frames, beyond which output timecode is resynchronized to the input timecode.
          * 
          * @return builder
          * 

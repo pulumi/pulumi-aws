@@ -36,7 +36,7 @@ export function getInput(args: GetInputArgs, opts?: pulumi.InvokeOptions): Promi
  */
 export interface GetInputArgs {
     /**
-     * The ID of the Input.
+     * ID of the Input.
      */
     id: string;
     /**
@@ -58,20 +58,23 @@ export interface GetInputResult {
      */
     readonly attachedChannels: string[];
     /**
-     * Destination settings for PUSH type inputs.
+     * Destination settings for PUSH type inputs. See `destinations` Block for more details.
      */
     readonly destinations: outputs.medialive.GetInputDestination[];
+    /**
+     * ID of the device.
+     */
     readonly id: string;
     /**
-     * The input class.
+     * Input class.
      */
     readonly inputClass: string;
     /**
-     * Settings for the devices.
+     * Settings for the devices. See `inputDevices` Block for more details.
      */
     readonly inputDevices: outputs.medialive.GetInputInputDevice[];
     /**
-     * A list of IDs for all Inputs which are partners of this one.
+     * IDs for all Inputs which are partners of this one.
      */
     readonly inputPartnerIds: string[];
     /**
@@ -79,7 +82,7 @@ export interface GetInputResult {
      */
     readonly inputSourceType: string;
     /**
-     * A list of the MediaConnect Flows.
+     * MediaConnect Flows. See `mediaConnectFlows` Block for more details.
      */
     readonly mediaConnectFlows: outputs.medialive.GetInputMediaConnectFlow[];
     /**
@@ -88,7 +91,7 @@ export interface GetInputResult {
     readonly name: string;
     readonly region: string;
     /**
-     * The ARN of the role this input assumes during and after creation.
+     * ARN of the role this input assumes during and after creation.
      */
     readonly roleArn: string;
     /**
@@ -96,19 +99,19 @@ export interface GetInputResult {
      */
     readonly securityGroups: string[];
     /**
-     * The source URLs for a PULL-type input.
+     * Source URLs for a PULL-type input. See `sources` Block for more details.
      */
     readonly sources: outputs.medialive.GetInputSource[];
     /**
-     * The state of the input.
+     * State of the input.
      */
     readonly state: string;
     /**
-     * A map of tags assigned to the Input.
+     * Map of tags assigned to the Input.
      */
     readonly tags: {[key: string]: string};
     /**
-     * The type of the input.
+     * Type of the input.
      */
     readonly type: string;
 }
@@ -141,7 +144,7 @@ export function getInputOutput(args: GetInputOutputArgs, opts?: pulumi.InvokeOut
  */
 export interface GetInputOutputArgs {
     /**
-     * The ID of the Input.
+     * ID of the Input.
      */
     id: pulumi.Input<string>;
     /**

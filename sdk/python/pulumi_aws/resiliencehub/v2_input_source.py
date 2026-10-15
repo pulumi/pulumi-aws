@@ -218,6 +218,31 @@ class V2InputSource(pulumi.CustomResource):
             service_arn=example_aws_resiliencehubv2_service["arn"])
         ```
 
+        ### EKS Cluster Scoped by Labels
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.resiliencehub.V2InputSource("example",
+            resource_configuration={
+                "eks": {
+                    "label_selector": {
+                        "match_expressions": [{
+                            "key": "deprecated",
+                            "operator": "DOES_NOT_EXIST",
+                        }],
+                        "match_labels": {
+                            "app": "payments",
+                        },
+                    },
+                    "cluster_arn": "arn:aws:eks:us-west-2:123456789012:cluster/my-cluster",
+                    "namespaces": ["default"],
+                },
+            },
+            service_arn=example_aws_resiliencehubv2_service["arn"])
+        ```
+
         ## Import
 
         ### Identity Schema
@@ -302,6 +327,31 @@ class V2InputSource(pulumi.CustomResource):
                         "default",
                         "production",
                     ],
+                },
+            },
+            service_arn=example_aws_resiliencehubv2_service["arn"])
+        ```
+
+        ### EKS Cluster Scoped by Labels
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.resiliencehub.V2InputSource("example",
+            resource_configuration={
+                "eks": {
+                    "label_selector": {
+                        "match_expressions": [{
+                            "key": "deprecated",
+                            "operator": "DOES_NOT_EXIST",
+                        }],
+                        "match_labels": {
+                            "app": "payments",
+                        },
+                    },
+                    "cluster_arn": "arn:aws:eks:us-west-2:123456789012:cluster/my-cluster",
+                    "namespaces": ["default"],
                 },
             },
             service_arn=example_aws_resiliencehubv2_service["arn"])

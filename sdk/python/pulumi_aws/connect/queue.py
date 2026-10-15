@@ -40,7 +40,7 @@ class QueueArgs:
         :param pulumi.Input[_builtins.int] max_contacts: Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Queue.
         :param pulumi.Input['QueueOutboundCallerConfigArgs'] outbound_caller_config: A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] quick_connect_ids: Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] quick_connect_ids: Specifies a list of quick connects IDs that determine the quick connects available to agents who are working the queue.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] status: Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the Queue. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -140,7 +140,7 @@ class QueueArgs:
     @pulumi.getter(name="quickConnectIds")
     def quick_connect_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
+        Specifies a list of quick connects IDs that determine the quick connects available to agents who are working the queue.
         """
         return pulumi.get(self, "quick_connect_ids")
 
@@ -212,7 +212,7 @@ class _QueueState:
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Queue.
         :param pulumi.Input['QueueOutboundCallerConfigArgs'] outbound_caller_config: A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
         :param pulumi.Input[_builtins.str] queue_id: The identifier for the Queue.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] quick_connect_ids: Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] quick_connect_ids: Specifies a list of quick connects IDs that determine the quick connects available to agents who are working the queue.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] status: Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the Queue. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -345,7 +345,7 @@ class _QueueState:
     @pulumi.getter(name="quickConnectIds")
     def quick_connect_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
+        Specifies a list of quick connects IDs that determine the quick connects available to agents who are working the queue.
         """
         return pulumi.get(self, "quick_connect_ids")
 
@@ -496,7 +496,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] max_contacts: Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Queue.
         :param pulumi.Input[Union['QueueOutboundCallerConfigArgs', 'QueueOutboundCallerConfigArgsDict', 'outputs.QueueOutboundCallerConfig']] outbound_caller_config: A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] quick_connect_ids: Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] quick_connect_ids: Specifies a list of quick connects IDs that determine the quick connects available to agents who are working the queue.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] status: Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the Queue. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -665,7 +665,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Queue.
         :param pulumi.Input[Union['QueueOutboundCallerConfigArgs', 'QueueOutboundCallerConfigArgsDict', 'outputs.QueueOutboundCallerConfig']] outbound_caller_config: A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
         :param pulumi.Input[_builtins.str] queue_id: The identifier for the Queue.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] quick_connect_ids: Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] quick_connect_ids: Specifies a list of quick connects IDs that determine the quick connects available to agents who are working the queue.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] status: Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the Queue. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -758,7 +758,7 @@ class Queue(pulumi.CustomResource):
     @pulumi.getter(name="quickConnectIds")
     def quick_connect_ids(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
+        Specifies a list of quick connects IDs that determine the quick connects available to agents who are working the queue.
         """
         return pulumi.get(self, "quick_connect_ids")
 

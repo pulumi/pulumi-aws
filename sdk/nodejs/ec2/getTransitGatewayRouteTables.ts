@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * The following shows outputting all Transit Gateway Route Table Ids.
+ * The following shows outputting all Transit Gateway Route Table IDs.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -79,7 +79,7 @@ export interface GetTransitGatewayRouteTablesResult {
  *
  * ## Example Usage
  *
- * The following shows outputting all Transit Gateway Route Table Ids.
+ * The following shows outputting all Transit Gateway Route Table IDs.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -74,7 +74,7 @@ class ClusterArgs:
         :param pulumi.Input[_builtins.str] db_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
         :param pulumi.Input[_builtins.str] db_subnet_group_name: A DB subnet group to associate with this DB instance.
         :param pulumi.Input[_builtins.bool] deletion_protection: A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_cloudwatch_logs_exports: List of log types to export to cloudwatch. If omitted, no logs will be exported.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_cloudwatch_logs_exports: List of log types to export to CloudWatch. If omitted, no logs will be exported.
                The following log types are supported: `audit`, `profiler`.
         :param pulumi.Input[_builtins.str] engine: The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
         :param pulumi.Input[_builtins.str] engine_version: The database engine version. Updating this argument results in an outage.
@@ -305,7 +305,7 @@ class ClusterArgs:
     @pulumi.getter(name="enabledCloudwatchLogsExports")
     def enabled_cloudwatch_logs_exports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        List of log types to export to cloudwatch. If omitted, no logs will be exported.
+        List of log types to export to CloudWatch. If omitted, no logs will be exported.
         The following log types are supported: `audit`, `profiler`.
         """
         return pulumi.get(self, "enabled_cloudwatch_logs_exports")
@@ -662,7 +662,7 @@ class _ClusterState:
         :param pulumi.Input[_builtins.str] db_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
         :param pulumi.Input[_builtins.str] db_subnet_group_name: A DB subnet group to associate with this DB instance.
         :param pulumi.Input[_builtins.bool] deletion_protection: A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_cloudwatch_logs_exports: List of log types to export to cloudwatch. If omitted, no logs will be exported.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_cloudwatch_logs_exports: List of log types to export to CloudWatch. If omitted, no logs will be exported.
                The following log types are supported: `audit`, `profiler`.
         :param pulumi.Input[_builtins.str] endpoint: The DNS address of the DocumentDB instance
         :param pulumi.Input[_builtins.str] engine: The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
@@ -935,7 +935,7 @@ class _ClusterState:
     @pulumi.getter(name="enabledCloudwatchLogsExports")
     def enabled_cloudwatch_logs_exports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        List of log types to export to cloudwatch. If omitted, no logs will be exported.
+        List of log types to export to CloudWatch. If omitted, no logs will be exported.
         The following log types are supported: `audit`, `profiler`.
         """
         return pulumi.get(self, "enabled_cloudwatch_logs_exports")
@@ -1380,7 +1380,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] db_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
         :param pulumi.Input[_builtins.str] db_subnet_group_name: A DB subnet group to associate with this DB instance.
         :param pulumi.Input[_builtins.bool] deletion_protection: A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_cloudwatch_logs_exports: List of log types to export to cloudwatch. If omitted, no logs will be exported.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_cloudwatch_logs_exports: List of log types to export to CloudWatch. If omitted, no logs will be exported.
                The following log types are supported: `audit`, `profiler`.
         :param pulumi.Input[_builtins.str] engine: The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
         :param pulumi.Input[_builtins.str] engine_version: The database engine version. Updating this argument results in an outage.
@@ -1632,7 +1632,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] db_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
         :param pulumi.Input[_builtins.str] db_subnet_group_name: A DB subnet group to associate with this DB instance.
         :param pulumi.Input[_builtins.bool] deletion_protection: A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_cloudwatch_logs_exports: List of log types to export to cloudwatch. If omitted, no logs will be exported.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_cloudwatch_logs_exports: List of log types to export to CloudWatch. If omitted, no logs will be exported.
                The following log types are supported: `audit`, `profiler`.
         :param pulumi.Input[_builtins.str] endpoint: The DNS address of the DocumentDB instance
         :param pulumi.Input[_builtins.str] engine: The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
@@ -1821,7 +1821,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="enabledCloudwatchLogsExports")
     def enabled_cloudwatch_logs_exports(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        List of log types to export to cloudwatch. If omitted, no logs will be exported.
+        List of log types to export to CloudWatch. If omitted, no logs will be exported.
         The following log types are supported: `audit`, `profiler`.
         """
         return pulumi.get(self, "enabled_cloudwatch_logs_exports")

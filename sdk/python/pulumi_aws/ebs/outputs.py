@@ -161,7 +161,7 @@ class SnapshotImportDiskContainer(dict):
         """
         :param _builtins.str format: The format of the disk image being imported. One of `VHD` or `VMDK`.
         :param _builtins.str description: The description of the disk image being imported.
-        :param _builtins.str url: The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `user_bucket` must be set.
+        :param _builtins.str url: The URL to the Amazon S3-based disk image being imported. It can either be an HTTPS URL (`https://..`) or an Amazon S3 URL (`s3://..`). One of `url` or `user_bucket` must be set.
         :param 'SnapshotImportDiskContainerUserBucketArgs' user_bucket: The Amazon S3 bucket for the disk image. One of `url` or `user_bucket` must be set. Detailed below.
         """
         pulumi.set(__self__, "format", format)
@@ -192,7 +192,7 @@ class SnapshotImportDiskContainer(dict):
     @pulumi.getter
     def url(self) -> Optional[_builtins.str]:
         """
-        The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `user_bucket` must be set.
+        The URL to the Amazon S3-based disk image being imported. It can either be an HTTPS URL (`https://..`) or an Amazon S3 URL (`s3://..`). One of `url` or `user_bucket` must be set.
         """
         return pulumi.get(self, "url")
 

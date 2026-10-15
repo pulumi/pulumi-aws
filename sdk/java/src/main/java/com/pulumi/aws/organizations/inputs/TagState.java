@@ -31,14 +31,14 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Id of the Organizations resource to tag.
+     * ID of the Organizations resource to tag.
      * 
      */
     @Import(name="resourceId")
     private @Nullable Output<String> resourceId;
 
     /**
-     * @return Id of the Organizations resource to tag.
+     * @return ID of the Organizations resource to tag.
      * 
      */
     public Optional<Output<String>> resourceId() {
@@ -108,7 +108,7 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceId Id of the Organizations resource to tag.
+         * @param resourceId ID of the Organizations resource to tag.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceId Id of the Organizations resource to tag.
+         * @param resourceId ID of the Organizations resource to tag.
          * 
          * @return builder
          * 

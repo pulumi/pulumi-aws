@@ -18,14 +18,14 @@ public final class DataCatalogEncryptionSettingsArgs extends com.pulumi.resource
     public static final DataCatalogEncryptionSettingsArgs Empty = new DataCatalogEncryptionSettingsArgs();
 
     /**
-     * The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
+     * ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
      * 
      */
     @Import(name="catalogId")
     private @Nullable Output<String> catalogId;
 
     /**
-     * @return The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
+     * @return ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
      * 
      */
     public Optional<Output<String>> catalogId() {
@@ -33,14 +33,14 @@ public final class DataCatalogEncryptionSettingsArgs extends com.pulumi.resource
     }
 
     /**
-     * The security configuration to set. see Data Catalog Encryption Settings.
+     * Security configuration to set. see `dataCatalogEncryptionSettings` Block.
      * 
      */
     @Import(name="dataCatalogEncryptionSettings", required=true)
     private Output<DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs> dataCatalogEncryptionSettings;
 
     /**
-     * @return The security configuration to set. see Data Catalog Encryption Settings.
+     * @return Security configuration to set. see `dataCatalogEncryptionSettings` Block.
      * 
      */
     public Output<DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs> dataCatalogEncryptionSettings() {
@@ -89,7 +89,7 @@ public final class DataCatalogEncryptionSettingsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param catalogId The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
+         * @param catalogId ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class DataCatalogEncryptionSettingsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param catalogId The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
+         * @param catalogId ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class DataCatalogEncryptionSettingsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param dataCatalogEncryptionSettings The security configuration to set. see Data Catalog Encryption Settings.
+         * @param dataCatalogEncryptionSettings Security configuration to set. see `dataCatalogEncryptionSettings` Block.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class DataCatalogEncryptionSettingsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param dataCatalogEncryptionSettings The security configuration to set. see Data Catalog Encryption Settings.
+         * @param dataCatalogEncryptionSettings Security configuration to set. see `dataCatalogEncryptionSettings` Block.
          * 
          * @return builder
          * 

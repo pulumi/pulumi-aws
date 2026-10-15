@@ -151,7 +151,7 @@ export class EnvironmentProfile extends pulumi.CustomResource {
     }
 
     /**
-     * Id of the AWS account being used.
+     * ID of the AWS account being used.
      */
     declare public readonly awsAccountId: pulumi.Output<string>;
     /**
@@ -261,7 +261,7 @@ export class EnvironmentProfile extends pulumi.CustomResource {
  */
 export interface EnvironmentProfileState {
     /**
-     * Id of the AWS account being used.
+     * ID of the AWS account being used.
      */
     awsAccountId?: pulumi.Input<string | undefined>;
     /**
@@ -315,7 +315,7 @@ export interface EnvironmentProfileState {
  */
 export interface EnvironmentProfileArgs {
     /**
-     * Id of the AWS account being used.
+     * ID of the AWS account being used.
      */
     awsAccountId?: pulumi.Input<string | undefined>;
     /**

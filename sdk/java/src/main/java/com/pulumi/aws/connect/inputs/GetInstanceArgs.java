@@ -36,14 +36,14 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Returns information on a specific connect instance by id
+     * Returns information on a specific connect instance by ID
      * 
      */
     @Import(name="instanceId")
     private @Nullable Output<String> instanceId;
 
     /**
-     * @return Returns information on a specific connect instance by id
+     * @return Returns information on a specific connect instance by ID
      * 
      */
     public Optional<Output<String>> instanceId() {
@@ -133,7 +133,7 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param instanceId Returns information on a specific connect instance by id
+         * @param instanceId Returns information on a specific connect instance by ID
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class GetInstanceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param instanceId Returns information on a specific connect instance by id
+         * @param instanceId Returns information on a specific connect instance by ID
          * 
          * @return builder
          * 

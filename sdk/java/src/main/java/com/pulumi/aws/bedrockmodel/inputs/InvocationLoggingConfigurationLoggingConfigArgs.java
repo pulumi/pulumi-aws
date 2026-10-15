@@ -33,14 +33,14 @@ public final class InvocationLoggingConfigurationLoggingConfigArgs extends com.p
     }
 
     /**
-     * Set to include embeddings data in the log delivery. Defaults to `true`.
+     * Whether to include embeddings data in the log delivery. Defaults to `true`.
      * 
      */
     @Import(name="embeddingDataDeliveryEnabled")
     private @Nullable Output<Boolean> embeddingDataDeliveryEnabled;
 
     /**
-     * @return Set to include embeddings data in the log delivery. Defaults to `true`.
+     * @return Whether to include embeddings data in the log delivery. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> embeddingDataDeliveryEnabled() {
@@ -48,14 +48,14 @@ public final class InvocationLoggingConfigurationLoggingConfigArgs extends com.p
     }
 
     /**
-     * Set to include image data in the log delivery. Defaults to `true`.
+     * Whether to include image data in the log delivery. Defaults to `true`.
      * 
      */
     @Import(name="imageDataDeliveryEnabled")
     private @Nullable Output<Boolean> imageDataDeliveryEnabled;
 
     /**
-     * @return Set to include image data in the log delivery. Defaults to `true`.
+     * @return Whether to include image data in the log delivery. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> imageDataDeliveryEnabled() {
@@ -78,14 +78,14 @@ public final class InvocationLoggingConfigurationLoggingConfigArgs extends com.p
     }
 
     /**
-     * Set to include text data in the log delivery. Defaults to `true`.
+     * Whether to include text data in the log delivery. Defaults to `true`.
      * 
      */
     @Import(name="textDataDeliveryEnabled")
     private @Nullable Output<Boolean> textDataDeliveryEnabled;
 
     /**
-     * @return Set to include text data in the log delivery. Defaults to `true`.
+     * @return Whether to include text data in the log delivery. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> textDataDeliveryEnabled() {
@@ -93,14 +93,14 @@ public final class InvocationLoggingConfigurationLoggingConfigArgs extends com.p
     }
 
     /**
-     * Set to include text data in the log delivery. Defaults to `true`.
+     * Whether to include video data in the log delivery. Defaults to `true`.
      * 
      */
     @Import(name="videoDataDeliveryEnabled")
     private @Nullable Output<Boolean> videoDataDeliveryEnabled;
 
     /**
-     * @return Set to include text data in the log delivery. Defaults to `true`.
+     * @return Whether to include video data in the log delivery. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> videoDataDeliveryEnabled() {
@@ -158,7 +158,7 @@ public final class InvocationLoggingConfigurationLoggingConfigArgs extends com.p
         }
 
         /**
-         * @param embeddingDataDeliveryEnabled Set to include embeddings data in the log delivery. Defaults to `true`.
+         * @param embeddingDataDeliveryEnabled Whether to include embeddings data in the log delivery. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class InvocationLoggingConfigurationLoggingConfigArgs extends com.p
         }
 
         /**
-         * @param embeddingDataDeliveryEnabled Set to include embeddings data in the log delivery. Defaults to `true`.
+         * @param embeddingDataDeliveryEnabled Whether to include embeddings data in the log delivery. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class InvocationLoggingConfigurationLoggingConfigArgs extends com.p
         }
 
         /**
-         * @param imageDataDeliveryEnabled Set to include image data in the log delivery. Defaults to `true`.
+         * @param imageDataDeliveryEnabled Whether to include image data in the log delivery. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class InvocationLoggingConfigurationLoggingConfigArgs extends com.p
         }
 
         /**
-         * @param imageDataDeliveryEnabled Set to include image data in the log delivery. Defaults to `true`.
+         * @param imageDataDeliveryEnabled Whether to include image data in the log delivery. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class InvocationLoggingConfigurationLoggingConfigArgs extends com.p
         }
 
         /**
-         * @param textDataDeliveryEnabled Set to include text data in the log delivery. Defaults to `true`.
+         * @param textDataDeliveryEnabled Whether to include text data in the log delivery. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class InvocationLoggingConfigurationLoggingConfigArgs extends com.p
         }
 
         /**
-         * @param textDataDeliveryEnabled Set to include text data in the log delivery. Defaults to `true`.
+         * @param textDataDeliveryEnabled Whether to include text data in the log delivery. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class InvocationLoggingConfigurationLoggingConfigArgs extends com.p
         }
 
         /**
-         * @param videoDataDeliveryEnabled Set to include text data in the log delivery. Defaults to `true`.
+         * @param videoDataDeliveryEnabled Whether to include video data in the log delivery. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class InvocationLoggingConfigurationLoggingConfigArgs extends com.p
         }
 
         /**
-         * @param videoDataDeliveryEnabled Set to include text data in the log delivery. Defaults to `true`.
+         * @param videoDataDeliveryEnabled Whether to include video data in the log delivery. Defaults to `true`.
          * 
          * @return builder
          * 

@@ -37,7 +37,7 @@ class AgentcoreCodeInterpreterArgs:
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreCodeInterpreterCertificateArgs']]] certificates: Certificates to install in the code interpreter. Between 1 and 200 blocks are supported. See `certificate` below.
         :param pulumi.Input[_builtins.str] description: Description of the code interpreter.
-        :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
+        :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the code interpreter assumes for execution.
         :param pulumi.Input[_builtins.str] name: Name of the code interpreter.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -100,7 +100,7 @@ class AgentcoreCodeInterpreterArgs:
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
+        ARN of the IAM role that the code interpreter assumes for execution.
         """
         return pulumi.get(self, "execution_role_arn")
 
@@ -175,7 +175,7 @@ class _AgentcoreCodeInterpreterState:
         :param pulumi.Input[_builtins.str] code_interpreter_arn: ARN of the Code Interpreter.
         :param pulumi.Input[_builtins.str] code_interpreter_id: Unique identifier of the Code Interpreter.
         :param pulumi.Input[_builtins.str] description: Description of the code interpreter.
-        :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
+        :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the code interpreter assumes for execution.
         :param pulumi.Input[_builtins.str] name: Name of the code interpreter.
         :param pulumi.Input['AgentcoreCodeInterpreterNetworkConfigurationArgs'] network_configuration: Network configuration for the code interpreter. See `network_configuration` below.
                
@@ -259,7 +259,7 @@ class _AgentcoreCodeInterpreterState:
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
+        ARN of the IAM role that the code interpreter assumes for execution.
         """
         return pulumi.get(self, "execution_role_arn")
 
@@ -369,7 +369,7 @@ class AgentcoreCodeInterpreter(pulumi.CustomResource):
             network_configuration={
                 "network_mode": "PUBLIC",
             },
-            name="example-code-interpreter",
+            name="example_code_interpreter",
             description="Code interpreter for data analysis")
         ```
 
@@ -394,7 +394,7 @@ class AgentcoreCodeInterpreter(pulumi.CustomResource):
             network_configuration={
                 "network_mode": "SANDBOX",
             },
-            name="example-code-interpreter",
+            name="example_code_interpreter",
             description="Code interpreter with custom execution role",
             execution_role_arn=example.arn)
         ```
@@ -412,7 +412,7 @@ class AgentcoreCodeInterpreter(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreCodeInterpreterCertificateArgs', 'AgentcoreCodeInterpreterCertificateArgsDict', 'outputs.AgentcoreCodeInterpreterCertificate']]]] certificates: Certificates to install in the code interpreter. Between 1 and 200 blocks are supported. See `certificate` below.
         :param pulumi.Input[_builtins.str] description: Description of the code interpreter.
-        :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
+        :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the code interpreter assumes for execution.
         :param pulumi.Input[_builtins.str] name: Name of the code interpreter.
         :param pulumi.Input[Union['AgentcoreCodeInterpreterNetworkConfigurationArgs', 'AgentcoreCodeInterpreterNetworkConfigurationArgsDict', 'outputs.AgentcoreCodeInterpreterNetworkConfiguration']] network_configuration: Network configuration for the code interpreter. See `network_configuration` below.
                
@@ -441,7 +441,7 @@ class AgentcoreCodeInterpreter(pulumi.CustomResource):
             network_configuration={
                 "network_mode": "PUBLIC",
             },
-            name="example-code-interpreter",
+            name="example_code_interpreter",
             description="Code interpreter for data analysis")
         ```
 
@@ -466,7 +466,7 @@ class AgentcoreCodeInterpreter(pulumi.CustomResource):
             network_configuration={
                 "network_mode": "SANDBOX",
             },
-            name="example-code-interpreter",
+            name="example_code_interpreter",
             description="Code interpreter with custom execution role",
             execution_role_arn=example.arn)
         ```
@@ -557,7 +557,7 @@ class AgentcoreCodeInterpreter(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] code_interpreter_arn: ARN of the Code Interpreter.
         :param pulumi.Input[_builtins.str] code_interpreter_id: Unique identifier of the Code Interpreter.
         :param pulumi.Input[_builtins.str] description: Description of the code interpreter.
-        :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
+        :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the code interpreter assumes for execution.
         :param pulumi.Input[_builtins.str] name: Name of the code interpreter.
         :param pulumi.Input[Union['AgentcoreCodeInterpreterNetworkConfigurationArgs', 'AgentcoreCodeInterpreterNetworkConfigurationArgsDict', 'outputs.AgentcoreCodeInterpreterNetworkConfiguration']] network_configuration: Network configuration for the code interpreter. See `network_configuration` below.
                
@@ -619,7 +619,7 @@ class AgentcoreCodeInterpreter(pulumi.CustomResource):
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
+        ARN of the IAM role that the code interpreter assumes for execution.
         """
         return pulumi.get(self, "execution_role_arn")
 

@@ -140,7 +140,7 @@ class _ClusterState:
         Input properties used for looking up and filtering Cluster resources.
 
         :param pulumi.Input[Sequence[pulumi.Input['ClusterClusterCertificateArgs']]] cluster_certificates: The list of cluster certificates.
-        :param pulumi.Input[_builtins.str] cluster_id: The id of the CloudHSM cluster.
+        :param pulumi.Input[_builtins.str] cluster_id: The ID of the CloudHSM cluster.
         :param pulumi.Input[_builtins.str] cluster_state: The state of the CloudHSM cluster.
         :param pulumi.Input[_builtins.str] hsm_type: The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
         :param pulumi.Input[_builtins.str] mode: The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
@@ -150,7 +150,7 @@ class _ClusterState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The IDs of subnets in which cluster will operate.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_id: The id of the VPC that the CloudHSM cluster resides in.
+        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC that the CloudHSM cluster resides in.
         """
         if cluster_certificates is not None:
             pulumi.set(__self__, "cluster_certificates", cluster_certificates)
@@ -193,7 +193,7 @@ class _ClusterState:
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The id of the CloudHSM cluster.
+        The ID of the CloudHSM cluster.
         """
         return pulumi.get(self, "cluster_id")
 
@@ -313,7 +313,7 @@ class _ClusterState:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The id of the VPC that the CloudHSM cluster resides in.
+        The ID of the VPC that the CloudHSM cluster resides in.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -534,7 +534,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterClusterCertificateArgs', 'ClusterClusterCertificateArgsDict', 'outputs.ClusterClusterCertificate']]]] cluster_certificates: The list of cluster certificates.
-        :param pulumi.Input[_builtins.str] cluster_id: The id of the CloudHSM cluster.
+        :param pulumi.Input[_builtins.str] cluster_id: The ID of the CloudHSM cluster.
         :param pulumi.Input[_builtins.str] cluster_state: The state of the CloudHSM cluster.
         :param pulumi.Input[_builtins.str] hsm_type: The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
         :param pulumi.Input[_builtins.str] mode: The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
@@ -544,7 +544,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The IDs of subnets in which cluster will operate.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_id: The id of the VPC that the CloudHSM cluster resides in.
+        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC that the CloudHSM cluster resides in.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -576,7 +576,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The id of the CloudHSM cluster.
+        The ID of the CloudHSM cluster.
         """
         return pulumi.get(self, "cluster_id")
 
@@ -656,7 +656,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The id of the VPC that the CloudHSM cluster resides in.
+        The ID of the VPC that the CloudHSM cluster resides in.
         """
         return pulumi.get(self, "vpc_id")
 

@@ -143,14 +143,14 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the fleet.
+     * Name of the fleet.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the fleet.
+     * @return Name of the fleet.
      * 
      */
     public Optional<Output<String>> name() {
@@ -474,7 +474,7 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the fleet.
+         * @param name Name of the fleet.
          * 
          * @return builder
          * 
@@ -485,7 +485,7 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the fleet.
+         * @param name Name of the fleet.
          * 
          * @return builder
          * 

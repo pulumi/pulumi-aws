@@ -28,7 +28,7 @@ class NetworkSettingsArgs:
         The set of arguments for constructing a NetworkSettings resource.
 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: One or more security groups used to control access from streaming instances to your VPC.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet IDs must be specified.
         :param pulumi.Input[_builtins.str] vpc_id: The VPC that streaming instances will connect to.
                
                The following arguments are optional:
@@ -59,7 +59,7 @@ class NetworkSettingsArgs:
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
+        The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet IDs must be specified.
         """
         return pulumi.get(self, "subnet_ids")
 
@@ -124,7 +124,7 @@ class _NetworkSettingsState:
         :param pulumi.Input[_builtins.str] network_settings_arn: ARN of the network settings resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: One or more security groups used to control access from streaming instances to your VPC.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet IDs must be specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] vpc_id: The VPC that streaming instances will connect to.
@@ -200,7 +200,7 @@ class _NetworkSettingsState:
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
+        The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet IDs must be specified.
         """
         return pulumi.get(self, "subnet_ids")
 
@@ -311,7 +311,7 @@ class NetworkSettings(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: One or more security groups used to control access from streaming instances to your VPC.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet IDs must be specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] vpc_id: The VPC that streaming instances will connect to.
                
@@ -445,7 +445,7 @@ class NetworkSettings(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] network_settings_arn: ARN of the network settings resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: One or more security groups used to control access from streaming instances to your VPC.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet IDs must be specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] vpc_id: The VPC that streaming instances will connect to.
@@ -502,7 +502,7 @@ class NetworkSettings(pulumi.CustomResource):
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
+        The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet IDs must be specified.
         """
         return pulumi.get(self, "subnet_ids")
 

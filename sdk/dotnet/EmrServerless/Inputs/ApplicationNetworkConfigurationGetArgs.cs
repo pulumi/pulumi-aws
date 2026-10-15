@@ -16,7 +16,7 @@ namespace Pulumi.Aws.EmrServerless.Inputs
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// The array of security group Ids for customer VPC connectivity.
+        /// The array of security group IDs for customer VPC connectivity.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.EmrServerless.Inputs
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// The array of subnet Ids for customer VPC connectivity.
+        /// The array of subnet IDs for customer VPC connectivity.
         /// </summary>
         public InputList<string> SubnetIds
         {

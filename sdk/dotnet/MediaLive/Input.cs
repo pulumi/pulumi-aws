@@ -91,25 +91,25 @@ namespace Pulumi.Aws.MediaLive
         public Output<ImmutableArray<string>> AttachedChannels { get; private set; } = null!;
 
         /// <summary>
-        /// Destination settings for PUSH type inputs. See Destinations for more details.
+        /// Destination settings for PUSH type inputs. See `Destinations` Block for more details.
         /// </summary>
         [Output("destinations")]
         public Output<ImmutableArray<Outputs.InputDestination>> Destinations { get; private set; } = null!;
 
         /// <summary>
-        /// The input class.
+        /// Input class.
         /// </summary>
         [Output("inputClass")]
         public Output<string> InputClass { get; private set; } = null!;
 
         /// <summary>
-        /// Settings for the devices. See Input Devices for more details.
+        /// Settings for the devices. See `InputDevices` Block for more details.
         /// </summary>
         [Output("inputDevices")]
         public Output<ImmutableArray<Outputs.InputInputDevice>> InputDevices { get; private set; } = null!;
 
         /// <summary>
-        /// A list of IDs for all Inputs which are partners of this one.
+        /// IDs for all Inputs which are partners of this one.
         /// </summary>
         [Output("inputPartnerIds")]
         public Output<ImmutableArray<string>> InputPartnerIds { get; private set; } = null!;
@@ -127,7 +127,7 @@ namespace Pulumi.Aws.MediaLive
         public Output<string> InputSourceType { get; private set; } = null!;
 
         /// <summary>
-        /// A list of the MediaConnect Flows. See Media Connect Flows for more details.
+        /// MediaConnect Flows. See `MediaConnectFlows` Block for more details.
         /// </summary>
         [Output("mediaConnectFlows")]
         public Output<ImmutableArray<Outputs.InputMediaConnectFlow>> MediaConnectFlows { get; private set; } = null!;
@@ -145,19 +145,19 @@ namespace Pulumi.Aws.MediaLive
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the role this input assumes during and after creation.
+        /// ARN of the role this input assumes during and after creation.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// The source URLs for a PULL-type input. See Sources for more details.
+        /// Source URLs for a PULL-type input. See `Sources` Block for more details.
         /// </summary>
         [Output("sources")]
         public Output<ImmutableArray<Outputs.InputSource>> Sources { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the Input. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the Input. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -166,7 +166,7 @@ namespace Pulumi.Aws.MediaLive
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The different types of inputs that AWS Elemental MediaLive supports.
+        /// Type of input that AWS Elemental MediaLive supports.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -174,7 +174,7 @@ namespace Pulumi.Aws.MediaLive
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Settings for a private VPC Input. See VPC for more details.
+        /// Settings for a private VPC Input. See `Vpc` Block for more details.
         /// </summary>
         [Output("vpc")]
         public Output<Outputs.InputVpc?> Vpc { get; private set; } = null!;
@@ -229,7 +229,7 @@ namespace Pulumi.Aws.MediaLive
         private InputList<Inputs.InputDestinationArgs>? _destinations;
 
         /// <summary>
-        /// Destination settings for PUSH type inputs. See Destinations for more details.
+        /// Destination settings for PUSH type inputs. See `Destinations` Block for more details.
         /// </summary>
         public InputList<Inputs.InputDestinationArgs> Destinations
         {
@@ -241,7 +241,7 @@ namespace Pulumi.Aws.MediaLive
         private InputList<Inputs.InputInputDeviceArgs>? _inputDevices;
 
         /// <summary>
-        /// Settings for the devices. See Input Devices for more details.
+        /// Settings for the devices. See `InputDevices` Block for more details.
         /// </summary>
         public InputList<Inputs.InputInputDeviceArgs> InputDevices
         {
@@ -265,7 +265,7 @@ namespace Pulumi.Aws.MediaLive
         private InputList<Inputs.InputMediaConnectFlowArgs>? _mediaConnectFlows;
 
         /// <summary>
-        /// A list of the MediaConnect Flows. See Media Connect Flows for more details.
+        /// MediaConnect Flows. See `MediaConnectFlows` Block for more details.
         /// </summary>
         public InputList<Inputs.InputMediaConnectFlowArgs> MediaConnectFlows
         {
@@ -286,7 +286,7 @@ namespace Pulumi.Aws.MediaLive
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ARN of the role this input assumes during and after creation.
+        /// ARN of the role this input assumes during and after creation.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
@@ -295,7 +295,7 @@ namespace Pulumi.Aws.MediaLive
         private InputList<Inputs.InputSourceArgs>? _sources;
 
         /// <summary>
-        /// The source URLs for a PULL-type input. See Sources for more details.
+        /// Source URLs for a PULL-type input. See `Sources` Block for more details.
         /// </summary>
         public InputList<Inputs.InputSourceArgs> Sources
         {
@@ -307,7 +307,7 @@ namespace Pulumi.Aws.MediaLive
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the Input. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the Input. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -316,7 +316,7 @@ namespace Pulumi.Aws.MediaLive
         }
 
         /// <summary>
-        /// The different types of inputs that AWS Elemental MediaLive supports.
+        /// Type of input that AWS Elemental MediaLive supports.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -324,7 +324,7 @@ namespace Pulumi.Aws.MediaLive
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Settings for a private VPC Input. See VPC for more details.
+        /// Settings for a private VPC Input. See `Vpc` Block for more details.
         /// </summary>
         [Input("vpc")]
         public Input<Inputs.InputVpcArgs>? Vpc { get; set; }
@@ -359,7 +359,7 @@ namespace Pulumi.Aws.MediaLive
         private InputList<Inputs.InputDestinationGetArgs>? _destinations;
 
         /// <summary>
-        /// Destination settings for PUSH type inputs. See Destinations for more details.
+        /// Destination settings for PUSH type inputs. See `Destinations` Block for more details.
         /// </summary>
         public InputList<Inputs.InputDestinationGetArgs> Destinations
         {
@@ -368,7 +368,7 @@ namespace Pulumi.Aws.MediaLive
         }
 
         /// <summary>
-        /// The input class.
+        /// Input class.
         /// </summary>
         [Input("inputClass")]
         public Input<string>? InputClass { get; set; }
@@ -377,7 +377,7 @@ namespace Pulumi.Aws.MediaLive
         private InputList<Inputs.InputInputDeviceGetArgs>? _inputDevices;
 
         /// <summary>
-        /// Settings for the devices. See Input Devices for more details.
+        /// Settings for the devices. See `InputDevices` Block for more details.
         /// </summary>
         public InputList<Inputs.InputInputDeviceGetArgs> InputDevices
         {
@@ -389,7 +389,7 @@ namespace Pulumi.Aws.MediaLive
         private InputList<string>? _inputPartnerIds;
 
         /// <summary>
-        /// A list of IDs for all Inputs which are partners of this one.
+        /// IDs for all Inputs which are partners of this one.
         /// </summary>
         public InputList<string> InputPartnerIds
         {
@@ -419,7 +419,7 @@ namespace Pulumi.Aws.MediaLive
         private InputList<Inputs.InputMediaConnectFlowGetArgs>? _mediaConnectFlows;
 
         /// <summary>
-        /// A list of the MediaConnect Flows. See Media Connect Flows for more details.
+        /// MediaConnect Flows. See `MediaConnectFlows` Block for more details.
         /// </summary>
         public InputList<Inputs.InputMediaConnectFlowGetArgs> MediaConnectFlows
         {
@@ -440,7 +440,7 @@ namespace Pulumi.Aws.MediaLive
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ARN of the role this input assumes during and after creation.
+        /// ARN of the role this input assumes during and after creation.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
@@ -449,7 +449,7 @@ namespace Pulumi.Aws.MediaLive
         private InputList<Inputs.InputSourceGetArgs>? _sources;
 
         /// <summary>
-        /// The source URLs for a PULL-type input. See Sources for more details.
+        /// Source URLs for a PULL-type input. See `Sources` Block for more details.
         /// </summary>
         public InputList<Inputs.InputSourceGetArgs> Sources
         {
@@ -461,7 +461,7 @@ namespace Pulumi.Aws.MediaLive
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the Input. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the Input. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -478,7 +478,7 @@ namespace Pulumi.Aws.MediaLive
         }
 
         /// <summary>
-        /// The different types of inputs that AWS Elemental MediaLive supports.
+        /// Type of input that AWS Elemental MediaLive supports.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -486,7 +486,7 @@ namespace Pulumi.Aws.MediaLive
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// Settings for a private VPC Input. See VPC for more details.
+        /// Settings for a private VPC Input. See `Vpc` Block for more details.
         /// </summary>
         [Input("vpc")]
         public Input<Inputs.InputVpcGetArgs>? Vpc { get; set; }

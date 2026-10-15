@@ -32,14 +32,14 @@ public final class PublishingDestinationState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+     * Bucket ARN and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
      * 
      */
     @Import(name="destinationArn")
     private @Nullable Output<String> destinationArn;
 
     /**
-     * @return The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+     * @return Bucket ARN and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
      * 
      */
     public Optional<Output<String>> destinationArn() {
@@ -77,14 +77,14 @@ public final class PublishingDestinationState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The detector ID of the GuardDuty.
+     * Detector ID of the GuardDuty.
      * 
      */
     @Import(name="detectorId")
     private @Nullable Output<String> detectorId;
 
     /**
-     * @return The detector ID of the GuardDuty.
+     * @return Detector ID of the GuardDuty.
      * 
      */
     public Optional<Output<String>> detectorId() {
@@ -92,14 +92,14 @@ public final class PublishingDestinationState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
+     * ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
      * 
      */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
     /**
-     * @return The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
+     * @return ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
      * 
      */
     public Optional<Output<String>> kmsKeyArn() {
@@ -141,14 +141,14 @@ public final class PublishingDestinationState extends com.pulumi.resources.Resou
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -209,7 +209,7 @@ public final class PublishingDestinationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param destinationArn The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+         * @param destinationArn Bucket ARN and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class PublishingDestinationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param destinationArn The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+         * @param destinationArn Bucket ARN and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
          * 
          * @return builder
          * 
@@ -272,7 +272,7 @@ public final class PublishingDestinationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param detectorId The detector ID of the GuardDuty.
+         * @param detectorId Detector ID of the GuardDuty.
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class PublishingDestinationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param detectorId The detector ID of the GuardDuty.
+         * @param detectorId Detector ID of the GuardDuty.
          * 
          * @return builder
          * 
@@ -293,7 +293,7 @@ public final class PublishingDestinationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param kmsKeyArn The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
+         * @param kmsKeyArn ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
          * 
          * @return builder
          * 
@@ -304,7 +304,7 @@ public final class PublishingDestinationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param kmsKeyArn The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
+         * @param kmsKeyArn ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
          * 
          * @return builder
          * 
@@ -360,7 +360,7 @@ public final class PublishingDestinationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -371,7 +371,7 @@ public final class PublishingDestinationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

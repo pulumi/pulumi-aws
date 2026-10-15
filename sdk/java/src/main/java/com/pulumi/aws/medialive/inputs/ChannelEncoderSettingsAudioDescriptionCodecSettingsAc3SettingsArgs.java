@@ -33,14 +33,14 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Setting
     }
 
     /**
-     * Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
+     * Bitstream mode (bsmod) for the emitted AC-3 stream.
      * 
      */
     @Import(name="bitstreamMode")
     private @Nullable Output<String> bitstreamMode;
 
     /**
-     * @return Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
+     * @return Bitstream mode (bsmod) for the emitted AC-3 stream.
      * 
      */
     public Optional<Output<String>> bitstreamMode() {
@@ -78,14 +78,14 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Setting
     }
 
     /**
-     * If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
+     * When set to `filmStandard`, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
      * 
      */
     @Import(name="drcProfile")
     private @Nullable Output<String> drcProfile;
 
     /**
-     * @return If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
+     * @return When set to `filmStandard`, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
      * 
      */
     public Optional<Output<String>> drcProfile() {
@@ -93,14 +93,14 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Setting
     }
 
     /**
-     * When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+     * When set to `enabled`, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
      * 
      */
     @Import(name="lfeFilter")
     private @Nullable Output<String> lfeFilter;
 
     /**
-     * @return When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+     * @return When set to `enabled`, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
      * 
      */
     public Optional<Output<String>> lfeFilter() {
@@ -174,7 +174,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Setting
         }
 
         /**
-         * @param bitstreamMode Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
+         * @param bitstreamMode Bitstream mode (bsmod) for the emitted AC-3 stream.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Setting
         }
 
         /**
-         * @param bitstreamMode Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
+         * @param bitstreamMode Bitstream mode (bsmod) for the emitted AC-3 stream.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Setting
         }
 
         /**
-         * @param drcProfile If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
+         * @param drcProfile When set to `filmStandard`, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Setting
         }
 
         /**
-         * @param drcProfile If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
+         * @param drcProfile When set to `filmStandard`, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Setting
         }
 
         /**
-         * @param lfeFilter When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+         * @param lfeFilter When set to `enabled`, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Setting
         }
 
         /**
-         * @param lfeFilter When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+         * @param lfeFilter When set to `enabled`, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
          * 
          * @return builder
          * 

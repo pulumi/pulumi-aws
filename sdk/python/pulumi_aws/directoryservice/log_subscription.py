@@ -26,7 +26,7 @@ class LogSubscriptionArgs:
         The set of arguments for constructing a LogSubscription resource.
 
         :param pulumi.Input[_builtins.str] directory_id: ID of directory.
-        :param pulumi.Input[_builtins.str] log_group_name: Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
+        :param pulumi.Input[_builtins.str] log_group_name: Name of the CloudWatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "directory_id", directory_id)
@@ -50,7 +50,7 @@ class LogSubscriptionArgs:
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
+        Name of the CloudWatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
         """
         return pulumi.get(self, "log_group_name")
 
@@ -81,7 +81,7 @@ class _LogSubscriptionState:
         Input properties used for looking up and filtering LogSubscription resources.
 
         :param pulumi.Input[_builtins.str] directory_id: ID of directory.
-        :param pulumi.Input[_builtins.str] log_group_name: Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
+        :param pulumi.Input[_builtins.str] log_group_name: Name of the CloudWatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if directory_id is not None:
@@ -107,7 +107,7 @@ class _LogSubscriptionState:
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
+        Name of the CloudWatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
         """
         return pulumi.get(self, "log_group_name")
 
@@ -139,7 +139,7 @@ class LogSubscription(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a Log subscription for AWS Directory Service that pushes logs to cloudwatch.
+        Provides a Log subscription for AWS Directory Service that pushes logs to CloudWatch.
 
         ## Example Usage
 
@@ -172,7 +172,7 @@ class LogSubscription(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Directory Service Log Subscriptions using the directory id. For example:
+        Using `pulumi import`, import Directory Service Log Subscriptions using the directory ID. For example:
 
         ```sh
         $ pulumi import aws:directoryservice/logSubscription:LogSubscription msad d-1234567890
@@ -182,7 +182,7 @@ class LogSubscription(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] directory_id: ID of directory.
-        :param pulumi.Input[_builtins.str] log_group_name: Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
+        :param pulumi.Input[_builtins.str] log_group_name: Name of the CloudWatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -192,7 +192,7 @@ class LogSubscription(pulumi.CustomResource):
                  args: LogSubscriptionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Log subscription for AWS Directory Service that pushes logs to cloudwatch.
+        Provides a Log subscription for AWS Directory Service that pushes logs to CloudWatch.
 
         ## Example Usage
 
@@ -225,7 +225,7 @@ class LogSubscription(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Directory Service Log Subscriptions using the directory id. For example:
+        Using `pulumi import`, import Directory Service Log Subscriptions using the directory ID. For example:
 
         ```sh
         $ pulumi import aws:directoryservice/logSubscription:LogSubscription msad d-1234567890
@@ -289,7 +289,7 @@ class LogSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] directory_id: ID of directory.
-        :param pulumi.Input[_builtins.str] log_group_name: Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
+        :param pulumi.Input[_builtins.str] log_group_name: Name of the CloudWatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -313,7 +313,7 @@ class LogSubscription(pulumi.CustomResource):
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> pulumi.Output[_builtins.str]:
         """
-        Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
+        Name of the CloudWatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
         """
         return pulumi.get(self, "log_group_name")
 

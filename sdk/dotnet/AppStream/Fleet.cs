@@ -55,7 +55,7 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws.appstream.Fleet` using the id. For example:
+    /// Using `pulumi import`, import `aws.appstream.Fleet` using the ID. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.AppStream
     public partial class Fleet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// ARN of the appstream fleet.
+        /// ARN of the AppStream fleet.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -378,7 +378,7 @@ namespace Pulumi.Aws.AppStream
     public sealed class FleetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN of the appstream fleet.
+        /// ARN of the AppStream fleet.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

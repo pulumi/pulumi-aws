@@ -106,14 +106,14 @@ public class ImageBuilder extends com.pulumi.resources.CustomResource {
         return this.appstreamAgentVersion;
     }
     /**
-     * ARN of the appstream image builder.
+     * ARN of the AppStream image builder.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return ARN of the appstream image builder.
+     * @return ARN of the AppStream image builder.
      * 
      */
     public Output<String> arn() {

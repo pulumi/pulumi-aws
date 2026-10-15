@@ -25,7 +25,7 @@ class FindingsFilterFindingCriteria(dict):
     def __init__(__self__, *,
                  criterions: Optional[Sequence['outputs.FindingsFilterFindingCriteriaCriterion']] = None):
         """
-        :param Sequence['FindingsFilterFindingCriteriaCriterionArgs'] criterions: A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
+        :param Sequence['FindingsFilterFindingCriteriaCriterionArgs'] criterions: Condition that specifies the property, operator, and one or more values to use to filter the results. See `criterion` Block for details.
         """
         if criterions is not None:
             pulumi.set(__self__, "criterions", criterions)
@@ -34,7 +34,7 @@ class FindingsFilterFindingCriteria(dict):
     @pulumi.getter
     def criterions(self) -> Optional[Sequence['outputs.FindingsFilterFindingCriteriaCriterion']]:
         """
-        A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
+        Condition that specifies the property, operator, and one or more values to use to filter the results. See `criterion` Block for details.
         """
         return pulumi.get(self, "criterions")
 
@@ -68,14 +68,14 @@ class FindingsFilterFindingCriteriaCriterion(dict):
                  lte: Optional[_builtins.str] = None,
                  neqs: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str field: The name of the field to be evaluated.
-        :param Sequence[_builtins.str] eq_exact_matches: The value for the property exclusively matches (equals an exact match for) all the specified values. If you specify multiple values, Amazon Macie uses AND logic to join the values.
-        :param Sequence[_builtins.str] eqs: The value for the property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
-        :param _builtins.str gt: The value for the property is greater than the specified value.
-        :param _builtins.str gte: The value for the property is greater than or equal to the specified value.
-        :param _builtins.str lt: The value for the property is less than the specified value.
-        :param _builtins.str lte: The value for the property is less than or equal to the specified value.
-        :param Sequence[_builtins.str] neqs: The value for the property doesn't match (doesn't equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
+        :param _builtins.str field: Name of the field to be evaluated.
+        :param Sequence[_builtins.str] eq_exact_matches: Value for the property exclusively matches (equals an exact match for) all the specified values. If you specify multiple values, Amazon Macie uses AND logic to join the values.
+        :param Sequence[_builtins.str] eqs: Value for the property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
+        :param _builtins.str gt: Value for the property is greater than the specified value.
+        :param _builtins.str gte: Value for the property is greater than or equal to the specified value.
+        :param _builtins.str lt: Value for the property is less than the specified value.
+        :param _builtins.str lte: Value for the property is less than or equal to the specified value.
+        :param Sequence[_builtins.str] neqs: Value for the property doesn't match (doesn't equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
         """
         pulumi.set(__self__, "field", field)
         if eq_exact_matches is not None:
@@ -97,7 +97,7 @@ class FindingsFilterFindingCriteriaCriterion(dict):
     @pulumi.getter
     def field(self) -> _builtins.str:
         """
-        The name of the field to be evaluated.
+        Name of the field to be evaluated.
         """
         return pulumi.get(self, "field")
 
@@ -105,7 +105,7 @@ class FindingsFilterFindingCriteriaCriterion(dict):
     @pulumi.getter(name="eqExactMatches")
     def eq_exact_matches(self) -> Optional[Sequence[_builtins.str]]:
         """
-        The value for the property exclusively matches (equals an exact match for) all the specified values. If you specify multiple values, Amazon Macie uses AND logic to join the values.
+        Value for the property exclusively matches (equals an exact match for) all the specified values. If you specify multiple values, Amazon Macie uses AND logic to join the values.
         """
         return pulumi.get(self, "eq_exact_matches")
 
@@ -113,7 +113,7 @@ class FindingsFilterFindingCriteriaCriterion(dict):
     @pulumi.getter
     def eqs(self) -> Optional[Sequence[_builtins.str]]:
         """
-        The value for the property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
+        Value for the property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
         """
         return pulumi.get(self, "eqs")
 
@@ -121,7 +121,7 @@ class FindingsFilterFindingCriteriaCriterion(dict):
     @pulumi.getter
     def gt(self) -> Optional[_builtins.str]:
         """
-        The value for the property is greater than the specified value.
+        Value for the property is greater than the specified value.
         """
         return pulumi.get(self, "gt")
 
@@ -129,7 +129,7 @@ class FindingsFilterFindingCriteriaCriterion(dict):
     @pulumi.getter
     def gte(self) -> Optional[_builtins.str]:
         """
-        The value for the property is greater than or equal to the specified value.
+        Value for the property is greater than or equal to the specified value.
         """
         return pulumi.get(self, "gte")
 
@@ -137,7 +137,7 @@ class FindingsFilterFindingCriteriaCriterion(dict):
     @pulumi.getter
     def lt(self) -> Optional[_builtins.str]:
         """
-        The value for the property is less than the specified value.
+        Value for the property is less than the specified value.
         """
         return pulumi.get(self, "lt")
 
@@ -145,7 +145,7 @@ class FindingsFilterFindingCriteriaCriterion(dict):
     @pulumi.getter
     def lte(self) -> Optional[_builtins.str]:
         """
-        The value for the property is less than or equal to the specified value.
+        Value for the property is less than or equal to the specified value.
         """
         return pulumi.get(self, "lte")
 
@@ -153,7 +153,7 @@ class FindingsFilterFindingCriteriaCriterion(dict):
     @pulumi.getter
     def neqs(self) -> Optional[Sequence[_builtins.str]]:
         """
-        The value for the property doesn't match (doesn't equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
+        Value for the property doesn't match (doesn't equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
         """
         return pulumi.get(self, "neqs")
 

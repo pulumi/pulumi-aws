@@ -15,7 +15,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AccessPointPublicAccessBlockConfiguration struct {
-	// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true`, PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
+	// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true`, PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
 	BlockPublicAcls *bool `pulumi:"blockPublicAcls"`
 	// Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true`, Amazon S3 rejects calls to PUT Bucket policy if the specified bucket policy allows public access.
 	BlockPublicPolicy *bool `pulumi:"blockPublicPolicy"`
@@ -37,7 +37,7 @@ type AccessPointPublicAccessBlockConfigurationInput interface {
 }
 
 type AccessPointPublicAccessBlockConfigurationArgs struct {
-	// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true`, PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
+	// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true`, PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
 	BlockPublicAcls pulumi.BoolPtrInput `pulumi:"blockPublicAcls"`
 	// Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true`, Amazon S3 rejects calls to PUT Bucket policy if the specified bucket policy allows public access.
 	BlockPublicPolicy pulumi.BoolPtrInput `pulumi:"blockPublicPolicy"`
@@ -124,7 +124,7 @@ func (o AccessPointPublicAccessBlockConfigurationOutput) ToAccessPointPublicAcce
 	}).(AccessPointPublicAccessBlockConfigurationPtrOutput)
 }
 
-// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true`, PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
+// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true`, PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
 func (o AccessPointPublicAccessBlockConfigurationOutput) BlockPublicAcls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccessPointPublicAccessBlockConfiguration) *bool { return v.BlockPublicAcls }).(pulumi.BoolPtrOutput)
 }
@@ -168,7 +168,7 @@ func (o AccessPointPublicAccessBlockConfigurationPtrOutput) Elem() AccessPointPu
 	}).(AccessPointPublicAccessBlockConfigurationOutput)
 }
 
-// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true`, PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
+// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true`, PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
 func (o AccessPointPublicAccessBlockConfigurationPtrOutput) BlockPublicAcls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AccessPointPublicAccessBlockConfiguration) *bool {
 		if v == nil {
@@ -2990,13 +2990,13 @@ func (o BucketCorsRuleArrayOutput) Index(i pulumi.IntInput) BucketCorsRuleOutput
 }
 
 type BucketGrant struct {
-	// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
+	// Canonical user ID to grant for. Used only when `type` is `CanonicalUser`.
 	Id *string `pulumi:"id"`
 	// List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
 	Permissions []string `pulumi:"permissions"`
 	// Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
 	Type string `pulumi:"type"`
-	// Uri address to grant for. Used only when `type` is `Group`.
+	// URI address to grant for. Used only when `type` is `Group`.
 	Uri *string `pulumi:"uri"`
 }
 
@@ -3012,13 +3012,13 @@ type BucketGrantInput interface {
 }
 
 type BucketGrantArgs struct {
-	// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
+	// Canonical user ID to grant for. Used only when `type` is `CanonicalUser`.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
 	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
 	// Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
 	Type pulumi.StringInput `pulumi:"type"`
-	// Uri address to grant for. Used only when `type` is `Group`.
+	// URI address to grant for. Used only when `type` is `Group`.
 	Uri pulumi.StringPtrInput `pulumi:"uri"`
 }
 
@@ -3073,7 +3073,7 @@ func (o BucketGrantOutput) ToBucketGrantOutputWithContext(ctx context.Context) B
 	return o
 }
 
-// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
+// Canonical user ID to grant for. Used only when `type` is `CanonicalUser`.
 func (o BucketGrantOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketGrant) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -3088,7 +3088,7 @@ func (o BucketGrantOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketGrant) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Uri address to grant for. Used only when `type` is `Group`.
+// URI address to grant for. Used only when `type` is `Group`.
 func (o BucketGrantOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketGrant) *string { return v.Uri }).(pulumi.StringPtrOutput)
 }
@@ -16386,13 +16386,13 @@ func (o BucketV2CorsRuleArrayOutput) Index(i pulumi.IntInput) BucketV2CorsRuleOu
 }
 
 type BucketV2Grant struct {
-	// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
+	// Canonical user ID to grant for. Used only when `type` is `CanonicalUser`.
 	Id *string `pulumi:"id"`
 	// List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
 	Permissions []string `pulumi:"permissions"`
 	// Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
 	Type string `pulumi:"type"`
-	// Uri address to grant for. Used only when `type` is `Group`.
+	// URI address to grant for. Used only when `type` is `Group`.
 	Uri *string `pulumi:"uri"`
 }
 
@@ -16408,13 +16408,13 @@ type BucketV2GrantInput interface {
 }
 
 type BucketV2GrantArgs struct {
-	// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
+	// Canonical user ID to grant for. Used only when `type` is `CanonicalUser`.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
 	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
 	// Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
 	Type pulumi.StringInput `pulumi:"type"`
-	// Uri address to grant for. Used only when `type` is `Group`.
+	// URI address to grant for. Used only when `type` is `Group`.
 	Uri pulumi.StringPtrInput `pulumi:"uri"`
 }
 
@@ -16469,7 +16469,7 @@ func (o BucketV2GrantOutput) ToBucketV2GrantOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
+// Canonical user ID to grant for. Used only when `type` is `CanonicalUser`.
 func (o BucketV2GrantOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketV2Grant) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -16484,7 +16484,7 @@ func (o BucketV2GrantOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketV2Grant) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Uri address to grant for. Used only when `type` is `Group`.
+// URI address to grant for. Used only when `type` is `Group`.
 func (o BucketV2GrantOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketV2Grant) *string { return v.Uri }).(pulumi.StringPtrOutput)
 }

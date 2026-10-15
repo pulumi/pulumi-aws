@@ -29,8 +29,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := bedrockfoundation.GetModelAgreementOffers(ctx, &bedrockfoundation.GetModelAgreementOffersArgs{
-//				ModelId: exampleAwsBedrockFoundationModels.ModelSummaries[0].ModelId,
+//			example, err := bedrockfoundation.GetModels(ctx, &bedrockfoundation.GetModelsArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = bedrockfoundation.GetModelAgreementOffers(ctx, &bedrockfoundation.GetModelAgreementOffersArgs{
+//				ModelId: example.ModelSummaries[0].ModelId,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -52,7 +56,7 @@ func GetModelAgreementOffers(ctx *pulumi.Context, args *GetModelAgreementOffersA
 
 // A collection of arguments for invoking getModelAgreementOffers.
 type GetModelAgreementOffersArgs struct {
-	// Model ID of the foundation model
+	// Model ID of the foundation model.
 	//
 	// The following arguments are optional:
 	ModelId string `pulumi:"modelId"`
@@ -78,7 +82,7 @@ func GetModelAgreementOffersOutput(ctx *pulumi.Context, args GetModelAgreementOf
 
 // A collection of arguments for invoking getModelAgreementOffers.
 type GetModelAgreementOffersOutputArgs struct {
-	// Model ID of the foundation model
+	// Model ID of the foundation model.
 	//
 	// The following arguments are optional:
 	ModelId pulumi.StringInput `pulumi:"modelId"`

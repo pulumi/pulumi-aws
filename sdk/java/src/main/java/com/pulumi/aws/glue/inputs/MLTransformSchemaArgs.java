@@ -16,14 +16,14 @@ public final class MLTransformSchemaArgs extends com.pulumi.resources.ResourceAr
     public static final MLTransformSchemaArgs Empty = new MLTransformSchemaArgs();
 
     /**
-     * The type of data in the column.
+     * Type of data in the column.
      * 
      */
     @Import(name="dataType")
     private @Nullable Output<String> dataType;
 
     /**
-     * @return The type of data in the column.
+     * @return Type of data in the column.
      * 
      */
     public Optional<Output<String>> dataType() {
@@ -31,14 +31,14 @@ public final class MLTransformSchemaArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The name you assign to this ML Transform. It must be unique in your account.
+     * Name you assign to this ML Transform. It must be unique in your account.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name you assign to this ML Transform. It must be unique in your account.
+     * @return Name you assign to this ML Transform. It must be unique in your account.
      * 
      */
     public Optional<Output<String>> name() {
@@ -71,7 +71,7 @@ public final class MLTransformSchemaArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param dataType The type of data in the column.
+         * @param dataType Type of data in the column.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class MLTransformSchemaArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param dataType The type of data in the column.
+         * @param dataType Type of data in the column.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class MLTransformSchemaArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name The name you assign to this ML Transform. It must be unique in your account.
+         * @param name Name you assign to this ML Transform. It must be unique in your account.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class MLTransformSchemaArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name The name you assign to this ML Transform. It must be unique in your account.
+         * @param name Name you assign to this ML Transform. It must be unique in your account.
          * 
          * @return builder
          * 

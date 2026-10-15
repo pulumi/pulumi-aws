@@ -261,7 +261,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `harnessId` (String) ID of the harness.
+ * * `harnessId` (String) ID of the harness.
  * 
  * #### Optional
  * 
@@ -362,14 +362,14 @@ public class AgentcoreHarness extends com.pulumi.resources.CustomResource {
         return this.environmentVariables;
     }
     /**
-     * Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
+     * Compute environment configuration. See `environment` Block below. If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
      * 
      */
     @Export(name="environments", refs={List.class,AgentcoreHarnessEnvironment.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AgentcoreHarnessEnvironment>> environments;
 
     /**
-     * @return Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
+     * @return Compute environment configuration. See `environment` Block below. If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
      * 
      */
     public Output<Optional<List<AgentcoreHarnessEnvironment>>> environments() {
@@ -404,14 +404,14 @@ public class AgentcoreHarness extends com.pulumi.resources.CustomResource {
         return this.harnessId;
     }
     /**
-     * Name of the harness. Must be 1-40 characters, alphanumeric and underscores only.
+     * Name of the harness. Must be 1-40 characters, start with a letter, and contain only alphanumeric characters and underscores.
      * 
      */
     @Export(name="harnessName", refs={String.class}, tree="[0]")
     private Output<String> harnessName;
 
     /**
-     * @return Name of the harness. Must be 1-40 characters, alphanumeric and underscores only.
+     * @return Name of the harness. Must be 1-40 characters, start with a letter, and contain only alphanumeric characters and underscores.
      * 
      */
     public Output<String> harnessName() {
@@ -432,14 +432,14 @@ public class AgentcoreHarness extends com.pulumi.resources.CustomResource {
         return this.maxIterations;
     }
     /**
-     * Maximum number of tokens in the model response.
+     * Maximum total number of output tokens the agent can generate across all model calls within a single invocation.
      * 
      */
     @Export(name="maxTokens", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxTokens;
 
     /**
-     * @return Maximum number of tokens in the model response.
+     * @return Maximum total number of output tokens the agent can generate across all model calls within a single invocation.
      * 
      */
     public Output<Integer> maxTokens() {

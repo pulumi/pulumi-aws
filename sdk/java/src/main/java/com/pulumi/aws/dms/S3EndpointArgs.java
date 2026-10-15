@@ -20,14 +20,14 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
     public static final S3EndpointArgs Empty = new S3EndpointArgs();
 
     /**
-     * Whether to add column name information to the .csv output file. Default is `false`.
+     * Whether to add column name information to the `.csv` output file. Default is `false`.
      * 
      */
     @Import(name="addColumnName")
     private @Nullable Output<Boolean> addColumnName;
 
     /**
-     * @return Whether to add column name information to the .csv output file. Default is `false`.
+     * @return Whether to add column name information to the `.csv` output file. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> addColumnName() {
@@ -95,14 +95,14 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
+     * Whether to write insert and update operations to `.csv` or .parquet output files. Default is `false`.
      * 
      */
     @Import(name="cdcInsertsAndUpdates")
     private @Nullable Output<Boolean> cdcInsertsAndUpdates;
 
     /**
-     * @return Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
+     * @return Whether to write insert and update operations to `.csv` or .parquet output files. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> cdcInsertsAndUpdates() {
@@ -110,14 +110,14 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether to write insert operations to .csv or .parquet output files. Default is `false`.
+     * Whether to write insert operations to `.csv` or .parquet output files. Default is `false`.
      * 
      */
     @Import(name="cdcInsertsOnly")
     private @Nullable Output<Boolean> cdcInsertsOnly;
 
     /**
-     * @return Whether to write insert operations to .csv or .parquet output files. Default is `false`.
+     * @return Whether to write insert operations to `.csv` or .parquet output files. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> cdcInsertsOnly() {
@@ -215,14 +215,14 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Only applies if output files for a CDC load are written in .csv format. If `useCsvNoSupValue` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `useCsvNoSupValue`. (Ignored for source endpoints.)
+     * Only applies if output files for a CDC load are written in `.csv` format. If `useCsvNoSupValue` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `useCsvNoSupValue`. (Ignored for source endpoints.)
      * 
      */
     @Import(name="csvNoSupValue")
     private @Nullable Output<String> csvNoSupValue;
 
     /**
-     * @return Only applies if output files for a CDC load are written in .csv format. If `useCsvNoSupValue` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `useCsvNoSupValue`. (Ignored for source endpoints.)
+     * @return Only applies if output files for a CDC load are written in `.csv` format. If `useCsvNoSupValue` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `useCsvNoSupValue`. (Ignored for source endpoints.)
      * 
      */
     public Optional<Output<String>> csvNoSupValue() {
@@ -410,14 +410,14 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
+     * Server-side encryption mode that you want to encrypt your `.csv` or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
      * 
      */
     @Import(name="encryptionMode")
     private @Nullable Output<String> encryptionMode;
 
     /**
-     * @return Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
+     * @return Server-side encryption mode that you want to encrypt your `.csv` or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
      * 
      */
     public Optional<Output<String>> encryptionMode() {
@@ -500,14 +500,14 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
+     * When this value is set to `1`, DMS ignores the first row header in a `.csv` file. (AWS default is `0`.)
      * 
      */
     @Import(name="ignoreHeaderRows")
     private @Nullable Output<Integer> ignoreHeaderRows;
 
     /**
-     * @return When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
+     * @return When this value is set to `1`, DMS ignores the first row header in a `.csv` file. (AWS default is `0`.)
      * 
      */
     public Optional<Output<Integer>> ignoreHeaderRows() {
@@ -515,14 +515,14 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
+     * Whether to enable a full load to write INSERT operations to the `.csv` output files only to indicate how the rows were added to the source database. Default is `false`.
      * 
      */
     @Import(name="includeOpForFullLoad")
     private @Nullable Output<Boolean> includeOpForFullLoad;
 
     /**
-     * @return Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
+     * @return Whether to enable a full load to write INSERT operations to the `.csv` output files only to indicate how the rows were added to the source database. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> includeOpForFullLoad() {
@@ -553,14 +553,14 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
+     * Maximum size (in KB) of any `.csv` file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
      * 
      */
     @Import(name="maxFileSize")
     private @Nullable Output<Integer> maxFileSize;
 
     /**
-     * @return Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
+     * @return Maximum size (in KB) of any `.csv` file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
      * 
      */
     public Optional<Output<Integer>> maxFileSize() {
@@ -839,7 +839,7 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param addColumnName Whether to add column name information to the .csv output file. Default is `false`.
+         * @param addColumnName Whether to add column name information to the `.csv` output file. Default is `false`.
          * 
          * @return builder
          * 
@@ -850,7 +850,7 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param addColumnName Whether to add column name information to the .csv output file. Default is `false`.
+         * @param addColumnName Whether to add column name information to the `.csv` output file. Default is `false`.
          * 
          * @return builder
          * 
@@ -944,7 +944,7 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cdcInsertsAndUpdates Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
+         * @param cdcInsertsAndUpdates Whether to write insert and update operations to `.csv` or .parquet output files. Default is `false`.
          * 
          * @return builder
          * 
@@ -955,7 +955,7 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cdcInsertsAndUpdates Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
+         * @param cdcInsertsAndUpdates Whether to write insert and update operations to `.csv` or .parquet output files. Default is `false`.
          * 
          * @return builder
          * 
@@ -965,7 +965,7 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cdcInsertsOnly Whether to write insert operations to .csv or .parquet output files. Default is `false`.
+         * @param cdcInsertsOnly Whether to write insert operations to `.csv` or .parquet output files. Default is `false`.
          * 
          * @return builder
          * 
@@ -976,7 +976,7 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cdcInsertsOnly Whether to write insert operations to .csv or .parquet output files. Default is `false`.
+         * @param cdcInsertsOnly Whether to write insert operations to `.csv` or .parquet output files. Default is `false`.
          * 
          * @return builder
          * 
@@ -1112,7 +1112,7 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param csvNoSupValue Only applies if output files for a CDC load are written in .csv format. If `useCsvNoSupValue` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `useCsvNoSupValue`. (Ignored for source endpoints.)
+         * @param csvNoSupValue Only applies if output files for a CDC load are written in `.csv` format. If `useCsvNoSupValue` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `useCsvNoSupValue`. (Ignored for source endpoints.)
          * 
          * @return builder
          * 
@@ -1123,7 +1123,7 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param csvNoSupValue Only applies if output files for a CDC load are written in .csv format. If `useCsvNoSupValue` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `useCsvNoSupValue`. (Ignored for source endpoints.)
+         * @param csvNoSupValue Only applies if output files for a CDC load are written in `.csv` format. If `useCsvNoSupValue` is set to `true`, string to use for all columns not included in the supplemental log. If you do not specify a string value, DMS uses the null value for these columns regardless of `useCsvNoSupValue`. (Ignored for source endpoints.)
          * 
          * @return builder
          * 
@@ -1385,7 +1385,7 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionMode Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
+         * @param encryptionMode Server-side encryption mode that you want to encrypt your `.csv` or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
          * 
          * @return builder
          * 
@@ -1396,7 +1396,7 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionMode Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
+         * @param encryptionMode Server-side encryption mode that you want to encrypt your `.csv` or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
          * 
          * @return builder
          * 
@@ -1511,7 +1511,7 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ignoreHeaderRows When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
+         * @param ignoreHeaderRows When this value is set to `1`, DMS ignores the first row header in a `.csv` file. (AWS default is `0`.)
          * 
          * @return builder
          * 
@@ -1522,7 +1522,7 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ignoreHeaderRows When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
+         * @param ignoreHeaderRows When this value is set to `1`, DMS ignores the first row header in a `.csv` file. (AWS default is `0`.)
          * 
          * @return builder
          * 
@@ -1532,7 +1532,7 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param includeOpForFullLoad Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
+         * @param includeOpForFullLoad Whether to enable a full load to write INSERT operations to the `.csv` output files only to indicate how the rows were added to the source database. Default is `false`.
          * 
          * @return builder
          * 
@@ -1543,7 +1543,7 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param includeOpForFullLoad Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
+         * @param includeOpForFullLoad Whether to enable a full load to write INSERT operations to the `.csv` output files only to indicate how the rows were added to the source database. Default is `false`.
          * 
          * @return builder
          * 
@@ -1582,7 +1582,7 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxFileSize Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
+         * @param maxFileSize Maximum size (in KB) of any `.csv` file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
          * 
          * @return builder
          * 
@@ -1593,7 +1593,7 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxFileSize Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
+         * @param maxFileSize Maximum size (in KB) of any `.csv` file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
          * 
          * @return builder
          * 

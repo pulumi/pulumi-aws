@@ -110,7 +110,7 @@ namespace Pulumi.Aws.WorkSpacesWeb
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
+        /// The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet IDs must be specified.
         /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
@@ -207,7 +207,7 @@ namespace Pulumi.Aws.WorkSpacesWeb
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
+        /// The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet IDs must be specified.
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -283,7 +283,7 @@ namespace Pulumi.Aws.WorkSpacesWeb
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet ids must be specified.
+        /// The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two subnet IDs must be specified.
         /// </summary>
         public InputList<string> SubnetIds
         {

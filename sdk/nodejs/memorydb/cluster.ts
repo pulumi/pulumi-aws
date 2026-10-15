@@ -68,11 +68,11 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the Access Control List to associate with the cluster.
+     * Name of the Access Control List to associate with the cluster.
      */
     declare public readonly aclName: pulumi.Output<string>;
     /**
-     * The ARN of the cluster.
+     * ARN of the cluster.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -89,7 +89,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+     * Engine that will run on your nodes. Supported values are `redis` and `valkey`.
      */
     declare public readonly engine: pulumi.Output<string>;
     /**
@@ -113,11 +113,11 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
     /**
-     * Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+     * Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
      */
     declare public readonly maintenanceWindow: pulumi.Output<string>;
     /**
-     * The multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
+     * Multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
      */
     declare public readonly multiRegionClusterName: pulumi.Output<string | undefined>;
     /**
@@ -133,25 +133,25 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly networkType: pulumi.Output<string>;
     /**
-     * The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+     * Compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
      *
      * The following arguments are optional:
      */
     declare public readonly nodeType: pulumi.Output<string>;
     /**
-     * The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
+     * Number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
      */
     declare public readonly numReplicasPerShard: pulumi.Output<number | undefined>;
     /**
-     * The number of shards in the cluster. Defaults to `1`.
+     * Number of shards in the cluster. Defaults to `1`.
      */
     declare public readonly numShards: pulumi.Output<number | undefined>;
     /**
-     * The name of the parameter group associated with the cluster.
+     * Name of the parameter group associated with the cluster.
      */
     declare public readonly parameterGroupName: pulumi.Output<string>;
     /**
-     * The port number on which each of the nodes accepts connections. Defaults to `6379`.
+     * Port number on which each of the nodes accepts connections. Defaults to `6379`.
      */
     declare public readonly port: pulumi.Output<number>;
     /**
@@ -171,15 +171,15 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly snapshotArns: pulumi.Output<string[] | undefined>;
     /**
-     * The name of a snapshot from which to restore data into the new cluster.
+     * Name of a snapshot from which to restore data into the new cluster.
      */
     declare public readonly snapshotName: pulumi.Output<string | undefined>;
     /**
-     * The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
+     * Number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
      */
     declare public readonly snapshotRetentionLimit: pulumi.Output<number>;
     /**
-     * The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
+     * Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
      */
     declare public readonly snapshotWindow: pulumi.Output<string>;
     /**
@@ -187,19 +187,19 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly snsTopicArn: pulumi.Output<string | undefined>;
     /**
-     * The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
+     * Name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
      */
     declare public readonly subnetGroupName: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * A flag to enable in-transit encryption on the cluster. When set to `false`, the `aclName` must be `open-access`. Defaults to `true`.
+     * Whether to enable in-transit encryption on the cluster. When set to `false`, the `aclName` must be `open-access`. Defaults to `true`.
      */
     declare public readonly tlsEnabled: pulumi.Output<boolean | undefined>;
 
@@ -303,11 +303,11 @@ export class Cluster extends pulumi.CustomResource {
  */
 export interface ClusterState {
     /**
-     * The name of the Access Control List to associate with the cluster.
+     * Name of the Access Control List to associate with the cluster.
      */
     aclName?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the cluster.
+     * ARN of the cluster.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -324,7 +324,7 @@ export interface ClusterState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+     * Engine that will run on your nodes. Supported values are `redis` and `valkey`.
      */
     engine?: pulumi.Input<string | undefined>;
     /**
@@ -348,11 +348,11 @@ export interface ClusterState {
      */
     kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+     * Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
      */
     maintenanceWindow?: pulumi.Input<string | undefined>;
     /**
-     * The multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
+     * Multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
      */
     multiRegionClusterName?: pulumi.Input<string | undefined>;
     /**
@@ -368,25 +368,25 @@ export interface ClusterState {
      */
     networkType?: pulumi.Input<string | undefined>;
     /**
-     * The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+     * Compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
      *
      * The following arguments are optional:
      */
     nodeType?: pulumi.Input<string | undefined>;
     /**
-     * The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
+     * Number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
      */
     numReplicasPerShard?: pulumi.Input<number | undefined>;
     /**
-     * The number of shards in the cluster. Defaults to `1`.
+     * Number of shards in the cluster. Defaults to `1`.
      */
     numShards?: pulumi.Input<number | undefined>;
     /**
-     * The name of the parameter group associated with the cluster.
+     * Name of the parameter group associated with the cluster.
      */
     parameterGroupName?: pulumi.Input<string | undefined>;
     /**
-     * The port number on which each of the nodes accepts connections. Defaults to `6379`.
+     * Port number on which each of the nodes accepts connections. Defaults to `6379`.
      */
     port?: pulumi.Input<number | undefined>;
     /**
@@ -406,15 +406,15 @@ export interface ClusterState {
      */
     snapshotArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The name of a snapshot from which to restore data into the new cluster.
+     * Name of a snapshot from which to restore data into the new cluster.
      */
     snapshotName?: pulumi.Input<string | undefined>;
     /**
-     * The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
+     * Number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
      */
     snapshotRetentionLimit?: pulumi.Input<number | undefined>;
     /**
-     * The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
+     * Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
      */
     snapshotWindow?: pulumi.Input<string | undefined>;
     /**
@@ -422,19 +422,19 @@ export interface ClusterState {
      */
     snsTopicArn?: pulumi.Input<string | undefined>;
     /**
-     * The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
+     * Name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
      */
     subnetGroupName?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A flag to enable in-transit encryption on the cluster. When set to `false`, the `aclName` must be `open-access`. Defaults to `true`.
+     * Whether to enable in-transit encryption on the cluster. When set to `false`, the `aclName` must be `open-access`. Defaults to `true`.
      */
     tlsEnabled?: pulumi.Input<boolean | undefined>;
 }
@@ -444,7 +444,7 @@ export interface ClusterState {
  */
 export interface ClusterArgs {
     /**
-     * The name of the Access Control List to associate with the cluster.
+     * Name of the Access Control List to associate with the cluster.
      */
     aclName: pulumi.Input<string>;
     /**
@@ -460,7 +460,7 @@ export interface ClusterArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+     * Engine that will run on your nodes. Supported values are `redis` and `valkey`.
      */
     engine?: pulumi.Input<string | undefined>;
     /**
@@ -480,11 +480,11 @@ export interface ClusterArgs {
      */
     kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+     * Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
      */
     maintenanceWindow?: pulumi.Input<string | undefined>;
     /**
-     * The multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
+     * Multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
      */
     multiRegionClusterName?: pulumi.Input<string | undefined>;
     /**
@@ -500,25 +500,25 @@ export interface ClusterArgs {
      */
     networkType?: pulumi.Input<string | undefined>;
     /**
-     * The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+     * Compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
      *
      * The following arguments are optional:
      */
     nodeType: pulumi.Input<string>;
     /**
-     * The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
+     * Number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
      */
     numReplicasPerShard?: pulumi.Input<number | undefined>;
     /**
-     * The number of shards in the cluster. Defaults to `1`.
+     * Number of shards in the cluster. Defaults to `1`.
      */
     numShards?: pulumi.Input<number | undefined>;
     /**
-     * The name of the parameter group associated with the cluster.
+     * Name of the parameter group associated with the cluster.
      */
     parameterGroupName?: pulumi.Input<string | undefined>;
     /**
-     * The port number on which each of the nodes accepts connections. Defaults to `6379`.
+     * Port number on which each of the nodes accepts connections. Defaults to `6379`.
      */
     port?: pulumi.Input<number | undefined>;
     /**
@@ -534,15 +534,15 @@ export interface ClusterArgs {
      */
     snapshotArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The name of a snapshot from which to restore data into the new cluster.
+     * Name of a snapshot from which to restore data into the new cluster.
      */
     snapshotName?: pulumi.Input<string | undefined>;
     /**
-     * The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
+     * Number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
      */
     snapshotRetentionLimit?: pulumi.Input<number | undefined>;
     /**
-     * The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
+     * Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
      */
     snapshotWindow?: pulumi.Input<string | undefined>;
     /**
@@ -550,15 +550,15 @@ export interface ClusterArgs {
      */
     snsTopicArn?: pulumi.Input<string | undefined>;
     /**
-     * The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
+     * Name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
      */
     subnetGroupName?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A flag to enable in-transit encryption on the cluster. When set to `false`, the `aclName` must be `open-access`. Defaults to `true`.
+     * Whether to enable in-transit encryption on the cluster. When set to `false`, the `aclName` must be `open-access`. Defaults to `true`.
      */
     tlsEnabled?: pulumi.Input<boolean | undefined>;
 }

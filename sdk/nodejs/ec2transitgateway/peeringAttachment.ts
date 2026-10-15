@@ -76,9 +76,9 @@ export class PeeringAttachment extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+     * Block describing whether dynamic routing is enabled or disabled for the transit gateway peering request. If not configured, the value is populated from the API. See options below for more details!
      */
-    declare public readonly options: pulumi.Output<outputs.ec2transitgateway.PeeringAttachmentOptions | undefined>;
+    declare public readonly options: pulumi.Output<outputs.ec2transitgateway.PeeringAttachmentOptions>;
     /**
      * Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
      */
@@ -168,7 +168,7 @@ export interface PeeringAttachmentState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+     * Block describing whether dynamic routing is enabled or disabled for the transit gateway peering request. If not configured, the value is populated from the API. See options below for more details!
      */
     options?: pulumi.Input<inputs.ec2transitgateway.PeeringAttachmentOptions | undefined>;
     /**
@@ -207,7 +207,7 @@ export interface PeeringAttachmentState {
  */
 export interface PeeringAttachmentArgs {
     /**
-     * Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+     * Block describing whether dynamic routing is enabled or disabled for the transit gateway peering request. If not configured, the value is populated from the API. See options below for more details!
      */
     options?: pulumi.Input<inputs.ec2transitgateway.PeeringAttachmentOptions | undefined>;
     /**

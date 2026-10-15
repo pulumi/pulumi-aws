@@ -19,13 +19,13 @@ namespace Pulumi.Aws.MskConnect.Inputs
         public Input<string> BucketArn { get; set; } = null!;
 
         /// <summary>
-        /// The file key for an object in an S3 bucket.
+        /// File key for an object in an S3 bucket.
         /// </summary>
         [Input("fileKey", required: true)]
         public Input<string> FileKey { get; set; } = null!;
 
         /// <summary>
-        /// The version of an object in an S3 bucket.
+        /// Version of an object in an S3 bucket.
         /// </summary>
         [Input("objectVersion")]
         public Input<string>? ObjectVersion { get; set; }

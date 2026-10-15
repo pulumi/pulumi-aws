@@ -207,14 +207,14 @@ public class Method extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.authorizationScopes);
     }
     /**
-     * Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+     * Authorizer ID to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
      * 
      */
     @Export(name="authorizerId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> authorizerId;
 
     /**
-     * @return Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+     * @return Authorizer ID to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
      * 
      */
     public Output<Optional<String>> authorizerId() {

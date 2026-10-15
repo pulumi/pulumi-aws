@@ -13,7 +13,13 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings
     {
+        /// <summary>
+        /// When set to `Upconvert`, 608 data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper and translated into 708. 708 data present in the source content is discarded.
+        /// </summary>
         public readonly string? Convert608To708;
+        /// <summary>
+        /// 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
+        /// </summary>
         public readonly int? Source608ChannelNumber;
 
         [OutputConstructor]

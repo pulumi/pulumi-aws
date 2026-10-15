@@ -10,11 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Manages an AWS Bedrock AgentCore Memory Strategy. Memory strategies define how the agent processes and organizes information within a memory, such as semantic understanding, summarization, or custom processing logic.
  *
- * **Important Limitations:**
- *
- * - Each memory can have a maximum of 6 strategies total
- * - Only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory
- * - Multiple `CUSTOM` strategies are allowed (subject to the total limit of 6)
+ * > **Note:** Each memory can have a maximum of 6 strategies. Only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory. Multiple `CUSTOM` strategies are allowed, subject to the total limit of 6.
  *
  * ## Example Usage
  *
@@ -25,7 +21,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const semantic = new aws.bedrock.AgentcoreMemoryStrategy("semantic", {
- *     name: "semantic-strategy",
+ *     name: "semantic_strategy",
  *     memoryId: example.id,
  *     type: "SEMANTIC",
  *     description: "Semantic understanding strategy",
@@ -40,7 +36,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const summary = new aws.bedrock.AgentcoreMemoryStrategy("summary", {
- *     name: "summary-strategy",
+ *     name: "summary_strategy",
  *     memoryId: example.id,
  *     type: "SUMMARIZATION",
  *     description: "Text summarization strategy",
@@ -55,7 +51,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const userPref = new aws.bedrock.AgentcoreMemoryStrategy("user_pref", {
- *     name: "user-preference-strategy",
+ *     name: "user_preference_strategy",
  *     memoryId: example.id,
  *     type: "USER_PREFERENCE",
  *     description: "User preference tracking strategy",
@@ -70,7 +66,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const episodic = new aws.bedrock.AgentcoreMemoryStrategy("episodic", {
- *     name: "episodic-strategy",
+ *     name: "episodic_strategy",
  *     memoryId: example.id,
  *     type: "EPISODIC",
  *     description: "Episodic memory strategy",
@@ -96,7 +92,7 @@ import * as utilities from "../utilities";
  *         },
  *         type: "SEMANTIC_OVERRIDE",
  *     },
- *     name: "custom-semantic-strategy",
+ *     name: "custom_semantic_strategy",
  *     memoryId: example.id,
  *     memoryExecutionRoleArn: example.memoryExecutionRoleArn,
  *     type: "CUSTOM",
@@ -119,7 +115,7 @@ import * as utilities from "../utilities";
  *         },
  *         type: "SUMMARY_OVERRIDE",
  *     },
- *     name: "custom-summary-strategy",
+ *     name: "custom_summary_strategy",
  *     memoryId: example.id,
  *     type: "CUSTOM",
  *     description: "Custom summarization strategy",
@@ -145,7 +141,7 @@ import * as utilities from "../utilities";
  *         },
  *         type: "USER_PREFERENCE_OVERRIDE",
  *     },
- *     name: "custom-user-preference-strategy",
+ *     name: "custom_user_preference_strategy",
  *     memoryId: example.id,
  *     type: "CUSTOM",
  *     description: "Custom user preference tracking strategy",
@@ -169,9 +165,14 @@ import * as utilities from "../utilities";
  *             appendToPrompt: "Extract key events and episodes from interactions",
  *             modelId: "anthropic.claude-3-haiku-20240307-v1:0",
  *         },
+ *         reflection: {
+ *             appendToPrompt: "Reflect on episodes to derive cross-session insights",
+ *             modelId: "anthropic.claude-3-sonnet-20240229-v1:0",
+ *             namespaceTemplates: ["/strategies/{memoryStrategyId}/actors/{actorId}"],
+ *         },
  *         type: "EPISODIC_OVERRIDE",
  *     },
- *     name: "custom-episodic-strategy",
+ *     name: "custom_episodic_strategy",
  *     memoryId: example.id,
  *     memoryExecutionRoleArn: example.memoryExecutionRoleArn,
  *     type: "CUSTOM",
@@ -188,51 +189,21 @@ import * as utilities from "../utilities";
  *
  * const selfManaged = new aws.bedrock.AgentcoreMemoryStrategy("self_managed", {
  *     configuration: {
- *         selfManaged: [{
- *             invocationConfiguration: [{
- *                 topicArn: example.arn,
- *                 payloadDeliveryBucketName: exampleAwsS3Bucket.bucket,
- *             }],
- *             triggerConditions: [{
- *                 messageBasedTrigger: [{
- *                     messageCount: 12,
- *                 }],
- *             }],
- *             historicalContextWindowSize: 10,
- *         }],
- *         type: "SELF_MANAGED",
- *     },
- *     name: "self-managed-strategy",
- *     memoryId: exampleAwsBedrockagentcoreMemory.id,
- *     memoryExecutionRoleArn: exampleAwsBedrockagentcoreMemory.memoryExecutionRoleArn,
- *     type: "CUSTOM",
- *     description: "Self-managed processing strategy",
- * });
- * ```
- *
- * ### Custom Strategy with Self-Managed Configuration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const selfManaged = new aws.bedrock.AgentcoreMemoryStrategy("self_managed", {
- *     configuration: {
  *         selfManagedConfiguration: {
+ *             triggerConditions: {
+ *                 messageBasedTrigger: {
+ *                     messageCount: 12,
+ *                 },
+ *             },
  *             invocationConfiguration: {
  *                 topicArn: example.arn,
  *                 payloadDeliveryBucketName: exampleAwsS3Bucket.bucket,
  *             },
- *             triggerCondition: [{
- *                 messageBasedTrigger: [{
- *                     messageCount: 12,
- *                 }],
- *             }],
  *             historicalContextWindowSize: 10,
  *         },
  *         type: "SELF_MANAGED",
  *     },
- *     name: "self-managed-strategy",
+ *     name: "self_managed_strategy",
  *     memoryId: exampleAwsBedrockagentcoreMemory.id,
  *     memoryExecutionRoleArn: exampleAwsBedrockagentcoreMemory.memoryExecutionRoleArn,
  *     type: "CUSTOM",
@@ -251,7 +222,7 @@ import * as utilities from "../utilities";
  *
  * #### Optional
  *
- * * `accountId` (String) Account ID where this resource is managed.
+ * * `accountId` (String) AWS Account where this resource is managed.
  * * `region` (String) Region where this resource is managed.
  *
  * Using `pulumi import`, import memory strategies using `memoryId` and `memoryStrategyId` separated by a comma (`,`). For example:
@@ -319,11 +290,11 @@ export class AgentcoreMemoryStrategy extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured for all strategies except `CUSTOM` strategies using `SELF_MANAGED` configuration.
+     * Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured, except for `CUSTOM` strategies using `SELF_MANAGED` configuration, where neither can be configured.
      */
     declare public readonly namespaceTemplates: pulumi.Output<string[]>;
     /**
-     * Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
+     * Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured, except for `CUSTOM` strategies using `SELF_MANAGED` configuration, where neither can be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
      *
      * @deprecated namespaces is deprecated. Use namespaceTemplates instead.
      */
@@ -432,11 +403,11 @@ export interface AgentcoreMemoryStrategyState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured for all strategies except `CUSTOM` strategies using `SELF_MANAGED` configuration.
+     * Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured, except for `CUSTOM` strategies using `SELF_MANAGED` configuration, where neither can be configured.
      */
     namespaceTemplates?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
+     * Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured, except for `CUSTOM` strategies using `SELF_MANAGED` configuration, where neither can be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
      *
      * @deprecated namespaces is deprecated. Use namespaceTemplates instead.
      */
@@ -489,11 +460,11 @@ export interface AgentcoreMemoryStrategyArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured for all strategies except `CUSTOM` strategies using `SELF_MANAGED` configuration.
+     * Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured, except for `CUSTOM` strategies using `SELF_MANAGED` configuration, where neither can be configured.
      */
     namespaceTemplates?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
+     * Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured, except for `CUSTOM` strategies using `SELF_MANAGED` configuration, where neither can be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
      *
      * @deprecated namespaces is deprecated. Use namespaceTemplates instead.
      */

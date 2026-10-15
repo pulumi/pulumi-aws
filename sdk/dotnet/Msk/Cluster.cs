@@ -352,31 +352,31 @@ namespace Pulumi.Aws.Msk
         public Output<string> BootstrapBrokersTlsIpv6 { get; private set; } = null!;
 
         /// <summary>
-        /// A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+        /// One or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
         [Output("bootstrapBrokersVpcConnectivitySaslIam")]
         public Output<string> BootstrapBrokersVpcConnectivitySaslIam { get; private set; } = null!;
 
         /// <summary>
-        /// A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+        /// One or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
         [Output("bootstrapBrokersVpcConnectivitySaslScram")]
         public Output<string> BootstrapBrokersVpcConnectivitySaslScram { get; private set; } = null!;
 
         /// <summary>
-        /// A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+        /// One or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
         [Output("bootstrapBrokersVpcConnectivityTls")]
         public Output<string> BootstrapBrokersVpcConnectivityTls { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for the broker nodes of the Kafka cluster. See BrokerNodeGroupInfo Argument Reference below.
+        /// Configuration block for the broker nodes of the Kafka cluster. See `BrokerNodeGroupInfo` Block below.
         /// </summary>
         [Output("brokerNodeGroupInfo")]
         public Output<Outputs.ClusterBrokerNodeGroupInfo> BrokerNodeGroupInfo { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for specifying a client authentication. See ClientAuthentication Argument Reference below.
+        /// Configuration block for specifying a client authentication. See `ClientAuthentication` Block below.
         /// </summary>
         [Output("clientAuthentication")]
         public Output<Outputs.ClusterClientAuthentication?> ClientAuthentication { get; private set; } = null!;
@@ -394,7 +394,7 @@ namespace Pulumi.Aws.Msk
         public Output<string> ClusterUuid { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See ConfigurationInfo Argument Reference below.
+        /// Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See `ConfigurationInfo` Block below.
         /// </summary>
         [Output("configurationInfo")]
         public Output<Outputs.ClusterConfigurationInfo?> ConfigurationInfo { get; private set; } = null!;
@@ -412,43 +412,43 @@ namespace Pulumi.Aws.Msk
         public Output<string> CustomerActionStatus { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for specifying encryption. See EncryptionInfo Argument Reference below.
+        /// Configuration block for specifying encryption. See `EncryptionInfo` Block below.
         /// </summary>
         [Output("encryptionInfo")]
         public Output<Outputs.ClusterEncryptionInfo?> EncryptionInfo { get; private set; } = null!;
 
         /// <summary>
-        /// Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
+        /// Desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html).
         /// </summary>
         [Output("enhancedMonitoring")]
         public Output<string?> EnhancedMonitoring { get; private set; } = null!;
 
         /// <summary>
-        /// Specify the desired Kafka software version.
+        /// Desired Kafka software version.
         /// </summary>
         [Output("kafkaVersion")]
         public Output<string> KafkaVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See LoggingInfo Argument Reference below.
+        /// Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See `LoggingInfo` Block below.
         /// </summary>
         [Output("loggingInfo")]
         public Output<Outputs.ClusterLoggingInfo?> LoggingInfo { get; private set; } = null!;
 
         /// <summary>
-        /// The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
+        /// Desired total number of broker nodes in the kafka cluster. It must be a multiple of the number of specified client subnets.
         /// </summary>
         [Output("numberOfBrokerNodes")]
         public Output<int> NumberOfBrokerNodes { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for JMX and Node monitoring for the MSK cluster. See OpenMonitoring Argument Reference below.
+        /// Configuration block for JMX and Node monitoring for the MSK cluster. See `OpenMonitoring` Block below.
         /// </summary>
         [Output("openMonitoring")]
         public Output<Outputs.ClusterOpenMonitoring?> OpenMonitoring { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+        /// Configuration block for intelligent rebalancing. See `Rebalancing` Block below. Only applicable to MSK Provisioned clusters with Express brokers.
         /// </summary>
         [Output("rebalancing")]
         public Output<Outputs.ClusterRebalancing> Rebalancing { get; private set; } = null!;
@@ -466,25 +466,25 @@ namespace Pulumi.Aws.Msk
         public Output<string> StorageMode { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+        /// Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
         /// </summary>
         [Output("zookeeperConnectString")]
         public Output<string> ZookeeperConnectString { get; private set; } = null!;
 
         /// <summary>
-        /// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+        /// Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
         /// </summary>
         [Output("zookeeperConnectStringTls")]
         public Output<string> ZookeeperConnectStringTls { get; private set; } = null!;
@@ -536,13 +536,13 @@ namespace Pulumi.Aws.Msk
     public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block for the broker nodes of the Kafka cluster. See BrokerNodeGroupInfo Argument Reference below.
+        /// Configuration block for the broker nodes of the Kafka cluster. See `BrokerNodeGroupInfo` Block below.
         /// </summary>
         [Input("brokerNodeGroupInfo", required: true)]
         public Input<Inputs.ClusterBrokerNodeGroupInfoArgs> BrokerNodeGroupInfo { get; set; } = null!;
 
         /// <summary>
-        /// Configuration block for specifying a client authentication. See ClientAuthentication Argument Reference below.
+        /// Configuration block for specifying a client authentication. See `ClientAuthentication` Block below.
         /// </summary>
         [Input("clientAuthentication")]
         public Input<Inputs.ClusterClientAuthenticationArgs>? ClientAuthentication { get; set; }
@@ -554,49 +554,49 @@ namespace Pulumi.Aws.Msk
         public Input<string>? ClusterName { get; set; }
 
         /// <summary>
-        /// Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See ConfigurationInfo Argument Reference below.
+        /// Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See `ConfigurationInfo` Block below.
         /// </summary>
         [Input("configurationInfo")]
         public Input<Inputs.ClusterConfigurationInfoArgs>? ConfigurationInfo { get; set; }
 
         /// <summary>
-        /// Configuration block for specifying encryption. See EncryptionInfo Argument Reference below.
+        /// Configuration block for specifying encryption. See `EncryptionInfo` Block below.
         /// </summary>
         [Input("encryptionInfo")]
         public Input<Inputs.ClusterEncryptionInfoArgs>? EncryptionInfo { get; set; }
 
         /// <summary>
-        /// Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
+        /// Desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html).
         /// </summary>
         [Input("enhancedMonitoring")]
         public Input<string>? EnhancedMonitoring { get; set; }
 
         /// <summary>
-        /// Specify the desired Kafka software version.
+        /// Desired Kafka software version.
         /// </summary>
         [Input("kafkaVersion", required: true)]
         public Input<string> KafkaVersion { get; set; } = null!;
 
         /// <summary>
-        /// Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See LoggingInfo Argument Reference below.
+        /// Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See `LoggingInfo` Block below.
         /// </summary>
         [Input("loggingInfo")]
         public Input<Inputs.ClusterLoggingInfoArgs>? LoggingInfo { get; set; }
 
         /// <summary>
-        /// The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
+        /// Desired total number of broker nodes in the kafka cluster. It must be a multiple of the number of specified client subnets.
         /// </summary>
         [Input("numberOfBrokerNodes", required: true)]
         public Input<int> NumberOfBrokerNodes { get; set; } = null!;
 
         /// <summary>
-        /// Configuration block for JMX and Node monitoring for the MSK cluster. See OpenMonitoring Argument Reference below.
+        /// Configuration block for JMX and Node monitoring for the MSK cluster. See `OpenMonitoring` Block below.
         /// </summary>
         [Input("openMonitoring")]
         public Input<Inputs.ClusterOpenMonitoringArgs>? OpenMonitoring { get; set; }
 
         /// <summary>
-        /// Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+        /// Configuration block for intelligent rebalancing. See `Rebalancing` Block below. Only applicable to MSK Provisioned clusters with Express brokers.
         /// </summary>
         [Input("rebalancing")]
         public Input<Inputs.ClusterRebalancingArgs>? Rebalancing { get; set; }
@@ -617,7 +617,7 @@ namespace Pulumi.Aws.Msk
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -706,31 +706,31 @@ namespace Pulumi.Aws.Msk
         public Input<string>? BootstrapBrokersTlsIpv6 { get; set; }
 
         /// <summary>
-        /// A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+        /// One or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
         [Input("bootstrapBrokersVpcConnectivitySaslIam")]
         public Input<string>? BootstrapBrokersVpcConnectivitySaslIam { get; set; }
 
         /// <summary>
-        /// A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+        /// One or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
         [Input("bootstrapBrokersVpcConnectivitySaslScram")]
         public Input<string>? BootstrapBrokersVpcConnectivitySaslScram { get; set; }
 
         /// <summary>
-        /// A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+        /// One or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
         [Input("bootstrapBrokersVpcConnectivityTls")]
         public Input<string>? BootstrapBrokersVpcConnectivityTls { get; set; }
 
         /// <summary>
-        /// Configuration block for the broker nodes of the Kafka cluster. See BrokerNodeGroupInfo Argument Reference below.
+        /// Configuration block for the broker nodes of the Kafka cluster. See `BrokerNodeGroupInfo` Block below.
         /// </summary>
         [Input("brokerNodeGroupInfo")]
         public Input<Inputs.ClusterBrokerNodeGroupInfoGetArgs>? BrokerNodeGroupInfo { get; set; }
 
         /// <summary>
-        /// Configuration block for specifying a client authentication. See ClientAuthentication Argument Reference below.
+        /// Configuration block for specifying a client authentication. See `ClientAuthentication` Block below.
         /// </summary>
         [Input("clientAuthentication")]
         public Input<Inputs.ClusterClientAuthenticationGetArgs>? ClientAuthentication { get; set; }
@@ -748,7 +748,7 @@ namespace Pulumi.Aws.Msk
         public Input<string>? ClusterUuid { get; set; }
 
         /// <summary>
-        /// Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See ConfigurationInfo Argument Reference below.
+        /// Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See `ConfigurationInfo` Block below.
         /// </summary>
         [Input("configurationInfo")]
         public Input<Inputs.ClusterConfigurationInfoGetArgs>? ConfigurationInfo { get; set; }
@@ -766,43 +766,43 @@ namespace Pulumi.Aws.Msk
         public Input<string>? CustomerActionStatus { get; set; }
 
         /// <summary>
-        /// Configuration block for specifying encryption. See EncryptionInfo Argument Reference below.
+        /// Configuration block for specifying encryption. See `EncryptionInfo` Block below.
         /// </summary>
         [Input("encryptionInfo")]
         public Input<Inputs.ClusterEncryptionInfoGetArgs>? EncryptionInfo { get; set; }
 
         /// <summary>
-        /// Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
+        /// Desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html).
         /// </summary>
         [Input("enhancedMonitoring")]
         public Input<string>? EnhancedMonitoring { get; set; }
 
         /// <summary>
-        /// Specify the desired Kafka software version.
+        /// Desired Kafka software version.
         /// </summary>
         [Input("kafkaVersion")]
         public Input<string>? KafkaVersion { get; set; }
 
         /// <summary>
-        /// Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See LoggingInfo Argument Reference below.
+        /// Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See `LoggingInfo` Block below.
         /// </summary>
         [Input("loggingInfo")]
         public Input<Inputs.ClusterLoggingInfoGetArgs>? LoggingInfo { get; set; }
 
         /// <summary>
-        /// The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
+        /// Desired total number of broker nodes in the kafka cluster. It must be a multiple of the number of specified client subnets.
         /// </summary>
         [Input("numberOfBrokerNodes")]
         public Input<int>? NumberOfBrokerNodes { get; set; }
 
         /// <summary>
-        /// Configuration block for JMX and Node monitoring for the MSK cluster. See OpenMonitoring Argument Reference below.
+        /// Configuration block for JMX and Node monitoring for the MSK cluster. See `OpenMonitoring` Block below.
         /// </summary>
         [Input("openMonitoring")]
         public Input<Inputs.ClusterOpenMonitoringGetArgs>? OpenMonitoring { get; set; }
 
         /// <summary>
-        /// Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+        /// Configuration block for intelligent rebalancing. See `Rebalancing` Block below. Only applicable to MSK Provisioned clusters with Express brokers.
         /// </summary>
         [Input("rebalancing")]
         public Input<Inputs.ClusterRebalancingGetArgs>? Rebalancing { get; set; }
@@ -823,7 +823,7 @@ namespace Pulumi.Aws.Msk
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -835,7 +835,7 @@ namespace Pulumi.Aws.Msk
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -844,13 +844,13 @@ namespace Pulumi.Aws.Msk
         }
 
         /// <summary>
-        /// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+        /// Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
         /// </summary>
         [Input("zookeeperConnectString")]
         public Input<string>? ZookeeperConnectString { get; set; }
 
         /// <summary>
-        /// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+        /// Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
         /// </summary>
         [Input("zookeeperConnectStringTls")]
         public Input<string>? ZookeeperConnectStringTls { get; set; }

@@ -154,7 +154,7 @@ class GetClusterResult:
     @pulumi.getter(name="brokerNodeGroupInfos")
     def broker_node_group_infos(self) -> Sequence['outputs.GetClusterBrokerNodeGroupInfoResult']:
         """
-        Configuration block for the broker nodes of the Kafka cluster.
+        Configuration block for the broker nodes of the Kafka cluster. See `broker_node_group_info` Block for details.
         """
         return pulumi.get(self, "broker_node_group_infos")
 
@@ -220,7 +220,7 @@ class GetClusterResult:
     @pulumi.getter(name="zookeeperConnectString")
     def zookeeper_connect_string(self) -> _builtins.str:
         """
-        A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+        Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
         """
         return pulumi.get(self, "zookeeper_connect_string")
 
@@ -228,7 +228,7 @@ class GetClusterResult:
     @pulumi.getter(name="zookeeperConnectStringTls")
     def zookeeper_connect_string_tls(self) -> _builtins.str:
         """
-        A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+        Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
         """
         return pulumi.get(self, "zookeeper_connect_string_tls")
 

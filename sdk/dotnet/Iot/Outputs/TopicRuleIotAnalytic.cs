@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Iot.Outputs
         /// </summary>
         public readonly bool? BatchMode;
         /// <summary>
-        /// Name of AWS IOT Analytics channel.
+        /// Name of AWS IoT Analytics channel.
         /// </summary>
         public readonly string ChannelName;
         /// <summary>

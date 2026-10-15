@@ -18,14 +18,14 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
     public static final RegistryArgs Empty = new RegistryArgs();
 
     /**
-     * A description of the registry.
+     * Description of the registry.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description of the registry.
+     * @return Description of the registry.
      * 
      */
     public Optional<Output<String>> description() {
@@ -48,14 +48,14 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Name of the registry.
+     * Name of the registry.
      * 
      */
     @Import(name="registryName", required=true)
     private Output<String> registryName;
 
     /**
-     * @return The Name of the registry.
+     * @return Name of the registry.
      * 
      */
     public Output<String> registryName() {
@@ -105,7 +105,7 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the registry.
+         * @param description Description of the registry.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the registry.
+         * @param description Description of the registry.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param registryName The Name of the registry.
+         * @param registryName Name of the registry.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param registryName The Name of the registry.
+         * @param registryName Name of the registry.
          * 
          * @return builder
          * 

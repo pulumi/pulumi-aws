@@ -58,9 +58,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreRegistry(ctx, "example", &bedrock.AgentcoreRegistryArgs{
-//				Name:         pulumi.String("example_registry"),
-//				Description:  pulumi.String("MCP servers and tools for the platform team"),
-//				AutoApproval: true,
+//				ApprovalConfigurations: bedrock.AgentcoreRegistryApprovalConfigurationArray{
+//					&bedrock.AgentcoreRegistryApprovalConfigurationArgs{
+//						AutoApproval: pulumi.Bool(true),
+//					},
+//				},
+//				Name:        pulumi.String("example_registry"),
+//				Description: pulumi.String("MCP servers and tools for the platform team"),
 //			})
 //			if err != nil {
 //				return err
@@ -115,12 +119,12 @@ import (
 //
 // #### Required
 //
-// - `registryId` (String) Registry ID.
+// * `registryId` (String) Registry ID.
 //
 // #### Optional
 //
-// * `accountId` (String) AWS account ID for this resource.
-// * `region` (String) AWS Region for this resource.
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
 //
 // Using `pulumi import`, import a Bedrock AgentCore Registry by registry ID. For example:
 //
@@ -138,7 +142,7 @@ type AgentcoreRegistry struct {
 	AuthorizerType pulumi.StringOutput `pulumi:"authorizerType"`
 	// Description of the registry.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+	// Name of the registry. Must be unique within your account, start with a letter or number, and contain only letters, numbers, underscores, hyphens, periods, and forward slashes. Maximum length of 64 characters.
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -189,7 +193,7 @@ type agentcoreRegistryState struct {
 	AuthorizerType *string `pulumi:"authorizerType"`
 	// Description of the registry.
 	Description *string `pulumi:"description"`
-	// Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+	// Name of the registry. Must be unique within your account, start with a letter or number, and contain only letters, numbers, underscores, hyphens, periods, and forward slashes. Maximum length of 64 characters.
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
@@ -211,7 +215,7 @@ type AgentcoreRegistryState struct {
 	AuthorizerType pulumi.StringPtrInput
 	// Description of the registry.
 	Description pulumi.StringPtrInput
-	// Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+	// Name of the registry. Must be unique within your account, start with a letter or number, and contain only letters, numbers, underscores, hyphens, periods, and forward slashes. Maximum length of 64 characters.
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
@@ -237,7 +241,7 @@ type agentcoreRegistryArgs struct {
 	AuthorizerType *string `pulumi:"authorizerType"`
 	// Description of the registry.
 	Description *string `pulumi:"description"`
-	// Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+	// Name of the registry. Must be unique within your account, start with a letter or number, and contain only letters, numbers, underscores, hyphens, periods, and forward slashes. Maximum length of 64 characters.
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
@@ -256,7 +260,7 @@ type AgentcoreRegistryArgs struct {
 	AuthorizerType pulumi.StringPtrInput
 	// Description of the registry.
 	Description pulumi.StringPtrInput
-	// Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+	// Name of the registry. Must be unique within your account, start with a letter or number, and contain only letters, numbers, underscores, hyphens, periods, and forward slashes. Maximum length of 64 characters.
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
@@ -376,7 +380,7 @@ func (o AgentcoreRegistryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreRegistry) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+// Name of the registry. Must be unique within your account, start with a letter or number, and contain only letters, numbers, underscores, hyphens, periods, and forward slashes. Maximum length of 64 characters.
 //
 // The following arguments are optional:
 func (o AgentcoreRegistryOutput) Name() pulumi.StringOutput {

@@ -217,7 +217,7 @@ def get_rest_api(name: Optional[_builtins.str] = None,
                  tags: Optional[Mapping[str, _builtins.str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRestApiResult:
     """
-    Use this data source to get the id and root_resource_id of a REST API in
+    Use this data source to get the ID and root_resource_id of a REST API in
     API Gateway. To fetch the REST API you must provide a name to match against.
     As there is no unique name constraint on REST APIs this data source will
     error if there is more than one match.
@@ -264,7 +264,7 @@ def get_rest_api_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                         tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRestApiResult]:
     """
-    Use this data source to get the id and root_resource_id of a REST API in
+    Use this data source to get the ID and root_resource_id of a REST API in
     API Gateway. To fetch the REST API you must provide a name to match against.
     As there is no unique name constraint on REST APIs this data source will
     error if there is more than one match.

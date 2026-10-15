@@ -16,7 +16,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Log subscription for AWS Directory Service that pushes logs to cloudwatch.
+ * Provides a Log subscription for AWS Directory Service that pushes logs to CloudWatch.
  * 
  * ## Example Usage
  * 
@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Directory Service Log Subscriptions using the directory id. For example:
+ * Using `pulumi import`, import Directory Service Log Subscriptions using the directory ID. For example:
  * 
  * ```sh
  * $ pulumi import aws:directoryservice/logSubscription:LogSubscription msad d-1234567890
@@ -110,14 +110,14 @@ public class LogSubscription extends com.pulumi.resources.CustomResource {
         return this.directoryId;
     }
     /**
-     * Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
+     * Name of the CloudWatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
      * 
      */
     @Export(name="logGroupName", refs={String.class}, tree="[0]")
     private Output<String> logGroupName;
 
     /**
-     * @return Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
+     * @return Name of the CloudWatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
      * 
      */
     public Output<String> logGroupName() {

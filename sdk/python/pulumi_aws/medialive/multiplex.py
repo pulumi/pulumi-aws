@@ -30,14 +30,14 @@ class MultiplexArgs:
         """
         The set of arguments for constructing a Multiplex resource.
 
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: A list of availability zones. You must specify exactly two.
-        :param pulumi.Input['MultiplexMultiplexSettingsArgs'] multiplex_settings: Multiplex settings. See Multiplex Settings for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: List of availability zones. You must specify exactly two.
+        :param pulumi.Input['MultiplexMultiplexSettingsArgs'] multiplex_settings: Multiplex settings. See `multiplex_settings` Block for more details.
         :param pulumi.Input[_builtins.str] name: name of Multiplex.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] start_multiplex: Whether to start the Multiplex. Defaults to `false`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the Multiplex. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the Multiplex. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "availability_zones", availability_zones)
         if multiplex_settings is not None:
@@ -55,7 +55,7 @@ class MultiplexArgs:
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        A list of availability zones. You must specify exactly two.
+        List of availability zones. You must specify exactly two.
         """
         return pulumi.get(self, "availability_zones")
 
@@ -67,7 +67,7 @@ class MultiplexArgs:
     @pulumi.getter(name="multiplexSettings")
     def multiplex_settings(self) -> pulumi.Input[Optional['MultiplexMultiplexSettingsArgs']]:
         """
-        Multiplex settings. See Multiplex Settings for more details.
+        Multiplex settings. See `multiplex_settings` Block for more details.
         """
         return pulumi.get(self, "multiplex_settings")
 
@@ -117,7 +117,7 @@ class MultiplexArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the Multiplex. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the Multiplex. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -141,14 +141,14 @@ class _MultiplexState:
         Input properties used for looking up and filtering Multiplex resources.
 
         :param pulumi.Input[_builtins.str] arn: ARN of the Multiplex.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: A list of availability zones. You must specify exactly two.
-        :param pulumi.Input['MultiplexMultiplexSettingsArgs'] multiplex_settings: Multiplex settings. See Multiplex Settings for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: List of availability zones. You must specify exactly two.
+        :param pulumi.Input['MultiplexMultiplexSettingsArgs'] multiplex_settings: Multiplex settings. See `multiplex_settings` Block for more details.
         :param pulumi.Input[_builtins.str] name: name of Multiplex.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] start_multiplex: Whether to start the Multiplex. Defaults to `false`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the Multiplex. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the Multiplex. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -183,7 +183,7 @@ class _MultiplexState:
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of availability zones. You must specify exactly two.
+        List of availability zones. You must specify exactly two.
         """
         return pulumi.get(self, "availability_zones")
 
@@ -195,7 +195,7 @@ class _MultiplexState:
     @pulumi.getter(name="multiplexSettings")
     def multiplex_settings(self) -> pulumi.Input[Optional['MultiplexMultiplexSettingsArgs']]:
         """
-        Multiplex settings. See Multiplex Settings for more details.
+        Multiplex settings. See `multiplex_settings` Block for more details.
         """
         return pulumi.get(self, "multiplex_settings")
 
@@ -245,7 +245,7 @@ class _MultiplexState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the Multiplex. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the Multiplex. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -328,14 +328,14 @@ class Multiplex(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: A list of availability zones. You must specify exactly two.
-        :param pulumi.Input[Union['MultiplexMultiplexSettingsArgs', 'MultiplexMultiplexSettingsArgsDict', 'outputs.MultiplexMultiplexSettings']] multiplex_settings: Multiplex settings. See Multiplex Settings for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: List of availability zones. You must specify exactly two.
+        :param pulumi.Input[Union['MultiplexMultiplexSettingsArgs', 'MultiplexMultiplexSettingsArgsDict', 'outputs.MultiplexMultiplexSettings']] multiplex_settings: Multiplex settings. See `multiplex_settings` Block for more details.
         :param pulumi.Input[_builtins.str] name: name of Multiplex.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] start_multiplex: Whether to start the Multiplex. Defaults to `false`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the Multiplex. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the Multiplex. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -459,14 +459,14 @@ class Multiplex(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Multiplex.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: A list of availability zones. You must specify exactly two.
-        :param pulumi.Input[Union['MultiplexMultiplexSettingsArgs', 'MultiplexMultiplexSettingsArgsDict', 'outputs.MultiplexMultiplexSettings']] multiplex_settings: Multiplex settings. See Multiplex Settings for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: List of availability zones. You must specify exactly two.
+        :param pulumi.Input[Union['MultiplexMultiplexSettingsArgs', 'MultiplexMultiplexSettingsArgsDict', 'outputs.MultiplexMultiplexSettings']] multiplex_settings: Multiplex settings. See `multiplex_settings` Block for more details.
         :param pulumi.Input[_builtins.str] name: name of Multiplex.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] start_multiplex: Whether to start the Multiplex. Defaults to `false`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the Multiplex. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the Multiplex. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -494,7 +494,7 @@ class Multiplex(pulumi.CustomResource):
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        A list of availability zones. You must specify exactly two.
+        List of availability zones. You must specify exactly two.
         """
         return pulumi.get(self, "availability_zones")
 
@@ -502,7 +502,7 @@ class Multiplex(pulumi.CustomResource):
     @pulumi.getter(name="multiplexSettings")
     def multiplex_settings(self) -> pulumi.Output[Optional['outputs.MultiplexMultiplexSettings']]:
         """
-        Multiplex settings. See Multiplex Settings for more details.
+        Multiplex settings. See `multiplex_settings` Block for more details.
         """
         return pulumi.get(self, "multiplex_settings")
 
@@ -536,7 +536,7 @@ class Multiplex(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the Multiplex. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the Multiplex. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

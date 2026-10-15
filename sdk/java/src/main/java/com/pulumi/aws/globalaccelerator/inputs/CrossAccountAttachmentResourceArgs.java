@@ -31,14 +31,14 @@ public final class CrossAccountAttachmentResourceArgs extends com.pulumi.resourc
     }
 
     /**
-     * The endpoint ID for the endpoint that is specified as a AWS resource.
+     * Endpoint ID for the endpoint that is specified as a AWS resource.
      * 
      */
     @Import(name="endpointId")
     private @Nullable Output<String> endpointId;
 
     /**
-     * @return The endpoint ID for the endpoint that is specified as a AWS resource.
+     * @return Endpoint ID for the endpoint that is specified as a AWS resource.
      * 
      */
     public Optional<Output<String>> endpointId() {
@@ -46,14 +46,14 @@ public final class CrossAccountAttachmentResourceArgs extends com.pulumi.resourc
     }
 
     /**
-     * The AWS Region where a shared endpoint resource is located.
+     * AWS Region where a shared endpoint resource is located.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return The AWS Region where a shared endpoint resource is located.
+     * @return AWS Region where a shared endpoint resource is located.
      * 
      */
     public Optional<Output<String>> region() {
@@ -108,7 +108,7 @@ public final class CrossAccountAttachmentResourceArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param endpointId The endpoint ID for the endpoint that is specified as a AWS resource.
+         * @param endpointId Endpoint ID for the endpoint that is specified as a AWS resource.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class CrossAccountAttachmentResourceArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param endpointId The endpoint ID for the endpoint that is specified as a AWS resource.
+         * @param endpointId Endpoint ID for the endpoint that is specified as a AWS resource.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class CrossAccountAttachmentResourceArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param region The AWS Region where a shared endpoint resource is located.
+         * @param region AWS Region where a shared endpoint resource is located.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class CrossAccountAttachmentResourceArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param region The AWS Region where a shared endpoint resource is located.
+         * @param region AWS Region where a shared endpoint resource is located.
          * 
          * @return builder
          * 

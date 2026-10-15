@@ -19,14 +19,14 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
     public static final ChannelArgs Empty = new ChannelArgs();
 
     /**
-     * A unique identifier describing the channel
+     * Unique identifier describing the channel
      * 
      */
     @Import(name="channelId", required=true)
     private Output<String> channelId;
 
     /**
-     * @return A unique identifier describing the channel
+     * @return Unique identifier describing the channel
      * 
      */
     public Output<String> channelId() {
@@ -34,14 +34,14 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A description of the channel
+     * Description of the channel
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description of the channel
+     * @return Description of the channel
      * 
      */
     public Optional<Output<String>> description() {
@@ -64,14 +64,14 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -106,7 +106,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param channelId A unique identifier describing the channel
+         * @param channelId Unique identifier describing the channel
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param channelId A unique identifier describing the channel
+         * @param channelId Unique identifier describing the channel
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the channel
+         * @param description Description of the channel
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the channel
+         * @param description Description of the channel
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

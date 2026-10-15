@@ -30,7 +30,7 @@ public final class FeatureGroupOnlineStoreConfig {
      */
     private @Nullable String storageType;
     /**
-     * @return Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.
+     * @return Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTL Duration Below.
      * 
      */
     private @Nullable FeatureGroupOnlineStoreConfigTtlDuration ttlDuration;
@@ -58,7 +58,7 @@ public final class FeatureGroupOnlineStoreConfig {
         return Optional.ofNullable(this.storageType);
     }
     /**
-     * @return Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.
+     * @return Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTL Duration Below.
      * 
      */
     public Optional<FeatureGroupOnlineStoreConfigTtlDuration> ttlDuration() {

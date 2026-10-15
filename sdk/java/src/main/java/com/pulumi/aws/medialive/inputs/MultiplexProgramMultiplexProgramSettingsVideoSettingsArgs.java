@@ -32,14 +32,14 @@ public final class MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs ext
     }
 
     /**
-     * Statmux settings. See Statmux Settings for more details.
+     * Statmux settings. See `statmuxSettings` Block for more details.
      * 
      */
     @Import(name="statmuxSettings")
     private @Nullable Output<MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs> statmuxSettings;
 
     /**
-     * @return Statmux settings. See Statmux Settings for more details.
+     * @return Statmux settings. See `statmuxSettings` Block for more details.
      * 
      */
     public Optional<Output<MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs>> statmuxSettings() {
@@ -93,7 +93,7 @@ public final class MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs ext
         }
 
         /**
-         * @param statmuxSettings Statmux settings. See Statmux Settings for more details.
+         * @param statmuxSettings Statmux settings. See `statmuxSettings` Block for more details.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs ext
         }
 
         /**
-         * @param statmuxSettings Statmux settings. See Statmux Settings for more details.
+         * @param statmuxSettings Statmux settings. See `statmuxSettings` Block for more details.
          * 
          * @return builder
          * 

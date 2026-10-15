@@ -85,14 +85,14 @@ public final class GuardrailArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block to enable cross-region routing for bedrock guardrails. See `crossRegionConfig` Block for more information. Note see [available regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) here.
+     * Configuration block to enable cross-region routing for bedrock guardrails. See `crossRegionConfig` Block for more information. See [available Regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region-support.html).
      * 
      */
     @Import(name="crossRegionConfig")
     private @Nullable Output<GuardrailCrossRegionConfigArgs> crossRegionConfig;
 
     /**
-     * @return Configuration block to enable cross-region routing for bedrock guardrails. See `crossRegionConfig` Block for more information. Note see [available regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) here.
+     * @return Configuration block to enable cross-region routing for bedrock guardrails. See `crossRegionConfig` Block for more information. See [available Regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region-support.html).
      * 
      */
     public Optional<Output<GuardrailCrossRegionConfigArgs>> crossRegionConfig() {
@@ -352,7 +352,7 @@ public final class GuardrailArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param crossRegionConfig Configuration block to enable cross-region routing for bedrock guardrails. See `crossRegionConfig` Block for more information. Note see [available regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) here.
+         * @param crossRegionConfig Configuration block to enable cross-region routing for bedrock guardrails. See `crossRegionConfig` Block for more information. See [available Regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region-support.html).
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class GuardrailArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param crossRegionConfig Configuration block to enable cross-region routing for bedrock guardrails. See `crossRegionConfig` Block for more information. Note see [available regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) here.
+         * @param crossRegionConfig Configuration block to enable cross-region routing for bedrock guardrails. See `crossRegionConfig` Block for more information. See [available Regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region-support.html).
          * 
          * @return builder
          * 

@@ -284,7 +284,7 @@ class _VpcState:
         :param pulumi.Input[_builtins.str] default_network_acl_id: ID of the network ACL created by default on VPC creation.
         :param pulumi.Input[_builtins.str] default_route_table_id: ID of the route table created by default on VPC creation.
         :param pulumi.Input[_builtins.str] default_security_group_id: ID of the security group created by default on VPC creation.
-        :param pulumi.Input[_builtins.str] dhcp_options_id: DHCP options id of the desired VPC.
+        :param pulumi.Input[_builtins.str] dhcp_options_id: DHCP options ID of the desired VPC.
         :param pulumi.Input[_builtins.bool] enable_dns_hostnames: Whether to enable DNS hostnames in the VPC. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] enable_dns_support: Whether to enable DNS support in the VPC. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] enable_network_address_usage_metrics: Whether to enable Network Address Usage metrics for your VPC. Defaults to `false`.
@@ -425,7 +425,7 @@ class _VpcState:
     @pulumi.getter(name="dhcpOptionsId")
     def dhcp_options_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        DHCP options id of the desired VPC.
+        DHCP options ID of the desired VPC.
         """
         return pulumi.get(self, "dhcp_options_id")
 
@@ -923,7 +923,7 @@ class Vpc(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] default_network_acl_id: ID of the network ACL created by default on VPC creation.
         :param pulumi.Input[_builtins.str] default_route_table_id: ID of the route table created by default on VPC creation.
         :param pulumi.Input[_builtins.str] default_security_group_id: ID of the security group created by default on VPC creation.
-        :param pulumi.Input[_builtins.str] dhcp_options_id: DHCP options id of the desired VPC.
+        :param pulumi.Input[_builtins.str] dhcp_options_id: DHCP options ID of the desired VPC.
         :param pulumi.Input[_builtins.bool] enable_dns_hostnames: Whether to enable DNS hostnames in the VPC. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] enable_dns_support: Whether to enable DNS support in the VPC. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] enable_network_address_usage_metrics: Whether to enable Network Address Usage metrics for your VPC. Defaults to `false`.
@@ -1022,7 +1022,7 @@ class Vpc(pulumi.CustomResource):
     @pulumi.getter(name="dhcpOptionsId")
     def dhcp_options_id(self) -> pulumi.Output[_builtins.str]:
         """
-        DHCP options id of the desired VPC.
+        DHCP options ID of the desired VPC.
         """
         return pulumi.get(self, "dhcp_options_id")
 

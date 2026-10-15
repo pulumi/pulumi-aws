@@ -131,7 +131,7 @@ export class PartitionIndex extends pulumi.CustomResource {
     }
 
     /**
-     * The catalog ID where the table resides.
+     * Catalog ID where the table resides.
      */
     declare public readonly catalogId: pulumi.Output<string>;
     /**
@@ -139,7 +139,7 @@ export class PartitionIndex extends pulumi.CustomResource {
      */
     declare public readonly databaseName: pulumi.Output<string>;
     /**
-     * Configuration block for a partition index. See `partitionIndex` below.
+     * Configuration block for a partition index. See `partitionIndex` Block below.
      */
     declare public readonly partitionIndex: pulumi.Output<outputs.glue.PartitionIndexPartitionIndex>;
     /**
@@ -196,7 +196,7 @@ export class PartitionIndex extends pulumi.CustomResource {
  */
 export interface PartitionIndexState {
     /**
-     * The catalog ID where the table resides.
+     * Catalog ID where the table resides.
      */
     catalogId?: pulumi.Input<string | undefined>;
     /**
@@ -204,7 +204,7 @@ export interface PartitionIndexState {
      */
     databaseName?: pulumi.Input<string | undefined>;
     /**
-     * Configuration block for a partition index. See `partitionIndex` below.
+     * Configuration block for a partition index. See `partitionIndex` Block below.
      */
     partitionIndex?: pulumi.Input<inputs.glue.PartitionIndexPartitionIndex | undefined>;
     /**
@@ -222,7 +222,7 @@ export interface PartitionIndexState {
  */
 export interface PartitionIndexArgs {
     /**
-     * The catalog ID where the table resides.
+     * Catalog ID where the table resides.
      */
     catalogId?: pulumi.Input<string | undefined>;
     /**
@@ -230,7 +230,7 @@ export interface PartitionIndexArgs {
      */
     databaseName: pulumi.Input<string>;
     /**
-     * Configuration block for a partition index. See `partitionIndex` below.
+     * Configuration block for a partition index. See `partitionIndex` Block below.
      */
     partitionIndex: pulumi.Input<inputs.glue.PartitionIndexPartitionIndex>;
     /**

@@ -14,30 +14,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfigurationParameterOverride {
     /**
-     * @return Description of the gateway target.
+     * @return Agent-facing description override for this parameter.
      * 
      */
     private @Nullable String description;
+    /**
+     * @return JSON Pointer path identifying the parameter (for example, `/numberOfResults` or `/filter`).
+     * 
+     */
     private String path;
     /**
-     * @return Whether this parameter is visible to the agent. If not specified, uses the service default.
+     * @return Whether to make this parameter visible to the agent. If not specified, uses the service default.
      * 
      */
     private @Nullable Boolean visible;
 
     private AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfigurationParameterOverride() {}
     /**
-     * @return Description of the gateway target.
+     * @return Agent-facing description override for this parameter.
      * 
      */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
+    /**
+     * @return JSON Pointer path identifying the parameter (for example, `/numberOfResults` or `/filter`).
+     * 
+     */
     public String path() {
         return this.path;
     }
     /**
-     * @return Whether this parameter is visible to the agent. If not specified, uses the service default.
+     * @return Whether to make this parameter visible to the agent. If not specified, uses the service default.
      * 
      */
     public Optional<Boolean> visible() {

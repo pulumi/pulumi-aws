@@ -69,28 +69,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:memorydb/acl:Acl")
 public class Acl extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the ACL.
+     * ARN of the ACL.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the ACL.
+     * @return ARN of the ACL.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The minimum engine version supported by the ACL.
+     * Minimum engine version supported by the ACL.
      * 
      */
     @Export(name="minimumEngineVersion", refs={String.class}, tree="[0]")
     private Output<String> minimumEngineVersion;
 
     /**
-     * @return The minimum engine version supported by the ACL.
+     * @return Minimum engine version supported by the ACL.
      * 
      */
     public Output<String> minimumEngineVersion() {
@@ -139,28 +139,28 @@ public class Acl extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

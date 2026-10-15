@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevel {
+    /**
+     * @return Remixing value, from -60 to 6 decibels.
+     * 
+     */
     private Integer gain;
+    /**
+     * @return Index of the input channel used as a source.
+     * 
+     */
     private Integer inputChannel;
 
     private ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevel() {}
+    /**
+     * @return Remixing value, from -60 to 6 decibels.
+     * 
+     */
     public Integer gain() {
         return this.gain;
     }
+    /**
+     * @return Index of the input channel used as a source.
+     * 
+     */
     public Integer inputChannel() {
         return this.inputChannel;
     }

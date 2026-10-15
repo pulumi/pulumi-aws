@@ -63,14 +63,14 @@ public final class GetCatalogTableArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `transactionId`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
+     * Time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `transactionId`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
      * 
      */
     @Import(name="queryAsOfTime")
     private @Nullable Output<String> queryAsOfTime;
 
     /**
-     * @return The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `transactionId`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
+     * @return Time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `transactionId`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
      * 
      */
     public Optional<Output<String>> queryAsOfTime() {
@@ -93,14 +93,14 @@ public final class GetCatalogTableArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The transaction ID at which to read the table contents.
+     * Transaction ID at which to read the table contents.
      * 
      */
     @Import(name="transactionId")
     private @Nullable Output<Integer> transactionId;
 
     /**
-     * @return The transaction ID at which to read the table contents.
+     * @return Transaction ID at which to read the table contents.
      * 
      */
     public Optional<Output<Integer>> transactionId() {
@@ -200,7 +200,7 @@ public final class GetCatalogTableArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param queryAsOfTime The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `transactionId`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
+         * @param queryAsOfTime Time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `transactionId`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class GetCatalogTableArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param queryAsOfTime The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `transactionId`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
+         * @param queryAsOfTime Time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `transactionId`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class GetCatalogTableArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param transactionId The transaction ID at which to read the table contents.
+         * @param transactionId Transaction ID at which to read the table contents.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class GetCatalogTableArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param transactionId The transaction ID at which to read the table contents.
+         * @param transactionId Transaction ID at which to read the table contents.
          * 
          * @return builder
          * 

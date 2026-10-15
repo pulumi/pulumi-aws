@@ -57,6 +57,9 @@ class GetBrokerNodesResult:
     @_builtins.property
     @pulumi.getter(name="nodeInfoLists")
     def node_info_lists(self) -> Sequence['outputs.GetBrokerNodesNodeInfoListResult']:
+        """
+        List of MSK Broker Nodes, sorted by broker ID in ascending order. See `node_info_list` Block for details.
+        """
         return pulumi.get(self, "node_info_lists")
 
     @_builtins.property

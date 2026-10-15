@@ -13,7 +13,13 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings
     {
+        /// <summary>
+        /// Bits per sample.
+        /// </summary>
         public readonly double? BitDepth;
+        /// <summary>
+        /// WAV coding mode.
+        /// </summary>
         public readonly string? CodingMode;
         /// <summary>
         /// Sample rate in Hz.

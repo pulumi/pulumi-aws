@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Glue.Inputs
         }
 
         /// <summary>
-        /// Principal who is granted permissions. See `Principal` below.
+        /// Principal who is granted permissions. See `Principal` Block below.
         /// </summary>
         [Input("principal")]
         public Input<Inputs.CatalogCreateTableDefaultPermissionPrincipalArgs>? Principal { get; set; }

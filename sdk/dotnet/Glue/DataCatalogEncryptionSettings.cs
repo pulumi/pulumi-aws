@@ -55,13 +55,13 @@ namespace Pulumi.Aws.Glue
     public partial class DataCatalogEncryptionSettings : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
+        /// ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
         /// </summary>
         [Output("catalogId")]
         public Output<string> CatalogId { get; private set; } = null!;
 
         /// <summary>
-        /// The security configuration to set. see Data Catalog Encryption Settings.
+        /// Security configuration to set. see `DataCatalogEncryptionSettings` Block.
         /// </summary>
         [Output("dataCatalogEncryptionSettings")]
         public Output<Outputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettings> DataCatalogEncryptionSettingsConfig { get; private set; } = null!;
@@ -119,13 +119,13 @@ namespace Pulumi.Aws.Glue
     public sealed class DataCatalogEncryptionSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
+        /// ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
         /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
 
         /// <summary>
-        /// The security configuration to set. see Data Catalog Encryption Settings.
+        /// Security configuration to set. see `DataCatalogEncryptionSettings` Block.
         /// </summary>
         [Input("dataCatalogEncryptionSettings", required: true)]
         public Input<Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs> DataCatalogEncryptionSettingsConfig { get; set; } = null!;
@@ -145,13 +145,13 @@ namespace Pulumi.Aws.Glue
     public sealed class DataCatalogEncryptionSettingsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
+        /// ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
         /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
 
         /// <summary>
-        /// The security configuration to set. see Data Catalog Encryption Settings.
+        /// Security configuration to set. see `DataCatalogEncryptionSettings` Block.
         /// </summary>
         [Input("dataCatalogEncryptionSettings")]
         public Input<Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsGetArgs>? DataCatalogEncryptionSettingsConfig { get; set; }

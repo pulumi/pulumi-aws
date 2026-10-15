@@ -55,7 +55,7 @@ import (
 type HsmConfiguration struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Hsm Client Certificate.
+	// ARN of the HSM Client Certificate.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A text description of the HSM configuration to be created.
 	Description pulumi.StringOutput `pulumi:"description"`
@@ -132,7 +132,7 @@ func GetHsmConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering HsmConfiguration resources.
 type hsmConfigurationState struct {
-	// ARN of the Hsm Client Certificate.
+	// ARN of the HSM Client Certificate.
 	Arn *string `pulumi:"arn"`
 	// A text description of the HSM configuration to be created.
 	Description *string `pulumi:"description"`
@@ -155,7 +155,7 @@ type hsmConfigurationState struct {
 }
 
 type HsmConfigurationState struct {
-	// ARN of the Hsm Client Certificate.
+	// ARN of the HSM Client Certificate.
 	Arn pulumi.StringPtrInput
 	// A text description of the HSM configuration to be created.
 	Description pulumi.StringPtrInput
@@ -307,7 +307,7 @@ func (o HsmConfigurationOutput) ToHsmConfigurationOutputWithContext(ctx context.
 	return o
 }
 
-// ARN of the Hsm Client Certificate.
+// ARN of the HSM Client Certificate.
 func (o HsmConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *HsmConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

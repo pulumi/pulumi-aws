@@ -64,7 +64,7 @@ export class Partition extends pulumi.CustomResource {
      */
     declare public readonly catalogId: pulumi.Output<string>;
     /**
-     * The time at which the partition was created.
+     * Time at which the partition was created.
      */
     declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
@@ -72,11 +72,11 @@ export class Partition extends pulumi.CustomResource {
      */
     declare public readonly databaseName: pulumi.Output<string>;
     /**
-     * The last time at which the partition was accessed.
+     * Last time at which the partition was accessed.
      */
     declare public /*out*/ readonly lastAccessedTime: pulumi.Output<string>;
     /**
-     * The last time at which column statistics were computed for this partition.
+     * Last time at which column statistics were computed for this partition.
      */
     declare public /*out*/ readonly lastAnalyzedTime: pulumi.Output<string>;
     /**
@@ -84,7 +84,7 @@ export class Partition extends pulumi.CustomResource {
      */
     declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The values that define the partition.
+     * Values that define the partition.
      */
     declare public readonly partitionValues: pulumi.Output<string[]>;
     /**
@@ -92,9 +92,12 @@ export class Partition extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+     * Storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
      */
     declare public readonly storageDescriptor: pulumi.Output<outputs.glue.PartitionStorageDescriptor | undefined>;
+    /**
+     * Name of the table. For Hive compatibility, this must be entirely lowercase.
+     */
     declare public readonly tableName: pulumi.Output<string>;
 
     /**
@@ -156,7 +159,7 @@ export interface PartitionState {
      */
     catalogId?: pulumi.Input<string | undefined>;
     /**
-     * The time at which the partition was created.
+     * Time at which the partition was created.
      */
     creationTime?: pulumi.Input<string | undefined>;
     /**
@@ -164,11 +167,11 @@ export interface PartitionState {
      */
     databaseName?: pulumi.Input<string | undefined>;
     /**
-     * The last time at which the partition was accessed.
+     * Last time at which the partition was accessed.
      */
     lastAccessedTime?: pulumi.Input<string | undefined>;
     /**
-     * The last time at which column statistics were computed for this partition.
+     * Last time at which column statistics were computed for this partition.
      */
     lastAnalyzedTime?: pulumi.Input<string | undefined>;
     /**
@@ -176,7 +179,7 @@ export interface PartitionState {
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The values that define the partition.
+     * Values that define the partition.
      */
     partitionValues?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -184,9 +187,12 @@ export interface PartitionState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+     * Storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
      */
     storageDescriptor?: pulumi.Input<inputs.glue.PartitionStorageDescriptor | undefined>;
+    /**
+     * Name of the table. For Hive compatibility, this must be entirely lowercase.
+     */
     tableName?: pulumi.Input<string | undefined>;
 }
 
@@ -207,7 +213,7 @@ export interface PartitionArgs {
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The values that define the partition.
+     * Values that define the partition.
      */
     partitionValues: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -215,8 +221,11 @@ export interface PartitionArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+     * Storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
      */
     storageDescriptor?: pulumi.Input<inputs.glue.PartitionStorageDescriptor | undefined>;
+    /**
+     * Name of the table. For Hive compatibility, this must be entirely lowercase.
+     */
     tableName: pulumi.Input<string>;
 }

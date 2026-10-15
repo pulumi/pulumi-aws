@@ -13,7 +13,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
     public sealed class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Sets the attenuation control.
+        /// Attenuation control.
         /// </summary>
         [Input("attenuationControl")]
         public Input<string>? AttenuationControl { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<double>? Bitrate { get; set; }
 
         /// <summary>
-        /// Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
+        /// Bitstream mode (bsmod) for the emitted AC-3 stream.
         /// </summary>
         [Input("bitstreamMode")]
         public Input<string>? BitstreamMode { get; set; }
@@ -36,9 +36,15 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("codingMode")]
         public Input<string>? CodingMode { get; set; }
 
+        /// <summary>
+        /// Whether to activate a DC filter for the channels.
+        /// </summary>
         [Input("dcFilter")]
         public Input<string>? DcFilter { get; set; }
 
+        /// <summary>
+        /// Sets the dialnorm for the output.
+        /// </summary>
         [Input("dialnorm")]
         public Input<int>? Dialnorm { get; set; }
 
@@ -49,29 +55,44 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<string>? DrcLine { get; set; }
 
         /// <summary>
-        /// Sets the profile for heavy Dolby dynamic range compression.
+        /// Profile for heavy Dolby dynamic range compression.
         /// </summary>
         [Input("drcRf")]
         public Input<string>? DrcRf { get; set; }
 
+        /// <summary>
+        /// When set to `Lfe`, the EAC3 output contains an LFE channel.
+        /// </summary>
         [Input("lfeControl")]
         public Input<string>? LfeControl { get; set; }
 
         /// <summary>
-        /// When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+        /// When set to `Enabled`, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
         /// </summary>
         [Input("lfeFilter")]
         public Input<string>? LfeFilter { get; set; }
 
+        /// <summary>
+        /// Left total/right total center mix level.
+        /// </summary>
         [Input("loRoCenterMixLevel")]
         public Input<double>? LoRoCenterMixLevel { get; set; }
 
+        /// <summary>
+        /// Left total/right total surround mix level.
+        /// </summary>
         [Input("loRoSurroundMixLevel")]
         public Input<double>? LoRoSurroundMixLevel { get; set; }
 
+        /// <summary>
+        /// Left only/right only center mix level.
+        /// </summary>
         [Input("ltRtCenterMixLevel")]
         public Input<double>? LtRtCenterMixLevel { get; set; }
 
+        /// <summary>
+        /// Left only/right only surround mix level.
+        /// </summary>
         [Input("ltRtSurroundMixLevel")]
         public Input<double>? LtRtSurroundMixLevel { get; set; }
 
@@ -81,18 +102,33 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("metadataControl")]
         public Input<string>? MetadataControl { get; set; }
 
+        /// <summary>
+        /// When set to `whenPossible`, input DD+ audio is passed through if present.
+        /// </summary>
         [Input("passthroughControl")]
         public Input<string>? PassthroughControl { get; set; }
 
+        /// <summary>
+        /// Whether to invert the phase of the surround channels.
+        /// </summary>
         [Input("phaseControl")]
         public Input<string>? PhaseControl { get; set; }
 
+        /// <summary>
+        /// Stereo downmix preference.
+        /// </summary>
         [Input("stereoDownmix")]
         public Input<string>? StereoDownmix { get; set; }
 
+        /// <summary>
+        /// Whether to encode the stream as Dolby Digital EX.
+        /// </summary>
         [Input("surroundExMode")]
         public Input<string>? SurroundExMode { get; set; }
 
+        /// <summary>
+        /// Whether to encode the stream as a surround sound stream.
+        /// </summary>
         [Input("surroundMode")]
         public Input<string>? SurroundMode { get; set; }
 

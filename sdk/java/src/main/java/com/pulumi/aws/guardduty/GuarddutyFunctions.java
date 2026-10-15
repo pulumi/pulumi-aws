@@ -292,7 +292,7 @@ public final class GuarddutyFunctions {
         return Deployment.getInstance().invokeAsync("aws:guardduty/getDetector:getDetector", TypeShape.of(GetDetectorResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for managing an AWS GuardDuty Finding Ids.
+     * Data source for managing an AWS GuardDuty Finding IDs.
      * 
      * ## Example Usage
      * 
@@ -334,7 +334,7 @@ public final class GuarddutyFunctions {
         return getFindingIds(args, InvokeOptions.Empty);
     }
     /**
-     * Data source for managing an AWS GuardDuty Finding Ids.
+     * Data source for managing an AWS GuardDuty Finding IDs.
      * 
      * ## Example Usage
      * 
@@ -376,7 +376,7 @@ public final class GuarddutyFunctions {
         return getFindingIdsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Data source for managing an AWS GuardDuty Finding Ids.
+     * Data source for managing an AWS GuardDuty Finding IDs.
      * 
      * ## Example Usage
      * 
@@ -418,7 +418,7 @@ public final class GuarddutyFunctions {
         return Deployment.getInstance().invoke("aws:guardduty/getFindingIds:getFindingIds", TypeShape.of(GetFindingIdsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for managing an AWS GuardDuty Finding Ids.
+     * Data source for managing an AWS GuardDuty Finding IDs.
      * 
      * ## Example Usage
      * 
@@ -460,7 +460,7 @@ public final class GuarddutyFunctions {
         return Deployment.getInstance().invoke("aws:guardduty/getFindingIds:getFindingIds", TypeShape.of(GetFindingIdsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for managing an AWS GuardDuty Finding Ids.
+     * Data source for managing an AWS GuardDuty Finding IDs.
      * 
      * ## Example Usage
      * 

@@ -21,14 +21,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     public static final WorkspaceArgs Empty = new WorkspaceArgs();
 
     /**
-     * The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
+     * Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
      * 
      */
     @Import(name="accountAccessType", required=true)
     private Output<String> accountAccessType;
 
     /**
-     * @return The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
+     * @return Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
      * 
      */
     public Output<String> accountAccessType() {
@@ -36,14 +36,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
+     * Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
      * 
      */
     @Import(name="authenticationProviders", required=true)
     private Output<List<String>> authenticationProviders;
 
     /**
-     * @return The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
+     * @return Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
      * 
      */
     public Output<List<String>> authenticationProviders() {
@@ -51,14 +51,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
+     * Configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
      * 
      */
     @Import(name="configuration")
     private @Nullable Output<String> configuration;
 
     /**
-     * @return The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
+     * @return Configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
      * 
      */
     public Optional<Output<String>> configuration() {
@@ -66,14 +66,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
+     * Data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
      * 
      */
     @Import(name="dataSources")
     private @Nullable Output<List<String>> dataSources;
 
     /**
-     * @return The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
+     * @return Data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
      * 
      */
     public Optional<Output<List<String>>> dataSources() {
@@ -81,14 +81,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The workspace description.
+     * Workspace description.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The workspace description.
+     * @return Workspace description.
      * 
      */
     public Optional<Output<String>> description() {
@@ -96,14 +96,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4`, `12.4` and `13.2`. If not specified, defaults to the latest version.
+     * Version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4`, `12.4` and `13.2`. If not specified, defaults to the latest version.
      * 
      */
     @Import(name="grafanaVersion")
     private @Nullable Output<String> grafanaVersion;
 
     /**
-     * @return Specifies the version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4`, `12.4` and `13.2`. If not specified, defaults to the latest version.
+     * @return Version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4`, `12.4` and `13.2`. If not specified, defaults to the latest version.
      * 
      */
     public Optional<Output<String>> grafanaVersion() {
@@ -111,14 +111,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the AWS KMS key for encrypting workspace data.
+     * ARN of the AWS KMS key for encrypting workspace data.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return The ARN of the AWS KMS key for encrypting workspace data.
+     * @return ARN of the AWS KMS key for encrypting workspace data.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -126,14 +126,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Grafana workspace name.
+     * Grafana workspace name.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The Grafana workspace name.
+     * @return Grafana workspace name.
      * 
      */
     public Optional<Output<String>> name() {
@@ -141,14 +141,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration for network access to your workspace.See Network Access Control below.
+     * Configuration for network access to your workspace. See `networkAccessControl` Block below.
      * 
      */
     @Import(name="networkAccessControl")
     private @Nullable Output<WorkspaceNetworkAccessControlArgs> networkAccessControl;
 
     /**
-     * @return Configuration for network access to your workspace.See Network Access Control below.
+     * @return Configuration for network access to your workspace. See `networkAccessControl` Block below.
      * 
      */
     public Optional<Output<WorkspaceNetworkAccessControlArgs>> networkAccessControl() {
@@ -156,14 +156,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
+     * Notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
      * 
      */
     @Import(name="notificationDestinations")
     private @Nullable Output<List<String>> notificationDestinations;
 
     /**
-     * @return The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
+     * @return Notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
      * 
      */
     public Optional<Output<List<String>>> notificationDestinations() {
@@ -171,14 +171,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The role name that the workspace uses to access resources through Amazon Organizations.
+     * Role name that the workspace uses to access resources through Amazon Organizations.
      * 
      */
     @Import(name="organizationRoleName")
     private @Nullable Output<String> organizationRoleName;
 
     /**
-     * @return The role name that the workspace uses to access resources through Amazon Organizations.
+     * @return Role name that the workspace uses to access resources through Amazon Organizations.
      * 
      */
     public Optional<Output<String>> organizationRoleName() {
@@ -186,14 +186,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
+     * Amazon Organizations organizational units that the workspace is authorized to use data sources from.
      * 
      */
     @Import(name="organizationalUnits")
     private @Nullable Output<List<String>> organizationalUnits;
 
     /**
-     * @return The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
+     * @return Amazon Organizations organizational units that the workspace is authorized to use data sources from.
      * 
      */
     public Optional<Output<List<String>>> organizationalUnits() {
@@ -201,7 +201,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+     * Permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
      * 
      * The following arguments are optional:
      * 
@@ -210,7 +210,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     private Output<String> permissionType;
 
     /**
-     * @return The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+     * @return Permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
      * 
      * The following arguments are optional:
      * 
@@ -235,14 +235,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The IAM role ARN that the workspace assumes.
+     * IAM role ARN that the workspace assumes.
      * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
-     * @return The IAM role ARN that the workspace assumes.
+     * @return IAM role ARN that the workspace assumes.
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -250,14 +250,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
+     * AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
      * 
      */
     @Import(name="stackSetName")
     private @Nullable Output<String> stackSetName;
 
     /**
-     * @return The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
+     * @return AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
      * 
      */
     public Optional<Output<String>> stackSetName() {
@@ -280,14 +280,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
+     * Configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See `vpcConfiguration` Block below.
      * 
      */
     @Import(name="vpcConfiguration")
     private @Nullable Output<WorkspaceVpcConfigurationArgs> vpcConfiguration;
 
     /**
-     * @return The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
+     * @return Configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See `vpcConfiguration` Block below.
      * 
      */
     public Optional<Output<WorkspaceVpcConfigurationArgs>> vpcConfiguration() {
@@ -336,7 +336,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountAccessType The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
+         * @param accountAccessType Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
          * 
          * @return builder
          * 
@@ -347,7 +347,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountAccessType The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
+         * @param accountAccessType Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
          * 
          * @return builder
          * 
@@ -357,7 +357,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authenticationProviders The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
+         * @param authenticationProviders Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
          * 
          * @return builder
          * 
@@ -368,7 +368,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authenticationProviders The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
+         * @param authenticationProviders Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
          * 
          * @return builder
          * 
@@ -378,7 +378,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authenticationProviders The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
+         * @param authenticationProviders Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
          * 
          * @return builder
          * 
@@ -388,7 +388,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configuration The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
+         * @param configuration Configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
          * 
          * @return builder
          * 
@@ -399,7 +399,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configuration The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
+         * @param configuration Configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
          * 
          * @return builder
          * 
@@ -409,7 +409,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataSources The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
+         * @param dataSources Data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
          * 
          * @return builder
          * 
@@ -420,7 +420,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataSources The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
+         * @param dataSources Data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
          * 
          * @return builder
          * 
@@ -430,7 +430,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataSources The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
+         * @param dataSources Data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
          * 
          * @return builder
          * 
@@ -440,7 +440,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The workspace description.
+         * @param description Workspace description.
          * 
          * @return builder
          * 
@@ -451,7 +451,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The workspace description.
+         * @param description Workspace description.
          * 
          * @return builder
          * 
@@ -461,7 +461,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param grafanaVersion Specifies the version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4`, `12.4` and `13.2`. If not specified, defaults to the latest version.
+         * @param grafanaVersion Version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4`, `12.4` and `13.2`. If not specified, defaults to the latest version.
          * 
          * @return builder
          * 
@@ -472,7 +472,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param grafanaVersion Specifies the version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4`, `12.4` and `13.2`. If not specified, defaults to the latest version.
+         * @param grafanaVersion Version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4`, `12.4` and `13.2`. If not specified, defaults to the latest version.
          * 
          * @return builder
          * 
@@ -482,7 +482,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId The ARN of the AWS KMS key for encrypting workspace data.
+         * @param kmsKeyId ARN of the AWS KMS key for encrypting workspace data.
          * 
          * @return builder
          * 
@@ -493,7 +493,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId The ARN of the AWS KMS key for encrypting workspace data.
+         * @param kmsKeyId ARN of the AWS KMS key for encrypting workspace data.
          * 
          * @return builder
          * 
@@ -503,7 +503,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The Grafana workspace name.
+         * @param name Grafana workspace name.
          * 
          * @return builder
          * 
@@ -514,7 +514,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The Grafana workspace name.
+         * @param name Grafana workspace name.
          * 
          * @return builder
          * 
@@ -524,7 +524,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkAccessControl Configuration for network access to your workspace.See Network Access Control below.
+         * @param networkAccessControl Configuration for network access to your workspace. See `networkAccessControl` Block below.
          * 
          * @return builder
          * 
@@ -535,7 +535,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkAccessControl Configuration for network access to your workspace.See Network Access Control below.
+         * @param networkAccessControl Configuration for network access to your workspace. See `networkAccessControl` Block below.
          * 
          * @return builder
          * 
@@ -545,7 +545,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notificationDestinations The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
+         * @param notificationDestinations Notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
          * 
          * @return builder
          * 
@@ -556,7 +556,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notificationDestinations The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
+         * @param notificationDestinations Notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
          * 
          * @return builder
          * 
@@ -566,7 +566,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notificationDestinations The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
+         * @param notificationDestinations Notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
          * 
          * @return builder
          * 
@@ -576,7 +576,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param organizationRoleName The role name that the workspace uses to access resources through Amazon Organizations.
+         * @param organizationRoleName Role name that the workspace uses to access resources through Amazon Organizations.
          * 
          * @return builder
          * 
@@ -587,7 +587,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param organizationRoleName The role name that the workspace uses to access resources through Amazon Organizations.
+         * @param organizationRoleName Role name that the workspace uses to access resources through Amazon Organizations.
          * 
          * @return builder
          * 
@@ -597,7 +597,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param organizationalUnits The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
+         * @param organizationalUnits Amazon Organizations organizational units that the workspace is authorized to use data sources from.
          * 
          * @return builder
          * 
@@ -608,7 +608,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param organizationalUnits The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
+         * @param organizationalUnits Amazon Organizations organizational units that the workspace is authorized to use data sources from.
          * 
          * @return builder
          * 
@@ -618,7 +618,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param organizationalUnits The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
+         * @param organizationalUnits Amazon Organizations organizational units that the workspace is authorized to use data sources from.
          * 
          * @return builder
          * 
@@ -628,7 +628,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissionType The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+         * @param permissionType Permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
          * 
          * The following arguments are optional:
          * 
@@ -641,7 +641,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissionType The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+         * @param permissionType Permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
          * 
          * The following arguments are optional:
          * 
@@ -674,7 +674,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn The IAM role ARN that the workspace assumes.
+         * @param roleArn IAM role ARN that the workspace assumes.
          * 
          * @return builder
          * 
@@ -685,7 +685,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn The IAM role ARN that the workspace assumes.
+         * @param roleArn IAM role ARN that the workspace assumes.
          * 
          * @return builder
          * 
@@ -695,7 +695,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param stackSetName The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
+         * @param stackSetName AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
          * 
          * @return builder
          * 
@@ -706,7 +706,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param stackSetName The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
+         * @param stackSetName AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
          * 
          * @return builder
          * 
@@ -737,7 +737,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcConfiguration The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
+         * @param vpcConfiguration Configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See `vpcConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -748,7 +748,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcConfiguration The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
+         * @param vpcConfiguration Configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See `vpcConfiguration` Block below.
          * 
          * @return builder
          * 

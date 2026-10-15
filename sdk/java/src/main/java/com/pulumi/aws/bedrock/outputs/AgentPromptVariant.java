@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentPromptVariant {
     /**
-     * @return Model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
+     * @return Model-specific inference configurations that aren’t in the `inferenceConfiguration` block. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
      * 
      */
     private @Nullable String additionalModelRequestFields;
@@ -60,7 +60,7 @@ public final class AgentPromptVariant {
 
     private AgentPromptVariant() {}
     /**
-     * @return Model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
+     * @return Model-specific inference configurations that aren’t in the `inferenceConfiguration` block. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
      * 
      */
     public Optional<String> additionalModelRequestFields() {

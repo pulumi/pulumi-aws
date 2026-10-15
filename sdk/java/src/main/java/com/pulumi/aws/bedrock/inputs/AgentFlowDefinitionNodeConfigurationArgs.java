@@ -88,14 +88,14 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
     }
 
     /**
-     * Configurations for an input flow node in your flow. The node `inputs` can&#39;t be specified for this node. This block has no arguments.
+     * Configurations for an input flow node in your flow. The `definition.node.input` block can&#39;t be specified for this node. This block has no arguments.
      * 
      */
     @Import(name="input")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationInputArgs> input;
 
     /**
-     * @return Configurations for an input flow node in your flow. The node `inputs` can&#39;t be specified for this node. This block has no arguments.
+     * @return Configurations for an input flow node in your flow. The `definition.node.input` block can&#39;t be specified for this node. This block has no arguments.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationInputArgs>> input() {
@@ -118,14 +118,14 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
     }
 
     /**
-     * Configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See `definition.node.configuration.knowledge_base` Block for details.
+     * Configurations for a knowledge base node in your flow. Queries a knowledge base and returns a response generated from the retrieved results. See `definition.node.configuration.knowledge_base` Block for details.
      * 
      */
     @Import(name="knowledgeBase")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs> knowledgeBase;
 
     /**
-     * @return Configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See `definition.node.configuration.knowledge_base` Block for details.
+     * @return Configurations for a knowledge base node in your flow. Queries a knowledge base and returns a response generated from the retrieved results. See `definition.node.configuration.knowledge_base` Block for details.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs>> knowledgeBase() {
@@ -163,14 +163,14 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
     }
 
     /**
-     * Configurations for an output flow node in your flow. The node `outputs` can&#39;t be specified for this node. This block has no arguments.
+     * Configurations for an output flow node in your flow. The `definition.node.output` block can&#39;t be specified for this node. This block has no arguments.
      * 
      */
     @Import(name="output")
     private @Nullable Output<AgentFlowDefinitionNodeConfigurationOutputArgs> output;
 
     /**
-     * @return Configurations for an output flow node in your flow. The node `outputs` can&#39;t be specified for this node. This block has no arguments.
+     * @return Configurations for an output flow node in your flow. The `definition.node.output` block can&#39;t be specified for this node. This block has no arguments.
      * 
      */
     public Optional<Output<AgentFlowDefinitionNodeConfigurationOutputArgs>> output() {
@@ -343,7 +343,7 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param input Configurations for an input flow node in your flow. The node `inputs` can&#39;t be specified for this node. This block has no arguments.
+         * @param input Configurations for an input flow node in your flow. The `definition.node.input` block can&#39;t be specified for this node. This block has no arguments.
          * 
          * @return builder
          * 
@@ -354,7 +354,7 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param input Configurations for an input flow node in your flow. The node `inputs` can&#39;t be specified for this node. This block has no arguments.
+         * @param input Configurations for an input flow node in your flow. The `definition.node.input` block can&#39;t be specified for this node. This block has no arguments.
          * 
          * @return builder
          * 
@@ -385,7 +385,7 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param knowledgeBase Configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See `definition.node.configuration.knowledge_base` Block for details.
+         * @param knowledgeBase Configurations for a knowledge base node in your flow. Queries a knowledge base and returns a response generated from the retrieved results. See `definition.node.configuration.knowledge_base` Block for details.
          * 
          * @return builder
          * 
@@ -396,7 +396,7 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param knowledgeBase Configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See `definition.node.configuration.knowledge_base` Block for details.
+         * @param knowledgeBase Configurations for a knowledge base node in your flow. Queries a knowledge base and returns a response generated from the retrieved results. See `definition.node.configuration.knowledge_base` Block for details.
          * 
          * @return builder
          * 
@@ -448,7 +448,7 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param output Configurations for an output flow node in your flow. The node `outputs` can&#39;t be specified for this node. This block has no arguments.
+         * @param output Configurations for an output flow node in your flow. The `definition.node.output` block can&#39;t be specified for this node. This block has no arguments.
          * 
          * @return builder
          * 
@@ -459,7 +459,7 @@ public final class AgentFlowDefinitionNodeConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param output Configurations for an output flow node in your flow. The node `outputs` can&#39;t be specified for this node. This block has no arguments.
+         * @param output Configurations for an output flow node in your flow. The `definition.node.output` block can&#39;t be specified for this node. This block has no arguments.
          * 
          * @return builder
          * 

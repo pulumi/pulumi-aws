@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class ClusterLoggingInfo {
     /**
-     * @return Configuration block for Broker Logs settings for logging info. See loggingInfo broker_logs Argument Reference below.
+     * @return Configuration block for Broker Logs settings for logging info. See `brokerLogs` Block below.
      * 
      */
     private ClusterLoggingInfoBrokerLogs brokerLogs;
 
     private ClusterLoggingInfo() {}
     /**
-     * @return Configuration block for Broker Logs settings for logging info. See loggingInfo broker_logs Argument Reference below.
+     * @return Configuration block for Broker Logs settings for logging info. See `brokerLogs` Block below.
      * 
      */
     public ClusterLoggingInfoBrokerLogs brokerLogs() {

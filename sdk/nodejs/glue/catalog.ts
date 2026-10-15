@@ -160,15 +160,15 @@ export class Catalog extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly catalogId: pulumi.Output<string>;
     /**
-     * Configuration block of properties for the catalog. See `catalogProperties` below.
+     * Configuration block of properties for the catalog. See `catalogProperties` Block below.
      */
     declare public readonly catalogProperties: pulumi.Output<outputs.glue.CatalogCatalogProperties | undefined>;
     /**
-     * List of default permissions on databases for principals. See `createDatabaseDefaultPermissions` below.
+     * List of default permissions on databases for principals. See `createDatabaseDefaultPermissions` Block below.
      */
     declare public readonly createDatabaseDefaultPermissions: pulumi.Output<outputs.glue.CatalogCreateDatabaseDefaultPermission[] | undefined>;
     /**
-     * List of default permissions on tables for principals. See `createTableDefaultPermissions` below.
+     * List of default permissions on tables for principals. See `createTableDefaultPermissions` Block below.
      */
     declare public readonly createTableDefaultPermissions: pulumi.Output<outputs.glue.CatalogCreateTableDefaultPermission[] | undefined>;
     /**
@@ -180,7 +180,7 @@ export class Catalog extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * Configuration block for a federated catalog. See `federatedCatalog` below.
+     * Configuration block for a federated catalog. See `federatedCatalog` Block below.
      */
     declare public readonly federatedCatalog: pulumi.Output<outputs.glue.CatalogFederatedCatalog | undefined>;
     /**
@@ -208,7 +208,7 @@ export class Catalog extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * Configuration block for a target Redshift catalog. See `targetRedshiftCatalog` below.
+     * Configuration block for a target Redshift catalog. See `targetRedshiftCatalog` Block below.
      */
     declare public readonly targetRedshiftCatalog: pulumi.Output<outputs.glue.CatalogTargetRedshiftCatalog | undefined>;
     declare public readonly timeouts: pulumi.Output<outputs.glue.CatalogTimeouts | undefined>;
@@ -291,15 +291,15 @@ export interface CatalogState {
      */
     catalogId?: pulumi.Input<string | undefined>;
     /**
-     * Configuration block of properties for the catalog. See `catalogProperties` below.
+     * Configuration block of properties for the catalog. See `catalogProperties` Block below.
      */
     catalogProperties?: pulumi.Input<inputs.glue.CatalogCatalogProperties | undefined>;
     /**
-     * List of default permissions on databases for principals. See `createDatabaseDefaultPermissions` below.
+     * List of default permissions on databases for principals. See `createDatabaseDefaultPermissions` Block below.
      */
     createDatabaseDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.glue.CatalogCreateDatabaseDefaultPermission>[] | undefined>;
     /**
-     * List of default permissions on tables for principals. See `createTableDefaultPermissions` below.
+     * List of default permissions on tables for principals. See `createTableDefaultPermissions` Block below.
      */
     createTableDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.glue.CatalogCreateTableDefaultPermission>[] | undefined>;
     /**
@@ -311,7 +311,7 @@ export interface CatalogState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * Configuration block for a federated catalog. See `federatedCatalog` below.
+     * Configuration block for a federated catalog. See `federatedCatalog` Block below.
      */
     federatedCatalog?: pulumi.Input<inputs.glue.CatalogFederatedCatalog | undefined>;
     /**
@@ -339,7 +339,7 @@ export interface CatalogState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Configuration block for a target Redshift catalog. See `targetRedshiftCatalog` below.
+     * Configuration block for a target Redshift catalog. See `targetRedshiftCatalog` Block below.
      */
     targetRedshiftCatalog?: pulumi.Input<inputs.glue.CatalogTargetRedshiftCatalog | undefined>;
     timeouts?: pulumi.Input<inputs.glue.CatalogTimeouts | undefined>;
@@ -358,15 +358,15 @@ export interface CatalogArgs {
      */
     allowFullTableExternalDataAccess?: pulumi.Input<string | undefined>;
     /**
-     * Configuration block of properties for the catalog. See `catalogProperties` below.
+     * Configuration block of properties for the catalog. See `catalogProperties` Block below.
      */
     catalogProperties?: pulumi.Input<inputs.glue.CatalogCatalogProperties | undefined>;
     /**
-     * List of default permissions on databases for principals. See `createDatabaseDefaultPermissions` below.
+     * List of default permissions on databases for principals. See `createDatabaseDefaultPermissions` Block below.
      */
     createDatabaseDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.glue.CatalogCreateDatabaseDefaultPermission>[] | undefined>;
     /**
-     * List of default permissions on tables for principals. See `createTableDefaultPermissions` below.
+     * List of default permissions on tables for principals. See `createTableDefaultPermissions` Block below.
      */
     createTableDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.glue.CatalogCreateTableDefaultPermission>[] | undefined>;
     /**
@@ -374,7 +374,7 @@ export interface CatalogArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * Configuration block for a federated catalog. See `federatedCatalog` below.
+     * Configuration block for a federated catalog. See `federatedCatalog` Block below.
      */
     federatedCatalog?: pulumi.Input<inputs.glue.CatalogFederatedCatalog | undefined>;
     /**
@@ -398,7 +398,7 @@ export interface CatalogArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Configuration block for a target Redshift catalog. See `targetRedshiftCatalog` below.
+     * Configuration block for a target Redshift catalog. See `targetRedshiftCatalog` Block below.
      */
     targetRedshiftCatalog?: pulumi.Input<inputs.glue.CatalogTargetRedshiftCatalog | undefined>;
     timeouts?: pulumi.Input<inputs.glue.CatalogTimeouts | undefined>;

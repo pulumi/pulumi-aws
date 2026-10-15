@@ -14,12 +14,15 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfigurationParameterOverride
     {
         /// <summary>
-        /// Description of the gateway target.
+        /// Agent-facing description override for this parameter.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// JSON Pointer path identifying the parameter (for example, `/numberOfResults` or `/filter`).
+        /// </summary>
         public readonly string Path;
         /// <summary>
-        /// Whether this parameter is visible to the agent. If not specified, uses the service default.
+        /// Whether to make this parameter visible to the agent. If not specified, uses the service default.
         /// </summary>
         public readonly bool? Visible;
 

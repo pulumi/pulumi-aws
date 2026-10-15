@@ -42,11 +42,11 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly Outputs.DistributionOrderedCacheBehaviorForwardedValues? ForwardedValues;
         /// <summary>
-        /// A config block that triggers a cloudfront function with specific actions (maximum 2).
+        /// A config block that triggers a CloudFront function with specific actions (maximum 2).
         /// </summary>
         public readonly ImmutableArray<Outputs.DistributionOrderedCacheBehaviorFunctionAssociation> FunctionAssociations;
         /// <summary>
-        /// A config block that sets the grpc config.
+        /// A config block that sets the gRPC config.
         /// </summary>
         public readonly Outputs.DistributionOrderedCacheBehaviorGrpcConfig? GrpcConfig;
         /// <summary>

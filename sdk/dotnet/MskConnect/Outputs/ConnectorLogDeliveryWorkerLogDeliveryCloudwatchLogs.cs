@@ -18,7 +18,7 @@ namespace Pulumi.Aws.MskConnect.Outputs
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// The name of the CloudWatch log group that is the destination for log delivery.
+        /// Name of the CloudWatch log group that is the destination for log delivery.
         /// </summary>
         public readonly string? LogGroup;
 

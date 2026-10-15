@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Macie2.Inputs
     public sealed class ClassificationJobS3JobDefinitionBucketDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The unique identifier for the AWS account that owns the buckets.
+        /// Unique identifier for the AWS account that owns the buckets.
         /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Macie2.Inputs
         private InputList<string>? _buckets;
 
         /// <summary>
-        /// An array that lists the names of the buckets.
+        /// Array that lists the names of the buckets.
         /// </summary>
         public InputList<string> Buckets
         {

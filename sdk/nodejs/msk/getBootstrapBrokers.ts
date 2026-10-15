@@ -89,15 +89,15 @@ export interface GetBootstrapBrokersResult {
      */
     readonly bootstrapBrokersTlsIpv6: string;
     /**
-     * A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity.
+     * One or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity.
      */
     readonly bootstrapBrokersVpcConnectivitySaslIam: string;
     /**
-     * A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity.
+     * One or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity.
      */
     readonly bootstrapBrokersVpcConnectivitySaslScram: string;
     /**
-     * A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity.
+     * One or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity.
      */
     readonly bootstrapBrokersVpcConnectivityTls: string;
     readonly clusterArn: string;

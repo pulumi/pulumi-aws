@@ -32,14 +32,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationInferenceProviderMod
     }
 
     /**
-     * Whether clients can omit the provider prefix from model IDs. If `true`, the gateway accepts model IDs without the prefix and restores the full prefixed form before forwarding to the provider. Defaults to `false`.
+     * Whether to allow clients to omit the provider prefix from model IDs. If `true`, the gateway accepts model IDs without the prefix and restores the full prefixed form before forwarding to the provider. Defaults to `false`.
      * 
      */
     @Import(name="strip")
     private @Nullable Output<Boolean> strip;
 
     /**
-     * @return Whether clients can omit the provider prefix from model IDs. If `true`, the gateway accepts model IDs without the prefix and restores the full prefixed form before forwarding to the provider. Defaults to `false`.
+     * @return Whether to allow clients to omit the provider prefix from model IDs. If `true`, the gateway accepts model IDs without the prefix and restores the full prefixed form before forwarding to the provider. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> strip() {
@@ -93,7 +93,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationInferenceProviderMod
         }
 
         /**
-         * @param strip Whether clients can omit the provider prefix from model IDs. If `true`, the gateway accepts model IDs without the prefix and restores the full prefixed form before forwarding to the provider. Defaults to `false`.
+         * @param strip Whether to allow clients to omit the provider prefix from model IDs. If `true`, the gateway accepts model IDs without the prefix and restores the full prefixed form before forwarding to the provider. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationInferenceProviderMod
         }
 
         /**
-         * @param strip Whether clients can omit the provider prefix from model IDs. If `true`, the gateway accepts model IDs without the prefix and restores the full prefixed form before forwarding to the provider. Defaults to `false`.
+         * @param strip Whether to allow clients to omit the provider prefix from model IDs. If `true`, the gateway accepts model IDs without the prefix and restores the full prefixed form before forwarding to the provider. Defaults to `false`.
          * 
          * @return builder
          * 

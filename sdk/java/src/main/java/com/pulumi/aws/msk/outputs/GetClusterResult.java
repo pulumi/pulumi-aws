@@ -55,7 +55,7 @@ public final class GetClusterResult {
      */
     private String bootstrapBrokersTls;
     /**
-     * @return Configuration block for the broker nodes of the Kafka cluster.
+     * @return Configuration block for the broker nodes of the Kafka cluster. See `brokerNodeGroupInfo` Block for details.
      * 
      */
     private List<GetClusterBrokerNodeGroupInfo> brokerNodeGroupInfos;
@@ -92,12 +92,12 @@ public final class GetClusterResult {
      */
     private Map<String,String> tags;
     /**
-     * @return A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+     * @return Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      * 
      */
     private String zookeeperConnectString;
     /**
-     * @return A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+     * @return Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      * 
      */
     private String zookeeperConnectStringTls;
@@ -160,7 +160,7 @@ public final class GetClusterResult {
         return this.bootstrapBrokersTls;
     }
     /**
-     * @return Configuration block for the broker nodes of the Kafka cluster.
+     * @return Configuration block for the broker nodes of the Kafka cluster. See `brokerNodeGroupInfo` Block for details.
      * 
      */
     public List<GetClusterBrokerNodeGroupInfo> brokerNodeGroupInfos() {
@@ -215,14 +215,14 @@ public final class GetClusterResult {
         return this.tags;
     }
     /**
-     * @return A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+     * @return Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      * 
      */
     public String zookeeperConnectString() {
         return this.zookeeperConnectString;
     }
     /**
-     * @return A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+     * @return Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      * 
      */
     public String zookeeperConnectStringTls() {

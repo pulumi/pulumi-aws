@@ -438,7 +438,7 @@ export class Instance extends pulumi.CustomResource {
      */
     declare public readonly databaseInsightsMode: pulumi.Output<string>;
     /**
-     * Name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
+     * Name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle DB name, it needs to be in all upper case. Cannot be specified for a replica.
      */
     declare public readonly dbName: pulumi.Output<string>;
     /**
@@ -986,7 +986,7 @@ export interface InstanceState {
      */
     databaseInsightsMode?: pulumi.Input<string | undefined>;
     /**
-     * Name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
+     * Name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle DB name, it needs to be in all upper case. Cannot be specified for a replica.
      */
     dbName?: pulumi.Input<string | undefined>;
     /**
@@ -1329,7 +1329,7 @@ export interface InstanceArgs {
      */
     databaseInsightsMode?: pulumi.Input<string | undefined>;
     /**
-     * Name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
+     * Name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle DB name, it needs to be in all upper case. Cannot be specified for a replica.
      */
     dbName?: pulumi.Input<string | undefined>;
     /**

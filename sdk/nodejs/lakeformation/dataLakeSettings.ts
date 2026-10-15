@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Enable EMR access to LakeFormation resources
+ * ### Enable EMR access to Lake Formation resources
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

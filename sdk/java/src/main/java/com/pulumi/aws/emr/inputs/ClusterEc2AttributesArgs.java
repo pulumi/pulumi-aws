@@ -93,14 +93,14 @@ public final class ClusterEc2AttributesArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Amazon EC2 key pair that can be used to ssh to the master node as the user called `hadoop`.
+     * Amazon EC2 key pair that can be used to SSH to the master node as the user called `hadoop`.
      * 
      */
     @Import(name="keyName")
     private @Nullable Output<String> keyName;
 
     /**
-     * @return Amazon EC2 key pair that can be used to ssh to the master node as the user called `hadoop`.
+     * @return Amazon EC2 key pair that can be used to SSH to the master node as the user called `hadoop`.
      * 
      */
     public Optional<Output<String>> keyName() {
@@ -123,14 +123,14 @@ public final class ClusterEc2AttributesArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in an Amazon VPC.
+     * VPC subnet ID where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in an Amazon VPC.
      * 
      */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
     /**
-     * @return VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in an Amazon VPC.
+     * @return VPC subnet ID where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in an Amazon VPC.
      * 
      */
     public Optional<Output<String>> subnetId() {
@@ -294,7 +294,7 @@ public final class ClusterEc2AttributesArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param keyName Amazon EC2 key pair that can be used to ssh to the master node as the user called `hadoop`.
+         * @param keyName Amazon EC2 key pair that can be used to SSH to the master node as the user called `hadoop`.
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class ClusterEc2AttributesArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param keyName Amazon EC2 key pair that can be used to ssh to the master node as the user called `hadoop`.
+         * @param keyName Amazon EC2 key pair that can be used to SSH to the master node as the user called `hadoop`.
          * 
          * @return builder
          * 
@@ -336,7 +336,7 @@ public final class ClusterEc2AttributesArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param subnetId VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in an Amazon VPC.
+         * @param subnetId VPC subnet ID where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in an Amazon VPC.
          * 
          * @return builder
          * 
@@ -347,7 +347,7 @@ public final class ClusterEc2AttributesArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param subnetId VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in an Amazon VPC.
+         * @param subnetId VPC subnet ID where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in an Amazon VPC.
          * 
          * @return builder
          * 

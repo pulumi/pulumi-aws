@@ -13,13 +13,13 @@ import (
 
 // `ec2.Vpc` provides details about a specific VPC.
 //
-// This resource can prove useful when a module accepts a vpc id as
+// This resource can prove useful when a module accepts a VPC ID as
 // an input variable and needs to, for example, determine the CIDR block of that
 // VPC.
 //
 // ## Example Usage
 //
-// The following example shows how one might accept a VPC id as a variable
+// The following example shows how one might accept a VPC ID as a variable
 // and use this data source to obtain the data necessary to create a subnet
 // within it.
 //
@@ -83,7 +83,7 @@ type LookupVpcArgs struct {
 	CidrBlock *string `pulumi:"cidrBlock"`
 	// Boolean constraint on whether the desired VPC is the default VPC for the region.
 	Default *bool `pulumi:"default"`
-	// DHCP options id of the desired VPC.
+	// DHCP options ID of the desired VPC.
 	DhcpOptionsId *string `pulumi:"dhcpOptionsId"`
 	// Custom filter block as described below. See `filter` Block below.
 	Filters []GetVpcFilter `pulumi:"filters"`
@@ -148,7 +148,7 @@ type LookupVpcOutputArgs struct {
 	CidrBlock pulumi.StringPtrInput `pulumi:"cidrBlock"`
 	// Boolean constraint on whether the desired VPC is the default VPC for the region.
 	Default pulumi.BoolPtrInput `pulumi:"default"`
-	// DHCP options id of the desired VPC.
+	// DHCP options ID of the desired VPC.
 	DhcpOptionsId pulumi.StringPtrInput `pulumi:"dhcpOptionsId"`
 	// Custom filter block as described below. See `filter` Block below.
 	Filters GetVpcFilterArrayInput `pulumi:"filters"`

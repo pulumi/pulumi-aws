@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Odb.Outputs
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// Cloud exadata infrastructure id associated with this cloud autonomous VM cluster.
+        /// Cloud exadata infrastructure ID associated with this cloud autonomous VM cluster.
         /// </summary>
         public readonly string CloudExadataInfrastructureId;
         /// <summary>

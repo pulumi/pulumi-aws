@@ -33,7 +33,7 @@ class ApplicationArgs:
         """
         The set of arguments for constructing a Application resource.
 
-        :param pulumi.Input['ApplicationDefinitionArgs'] definition: The application definition for this application. You can specify either inline JSON or an S3 bucket location.
+        :param pulumi.Input['ApplicationDefinitionArgs'] definition: Application definition for this application. You can specify either inline JSON or an S3 bucket location.
         :param pulumi.Input[_builtins.str] engine_type: Engine type must be `microfocus | bluage`.
         :param pulumi.Input[_builtins.str] description: Description of the application.
         :param pulumi.Input[_builtins.str] kms_key_id: KMS Key to use for the Application.
@@ -65,7 +65,7 @@ class ApplicationArgs:
     @pulumi.getter
     def definition(self) -> pulumi.Input['ApplicationDefinitionArgs']:
         """
-        The application definition for this application. You can specify either inline JSON or an S3 bucket location.
+        Application definition for this application. You can specify either inline JSON or an S3 bucket location.
         """
         return pulumi.get(self, "definition")
 
@@ -188,10 +188,10 @@ class _ApplicationState:
         """
         Input properties used for looking up and filtering Application resources.
 
-        :param pulumi.Input[_builtins.str] application_id: Id of the Application.
+        :param pulumi.Input[_builtins.str] application_id: ID of the Application.
         :param pulumi.Input[_builtins.str] arn: ARN of the Application.
         :param pulumi.Input[_builtins.int] current_version: Current version of the application deployed.
-        :param pulumi.Input['ApplicationDefinitionArgs'] definition: The application definition for this application. You can specify either inline JSON or an S3 bucket location.
+        :param pulumi.Input['ApplicationDefinitionArgs'] definition: Application definition for this application. You can specify either inline JSON or an S3 bucket location.
         :param pulumi.Input[_builtins.str] description: Description of the application.
         :param pulumi.Input[_builtins.str] engine_type: Engine type must be `microfocus | bluage`.
         :param pulumi.Input[_builtins.str] kms_key_id: KMS Key to use for the Application.
@@ -201,7 +201,7 @@ class _ApplicationState:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of role for application to use to access AWS resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if application_id is not None:
             pulumi.set(__self__, "application_id", application_id)
@@ -234,7 +234,7 @@ class _ApplicationState:
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Id of the Application.
+        ID of the Application.
         """
         return pulumi.get(self, "application_id")
 
@@ -270,7 +270,7 @@ class _ApplicationState:
     @pulumi.getter
     def definition(self) -> pulumi.Input[Optional['ApplicationDefinitionArgs']]:
         """
-        The application definition for this application. You can specify either inline JSON or an S3 bucket location.
+        Application definition for this application. You can specify either inline JSON or an S3 bucket location.
         """
         return pulumi.get(self, "definition")
 
@@ -368,7 +368,7 @@ class _ApplicationState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -457,7 +457,7 @@ class Application(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ApplicationDefinitionArgs', 'ApplicationDefinitionArgsDict', 'outputs.ApplicationDefinition']] definition: The application definition for this application. You can specify either inline JSON or an S3 bucket location.
+        :param pulumi.Input[Union['ApplicationDefinitionArgs', 'ApplicationDefinitionArgsDict', 'outputs.ApplicationDefinition']] definition: Application definition for this application. You can specify either inline JSON or an S3 bucket location.
         :param pulumi.Input[_builtins.str] description: Description of the application.
         :param pulumi.Input[_builtins.str] engine_type: Engine type must be `microfocus | bluage`.
         :param pulumi.Input[_builtins.str] kms_key_id: KMS Key to use for the Application.
@@ -607,10 +607,10 @@ class Application(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] application_id: Id of the Application.
+        :param pulumi.Input[_builtins.str] application_id: ID of the Application.
         :param pulumi.Input[_builtins.str] arn: ARN of the Application.
         :param pulumi.Input[_builtins.int] current_version: Current version of the application deployed.
-        :param pulumi.Input[Union['ApplicationDefinitionArgs', 'ApplicationDefinitionArgsDict', 'outputs.ApplicationDefinition']] definition: The application definition for this application. You can specify either inline JSON or an S3 bucket location.
+        :param pulumi.Input[Union['ApplicationDefinitionArgs', 'ApplicationDefinitionArgsDict', 'outputs.ApplicationDefinition']] definition: Application definition for this application. You can specify either inline JSON or an S3 bucket location.
         :param pulumi.Input[_builtins.str] description: Description of the application.
         :param pulumi.Input[_builtins.str] engine_type: Engine type must be `microfocus | bluage`.
         :param pulumi.Input[_builtins.str] kms_key_id: KMS Key to use for the Application.
@@ -620,7 +620,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of role for application to use to access AWS resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -645,7 +645,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[_builtins.str]:
         """
-        Id of the Application.
+        ID of the Application.
         """
         return pulumi.get(self, "application_id")
 
@@ -669,7 +669,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter
     def definition(self) -> pulumi.Output['outputs.ApplicationDefinition']:
         """
-        The application definition for this application. You can specify either inline JSON or an S3 bucket location.
+        Application definition for this application. You can specify either inline JSON or an S3 bucket location.
         """
         return pulumi.get(self, "definition")
 
@@ -735,7 +735,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

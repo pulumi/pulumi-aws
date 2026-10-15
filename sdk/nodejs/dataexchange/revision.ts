@@ -61,7 +61,7 @@ export class Revision extends pulumi.CustomResource {
      */
     declare public readonly comment: pulumi.Output<string | undefined>;
     /**
-     * The dataset id.
+     * The dataset ID.
      */
     declare public readonly dataSetId: pulumi.Output<string>;
     /**
@@ -69,7 +69,7 @@ export class Revision extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Id of the revision.
+     * The ID of the revision.
      */
     declare public /*out*/ readonly revisionId: pulumi.Output<string>;
     /**
@@ -132,7 +132,7 @@ export interface RevisionState {
      */
     comment?: pulumi.Input<string | undefined>;
     /**
-     * The dataset id.
+     * The dataset ID.
      */
     dataSetId?: pulumi.Input<string | undefined>;
     /**
@@ -140,7 +140,7 @@ export interface RevisionState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Id of the revision.
+     * The ID of the revision.
      */
     revisionId?: pulumi.Input<string | undefined>;
     /**
@@ -162,7 +162,7 @@ export interface RevisionArgs {
      */
     comment?: pulumi.Input<string | undefined>;
     /**
-     * The dataset id.
+     * The dataset ID.
      */
     dataSetId: pulumi.Input<string>;
     /**

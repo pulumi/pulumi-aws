@@ -18,14 +18,14 @@ public final class InputVpcArgs extends com.pulumi.resources.ResourceArgs {
     public static final InputVpcArgs Empty = new InputVpcArgs();
 
     /**
-     * A list of up to 5 EC2 VPC security group IDs to attach to the Input.
+     * List of up to 5 EC2 VPC security group IDs to attach to the Input.
      * 
      */
     @Import(name="securityGroupIds")
     private @Nullable Output<List<String>> securityGroupIds;
 
     /**
-     * @return A list of up to 5 EC2 VPC security group IDs to attach to the Input.
+     * @return List of up to 5 EC2 VPC security group IDs to attach to the Input.
      * 
      */
     public Optional<Output<List<String>>> securityGroupIds() {
@@ -33,14 +33,14 @@ public final class InputVpcArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of 2 VPC subnet IDs from the same VPC.
+     * List of 2 VPC subnet IDs from the same VPC.
      * 
      */
     @Import(name="subnetIds", required=true)
     private Output<List<String>> subnetIds;
 
     /**
-     * @return A list of 2 VPC subnet IDs from the same VPC.
+     * @return List of 2 VPC subnet IDs from the same VPC.
      * 
      */
     public Output<List<String>> subnetIds() {
@@ -73,7 +73,7 @@ public final class InputVpcArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroupIds A list of up to 5 EC2 VPC security group IDs to attach to the Input.
+         * @param securityGroupIds List of up to 5 EC2 VPC security group IDs to attach to the Input.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class InputVpcArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroupIds A list of up to 5 EC2 VPC security group IDs to attach to the Input.
+         * @param securityGroupIds List of up to 5 EC2 VPC security group IDs to attach to the Input.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class InputVpcArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroupIds A list of up to 5 EC2 VPC security group IDs to attach to the Input.
+         * @param securityGroupIds List of up to 5 EC2 VPC security group IDs to attach to the Input.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class InputVpcArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetIds A list of 2 VPC subnet IDs from the same VPC.
+         * @param subnetIds List of 2 VPC subnet IDs from the same VPC.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class InputVpcArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetIds A list of 2 VPC subnet IDs from the same VPC.
+         * @param subnetIds List of 2 VPC subnet IDs from the same VPC.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class InputVpcArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetIds A list of 2 VPC subnet IDs from the same VPC.
+         * @param subnetIds List of 2 VPC subnet IDs from the same VPC.
          * 
          * @return builder
          * 

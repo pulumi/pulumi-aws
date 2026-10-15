@@ -176,49 +176,49 @@ namespace Pulumi.Aws.Glue
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+        /// Version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
         /// </summary>
         [Output("glueVersion")]
         public Output<string> GlueVersion { get; private set; } = null!;
 
         /// <summary>
-        /// A list of AWS Glue table definitions used by the transform. see Input Record Tables.
+        /// List of AWS Glue table definitions used by the transform. See `InputRecordTables`.
         /// </summary>
         [Output("inputRecordTables")]
         public Output<ImmutableArray<Outputs.MLTransformInputRecordTable>> InputRecordTables { get; private set; } = null!;
 
         /// <summary>
-        /// The number of labels available for this transform.
+        /// Number of labels available for this transform.
         /// </summary>
         [Output("labelCount")]
         public Output<int> LabelCount { get; private set; } = null!;
 
         /// <summary>
-        /// The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `MaxCapacity` is a mutually exclusive option with `NumberOfWorkers` and `WorkerType`.
+        /// Number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `MaxCapacity` is a mutually exclusive option with `NumberOfWorkers` and `WorkerType`.
         /// </summary>
         [Output("maxCapacity")]
         public Output<double> MaxCapacity { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum number of times to retry this ML Transform if it fails.
+        /// Maximum number of times to retry this ML Transform if it fails.
         /// </summary>
         [Output("maxRetries")]
         public Output<int?> MaxRetries { get; private set; } = null!;
 
         /// <summary>
-        /// The name you assign to this ML Transform. It must be unique in your account.
+        /// Name you assign to this ML Transform. It must be unique in your account.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The number of workers of a defined `WorkerType` that are allocated when an ML Transform runs. Required with `WorkerType`.
+        /// Number of workers of a defined `WorkerType` that are allocated when an ML Transform runs. Required with `WorkerType`.
         /// </summary>
         [Output("numberOfWorkers")]
         public Output<int?> NumberOfWorkers { get; private set; } = null!;
 
         /// <summary>
-        /// The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
+        /// Algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. See `Parameters`.
         /// </summary>
         [Output("parameters")]
         public Output<Outputs.MLTransformParameters> Parameters { get; private set; } = null!;
@@ -230,13 +230,13 @@ namespace Pulumi.Aws.Glue
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the IAM role associated with this ML Transform.
+        /// ARN of the IAM role associated with this ML Transform.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// The object that represents the schema that this transform accepts. see Schema.
+        /// Object that represents the schema that this transform accepts. See `Schema`.
         /// </summary>
         [Output("schemas")]
         public Output<ImmutableArray<Outputs.MLTransformSchema>> Schemas { get; private set; } = null!;
@@ -248,19 +248,19 @@ namespace Pulumi.Aws.Glue
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
+        /// ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
         /// </summary>
         [Output("timeout")]
         public Output<int?> Timeout { get; private set; } = null!;
 
         /// <summary>
-        /// The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `NumberOfWorkers`.
+        /// Type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `NumberOfWorkers`.
         /// </summary>
         [Output("workerType")]
         public Output<string?> WorkerType { get; private set; } = null!;
@@ -318,7 +318,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+        /// Version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
         /// </summary>
         [Input("glueVersion")]
         public Input<string>? GlueVersion { get; set; }
@@ -327,7 +327,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.MLTransformInputRecordTableArgs>? _inputRecordTables;
 
         /// <summary>
-        /// A list of AWS Glue table definitions used by the transform. see Input Record Tables.
+        /// List of AWS Glue table definitions used by the transform. See `InputRecordTables`.
         /// </summary>
         public InputList<Inputs.MLTransformInputRecordTableArgs> InputRecordTables
         {
@@ -336,31 +336,31 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `MaxCapacity` is a mutually exclusive option with `NumberOfWorkers` and `WorkerType`.
+        /// Number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `MaxCapacity` is a mutually exclusive option with `NumberOfWorkers` and `WorkerType`.
         /// </summary>
         [Input("maxCapacity")]
         public Input<double>? MaxCapacity { get; set; }
 
         /// <summary>
-        /// The maximum number of times to retry this ML Transform if it fails.
+        /// Maximum number of times to retry this ML Transform if it fails.
         /// </summary>
         [Input("maxRetries")]
         public Input<int>? MaxRetries { get; set; }
 
         /// <summary>
-        /// The name you assign to this ML Transform. It must be unique in your account.
+        /// Name you assign to this ML Transform. It must be unique in your account.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The number of workers of a defined `WorkerType` that are allocated when an ML Transform runs. Required with `WorkerType`.
+        /// Number of workers of a defined `WorkerType` that are allocated when an ML Transform runs. Required with `WorkerType`.
         /// </summary>
         [Input("numberOfWorkers")]
         public Input<int>? NumberOfWorkers { get; set; }
 
         /// <summary>
-        /// The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
+        /// Algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. See `Parameters`.
         /// </summary>
         [Input("parameters", required: true)]
         public Input<Inputs.MLTransformParametersArgs> Parameters { get; set; } = null!;
@@ -372,7 +372,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ARN of the IAM role associated with this ML Transform.
+        /// ARN of the IAM role associated with this ML Transform.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -390,13 +390,13 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
+        /// ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
         /// </summary>
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }
 
         /// <summary>
-        /// The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `NumberOfWorkers`.
+        /// Type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `NumberOfWorkers`.
         /// </summary>
         [Input("workerType")]
         public Input<string>? WorkerType { get; set; }
@@ -422,7 +422,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+        /// Version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
         /// </summary>
         [Input("glueVersion")]
         public Input<string>? GlueVersion { get; set; }
@@ -431,7 +431,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.MLTransformInputRecordTableGetArgs>? _inputRecordTables;
 
         /// <summary>
-        /// A list of AWS Glue table definitions used by the transform. see Input Record Tables.
+        /// List of AWS Glue table definitions used by the transform. See `InputRecordTables`.
         /// </summary>
         public InputList<Inputs.MLTransformInputRecordTableGetArgs> InputRecordTables
         {
@@ -440,37 +440,37 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The number of labels available for this transform.
+        /// Number of labels available for this transform.
         /// </summary>
         [Input("labelCount")]
         public Input<int>? LabelCount { get; set; }
 
         /// <summary>
-        /// The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `MaxCapacity` is a mutually exclusive option with `NumberOfWorkers` and `WorkerType`.
+        /// Number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `MaxCapacity` is a mutually exclusive option with `NumberOfWorkers` and `WorkerType`.
         /// </summary>
         [Input("maxCapacity")]
         public Input<double>? MaxCapacity { get; set; }
 
         /// <summary>
-        /// The maximum number of times to retry this ML Transform if it fails.
+        /// Maximum number of times to retry this ML Transform if it fails.
         /// </summary>
         [Input("maxRetries")]
         public Input<int>? MaxRetries { get; set; }
 
         /// <summary>
-        /// The name you assign to this ML Transform. It must be unique in your account.
+        /// Name you assign to this ML Transform. It must be unique in your account.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The number of workers of a defined `WorkerType` that are allocated when an ML Transform runs. Required with `WorkerType`.
+        /// Number of workers of a defined `WorkerType` that are allocated when an ML Transform runs. Required with `WorkerType`.
         /// </summary>
         [Input("numberOfWorkers")]
         public Input<int>? NumberOfWorkers { get; set; }
 
         /// <summary>
-        /// The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
+        /// Algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. See `Parameters`.
         /// </summary>
         [Input("parameters")]
         public Input<Inputs.MLTransformParametersGetArgs>? Parameters { get; set; }
@@ -482,7 +482,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ARN of the IAM role associated with this ML Transform.
+        /// ARN of the IAM role associated with this ML Transform.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
@@ -491,7 +491,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.MLTransformSchemaGetArgs>? _schemas;
 
         /// <summary>
-        /// The object that represents the schema that this transform accepts. see Schema.
+        /// Object that represents the schema that this transform accepts. See `Schema`.
         /// </summary>
         public InputList<Inputs.MLTransformSchemaGetArgs> Schemas
         {
@@ -515,7 +515,7 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -524,13 +524,13 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
+        /// ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
         /// </summary>
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }
 
         /// <summary>
-        /// The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `NumberOfWorkers`.
+        /// Type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `NumberOfWorkers`.
         /// </summary>
         [Input("workerType")]
         public Input<string>? WorkerType { get; set; }

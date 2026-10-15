@@ -16,201 +16,569 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings {
+    /**
+     * @return When set to `drop`, output audio streams are removed from the program if the selected input audio stream is removed from the input.
+     * 
+     */
     private @Nullable String absentInputAudioBehavior;
+    /**
+     * @return When set to `enabled`, uses ARIB-compliant captioning.
+     * 
+     */
     private @Nullable String arib;
+    /**
+     * @return Packet identifier (PID) for ARIB captions in the transport stream.
+     * 
+     */
     private @Nullable String aribCaptionsPid;
+    /**
+     * @return How to pass along the ARIB captions.
+     * 
+     */
     private @Nullable String aribCaptionsPidControl;
+    /**
+     * @return When set to `dvb`, uses DVB buffer model for Dolby Digital audio.
+     * 
+     */
     private @Nullable String audioBufferModel;
+    /**
+     * @return Number of audio frames to insert for each PES packet.
+     * 
+     */
     private @Nullable Integer audioFramesPerPes;
+    /**
+     * @return Packet identifier (PID) of the elementary audio streams in the transport stream.
+     * 
+     */
     private @Nullable String audioPids;
+    /**
+     * @return When set to `atsc`, uses stream type `0x81` for AC3 and stream type `0x87` for EAC3.
+     * 
+     */
     private @Nullable String audioStreamType;
+    /**
+     * @return Output bitrate, in bits per second, of the transport stream.
+     * 
+     */
     private @Nullable Integer bitrate;
+    /**
+     * @return Controls the timing accuracy for output network traffic.
+     * 
+     */
     private @Nullable String bufferModel;
+    /**
+     * @return When set to `enabled`, generates a captions service descriptor in the PMT.
+     * 
+     */
     private @Nullable String ccDescriptor;
+    /**
+     * @return DVB Network Information Table (NIT) settings. See `dvbNitSettings` Block for details.
+     * 
+     */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings dvbNitSettings;
+    /**
+     * @return DVB Service Description Table (SDT) settings. See `dvbSdtSettings` Block for details.
+     * 
+     */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings dvbSdtSettings;
+    /**
+     * @return Packet identifier (PID) for input source DVB Subtitle data to this output.
+     * 
+     */
     private @Nullable String dvbSubPids;
+    /**
+     * @return DVB Time and Date Table (TDT) settings. See `dvbTdtSettings` Block for details.
+     * 
+     */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings dvbTdtSettings;
+    /**
+     * @return Packet identifier (PID) for input source DVB Teletext data to this output.
+     * 
+     */
     private @Nullable String dvbTeletextPid;
+    /**
+     * @return When set to `passthrough`, passes through EBIF messages from the input source to this output.
+     * 
+     */
     private @Nullable String ebif;
+    /**
+     * @return When set to `videoAndFixedIntervals`, adds Encoder Boundary Points for each elementary audio stream.
+     * 
+     */
     private @Nullable String ebpAudioInterval;
+    /**
+     * @return Amount of time, in milliseconds, that the encoder looks ahead for Encoder Boundary Points.
+     * 
+     */
     private @Nullable Integer ebpLookaheadMs;
+    /**
+     * @return Controls placement of Encoder Boundary Points on the video PID and audio PIDs.
+     * 
+     */
     private @Nullable String ebpPlacement;
+    /**
+     * @return Packet identifier (PID) for ECM in the transport stream.
+     * 
+     */
     private @Nullable String ecmPid;
+    /**
+     * @return When set to `include`, writes the stream to the PES header.
+     * 
+     */
     private @Nullable String esRateInPes;
+    /**
+     * @return Packet identifier (PID) for input source ETV Platform data to this output.
+     * 
+     */
     private @Nullable String etvPlatformPid;
+    /**
+     * @return Packet identifier (PID) for input source ETV Signal data to this output.
+     * 
+     */
     private @Nullable String etvSignalPid;
+    /**
+     * @return Length, in seconds, of each fragment, used only with EBP markers.
+     * 
+     */
     private @Nullable Double fragmentTime;
+    /**
+     * @return When set to `passthrough`, passes through KLV data from the SCTE-35 source.
+     * 
+     */
     private @Nullable String klv;
+    /**
+     * @return Packet identifier (PID) for input source KLV data to this output.
+     * 
+     */
     private @Nullable String klvDataPids;
+    /**
+     * @return When set to `passthrough`, passes through Nielsen ID3.
+     * 
+     */
     private @Nullable String nielsenId3Behavior;
+    /**
+     * @return Value, in bits per second, to insert null packets into the transport stream.
+     * 
+     */
     private @Nullable Double nullPacketBitrate;
+    /**
+     * @return Number of milliseconds between instances of this table in the output transport stream.
+     * 
+     */
     private @Nullable Integer patInterval;
+    /**
+     * @return When set to `pcrEveryPesPacket`, a Program Clock Reference value is inserted for every Packetized Elementary Stream.
+     * 
+     */
     private @Nullable String pcrControl;
+    /**
+     * @return Maximum time, in milliseconds, between Program Clock References.
+     * 
+     */
     private @Nullable Integer pcrPeriod;
+    /**
+     * @return Packet identifier (PID) of the Program Clock Reference in the transport stream.
+     * 
+     */
     private @Nullable String pcrPid;
+    /**
+     * @return Number of milliseconds between instances of this table in the output transport stream.
+     * 
+     */
     private @Nullable Integer pmtInterval;
+    /**
+     * @return Packet identifier (PID) for the Program Map Table in the transport stream.
+     * 
+     */
     private @Nullable String pmtPid;
+    /**
+     * @return Value of the program number field in the Program Map Table.
+     * 
+     */
     private @Nullable Integer programNum;
+    /**
+     * @return When set to `vbr`, does not insert null packets into the transport stream.
+     * 
+     */
     private @Nullable String rateMode;
+    /**
+     * @return Packet identifier (PID) for input source SCTE-27 data to this output.
+     * 
+     */
     private @Nullable String scte27Pids;
+    /**
+     * @return When set to `passthrough`, passes any SCTE-35 signals from the input source to this output.
+     * 
+     */
     private @Nullable String scte35Control;
     /**
-     * @return PID from which to read SCTE-35 messages.
+     * @return Packet identifier (PID) of the SCTE-35 stream in the transport stream.
      * 
      */
     private @Nullable String scte35Pid;
+    /**
+     * @return Type of segmentation markers to include.
+     * 
+     */
     private @Nullable String segmentationMarkers;
+    /**
+     * @return Whether segmentation markers are included at the start of a stream.
+     * 
+     */
     private @Nullable String segmentationStyle;
+    /**
+     * @return Length, in seconds, of each segment.
+     * 
+     */
     private @Nullable Double segmentationTime;
+    /**
+     * @return When set to `passthrough`, passes through timed metadata.
+     * 
+     */
     private @Nullable String timedMetadataBehavior;
+    /**
+     * @return Packet identifier (PID) of the timed metadata stream in the transport stream.
+     * 
+     */
     private @Nullable String timedMetadataPid;
+    /**
+     * @return Value of the transport stream ID field in the Program Map Table.
+     * 
+     */
     private @Nullable Integer transportStreamId;
+    /**
+     * @return Packet identifier (PID) of the elementary video stream in the transport stream.
+     * 
+     */
     private @Nullable String videoPid;
 
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings() {}
+    /**
+     * @return When set to `drop`, output audio streams are removed from the program if the selected input audio stream is removed from the input.
+     * 
+     */
     public Optional<String> absentInputAudioBehavior() {
         return Optional.ofNullable(this.absentInputAudioBehavior);
     }
+    /**
+     * @return When set to `enabled`, uses ARIB-compliant captioning.
+     * 
+     */
     public Optional<String> arib() {
         return Optional.ofNullable(this.arib);
     }
+    /**
+     * @return Packet identifier (PID) for ARIB captions in the transport stream.
+     * 
+     */
     public Optional<String> aribCaptionsPid() {
         return Optional.ofNullable(this.aribCaptionsPid);
     }
+    /**
+     * @return How to pass along the ARIB captions.
+     * 
+     */
     public Optional<String> aribCaptionsPidControl() {
         return Optional.ofNullable(this.aribCaptionsPidControl);
     }
+    /**
+     * @return When set to `dvb`, uses DVB buffer model for Dolby Digital audio.
+     * 
+     */
     public Optional<String> audioBufferModel() {
         return Optional.ofNullable(this.audioBufferModel);
     }
+    /**
+     * @return Number of audio frames to insert for each PES packet.
+     * 
+     */
     public Optional<Integer> audioFramesPerPes() {
         return Optional.ofNullable(this.audioFramesPerPes);
     }
+    /**
+     * @return Packet identifier (PID) of the elementary audio streams in the transport stream.
+     * 
+     */
     public Optional<String> audioPids() {
         return Optional.ofNullable(this.audioPids);
     }
+    /**
+     * @return When set to `atsc`, uses stream type `0x81` for AC3 and stream type `0x87` for EAC3.
+     * 
+     */
     public Optional<String> audioStreamType() {
         return Optional.ofNullable(this.audioStreamType);
     }
+    /**
+     * @return Output bitrate, in bits per second, of the transport stream.
+     * 
+     */
     public Optional<Integer> bitrate() {
         return Optional.ofNullable(this.bitrate);
     }
+    /**
+     * @return Controls the timing accuracy for output network traffic.
+     * 
+     */
     public Optional<String> bufferModel() {
         return Optional.ofNullable(this.bufferModel);
     }
+    /**
+     * @return When set to `enabled`, generates a captions service descriptor in the PMT.
+     * 
+     */
     public Optional<String> ccDescriptor() {
         return Optional.ofNullable(this.ccDescriptor);
     }
+    /**
+     * @return DVB Network Information Table (NIT) settings. See `dvbNitSettings` Block for details.
+     * 
+     */
     public Optional<ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings> dvbNitSettings() {
         return Optional.ofNullable(this.dvbNitSettings);
     }
+    /**
+     * @return DVB Service Description Table (SDT) settings. See `dvbSdtSettings` Block for details.
+     * 
+     */
     public Optional<ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings> dvbSdtSettings() {
         return Optional.ofNullable(this.dvbSdtSettings);
     }
+    /**
+     * @return Packet identifier (PID) for input source DVB Subtitle data to this output.
+     * 
+     */
     public Optional<String> dvbSubPids() {
         return Optional.ofNullable(this.dvbSubPids);
     }
+    /**
+     * @return DVB Time and Date Table (TDT) settings. See `dvbTdtSettings` Block for details.
+     * 
+     */
     public Optional<ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings> dvbTdtSettings() {
         return Optional.ofNullable(this.dvbTdtSettings);
     }
+    /**
+     * @return Packet identifier (PID) for input source DVB Teletext data to this output.
+     * 
+     */
     public Optional<String> dvbTeletextPid() {
         return Optional.ofNullable(this.dvbTeletextPid);
     }
+    /**
+     * @return When set to `passthrough`, passes through EBIF messages from the input source to this output.
+     * 
+     */
     public Optional<String> ebif() {
         return Optional.ofNullable(this.ebif);
     }
+    /**
+     * @return When set to `videoAndFixedIntervals`, adds Encoder Boundary Points for each elementary audio stream.
+     * 
+     */
     public Optional<String> ebpAudioInterval() {
         return Optional.ofNullable(this.ebpAudioInterval);
     }
+    /**
+     * @return Amount of time, in milliseconds, that the encoder looks ahead for Encoder Boundary Points.
+     * 
+     */
     public Optional<Integer> ebpLookaheadMs() {
         return Optional.ofNullable(this.ebpLookaheadMs);
     }
+    /**
+     * @return Controls placement of Encoder Boundary Points on the video PID and audio PIDs.
+     * 
+     */
     public Optional<String> ebpPlacement() {
         return Optional.ofNullable(this.ebpPlacement);
     }
+    /**
+     * @return Packet identifier (PID) for ECM in the transport stream.
+     * 
+     */
     public Optional<String> ecmPid() {
         return Optional.ofNullable(this.ecmPid);
     }
+    /**
+     * @return When set to `include`, writes the stream to the PES header.
+     * 
+     */
     public Optional<String> esRateInPes() {
         return Optional.ofNullable(this.esRateInPes);
     }
+    /**
+     * @return Packet identifier (PID) for input source ETV Platform data to this output.
+     * 
+     */
     public Optional<String> etvPlatformPid() {
         return Optional.ofNullable(this.etvPlatformPid);
     }
+    /**
+     * @return Packet identifier (PID) for input source ETV Signal data to this output.
+     * 
+     */
     public Optional<String> etvSignalPid() {
         return Optional.ofNullable(this.etvSignalPid);
     }
+    /**
+     * @return Length, in seconds, of each fragment, used only with EBP markers.
+     * 
+     */
     public Optional<Double> fragmentTime() {
         return Optional.ofNullable(this.fragmentTime);
     }
+    /**
+     * @return When set to `passthrough`, passes through KLV data from the SCTE-35 source.
+     * 
+     */
     public Optional<String> klv() {
         return Optional.ofNullable(this.klv);
     }
+    /**
+     * @return Packet identifier (PID) for input source KLV data to this output.
+     * 
+     */
     public Optional<String> klvDataPids() {
         return Optional.ofNullable(this.klvDataPids);
     }
+    /**
+     * @return When set to `passthrough`, passes through Nielsen ID3.
+     * 
+     */
     public Optional<String> nielsenId3Behavior() {
         return Optional.ofNullable(this.nielsenId3Behavior);
     }
+    /**
+     * @return Value, in bits per second, to insert null packets into the transport stream.
+     * 
+     */
     public Optional<Double> nullPacketBitrate() {
         return Optional.ofNullable(this.nullPacketBitrate);
     }
+    /**
+     * @return Number of milliseconds between instances of this table in the output transport stream.
+     * 
+     */
     public Optional<Integer> patInterval() {
         return Optional.ofNullable(this.patInterval);
     }
+    /**
+     * @return When set to `pcrEveryPesPacket`, a Program Clock Reference value is inserted for every Packetized Elementary Stream.
+     * 
+     */
     public Optional<String> pcrControl() {
         return Optional.ofNullable(this.pcrControl);
     }
+    /**
+     * @return Maximum time, in milliseconds, between Program Clock References.
+     * 
+     */
     public Optional<Integer> pcrPeriod() {
         return Optional.ofNullable(this.pcrPeriod);
     }
+    /**
+     * @return Packet identifier (PID) of the Program Clock Reference in the transport stream.
+     * 
+     */
     public Optional<String> pcrPid() {
         return Optional.ofNullable(this.pcrPid);
     }
+    /**
+     * @return Number of milliseconds between instances of this table in the output transport stream.
+     * 
+     */
     public Optional<Integer> pmtInterval() {
         return Optional.ofNullable(this.pmtInterval);
     }
+    /**
+     * @return Packet identifier (PID) for the Program Map Table in the transport stream.
+     * 
+     */
     public Optional<String> pmtPid() {
         return Optional.ofNullable(this.pmtPid);
     }
+    /**
+     * @return Value of the program number field in the Program Map Table.
+     * 
+     */
     public Optional<Integer> programNum() {
         return Optional.ofNullable(this.programNum);
     }
+    /**
+     * @return When set to `vbr`, does not insert null packets into the transport stream.
+     * 
+     */
     public Optional<String> rateMode() {
         return Optional.ofNullable(this.rateMode);
     }
+    /**
+     * @return Packet identifier (PID) for input source SCTE-27 data to this output.
+     * 
+     */
     public Optional<String> scte27Pids() {
         return Optional.ofNullable(this.scte27Pids);
     }
+    /**
+     * @return When set to `passthrough`, passes any SCTE-35 signals from the input source to this output.
+     * 
+     */
     public Optional<String> scte35Control() {
         return Optional.ofNullable(this.scte35Control);
     }
     /**
-     * @return PID from which to read SCTE-35 messages.
+     * @return Packet identifier (PID) of the SCTE-35 stream in the transport stream.
      * 
      */
     public Optional<String> scte35Pid() {
         return Optional.ofNullable(this.scte35Pid);
     }
+    /**
+     * @return Type of segmentation markers to include.
+     * 
+     */
     public Optional<String> segmentationMarkers() {
         return Optional.ofNullable(this.segmentationMarkers);
     }
+    /**
+     * @return Whether segmentation markers are included at the start of a stream.
+     * 
+     */
     public Optional<String> segmentationStyle() {
         return Optional.ofNullable(this.segmentationStyle);
     }
+    /**
+     * @return Length, in seconds, of each segment.
+     * 
+     */
     public Optional<Double> segmentationTime() {
         return Optional.ofNullable(this.segmentationTime);
     }
+    /**
+     * @return When set to `passthrough`, passes through timed metadata.
+     * 
+     */
     public Optional<String> timedMetadataBehavior() {
         return Optional.ofNullable(this.timedMetadataBehavior);
     }
+    /**
+     * @return Packet identifier (PID) of the timed metadata stream in the transport stream.
+     * 
+     */
     public Optional<String> timedMetadataPid() {
         return Optional.ofNullable(this.timedMetadataPid);
     }
+    /**
+     * @return Value of the transport stream ID field in the Program Map Table.
+     * 
+     */
     public Optional<Integer> transportStreamId() {
         return Optional.ofNullable(this.transportStreamId);
     }
+    /**
+     * @return Packet identifier (PID) of the elementary video stream in the transport stream.
+     * 
+     */
     public Optional<String> videoPid() {
         return Optional.ofNullable(this.videoPid);
     }

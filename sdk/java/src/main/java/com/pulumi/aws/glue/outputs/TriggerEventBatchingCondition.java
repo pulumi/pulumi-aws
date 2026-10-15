@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TriggerEventBatchingCondition {
     /**
-     * @return Number of events that must be received from Amazon EventBridge before EventBridge  event trigger fires.
+     * @return Number of events that must be received from Amazon EventBridge before EventBridge event trigger fires.
      * 
      */
     private Integer batchSize;
@@ -25,7 +25,7 @@ public final class TriggerEventBatchingCondition {
 
     private TriggerEventBatchingCondition() {}
     /**
-     * @return Number of events that must be received from Amazon EventBridge before EventBridge  event trigger fires.
+     * @return Number of events that must be received from Amazon EventBridge before EventBridge event trigger fires.
      * 
      */
     public Integer batchSize() {

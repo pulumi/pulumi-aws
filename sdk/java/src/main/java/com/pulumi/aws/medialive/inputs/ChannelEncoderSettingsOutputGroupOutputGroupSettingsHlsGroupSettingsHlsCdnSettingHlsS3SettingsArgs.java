@@ -16,14 +16,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
     public static final ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3SettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3SettingsArgs();
 
     /**
-     * Specify the canned ACL to apply to each S3 request.
+     * Canned ACL to apply to each S3 request.
      * 
      */
     @Import(name="cannedAcl")
     private @Nullable Output<String> cannedAcl;
 
     /**
-     * @return Specify the canned ACL to apply to each S3 request.
+     * @return Canned ACL to apply to each S3 request.
      * 
      */
     public Optional<Output<String>> cannedAcl() {
@@ -55,7 +55,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         }
 
         /**
-         * @param cannedAcl Specify the canned ACL to apply to each S3 request.
+         * @param cannedAcl Canned ACL to apply to each S3 request.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         }
 
         /**
-         * @param cannedAcl Specify the canned ACL to apply to each S3 request.
+         * @param cannedAcl Canned ACL to apply to each S3 request.
          * 
          * @return builder
          * 

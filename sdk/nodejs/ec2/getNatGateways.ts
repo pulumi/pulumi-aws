@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
+ * This resource can be useful for getting back a list of NAT gateway IDs to be referenced elsewhere.
  *
  * ## Example Usage
  *
@@ -74,7 +74,7 @@ export interface GetNatGatewaysResult {
      */
     readonly id: string;
     /**
-     * List of all the NAT gateway ids found.
+     * List of all the NAT gateway IDs found.
      */
     readonly ids: string[];
     readonly region: string;
@@ -82,7 +82,7 @@ export interface GetNatGatewaysResult {
     readonly vpcId?: string;
 }
 /**
- * This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
+ * This resource can be useful for getting back a list of NAT gateway IDs to be referenced elsewhere.
  *
  * ## Example Usage
  *

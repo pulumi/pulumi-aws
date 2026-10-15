@@ -345,6 +345,42 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// 
+    /// ### With a Wall Clock Evaluation Window
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.CloudWatch.MetricAlarm("example", new()
+    ///     {
+    ///         EvaluationWindow = new Aws.CloudWatch.Inputs.MetricAlarmEvaluationWindowArgs
+    ///         {
+    ///             WallClockWindow = new Aws.CloudWatch.Inputs.MetricAlarmEvaluationWindowWallClockWindowArgs
+    ///             {
+    ///                 Timezone = "America/New_York",
+    ///             },
+    ///         },
+    ///         Name = "example-daily-errors",
+    ///         ComparisonOperator = "GreaterThanThreshold",
+    ///         EvaluationPeriods = 1,
+    ///         MetricName = "Errors",
+    ///         Namespace = "ExampleApp",
+    ///         Period = 86400,
+    ///         Statistic = "Sum",
+    ///         Threshold = 0,
+    ///         AlarmActions = 
+    ///         {
+    ///             exampleAwsSnsTopic.Arn,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// &gt; **NOTE:**  You cannot create a metric alarm consisting of both `Statistic` and `ExtendedStatistic` parameters.
     /// You must choose one or the other.
     /// 
@@ -438,6 +474,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Output("evaluationPeriods")]
         public Output<int?> EvaluationPeriods { get; private set; } = null!;
+
+        /// <summary>
+        /// Configures the alarm to use a wall clock evaluation window instead of the default sliding window. Not supported for alarms that use `EvaluationCriteria`. See `EvaluationWindow` below.
+        /// </summary>
+        [Output("evaluationWindow")]
+        public Output<Outputs.MetricAlarmEvaluationWindow?> EvaluationWindow { get; private set; } = null!;
 
         /// <summary>
         /// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
@@ -672,6 +714,12 @@ namespace Pulumi.Aws.CloudWatch
         public Input<int>? EvaluationPeriods { get; set; }
 
         /// <summary>
+        /// Configures the alarm to use a wall clock evaluation window instead of the default sliding window. Not supported for alarms that use `EvaluationCriteria`. See `EvaluationWindow` below.
+        /// </summary>
+        [Input("evaluationWindow")]
+        public Input<Inputs.MetricAlarmEvaluationWindowArgs>? EvaluationWindow { get; set; }
+
+        /// <summary>
         /// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
         /// </summary>
         [Input("extendedStatistic")]
@@ -888,6 +936,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("evaluationPeriods")]
         public Input<int>? EvaluationPeriods { get; set; }
+
+        /// <summary>
+        /// Configures the alarm to use a wall clock evaluation window instead of the default sliding window. Not supported for alarms that use `EvaluationCriteria`. See `EvaluationWindow` below.
+        /// </summary>
+        [Input("evaluationWindow")]
+        public Input<Inputs.MetricAlarmEvaluationWindowGetArgs>? EvaluationWindow { get; set; }
 
         /// <summary>
         /// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.

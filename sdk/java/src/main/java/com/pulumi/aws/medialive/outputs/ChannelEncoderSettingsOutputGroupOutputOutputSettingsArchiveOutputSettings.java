@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings {
     /**
-     * @return Settings specific to the container type of the file. See Container Settings for more details.
+     * @return Settings specific to the container type of the file. See `archive_output_settings.container_settings` Block for details.
      * 
      */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings containerSettings;
@@ -30,7 +30,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveO
 
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings() {}
     /**
-     * @return Settings specific to the container type of the file. See Container Settings for more details.
+     * @return Settings specific to the container type of the file. See `archive_output_settings.container_settings` Block for details.
      * 
      */
     public Optional<ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings> containerSettings() {

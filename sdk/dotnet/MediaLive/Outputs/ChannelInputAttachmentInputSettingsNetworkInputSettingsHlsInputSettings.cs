@@ -14,7 +14,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettings
     {
         /// <summary>
-        /// The bitrate is specified in bits per second, as in an HLS manifest.
+        /// Bitrate, in bits per second, as in an HLS manifest.
         /// </summary>
         public readonly int? Bandwidth;
         /// <summary>
@@ -22,13 +22,16 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly int? BufferSegments;
         /// <summary>
-        /// The number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
+        /// Number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
         /// </summary>
         public readonly int? Retries;
         /// <summary>
-        /// The number of seconds between retries when an attempt to read a manifest or segment fails.
+        /// Number of seconds between retries when an attempt to read a manifest or segment fails.
         /// </summary>
         public readonly int? RetryInterval;
+        /// <summary>
+        /// Source for the SCTE-35 messages that MediaLive ingests.
+        /// </summary>
         public readonly string? Scte35Source;
 
         [OutputConstructor]

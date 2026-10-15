@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Ecs.Inputs
         public Input<Inputs.TaskDefinitionVolumeEfsVolumeConfigurationGetArgs>? EfsVolumeConfiguration { get; set; }
 
         /// <summary>
-        /// Configuration block for an FSX Windows File Server volume. Detailed below.
+        /// Configuration block for an FSx Windows File Server volume. Detailed below.
         /// </summary>
         [Input("fsxWindowsFileServerVolumeConfiguration")]
         public Input<Inputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationGetArgs>? FsxWindowsFileServerVolumeConfiguration { get; set; }

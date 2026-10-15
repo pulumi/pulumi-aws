@@ -35,7 +35,7 @@ export function getIndex(args: GetIndexArgs, opts?: pulumi.InvokeOptions): Promi
  */
 export interface GetIndexArgs {
     /**
-     * Returns information on a specific Index by id.
+     * Returns information on a specific Index by ID.
      */
     id: string;
     /**
@@ -151,7 +151,7 @@ export function getIndexOutput(args: GetIndexOutputArgs, opts?: pulumi.InvokeOut
  */
 export interface GetIndexOutputArgs {
     /**
-     * Returns information on a specific Index by id.
+     * Returns information on a specific Index by ID.
      */
     id: pulumi.Input<string>;
     /**

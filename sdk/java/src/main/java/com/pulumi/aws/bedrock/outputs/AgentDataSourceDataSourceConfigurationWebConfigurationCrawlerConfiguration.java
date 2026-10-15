@@ -19,12 +19,12 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
      */
     private @Nullable AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits crawlerLimits;
     /**
-     * @return List of one or more exclusion regular expression patterns to exclude object types that match the pattern.
+     * @return List of one or more exclusion regular expression patterns to exclude URLs that match the pattern.
      * 
      */
     private @Nullable List<String> exclusionFilters;
     /**
-     * @return List of one or more inclusion regular expression patterns to include object types that match the pattern.
+     * @return List of one or more inclusion regular expression patterns to include URLs that match the pattern.
      * 
      */
     private @Nullable List<String> inclusionFilters;
@@ -34,7 +34,7 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
      */
     private @Nullable String scope;
     /**
-     * @return String used to identify the crawler or bot when it accesses a web server. Default value is `bedrockbot_UUID`.
+     * @return Custom suffix appended to the `bedrockbot_UUID` user agent header that the crawler uses when it accesses a web server. Must be between 15 and 40 characters.
      * 
      */
     private @Nullable String userAgent;
@@ -48,14 +48,14 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
         return Optional.ofNullable(this.crawlerLimits);
     }
     /**
-     * @return List of one or more exclusion regular expression patterns to exclude object types that match the pattern.
+     * @return List of one or more exclusion regular expression patterns to exclude URLs that match the pattern.
      * 
      */
     public List<String> exclusionFilters() {
         return this.exclusionFilters == null ? List.of() : this.exclusionFilters;
     }
     /**
-     * @return List of one or more inclusion regular expression patterns to include object types that match the pattern.
+     * @return List of one or more inclusion regular expression patterns to include URLs that match the pattern.
      * 
      */
     public List<String> inclusionFilters() {
@@ -69,7 +69,7 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
         return Optional.ofNullable(this.scope);
     }
     /**
-     * @return String used to identify the crawler or bot when it accesses a web server. Default value is `bedrockbot_UUID`.
+     * @return Custom suffix appended to the `bedrockbot_UUID` user agent header that the crawler uses when it accesses a web server. Must be between 15 and 40 characters.
      * 
      */
     public Optional<String> userAgent() {

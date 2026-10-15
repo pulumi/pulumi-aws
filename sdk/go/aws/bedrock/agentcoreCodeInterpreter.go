@@ -34,7 +34,7 @@ import (
 //				NetworkConfiguration: &bedrock.AgentcoreCodeInterpreterNetworkConfigurationArgs{
 //					NetworkMode: pulumi.String("PUBLIC"),
 //				},
-//				Name:        pulumi.String("example-code-interpreter"),
+//				Name:        pulumi.String("example_code_interpreter"),
 //				Description: pulumi.String("Code interpreter for data analysis"),
 //			})
 //			if err != nil {
@@ -93,7 +93,7 @@ import (
 //				NetworkConfiguration: &bedrock.AgentcoreCodeInterpreterNetworkConfigurationArgs{
 //					NetworkMode: pulumi.String("SANDBOX"),
 //				},
-//				Name:             pulumi.String("example-code-interpreter"),
+//				Name:             pulumi.String("example_code_interpreter"),
 //				Description:      pulumi.String("Code interpreter with custom execution role"),
 //				ExecutionRoleArn: example.Arn,
 //			})
@@ -124,7 +124,7 @@ type AgentcoreCodeInterpreter struct {
 	CodeInterpreterId pulumi.StringOutput `pulumi:"codeInterpreterId"`
 	// Description of the code interpreter.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
+	// ARN of the IAM role that the code interpreter assumes for execution.
 	ExecutionRoleArn pulumi.StringPtrOutput `pulumi:"executionRoleArn"`
 	// Name of the code interpreter.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -182,7 +182,7 @@ type agentcoreCodeInterpreterState struct {
 	CodeInterpreterId *string `pulumi:"codeInterpreterId"`
 	// Description of the code interpreter.
 	Description *string `pulumi:"description"`
-	// ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
+	// ARN of the IAM role that the code interpreter assumes for execution.
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// Name of the code interpreter.
 	Name *string `pulumi:"name"`
@@ -208,7 +208,7 @@ type AgentcoreCodeInterpreterState struct {
 	CodeInterpreterId pulumi.StringPtrInput
 	// Description of the code interpreter.
 	Description pulumi.StringPtrInput
-	// ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
+	// ARN of the IAM role that the code interpreter assumes for execution.
 	ExecutionRoleArn pulumi.StringPtrInput
 	// Name of the code interpreter.
 	Name pulumi.StringPtrInput
@@ -234,7 +234,7 @@ type agentcoreCodeInterpreterArgs struct {
 	Certificates []AgentcoreCodeInterpreterCertificate `pulumi:"certificates"`
 	// Description of the code interpreter.
 	Description *string `pulumi:"description"`
-	// ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
+	// ARN of the IAM role that the code interpreter assumes for execution.
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// Name of the code interpreter.
 	Name *string `pulumi:"name"`
@@ -255,7 +255,7 @@ type AgentcoreCodeInterpreterArgs struct {
 	Certificates AgentcoreCodeInterpreterCertificateArrayInput
 	// Description of the code interpreter.
 	Description pulumi.StringPtrInput
-	// ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
+	// ARN of the IAM role that the code interpreter assumes for execution.
 	ExecutionRoleArn pulumi.StringPtrInput
 	// Name of the code interpreter.
 	Name pulumi.StringPtrInput
@@ -379,7 +379,7 @@ func (o AgentcoreCodeInterpreterOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreCodeInterpreter) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
+// ARN of the IAM role that the code interpreter assumes for execution.
 func (o AgentcoreCodeInterpreterOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreCodeInterpreter) pulumi.StringPtrOutput { return v.ExecutionRoleArn }).(pulumi.StringPtrOutput)
 }

@@ -736,8 +736,8 @@ class ApplicationNetworkConfiguration(dict):
                  security_group_ids: Optional[Sequence[_builtins.str]] = None,
                  subnet_ids: Optional[Sequence[_builtins.str]] = None):
         """
-        :param Sequence[_builtins.str] security_group_ids: The array of security group Ids for customer VPC connectivity.
-        :param Sequence[_builtins.str] subnet_ids: The array of subnet Ids for customer VPC connectivity.
+        :param Sequence[_builtins.str] security_group_ids: The array of security group IDs for customer VPC connectivity.
+        :param Sequence[_builtins.str] subnet_ids: The array of subnet IDs for customer VPC connectivity.
         """
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
@@ -748,7 +748,7 @@ class ApplicationNetworkConfiguration(dict):
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[Sequence[_builtins.str]]:
         """
-        The array of security group Ids for customer VPC connectivity.
+        The array of security group IDs for customer VPC connectivity.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -756,7 +756,7 @@ class ApplicationNetworkConfiguration(dict):
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[Sequence[_builtins.str]]:
         """
-        The array of subnet Ids for customer VPC connectivity.
+        The array of subnet IDs for customer VPC connectivity.
         """
         return pulumi.get(self, "subnet_ids")
 

@@ -15,16 +15,32 @@ public final class ChannelInputAttachmentInputSettingsVideoSelectorArgs extends 
 
     public static final ChannelInputAttachmentInputSettingsVideoSelectorArgs Empty = new ChannelInputAttachmentInputSettingsVideoSelectorArgs();
 
+    /**
+     * Color space of the input.
+     * 
+     */
     @Import(name="colorSpace")
     private @Nullable Output<String> colorSpace;
 
+    /**
+     * @return Color space of the input.
+     * 
+     */
     public Optional<Output<String>> colorSpace() {
         return Optional.ofNullable(this.colorSpace);
     }
 
+    /**
+     * How MediaLive applies the color space metadata from the input.
+     * 
+     */
     @Import(name="colorSpaceUsage")
     private @Nullable Output<String> colorSpaceUsage;
 
+    /**
+     * @return How MediaLive applies the color space metadata from the input.
+     * 
+     */
     public Optional<Output<String>> colorSpaceUsage() {
         return Optional.ofNullable(this.colorSpaceUsage);
     }
@@ -54,20 +70,44 @@ public final class ChannelInputAttachmentInputSettingsVideoSelectorArgs extends 
             $ = new ChannelInputAttachmentInputSettingsVideoSelectorArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param colorSpace Color space of the input.
+         * 
+         * @return builder
+         * 
+         */
         public Builder colorSpace(@Nullable Output<String> colorSpace) {
             $.colorSpace = colorSpace;
             return this;
         }
 
+        /**
+         * @param colorSpace Color space of the input.
+         * 
+         * @return builder
+         * 
+         */
         public Builder colorSpace(String colorSpace) {
             return colorSpace(Output.of(colorSpace));
         }
 
+        /**
+         * @param colorSpaceUsage How MediaLive applies the color space metadata from the input.
+         * 
+         * @return builder
+         * 
+         */
         public Builder colorSpaceUsage(@Nullable Output<String> colorSpaceUsage) {
             $.colorSpaceUsage = colorSpaceUsage;
             return this;
         }
 
+        /**
+         * @param colorSpaceUsage How MediaLive applies the color space metadata from the input.
+         * 
+         * @return builder
+         * 
+         */
         public Builder colorSpaceUsage(String colorSpaceUsage) {
             return colorSpaceUsage(Output.of(colorSpaceUsage));
         }

@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Sagemaker
     /// });
     /// ```
     /// 
-    /// ### Oidc Usage
+    /// ### OIDC Usage
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -120,7 +120,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
+        /// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source IP Config details below.
         /// </summary>
         [Output("sourceIpConfig")]
         public Output<Outputs.WorkforceSourceIpConfig> SourceIpConfig { get; private set; } = null!;
@@ -208,7 +208,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
+        /// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source IP Config details below.
         /// </summary>
         [Input("sourceIpConfig")]
         public Input<Inputs.WorkforceSourceIpConfigArgs>? SourceIpConfig { get; set; }
@@ -258,7 +258,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
+        /// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source IP Config details below.
         /// </summary>
         [Input("sourceIpConfig")]
         public Input<Inputs.WorkforceSourceIpConfigGetArgs>? SourceIpConfig { get; set; }

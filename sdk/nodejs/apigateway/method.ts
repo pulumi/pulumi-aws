@@ -129,7 +129,7 @@ export class Method extends pulumi.CustomResource {
      */
     declare public readonly authorizationScopes: pulumi.Output<string[] | undefined>;
     /**
-     * Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+     * Authorizer ID to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
      */
     declare public readonly authorizerId: pulumi.Output<string | undefined>;
     /**
@@ -239,7 +239,7 @@ export interface MethodState {
      */
     authorizationScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+     * Authorizer ID to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
      */
     authorizerId?: pulumi.Input<string | undefined>;
     /**
@@ -293,7 +293,7 @@ export interface MethodArgs {
      */
     authorizationScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+     * Authorizer ID to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
      */
     authorizerId?: pulumi.Input<string | undefined>;
     /**

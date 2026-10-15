@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreGatewayProtocolConfigurationMcpStreamingConfiguration {
     /**
-     * @return Boolean indicating whether response streaming is enabled for the gateway.
+     * @return Whether to enable response streaming for the gateway.
      * 
      */
     private @Nullable Boolean enableResponseStreaming;
 
     private AgentcoreGatewayProtocolConfigurationMcpStreamingConfiguration() {}
     /**
-     * @return Boolean indicating whether response streaming is enabled for the gateway.
+     * @return Whether to enable response streaming for the gateway.
      * 
      */
     public Optional<Boolean> enableResponseStreaming() {

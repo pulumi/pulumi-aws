@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to get a list of AWS Cloudwatch Log Groups
+ * Use this data source to get a list of AWS CloudWatch Log Groups
  *
  * ## Example Usage
  *
@@ -32,7 +32,7 @@ export function getLogGroups(args?: GetLogGroupsArgs, opts?: pulumi.InvokeOption
  */
 export interface GetLogGroupsArgs {
     /**
-     * Group prefix of the Cloudwatch log groups to list
+     * Group prefix of the CloudWatch log groups to list
      */
     logGroupNamePrefix?: string;
     /**
@@ -46,7 +46,7 @@ export interface GetLogGroupsArgs {
  */
 export interface GetLogGroupsResult {
     /**
-     * Set of ARNs of the Cloudwatch log groups
+     * Set of ARNs of the CloudWatch log groups
      */
     readonly arns: string[];
     /**
@@ -55,13 +55,13 @@ export interface GetLogGroupsResult {
     readonly id: string;
     readonly logGroupNamePrefix?: string;
     /**
-     * Set of names of the Cloudwatch log groups
+     * Set of names of the CloudWatch log groups
      */
     readonly logGroupNames: string[];
     readonly region: string;
 }
 /**
- * Use this data source to get a list of AWS Cloudwatch Log Groups
+ * Use this data source to get a list of AWS CloudWatch Log Groups
  *
  * ## Example Usage
  *
@@ -88,7 +88,7 @@ export function getLogGroupsOutput(args?: GetLogGroupsOutputArgs, opts?: pulumi.
  */
 export interface GetLogGroupsOutputArgs {
     /**
-     * Group prefix of the Cloudwatch log groups to list
+     * Group prefix of the CloudWatch log groups to list
      */
     logGroupNamePrefix?: pulumi.Input<string | undefined>;
     /**

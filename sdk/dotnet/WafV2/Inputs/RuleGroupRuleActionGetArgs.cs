@@ -42,6 +42,12 @@ namespace Pulumi.Aws.WafV2.Inputs
         [Input("count")]
         public Input<Inputs.RuleGroupRuleActionCountGetArgs>? Count { get; set; }
 
+        /// <summary>
+        /// Instructs AWS WAF to monetize the web request, charging per request according to the rule group's `MonetizationConfig`. See Monetize below for details.
+        /// </summary>
+        [Input("monetize")]
+        public Input<Inputs.RuleGroupRuleActionMonetizeGetArgs>? Monetize { get; set; }
+
         public RuleGroupRuleActionGetArgs()
         {
         }

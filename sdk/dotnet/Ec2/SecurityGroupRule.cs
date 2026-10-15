@@ -247,7 +247,7 @@ namespace Pulumi.Aws.Ec2
         public Output<bool?> Self { get; private set; } = null!;
 
         /// <summary>
-        /// Security group id to allow access to/from, depending on the `Type`. Cannot be specified with `CidrBlocks`, `Ipv6CidrBlocks`, or `Self`.
+        /// Security group ID to allow access to/from, depending on the `Type`. Cannot be specified with `CidrBlocks`, `Ipv6CidrBlocks`, or `Self`.
         /// </summary>
         [Output("sourceSecurityGroupId")]
         public Output<string> SourceSecurityGroupId { get; private set; } = null!;
@@ -387,7 +387,7 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? Self { get; set; }
 
         /// <summary>
-        /// Security group id to allow access to/from, depending on the `Type`. Cannot be specified with `CidrBlocks`, `Ipv6CidrBlocks`, or `Self`.
+        /// Security group ID to allow access to/from, depending on the `Type`. Cannot be specified with `CidrBlocks`, `Ipv6CidrBlocks`, or `Self`.
         /// </summary>
         [Input("sourceSecurityGroupId")]
         public Input<string>? SourceSecurityGroupId { get; set; }
@@ -495,7 +495,7 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? Self { get; set; }
 
         /// <summary>
-        /// Security group id to allow access to/from, depending on the `Type`. Cannot be specified with `CidrBlocks`, `Ipv6CidrBlocks`, or `Self`.
+        /// Security group ID to allow access to/from, depending on the `Type`. Cannot be specified with `CidrBlocks`, `Ipv6CidrBlocks`, or `Self`.
         /// </summary>
         [Input("sourceSecurityGroupId")]
         public Input<string>? SourceSecurityGroupId { get; set; }

@@ -9657,9 +9657,9 @@ type InsightFilters struct {
 	MalwareTypes []InsightFiltersMalwareType `pulumi:"malwareTypes"`
 	// The destination domain of network-related information about a finding. See String Filter below for more details.
 	NetworkDestinationDomains []InsightFiltersNetworkDestinationDomain `pulumi:"networkDestinationDomains"`
-	// The destination IPv4 address of network-related information about a finding. See Ip Filter below for more details.
+	// The destination IPv4 address of network-related information about a finding. See IP Filter below for more details.
 	NetworkDestinationIpv4s []InsightFiltersNetworkDestinationIpv4 `pulumi:"networkDestinationIpv4s"`
-	// The destination IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+	// The destination IPv6 address of network-related information about a finding. See IP Filter below for more details.
 	NetworkDestinationIpv6s []InsightFiltersNetworkDestinationIpv6 `pulumi:"networkDestinationIpv6s"`
 	// The destination port of network-related information about a finding. See Number Filter below for more details.
 	NetworkDestinationPorts []InsightFiltersNetworkDestinationPort `pulumi:"networkDestinationPorts"`
@@ -9669,9 +9669,9 @@ type InsightFilters struct {
 	NetworkProtocols []InsightFiltersNetworkProtocol `pulumi:"networkProtocols"`
 	// The source domain of network-related information about a finding. See String Filter below for more details.
 	NetworkSourceDomains []InsightFiltersNetworkSourceDomain `pulumi:"networkSourceDomains"`
-	// The source IPv4 address of network-related information about a finding. See Ip Filter below for more details.
+	// The source IPv4 address of network-related information about a finding. See IP Filter below for more details.
 	NetworkSourceIpv4s []InsightFiltersNetworkSourceIpv4 `pulumi:"networkSourceIpv4s"`
-	// The source IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+	// The source IPv6 address of network-related information about a finding. See IP Filter below for more details.
 	NetworkSourceIpv6s []InsightFiltersNetworkSourceIpv6 `pulumi:"networkSourceIpv6s"`
 	// The source media access control (MAC) address of network-related information about a finding. See String Filter below for more details.
 	NetworkSourceMacs []InsightFiltersNetworkSourceMac `pulumi:"networkSourceMacs"`
@@ -9713,9 +9713,9 @@ type InsightFilters struct {
 	ResourceAwsEc2InstanceIamInstanceProfileArns []InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn `pulumi:"resourceAwsEc2InstanceIamInstanceProfileArns"`
 	// AMI ID of the instance. See String Filter below for more details.
 	ResourceAwsEc2InstanceImageIds []InsightFiltersResourceAwsEc2InstanceImageId `pulumi:"resourceAwsEc2InstanceImageIds"`
-	// The IPv4 addresses associated with the instance. See Ip Filter below for more details.
+	// The IPv4 addresses associated with the instance. See IP Filter below for more details.
 	ResourceAwsEc2InstanceIpv4Addresses []InsightFiltersResourceAwsEc2InstanceIpv4Address `pulumi:"resourceAwsEc2InstanceIpv4Addresses"`
-	// The IPv6 addresses associated with the instance. See Ip Filter below for more details.
+	// The IPv6 addresses associated with the instance. See IP Filter below for more details.
 	ResourceAwsEc2InstanceIpv6Addresses []InsightFiltersResourceAwsEc2InstanceIpv6Address `pulumi:"resourceAwsEc2InstanceIpv6Addresses"`
 	// The key name associated with the instance. See String Filter below for more details.
 	ResourceAwsEc2InstanceKeyNames []InsightFiltersResourceAwsEc2InstanceKeyName `pulumi:"resourceAwsEc2InstanceKeyNames"`
@@ -9857,9 +9857,9 @@ type InsightFiltersArgs struct {
 	MalwareTypes InsightFiltersMalwareTypeArrayInput `pulumi:"malwareTypes"`
 	// The destination domain of network-related information about a finding. See String Filter below for more details.
 	NetworkDestinationDomains InsightFiltersNetworkDestinationDomainArrayInput `pulumi:"networkDestinationDomains"`
-	// The destination IPv4 address of network-related information about a finding. See Ip Filter below for more details.
+	// The destination IPv4 address of network-related information about a finding. See IP Filter below for more details.
 	NetworkDestinationIpv4s InsightFiltersNetworkDestinationIpv4ArrayInput `pulumi:"networkDestinationIpv4s"`
-	// The destination IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+	// The destination IPv6 address of network-related information about a finding. See IP Filter below for more details.
 	NetworkDestinationIpv6s InsightFiltersNetworkDestinationIpv6ArrayInput `pulumi:"networkDestinationIpv6s"`
 	// The destination port of network-related information about a finding. See Number Filter below for more details.
 	NetworkDestinationPorts InsightFiltersNetworkDestinationPortArrayInput `pulumi:"networkDestinationPorts"`
@@ -9869,9 +9869,9 @@ type InsightFiltersArgs struct {
 	NetworkProtocols InsightFiltersNetworkProtocolArrayInput `pulumi:"networkProtocols"`
 	// The source domain of network-related information about a finding. See String Filter below for more details.
 	NetworkSourceDomains InsightFiltersNetworkSourceDomainArrayInput `pulumi:"networkSourceDomains"`
-	// The source IPv4 address of network-related information about a finding. See Ip Filter below for more details.
+	// The source IPv4 address of network-related information about a finding. See IP Filter below for more details.
 	NetworkSourceIpv4s InsightFiltersNetworkSourceIpv4ArrayInput `pulumi:"networkSourceIpv4s"`
-	// The source IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+	// The source IPv6 address of network-related information about a finding. See IP Filter below for more details.
 	NetworkSourceIpv6s InsightFiltersNetworkSourceIpv6ArrayInput `pulumi:"networkSourceIpv6s"`
 	// The source media access control (MAC) address of network-related information about a finding. See String Filter below for more details.
 	NetworkSourceMacs InsightFiltersNetworkSourceMacArrayInput `pulumi:"networkSourceMacs"`
@@ -9913,9 +9913,9 @@ type InsightFiltersArgs struct {
 	ResourceAwsEc2InstanceIamInstanceProfileArns InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArrayInput `pulumi:"resourceAwsEc2InstanceIamInstanceProfileArns"`
 	// AMI ID of the instance. See String Filter below for more details.
 	ResourceAwsEc2InstanceImageIds InsightFiltersResourceAwsEc2InstanceImageIdArrayInput `pulumi:"resourceAwsEc2InstanceImageIds"`
-	// The IPv4 addresses associated with the instance. See Ip Filter below for more details.
+	// The IPv4 addresses associated with the instance. See IP Filter below for more details.
 	ResourceAwsEc2InstanceIpv4Addresses InsightFiltersResourceAwsEc2InstanceIpv4AddressArrayInput `pulumi:"resourceAwsEc2InstanceIpv4Addresses"`
-	// The IPv6 addresses associated with the instance. See Ip Filter below for more details.
+	// The IPv6 addresses associated with the instance. See IP Filter below for more details.
 	ResourceAwsEc2InstanceIpv6Addresses InsightFiltersResourceAwsEc2InstanceIpv6AddressArrayInput `pulumi:"resourceAwsEc2InstanceIpv6Addresses"`
 	// The key name associated with the instance. See String Filter below for more details.
 	ResourceAwsEc2InstanceKeyNames InsightFiltersResourceAwsEc2InstanceKeyNameArrayInput `pulumi:"resourceAwsEc2InstanceKeyNames"`
@@ -10229,12 +10229,12 @@ func (o InsightFiltersOutput) NetworkDestinationDomains() InsightFiltersNetworkD
 	return o.ApplyT(func(v InsightFilters) []InsightFiltersNetworkDestinationDomain { return v.NetworkDestinationDomains }).(InsightFiltersNetworkDestinationDomainArrayOutput)
 }
 
-// The destination IPv4 address of network-related information about a finding. See Ip Filter below for more details.
+// The destination IPv4 address of network-related information about a finding. See IP Filter below for more details.
 func (o InsightFiltersOutput) NetworkDestinationIpv4s() InsightFiltersNetworkDestinationIpv4ArrayOutput {
 	return o.ApplyT(func(v InsightFilters) []InsightFiltersNetworkDestinationIpv4 { return v.NetworkDestinationIpv4s }).(InsightFiltersNetworkDestinationIpv4ArrayOutput)
 }
 
-// The destination IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+// The destination IPv6 address of network-related information about a finding. See IP Filter below for more details.
 func (o InsightFiltersOutput) NetworkDestinationIpv6s() InsightFiltersNetworkDestinationIpv6ArrayOutput {
 	return o.ApplyT(func(v InsightFilters) []InsightFiltersNetworkDestinationIpv6 { return v.NetworkDestinationIpv6s }).(InsightFiltersNetworkDestinationIpv6ArrayOutput)
 }
@@ -10259,12 +10259,12 @@ func (o InsightFiltersOutput) NetworkSourceDomains() InsightFiltersNetworkSource
 	return o.ApplyT(func(v InsightFilters) []InsightFiltersNetworkSourceDomain { return v.NetworkSourceDomains }).(InsightFiltersNetworkSourceDomainArrayOutput)
 }
 
-// The source IPv4 address of network-related information about a finding. See Ip Filter below for more details.
+// The source IPv4 address of network-related information about a finding. See IP Filter below for more details.
 func (o InsightFiltersOutput) NetworkSourceIpv4s() InsightFiltersNetworkSourceIpv4ArrayOutput {
 	return o.ApplyT(func(v InsightFilters) []InsightFiltersNetworkSourceIpv4 { return v.NetworkSourceIpv4s }).(InsightFiltersNetworkSourceIpv4ArrayOutput)
 }
 
-// The source IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+// The source IPv6 address of network-related information about a finding. See IP Filter below for more details.
 func (o InsightFiltersOutput) NetworkSourceIpv6s() InsightFiltersNetworkSourceIpv6ArrayOutput {
 	return o.ApplyT(func(v InsightFilters) []InsightFiltersNetworkSourceIpv6 { return v.NetworkSourceIpv6s }).(InsightFiltersNetworkSourceIpv6ArrayOutput)
 }
@@ -10373,14 +10373,14 @@ func (o InsightFiltersOutput) ResourceAwsEc2InstanceImageIds() InsightFiltersRes
 	}).(InsightFiltersResourceAwsEc2InstanceImageIdArrayOutput)
 }
 
-// The IPv4 addresses associated with the instance. See Ip Filter below for more details.
+// The IPv4 addresses associated with the instance. See IP Filter below for more details.
 func (o InsightFiltersOutput) ResourceAwsEc2InstanceIpv4Addresses() InsightFiltersResourceAwsEc2InstanceIpv4AddressArrayOutput {
 	return o.ApplyT(func(v InsightFilters) []InsightFiltersResourceAwsEc2InstanceIpv4Address {
 		return v.ResourceAwsEc2InstanceIpv4Addresses
 	}).(InsightFiltersResourceAwsEc2InstanceIpv4AddressArrayOutput)
 }
 
-// The IPv6 addresses associated with the instance. See Ip Filter below for more details.
+// The IPv6 addresses associated with the instance. See IP Filter below for more details.
 func (o InsightFiltersOutput) ResourceAwsEc2InstanceIpv6Addresses() InsightFiltersResourceAwsEc2InstanceIpv6AddressArrayOutput {
 	return o.ApplyT(func(v InsightFilters) []InsightFiltersResourceAwsEc2InstanceIpv6Address {
 		return v.ResourceAwsEc2InstanceIpv6Addresses
@@ -10903,7 +10903,7 @@ func (o InsightFiltersPtrOutput) NetworkDestinationDomains() InsightFiltersNetwo
 	}).(InsightFiltersNetworkDestinationDomainArrayOutput)
 }
 
-// The destination IPv4 address of network-related information about a finding. See Ip Filter below for more details.
+// The destination IPv4 address of network-related information about a finding. See IP Filter below for more details.
 func (o InsightFiltersPtrOutput) NetworkDestinationIpv4s() InsightFiltersNetworkDestinationIpv4ArrayOutput {
 	return o.ApplyT(func(v *InsightFilters) []InsightFiltersNetworkDestinationIpv4 {
 		if v == nil {
@@ -10913,7 +10913,7 @@ func (o InsightFiltersPtrOutput) NetworkDestinationIpv4s() InsightFiltersNetwork
 	}).(InsightFiltersNetworkDestinationIpv4ArrayOutput)
 }
 
-// The destination IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+// The destination IPv6 address of network-related information about a finding. See IP Filter below for more details.
 func (o InsightFiltersPtrOutput) NetworkDestinationIpv6s() InsightFiltersNetworkDestinationIpv6ArrayOutput {
 	return o.ApplyT(func(v *InsightFilters) []InsightFiltersNetworkDestinationIpv6 {
 		if v == nil {
@@ -10963,7 +10963,7 @@ func (o InsightFiltersPtrOutput) NetworkSourceDomains() InsightFiltersNetworkSou
 	}).(InsightFiltersNetworkSourceDomainArrayOutput)
 }
 
-// The source IPv4 address of network-related information about a finding. See Ip Filter below for more details.
+// The source IPv4 address of network-related information about a finding. See IP Filter below for more details.
 func (o InsightFiltersPtrOutput) NetworkSourceIpv4s() InsightFiltersNetworkSourceIpv4ArrayOutput {
 	return o.ApplyT(func(v *InsightFilters) []InsightFiltersNetworkSourceIpv4 {
 		if v == nil {
@@ -10973,7 +10973,7 @@ func (o InsightFiltersPtrOutput) NetworkSourceIpv4s() InsightFiltersNetworkSourc
 	}).(InsightFiltersNetworkSourceIpv4ArrayOutput)
 }
 
-// The source IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+// The source IPv6 address of network-related information about a finding. See IP Filter below for more details.
 func (o InsightFiltersPtrOutput) NetworkSourceIpv6s() InsightFiltersNetworkSourceIpv6ArrayOutput {
 	return o.ApplyT(func(v *InsightFilters) []InsightFiltersNetworkSourceIpv6 {
 		if v == nil {
@@ -11183,7 +11183,7 @@ func (o InsightFiltersPtrOutput) ResourceAwsEc2InstanceImageIds() InsightFilters
 	}).(InsightFiltersResourceAwsEc2InstanceImageIdArrayOutput)
 }
 
-// The IPv4 addresses associated with the instance. See Ip Filter below for more details.
+// The IPv4 addresses associated with the instance. See IP Filter below for more details.
 func (o InsightFiltersPtrOutput) ResourceAwsEc2InstanceIpv4Addresses() InsightFiltersResourceAwsEc2InstanceIpv4AddressArrayOutput {
 	return o.ApplyT(func(v *InsightFilters) []InsightFiltersResourceAwsEc2InstanceIpv4Address {
 		if v == nil {
@@ -11193,7 +11193,7 @@ func (o InsightFiltersPtrOutput) ResourceAwsEc2InstanceIpv4Addresses() InsightFi
 	}).(InsightFiltersResourceAwsEc2InstanceIpv4AddressArrayOutput)
 }
 
-// The IPv6 addresses associated with the instance. See Ip Filter below for more details.
+// The IPv6 addresses associated with the instance. See IP Filter below for more details.
 func (o InsightFiltersPtrOutput) ResourceAwsEc2InstanceIpv6Addresses() InsightFiltersResourceAwsEc2InstanceIpv6AddressArrayOutput {
 	return o.ApplyT(func(v *InsightFilters) []InsightFiltersResourceAwsEc2InstanceIpv6Address {
 		if v == nil {

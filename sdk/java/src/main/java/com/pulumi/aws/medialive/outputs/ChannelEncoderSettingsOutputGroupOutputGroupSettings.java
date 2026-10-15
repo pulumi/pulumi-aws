@@ -20,60 +20,100 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettings {
     /**
-     * @return Archive group settings. See Archive Group Settings for more details.
+     * @return Archive group settings. See `archiveGroupSettings` Block for details.
      * 
      */
     private @Nullable List<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting> archiveGroupSettings;
+    /**
+     * @return Frame capture group settings. See `frameCaptureGroupSettings` Block for details.
+     * 
+     */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings frameCaptureGroupSettings;
+    /**
+     * @return HLS group settings. See `hlsGroupSettings` Block for details.
+     * 
+     */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings hlsGroupSettings;
     /**
-     * @return Media package group settings. See Media Package Group Settings for more details.
+     * @return Media package group settings. See `mediaPackageGroupSettings` Block for details.
      * 
      */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettings mediaPackageGroupSettings;
+    /**
+     * @return Microsoft Smooth group settings. See `msSmoothGroupSettings` Block for details.
+     * 
+     */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings msSmoothGroupSettings;
+    /**
+     * @return Multiplex group settings. Can be set as an empty block.
+     * 
+     */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettings multiplexGroupSettings;
     /**
-     * @return RTMP group settings. See RTMP Group Settings for more details.
+     * @return RTMP group settings. See `rtmpGroupSettings` Block for details.
      * 
      */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings rtmpGroupSettings;
+    /**
+     * @return UDP group settings. See `udpGroupSettings` Block for details.
+     * 
+     */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettings udpGroupSettings;
 
     private ChannelEncoderSettingsOutputGroupOutputGroupSettings() {}
     /**
-     * @return Archive group settings. See Archive Group Settings for more details.
+     * @return Archive group settings. See `archiveGroupSettings` Block for details.
      * 
      */
     public List<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting> archiveGroupSettings() {
         return this.archiveGroupSettings == null ? List.of() : this.archiveGroupSettings;
     }
+    /**
+     * @return Frame capture group settings. See `frameCaptureGroupSettings` Block for details.
+     * 
+     */
     public Optional<ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings> frameCaptureGroupSettings() {
         return Optional.ofNullable(this.frameCaptureGroupSettings);
     }
+    /**
+     * @return HLS group settings. See `hlsGroupSettings` Block for details.
+     * 
+     */
     public Optional<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings> hlsGroupSettings() {
         return Optional.ofNullable(this.hlsGroupSettings);
     }
     /**
-     * @return Media package group settings. See Media Package Group Settings for more details.
+     * @return Media package group settings. See `mediaPackageGroupSettings` Block for details.
      * 
      */
     public Optional<ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettings> mediaPackageGroupSettings() {
         return Optional.ofNullable(this.mediaPackageGroupSettings);
     }
+    /**
+     * @return Microsoft Smooth group settings. See `msSmoothGroupSettings` Block for details.
+     * 
+     */
     public Optional<ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings> msSmoothGroupSettings() {
         return Optional.ofNullable(this.msSmoothGroupSettings);
     }
+    /**
+     * @return Multiplex group settings. Can be set as an empty block.
+     * 
+     */
     public Optional<ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettings> multiplexGroupSettings() {
         return Optional.ofNullable(this.multiplexGroupSettings);
     }
     /**
-     * @return RTMP group settings. See RTMP Group Settings for more details.
+     * @return RTMP group settings. See `rtmpGroupSettings` Block for details.
      * 
      */
     public Optional<ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings> rtmpGroupSettings() {
         return Optional.ofNullable(this.rtmpGroupSettings);
     }
+    /**
+     * @return UDP group settings. See `udpGroupSettings` Block for details.
+     * 
+     */
     public Optional<ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettings> udpGroupSettings() {
         return Optional.ofNullable(this.udpGroupSettings);
     }

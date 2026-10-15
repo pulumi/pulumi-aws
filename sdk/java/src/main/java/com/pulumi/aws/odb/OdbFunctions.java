@@ -1830,7 +1830,7 @@ public final class OdbFunctions {
         return Deployment.getInstance().invokeAsync("aws:odb/getCloudVmClusters:getCloudVmClusters", TypeShape.of(GetCloudVmClustersResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for managing db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
+     * Data source for managing DB nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
@@ -1875,7 +1875,7 @@ public final class OdbFunctions {
         return getDbNode(args, InvokeOptions.Empty);
     }
     /**
-     * Data source for managing db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
+     * Data source for managing DB nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
@@ -1920,7 +1920,7 @@ public final class OdbFunctions {
         return getDbNodePlain(args, InvokeOptions.Empty);
     }
     /**
-     * Data source for managing db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
+     * Data source for managing DB nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
@@ -1965,7 +1965,7 @@ public final class OdbFunctions {
         return Deployment.getInstance().invoke("aws:odb/getDbNode:getDbNode", TypeShape.of(GetDbNodeResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for managing db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
+     * Data source for managing DB nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
@@ -2010,7 +2010,7 @@ public final class OdbFunctions {
         return Deployment.getInstance().invoke("aws:odb/getDbNode:getDbNode", TypeShape.of(GetDbNodeResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for managing db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
+     * Data source for managing DB nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
@@ -2055,7 +2055,7 @@ public final class OdbFunctions {
         return Deployment.getInstance().invokeAsync("aws:odb/getDbNode:getDbNode", TypeShape.of(GetDbNodeResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for managing db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
+     * Data source for managing DB nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
@@ -2099,7 +2099,7 @@ public final class OdbFunctions {
         return getDbNodes(args, InvokeOptions.Empty);
     }
     /**
-     * Data source for managing db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
+     * Data source for managing DB nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
@@ -2143,7 +2143,7 @@ public final class OdbFunctions {
         return getDbNodesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Data source for managing db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
+     * Data source for managing DB nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
@@ -2187,7 +2187,7 @@ public final class OdbFunctions {
         return Deployment.getInstance().invoke("aws:odb/getDbNodes:getDbNodes", TypeShape.of(GetDbNodesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for managing db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
+     * Data source for managing DB nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
@@ -2231,7 +2231,7 @@ public final class OdbFunctions {
         return Deployment.getInstance().invoke("aws:odb/getDbNodes:getDbNodes", TypeShape.of(GetDbNodesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for managing db nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
+     * Data source for managing DB nodes linked to cloud vm cluster of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
@@ -2275,7 +2275,7 @@ public final class OdbFunctions {
         return Deployment.getInstance().invokeAsync("aws:odb/getDbNodes:getDbNodes", TypeShape.of(GetDbNodesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for managing db server linked to exadata infrastructure of Oracle Database{@literal @}AWS.
+     * Data source for managing DB server linked to exadata infrastructure of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
@@ -2320,7 +2320,7 @@ public final class OdbFunctions {
         return getDbServer(args, InvokeOptions.Empty);
     }
     /**
-     * Data source for managing db server linked to exadata infrastructure of Oracle Database{@literal @}AWS.
+     * Data source for managing DB server linked to exadata infrastructure of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
@@ -2365,7 +2365,7 @@ public final class OdbFunctions {
         return getDbServerPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Data source for managing db server linked to exadata infrastructure of Oracle Database{@literal @}AWS.
+     * Data source for managing DB server linked to exadata infrastructure of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
@@ -2410,7 +2410,7 @@ public final class OdbFunctions {
         return Deployment.getInstance().invoke("aws:odb/getDbServer:getDbServer", TypeShape.of(GetDbServerResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for managing db server linked to exadata infrastructure of Oracle Database{@literal @}AWS.
+     * Data source for managing DB server linked to exadata infrastructure of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
@@ -2455,7 +2455,7 @@ public final class OdbFunctions {
         return Deployment.getInstance().invoke("aws:odb/getDbServer:getDbServer", TypeShape.of(GetDbServerResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for managing db server linked to exadata infrastructure of Oracle Database{@literal @}AWS.
+     * Data source for managing DB server linked to exadata infrastructure of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
@@ -2500,7 +2500,7 @@ public final class OdbFunctions {
         return Deployment.getInstance().invokeAsync("aws:odb/getDbServer:getDbServer", TypeShape.of(GetDbServerResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for managing db servers linked to exadata infrastructure of Oracle Database{@literal @}AWS.
+     * Data source for managing DB servers linked to exadata infrastructure of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
@@ -2544,7 +2544,7 @@ public final class OdbFunctions {
         return getDbServers(args, InvokeOptions.Empty);
     }
     /**
-     * Data source for managing db servers linked to exadata infrastructure of Oracle Database{@literal @}AWS.
+     * Data source for managing DB servers linked to exadata infrastructure of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
@@ -2588,7 +2588,7 @@ public final class OdbFunctions {
         return getDbServersPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Data source for managing db servers linked to exadata infrastructure of Oracle Database{@literal @}AWS.
+     * Data source for managing DB servers linked to exadata infrastructure of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
@@ -2632,7 +2632,7 @@ public final class OdbFunctions {
         return Deployment.getInstance().invoke("aws:odb/getDbServers:getDbServers", TypeShape.of(GetDbServersResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for managing db servers linked to exadata infrastructure of Oracle Database{@literal @}AWS.
+     * Data source for managing DB servers linked to exadata infrastructure of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 
@@ -2676,7 +2676,7 @@ public final class OdbFunctions {
         return Deployment.getInstance().invoke("aws:odb/getDbServers:getDbServers", TypeShape.of(GetDbServersResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for managing db servers linked to exadata infrastructure of Oracle Database{@literal @}AWS.
+     * Data source for managing DB servers linked to exadata infrastructure of Oracle Database{@literal @}AWS.
      * 
      * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
      * 

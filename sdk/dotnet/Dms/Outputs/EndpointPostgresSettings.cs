@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Dms.Outputs
         /// </summary>
         public readonly string? MapLongVarcharAs;
         /// <summary>
-        /// Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
+        /// Specifies the maximum size (in KB) of any `.csv` file used to transfer data to PostgreSQL. Default is `32,768 KB`.
         /// </summary>
         public readonly int? MaxFileSize;
         /// <summary>

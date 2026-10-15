@@ -208,12 +208,12 @@ public final class GetClusterResult {
      */
     private Map<String,String> tags;
     /**
-     * @return VPC Id associated with the cluster
+     * @return VPC ID associated with the cluster
      * 
      */
     private String vpcId;
     /**
-     * @return The VPC security group Ids associated with the cluster
+     * @return The VPC security group IDs associated with the cluster
      * 
      */
     private List<String> vpcSecurityGroupIds;
@@ -492,14 +492,14 @@ public final class GetClusterResult {
         return this.tags;
     }
     /**
-     * @return VPC Id associated with the cluster
+     * @return VPC ID associated with the cluster
      * 
      */
     public String vpcId() {
         return this.vpcId;
     }
     /**
-     * @return The VPC security group Ids associated with the cluster
+     * @return The VPC security group IDs associated with the cluster
      * 
      */
     public List<String> vpcSecurityGroupIds() {

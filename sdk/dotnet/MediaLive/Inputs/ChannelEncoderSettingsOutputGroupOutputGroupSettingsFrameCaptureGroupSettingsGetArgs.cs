@@ -12,9 +12,15 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Parameters that identify where to write the frame captures. See `Destination` Block for details.
+        /// </summary>
         [Input("destination", required: true)]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestinationGetArgs> Destination { get; set; } = null!;
 
+        /// <summary>
+        /// Parameters that control the interactions with the CDN. See `FrameCaptureCdnSettings` Block for details.
+        /// </summary>
         [Input("frameCaptureCdnSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsGetArgs>? FrameCaptureCdnSettings { get; set; }
 

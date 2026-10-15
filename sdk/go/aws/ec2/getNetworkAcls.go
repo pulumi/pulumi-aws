@@ -13,7 +13,7 @@ import (
 
 // ## Example Usage
 //
-// The following shows outputting all network ACL ids in a vpc.
+// The following shows outputting all network ACL IDs in a VPC.
 //
 // ```go
 // package main
@@ -40,7 +40,7 @@ import (
 //
 // ```
 //
-// The following example retrieves a list of all network ACL ids in a VPC with a custom
+// The following example retrieves a list of all network ACL IDs in a VPC with a custom
 // tag of `Tier` set to a value of "Private".
 //
 // ```go
@@ -70,7 +70,7 @@ import (
 //
 // ```
 //
-// The following example retrieves a network ACL id in a VPC which associated
+// The following example retrieves a network ACL ID in a VPC which associated
 // with specific subnet.
 //
 // ```go
@@ -132,7 +132,7 @@ type GetNetworkAclsResult struct {
 	Filters []GetNetworkAclsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// List of all the network ACL ids found.
+	// List of all the network ACL IDs found.
 	Ids    []string          `pulumi:"ids"`
 	Region string            `pulumi:"region"`
 	Tags   map[string]string `pulumi:"tags"`
@@ -185,7 +185,7 @@ func (o GetNetworkAclsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkAclsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of all the network ACL ids found.
+// List of all the network ACL IDs found.
 func (o GetNetworkAclsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetNetworkAclsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

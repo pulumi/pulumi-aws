@@ -16,14 +16,14 @@ public final class TriggerPredicateConditionArgs extends com.pulumi.resources.Re
     public static final TriggerPredicateConditionArgs Empty = new TriggerPredicateConditionArgs();
 
     /**
-     * The condition crawl state. Currently, the values supported are `RUNNING`, `SUCCEEDED`, `CANCELLED`, and `FAILED`. If this is specified, `crawlerName` must also be specified. Conflicts with `state`.
+     * Condition crawl state. Currently, the values supported are `RUNNING`, `SUCCEEDED`, `CANCELLED`, and `FAILED`. If this is specified, `crawlerName` must also be specified. Conflicts with `state`.
      * 
      */
     @Import(name="crawlState")
     private @Nullable Output<String> crawlState;
 
     /**
-     * @return The condition crawl state. Currently, the values supported are `RUNNING`, `SUCCEEDED`, `CANCELLED`, and `FAILED`. If this is specified, `crawlerName` must also be specified. Conflicts with `state`.
+     * @return Condition crawl state. Currently, the values supported are `RUNNING`, `SUCCEEDED`, `CANCELLED`, and `FAILED`. If this is specified, `crawlerName` must also be specified. Conflicts with `state`.
      * 
      */
     public Optional<Output<String>> crawlState() {
@@ -31,14 +31,14 @@ public final class TriggerPredicateConditionArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The name of the crawler to watch. If this is specified, `crawlState` must also be specified. Conflicts with `jobName`.
+     * Name of the crawler to watch. If this is specified, `crawlState` must also be specified. Conflicts with `jobName`.
      * 
      */
     @Import(name="crawlerName")
     private @Nullable Output<String> crawlerName;
 
     /**
-     * @return The name of the crawler to watch. If this is specified, `crawlState` must also be specified. Conflicts with `jobName`.
+     * @return Name of the crawler to watch. If this is specified, `crawlState` must also be specified. Conflicts with `jobName`.
      * 
      */
     public Optional<Output<String>> crawlerName() {
@@ -46,14 +46,14 @@ public final class TriggerPredicateConditionArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawlerName`.
+     * Name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawlerName`.
      * 
      */
     @Import(name="jobName")
     private @Nullable Output<String> jobName;
 
     /**
-     * @return The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawlerName`.
+     * @return Name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawlerName`.
      * 
      */
     public Optional<Output<String>> jobName() {
@@ -61,14 +61,14 @@ public final class TriggerPredicateConditionArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * A logical operator. Defaults to `EQUALS`.
+     * Logical operator. Defaults to `EQUALS`.
      * 
      */
     @Import(name="logicalOperator")
     private @Nullable Output<String> logicalOperator;
 
     /**
-     * @return A logical operator. Defaults to `EQUALS`.
+     * @return Logical operator. Defaults to `EQUALS`.
      * 
      */
     public Optional<Output<String>> logicalOperator() {
@@ -76,14 +76,14 @@ public final class TriggerPredicateConditionArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `jobName` must also be specified. Conflicts with `crawlerState`.
+     * Condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `jobName` must also be specified. Conflicts with `crawlerState`.
      * 
      */
     @Import(name="state")
     private @Nullable Output<String> state;
 
     /**
-     * @return The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `jobName` must also be specified. Conflicts with `crawlerState`.
+     * @return Condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `jobName` must also be specified. Conflicts with `crawlerState`.
      * 
      */
     public Optional<Output<String>> state() {
@@ -119,7 +119,7 @@ public final class TriggerPredicateConditionArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param crawlState The condition crawl state. Currently, the values supported are `RUNNING`, `SUCCEEDED`, `CANCELLED`, and `FAILED`. If this is specified, `crawlerName` must also be specified. Conflicts with `state`.
+         * @param crawlState Condition crawl state. Currently, the values supported are `RUNNING`, `SUCCEEDED`, `CANCELLED`, and `FAILED`. If this is specified, `crawlerName` must also be specified. Conflicts with `state`.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class TriggerPredicateConditionArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param crawlState The condition crawl state. Currently, the values supported are `RUNNING`, `SUCCEEDED`, `CANCELLED`, and `FAILED`. If this is specified, `crawlerName` must also be specified. Conflicts with `state`.
+         * @param crawlState Condition crawl state. Currently, the values supported are `RUNNING`, `SUCCEEDED`, `CANCELLED`, and `FAILED`. If this is specified, `crawlerName` must also be specified. Conflicts with `state`.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class TriggerPredicateConditionArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param crawlerName The name of the crawler to watch. If this is specified, `crawlState` must also be specified. Conflicts with `jobName`.
+         * @param crawlerName Name of the crawler to watch. If this is specified, `crawlState` must also be specified. Conflicts with `jobName`.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class TriggerPredicateConditionArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param crawlerName The name of the crawler to watch. If this is specified, `crawlState` must also be specified. Conflicts with `jobName`.
+         * @param crawlerName Name of the crawler to watch. If this is specified, `crawlState` must also be specified. Conflicts with `jobName`.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class TriggerPredicateConditionArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param jobName The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawlerName`.
+         * @param jobName Name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawlerName`.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class TriggerPredicateConditionArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param jobName The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawlerName`.
+         * @param jobName Name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawlerName`.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class TriggerPredicateConditionArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param logicalOperator A logical operator. Defaults to `EQUALS`.
+         * @param logicalOperator Logical operator. Defaults to `EQUALS`.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class TriggerPredicateConditionArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param logicalOperator A logical operator. Defaults to `EQUALS`.
+         * @param logicalOperator Logical operator. Defaults to `EQUALS`.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class TriggerPredicateConditionArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param state The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `jobName` must also be specified. Conflicts with `crawlerState`.
+         * @param state Condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `jobName` must also be specified. Conflicts with `crawlerState`.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class TriggerPredicateConditionArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param state The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `jobName` must also be specified. Conflicts with `crawlerState`.
+         * @param state Condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `jobName` must also be specified. Conflicts with `crawlerState`.
          * 
          * @return builder
          * 

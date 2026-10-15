@@ -18,36 +18,44 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfigur
     public static final AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfigurationParameterOverrideArgs Empty = new AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfigurationParameterOverrideArgs();
 
     /**
-     * Description of the gateway target.
+     * Agent-facing description override for this parameter.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Description of the gateway target.
+     * @return Agent-facing description override for this parameter.
      * 
      */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * JSON Pointer path identifying the parameter (for example, `/numberOfResults` or `/filter`).
+     * 
+     */
     @Import(name="path", required=true)
     private Output<String> path;
 
+    /**
+     * @return JSON Pointer path identifying the parameter (for example, `/numberOfResults` or `/filter`).
+     * 
+     */
     public Output<String> path() {
         return this.path;
     }
 
     /**
-     * Whether this parameter is visible to the agent. If not specified, uses the service default.
+     * Whether to make this parameter visible to the agent. If not specified, uses the service default.
      * 
      */
     @Import(name="visible")
     private @Nullable Output<Boolean> visible;
 
     /**
-     * @return Whether this parameter is visible to the agent. If not specified, uses the service default.
+     * @return Whether to make this parameter visible to the agent. If not specified, uses the service default.
      * 
      */
     public Optional<Output<Boolean>> visible() {
@@ -81,7 +89,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfigur
         }
 
         /**
-         * @param description Description of the gateway target.
+         * @param description Agent-facing description override for this parameter.
          * 
          * @return builder
          * 
@@ -92,7 +100,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfigur
         }
 
         /**
-         * @param description Description of the gateway target.
+         * @param description Agent-facing description override for this parameter.
          * 
          * @return builder
          * 
@@ -101,17 +109,29 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfigur
             return description(Output.of(description));
         }
 
+        /**
+         * @param path JSON Pointer path identifying the parameter (for example, `/numberOfResults` or `/filter`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder path(Output<String> path) {
             $.path = path;
             return this;
         }
 
+        /**
+         * @param path JSON Pointer path identifying the parameter (for example, `/numberOfResults` or `/filter`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder path(String path) {
             return path(Output.of(path));
         }
 
         /**
-         * @param visible Whether this parameter is visible to the agent. If not specified, uses the service default.
+         * @param visible Whether to make this parameter visible to the agent. If not specified, uses the service default.
          * 
          * @return builder
          * 
@@ -122,7 +142,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfigur
         }
 
         /**
-         * @param visible Whether this parameter is visible to the agent. If not specified, uses the service default.
+         * @param visible Whether to make this parameter visible to the agent. If not specified, uses the service default.
          * 
          * @return builder
          * 

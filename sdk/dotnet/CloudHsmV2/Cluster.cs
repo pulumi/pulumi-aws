@@ -91,7 +91,7 @@ namespace Pulumi.Aws.CloudHsmV2
         public Output<ImmutableArray<Outputs.ClusterClusterCertificate>> ClusterCertificates { get; private set; } = null!;
 
         /// <summary>
-        /// The id of the CloudHSM cluster.
+        /// The ID of the CloudHSM cluster.
         /// </summary>
         [Output("clusterId")]
         public Output<string> ClusterId { get; private set; } = null!;
@@ -151,7 +151,7 @@ namespace Pulumi.Aws.CloudHsmV2
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The id of the VPC that the CloudHSM cluster resides in.
+        /// The ID of the VPC that the CloudHSM cluster resides in.
         /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
@@ -271,7 +271,7 @@ namespace Pulumi.Aws.CloudHsmV2
         }
 
         /// <summary>
-        /// The id of the CloudHSM cluster.
+        /// The ID of the CloudHSM cluster.
         /// </summary>
         [Input("clusterId")]
         public Input<string>? ClusterId { get; set; }
@@ -349,7 +349,7 @@ namespace Pulumi.Aws.CloudHsmV2
         }
 
         /// <summary>
-        /// The id of the VPC that the CloudHSM cluster resides in.
+        /// The ID of the VPC that the CloudHSM cluster resides in.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

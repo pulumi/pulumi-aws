@@ -15,14 +15,14 @@ public final class UserDefinedFunctionResourceUriArgs extends com.pulumi.resourc
     public static final UserDefinedFunctionResourceUriArgs Empty = new UserDefinedFunctionResourceUriArgs();
 
     /**
-     * The type of the resource. can be one of `JAR`, `FILE`, and `ARCHIVE`.
+     * Type of the resource. can be one of `JAR`, `FILE`, and `ARCHIVE`.
      * 
      */
     @Import(name="resourceType", required=true)
     private Output<String> resourceType;
 
     /**
-     * @return The type of the resource. can be one of `JAR`, `FILE`, and `ARCHIVE`.
+     * @return Type of the resource. can be one of `JAR`, `FILE`, and `ARCHIVE`.
      * 
      */
     public Output<String> resourceType() {
@@ -30,14 +30,14 @@ public final class UserDefinedFunctionResourceUriArgs extends com.pulumi.resourc
     }
 
     /**
-     * The URI for accessing the resource.
+     * URI for accessing the resource.
      * 
      */
     @Import(name="uri", required=true)
     private Output<String> uri;
 
     /**
-     * @return The URI for accessing the resource.
+     * @return URI for accessing the resource.
      * 
      */
     public Output<String> uri() {
@@ -70,7 +70,7 @@ public final class UserDefinedFunctionResourceUriArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param resourceType The type of the resource. can be one of `JAR`, `FILE`, and `ARCHIVE`.
+         * @param resourceType Type of the resource. can be one of `JAR`, `FILE`, and `ARCHIVE`.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class UserDefinedFunctionResourceUriArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param resourceType The type of the resource. can be one of `JAR`, `FILE`, and `ARCHIVE`.
+         * @param resourceType Type of the resource. can be one of `JAR`, `FILE`, and `ARCHIVE`.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class UserDefinedFunctionResourceUriArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param uri The URI for accessing the resource.
+         * @param uri URI for accessing the resource.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class UserDefinedFunctionResourceUriArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param uri The URI for accessing the resource.
+         * @param uri URI for accessing the resource.
          * 
          * @return builder
          * 

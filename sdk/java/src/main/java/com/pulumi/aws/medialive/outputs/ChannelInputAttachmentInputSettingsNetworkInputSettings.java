@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelInputAttachmentInputSettingsNetworkInputSettings {
     /**
-     * @return Specifies HLS input settings when the uri is for a HLS manifest. See HLS Input Settings for more details.
+     * @return HLS input settings when the URI is for an HLS manifest. See `hlsInputSettings` Block for details.
      * 
      */
     private @Nullable ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettings hlsInputSettings;
@@ -25,7 +25,7 @@ public final class ChannelInputAttachmentInputSettingsNetworkInputSettings {
 
     private ChannelInputAttachmentInputSettingsNetworkInputSettings() {}
     /**
-     * @return Specifies HLS input settings when the uri is for a HLS manifest. See HLS Input Settings for more details.
+     * @return HLS input settings when the URI is for an HLS manifest. See `hlsInputSettings` Block for details.
      * 
      */
     public Optional<ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettings> hlsInputSettings() {

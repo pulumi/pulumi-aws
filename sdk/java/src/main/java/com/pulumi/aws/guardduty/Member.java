@@ -91,14 +91,14 @@ public class Member extends com.pulumi.resources.CustomResource {
         return this.accountId;
     }
     /**
-     * The detector ID of the GuardDuty account where you want to create member accounts.
+     * Detector ID of the GuardDuty account where you want to create member accounts.
      * 
      */
     @Export(name="detectorId", refs={String.class}, tree="[0]")
     private Output<String> detectorId;
 
     /**
-     * @return The detector ID of the GuardDuty account where you want to create member accounts.
+     * @return Detector ID of the GuardDuty account where you want to create member accounts.
      * 
      */
     public Output<String> detectorId() {
@@ -175,14 +175,14 @@ public class Member extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
+     * Status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
      * 
      */
     @Export(name="relationshipStatus", refs={String.class}, tree="[0]")
     private Output<String> relationshipStatus;
 
     /**
-     * @return The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
+     * @return Status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
      * 
      */
     public Output<String> relationshipStatus() {

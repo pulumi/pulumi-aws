@@ -304,14 +304,14 @@ def get_vpc_ipam_pool(allocation_resource_tags: Optional[Mapping[str, _builtins.
     """
     `ec2.VpcIpamPool` provides details about an IPAM pool.
 
-    This resource can prove useful when an ipam pool was created in another root
-    module and you need the pool's id as an input variable. For example, pools
+    This resource can prove useful when an IPAM pool was created in another root
+    module and you need the pool's ID as an input variable. For example, pools
     can be shared via RAM and used to create vpcs with CIDRs from that pool.
 
     ## Example Usage
 
     The following example shows an account that has only 1 pool, perhaps shared
-    via RAM, and using that pool id to create a VPC with a CIDR derived from
+    via RAM, and using that pool ID to create a VPC with a CIDR derived from
     AWS IPAM.
 
     ```python
@@ -384,14 +384,14 @@ def get_vpc_ipam_pool_output(allocation_resource_tags: pulumi.Input[Optional[Opt
     """
     `ec2.VpcIpamPool` provides details about an IPAM pool.
 
-    This resource can prove useful when an ipam pool was created in another root
-    module and you need the pool's id as an input variable. For example, pools
+    This resource can prove useful when an IPAM pool was created in another root
+    module and you need the pool's ID as an input variable. For example, pools
     can be shared via RAM and used to create vpcs with CIDRs from that pool.
 
     ## Example Usage
 
     The following example shows an account that has only 1 pool, perhaps shared
-    via RAM, and using that pool id to create a VPC with a CIDR derived from
+    via RAM, and using that pool ID to create a VPC with a CIDR derived from
     AWS IPAM.
 
     ```python

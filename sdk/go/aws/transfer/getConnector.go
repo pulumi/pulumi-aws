@@ -67,12 +67,12 @@ type LookupConnectorResult struct {
 	// Egress configuration for the connector. Contains the following attributes:
 	EgressConfigs []GetConnectorEgressConfig `pulumi:"egressConfigs"`
 	Id            string                     `pulumi:"id"`
-	// ARN of the IAM role that allows a connector to turn on CLoudwatch logging for Amazon S3 events.
+	// ARN of the IAM role that allows a connector to turn on CloudWatch logging for Amazon S3 events.
 	LoggingRole string `pulumi:"loggingRole"`
 	Region      string `pulumi:"region"`
 	// Name of security policy.
 	SecurityPolicyName string `pulumi:"securityPolicyName"`
-	// List of egress Ip addresses.
+	// List of egress IP addresses.
 	ServiceManagedEgressIpAddresses []string `pulumi:"serviceManagedEgressIpAddresses"`
 	// Object containing the following attributes:
 	SftpConfigs []GetConnectorSftpConfig `pulumi:"sftpConfigs"`
@@ -138,7 +138,7 @@ func (o LookupConnectorResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectorResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// ARN of the IAM role that allows a connector to turn on CLoudwatch logging for Amazon S3 events.
+// ARN of the IAM role that allows a connector to turn on CloudWatch logging for Amazon S3 events.
 func (o LookupConnectorResultOutput) LoggingRole() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectorResult) string { return v.LoggingRole }).(pulumi.StringOutput)
 }
@@ -152,7 +152,7 @@ func (o LookupConnectorResultOutput) SecurityPolicyName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectorResult) string { return v.SecurityPolicyName }).(pulumi.StringOutput)
 }
 
-// List of egress Ip addresses.
+// List of egress IP addresses.
 func (o LookupConnectorResultOutput) ServiceManagedEgressIpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupConnectorResult) []string { return v.ServiceManagedEgressIpAddresses }).(pulumi.StringArrayOutput)
 }

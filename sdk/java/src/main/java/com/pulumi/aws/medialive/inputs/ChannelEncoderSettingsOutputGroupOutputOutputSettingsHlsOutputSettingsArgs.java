@@ -17,16 +17,32 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
 
     public static final ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArgs();
 
+    /**
+     * Only applicable when this output is referencing an H.265 video description. Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
+     * 
+     */
     @Import(name="h265PackagingType")
     private @Nullable Output<String> h265PackagingType;
 
+    /**
+     * @return Only applicable when this output is referencing an H.265 video description. Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
+     * 
+     */
     public Optional<Output<String>> h265PackagingType() {
         return Optional.ofNullable(this.h265PackagingType);
     }
 
+    /**
+     * Settings regarding the underlying stream. See `hlsSettings` Block for details.
+     * 
+     */
     @Import(name="hlsSettings", required=true)
     private Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsArgs> hlsSettings;
 
+    /**
+     * @return Settings regarding the underlying stream. See `hlsSettings` Block for details.
+     * 
+     */
     public Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsArgs> hlsSettings() {
         return this.hlsSettings;
     }
@@ -46,9 +62,17 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
         return Optional.ofNullable(this.nameModifier);
     }
 
+    /**
+     * String concatenated to the end of the destination filename.
+     * 
+     */
     @Import(name="segmentModifier")
     private @Nullable Output<String> segmentModifier;
 
+    /**
+     * @return String concatenated to the end of the destination filename.
+     * 
+     */
     public Optional<Output<String>> segmentModifier() {
         return Optional.ofNullable(this.segmentModifier);
     }
@@ -80,20 +104,44 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
             $ = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param h265PackagingType Only applicable when this output is referencing an H.265 video description. Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
+         * 
+         * @return builder
+         * 
+         */
         public Builder h265PackagingType(@Nullable Output<String> h265PackagingType) {
             $.h265PackagingType = h265PackagingType;
             return this;
         }
 
+        /**
+         * @param h265PackagingType Only applicable when this output is referencing an H.265 video description. Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
+         * 
+         * @return builder
+         * 
+         */
         public Builder h265PackagingType(String h265PackagingType) {
             return h265PackagingType(Output.of(h265PackagingType));
         }
 
+        /**
+         * @param hlsSettings Settings regarding the underlying stream. See `hlsSettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hlsSettings(Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsArgs> hlsSettings) {
             $.hlsSettings = hlsSettings;
             return this;
         }
 
+        /**
+         * @param hlsSettings Settings regarding the underlying stream. See `hlsSettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hlsSettings(ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsArgs hlsSettings) {
             return hlsSettings(Output.of(hlsSettings));
         }
@@ -119,11 +167,23 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
             return nameModifier(Output.of(nameModifier));
         }
 
+        /**
+         * @param segmentModifier String concatenated to the end of the destination filename.
+         * 
+         * @return builder
+         * 
+         */
         public Builder segmentModifier(@Nullable Output<String> segmentModifier) {
             $.segmentModifier = segmentModifier;
             return this;
         }
 
+        /**
+         * @param segmentModifier String concatenated to the end of the destination filename.
+         * 
+         * @return builder
+         * 
+         */
         public Builder segmentModifier(String segmentModifier) {
             return segmentModifier(Output.of(segmentModifier));
         }

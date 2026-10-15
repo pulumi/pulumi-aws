@@ -55,15 +55,15 @@ export class Container extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the container.
+     * ARN of the container.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The DNS endpoint of the container.
+     * DNS endpoint of the container.
      */
     declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
-     * The name of the container. Must contain alphanumeric characters or underscores.
+     * Name of the container. Must contain alphanumeric characters or underscores.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -71,11 +71,11 @@ export class Container extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -117,15 +117,15 @@ export class Container extends pulumi.CustomResource {
  */
 export interface ContainerState {
     /**
-     * The ARN of the container.
+     * ARN of the container.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The DNS endpoint of the container.
+     * DNS endpoint of the container.
      */
     endpoint?: pulumi.Input<string | undefined>;
     /**
-     * The name of the container. Must contain alphanumeric characters or underscores.
+     * Name of the container. Must contain alphanumeric characters or underscores.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -133,11 +133,11 @@ export interface ContainerState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -147,7 +147,7 @@ export interface ContainerState {
  */
 export interface ContainerArgs {
     /**
-     * The name of the container. Must contain alphanumeric characters or underscores.
+     * Name of the container. Must contain alphanumeric characters or underscores.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -155,7 +155,7 @@ export interface ContainerArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

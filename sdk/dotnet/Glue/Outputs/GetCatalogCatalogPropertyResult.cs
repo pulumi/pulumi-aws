@@ -18,11 +18,11 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string> CustomProperties;
         /// <summary>
-        /// Data lake access properties. See `DataLakeAccessProperties` below.
+        /// Data lake access properties. See `DataLakeAccessProperties` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCatalogCatalogPropertyDataLakeAccessPropertyResult> DataLakeAccessProperties;
         /// <summary>
-        /// Iceberg optimization properties. See `IcebergOptimizationProperties` below.
+        /// Iceberg optimization properties. See `IcebergOptimizationProperties` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCatalogCatalogPropertyIcebergOptimizationPropertyResult> IcebergOptimizationProperties;
 

@@ -80,14 +80,14 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
     }
 
     /**
-     * Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group&#39;s health check grace period.
+     * Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling group&#39;s health check grace period.
      * 
      */
     @Import(name="instanceWarmup")
     private @Nullable Output<String> instanceWarmup;
 
     /**
-     * @return Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group&#39;s health check grace period.
+     * @return Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling group&#39;s health check grace period.
      * 
      */
     public Optional<Output<String>> instanceWarmup() {
@@ -297,7 +297,7 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
         }
 
         /**
-         * @param instanceWarmup Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group&#39;s health check grace period.
+         * @param instanceWarmup Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling group&#39;s health check grace period.
          * 
          * @return builder
          * 
@@ -308,7 +308,7 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
         }
 
         /**
-         * @param instanceWarmup Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group&#39;s health check grace period.
+         * @param instanceWarmup Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling group&#39;s health check grace period.
          * 
          * @return builder
          * 

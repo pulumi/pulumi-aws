@@ -10,13 +10,13 @@ import * as utilities from "../utilities";
 /**
  * `aws.ec2.SecurityGroup` provides details about a specific Security Group.
  *
- * This resource can prove useful when a module accepts a Security Group id as
- * an input variable and needs to, for example, determine the id of the
+ * This resource can prove useful when a module accepts a Security Group ID as
+ * an input variable and needs to, for example, determine the ID of the
  * VPC that the security group belongs to.
  *
  * ## Example Usage
  *
- * The following example shows how one might accept a Security Group id as a variable
+ * The following example shows how one might accept a Security Group ID as a variable
  * and use this data source to obtain the data necessary to create a subnet.
  *
  * ```typescript
@@ -56,7 +56,7 @@ export interface GetSecurityGroupArgs {
      */
     filters?: inputs.ec2.GetSecurityGroupFilter[];
     /**
-     * Id of the specific security group to retrieve.
+     * ID of the specific security group to retrieve.
      */
     id?: string;
     /**
@@ -74,7 +74,7 @@ export interface GetSecurityGroupArgs {
      */
     tags?: {[key: string]: string};
     /**
-     * Id of the VPC that the desired security group belongs to.
+     * ID of the VPC that the desired security group belongs to.
      *
      * More complex filters can be expressed using one or more `filter` sub-blocks,
      * which take the following arguments:
@@ -104,13 +104,13 @@ export interface GetSecurityGroupResult {
 /**
  * `aws.ec2.SecurityGroup` provides details about a specific Security Group.
  *
- * This resource can prove useful when a module accepts a Security Group id as
- * an input variable and needs to, for example, determine the id of the
+ * This resource can prove useful when a module accepts a Security Group ID as
+ * an input variable and needs to, for example, determine the ID of the
  * VPC that the security group belongs to.
  *
  * ## Example Usage
  *
- * The following example shows how one might accept a Security Group id as a variable
+ * The following example shows how one might accept a Security Group ID as a variable
  * and use this data source to obtain the data necessary to create a subnet.
  *
  * ```typescript
@@ -150,7 +150,7 @@ export interface GetSecurityGroupOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetSecurityGroupFilterArgs>[] | undefined>;
     /**
-     * Id of the specific security group to retrieve.
+     * ID of the specific security group to retrieve.
      */
     id?: pulumi.Input<string | undefined>;
     /**
@@ -168,7 +168,7 @@ export interface GetSecurityGroupOutputArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Id of the VPC that the desired security group belongs to.
+     * ID of the VPC that the desired security group belongs to.
      *
      * More complex filters can be expressed using one or more `filter` sub-blocks,
      * which take the following arguments:

@@ -22,14 +22,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     public static final ClusterState Empty = new ClusterState();
 
     /**
-     * The name of the Access Control List to associate with the cluster.
+     * Name of the Access Control List to associate with the cluster.
      * 
      */
     @Import(name="aclName")
     private @Nullable Output<String> aclName;
 
     /**
-     * @return The name of the Access Control List to associate with the cluster.
+     * @return Name of the Access Control List to associate with the cluster.
      * 
      */
     public Optional<Output<String>> aclName() {
@@ -37,14 +37,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the cluster.
+     * ARN of the cluster.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the cluster.
+     * @return ARN of the cluster.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -104,14 +104,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+     * Engine that will run on your nodes. Supported values are `redis` and `valkey`.
      * 
      */
     @Import(name="engine")
     private @Nullable Output<String> engine;
 
     /**
-     * @return The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+     * @return Engine that will run on your nodes. Supported values are `redis` and `valkey`.
      * 
      */
     public Optional<Output<String>> engine() {
@@ -194,14 +194,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+     * Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
      * 
      */
     @Import(name="maintenanceWindow")
     private @Nullable Output<String> maintenanceWindow;
 
     /**
-     * @return Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+     * @return Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
      * 
      */
     public Optional<Output<String>> maintenanceWindow() {
@@ -209,14 +209,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
+     * Multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
      * 
      */
     @Import(name="multiRegionClusterName")
     private @Nullable Output<String> multiRegionClusterName;
 
     /**
-     * @return The multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
+     * @return Multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
      * 
      */
     public Optional<Output<String>> multiRegionClusterName() {
@@ -269,7 +269,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+     * Compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
      * 
      * The following arguments are optional:
      * 
@@ -278,7 +278,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> nodeType;
 
     /**
-     * @return The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+     * @return Compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
      * 
      * The following arguments are optional:
      * 
@@ -288,14 +288,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
+     * Number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
      * 
      */
     @Import(name="numReplicasPerShard")
     private @Nullable Output<Integer> numReplicasPerShard;
 
     /**
-     * @return The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
+     * @return Number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
      * 
      */
     public Optional<Output<Integer>> numReplicasPerShard() {
@@ -303,14 +303,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of shards in the cluster. Defaults to `1`.
+     * Number of shards in the cluster. Defaults to `1`.
      * 
      */
     @Import(name="numShards")
     private @Nullable Output<Integer> numShards;
 
     /**
-     * @return The number of shards in the cluster. Defaults to `1`.
+     * @return Number of shards in the cluster. Defaults to `1`.
      * 
      */
     public Optional<Output<Integer>> numShards() {
@@ -318,14 +318,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the parameter group associated with the cluster.
+     * Name of the parameter group associated with the cluster.
      * 
      */
     @Import(name="parameterGroupName")
     private @Nullable Output<String> parameterGroupName;
 
     /**
-     * @return The name of the parameter group associated with the cluster.
+     * @return Name of the parameter group associated with the cluster.
      * 
      */
     public Optional<Output<String>> parameterGroupName() {
@@ -333,14 +333,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The port number on which each of the nodes accepts connections. Defaults to `6379`.
+     * Port number on which each of the nodes accepts connections. Defaults to `6379`.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return The port number on which each of the nodes accepts connections. Defaults to `6379`.
+     * @return Port number on which each of the nodes accepts connections. Defaults to `6379`.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -408,14 +408,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of a snapshot from which to restore data into the new cluster.
+     * Name of a snapshot from which to restore data into the new cluster.
      * 
      */
     @Import(name="snapshotName")
     private @Nullable Output<String> snapshotName;
 
     /**
-     * @return The name of a snapshot from which to restore data into the new cluster.
+     * @return Name of a snapshot from which to restore data into the new cluster.
      * 
      */
     public Optional<Output<String>> snapshotName() {
@@ -423,14 +423,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
+     * Number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
      * 
      */
     @Import(name="snapshotRetentionLimit")
     private @Nullable Output<Integer> snapshotRetentionLimit;
 
     /**
-     * @return The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
+     * @return Number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
      * 
      */
     public Optional<Output<Integer>> snapshotRetentionLimit() {
@@ -438,14 +438,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
+     * Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
      * 
      */
     @Import(name="snapshotWindow")
     private @Nullable Output<String> snapshotWindow;
 
     /**
-     * @return The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
+     * @return Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
      * 
      */
     public Optional<Output<String>> snapshotWindow() {
@@ -468,14 +468,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
+     * Name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
      * 
      */
     @Import(name="subnetGroupName")
     private @Nullable Output<String> subnetGroupName;
 
     /**
-     * @return The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
+     * @return Name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
      * 
      */
     public Optional<Output<String>> subnetGroupName() {
@@ -483,14 +483,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -498,14 +498,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -513,14 +513,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A flag to enable in-transit encryption on the cluster. When set to `false`, the `aclName` must be `open-access`. Defaults to `true`.
+     * Whether to enable in-transit encryption on the cluster. When set to `false`, the `aclName` must be `open-access`. Defaults to `true`.
      * 
      */
     @Import(name="tlsEnabled")
     private @Nullable Output<Boolean> tlsEnabled;
 
     /**
-     * @return A flag to enable in-transit encryption on the cluster. When set to `false`, the `aclName` must be `open-access`. Defaults to `true`.
+     * @return Whether to enable in-transit encryption on the cluster. When set to `false`, the `aclName` must be `open-access`. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> tlsEnabled() {
@@ -585,7 +585,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param aclName The name of the Access Control List to associate with the cluster.
+         * @param aclName Name of the Access Control List to associate with the cluster.
          * 
          * @return builder
          * 
@@ -596,7 +596,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param aclName The name of the Access Control List to associate with the cluster.
+         * @param aclName Name of the Access Control List to associate with the cluster.
          * 
          * @return builder
          * 
@@ -606,7 +606,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the cluster.
+         * @param arn ARN of the cluster.
          * 
          * @return builder
          * 
@@ -617,7 +617,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the cluster.
+         * @param arn ARN of the cluster.
          * 
          * @return builder
          * 
@@ -703,7 +703,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engine The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+         * @param engine Engine that will run on your nodes. Supported values are `redis` and `valkey`.
          * 
          * @return builder
          * 
@@ -714,7 +714,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engine The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+         * @param engine Engine that will run on your nodes. Supported values are `redis` and `valkey`.
          * 
          * @return builder
          * 
@@ -829,7 +829,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maintenanceWindow Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+         * @param maintenanceWindow Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
          * 
          * @return builder
          * 
@@ -840,7 +840,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maintenanceWindow Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+         * @param maintenanceWindow Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
          * 
          * @return builder
          * 
@@ -850,7 +850,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param multiRegionClusterName The multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
+         * @param multiRegionClusterName Multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
          * 
          * @return builder
          * 
@@ -861,7 +861,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param multiRegionClusterName The multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
+         * @param multiRegionClusterName Multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
          * 
          * @return builder
          * 
@@ -934,7 +934,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nodeType The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+         * @param nodeType Compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
          * 
          * The following arguments are optional:
          * 
@@ -947,7 +947,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nodeType The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+         * @param nodeType Compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
          * 
          * The following arguments are optional:
          * 
@@ -959,7 +959,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param numReplicasPerShard The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
+         * @param numReplicasPerShard Number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
          * 
          * @return builder
          * 
@@ -970,7 +970,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param numReplicasPerShard The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
+         * @param numReplicasPerShard Number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
          * 
          * @return builder
          * 
@@ -980,7 +980,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param numShards The number of shards in the cluster. Defaults to `1`.
+         * @param numShards Number of shards in the cluster. Defaults to `1`.
          * 
          * @return builder
          * 
@@ -991,7 +991,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param numShards The number of shards in the cluster. Defaults to `1`.
+         * @param numShards Number of shards in the cluster. Defaults to `1`.
          * 
          * @return builder
          * 
@@ -1001,7 +1001,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parameterGroupName The name of the parameter group associated with the cluster.
+         * @param parameterGroupName Name of the parameter group associated with the cluster.
          * 
          * @return builder
          * 
@@ -1012,7 +1012,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parameterGroupName The name of the parameter group associated with the cluster.
+         * @param parameterGroupName Name of the parameter group associated with the cluster.
          * 
          * @return builder
          * 
@@ -1022,7 +1022,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param port The port number on which each of the nodes accepts connections. Defaults to `6379`.
+         * @param port Port number on which each of the nodes accepts connections. Defaults to `6379`.
          * 
          * @return builder
          * 
@@ -1033,7 +1033,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param port The port number on which each of the nodes accepts connections. Defaults to `6379`.
+         * @param port Port number on which each of the nodes accepts connections. Defaults to `6379`.
          * 
          * @return builder
          * 
@@ -1157,7 +1157,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snapshotName The name of a snapshot from which to restore data into the new cluster.
+         * @param snapshotName Name of a snapshot from which to restore data into the new cluster.
          * 
          * @return builder
          * 
@@ -1168,7 +1168,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snapshotName The name of a snapshot from which to restore data into the new cluster.
+         * @param snapshotName Name of a snapshot from which to restore data into the new cluster.
          * 
          * @return builder
          * 
@@ -1178,7 +1178,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snapshotRetentionLimit The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
+         * @param snapshotRetentionLimit Number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -1189,7 +1189,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snapshotRetentionLimit The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
+         * @param snapshotRetentionLimit Number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -1199,7 +1199,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snapshotWindow The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
+         * @param snapshotWindow Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
          * 
          * @return builder
          * 
@@ -1210,7 +1210,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snapshotWindow The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
+         * @param snapshotWindow Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
          * 
          * @return builder
          * 
@@ -1241,7 +1241,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetGroupName The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
+         * @param subnetGroupName Name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
          * 
          * @return builder
          * 
@@ -1252,7 +1252,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetGroupName The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
+         * @param subnetGroupName Name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
          * 
          * @return builder
          * 
@@ -1262,7 +1262,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1273,7 +1273,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1283,7 +1283,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -1294,7 +1294,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -1304,7 +1304,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tlsEnabled A flag to enable in-transit encryption on the cluster. When set to `false`, the `aclName` must be `open-access`. Defaults to `true`.
+         * @param tlsEnabled Whether to enable in-transit encryption on the cluster. When set to `false`, the `aclName` must be `open-access`. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -1315,7 +1315,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tlsEnabled A flag to enable in-transit encryption on the cluster. When set to `false`, the `aclName` must be `open-access`. Defaults to `true`.
+         * @param tlsEnabled Whether to enable in-transit encryption on the cluster. When set to `false`, the `aclName` must be `open-access`. Defaults to `true`.
          * 
          * @return builder
          * 

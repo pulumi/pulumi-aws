@@ -26,7 +26,7 @@ class RevisionArgs:
         """
         The set of arguments for constructing a Revision resource.
 
-        :param pulumi.Input[_builtins.str] data_set_id: The dataset id.
+        :param pulumi.Input[_builtins.str] data_set_id: The dataset ID.
         :param pulumi.Input[_builtins.str] comment: An optional comment about the revision.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -43,7 +43,7 @@ class RevisionArgs:
     @pulumi.getter(name="dataSetId")
     def data_set_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The dataset id.
+        The dataset ID.
         """
         return pulumi.get(self, "data_set_id")
 
@@ -103,9 +103,9 @@ class _RevisionState:
 
         :param pulumi.Input[_builtins.str] arn: ARN of this data set.
         :param pulumi.Input[_builtins.str] comment: An optional comment about the revision.
-        :param pulumi.Input[_builtins.str] data_set_id: The dataset id.
+        :param pulumi.Input[_builtins.str] data_set_id: The dataset ID.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] revision_id: The Id of the revision.
+        :param pulumi.Input[_builtins.str] revision_id: The ID of the revision.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -152,7 +152,7 @@ class _RevisionState:
     @pulumi.getter(name="dataSetId")
     def data_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The dataset id.
+        The dataset ID.
         """
         return pulumi.get(self, "data_set_id")
 
@@ -176,7 +176,7 @@ class _RevisionState:
     @pulumi.getter(name="revisionId")
     def revision_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Id of the revision.
+        The ID of the revision.
         """
         return pulumi.get(self, "revision_id")
 
@@ -244,7 +244,7 @@ class Revision(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: An optional comment about the revision.
-        :param pulumi.Input[_builtins.str] data_set_id: The dataset id.
+        :param pulumi.Input[_builtins.str] data_set_id: The dataset ID.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -338,9 +338,9 @@ class Revision(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of this data set.
         :param pulumi.Input[_builtins.str] comment: An optional comment about the revision.
-        :param pulumi.Input[_builtins.str] data_set_id: The dataset id.
+        :param pulumi.Input[_builtins.str] data_set_id: The dataset ID.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] revision_id: The Id of the revision.
+        :param pulumi.Input[_builtins.str] revision_id: The ID of the revision.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -377,7 +377,7 @@ class Revision(pulumi.CustomResource):
     @pulumi.getter(name="dataSetId")
     def data_set_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The dataset id.
+        The dataset ID.
         """
         return pulumi.get(self, "data_set_id")
 
@@ -393,7 +393,7 @@ class Revision(pulumi.CustomResource):
     @pulumi.getter(name="revisionId")
     def revision_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The Id of the revision.
+        The ID of the revision.
         """
         return pulumi.get(self, "revision_id")
 

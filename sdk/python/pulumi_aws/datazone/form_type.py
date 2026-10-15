@@ -174,8 +174,8 @@ class _FormTypeState:
         :param pulumi.Input[_builtins.str] domain_identifier: Identifier of the domain.
         :param pulumi.Input['FormTypeModelArgs'] model: Object of the model of the form type that contains the following attributes.
         :param pulumi.Input[_builtins.str] name: Name of the form type. Must be the name of the structure in smithy document.
-        :param pulumi.Input[_builtins.str] origin_domain_id: Origin domain id of the Form Type.
-        :param pulumi.Input[_builtins.str] origin_project_id: Origin project id of the Form Type.
+        :param pulumi.Input[_builtins.str] origin_domain_id: Origin domain ID of the Form Type.
+        :param pulumi.Input[_builtins.str] origin_project_id: Origin project ID of the Form Type.
         :param pulumi.Input[_builtins.str] owning_project_identifier: Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] revision: Revision of the Form Type.
@@ -295,7 +295,7 @@ class _FormTypeState:
     @pulumi.getter(name="originDomainId")
     def origin_domain_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Origin domain id of the Form Type.
+        Origin domain ID of the Form Type.
         """
         return pulumi.get(self, "origin_domain_id")
 
@@ -307,7 +307,7 @@ class _FormTypeState:
     @pulumi.getter(name="originProjectId")
     def origin_project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Origin project id of the Form Type.
+        Origin project ID of the Form Type.
         """
         return pulumi.get(self, "origin_project_id")
 
@@ -711,8 +711,8 @@ class FormType(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] domain_identifier: Identifier of the domain.
         :param pulumi.Input[Union['FormTypeModelArgs', 'FormTypeModelArgsDict', 'outputs.FormTypeModel']] model: Object of the model of the form type that contains the following attributes.
         :param pulumi.Input[_builtins.str] name: Name of the form type. Must be the name of the structure in smithy document.
-        :param pulumi.Input[_builtins.str] origin_domain_id: Origin domain id of the Form Type.
-        :param pulumi.Input[_builtins.str] origin_project_id: Origin project id of the Form Type.
+        :param pulumi.Input[_builtins.str] origin_domain_id: Origin domain ID of the Form Type.
+        :param pulumi.Input[_builtins.str] origin_project_id: Origin project ID of the Form Type.
         :param pulumi.Input[_builtins.str] owning_project_identifier: Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] revision: Revision of the Form Type.
@@ -795,7 +795,7 @@ class FormType(pulumi.CustomResource):
     @pulumi.getter(name="originDomainId")
     def origin_domain_id(self) -> pulumi.Output[_builtins.str]:
         """
-        Origin domain id of the Form Type.
+        Origin domain ID of the Form Type.
         """
         return pulumi.get(self, "origin_domain_id")
 
@@ -803,7 +803,7 @@ class FormType(pulumi.CustomResource):
     @pulumi.getter(name="originProjectId")
     def origin_project_id(self) -> pulumi.Output[_builtins.str]:
         """
-        Origin project id of the Form Type.
+        Origin project ID of the Form Type.
         """
         return pulumi.get(self, "origin_project_id")
 

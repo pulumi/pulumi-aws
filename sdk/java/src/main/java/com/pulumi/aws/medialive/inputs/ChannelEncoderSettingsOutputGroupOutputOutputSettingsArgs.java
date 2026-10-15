@@ -23,65 +23,89 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs ext
     public static final ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs();
 
     /**
-     * Archive output settings. See Archive Output Settings for more details.
+     * Archive output settings. See `archiveOutputSettings` Block for details.
      * 
      */
     @Import(name="archiveOutputSettings")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs> archiveOutputSettings;
 
     /**
-     * @return Archive output settings. See Archive Output Settings for more details.
+     * @return Archive output settings. See `archiveOutputSettings` Block for details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs>> archiveOutputSettings() {
         return Optional.ofNullable(this.archiveOutputSettings);
     }
 
+    /**
+     * Frame capture output settings. See `frameCaptureOutputSettings` Block for details.
+     * 
+     */
     @Import(name="frameCaptureOutputSettings")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettingsArgs> frameCaptureOutputSettings;
 
+    /**
+     * @return Frame capture output settings. See `frameCaptureOutputSettings` Block for details.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettingsArgs>> frameCaptureOutputSettings() {
         return Optional.ofNullable(this.frameCaptureOutputSettings);
     }
 
+    /**
+     * HLS output settings. See `hlsOutputSettings` Block for details.
+     * 
+     */
     @Import(name="hlsOutputSettings")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArgs> hlsOutputSettings;
 
+    /**
+     * @return HLS output settings. See `hlsOutputSettings` Block for details.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArgs>> hlsOutputSettings() {
         return Optional.ofNullable(this.hlsOutputSettings);
     }
 
     /**
-     * Media package output settings. This can be set as an empty block.
+     * Media package output settings. Can be set as an empty block.
      * 
      */
     @Import(name="mediaPackageOutputSettings")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettingsArgs> mediaPackageOutputSettings;
 
     /**
-     * @return Media package output settings. This can be set as an empty block.
+     * @return Media package output settings. Can be set as an empty block.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettingsArgs>> mediaPackageOutputSettings() {
         return Optional.ofNullable(this.mediaPackageOutputSettings);
     }
 
+    /**
+     * Microsoft Smooth output settings. See `msSmoothOutputSettings` Block for details.
+     * 
+     */
     @Import(name="msSmoothOutputSettings")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsArgs> msSmoothOutputSettings;
 
+    /**
+     * @return Microsoft Smooth output settings. See `msSmoothOutputSettings` Block for details.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsArgs>> msSmoothOutputSettings() {
         return Optional.ofNullable(this.msSmoothOutputSettings);
     }
 
     /**
-     * Multiplex output settings. See Multiplex Output Settings for more details.
+     * Multiplex output settings. See `multiplexOutputSettings` Block for details.
      * 
      */
     @Import(name="multiplexOutputSettings")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArgs> multiplexOutputSettings;
 
     /**
-     * @return Multiplex output settings. See Multiplex Output Settings for more details.
+     * @return Multiplex output settings. See `multiplexOutputSettings` Block for details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArgs>> multiplexOutputSettings() {
@@ -89,14 +113,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs ext
     }
 
     /**
-     * RTMP output settings. See RTMP Output Settings for more details.
+     * RTMP output settings. See `rtmpOutputSettings` Block for details.
      * 
      */
     @Import(name="rtmpOutputSettings")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArgs> rtmpOutputSettings;
 
     /**
-     * @return RTMP output settings. See RTMP Output Settings for more details.
+     * @return RTMP output settings. See `rtmpOutputSettings` Block for details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArgs>> rtmpOutputSettings() {
@@ -104,14 +128,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs ext
     }
 
     /**
-     * UDP output settings. See UDP Output Settings for more details.
+     * UDP output settings. See `udpOutputSettings` Block for details.
      * 
      */
     @Import(name="udpOutputSettings")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs> udpOutputSettings;
 
     /**
-     * @return UDP output settings. See UDP Output Settings for more details.
+     * @return UDP output settings. See `udpOutputSettings` Block for details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs>> udpOutputSettings() {
@@ -150,7 +174,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs ext
         }
 
         /**
-         * @param archiveOutputSettings Archive output settings. See Archive Output Settings for more details.
+         * @param archiveOutputSettings Archive output settings. See `archiveOutputSettings` Block for details.
          * 
          * @return builder
          * 
@@ -161,7 +185,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs ext
         }
 
         /**
-         * @param archiveOutputSettings Archive output settings. See Archive Output Settings for more details.
+         * @param archiveOutputSettings Archive output settings. See `archiveOutputSettings` Block for details.
          * 
          * @return builder
          * 
@@ -170,26 +194,50 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs ext
             return archiveOutputSettings(Output.of(archiveOutputSettings));
         }
 
+        /**
+         * @param frameCaptureOutputSettings Frame capture output settings. See `frameCaptureOutputSettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder frameCaptureOutputSettings(@Nullable Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettingsArgs> frameCaptureOutputSettings) {
             $.frameCaptureOutputSettings = frameCaptureOutputSettings;
             return this;
         }
 
+        /**
+         * @param frameCaptureOutputSettings Frame capture output settings. See `frameCaptureOutputSettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder frameCaptureOutputSettings(ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettingsArgs frameCaptureOutputSettings) {
             return frameCaptureOutputSettings(Output.of(frameCaptureOutputSettings));
         }
 
+        /**
+         * @param hlsOutputSettings HLS output settings. See `hlsOutputSettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hlsOutputSettings(@Nullable Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArgs> hlsOutputSettings) {
             $.hlsOutputSettings = hlsOutputSettings;
             return this;
         }
 
+        /**
+         * @param hlsOutputSettings HLS output settings. See `hlsOutputSettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hlsOutputSettings(ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArgs hlsOutputSettings) {
             return hlsOutputSettings(Output.of(hlsOutputSettings));
         }
 
         /**
-         * @param mediaPackageOutputSettings Media package output settings. This can be set as an empty block.
+         * @param mediaPackageOutputSettings Media package output settings. Can be set as an empty block.
          * 
          * @return builder
          * 
@@ -200,7 +248,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs ext
         }
 
         /**
-         * @param mediaPackageOutputSettings Media package output settings. This can be set as an empty block.
+         * @param mediaPackageOutputSettings Media package output settings. Can be set as an empty block.
          * 
          * @return builder
          * 
@@ -209,17 +257,29 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs ext
             return mediaPackageOutputSettings(Output.of(mediaPackageOutputSettings));
         }
 
+        /**
+         * @param msSmoothOutputSettings Microsoft Smooth output settings. See `msSmoothOutputSettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder msSmoothOutputSettings(@Nullable Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsArgs> msSmoothOutputSettings) {
             $.msSmoothOutputSettings = msSmoothOutputSettings;
             return this;
         }
 
+        /**
+         * @param msSmoothOutputSettings Microsoft Smooth output settings. See `msSmoothOutputSettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder msSmoothOutputSettings(ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsArgs msSmoothOutputSettings) {
             return msSmoothOutputSettings(Output.of(msSmoothOutputSettings));
         }
 
         /**
-         * @param multiplexOutputSettings Multiplex output settings. See Multiplex Output Settings for more details.
+         * @param multiplexOutputSettings Multiplex output settings. See `multiplexOutputSettings` Block for details.
          * 
          * @return builder
          * 
@@ -230,7 +290,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs ext
         }
 
         /**
-         * @param multiplexOutputSettings Multiplex output settings. See Multiplex Output Settings for more details.
+         * @param multiplexOutputSettings Multiplex output settings. See `multiplexOutputSettings` Block for details.
          * 
          * @return builder
          * 
@@ -240,7 +300,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs ext
         }
 
         /**
-         * @param rtmpOutputSettings RTMP output settings. See RTMP Output Settings for more details.
+         * @param rtmpOutputSettings RTMP output settings. See `rtmpOutputSettings` Block for details.
          * 
          * @return builder
          * 
@@ -251,7 +311,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs ext
         }
 
         /**
-         * @param rtmpOutputSettings RTMP output settings. See RTMP Output Settings for more details.
+         * @param rtmpOutputSettings RTMP output settings. See `rtmpOutputSettings` Block for details.
          * 
          * @return builder
          * 
@@ -261,7 +321,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs ext
         }
 
         /**
-         * @param udpOutputSettings UDP output settings. See UDP Output Settings for more details.
+         * @param udpOutputSettings UDP output settings. See `udpOutputSettings` Block for details.
          * 
          * @return builder
          * 
@@ -272,7 +332,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs ext
         }
 
         /**
-         * @param udpOutputSettings UDP output settings. See UDP Output Settings for more details.
+         * @param udpOutputSettings UDP output settings. See `udpOutputSettings` Block for details.
          * 
          * @return builder
          * 

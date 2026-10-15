@@ -80,14 +80,14 @@ public final class WorkforceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn&#39;t restricted to specific IP addresses. see Source Ip Config details below.
+     * A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn&#39;t restricted to specific IP addresses. see Source IP Config details below.
      * 
      */
     @Import(name="sourceIpConfig")
     private @Nullable Output<WorkforceSourceIpConfigArgs> sourceIpConfig;
 
     /**
-     * @return A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn&#39;t restricted to specific IP addresses. see Source Ip Config details below.
+     * @return A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn&#39;t restricted to specific IP addresses. see Source IP Config details below.
      * 
      */
     public Optional<Output<WorkforceSourceIpConfigArgs>> sourceIpConfig() {
@@ -255,7 +255,7 @@ public final class WorkforceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceIpConfig A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn&#39;t restricted to specific IP addresses. see Source Ip Config details below.
+         * @param sourceIpConfig A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn&#39;t restricted to specific IP addresses. see Source IP Config details below.
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class WorkforceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceIpConfig A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn&#39;t restricted to specific IP addresses. see Source Ip Config details below.
+         * @param sourceIpConfig A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn&#39;t restricted to specific IP addresses. see Source IP Config details below.
          * 
          * @return builder
          * 

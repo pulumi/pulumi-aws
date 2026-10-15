@@ -53,14 +53,14 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Destination settings for PUSH type inputs. See Destinations for more details.
+     * Destination settings for PUSH type inputs. See `destinations` Block for more details.
      * 
      */
     @Import(name="destinations")
     private @Nullable Output<List<InputDestinationArgs>> destinations;
 
     /**
-     * @return Destination settings for PUSH type inputs. See Destinations for more details.
+     * @return Destination settings for PUSH type inputs. See `destinations` Block for more details.
      * 
      */
     public Optional<Output<List<InputDestinationArgs>>> destinations() {
@@ -68,14 +68,14 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The input class.
+     * Input class.
      * 
      */
     @Import(name="inputClass")
     private @Nullable Output<String> inputClass;
 
     /**
-     * @return The input class.
+     * @return Input class.
      * 
      */
     public Optional<Output<String>> inputClass() {
@@ -83,14 +83,14 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Settings for the devices. See Input Devices for more details.
+     * Settings for the devices. See `inputDevices` Block for more details.
      * 
      */
     @Import(name="inputDevices")
     private @Nullable Output<List<InputInputDeviceArgs>> inputDevices;
 
     /**
-     * @return Settings for the devices. See Input Devices for more details.
+     * @return Settings for the devices. See `inputDevices` Block for more details.
      * 
      */
     public Optional<Output<List<InputInputDeviceArgs>>> inputDevices() {
@@ -98,14 +98,14 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of IDs for all Inputs which are partners of this one.
+     * IDs for all Inputs which are partners of this one.
      * 
      */
     @Import(name="inputPartnerIds")
     private @Nullable Output<List<String>> inputPartnerIds;
 
     /**
-     * @return A list of IDs for all Inputs which are partners of this one.
+     * @return IDs for all Inputs which are partners of this one.
      * 
      */
     public Optional<Output<List<String>>> inputPartnerIds() {
@@ -143,14 +143,14 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of the MediaConnect Flows. See Media Connect Flows for more details.
+     * MediaConnect Flows. See `mediaConnectFlows` Block for more details.
      * 
      */
     @Import(name="mediaConnectFlows")
     private @Nullable Output<List<InputMediaConnectFlowArgs>> mediaConnectFlows;
 
     /**
-     * @return A list of the MediaConnect Flows. See Media Connect Flows for more details.
+     * @return MediaConnect Flows. See `mediaConnectFlows` Block for more details.
      * 
      */
     public Optional<Output<List<InputMediaConnectFlowArgs>>> mediaConnectFlows() {
@@ -188,14 +188,14 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the role this input assumes during and after creation.
+     * ARN of the role this input assumes during and after creation.
      * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
-     * @return The ARN of the role this input assumes during and after creation.
+     * @return ARN of the role this input assumes during and after creation.
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -203,14 +203,14 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The source URLs for a PULL-type input. See Sources for more details.
+     * Source URLs for a PULL-type input. See `sources` Block for more details.
      * 
      */
     @Import(name="sources")
     private @Nullable Output<List<InputSourceArgs>> sources;
 
     /**
-     * @return The source URLs for a PULL-type input. See Sources for more details.
+     * @return Source URLs for a PULL-type input. See `sources` Block for more details.
      * 
      */
     public Optional<Output<List<InputSourceArgs>>> sources() {
@@ -218,14 +218,14 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -240,7 +240,7 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The different types of inputs that AWS Elemental MediaLive supports.
+     * Type of input that AWS Elemental MediaLive supports.
      * 
      * The following arguments are optional:
      * 
@@ -249,7 +249,7 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> type;
 
     /**
-     * @return The different types of inputs that AWS Elemental MediaLive supports.
+     * @return Type of input that AWS Elemental MediaLive supports.
      * 
      * The following arguments are optional:
      * 
@@ -259,14 +259,14 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Settings for a private VPC Input. See VPC for more details.
+     * Settings for a private VPC Input. See `vpc` Block for more details.
      * 
      */
     @Import(name="vpc")
     private @Nullable Output<InputVpcArgs> vpc;
 
     /**
-     * @return Settings for a private VPC Input. See VPC for more details.
+     * @return Settings for a private VPC Input. See `vpc` Block for more details.
      * 
      */
     public Optional<Output<InputVpcArgs>> vpc() {
@@ -366,7 +366,7 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destinations Destination settings for PUSH type inputs. See Destinations for more details.
+         * @param destinations Destination settings for PUSH type inputs. See `destinations` Block for more details.
          * 
          * @return builder
          * 
@@ -377,7 +377,7 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destinations Destination settings for PUSH type inputs. See Destinations for more details.
+         * @param destinations Destination settings for PUSH type inputs. See `destinations` Block for more details.
          * 
          * @return builder
          * 
@@ -387,7 +387,7 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destinations Destination settings for PUSH type inputs. See Destinations for more details.
+         * @param destinations Destination settings for PUSH type inputs. See `destinations` Block for more details.
          * 
          * @return builder
          * 
@@ -397,7 +397,7 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inputClass The input class.
+         * @param inputClass Input class.
          * 
          * @return builder
          * 
@@ -408,7 +408,7 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inputClass The input class.
+         * @param inputClass Input class.
          * 
          * @return builder
          * 
@@ -418,7 +418,7 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inputDevices Settings for the devices. See Input Devices for more details.
+         * @param inputDevices Settings for the devices. See `inputDevices` Block for more details.
          * 
          * @return builder
          * 
@@ -429,7 +429,7 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inputDevices Settings for the devices. See Input Devices for more details.
+         * @param inputDevices Settings for the devices. See `inputDevices` Block for more details.
          * 
          * @return builder
          * 
@@ -439,7 +439,7 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inputDevices Settings for the devices. See Input Devices for more details.
+         * @param inputDevices Settings for the devices. See `inputDevices` Block for more details.
          * 
          * @return builder
          * 
@@ -449,7 +449,7 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inputPartnerIds A list of IDs for all Inputs which are partners of this one.
+         * @param inputPartnerIds IDs for all Inputs which are partners of this one.
          * 
          * @return builder
          * 
@@ -460,7 +460,7 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inputPartnerIds A list of IDs for all Inputs which are partners of this one.
+         * @param inputPartnerIds IDs for all Inputs which are partners of this one.
          * 
          * @return builder
          * 
@@ -470,7 +470,7 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inputPartnerIds A list of IDs for all Inputs which are partners of this one.
+         * @param inputPartnerIds IDs for all Inputs which are partners of this one.
          * 
          * @return builder
          * 
@@ -532,7 +532,7 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mediaConnectFlows A list of the MediaConnect Flows. See Media Connect Flows for more details.
+         * @param mediaConnectFlows MediaConnect Flows. See `mediaConnectFlows` Block for more details.
          * 
          * @return builder
          * 
@@ -543,7 +543,7 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mediaConnectFlows A list of the MediaConnect Flows. See Media Connect Flows for more details.
+         * @param mediaConnectFlows MediaConnect Flows. See `mediaConnectFlows` Block for more details.
          * 
          * @return builder
          * 
@@ -553,7 +553,7 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mediaConnectFlows A list of the MediaConnect Flows. See Media Connect Flows for more details.
+         * @param mediaConnectFlows MediaConnect Flows. See `mediaConnectFlows` Block for more details.
          * 
          * @return builder
          * 
@@ -605,7 +605,7 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn The ARN of the role this input assumes during and after creation.
+         * @param roleArn ARN of the role this input assumes during and after creation.
          * 
          * @return builder
          * 
@@ -616,7 +616,7 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn The ARN of the role this input assumes during and after creation.
+         * @param roleArn ARN of the role this input assumes during and after creation.
          * 
          * @return builder
          * 
@@ -626,7 +626,7 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sources The source URLs for a PULL-type input. See Sources for more details.
+         * @param sources Source URLs for a PULL-type input. See `sources` Block for more details.
          * 
          * @return builder
          * 
@@ -637,7 +637,7 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sources The source URLs for a PULL-type input. See Sources for more details.
+         * @param sources Source URLs for a PULL-type input. See `sources` Block for more details.
          * 
          * @return builder
          * 
@@ -647,7 +647,7 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sources The source URLs for a PULL-type input. See Sources for more details.
+         * @param sources Source URLs for a PULL-type input. See `sources` Block for more details.
          * 
          * @return builder
          * 
@@ -657,7 +657,7 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -668,7 +668,7 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -687,7 +687,7 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The different types of inputs that AWS Elemental MediaLive supports.
+         * @param type Type of input that AWS Elemental MediaLive supports.
          * 
          * The following arguments are optional:
          * 
@@ -700,7 +700,7 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The different types of inputs that AWS Elemental MediaLive supports.
+         * @param type Type of input that AWS Elemental MediaLive supports.
          * 
          * The following arguments are optional:
          * 
@@ -712,7 +712,7 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpc Settings for a private VPC Input. See VPC for more details.
+         * @param vpc Settings for a private VPC Input. See `vpc` Block for more details.
          * 
          * @return builder
          * 
@@ -723,7 +723,7 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpc Settings for a private VPC Input. See VPC for more details.
+         * @param vpc Settings for a private VPC Input. See `vpc` Block for more details.
          * 
          * @return builder
          * 

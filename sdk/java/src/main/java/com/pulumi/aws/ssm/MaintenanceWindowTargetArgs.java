@@ -111,14 +111,14 @@ public final class MaintenanceWindowTargetArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The Id of the maintenance window to register the target with.
+     * The ID of the maintenance window to register the target with.
      * 
      */
     @Import(name="windowId", required=true)
     private Output<String> windowId;
 
     /**
-     * @return The Id of the maintenance window to register the target with.
+     * @return The ID of the maintenance window to register the target with.
      * 
      */
     public Output<String> windowId() {
@@ -295,7 +295,7 @@ public final class MaintenanceWindowTargetArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param windowId The Id of the maintenance window to register the target with.
+         * @param windowId The ID of the maintenance window to register the target with.
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class MaintenanceWindowTargetArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param windowId The Id of the maintenance window to register the target with.
+         * @param windowId The ID of the maintenance window to register the target with.
          * 
          * @return builder
          * 

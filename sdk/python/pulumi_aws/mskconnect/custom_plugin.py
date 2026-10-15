@@ -30,12 +30,12 @@ class CustomPluginArgs:
         """
         The set of arguments for constructing a CustomPlugin resource.
 
-        :param pulumi.Input[_builtins.str] content_type: The type of the plugin file. Allowed values are `ZIP` and `JAR`.
+        :param pulumi.Input[_builtins.str] content_type: Type of the plugin file. Allowed values are `ZIP` and `JAR`.
         :param pulumi.Input['CustomPluginLocationArgs'] location: Information about the location of a custom plugin. See `location` Block for details.
-        :param pulumi.Input[_builtins.str] description: A summary description of the custom plugin.
-        :param pulumi.Input[_builtins.str] name: The name of the custom plugin..
+        :param pulumi.Input[_builtins.str] description: Summary description of the custom plugin.
+        :param pulumi.Input[_builtins.str] name: Name of the custom plugin.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "content_type", content_type)
         pulumi.set(__self__, "location", location)
@@ -52,7 +52,7 @@ class CustomPluginArgs:
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of the plugin file. Allowed values are `ZIP` and `JAR`.
+        Type of the plugin file. Allowed values are `ZIP` and `JAR`.
         """
         return pulumi.get(self, "content_type")
 
@@ -76,7 +76,7 @@ class CustomPluginArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A summary description of the custom plugin.
+        Summary description of the custom plugin.
         """
         return pulumi.get(self, "description")
 
@@ -88,7 +88,7 @@ class CustomPluginArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the custom plugin..
+        Name of the custom plugin.
         """
         return pulumi.get(self, "name")
 
@@ -112,7 +112,7 @@ class CustomPluginArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -138,15 +138,15 @@ class _CustomPluginState:
         Input properties used for looking up and filtering CustomPlugin resources.
 
         :param pulumi.Input[_builtins.str] arn: the ARN of the custom plugin.
-        :param pulumi.Input[_builtins.str] content_type: The type of the plugin file. Allowed values are `ZIP` and `JAR`.
-        :param pulumi.Input[_builtins.str] description: A summary description of the custom plugin.
+        :param pulumi.Input[_builtins.str] content_type: Type of the plugin file. Allowed values are `ZIP` and `JAR`.
+        :param pulumi.Input[_builtins.str] description: Summary description of the custom plugin.
         :param pulumi.Input[_builtins.int] latest_revision: an ID of the latest successfully created revision of the custom plugin.
         :param pulumi.Input['CustomPluginLocationArgs'] location: Information about the location of a custom plugin. See `location` Block for details.
-        :param pulumi.Input[_builtins.str] name: The name of the custom plugin..
+        :param pulumi.Input[_builtins.str] name: Name of the custom plugin.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] state: the state of the custom plugin.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -185,7 +185,7 @@ class _CustomPluginState:
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of the plugin file. Allowed values are `ZIP` and `JAR`.
+        Type of the plugin file. Allowed values are `ZIP` and `JAR`.
         """
         return pulumi.get(self, "content_type")
 
@@ -197,7 +197,7 @@ class _CustomPluginState:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A summary description of the custom plugin.
+        Summary description of the custom plugin.
         """
         return pulumi.get(self, "description")
 
@@ -233,7 +233,7 @@ class _CustomPluginState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the custom plugin..
+        Name of the custom plugin.
         """
         return pulumi.get(self, "name")
 
@@ -269,7 +269,7 @@ class _CustomPluginState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -281,7 +281,7 @@ class _CustomPluginState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -341,12 +341,12 @@ class CustomPlugin(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] content_type: The type of the plugin file. Allowed values are `ZIP` and `JAR`.
-        :param pulumi.Input[_builtins.str] description: A summary description of the custom plugin.
+        :param pulumi.Input[_builtins.str] content_type: Type of the plugin file. Allowed values are `ZIP` and `JAR`.
+        :param pulumi.Input[_builtins.str] description: Summary description of the custom plugin.
         :param pulumi.Input[Union['CustomPluginLocationArgs', 'CustomPluginLocationArgsDict', 'outputs.CustomPluginLocation']] location: Information about the location of a custom plugin. See `location` Block for details.
-        :param pulumi.Input[_builtins.str] name: The name of the custom plugin..
+        :param pulumi.Input[_builtins.str] name: Name of the custom plugin.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -462,15 +462,15 @@ class CustomPlugin(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: the ARN of the custom plugin.
-        :param pulumi.Input[_builtins.str] content_type: The type of the plugin file. Allowed values are `ZIP` and `JAR`.
-        :param pulumi.Input[_builtins.str] description: A summary description of the custom plugin.
+        :param pulumi.Input[_builtins.str] content_type: Type of the plugin file. Allowed values are `ZIP` and `JAR`.
+        :param pulumi.Input[_builtins.str] description: Summary description of the custom plugin.
         :param pulumi.Input[_builtins.int] latest_revision: an ID of the latest successfully created revision of the custom plugin.
         :param pulumi.Input[Union['CustomPluginLocationArgs', 'CustomPluginLocationArgsDict', 'outputs.CustomPluginLocation']] location: Information about the location of a custom plugin. See `location` Block for details.
-        :param pulumi.Input[_builtins.str] name: The name of the custom plugin..
+        :param pulumi.Input[_builtins.str] name: Name of the custom plugin.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] state: the state of the custom plugin.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -500,7 +500,7 @@ class CustomPlugin(pulumi.CustomResource):
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Output[_builtins.str]:
         """
-        The type of the plugin file. Allowed values are `ZIP` and `JAR`.
+        Type of the plugin file. Allowed values are `ZIP` and `JAR`.
         """
         return pulumi.get(self, "content_type")
 
@@ -508,7 +508,7 @@ class CustomPlugin(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        A summary description of the custom plugin.
+        Summary description of the custom plugin.
         """
         return pulumi.get(self, "description")
 
@@ -532,7 +532,7 @@ class CustomPlugin(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the custom plugin..
+        Name of the custom plugin.
         """
         return pulumi.get(self, "name")
 
@@ -556,7 +556,7 @@ class CustomPlugin(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -564,7 +564,7 @@ class CustomPlugin(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

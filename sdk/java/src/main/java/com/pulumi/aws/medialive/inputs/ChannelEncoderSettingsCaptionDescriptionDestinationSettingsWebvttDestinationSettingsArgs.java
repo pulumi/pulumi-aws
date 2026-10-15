@@ -15,14 +15,14 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWe
     public static final ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgs Empty = new ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgs();
 
     /**
-     * Controls whether the color and position of the source captions is passed through to the WebVTT output captions. PASSTHROUGH - Valid only if the source captions are EMBEDDED or TELETEXT. NO\_STYLE\_DATA - Don’t pass through the style. The output captions will not contain any font styling information.
+     * Whether the color and position of the source captions is passed through to the WebVTT output captions. `PASSTHROUGH` is valid only if the source captions are EMBEDDED or TELETEXT. `NO_STYLE_DATA` does not pass through the style, and the output captions do not contain any font styling information.
      * 
      */
     @Import(name="styleControl", required=true)
     private Output<String> styleControl;
 
     /**
-     * @return Controls whether the color and position of the source captions is passed through to the WebVTT output captions. PASSTHROUGH - Valid only if the source captions are EMBEDDED or TELETEXT. NO\_STYLE\_DATA - Don’t pass through the style. The output captions will not contain any font styling information.
+     * @return Whether the color and position of the source captions is passed through to the WebVTT output captions. `PASSTHROUGH` is valid only if the source captions are EMBEDDED or TELETEXT. `NO_STYLE_DATA` does not pass through the style, and the output captions do not contain any font styling information.
      * 
      */
     public Output<String> styleControl() {
@@ -54,7 +54,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWe
         }
 
         /**
-         * @param styleControl Controls whether the color and position of the source captions is passed through to the WebVTT output captions. PASSTHROUGH - Valid only if the source captions are EMBEDDED or TELETEXT. NO\_STYLE\_DATA - Don’t pass through the style. The output captions will not contain any font styling information.
+         * @param styleControl Whether the color and position of the source captions is passed through to the WebVTT output captions. `PASSTHROUGH` is valid only if the source captions are EMBEDDED or TELETEXT. `NO_STYLE_DATA` does not pass through the style, and the output captions do not contain any font styling information.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWe
         }
 
         /**
-         * @param styleControl Controls whether the color and position of the source captions is passed through to the WebVTT output captions. PASSTHROUGH - Valid only if the source captions are EMBEDDED or TELETEXT. NO\_STYLE\_DATA - Don’t pass through the style. The output captions will not contain any font styling information.
+         * @param styleControl Whether the color and position of the source captions is passed through to the WebVTT output captions. `PASSTHROUGH` is valid only if the source captions are EMBEDDED or TELETEXT. `NO_STYLE_DATA` does not pass through the style, and the output captions do not contain any font styling information.
          * 
          * @return builder
          * 

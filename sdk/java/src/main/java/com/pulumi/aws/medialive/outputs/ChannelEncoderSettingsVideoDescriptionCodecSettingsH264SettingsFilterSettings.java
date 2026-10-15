@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings {
+    /**
+     * @return Temporal filter settings. See `temporalFilterSettings` Block for details.
+     * 
+     */
     private @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettings temporalFilterSettings;
 
     private ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings() {}
+    /**
+     * @return Temporal filter settings. See `temporalFilterSettings` Block for details.
+     * 
+     */
     public Optional<ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettings> temporalFilterSettings() {
         return Optional.ofNullable(this.temporalFilterSettings);
     }

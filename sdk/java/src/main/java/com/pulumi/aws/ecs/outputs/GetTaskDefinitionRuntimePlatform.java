@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetTaskDefinitionRuntimePlatform {
     /**
-     * @return Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
+     * @return Must be set to either `X86_64` or `ARM64`; see [CPU architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
      * 
      */
     private String cpuArchitecture;
@@ -23,7 +23,7 @@ public final class GetTaskDefinitionRuntimePlatform {
 
     private GetTaskDefinitionRuntimePlatform() {}
     /**
-     * @return Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
+     * @return Must be set to either `X86_64` or `ARM64`; see [CPU architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
      * 
      */
     public String cpuArchitecture() {

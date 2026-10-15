@@ -14,11 +14,12 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelInputAttachmentInputSettingsAudioSelector
     {
         /// <summary>
-        /// Name of the Channel.
-        /// 
-        /// The following arguments are optional:
+        /// Name of the audio selector.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Audio selector settings. See `audio_selector.selector_settings` Block for details.
+        /// </summary>
         public readonly Outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings? SelectorSettings;
 
         [OutputConstructor]

@@ -256,7 +256,7 @@ class GetClusterResult:
     @pulumi.getter(name="numReplicasPerShard")
     def num_replicas_per_shard(self) -> _builtins.int:
         """
-        The number of replicas to apply to each shard.
+        Number of replicas to apply to each shard.
         """
         return pulumi.get(self, "num_replicas_per_shard")
 
@@ -272,7 +272,7 @@ class GetClusterResult:
     @pulumi.getter(name="parameterGroupName")
     def parameter_group_name(self) -> _builtins.str:
         """
-        The name of the parameter group associated with the cluster.
+        Name of the parameter group associated with the cluster.
         """
         return pulumi.get(self, "parameter_group_name")
 
@@ -309,7 +309,7 @@ class GetClusterResult:
     @pulumi.getter(name="snapshotRetentionLimit")
     def snapshot_retention_limit(self) -> _builtins.int:
         """
-        The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled.
+        Number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled.
         """
         return pulumi.get(self, "snapshot_retention_limit")
 
@@ -333,7 +333,7 @@ class GetClusterResult:
     @pulumi.getter(name="subnetGroupName")
     def subnet_group_name(self) -> _builtins.str:
         """
-        The name of the subnet group used for the cluster.
+        Name of the subnet group used for the cluster.
         """
         return pulumi.get(self, "subnet_group_name")
 

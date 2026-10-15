@@ -80,7 +80,7 @@ func LookupContactFlow(ctx *pulumi.Context, args *LookupContactFlowArgs, opts ..
 
 // A collection of arguments for invoking getContactFlow.
 type LookupContactFlowArgs struct {
-	// Returns information on a specific Contact Flow by contact flow id
+	// Returns information on a specific Contact Flow by contact flow ID
 	ContactFlowId *string `pulumi:"contactFlowId"`
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId string `pulumi:"instanceId"`
@@ -123,7 +123,7 @@ func LookupContactFlowOutput(ctx *pulumi.Context, args LookupContactFlowOutputAr
 
 // A collection of arguments for invoking getContactFlow.
 type LookupContactFlowOutputArgs struct {
-	// Returns information on a specific Contact Flow by contact flow id
+	// Returns information on a specific Contact Flow by contact flow ID
 	ContactFlowId pulumi.StringPtrInput `pulumi:"contactFlowId"`
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`

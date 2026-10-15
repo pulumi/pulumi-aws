@@ -11,9 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterBrokerNodeGroupInfoStorageInfo {
+    /**
+     * @return EBS storage information. See `ebsStorageInfo` Block for details.
+     * 
+     */
     private List<GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo> ebsStorageInfos;
 
     private GetClusterBrokerNodeGroupInfoStorageInfo() {}
+    /**
+     * @return EBS storage information. See `ebsStorageInfo` Block for details.
+     * 
+     */
     public List<GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo> ebsStorageInfos() {
         return this.ebsStorageInfos;
     }

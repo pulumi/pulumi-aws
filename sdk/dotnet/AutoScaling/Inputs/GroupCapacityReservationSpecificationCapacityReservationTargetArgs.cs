@@ -16,7 +16,7 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         private InputList<string>? _capacityReservationIds;
 
         /// <summary>
-        /// List of On-Demand Capacity Reservation Ids. Conflicts with `CapacityReservationResourceGroupArns`.
+        /// List of On-Demand Capacity Reservation IDs. Conflicts with `CapacityReservationResourceGroupArns`.
         /// </summary>
         public InputList<string> CapacityReservationIds
         {

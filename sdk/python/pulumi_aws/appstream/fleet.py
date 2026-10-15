@@ -362,7 +362,7 @@ class _FleetState:
         """
         Input properties used for looking up and filtering Fleet resources.
 
-        :param pulumi.Input[_builtins.str] arn: ARN of the appstream fleet.
+        :param pulumi.Input[_builtins.str] arn: ARN of the AppStream fleet.
         :param pulumi.Input['FleetComputeCapacityArgs'] compute_capacity: Configuration block for the desired capacity of the fleet. See below.
         :param pulumi.Input[_builtins.str] created_time: Date and time, in UTC and extended RFC 3339 format, when the fleet was created.
         :param pulumi.Input[_builtins.str] description: Description to display.
@@ -438,7 +438,7 @@ class _FleetState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ARN of the appstream fleet.
+        ARN of the AppStream fleet.
         """
         return pulumi.get(self, "arn")
 
@@ -768,7 +768,7 @@ class Fleet(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `appstream.Fleet` using the id. For example:
+        Using `pulumi import`, import `appstream.Fleet` using the ID. For example:
 
         ```sh
         $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
@@ -837,7 +837,7 @@ class Fleet(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `appstream.Fleet` using the id. For example:
+        Using `pulumi import`, import `appstream.Fleet` using the ID. For example:
 
         ```sh
         $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
@@ -954,7 +954,7 @@ class Fleet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN of the appstream fleet.
+        :param pulumi.Input[_builtins.str] arn: ARN of the AppStream fleet.
         :param pulumi.Input[Union['FleetComputeCapacityArgs', 'FleetComputeCapacityArgsDict', 'outputs.FleetComputeCapacity']] compute_capacity: Configuration block for the desired capacity of the fleet. See below.
         :param pulumi.Input[_builtins.str] created_time: Date and time, in UTC and extended RFC 3339 format, when the fleet was created.
         :param pulumi.Input[_builtins.str] description: Description to display.
@@ -1012,7 +1012,7 @@ class Fleet(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        ARN of the appstream fleet.
+        ARN of the AppStream fleet.
         """
         return pulumi.get(self, "arn")
 

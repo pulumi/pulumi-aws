@@ -154,7 +154,7 @@ namespace Pulumi.Aws.Connect
     public sealed class GetHoursOfOperationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Returns information on a specific Hours of Operation by hours of operation id
+        /// Returns information on a specific Hours of Operation by hours of operation ID
         /// </summary>
         [Input("hoursOfOperationId")]
         public string? HoursOfOperationId { get; set; }
@@ -200,7 +200,7 @@ namespace Pulumi.Aws.Connect
     public sealed class GetHoursOfOperationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Returns information on a specific Hours of Operation by hours of operation id
+        /// Returns information on a specific Hours of Operation by hours of operation ID
         /// </summary>
         [Input("hoursOfOperationId")]
         public Input<string>? HoursOfOperationId { get; set; }

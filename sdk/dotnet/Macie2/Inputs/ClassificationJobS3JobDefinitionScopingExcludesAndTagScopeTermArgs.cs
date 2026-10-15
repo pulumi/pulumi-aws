@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Macie2.Inputs
     public sealed class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The operator to use in the condition.
+        /// Operator to use in the condition.
         /// </summary>
         [Input("comparator")]
         public Input<string>? Comparator { get; set; }
 
         /// <summary>
-        /// The tag key to use in the condition. The only valid value is `TAG`.
+        /// Tag key to use in the condition. The only valid value is `TAG`.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Macie2.Inputs
         private InputList<Inputs.ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArgs>? _tagValues;
 
         /// <summary>
-        /// The tag keys or tag key and value pairs to use in the condition.
+        /// Tag keys or tag key and value pairs to use in the condition. See `s3_job_definition.scoping.includes.and.tag_scope_term.tag_values` Block for details.
         /// </summary>
         public InputList<Inputs.ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArgs> TagValues
         {
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Macie2.Inputs
         }
 
         /// <summary>
-        /// The type of object to apply the condition to. The only valid value is `S3_OBJECT`.
+        /// Type of object to apply the condition to. The only valid value is `S3_OBJECT`. The AWS API requires this argument when `TagScopeTerm` is used.
         /// </summary>
         [Input("target")]
         public Input<string>? Target { get; set; }

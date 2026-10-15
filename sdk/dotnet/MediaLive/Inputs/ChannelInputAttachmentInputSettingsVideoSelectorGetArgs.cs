@@ -12,9 +12,15 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelInputAttachmentInputSettingsVideoSelectorGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Color space of the input.
+        /// </summary>
         [Input("colorSpace")]
         public Input<string>? ColorSpace { get; set; }
 
+        /// <summary>
+        /// How MediaLive applies the color space metadata from the input.
+        /// </summary>
         [Input("colorSpaceUsage")]
         public Input<string>? ColorSpaceUsage { get; set; }
 

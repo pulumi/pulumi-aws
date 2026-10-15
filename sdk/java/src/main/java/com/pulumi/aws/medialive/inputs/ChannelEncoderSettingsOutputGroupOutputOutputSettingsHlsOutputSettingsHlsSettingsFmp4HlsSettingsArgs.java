@@ -15,23 +15,47 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
 
     public static final ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettingsArgs();
 
+    /**
+     * List of audio rendition sets, separated by commas.
+     * 
+     */
     @Import(name="audioRenditionSets")
     private @Nullable Output<String> audioRenditionSets;
 
+    /**
+     * @return List of audio rendition sets, separated by commas.
+     * 
+     */
     public Optional<Output<String>> audioRenditionSets() {
         return Optional.ofNullable(this.audioRenditionSets);
     }
 
+    /**
+     * When set to `passthrough`, passes through Nielsen ID3.
+     * 
+     */
     @Import(name="nielsenId3Behavior")
     private @Nullable Output<String> nielsenId3Behavior;
 
+    /**
+     * @return When set to `passthrough`, passes through Nielsen ID3.
+     * 
+     */
     public Optional<Output<String>> nielsenId3Behavior() {
         return Optional.ofNullable(this.nielsenId3Behavior);
     }
 
+    /**
+     * When set to `passthrough`, passes through timed metadata.
+     * 
+     */
     @Import(name="timedMetadataBehavior")
     private @Nullable Output<String> timedMetadataBehavior;
 
+    /**
+     * @return When set to `passthrough`, passes through timed metadata.
+     * 
+     */
     public Optional<Output<String>> timedMetadataBehavior() {
         return Optional.ofNullable(this.timedMetadataBehavior);
     }
@@ -62,29 +86,65 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
             $ = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param audioRenditionSets List of audio rendition sets, separated by commas.
+         * 
+         * @return builder
+         * 
+         */
         public Builder audioRenditionSets(@Nullable Output<String> audioRenditionSets) {
             $.audioRenditionSets = audioRenditionSets;
             return this;
         }
 
+        /**
+         * @param audioRenditionSets List of audio rendition sets, separated by commas.
+         * 
+         * @return builder
+         * 
+         */
         public Builder audioRenditionSets(String audioRenditionSets) {
             return audioRenditionSets(Output.of(audioRenditionSets));
         }
 
+        /**
+         * @param nielsenId3Behavior When set to `passthrough`, passes through Nielsen ID3.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nielsenId3Behavior(@Nullable Output<String> nielsenId3Behavior) {
             $.nielsenId3Behavior = nielsenId3Behavior;
             return this;
         }
 
+        /**
+         * @param nielsenId3Behavior When set to `passthrough`, passes through Nielsen ID3.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nielsenId3Behavior(String nielsenId3Behavior) {
             return nielsenId3Behavior(Output.of(nielsenId3Behavior));
         }
 
+        /**
+         * @param timedMetadataBehavior When set to `passthrough`, passes through timed metadata.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timedMetadataBehavior(@Nullable Output<String> timedMetadataBehavior) {
             $.timedMetadataBehavior = timedMetadataBehavior;
             return this;
         }
 
+        /**
+         * @param timedMetadataBehavior When set to `passthrough`, passes through timed metadata.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timedMetadataBehavior(String timedMetadataBehavior) {
             return timedMetadataBehavior(Output.of(timedMetadataBehavior));
         }

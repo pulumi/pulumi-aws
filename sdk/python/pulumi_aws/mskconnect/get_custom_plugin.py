@@ -106,7 +106,7 @@ class GetCustomPluginResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
         """
-        A map of tags assigned to the resource.
+        Map of tags assigned to the resource.
         """
         return pulumi.get(self, "tags")
 
@@ -146,7 +146,7 @@ def get_custom_plugin(name: Optional[_builtins.str] = None,
 
     :param _builtins.str name: Name of the custom plugin.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: A map of tags assigned to the resource.
+    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -183,7 +183,7 @@ def get_custom_plugin_output(name: pulumi.Input[Optional[_builtins.str]] = None,
 
     :param _builtins.str name: Name of the custom plugin.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: A map of tags assigned to the resource.
+    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['name'] = name

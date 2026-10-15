@@ -48,7 +48,7 @@ class GetAgentAgentVersionsResult:
     @pulumi.getter(name="agentVersionSummaries")
     def agent_version_summaries(self) -> Optional[Sequence['outputs.GetAgentAgentVersionsAgentVersionSummaryResult']]:
         """
-        List of objects, each of which contains information about a version of the agent. See `agent_version_summaries` Block
+        List of objects, each of which contains information about a version of the agent. See `agent_version_summaries` Block.
         """
         return pulumi.get(self, "agent_version_summaries")
 
@@ -74,7 +74,7 @@ def get_agent_agent_versions(agent_id: Optional[_builtins.str] = None,
                              region: Optional[_builtins.str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAgentAgentVersionsResult:
     """
-    Data source for managing an AWS Amazon BedrockAgent Agent Versions.
+    Provides details about AWS Bedrock Agents Agent Versions.
 
     ## Example Usage
 
@@ -84,12 +84,12 @@ def get_agent_agent_versions(agent_id: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.bedrock.get_agent_agent_versions(agent_id=test_aws_bedrockagent_agent["agentId"])
+    example = aws.bedrock.get_agent_agent_versions(agent_id=example_aws_bedrockagent_agent["agentId"])
     ```
 
 
     :param _builtins.str agent_id: Unique identifier of the agent.
-    :param Sequence[Union['GetAgentAgentVersionsAgentVersionSummaryArgs', 'GetAgentAgentVersionsAgentVersionSummaryArgsDict', 'outputs.GetAgentAgentVersionsAgentVersionSummaryResult']] agent_version_summaries: List of objects, each of which contains information about a version of the agent. See `agent_version_summaries` Block
+    :param Sequence[Union['GetAgentAgentVersionsAgentVersionSummaryArgs', 'GetAgentAgentVersionsAgentVersionSummaryArgsDict', 'outputs.GetAgentAgentVersionsAgentVersionSummaryResult']] agent_version_summaries: List of objects, each of which contains information about a version of the agent. See `agent_version_summaries` Block.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
@@ -108,7 +108,7 @@ def get_agent_agent_versions_output(agent_id: pulumi.Input[Optional[_builtins.st
                                     region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAgentAgentVersionsResult]:
     """
-    Data source for managing an AWS Amazon BedrockAgent Agent Versions.
+    Provides details about AWS Bedrock Agents Agent Versions.
 
     ## Example Usage
 
@@ -118,12 +118,12 @@ def get_agent_agent_versions_output(agent_id: pulumi.Input[Optional[_builtins.st
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.bedrock.get_agent_agent_versions(agent_id=test_aws_bedrockagent_agent["agentId"])
+    example = aws.bedrock.get_agent_agent_versions(agent_id=example_aws_bedrockagent_agent["agentId"])
     ```
 
 
     :param _builtins.str agent_id: Unique identifier of the agent.
-    :param Sequence[Union['GetAgentAgentVersionsAgentVersionSummaryArgs', 'GetAgentAgentVersionsAgentVersionSummaryArgsDict', 'outputs.GetAgentAgentVersionsAgentVersionSummaryResult']] agent_version_summaries: List of objects, each of which contains information about a version of the agent. See `agent_version_summaries` Block
+    :param Sequence[Union['GetAgentAgentVersionsAgentVersionSummaryArgs', 'GetAgentAgentVersionsAgentVersionSummaryArgsDict', 'outputs.GetAgentAgentVersionsAgentVersionSummaryResult']] agent_version_summaries: List of objects, each of which contains information about a version of the agent. See `agent_version_summaries` Block.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()

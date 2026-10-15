@@ -30,14 +30,14 @@ public final class TagArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Id of the Organizations resource to tag.
+     * ID of the Organizations resource to tag.
      * 
      */
     @Import(name="resourceId", required=true)
     private Output<String> resourceId;
 
     /**
-     * @return Id of the Organizations resource to tag.
+     * @return ID of the Organizations resource to tag.
      * 
      */
     public Output<String> resourceId() {
@@ -107,7 +107,7 @@ public final class TagArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceId Id of the Organizations resource to tag.
+         * @param resourceId ID of the Organizations resource to tag.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class TagArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceId Id of the Organizations resource to tag.
+         * @param resourceId ID of the Organizations resource to tag.
          * 
          * @return builder
          * 

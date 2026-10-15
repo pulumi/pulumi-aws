@@ -386,7 +386,7 @@ class AgentKnowledgeBase(pulumi.CustomResource):
                  timeouts: pulumi.Input[Optional[Union['AgentKnowledgeBaseTimeoutsArgs', 'AgentKnowledgeBaseTimeoutsArgsDict', 'outputs.AgentKnowledgeBaseTimeouts']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Agents for Amazon Bedrock Knowledge Base.
+        Manages an AWS Agents for Amazon Bedrock Knowledge Base.
 
         ## Example Usage
 
@@ -658,7 +658,7 @@ class AgentKnowledgeBase(pulumi.CustomResource):
                  args: AgentKnowledgeBaseArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Agents for Amazon Bedrock Knowledge Base.
+        Manages an AWS Agents for Amazon Bedrock Knowledge Base.
 
         ## Example Usage
 

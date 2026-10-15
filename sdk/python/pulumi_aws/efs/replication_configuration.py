@@ -244,7 +244,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
             source_file_system_id=example.id)
         ```
 
-        Will create a replica and set the existing file system with id `fs-1234567890` in us-west-2 as destination.
+        Will create a replica and set the existing file system with ID `fs-1234567890` in us-west-2 as destination.
 
         ```python
         import pulumi
@@ -327,7 +327,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
             source_file_system_id=example.id)
         ```
 
-        Will create a replica and set the existing file system with id `fs-1234567890` in us-west-2 as destination.
+        Will create a replica and set the existing file system with ID `fs-1234567890` in us-west-2 as destination.
 
         ```python
         import pulumi

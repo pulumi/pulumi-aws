@@ -14,7 +14,7 @@ import (
 
 // Provides an End User Messaging Baidu Channel resource.
 //
-// > **Note:** All arguments including the Api Key and Secret Key will be stored in the raw state as plain-text.
+// > **Note:** All arguments including the API Key and Secret Key will be stored in the raw state as plain-text.
 // ## Example Usage
 //
 // ```go

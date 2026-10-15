@@ -147,7 +147,7 @@ namespace Pulumi.Aws.Organizations
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// List of all the policy ids found.
+        /// List of all the policy IDs found.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
 

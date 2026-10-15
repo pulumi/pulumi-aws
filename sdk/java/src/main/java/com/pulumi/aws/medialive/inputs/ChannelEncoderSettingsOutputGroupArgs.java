@@ -35,14 +35,14 @@ public final class ChannelEncoderSettingsOutputGroupArgs extends com.pulumi.reso
     }
 
     /**
-     * Settings associated with the output group. See Output Group Settings for more details.
+     * Settings associated with the output group. See `outputGroupSettings` Block for details.
      * 
      */
     @Import(name="outputGroupSettings", required=true)
     private Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs> outputGroupSettings;
 
     /**
-     * @return Settings associated with the output group. See Output Group Settings for more details.
+     * @return Settings associated with the output group. See `outputGroupSettings` Block for details.
      * 
      */
     public Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs> outputGroupSettings() {
@@ -50,14 +50,14 @@ public final class ChannelEncoderSettingsOutputGroupArgs extends com.pulumi.reso
     }
 
     /**
-     * List of outputs. See Outputs for more details.
+     * List of outputs. See `outputs` Block for details.
      * 
      */
     @Import(name="outputs", required=true)
     private Output<List<ChannelEncoderSettingsOutputGroupOutputArgs>> outputs;
 
     /**
-     * @return List of outputs. See Outputs for more details.
+     * @return List of outputs. See `outputs` Block for details.
      * 
      */
     public Output<List<ChannelEncoderSettingsOutputGroupOutputArgs>> outputs() {
@@ -112,7 +112,7 @@ public final class ChannelEncoderSettingsOutputGroupArgs extends com.pulumi.reso
         }
 
         /**
-         * @param outputGroupSettings Settings associated with the output group. See Output Group Settings for more details.
+         * @param outputGroupSettings Settings associated with the output group. See `outputGroupSettings` Block for details.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class ChannelEncoderSettingsOutputGroupArgs extends com.pulumi.reso
         }
 
         /**
-         * @param outputGroupSettings Settings associated with the output group. See Output Group Settings for more details.
+         * @param outputGroupSettings Settings associated with the output group. See `outputGroupSettings` Block for details.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class ChannelEncoderSettingsOutputGroupArgs extends com.pulumi.reso
         }
 
         /**
-         * @param outputs List of outputs. See Outputs for more details.
+         * @param outputs List of outputs. See `outputs` Block for details.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class ChannelEncoderSettingsOutputGroupArgs extends com.pulumi.reso
         }
 
         /**
-         * @param outputs List of outputs. See Outputs for more details.
+         * @param outputs List of outputs. See `outputs` Block for details.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class ChannelEncoderSettingsOutputGroupArgs extends com.pulumi.reso
         }
 
         /**
-         * @param outputs List of outputs. See Outputs for more details.
+         * @param outputs List of outputs. See `outputs` Block for details.
          * 
          * @return builder
          * 

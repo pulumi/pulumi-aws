@@ -31,6 +31,10 @@ __all__ = [
     'V2InputSourceResourceConfigurationArgsDict',
     'V2InputSourceResourceConfigurationEksArgs',
     'V2InputSourceResourceConfigurationEksArgsDict',
+    'V2InputSourceResourceConfigurationEksLabelSelectorArgs',
+    'V2InputSourceResourceConfigurationEksLabelSelectorArgsDict',
+    'V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArgs',
+    'V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArgsDict',
     'V2InputSourceResourceConfigurationResourceTagArgs',
     'V2InputSourceResourceConfigurationResourceTagArgsDict',
     'V2PolicyAvailabilitySloArgs',
@@ -521,18 +525,26 @@ class V2InputSourceResourceConfigurationEksArgsDict(TypedDict):
     """
     List of Kubernetes namespaces within the EKS cluster.
     """
+    label_selector: NotRequired[pulumi.Input[Optional['V2InputSourceResourceConfigurationEksLabelSelectorArgsDict']]]
+    """
+    Kubernetes label selector that narrows discovery to the objects whose labels match. When omitted, all supported objects in the selected namespaces are discovered. See `label_selector` Block below.
+    """
 
 @pulumi.input_type
 class V2InputSourceResourceConfigurationEksArgs:
     def __init__(__self__, *,
                  cluster_arn: pulumi.Input[_builtins.str],
-                 namespaces: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+                 namespaces: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 label_selector: pulumi.Input[Optional['V2InputSourceResourceConfigurationEksLabelSelectorArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] cluster_arn: Cluster ARN.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] namespaces: List of Kubernetes namespaces within the EKS cluster.
+        :param pulumi.Input['V2InputSourceResourceConfigurationEksLabelSelectorArgs'] label_selector: Kubernetes label selector that narrows discovery to the objects whose labels match. When omitted, all supported objects in the selected namespaces are discovered. See `label_selector` Block below.
         """
         pulumi.set(__self__, "cluster_arn", cluster_arn)
         pulumi.set(__self__, "namespaces", namespaces)
+        if label_selector is not None:
+            pulumi.set(__self__, "label_selector", label_selector)
 
     @_builtins.property
     @pulumi.getter(name="clusterArn")
@@ -557,6 +569,134 @@ class V2InputSourceResourceConfigurationEksArgs:
     @namespaces.setter
     def namespaces(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         pulumi.set(self, "namespaces", value)
+
+    @_builtins.property
+    @pulumi.getter(name="labelSelector")
+    def label_selector(self) -> pulumi.Input[Optional['V2InputSourceResourceConfigurationEksLabelSelectorArgs']]:
+        """
+        Kubernetes label selector that narrows discovery to the objects whose labels match. When omitted, all supported objects in the selected namespaces are discovered. See `label_selector` Block below.
+        """
+        return pulumi.get(self, "label_selector")
+
+    @label_selector.setter
+    def label_selector(self, value: pulumi.Input[Optional['V2InputSourceResourceConfigurationEksLabelSelectorArgs']]):
+        pulumi.set(self, "label_selector", value)
+
+
+class V2InputSourceResourceConfigurationEksLabelSelectorArgsDict(TypedDict):
+    match_expressions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArgsDict']]]]]
+    """
+    Label requirements that an object must satisfy. Every requirement must match. See `match_expressions` Block below.
+    """
+    match_labels: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    Label key-value pairs that an object must have, up to 20. Every pair must match.
+    """
+
+@pulumi.input_type
+class V2InputSourceResourceConfigurationEksLabelSelectorArgs:
+    def __init__(__self__, *,
+                 match_expressions: pulumi.Input[Optional[Sequence[pulumi.Input['V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArgs']]]] = None,
+                 match_labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArgs']]] match_expressions: Label requirements that an object must satisfy. Every requirement must match. See `match_expressions` Block below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] match_labels: Label key-value pairs that an object must have, up to 20. Every pair must match.
+        """
+        if match_expressions is not None:
+            pulumi.set(__self__, "match_expressions", match_expressions)
+        if match_labels is not None:
+            pulumi.set(__self__, "match_labels", match_labels)
+
+    @_builtins.property
+    @pulumi.getter(name="matchExpressions")
+    def match_expressions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArgs']]]]:
+        """
+        Label requirements that an object must satisfy. Every requirement must match. See `match_expressions` Block below.
+        """
+        return pulumi.get(self, "match_expressions")
+
+    @match_expressions.setter
+    def match_expressions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArgs']]]]):
+        pulumi.set(self, "match_expressions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="matchLabels")
+    def match_labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Label key-value pairs that an object must have, up to 20. Every pair must match.
+        """
+        return pulumi.get(self, "match_labels")
+
+    @match_labels.setter
+    def match_labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "match_labels", value)
+
+
+class V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    Label key that the requirement applies to.
+    """
+    operator: pulumi.Input[_builtins.str]
+    """
+    Relationship between the label key and values. Valid values are `IN`, `NOT_IN`, `EXISTS`, and `DOES_NOT_EXIST`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Label values to compare against, up to 20. Required with `IN` and `NOT_IN`, and must be omitted with `EXISTS` and `DOES_NOT_EXIST`.
+    """
+
+@pulumi.input_type
+class V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[_builtins.str],
+                 operator: pulumi.Input[_builtins.str],
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] key: Label key that the requirement applies to.
+        :param pulumi.Input[_builtins.str] operator: Relationship between the label key and values. Valid values are `IN`, `NOT_IN`, `EXISTS`, and `DOES_NOT_EXIST`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Label values to compare against, up to 20. Required with `IN` and `NOT_IN`, and must be omitted with `EXISTS` and `DOES_NOT_EXIST`.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "operator", operator)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        """
+        Label key that the requirement applies to.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[_builtins.str]:
+        """
+        Relationship between the label key and values. Valid values are `IN`, `NOT_IN`, `EXISTS`, and `DOES_NOT_EXIST`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operator", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Label values to compare against, up to 20. Required with `IN` and `NOT_IN`, and must be omitted with `EXISTS` and `DOES_NOT_EXIST`.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
 
 
 class V2InputSourceResourceConfigurationResourceTagArgsDict(TypedDict):

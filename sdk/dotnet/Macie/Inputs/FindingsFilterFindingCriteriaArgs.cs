@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Macie.Inputs
         private InputList<Inputs.FindingsFilterFindingCriteriaCriterionArgs>? _criterions;
 
         /// <summary>
-        /// A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
+        /// Condition that specifies the property, operator, and one or more values to use to filter the results. See `Criterion` Block for details.
         /// </summary>
         public InputList<Inputs.FindingsFilterFindingCriteriaCriterionArgs> Criterions
         {

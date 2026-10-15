@@ -21,7 +21,7 @@ public final class GetCoipPoolsResult {
      */
     private String id;
     /**
-     * @return Set of COIP Pool Identifiers
+     * @return Set of CoIP Pool Identifiers
      * 
      */
     private List<String> poolIds;
@@ -40,7 +40,7 @@ public final class GetCoipPoolsResult {
         return this.id;
     }
     /**
-     * @return Set of COIP Pool Identifiers
+     * @return Set of CoIP Pool Identifiers
      * 
      */
     public List<String> poolIds() {

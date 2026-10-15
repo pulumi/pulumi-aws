@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Manages Bedrock model invocation logging configuration.
  *
- * > Model invocation logging is configured per AWS region. To avoid overwriting settings, this resource should not be defined in multiple configurations.
+ * > **Note:** Model invocation logging is configured per AWS region. To avoid overwriting settings, this resource should not be defined in multiple configurations.
  *
  * ## Example Usage
  *
@@ -82,10 +82,10 @@ import * as utilities from "../utilities";
  * * `accountId` (String) AWS Account where this resource is managed.
  * * `region` (String) Region where this resource is managed.
  *
- * Using `pulumi import`, import Bedrock custom model using the `id` set to the AWS Region. For example:
+ * Using `pulumi import`, import Bedrock Model Invocation Logging Configuration using the `id` set to the AWS Region. For example:
  *
  * ```sh
- * $ pulumi import aws:bedrockmodel/invocationLoggingConfiguration:InvocationLoggingConfiguration my_config us-east-1
+ * $ pulumi import aws:bedrockmodel/invocationLoggingConfiguration:InvocationLoggingConfiguration example us-east-1
  * ```
  */
 export class InvocationLoggingConfiguration extends pulumi.CustomResource {

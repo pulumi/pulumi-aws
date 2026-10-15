@@ -13,13 +13,13 @@ namespace Pulumi.Aws.MemoryDb.Inputs
     public sealed class ClusterShardNodeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Availability Zone in which the node resides.
+        /// Availability Zone in which the node resides.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
+        /// Date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
         /// </summary>
         [Input("createTime")]
         public Input<string>? CreateTime { get; set; }

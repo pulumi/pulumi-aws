@@ -17,6 +17,10 @@ public final class PartitionIndexPartitionIndex {
      * 
      */
     private @Nullable String indexName;
+    /**
+     * @return Status of the partition index.
+     * 
+     */
     private @Nullable String indexStatus;
     /**
      * @return Keys for the partition index.
@@ -32,6 +36,10 @@ public final class PartitionIndexPartitionIndex {
     public Optional<String> indexName() {
         return Optional.ofNullable(this.indexName);
     }
+    /**
+     * @return Status of the partition index.
+     * 
+     */
     public Optional<String> indexStatus() {
         return Optional.ofNullable(this.indexStatus);
     }

@@ -64,14 +64,14 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the fleet and/or routing type to use for the alias.
+     * Fleet and/or routing type to use for the alias.
      * 
      */
     @Import(name="routingStrategy", required=true)
     private Output<AliasRoutingStrategyArgs> routingStrategy;
 
     /**
-     * @return Specifies the fleet and/or routing type to use for the alias.
+     * @return Fleet and/or routing type to use for the alias.
      * 
      */
     public Output<AliasRoutingStrategyArgs> routingStrategy() {
@@ -185,7 +185,7 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param routingStrategy Specifies the fleet and/or routing type to use for the alias.
+         * @param routingStrategy Fleet and/or routing type to use for the alias.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param routingStrategy Specifies the fleet and/or routing type to use for the alias.
+         * @param routingStrategy Fleet and/or routing type to use for the alias.
          * 
          * @return builder
          * 

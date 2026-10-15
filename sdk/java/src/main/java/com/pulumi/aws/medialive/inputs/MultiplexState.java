@@ -35,14 +35,14 @@ public final class MultiplexState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of availability zones. You must specify exactly two.
+     * List of availability zones. You must specify exactly two.
      * 
      */
     @Import(name="availabilityZones")
     private @Nullable Output<List<String>> availabilityZones;
 
     /**
-     * @return A list of availability zones. You must specify exactly two.
+     * @return List of availability zones. You must specify exactly two.
      * 
      */
     public Optional<Output<List<String>>> availabilityZones() {
@@ -50,14 +50,14 @@ public final class MultiplexState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Multiplex settings. See Multiplex Settings for more details.
+     * Multiplex settings. See `multiplexSettings` Block for more details.
      * 
      */
     @Import(name="multiplexSettings")
     private @Nullable Output<MultiplexMultiplexSettingsArgs> multiplexSettings;
 
     /**
-     * @return Multiplex settings. See Multiplex Settings for more details.
+     * @return Multiplex settings. See `multiplexSettings` Block for more details.
      * 
      */
     public Optional<Output<MultiplexMultiplexSettingsArgs>> multiplexSettings() {
@@ -114,14 +114,14 @@ public final class MultiplexState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -188,7 +188,7 @@ public final class MultiplexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZones A list of availability zones. You must specify exactly two.
+         * @param availabilityZones List of availability zones. You must specify exactly two.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class MultiplexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZones A list of availability zones. You must specify exactly two.
+         * @param availabilityZones List of availability zones. You must specify exactly two.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class MultiplexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZones A list of availability zones. You must specify exactly two.
+         * @param availabilityZones List of availability zones. You must specify exactly two.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class MultiplexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param multiplexSettings Multiplex settings. See Multiplex Settings for more details.
+         * @param multiplexSettings Multiplex settings. See `multiplexSettings` Block for more details.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class MultiplexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param multiplexSettings Multiplex settings. See Multiplex Settings for more details.
+         * @param multiplexSettings Multiplex settings. See `multiplexSettings` Block for more details.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class MultiplexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class MultiplexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

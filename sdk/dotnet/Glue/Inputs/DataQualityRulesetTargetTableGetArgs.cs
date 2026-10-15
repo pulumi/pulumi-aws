@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Glue.Inputs
     public sealed class DataQualityRulesetTargetTableGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The catalog id where the AWS Glue table exists.
+        /// Catalog ID where the AWS Glue table exists.
         /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }

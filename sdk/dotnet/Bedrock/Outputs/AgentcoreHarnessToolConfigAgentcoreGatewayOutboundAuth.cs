@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuth
     {
         /// <summary>
-        /// Set to `True` to use AWS IAM authentication.
+        /// Whether to use AWS IAM authentication. Must be `True` if set.
         /// </summary>
         public readonly bool? AwsIam;
         /// <summary>
-        /// Set to `True` to disable authentication.
+        /// Whether to disable authentication. Must be `True` if set.
         /// </summary>
         public readonly bool? None;
         /// <summary>

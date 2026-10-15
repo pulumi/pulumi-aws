@@ -13,7 +13,7 @@ namespace Pulumi.Aws.CostExplorer.Inputs
     public sealed class AnomalySubscriptionSubscriberArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The address of the subscriber. If type is `SNS`, this will be the arn of the sns topic. If type is `EMAIL`, this will be the destination email address.
+        /// The address of the subscriber. If type is `SNS`, this will be the ARN of the SNS topic. If type is `EMAIL`, this will be the destination email address.
         /// </summary>
         [Input("address", required: true)]
         public Input<string> Address { get; set; } = null!;

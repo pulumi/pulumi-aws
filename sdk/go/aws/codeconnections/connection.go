@@ -60,9 +60,9 @@ import (
 type Connection struct {
 	pulumi.CustomResourceState
 
-	// The codeconnections connection ARN.
+	// The CodeConnections connection ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The codeconnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
+	// The CodeConnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
 	ConnectionStatus pulumi.StringOutput `pulumi:"connectionStatus"`
 	// ARN of the host associated with the connection. Conflicts with `providerType`
 	HostArn pulumi.StringPtrOutput `pulumi:"hostArn"`
@@ -110,9 +110,9 @@ func GetConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Connection resources.
 type connectionState struct {
-	// The codeconnections connection ARN.
+	// The CodeConnections connection ARN.
 	Arn *string `pulumi:"arn"`
-	// The codeconnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
+	// The CodeConnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
 	ConnectionStatus *string `pulumi:"connectionStatus"`
 	// ARN of the host associated with the connection. Conflicts with `providerType`
 	HostArn *string `pulumi:"hostArn"`
@@ -131,9 +131,9 @@ type connectionState struct {
 }
 
 type ConnectionState struct {
-	// The codeconnections connection ARN.
+	// The CodeConnections connection ARN.
 	Arn pulumi.StringPtrInput
-	// The codeconnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
+	// The CodeConnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
 	ConnectionStatus pulumi.StringPtrInput
 	// ARN of the host associated with the connection. Conflicts with `providerType`
 	HostArn pulumi.StringPtrInput
@@ -271,12 +271,12 @@ func (o ConnectionOutput) ToConnectionOutputWithContext(ctx context.Context) Con
 	return o
 }
 
-// The codeconnections connection ARN.
+// The CodeConnections connection ARN.
 func (o ConnectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The codeconnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
+// The CodeConnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
 func (o ConnectionOutput) ConnectionStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.ConnectionStatus }).(pulumi.StringOutput)
 }

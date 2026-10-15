@@ -46,14 +46,14 @@ public final class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLoc
     }
 
     /**
-     * KMS key arn for the customer s3 location when encrypting with a KMS managed key.
+     * KMS key ARN for the customer s3 location when encrypting with a KMS managed key.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return KMS key arn for the customer s3 location when encrypting with a KMS managed key.
+     * @return KMS key ARN for the customer s3 location when encrypting with a KMS managed key.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -145,7 +145,7 @@ public final class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLoc
         }
 
         /**
-         * @param kmsKeyId KMS key arn for the customer s3 location when encrypting with a KMS managed key.
+         * @param kmsKeyId KMS key ARN for the customer s3 location when encrypting with a KMS managed key.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLoc
         }
 
         /**
-         * @param kmsKeyId KMS key arn for the customer s3 location when encrypting with a KMS managed key.
+         * @param kmsKeyId KMS key ARN for the customer s3 location when encrypting with a KMS managed key.
          * 
          * @return builder
          * 

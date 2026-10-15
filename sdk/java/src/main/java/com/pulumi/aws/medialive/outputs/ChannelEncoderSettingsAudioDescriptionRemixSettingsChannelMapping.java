@@ -12,13 +12,29 @@ import java.util.Objects;
 
 @CustomType
 public final class ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping {
+    /**
+     * @return Levels for each of the input channels. See `inputChannelLevels` Block for details.
+     * 
+     */
     private List<ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevel> inputChannelLevels;
+    /**
+     * @return Index of the output channel being produced.
+     * 
+     */
     private Integer outputChannel;
 
     private ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping() {}
+    /**
+     * @return Levels for each of the input channels. See `inputChannelLevels` Block for details.
+     * 
+     */
     public List<ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevel> inputChannelLevels() {
         return this.inputChannelLevels;
     }
+    /**
+     * @return Index of the output channel being produced.
+     * 
+     */
     public Integer outputChannel() {
         return this.outputChannel;
     }

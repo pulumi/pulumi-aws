@@ -14,23 +14,23 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class CatalogTableOptimizerConfiguration
     {
         /// <summary>
-        /// The configuration block for a compaction optimizer. See Compaction Configuration for additional details.
+        /// Configuration block for a compaction optimizer. See `CompactionConfiguration` Block for additional details.
         /// </summary>
         public readonly Outputs.CatalogTableOptimizerConfigurationCompactionConfiguration? CompactionConfiguration;
         /// <summary>
-        /// Indicates whether the table optimizer is enabled.
+        /// Whether the table optimizer is enabled.
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
+        /// Configuration block for an orphan file deletion optimizer. See `OrphanFileDeletionConfiguration` Block for additional details.
         /// </summary>
         public readonly Outputs.CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration? OrphanFileDeletionConfiguration;
         /// <summary>
-        /// The configuration block for a snapshot retention optimizer. See Retention Configuration for additional details.
+        /// Configuration block for a snapshot retention optimizer. See `RetentionConfiguration` Block for additional details.
         /// </summary>
         public readonly Outputs.CatalogTableOptimizerConfigurationRetentionConfiguration? RetentionConfiguration;
         /// <summary>
-        /// The ARN of the IAM role to use for the table optimizer.
+        /// ARN of the IAM role to use for the table optimizer.
         /// </summary>
         public readonly string RoleArn;
 

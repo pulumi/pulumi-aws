@@ -19,14 +19,14 @@ public final class AgentcoreApiKeyCredentialProviderArgs extends com.pulumi.reso
     public static final AgentcoreApiKeyCredentialProviderArgs Empty = new AgentcoreApiKeyCredentialProviderArgs();
 
     /**
-     * API key value. Conflicts with `apiKeyWo` and `apiKeySecretConfig`. This value will be visible in pulumi preview outputs and logs.
+     * API key value. Exactly one of `apiKey`, `apiKeySecretConfig`, or `apiKeyWo` must be set. This value is stored in plain text in the Terraform state; use `apiKeyWo` to avoid this.
      * 
      */
     @Import(name="apiKey")
     private @Nullable Output<String> apiKey;
 
     /**
-     * @return API key value. Conflicts with `apiKeyWo` and `apiKeySecretConfig`. This value will be visible in pulumi preview outputs and logs.
+     * @return API key value. Exactly one of `apiKey`, `apiKeySecretConfig`, or `apiKeyWo` must be set. This value is stored in plain text in the Terraform state; use `apiKeyWo` to avoid this.
      * 
      */
     public Optional<Output<String>> apiKey() {
@@ -81,14 +81,14 @@ public final class AgentcoreApiKeyCredentialProviderArgs extends com.pulumi.reso
     }
 
     /**
-     * Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
+     * Version used together with the write-only API key. Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
      * 
      */
     @Import(name="apiKeyWoVersion")
     private @Nullable Output<Integer> apiKeyWoVersion;
 
     /**
-     * @return Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
+     * @return Version used together with the write-only API key. Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
      * 
      */
     public Optional<Output<Integer>> apiKeyWoVersion() {
@@ -176,7 +176,7 @@ public final class AgentcoreApiKeyCredentialProviderArgs extends com.pulumi.reso
         }
 
         /**
-         * @param apiKey API key value. Conflicts with `apiKeyWo` and `apiKeySecretConfig`. This value will be visible in pulumi preview outputs and logs.
+         * @param apiKey API key value. Exactly one of `apiKey`, `apiKeySecretConfig`, or `apiKeyWo` must be set. This value is stored in plain text in the Terraform state; use `apiKeyWo` to avoid this.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class AgentcoreApiKeyCredentialProviderArgs extends com.pulumi.reso
         }
 
         /**
-         * @param apiKey API key value. Conflicts with `apiKeyWo` and `apiKeySecretConfig`. This value will be visible in pulumi preview outputs and logs.
+         * @param apiKey API key value. Exactly one of `apiKey`, `apiKeySecretConfig`, or `apiKeyWo` must be set. This value is stored in plain text in the Terraform state; use `apiKeyWo` to avoid this.
          * 
          * @return builder
          * 
@@ -262,7 +262,7 @@ public final class AgentcoreApiKeyCredentialProviderArgs extends com.pulumi.reso
         }
 
         /**
-         * @param apiKeyWoVersion Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
+         * @param apiKeyWoVersion Version used together with the write-only API key. Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
          * 
          * @return builder
          * 
@@ -273,7 +273,7 @@ public final class AgentcoreApiKeyCredentialProviderArgs extends com.pulumi.reso
         }
 
         /**
-         * @param apiKeyWoVersion Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
+         * @param apiKeyWoVersion Version used together with the write-only API key. Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
          * 
          * @return builder
          * 

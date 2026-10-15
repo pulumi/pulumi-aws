@@ -85,8 +85,8 @@ class ObjectCopyArgs:
         :param pulumi.Input[_builtins.str] customer_algorithm: Algorithm to use when encrypting the object (for example, AES256).
         :param pulumi.Input[_builtins.str] customer_key: Customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
         :param pulumi.Input[_builtins.str] customer_key_md5: 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
-        :param pulumi.Input[_builtins.str] expected_bucket_owner: Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
-        :param pulumi.Input[_builtins.str] expected_source_bucket_owner: Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        :param pulumi.Input[_builtins.str] expected_source_bucket_owner: Account ID of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         :param pulumi.Input[_builtins.str] expires: Date and time at which the object is no longer cacheable, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[_builtins.bool] force_destroy: Allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
         :param pulumi.Input[Sequence[pulumi.Input['ObjectCopyGrantArgs']]] grants: Configuration block for header grants. Documented below. Conflicts with `acl`.
@@ -410,7 +410,7 @@ class ObjectCopyArgs:
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        Account ID of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         """
         return pulumi.get(self, "expected_bucket_owner")
 
@@ -422,7 +422,7 @@ class ObjectCopyArgs:
     @pulumi.getter(name="expectedSourceBucketOwner")
     def expected_source_bucket_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        Account ID of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         """
         return pulumi.get(self, "expected_source_bucket_owner")
 
@@ -763,8 +763,8 @@ class _ObjectCopyState:
         :param pulumi.Input[_builtins.str] customer_key: Customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
         :param pulumi.Input[_builtins.str] customer_key_md5: 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
         :param pulumi.Input[_builtins.str] etag: ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
-        :param pulumi.Input[_builtins.str] expected_bucket_owner: Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
-        :param pulumi.Input[_builtins.str] expected_source_bucket_owner: Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        :param pulumi.Input[_builtins.str] expected_source_bucket_owner: Account ID of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         :param pulumi.Input[_builtins.str] expiration: If the object expiration is configured, this attribute will be set.
         :param pulumi.Input[_builtins.str] expires: Date and time at which the object is no longer cacheable, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[_builtins.bool] force_destroy: Allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
@@ -1185,7 +1185,7 @@ class _ObjectCopyState:
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        Account ID of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         """
         return pulumi.get(self, "expected_bucket_owner")
 
@@ -1197,7 +1197,7 @@ class _ObjectCopyState:
     @pulumi.getter(name="expectedSourceBucketOwner")
     def expected_source_bucket_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        Account ID of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         """
         return pulumi.get(self, "expected_source_bucket_owner")
 
@@ -1660,8 +1660,8 @@ class ObjectCopy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] customer_algorithm: Algorithm to use when encrypting the object (for example, AES256).
         :param pulumi.Input[_builtins.str] customer_key: Customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
         :param pulumi.Input[_builtins.str] customer_key_md5: 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
-        :param pulumi.Input[_builtins.str] expected_bucket_owner: Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
-        :param pulumi.Input[_builtins.str] expected_source_bucket_owner: Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        :param pulumi.Input[_builtins.str] expected_source_bucket_owner: Account ID of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         :param pulumi.Input[_builtins.str] expires: Date and time at which the object is no longer cacheable, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[_builtins.bool] force_destroy: Allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ObjectCopyGrantArgs', 'ObjectCopyGrantArgsDict', 'outputs.ObjectCopyGrant']]]] grants: Configuration block for header grants. Documented below. Conflicts with `acl`.
@@ -1955,8 +1955,8 @@ class ObjectCopy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] customer_key: Customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
         :param pulumi.Input[_builtins.str] customer_key_md5: 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
         :param pulumi.Input[_builtins.str] etag: ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
-        :param pulumi.Input[_builtins.str] expected_bucket_owner: Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
-        :param pulumi.Input[_builtins.str] expected_source_bucket_owner: Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        :param pulumi.Input[_builtins.str] expected_source_bucket_owner: Account ID of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         :param pulumi.Input[_builtins.str] expiration: If the object expiration is configured, this attribute will be set.
         :param pulumi.Input[_builtins.str] expires: Date and time at which the object is no longer cacheable, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[_builtins.bool] force_destroy: Allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
@@ -2236,7 +2236,7 @@ class ObjectCopy(pulumi.CustomResource):
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        Account ID of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         """
         return pulumi.get(self, "expected_bucket_owner")
 
@@ -2244,7 +2244,7 @@ class ObjectCopy(pulumi.CustomResource):
     @pulumi.getter(name="expectedSourceBucketOwner")
     def expected_source_bucket_owner(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        Account ID of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         """
         return pulumi.get(self, "expected_source_bucket_owner")
 

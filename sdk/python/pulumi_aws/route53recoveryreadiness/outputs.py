@@ -133,7 +133,7 @@ class ResourceSetResourceDnsTargetResource(dict):
         """
         :param _builtins.str domain_name: DNS Name that acts as the ingress point to a portion of application.
         :param _builtins.str hosted_zone_arn: Hosted Zone ARN that contains the DNS record with the provided name of target resource.
-        :param _builtins.str record_set_id: Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
+        :param _builtins.str record_set_id: Route53 record set ID to uniquely identify a record given a `domain_name` and a `record_type`.
         :param _builtins.str record_type: Type of DNS Record of target resource.
         :param 'ResourceSetResourceDnsTargetResourceTargetResourceArgs' target_resource: Target resource the R53 record specified with the above params points to.
         """
@@ -167,7 +167,7 @@ class ResourceSetResourceDnsTargetResource(dict):
     @pulumi.getter(name="recordSetId")
     def record_set_id(self) -> Optional[_builtins.str]:
         """
-        Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
+        Route53 record set ID to uniquely identify a record given a `domain_name` and a `record_type`.
         """
         return pulumi.get(self, "record_set_id")
 

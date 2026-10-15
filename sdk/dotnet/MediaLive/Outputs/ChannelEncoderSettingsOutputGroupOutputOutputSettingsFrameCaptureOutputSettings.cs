@@ -14,7 +14,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettings
     {
         /// <summary>
-        /// String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+        /// String concatenated to the end of the destination filename.
         /// </summary>
         public readonly string? NameModifier;
 

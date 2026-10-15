@@ -13,19 +13,25 @@ namespace Pulumi.Aws.MediaLive.Inputs
     public sealed class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+        /// Number of seconds to wait before retrying a connection to the CDN if the connection is lost.
         /// </summary>
         [Input("connectionRetryInterval")]
         public Input<int>? ConnectionRetryInterval { get; set; }
 
+        /// <summary>
+        /// Size, in seconds, of the file cache for streaming outputs.
+        /// </summary>
         [Input("filecacheDuration")]
         public Input<int>? FilecacheDuration { get; set; }
 
+        /// <summary>
+        /// HTTP transfer mode.
+        /// </summary>
         [Input("httpTransferMode")]
         public Input<string>? HttpTransferMode { get; set; }
 
         /// <summary>
-        /// Number of retry attempts.
+        /// Number of retry attempts that are made before the channel is put into an error state.
         /// </summary>
         [Input("numRetries")]
         public Input<int>? NumRetries { get; set; }

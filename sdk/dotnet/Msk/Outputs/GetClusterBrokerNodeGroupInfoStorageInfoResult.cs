@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Msk.Outputs
     [OutputType]
     public sealed class GetClusterBrokerNodeGroupInfoStorageInfoResult
     {
+        /// <summary>
+        /// EBS storage information. See `EbsStorageInfo` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoResult> EbsStorageInfos;
 
         [OutputConstructor]

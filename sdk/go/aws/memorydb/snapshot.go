@@ -53,9 +53,9 @@ import (
 type Snapshot struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the snapshot.
+	// ARN of the snapshot.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The configuration of the cluster from which the snapshot was taken.
+	// Configuration of the cluster from which the snapshot was taken.
 	ClusterConfigurations SnapshotClusterConfigurationArrayOutput `pulumi:"clusterConfigurations"`
 	// Name of the MemoryDB cluster to take a snapshot of.
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
@@ -67,11 +67,11 @@ type Snapshot struct {
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
+	// Whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
 	Source pulumi.StringOutput `pulumi:"source"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -108,9 +108,9 @@ func GetSnapshot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Snapshot resources.
 type snapshotState struct {
-	// The ARN of the snapshot.
+	// ARN of the snapshot.
 	Arn *string `pulumi:"arn"`
-	// The configuration of the cluster from which the snapshot was taken.
+	// Configuration of the cluster from which the snapshot was taken.
 	ClusterConfigurations []SnapshotClusterConfiguration `pulumi:"clusterConfigurations"`
 	// Name of the MemoryDB cluster to take a snapshot of.
 	ClusterName *string `pulumi:"clusterName"`
@@ -122,18 +122,18 @@ type snapshotState struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
+	// Whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
 	Source *string `pulumi:"source"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type SnapshotState struct {
-	// The ARN of the snapshot.
+	// ARN of the snapshot.
 	Arn pulumi.StringPtrInput
-	// The configuration of the cluster from which the snapshot was taken.
+	// Configuration of the cluster from which the snapshot was taken.
 	ClusterConfigurations SnapshotClusterConfigurationArrayInput
 	// Name of the MemoryDB cluster to take a snapshot of.
 	ClusterName pulumi.StringPtrInput
@@ -145,11 +145,11 @@ type SnapshotState struct {
 	NamePrefix pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
+	// Whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
 	Source pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -168,7 +168,7 @@ type snapshotArgs struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -184,7 +184,7 @@ type SnapshotArgs struct {
 	NamePrefix pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -275,12 +275,12 @@ func (o SnapshotOutput) ToSnapshotOutputWithContext(ctx context.Context) Snapsho
 	return o
 }
 
-// The ARN of the snapshot.
+// ARN of the snapshot.
 func (o SnapshotOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The configuration of the cluster from which the snapshot was taken.
+// Configuration of the cluster from which the snapshot was taken.
 func (o SnapshotOutput) ClusterConfigurations() SnapshotClusterConfigurationArrayOutput {
 	return o.ApplyT(func(v *Snapshot) SnapshotClusterConfigurationArrayOutput { return v.ClusterConfigurations }).(SnapshotClusterConfigurationArrayOutput)
 }
@@ -310,17 +310,17 @@ func (o SnapshotOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
+// Whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
 func (o SnapshotOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Source }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o SnapshotOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o SnapshotOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

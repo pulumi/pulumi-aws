@@ -105,7 +105,7 @@ export class AgentcoreApiKeyCredentialProvider extends pulumi.CustomResource {
     }
 
     /**
-     * API key value. Conflicts with `apiKeyWo` and `apiKeySecretConfig`. This value will be visible in pulumi preview outputs and logs.
+     * API key value. Exactly one of `apiKey`, `apiKeySecretConfig`, or `apiKeyWo` must be set. This value is stored in plain text in the Terraform state; use `apiKeyWo` to avoid this.
      */
     declare public readonly apiKey: pulumi.Output<string | undefined>;
     /**
@@ -126,7 +126,7 @@ export class AgentcoreApiKeyCredentialProvider extends pulumi.CustomResource {
      */
     declare public readonly apiKeyWo: pulumi.Output<string | undefined>;
     /**
-     * Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
+     * Version used together with the write-only API key. Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
      */
     declare public readonly apiKeyWoVersion: pulumi.Output<number | undefined>;
     /**
@@ -202,7 +202,7 @@ export class AgentcoreApiKeyCredentialProvider extends pulumi.CustomResource {
  */
 export interface AgentcoreApiKeyCredentialProviderState {
     /**
-     * API key value. Conflicts with `apiKeyWo` and `apiKeySecretConfig`. This value will be visible in pulumi preview outputs and logs.
+     * API key value. Exactly one of `apiKey`, `apiKeySecretConfig`, or `apiKeyWo` must be set. This value is stored in plain text in the Terraform state; use `apiKeyWo` to avoid this.
      */
     apiKey?: pulumi.Input<string | undefined>;
     /**
@@ -223,7 +223,7 @@ export interface AgentcoreApiKeyCredentialProviderState {
      */
     apiKeyWo?: pulumi.Input<string | undefined>;
     /**
-     * Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
+     * Version used together with the write-only API key. Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
      */
     apiKeyWoVersion?: pulumi.Input<number | undefined>;
     /**
@@ -255,7 +255,7 @@ export interface AgentcoreApiKeyCredentialProviderState {
  */
 export interface AgentcoreApiKeyCredentialProviderArgs {
     /**
-     * API key value. Conflicts with `apiKeyWo` and `apiKeySecretConfig`. This value will be visible in pulumi preview outputs and logs.
+     * API key value. Exactly one of `apiKey`, `apiKeySecretConfig`, or `apiKeyWo` must be set. This value is stored in plain text in the Terraform state; use `apiKeyWo` to avoid this.
      */
     apiKey?: pulumi.Input<string | undefined>;
     /**
@@ -272,7 +272,7 @@ export interface AgentcoreApiKeyCredentialProviderArgs {
      */
     apiKeyWo?: pulumi.Input<string | undefined>;
     /**
-     * Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
+     * Version used together with the write-only API key. Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
      */
     apiKeyWoVersion?: pulumi.Input<number | undefined>;
     /**

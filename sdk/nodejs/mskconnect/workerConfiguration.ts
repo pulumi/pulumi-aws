@@ -64,7 +64,7 @@ export class WorkerConfiguration extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * A summary description of the worker configuration.
+     * Summary description of the worker configuration.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
@@ -72,7 +72,7 @@ export class WorkerConfiguration extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly latestRevision: pulumi.Output<number>;
     /**
-     * The name of the worker configuration.
+     * Name of the worker configuration.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -86,11 +86,11 @@ export class WorkerConfiguration extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -143,7 +143,7 @@ export interface WorkerConfigurationState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * A summary description of the worker configuration.
+     * Summary description of the worker configuration.
      */
     description?: pulumi.Input<string | undefined>;
     /**
@@ -151,7 +151,7 @@ export interface WorkerConfigurationState {
      */
     latestRevision?: pulumi.Input<number | undefined>;
     /**
-     * The name of the worker configuration.
+     * Name of the worker configuration.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -165,11 +165,11 @@ export interface WorkerConfigurationState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -179,11 +179,11 @@ export interface WorkerConfigurationState {
  */
 export interface WorkerConfigurationArgs {
     /**
-     * A summary description of the worker configuration.
+     * Summary description of the worker configuration.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The name of the worker configuration.
+     * Name of the worker configuration.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -197,7 +197,7 @@ export interface WorkerConfigurationArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

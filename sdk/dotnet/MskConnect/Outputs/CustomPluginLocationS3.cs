@@ -18,11 +18,11 @@ namespace Pulumi.Aws.MskConnect.Outputs
         /// </summary>
         public readonly string BucketArn;
         /// <summary>
-        /// The file key for an object in an S3 bucket.
+        /// File key for an object in an S3 bucket.
         /// </summary>
         public readonly string FileKey;
         /// <summary>
-        /// The version of an object in an S3 bucket.
+        /// Version of an object in an S3 bucket.
         /// </summary>
         public readonly string? ObjectVersion;
 

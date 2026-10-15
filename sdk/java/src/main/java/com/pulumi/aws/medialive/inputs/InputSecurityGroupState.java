@@ -34,14 +34,14 @@ public final class InputSecurityGroupState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The list of inputs currently using this InputSecurityGroup.
+     * List of inputs currently using this InputSecurityGroup.
      * 
      */
     @Import(name="inputs")
     private @Nullable Output<List<String>> inputs;
 
     /**
-     * @return The list of inputs currently using this InputSecurityGroup.
+     * @return List of inputs currently using this InputSecurityGroup.
      * 
      */
     public Optional<Output<List<String>>> inputs() {
@@ -86,7 +86,7 @@ public final class InputSecurityGroupState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Whitelist rules. See Whitelist Rules for more details.
+     * Whitelist rules. See `whitelistRules` Block for more details.
      * 
      * The following arguments are optional:
      * 
@@ -95,7 +95,7 @@ public final class InputSecurityGroupState extends com.pulumi.resources.Resource
     private @Nullable Output<List<InputSecurityGroupWhitelistRuleArgs>> whitelistRules;
 
     /**
-     * @return Whitelist rules. See Whitelist Rules for more details.
+     * @return Whitelist rules. See `whitelistRules` Block for more details.
      * 
      * The following arguments are optional:
      * 
@@ -155,7 +155,7 @@ public final class InputSecurityGroupState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param inputs The list of inputs currently using this InputSecurityGroup.
+         * @param inputs List of inputs currently using this InputSecurityGroup.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class InputSecurityGroupState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param inputs The list of inputs currently using this InputSecurityGroup.
+         * @param inputs List of inputs currently using this InputSecurityGroup.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class InputSecurityGroupState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param inputs The list of inputs currently using this InputSecurityGroup.
+         * @param inputs List of inputs currently using this InputSecurityGroup.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class InputSecurityGroupState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param whitelistRules Whitelist rules. See Whitelist Rules for more details.
+         * @param whitelistRules Whitelist rules. See `whitelistRules` Block for more details.
          * 
          * The following arguments are optional:
          * 
@@ -250,7 +250,7 @@ public final class InputSecurityGroupState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param whitelistRules Whitelist rules. See Whitelist Rules for more details.
+         * @param whitelistRules Whitelist rules. See `whitelistRules` Block for more details.
          * 
          * The following arguments are optional:
          * 
@@ -262,7 +262,7 @@ public final class InputSecurityGroupState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param whitelistRules Whitelist rules. See Whitelist Rules for more details.
+         * @param whitelistRules Whitelist rules. See `whitelistRules` Block for more details.
          * 
          * The following arguments are optional:
          * 

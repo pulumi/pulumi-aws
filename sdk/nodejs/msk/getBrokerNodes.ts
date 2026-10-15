@@ -52,6 +52,9 @@ export interface GetBrokerNodesResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * List of MSK Broker Nodes, sorted by broker ID in ascending order. See `nodeInfoList` Block for details.
+     */
     readonly nodeInfoLists: outputs.msk.GetBrokerNodesNodeInfoList[];
     readonly region: string;
 }

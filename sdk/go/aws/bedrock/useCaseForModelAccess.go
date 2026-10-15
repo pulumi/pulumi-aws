@@ -16,9 +16,9 @@ import (
 //
 // **This is an advanced resource** and has special caveats to be aware of when using it. Please read this document in its entirety before using this resource.
 //
-// The `bedrock.UseCaseForModelAccess` resource behaves differently from normal resources in that if an Use Case For Model Access already exists, Terraform does not _create_ this resource, but instead "adopts" it into management if it is the same. As the ability to update doesn't exist, changes compared to the existing resource generate an error.
+// The `bedrock.UseCaseForModelAccess` resource behaves differently from normal resources in that if a Use Case For Model Access already exists, Terraform does not _create_ this resource, but instead "adopts" it into management if it is the same. As the ability to update doesn't exist, changes compared to the existing resource generate an error.
 // If no Use Case For Model Access exists, Terraform creates a new Use Case For Model Access.
-// By default, `terraform destroy` does not delete the Use Case For Model Access but does remove the resource from Terraform state. Real deletion does not exist for this resource.
+// `terraform destroy` does not delete the Use Case For Model Access but does remove the resource from Terraform state. Real deletion does not exist for this resource.
 //
 // ## Example Usage
 //
@@ -79,8 +79,6 @@ type UseCaseForModelAccess struct {
 	pulumi.CustomResourceState
 
 	// Form data from the Anthropic first time user request. See also the example [payload](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_PutUseCaseForModelAccess.html#API_PutUseCaseForModelAccess_Examples).
-	//
-	// The following arguments are optional:
 	FormData pulumi.StringOutput `pulumi:"formData"`
 }
 
@@ -118,15 +116,11 @@ func GetUseCaseForModelAccess(ctx *pulumi.Context,
 // Input properties used for looking up and filtering UseCaseForModelAccess resources.
 type useCaseForModelAccessState struct {
 	// Form data from the Anthropic first time user request. See also the example [payload](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_PutUseCaseForModelAccess.html#API_PutUseCaseForModelAccess_Examples).
-	//
-	// The following arguments are optional:
 	FormData *string `pulumi:"formData"`
 }
 
 type UseCaseForModelAccessState struct {
 	// Form data from the Anthropic first time user request. See also the example [payload](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_PutUseCaseForModelAccess.html#API_PutUseCaseForModelAccess_Examples).
-	//
-	// The following arguments are optional:
 	FormData pulumi.StringPtrInput
 }
 
@@ -136,16 +130,12 @@ func (UseCaseForModelAccessState) ElementType() reflect.Type {
 
 type useCaseForModelAccessArgs struct {
 	// Form data from the Anthropic first time user request. See also the example [payload](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_PutUseCaseForModelAccess.html#API_PutUseCaseForModelAccess_Examples).
-	//
-	// The following arguments are optional:
 	FormData string `pulumi:"formData"`
 }
 
 // The set of arguments for constructing a UseCaseForModelAccess resource.
 type UseCaseForModelAccessArgs struct {
 	// Form data from the Anthropic first time user request. See also the example [payload](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_PutUseCaseForModelAccess.html#API_PutUseCaseForModelAccess_Examples).
-	//
-	// The following arguments are optional:
 	FormData pulumi.StringInput
 }
 
@@ -237,8 +227,6 @@ func (o UseCaseForModelAccessOutput) ToUseCaseForModelAccessOutputWithContext(ct
 }
 
 // Form data from the Anthropic first time user request. See also the example [payload](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_PutUseCaseForModelAccess.html#API_PutUseCaseForModelAccess_Examples).
-//
-// The following arguments are optional:
 func (o UseCaseForModelAccessOutput) FormData() pulumi.StringOutput {
 	return o.ApplyT(func(v *UseCaseForModelAccess) pulumi.StringOutput { return v.FormData }).(pulumi.StringOutput)
 }

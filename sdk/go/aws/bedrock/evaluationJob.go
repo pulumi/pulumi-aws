@@ -14,7 +14,7 @@ import (
 
 // Manages an Amazon Bedrock evaluation job. An evaluation job assesses model or knowledge base performance using either automated metrics or human workers.
 //
-// > Amazon Bedrock does not support permanently deleting an evaluation job. Destroying this resource stops the job (if it is still running) using the [StopEvaluationJob](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_StopEvaluationJob.html) API, then removes it from Terraform state. Set `skipDestroy` to leave the job in its current state instead.
+// > **Note:** Amazon Bedrock does not support permanently deleting an evaluation job. Destroying this resource stops the job (if it is still running) using the [StopEvaluationJob](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_StopEvaluationJob.html) API, then removes it from Terraform state. Set `skipDestroy` to leave the job in its current state instead.
 //
 // ## Example Usage
 //
@@ -78,7 +78,7 @@ import (
 //
 // #### Required
 //
-// - `jobArn` (String) ARN of the evaluation job.
+// * `jobArn` (String) ARN of the evaluation job.
 //
 // Using `pulumi import`, import Bedrock Evaluation Job using the `jobArn`. For example:
 //
@@ -123,7 +123,8 @@ type EvaluationJob struct {
 	// Current status of the evaluation job.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Map of tags to assign to the evaluation job. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapOutput         `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapOutput         `pulumi:"tagsAll"`
 	Timeouts EvaluationJobTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -208,7 +209,8 @@ type evaluationJobState struct {
 	// Current status of the evaluation job.
 	Status *string `pulumi:"status"`
 	// Map of tags to assign to the evaluation job. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     map[string]string      `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  map[string]string      `pulumi:"tagsAll"`
 	Timeouts *EvaluationJobTimeouts `pulumi:"timeouts"`
 }
@@ -249,7 +251,8 @@ type EvaluationJobState struct {
 	// Current status of the evaluation job.
 	Status pulumi.StringPtrInput
 	// Map of tags to assign to the evaluation job. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags     pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapInput
 	Timeouts EvaluationJobTimeoutsPtrInput
 }
@@ -489,6 +492,7 @@ func (o EvaluationJobOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EvaluationJob) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o EvaluationJobOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EvaluationJob) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

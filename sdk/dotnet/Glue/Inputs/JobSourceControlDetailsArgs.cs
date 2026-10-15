@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Glue.Inputs
     public sealed class JobSourceControlDetailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token. Valid values are: `PERSONAL_ACCESS_TOKEN` and `AWS_SECRETS_MANAGER`.
+        /// Type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token. Valid values are: `PERSONAL_ACCESS_TOKEN` and `AWS_SECRETS_MANAGER`.
         /// </summary>
         [Input("authStrategy")]
         public Input<string>? AuthStrategy { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Glue.Inputs
         private Input<string>? _authToken;
 
         /// <summary>
-        /// The value of an authorization token.
+        /// Value of an authorization token.
         /// </summary>
         public Input<string>? AuthToken
         {
@@ -35,37 +35,37 @@ namespace Pulumi.Aws.Glue.Inputs
         }
 
         /// <summary>
-        /// A branch in the remote repository.
+        /// Branch in the remote repository.
         /// </summary>
         [Input("branch")]
         public Input<string>? Branch { get; set; }
 
         /// <summary>
-        /// A folder in the remote repository.
+        /// Folder in the remote repository.
         /// </summary>
         [Input("folder")]
         public Input<string>? Folder { get; set; }
 
         /// <summary>
-        /// The last commit ID for a commit in the remote repository.
+        /// Last commit ID for a commit in the remote repository.
         /// </summary>
         [Input("lastCommitId")]
         public Input<string>? LastCommitId { get; set; }
 
         /// <summary>
-        /// The owner of the remote repository that contains the job artifacts.
+        /// Owner of the remote repository that contains the job artifacts.
         /// </summary>
         [Input("owner")]
         public Input<string>? Owner { get; set; }
 
         /// <summary>
-        /// The provider for the remote repository. Valid values are: `GITHUB`, `GITLAB`, `BITBUCKET`, and `AWS_CODE_COMMIT`.
+        /// Provider for the remote repository. Valid values are: `GITHUB`, `GITLAB`, `BITBUCKET`, and `AWS_CODE_COMMIT`.
         /// </summary>
         [Input("provider")]
         public Input<string>? Provider { get; set; }
 
         /// <summary>
-        /// The name of the remote repository that contains the job artifacts.
+        /// Name of the remote repository that contains the job artifacts.
         /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }

@@ -13,6 +13,1363 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrder struct {
+	// How to handle requests with headers larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+	OversizeHandling string `pulumi:"oversizeHandling"`
+}
+
+// WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArgs and WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderInput` via:
+//
+//	WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArgs{...}
+type WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutput() WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutput
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutput
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArgs struct {
+	// How to handle requests with headers larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
+}
+
+func (WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrder)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutput() WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutput {
+	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutput)
+}
+
+// WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArray and WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayInput` via:
+//
+//	WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArray{ WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArgs{...} }
+type WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutput() WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutput
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutput
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArray []WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderInput
+
+func (WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrder)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArray) ToWebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutput() WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutput {
+	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArray) ToWebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrder)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutput() WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutput {
+	return o
+}
+
+// How to handle requests with headers larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutput) OversizeHandling() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrder) string { return v.OversizeHandling }).(pulumi.StringOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrder)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutput() WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutput) Index(i pulumi.IntInput) WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrder {
+		return vs[0].([]WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrder)[vs[1].(int)]
+	}).(WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint struct {
+	// Action to take if WAF cannot calculate the fingerprint. Valid values: `MATCH`, `NO_MATCH`.
+	FallbackBehavior string `pulumi:"fallbackBehavior"`
+}
+
+// WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs and WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintInput` via:
+//
+//	WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs{...}
+type WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs struct {
+	// Action to take if WAF cannot calculate the fingerprint. Valid values: `MATCH`, `NO_MATCH`.
+	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
+}
+
+func (WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput {
+	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput)
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput {
+	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput).ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutputWithContext(ctx)
+}
+
+// WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs, WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtr and WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrInput` via:
+//
+//	        WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput
+}
+
+type webAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrType WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs
+
+func WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtr(v *WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs) WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrInput {
+	return (*webAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrType)(v)
+}
+
+func (*webAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint)(nil)).Elem()
+}
+
+func (i *webAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput {
+	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput {
+	return o.ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint) *WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint {
+		return &v
+	}).(WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput)
+}
+
+// Action to take if WAF cannot calculate the fingerprint. Valid values: `MATCH`, `NO_MATCH`.
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput) FallbackBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint) string {
+		return v.FallbackBehavior
+	}).(pulumi.StringOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput) Elem() WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint) WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint
+		return ret
+	}).(WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput)
+}
+
+// Action to take if WAF cannot calculate the fingerprint. Valid values: `MATCH`, `NO_MATCH`.
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FallbackBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint struct {
+	// Action to take if WAF cannot calculate the fingerprint. Valid values: `MATCH`, `NO_MATCH`.
+	FallbackBehavior string `pulumi:"fallbackBehavior"`
+}
+
+// WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintArgs and WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintInput` via:
+//
+//	WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintArgs{...}
+type WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintArgs struct {
+	// Action to take if WAF cannot calculate the fingerprint. Valid values: `MATCH`, `NO_MATCH`.
+	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
+}
+
+func (WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput {
+	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput)
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput {
+	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput).ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutputWithContext(ctx)
+}
+
+// WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintArgs, WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtr and WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrInput` via:
+//
+//	        WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput
+}
+
+type webAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrType WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintArgs
+
+func WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtr(v *WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintArgs) WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrInput {
+	return (*webAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrType)(v)
+}
+
+func (*webAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint)(nil)).Elem()
+}
+
+func (i *webAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput {
+	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput {
+	return o.ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint) *WebAclRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint {
+		return &v
+	}).(WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput)
+}
+
+// Action to take if WAF cannot calculate the fingerprint. Valid values: `MATCH`, `NO_MATCH`.
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput) FallbackBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint) string {
+		return v.FallbackBehavior
+	}).(pulumi.StringOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput) Elem() WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint) WebAclRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint
+		return ret
+	}).(WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput)
+}
+
+// Action to take if WAF cannot calculate the fingerprint. Valid values: `MATCH`, `NO_MATCH`.
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FallbackBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody struct {
+	// How to handle requests with invalid JSON body. Valid values: `EVALUATE_AS_STRING`, `MATCH`, `NO_MATCH`.
+	InvalidFallbackBehavior *string `pulumi:"invalidFallbackBehavior"`
+	// JSON content to inspect. See JSON Body Match Pattern below.
+	MatchPattern *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern `pulumi:"matchPattern"`
+	// Parts of the JSON to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
+	MatchScope string `pulumi:"matchScope"`
+	// How to handle requests with a body larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`. Defaults to `CONTINUE`.
+	OversizeHandling *string `pulumi:"oversizeHandling"`
+}
+
+// WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs and WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyInput` via:
+//
+//	WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs{...}
+type WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs struct {
+	// How to handle requests with invalid JSON body. Valid values: `EVALUATE_AS_STRING`, `MATCH`, `NO_MATCH`.
+	InvalidFallbackBehavior pulumi.StringPtrInput `pulumi:"invalidFallbackBehavior"`
+	// JSON content to inspect. See JSON Body Match Pattern below.
+	MatchPattern WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrInput `pulumi:"matchPattern"`
+	// Parts of the JSON to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
+	MatchScope pulumi.StringInput `pulumi:"matchScope"`
+	// How to handle requests with a body larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`. Defaults to `CONTINUE`.
+	OversizeHandling pulumi.StringPtrInput `pulumi:"oversizeHandling"`
+}
+
+func (WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput {
+	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput)
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput {
+	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput).ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutputWithContext(ctx)
+}
+
+// WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs, WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtr and WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrInput` via:
+//
+//	        WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput
+}
+
+type webAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrType WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs
+
+func WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtr(v *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrInput {
+	return (*webAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrType)(v)
+}
+
+func (*webAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody)(nil)).Elem()
+}
+
+func (i *webAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput {
+	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput {
+	return o.ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody) *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody {
+		return &v
+	}).(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput)
+}
+
+// How to handle requests with invalid JSON body. Valid values: `EVALUATE_AS_STRING`, `MATCH`, `NO_MATCH`.
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput) InvalidFallbackBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody) *string {
+		return v.InvalidFallbackBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// JSON content to inspect. See JSON Body Match Pattern below.
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput) MatchPattern() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody) *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern {
+		return v.MatchPattern
+	}).(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
+}
+
+// Parts of the JSON to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput) MatchScope() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody) string { return v.MatchScope }).(pulumi.StringOutput)
+}
+
+// How to handle requests with a body larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`. Defaults to `CONTINUE`.
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput) OversizeHandling() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody) *string { return v.OversizeHandling }).(pulumi.StringPtrOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput) Elem() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody
+		return ret
+	}).(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput)
+}
+
+// How to handle requests with invalid JSON body. Valid values: `EVALUATE_AS_STRING`, `MATCH`, `NO_MATCH`.
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput) InvalidFallbackBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InvalidFallbackBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// JSON content to inspect. See JSON Body Match Pattern below.
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput) MatchPattern() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody) *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern {
+		if v == nil {
+			return nil
+		}
+		return v.MatchPattern
+	}).(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
+}
+
+// Parts of the JSON to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput) MatchScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MatchScope
+	}).(pulumi.StringPtrOutput)
+}
+
+// How to handle requests with a body larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`. Defaults to `CONTINUE`.
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput) OversizeHandling() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OversizeHandling
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern struct {
+	All *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll `pulumi:"all"`
+	// List of JSON pointer expressions to inspect (e.g., `/foo/bar`).
+	IncludedPaths []string `pulumi:"includedPaths"`
+}
+
+// WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs and WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternInput` via:
+//
+//	WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs{...}
+type WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs struct {
+	All WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrInput `pulumi:"all"`
+	// List of JSON pointer expressions to inspect (e.g., `/foo/bar`).
+	IncludedPaths pulumi.StringArrayInput `pulumi:"includedPaths"`
+}
+
+func (WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput {
+	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput)
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
+	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput).ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutputWithContext(ctx)
+}
+
+// WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs, WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtr and WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrInput` via:
+//
+//	        WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput
+}
+
+type webAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrType WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs
+
+func WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtr(v *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrInput {
+	return (*webAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrType)(v)
+}
+
+func (*webAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern)(nil)).Elem()
+}
+
+func (i *webAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
+	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
+	return o.ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern) *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern {
+		return &v
+	}).(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput) All() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern) *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll {
+		return v.All
+	}).(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput)
+}
+
+// List of JSON pointer expressions to inspect (e.g., `/foo/bar`).
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput) IncludedPaths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern) []string {
+		return v.IncludedPaths
+	}).(pulumi.StringArrayOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput) Elem() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern
+		return ret
+	}).(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput)
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput) All() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern) *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll {
+		if v == nil {
+			return nil
+		}
+		return v.All
+	}).(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput)
+}
+
+// List of JSON pointer expressions to inspect (e.g., `/foo/bar`).
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput) IncludedPaths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludedPaths
+	}).(pulumi.StringArrayOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll struct {
+}
+
+// WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs and WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllInput` via:
+//
+//	WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs{...}
+type WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs struct {
+}
+
+func (WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput {
+	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput)
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
+	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput).ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutputWithContext(ctx)
+}
+
+// WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs, WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtr and WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrInput` via:
+//
+//	        WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput
+}
+
+type webAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrType WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs
+
+func WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtr(v *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrInput {
+	return (*webAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrType)(v)
+}
+
+func (*webAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll)(nil)).Elem()
+}
+
+func (i *webAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
+	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
+	return o.ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll) *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll {
+		return &v
+	}).(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput) Elem() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll
+		return ret
+	}).(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchMethod struct {
+}
+
+// WebAclRuleStatementByteMatchStatementFieldToMatchMethodInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchMethodArgs and WebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchMethodInput` via:
+//
+//	WebAclRuleStatementByteMatchStatementFieldToMatchMethodArgs{...}
+type WebAclRuleStatementByteMatchStatementFieldToMatchMethodInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput() WebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchMethodArgs struct {
+}
+
+func (WebAclRuleStatementByteMatchStatementFieldToMatchMethodArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchMethod)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchMethodArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput() WebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput {
+	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchMethodArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput)
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchMethodArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput {
+	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchMethodArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput).ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutputWithContext(ctx)
+}
+
+// WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchMethodArgs, WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtr and WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrInput` via:
+//
+//	        WebAclRuleStatementByteMatchStatementFieldToMatchMethodArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput
+}
+
+type webAclRuleStatementByteMatchStatementFieldToMatchMethodPtrType WebAclRuleStatementByteMatchStatementFieldToMatchMethodArgs
+
+func WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtr(v *WebAclRuleStatementByteMatchStatementFieldToMatchMethodArgs) WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrInput {
+	return (*webAclRuleStatementByteMatchStatementFieldToMatchMethodPtrType)(v)
+}
+
+func (*webAclRuleStatementByteMatchStatementFieldToMatchMethodPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchMethod)(nil)).Elem()
+}
+
+func (i *webAclRuleStatementByteMatchStatementFieldToMatchMethodPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput {
+	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclRuleStatementByteMatchStatementFieldToMatchMethodPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchMethod)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput() WebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput {
+	return o.ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementByteMatchStatementFieldToMatchMethod) *WebAclRuleStatementByteMatchStatementFieldToMatchMethod {
+		return &v
+	}).(WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchMethod)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput) Elem() WebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchMethod) WebAclRuleStatementByteMatchStatementFieldToMatchMethod {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclRuleStatementByteMatchStatementFieldToMatchMethod
+		return ret
+	}).(WebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchQueryString struct {
+}
+
+// WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringArgs and WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringInput` via:
+//
+//	WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringArgs{...}
+type WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput() WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringArgs struct {
+}
+
+func (WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchQueryString)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput() WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput {
+	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput)
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput {
+	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput).ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutputWithContext(ctx)
+}
+
+// WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringArgs, WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtr and WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrInput` via:
+//
+//	        WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput
+}
+
+type webAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrType WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringArgs
+
+func WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtr(v *WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringArgs) WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrInput {
+	return (*webAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrType)(v)
+}
+
+func (*webAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchQueryString)(nil)).Elem()
+}
+
+func (i *webAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput {
+	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchQueryString)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput() WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput {
+	return o.ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementByteMatchStatementFieldToMatchQueryString) *WebAclRuleStatementByteMatchStatementFieldToMatchQueryString {
+		return &v
+	}).(WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchQueryString)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput) Elem() WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchQueryString) WebAclRuleStatementByteMatchStatementFieldToMatchQueryString {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclRuleStatementByteMatchStatementFieldToMatchQueryString
+		return ret
+	}).(WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeader struct {
+	// Name of the header to inspect (case insensitive).
+	Name string `pulumi:"name"`
+}
+
+// WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs and WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderInput` via:
+//
+//	WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs{...}
+type WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput() WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs struct {
+	// Name of the header to inspect (case insensitive).
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeader)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput() WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput {
+	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput)
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput {
+	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput).ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutputWithContext(ctx)
+}
+
+// WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs, WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtr and WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrInput` via:
+//
+//	        WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput
+}
+
+type webAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrType WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs
+
+func WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtr(v *WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs) WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrInput {
+	return (*webAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrType)(v)
+}
+
+func (*webAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeader)(nil)).Elem()
+}
+
+func (i *webAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput {
+	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeader)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput() WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput {
+	return o.ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeader) *WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeader {
+		return &v
+	}).(WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput)
+}
+
+// Name of the header to inspect (case insensitive).
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeader) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeader)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput) Elem() WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeader) WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeader {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeader
+		return ret
+	}).(WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput)
+}
+
+// Name of the header to inspect (case insensitive).
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeader) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument struct {
+	// Name of the query argument to inspect.
+	Name string `pulumi:"name"`
+}
+
+// WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs and WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentInput` via:
+//
+//	WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs{...}
+type WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput() WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs struct {
+	// Name of the query argument to inspect.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput() WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput {
+	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput)
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
+	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput).ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutputWithContext(ctx)
+}
+
+// WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs, WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtr and WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrInput` via:
+//
+//	        WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput
+	ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput
+}
+
+type webAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrType WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs
+
+func WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtr(v *WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs) WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrInput {
+	return (*webAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrType)(v)
+}
+
+func (*webAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument)(nil)).Elem()
+}
+
+func (i *webAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
+	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput() WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
+	return o.ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument) *WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument {
+		return &v
+	}).(WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
+}
+
+// Name of the query argument to inspect.
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) Elem() WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument) WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument
+		return ret
+	}).(WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput)
+}
+
+// Name of the query argument to inspect.
+func (o WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
 type WebAclRuleStatementByteMatchStatementFieldToMatchUriFragment struct {
 	// How to handle requests with a URI fragment that is too large to inspect. Valid values: `MATCH`, `NO_MATCH`.
 	FallbackBehavior *string `pulumi:"fallbackBehavior"`
@@ -71913,1406 +73270,27 @@ func (o WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderOrderArrayOutput)
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderOrderOutput)
 }
 
-type WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint struct {
-	// Action to take if WAF cannot calculate the fingerprint. Valid values: `MATCH`, `NO_MATCH`.
-	FallbackBehavior string `pulumi:"fallbackBehavior"`
-}
-
-// WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintInput is an input type that accepts WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs and WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintInput` via:
-//
-//	WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs{...}
-type WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintOutput
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintOutputWithContext(context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintOutput
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs struct {
-	// Action to take if WAF cannot calculate the fingerprint. Valid values: `MATCH`, `NO_MATCH`.
-	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
-}
-
-func (WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintOutput {
-	return i.ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintOutput)
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOutput {
-	return i.ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintOutput).ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrInput is an input type that accepts WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs, WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtr and WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrInput` via:
-//
-//	        WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOutput
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOutputWithContext(context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOutput
-}
-
-type webAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrType WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs
-
-func WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtr(v *WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs) WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrInput {
-	return (*webAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrType)(v)
-}
-
-func (*webAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrType) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOutput {
-	return i.ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrType) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOutput)
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOutput {
-	return o.ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint) *WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint {
-		return &v
-	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOutput)
-}
-
-// Action to take if WAF cannot calculate the fingerprint. Valid values: `MATCH`, `NO_MATCH`.
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintOutput) FallbackBehavior() pulumi.StringOutput {
-	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint) string {
-		return v.FallbackBehavior
-	}).(pulumi.StringOutput)
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOutput) Elem() WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint) WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint
-		return ret
-	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintOutput)
-}
-
-// Action to take if WAF cannot calculate the fingerprint. Valid values: `MATCH`, `NO_MATCH`.
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.FallbackBehavior
-	}).(pulumi.StringPtrOutput)
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint struct {
-	// Action to take if WAF cannot calculate the fingerprint. Valid values: `MATCH`, `NO_MATCH`.
-	FallbackBehavior string `pulumi:"fallbackBehavior"`
-}
-
-// WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintInput is an input type that accepts WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintArgs and WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintInput` via:
-//
-//	WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintArgs{...}
-type WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintOutput
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintOutputWithContext(context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintOutput
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintArgs struct {
-	// Action to take if WAF cannot calculate the fingerprint. Valid values: `MATCH`, `NO_MATCH`.
-	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
-}
-
-func (WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintOutput {
-	return i.ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintOutput)
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOutput {
-	return i.ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintOutput).ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrInput is an input type that accepts WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintArgs, WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtr and WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrInput` via:
-//
-//	        WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOutput
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOutputWithContext(context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOutput
-}
-
-type webAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrType WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintArgs
-
-func WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtr(v *WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintArgs) WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrInput {
-	return (*webAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrType)(v)
-}
-
-func (*webAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrType) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOutput {
-	return i.ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrType) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOutput)
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOutput {
-	return o.ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint) *WebAclRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint {
-		return &v
-	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOutput)
-}
-
-// Action to take if WAF cannot calculate the fingerprint. Valid values: `MATCH`, `NO_MATCH`.
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintOutput) FallbackBehavior() pulumi.StringOutput {
-	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint) string {
-		return v.FallbackBehavior
-	}).(pulumi.StringOutput)
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOutput) Elem() WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint) WebAclRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint
-		return ret
-	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintOutput)
-}
-
-// Action to take if WAF cannot calculate the fingerprint. Valid values: `MATCH`, `NO_MATCH`.
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.FallbackBehavior
-	}).(pulumi.StringPtrOutput)
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody struct {
-	// How to handle requests with invalid JSON body. Valid values: `EVALUATE_AS_STRING`, `MATCH`, `NO_MATCH`.
-	InvalidFallbackBehavior *string `pulumi:"invalidFallbackBehavior"`
-	// JSON content to inspect. See JSON Body Match Pattern below.
-	MatchPattern *WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern `pulumi:"matchPattern"`
-	// Parts of the JSON to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
-	MatchScope string `pulumi:"matchScope"`
-	// How to handle requests with a body larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`. Defaults to `CONTINUE`.
-	OversizeHandling *string `pulumi:"oversizeHandling"`
-}
-
-// WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyInput is an input type that accepts WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyArgs and WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyInput` via:
-//
-//	WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyArgs{...}
-type WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutput
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutputWithContext(context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutput
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyArgs struct {
-	// How to handle requests with invalid JSON body. Valid values: `EVALUATE_AS_STRING`, `MATCH`, `NO_MATCH`.
-	InvalidFallbackBehavior pulumi.StringPtrInput `pulumi:"invalidFallbackBehavior"`
-	// JSON content to inspect. See JSON Body Match Pattern below.
-	MatchPattern WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrInput `pulumi:"matchPattern"`
-	// Parts of the JSON to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
-	MatchScope pulumi.StringInput `pulumi:"matchScope"`
-	// How to handle requests with a body larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`. Defaults to `CONTINUE`.
-	OversizeHandling pulumi.StringPtrInput `pulumi:"oversizeHandling"`
-}
-
-func (WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutput {
-	return i.ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutput)
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput {
-	return i.ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutput).ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrInput is an input type that accepts WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyArgs, WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtr and WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrInput` via:
-//
-//	        WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutputWithContext(context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput
-}
-
-type webAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrType WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyArgs
-
-func WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtr(v *WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyArgs) WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrInput {
-	return (*webAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrType)(v)
-}
-
-func (*webAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrType) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput {
-	return i.ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrType) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput)
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput {
-	return o.ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody) *WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody {
-		return &v
-	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput)
-}
-
-// How to handle requests with invalid JSON body. Valid values: `EVALUATE_AS_STRING`, `MATCH`, `NO_MATCH`.
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutput) InvalidFallbackBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody) *string {
-		return v.InvalidFallbackBehavior
-	}).(pulumi.StringPtrOutput)
-}
-
-// JSON content to inspect. See JSON Body Match Pattern below.
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutput) MatchPattern() WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
-	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody) *WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern {
-		return v.MatchPattern
-	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
-}
-
-// Parts of the JSON to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutput) MatchScope() pulumi.StringOutput {
-	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody) string { return v.MatchScope }).(pulumi.StringOutput)
-}
-
-// How to handle requests with a body larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`. Defaults to `CONTINUE`.
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutput) OversizeHandling() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody) *string { return v.OversizeHandling }).(pulumi.StringPtrOutput)
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput) Elem() WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody) WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody
-		return ret
-	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutput)
-}
-
-// How to handle requests with invalid JSON body. Valid values: `EVALUATE_AS_STRING`, `MATCH`, `NO_MATCH`.
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput) InvalidFallbackBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody) *string {
-		if v == nil {
-			return nil
-		}
-		return v.InvalidFallbackBehavior
-	}).(pulumi.StringPtrOutput)
-}
-
-// JSON content to inspect. See JSON Body Match Pattern below.
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput) MatchPattern() WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody) *WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern {
-		if v == nil {
-			return nil
-		}
-		return v.MatchPattern
-	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
-}
-
-// Parts of the JSON to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput) MatchScope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.MatchScope
-	}).(pulumi.StringPtrOutput)
-}
-
-// How to handle requests with a body larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`. Defaults to `CONTINUE`.
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput) OversizeHandling() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OversizeHandling
-	}).(pulumi.StringPtrOutput)
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern struct {
-	All *WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll `pulumi:"all"`
-	// List of JSON pointer expressions to inspect (e.g., `/foo/bar`).
-	IncludedPaths []string `pulumi:"includedPaths"`
-}
-
-// WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternInput is an input type that accepts WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs and WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternInput` via:
-//
-//	WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs{...}
-type WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutputWithContext(context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs struct {
-	All WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrInput `pulumi:"all"`
-	// List of JSON pointer expressions to inspect (e.g., `/foo/bar`).
-	IncludedPaths pulumi.StringArrayInput `pulumi:"includedPaths"`
-}
-
-func (WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput {
-	return i.ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput)
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
-	return i.ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput).ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrInput is an input type that accepts WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs, WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtr and WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrInput` via:
-//
-//	        WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutputWithContext(context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput
-}
-
-type webAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrType WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs
-
-func WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtr(v *WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs) WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrInput {
-	return (*webAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrType)(v)
-}
-
-func (*webAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrType) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
-	return i.ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrType) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
-	return o.ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern) *WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern {
-		return &v
-	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput) All() WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
-	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern) *WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll {
-		return v.All
-	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput)
-}
-
-// List of JSON pointer expressions to inspect (e.g., `/foo/bar`).
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput) IncludedPaths() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern) []string {
-		return v.IncludedPaths
-	}).(pulumi.StringArrayOutput)
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput) Elem() WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern) WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern
-		return ret
-	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput)
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput) All() WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern) *WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll {
-		if v == nil {
-			return nil
-		}
-		return v.All
-	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput)
-}
-
-// List of JSON pointer expressions to inspect (e.g., `/foo/bar`).
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput) IncludedPaths() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern) []string {
-		if v == nil {
-			return nil
-		}
-		return v.IncludedPaths
-	}).(pulumi.StringArrayOutput)
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll struct {
-}
-
-// WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllInput is an input type that accepts WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs and WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllInput` via:
-//
-//	WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs{...}
-type WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllOutputWithContext(context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs struct {
-}
-
-func (WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput {
-	return i.ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput)
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
-	return i.ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput).ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrInput is an input type that accepts WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs, WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtr and WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrInput` via:
-//
-//	        WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutputWithContext(context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput
-}
-
-type webAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrType WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs
-
-func WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtr(v *WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs) WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrInput {
-	return (*webAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrType)(v)
-}
-
-func (*webAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrType) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
-	return i.ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrType) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput)
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
-	return o.ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll) *WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll {
-		return &v
-	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput)
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput) Elem() WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll) WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll
-		return ret
-	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput)
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchMethod struct {
-}
-
-// WebAclRuleStatementSqliMatchStatementFieldToMatchMethodInput is an input type that accepts WebAclRuleStatementSqliMatchStatementFieldToMatchMethodArgs and WebAclRuleStatementSqliMatchStatementFieldToMatchMethodOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementSqliMatchStatementFieldToMatchMethodInput` via:
-//
-//	WebAclRuleStatementSqliMatchStatementFieldToMatchMethodArgs{...}
-type WebAclRuleStatementSqliMatchStatementFieldToMatchMethodInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchMethodOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchMethodOutput
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchMethodOutputWithContext(context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchMethodOutput
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchMethodArgs struct {
-}
-
-func (WebAclRuleStatementSqliMatchStatementFieldToMatchMethodArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchMethod)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchMethodArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchMethodOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchMethodOutput {
-	return i.ToWebAclRuleStatementSqliMatchStatementFieldToMatchMethodOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchMethodArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchMethodOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchMethodOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementSqliMatchStatementFieldToMatchMethodOutput)
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchMethodArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrOutput {
-	return i.ToWebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchMethodArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementSqliMatchStatementFieldToMatchMethodOutput).ToWebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrInput is an input type that accepts WebAclRuleStatementSqliMatchStatementFieldToMatchMethodArgs, WebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtr and WebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrInput` via:
-//
-//	        WebAclRuleStatementSqliMatchStatementFieldToMatchMethodArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrOutput
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrOutputWithContext(context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrOutput
-}
-
-type webAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrType WebAclRuleStatementSqliMatchStatementFieldToMatchMethodArgs
-
-func WebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtr(v *WebAclRuleStatementSqliMatchStatementFieldToMatchMethodArgs) WebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrInput {
-	return (*webAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrType)(v)
-}
-
-func (*webAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementSqliMatchStatementFieldToMatchMethod)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrType) ToWebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrOutput {
-	return i.ToWebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrType) ToWebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrOutput)
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchMethodOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementSqliMatchStatementFieldToMatchMethodOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchMethod)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchMethodOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchMethodOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchMethodOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchMethodOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchMethodOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchMethodOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchMethodOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrOutput {
-	return o.ToWebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchMethodOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementSqliMatchStatementFieldToMatchMethod) *WebAclRuleStatementSqliMatchStatementFieldToMatchMethod {
-		return &v
-	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrOutput)
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementSqliMatchStatementFieldToMatchMethod)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrOutput) Elem() WebAclRuleStatementSqliMatchStatementFieldToMatchMethodOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatchMethod) WebAclRuleStatementSqliMatchStatementFieldToMatchMethod {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementSqliMatchStatementFieldToMatchMethod
-		return ret
-	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchMethodOutput)
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchQueryString struct {
-}
-
-// WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringInput is an input type that accepts WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringArgs and WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringInput` via:
-//
-//	WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringArgs{...}
-type WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringOutput
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringOutputWithContext(context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringOutput
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringArgs struct {
-}
-
-func (WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchQueryString)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringOutput {
-	return i.ToWebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringOutput)
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutput {
-	return i.ToWebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringOutput).ToWebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrInput is an input type that accepts WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringArgs, WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtr and WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrInput` via:
-//
-//	        WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutput
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutputWithContext(context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutput
-}
-
-type webAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrType WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringArgs
-
-func WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtr(v *WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringArgs) WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrInput {
-	return (*webAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrType)(v)
-}
-
-func (*webAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementSqliMatchStatementFieldToMatchQueryString)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrType) ToWebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutput {
-	return i.ToWebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrType) ToWebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutput)
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchQueryString)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutput {
-	return o.ToWebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementSqliMatchStatementFieldToMatchQueryString) *WebAclRuleStatementSqliMatchStatementFieldToMatchQueryString {
-		return &v
-	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutput)
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementSqliMatchStatementFieldToMatchQueryString)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutput) Elem() WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatchQueryString) WebAclRuleStatementSqliMatchStatementFieldToMatchQueryString {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementSqliMatchStatementFieldToMatchQueryString
-		return ret
-	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringOutput)
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeader struct {
-	// Name of the header to inspect (case insensitive).
-	Name string `pulumi:"name"`
-}
-
-// WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderInput is an input type that accepts WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderArgs and WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderInput` via:
-//
-//	WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderArgs{...}
-type WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderOutput
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderOutputWithContext(context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderOutput
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderArgs struct {
-	// Name of the header to inspect (case insensitive).
-	Name pulumi.StringInput `pulumi:"name"`
-}
-
-func (WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeader)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderOutput {
-	return i.ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderOutput)
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput {
-	return i.ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderOutput).ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrInput is an input type that accepts WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderArgs, WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtr and WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrInput` via:
-//
-//	        WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutputWithContext(context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput
-}
-
-type webAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrType WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderArgs
-
-func WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtr(v *WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderArgs) WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrInput {
-	return (*webAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrType)(v)
-}
-
-func (*webAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeader)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrType) ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput {
-	return i.ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrType) ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput)
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeader)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput {
-	return o.ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeader) *WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeader {
-		return &v
-	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput)
-}
-
-// Name of the header to inspect (case insensitive).
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeader) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeader)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput) Elem() WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeader) WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeader {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeader
-		return ret
-	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderOutput)
-}
-
-// Name of the header to inspect (case insensitive).
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeader) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument struct {
-	// Name of the query argument to inspect.
-	Name string `pulumi:"name"`
-}
-
-// WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentInput is an input type that accepts WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs and WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentInput` via:
-//
-//	WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs{...}
-type WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutput
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutputWithContext(context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutput
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs struct {
-	// Name of the query argument to inspect.
-	Name pulumi.StringInput `pulumi:"name"`
-}
-
-func (WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutput {
-	return i.ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutput)
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
-	return i.ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutput).ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrInput is an input type that accepts WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs, WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtr and WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrInput` via:
-//
-//	        WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutputWithContext(context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput
-}
-
-type webAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrType WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs
-
-func WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtr(v *WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs) WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrInput {
-	return (*webAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrType)(v)
-}
-
-func (*webAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrType) ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
-	return i.ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrType) ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
-	return o.ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument) *WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
-		return &v
-	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
-}
-
-// Name of the query argument to inspect.
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) Elem() WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument) WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument
-		return ret
-	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutput)
-}
-
-// Name of the query argument to inspect.
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragment struct {
-	// How to handle requests with a URI fragment that is too large to inspect. Valid values: `MATCH`, `NO_MATCH`.
-	FallbackBehavior *string `pulumi:"fallbackBehavior"`
-}
-
-// WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentInput is an input type that accepts WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgs and WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentInput` via:
-//
-//	WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgs{...}
-type WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentOutput
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentOutputWithContext(context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentOutput
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgs struct {
-	// How to handle requests with a URI fragment that is too large to inspect. Valid values: `MATCH`, `NO_MATCH`.
-	FallbackBehavior pulumi.StringPtrInput `pulumi:"fallbackBehavior"`
-}
-
-func (WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragment)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentOutput {
-	return i.ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentOutput)
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrOutput {
-	return i.ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgs) ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentOutput).ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrInput is an input type that accepts WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgs, WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtr and WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrInput` via:
-//
-//	        WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrOutput
-	ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrOutputWithContext(context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrOutput
-}
-
-type webAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrType WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgs
-
-func WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtr(v *WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgs) WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrInput {
-	return (*webAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrType)(v)
-}
-
-func (*webAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragment)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrType) ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrOutput {
-	return i.ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrType) ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrOutput)
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragment)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrOutput {
-	return o.ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragment) *WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragment {
-		return &v
-	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrOutput)
-}
-
-// How to handle requests with a URI fragment that is too large to inspect. Valid values: `MATCH`, `NO_MATCH`.
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentOutput) FallbackBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragment) *string {
-		return v.FallbackBehavior
-	}).(pulumi.StringPtrOutput)
-}
-
-type WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragment)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrOutput() WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrOutput) ToWebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrOutputWithContext(ctx context.Context) WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrOutput) Elem() WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragment) WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragment {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragment
-		return ret
-	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentOutput)
-}
-
-// How to handle requests with a URI fragment that is too large to inspect. Valid values: `MATCH`, `NO_MATCH`.
-func (o WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragment) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FallbackBehavior
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchMethodInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchMethodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchMethodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchUriPathInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchUriPathArgs{})
@@ -74279,26 +74257,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAllPtrInput)(nil)).Elem(), WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAllArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderOrderInput)(nil)).Elem(), WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderOrderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderOrderArrayInput)(nil)).Elem(), WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderOrderArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintInput)(nil)).Elem(), WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrInput)(nil)).Elem(), WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintInput)(nil)).Elem(), WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrInput)(nil)).Elem(), WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyInput)(nil)).Elem(), WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrInput)(nil)).Elem(), WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternInput)(nil)).Elem(), WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrInput)(nil)).Elem(), WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllInput)(nil)).Elem(), WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrInput)(nil)).Elem(), WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchMethodInput)(nil)).Elem(), WebAclRuleStatementSqliMatchStatementFieldToMatchMethodArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrInput)(nil)).Elem(), WebAclRuleStatementSqliMatchStatementFieldToMatchMethodArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringInput)(nil)).Elem(), WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrInput)(nil)).Elem(), WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderInput)(nil)).Elem(), WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrInput)(nil)).Elem(), WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentInput)(nil)).Elem(), WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrInput)(nil)).Elem(), WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentInput)(nil)).Elem(), WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrInput)(nil)).Elem(), WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgs{})
+	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchUriPathOutput{})
@@ -75265,24 +75243,4 @@ func init() {
 	pulumi.RegisterOutputType(WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderOrderOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderOrderArrayOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementSqliMatchStatementFieldToMatchMethodOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementSqliMatchStatementFieldToMatchMethodPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentPtrOutput{})
 }

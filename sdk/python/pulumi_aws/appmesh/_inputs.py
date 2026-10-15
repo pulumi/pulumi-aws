@@ -2541,7 +2541,7 @@ class MeshSpecServiceDiscoveryArgs:
 class RouteSpecArgsDict(TypedDict):
     grpc_route: NotRequired[pulumi.Input[Optional['RouteSpecGrpcRouteArgsDict']]]
     """
-    GRPC routing information for the route. See `spec.grpc_route` Block for details.
+    gRPC routing information for the route. See `spec.grpc_route` Block for details.
     """
     http2_route: NotRequired[pulumi.Input[Optional['RouteSpecHttp2RouteArgsDict']]]
     """
@@ -2569,7 +2569,7 @@ class RouteSpecArgs:
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  tcp_route: pulumi.Input[Optional['RouteSpecTcpRouteArgs']] = None):
         """
-        :param pulumi.Input['RouteSpecGrpcRouteArgs'] grpc_route: GRPC routing information for the route. See `spec.grpc_route` Block for details.
+        :param pulumi.Input['RouteSpecGrpcRouteArgs'] grpc_route: gRPC routing information for the route. See `spec.grpc_route` Block for details.
         :param pulumi.Input['RouteSpecHttp2RouteArgs'] http2_route: HTTP/2 routing information for the route. See `spec.http2_route` Block for details.
         :param pulumi.Input['RouteSpecHttpRouteArgs'] http_route: HTTP routing information for the route. See `spec.http_route` Block for details.
         :param pulumi.Input[_builtins.int] priority: Priority for the route, between `0` and `1000`. Routes are matched based on the specified value, where `0` is the highest priority.
@@ -2590,7 +2590,7 @@ class RouteSpecArgs:
     @pulumi.getter(name="grpcRoute")
     def grpc_route(self) -> pulumi.Input[Optional['RouteSpecGrpcRouteArgs']]:
         """
-        GRPC routing information for the route. See `spec.grpc_route` Block for details.
+        gRPC routing information for the route. See `spec.grpc_route` Block for details.
         """
         return pulumi.get(self, "grpc_route")
 

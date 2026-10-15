@@ -108,14 +108,14 @@ public final class IdentityProviderState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The user pool id
+     * The user pool ID
      * 
      */
     @Import(name="userPoolId")
     private @Nullable Output<String> userPoolId;
 
     /**
-     * @return The user pool id
+     * @return The user pool ID
      * 
      */
     public Optional<Output<String>> userPoolId() {
@@ -289,7 +289,7 @@ public final class IdentityProviderState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param userPoolId The user pool id
+         * @param userPoolId The user pool ID
          * 
          * @return builder
          * 
@@ -300,7 +300,7 @@ public final class IdentityProviderState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param userPoolId The user pool id
+         * @param userPoolId The user pool ID
          * 
          * @return builder
          * 

@@ -19,14 +19,14 @@ public final class ConnectorCapacityAutoscalingArgs extends com.pulumi.resources
     public static final ConnectorCapacityAutoscalingArgs Empty = new ConnectorCapacityAutoscalingArgs();
 
     /**
-     * The maximum number of workers allocated to the connector.
+     * Maximum number of workers allocated to the connector.
      * 
      */
     @Import(name="maxWorkerCount", required=true)
     private Output<Integer> maxWorkerCount;
 
     /**
-     * @return The maximum number of workers allocated to the connector.
+     * @return Maximum number of workers allocated to the connector.
      * 
      */
     public Output<Integer> maxWorkerCount() {
@@ -34,14 +34,14 @@ public final class ConnectorCapacityAutoscalingArgs extends com.pulumi.resources
     }
 
     /**
-     * The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
+     * Number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
      * 
      */
     @Import(name="mcuCount")
     private @Nullable Output<Integer> mcuCount;
 
     /**
-     * @return The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
+     * @return Number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
      * 
      */
     public Optional<Output<Integer>> mcuCount() {
@@ -49,14 +49,14 @@ public final class ConnectorCapacityAutoscalingArgs extends com.pulumi.resources
     }
 
     /**
-     * The minimum number of workers allocated to the connector.
+     * Minimum number of workers allocated to the connector.
      * 
      */
     @Import(name="minWorkerCount", required=true)
     private Output<Integer> minWorkerCount;
 
     /**
-     * @return The minimum number of workers allocated to the connector.
+     * @return Minimum number of workers allocated to the connector.
      * 
      */
     public Output<Integer> minWorkerCount() {
@@ -64,14 +64,14 @@ public final class ConnectorCapacityAutoscalingArgs extends com.pulumi.resources
     }
 
     /**
-     * The scale-in policy for the connector. See `scaleInPolicy` Block for details.
+     * Scale-in policy for the connector. See `scaleInPolicy` Block for details.
      * 
      */
     @Import(name="scaleInPolicy")
     private @Nullable Output<ConnectorCapacityAutoscalingScaleInPolicyArgs> scaleInPolicy;
 
     /**
-     * @return The scale-in policy for the connector. See `scaleInPolicy` Block for details.
+     * @return Scale-in policy for the connector. See `scaleInPolicy` Block for details.
      * 
      */
     public Optional<Output<ConnectorCapacityAutoscalingScaleInPolicyArgs>> scaleInPolicy() {
@@ -79,14 +79,14 @@ public final class ConnectorCapacityAutoscalingArgs extends com.pulumi.resources
     }
 
     /**
-     * The scale-out policy for the connector. See `scaleOutPolicy` Block for details.
+     * Scale-out policy for the connector. See `scaleOutPolicy` Block for details.
      * 
      */
     @Import(name="scaleOutPolicy")
     private @Nullable Output<ConnectorCapacityAutoscalingScaleOutPolicyArgs> scaleOutPolicy;
 
     /**
-     * @return The scale-out policy for the connector. See `scaleOutPolicy` Block for details.
+     * @return Scale-out policy for the connector. See `scaleOutPolicy` Block for details.
      * 
      */
     public Optional<Output<ConnectorCapacityAutoscalingScaleOutPolicyArgs>> scaleOutPolicy() {
@@ -122,7 +122,7 @@ public final class ConnectorCapacityAutoscalingArgs extends com.pulumi.resources
         }
 
         /**
-         * @param maxWorkerCount The maximum number of workers allocated to the connector.
+         * @param maxWorkerCount Maximum number of workers allocated to the connector.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class ConnectorCapacityAutoscalingArgs extends com.pulumi.resources
         }
 
         /**
-         * @param maxWorkerCount The maximum number of workers allocated to the connector.
+         * @param maxWorkerCount Maximum number of workers allocated to the connector.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class ConnectorCapacityAutoscalingArgs extends com.pulumi.resources
         }
 
         /**
-         * @param mcuCount The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
+         * @param mcuCount Number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class ConnectorCapacityAutoscalingArgs extends com.pulumi.resources
         }
 
         /**
-         * @param mcuCount The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
+         * @param mcuCount Number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class ConnectorCapacityAutoscalingArgs extends com.pulumi.resources
         }
 
         /**
-         * @param minWorkerCount The minimum number of workers allocated to the connector.
+         * @param minWorkerCount Minimum number of workers allocated to the connector.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class ConnectorCapacityAutoscalingArgs extends com.pulumi.resources
         }
 
         /**
-         * @param minWorkerCount The minimum number of workers allocated to the connector.
+         * @param minWorkerCount Minimum number of workers allocated to the connector.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class ConnectorCapacityAutoscalingArgs extends com.pulumi.resources
         }
 
         /**
-         * @param scaleInPolicy The scale-in policy for the connector. See `scaleInPolicy` Block for details.
+         * @param scaleInPolicy Scale-in policy for the connector. See `scaleInPolicy` Block for details.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class ConnectorCapacityAutoscalingArgs extends com.pulumi.resources
         }
 
         /**
-         * @param scaleInPolicy The scale-in policy for the connector. See `scaleInPolicy` Block for details.
+         * @param scaleInPolicy Scale-in policy for the connector. See `scaleInPolicy` Block for details.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class ConnectorCapacityAutoscalingArgs extends com.pulumi.resources
         }
 
         /**
-         * @param scaleOutPolicy The scale-out policy for the connector. See `scaleOutPolicy` Block for details.
+         * @param scaleOutPolicy Scale-out policy for the connector. See `scaleOutPolicy` Block for details.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class ConnectorCapacityAutoscalingArgs extends com.pulumi.resources
         }
 
         /**
-         * @param scaleOutPolicy The scale-out policy for the connector. See `scaleOutPolicy` Block for details.
+         * @param scaleOutPolicy Scale-out policy for the connector. See `scaleOutPolicy` Block for details.
          * 
          * @return builder
          * 

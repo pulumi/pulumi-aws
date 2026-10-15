@@ -14,7 +14,7 @@ namespace Pulumi.Aws.M2.Outputs
     public sealed class EnvironmentStorageConfigurationEfs
     {
         /// <summary>
-        /// Id of the EFS filesystem to mount.
+        /// ID of the EFS filesystem to mount.
         /// </summary>
         public readonly string FileSystemId;
         /// <summary>

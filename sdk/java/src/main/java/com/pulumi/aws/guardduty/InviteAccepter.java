@@ -79,14 +79,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:guardduty/inviteAccepter:InviteAccepter")
 public class InviteAccepter extends com.pulumi.resources.CustomResource {
     /**
-     * The detector ID of the member GuardDuty account.
+     * Detector ID of the member GuardDuty account.
      * 
      */
     @Export(name="detectorId", refs={String.class}, tree="[0]")
     private Output<String> detectorId;
 
     /**
-     * @return The detector ID of the member GuardDuty account.
+     * @return Detector ID of the member GuardDuty account.
      * 
      */
     public Output<String> detectorId() {

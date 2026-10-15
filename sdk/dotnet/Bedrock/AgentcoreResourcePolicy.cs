@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Bedrock
 {
     /// <summary>
-    /// Manages an AWS Bedrock Agent Core Resource Policy. Resource-based policies in Amazon Bedrock Agent Core allow you to control which principals (AWS accounts, IAM users, or IAM roles) can invoke and manage your Amazon Bedrock Agent Core Runtime and Gateway resources.
+    /// Manages an AWS Bedrock AgentCore Resource Policy. Resource-based policies in Amazon Bedrock AgentCore allow you to control which principals (AWS accounts, IAM users, or IAM roles) can invoke and manage your Amazon Bedrock AgentCore Runtime and Gateway resources.
     /// 
     /// ## Example Usage
     /// 
@@ -84,9 +84,9 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// #### Required
     /// 
-    /// * `ResourceArn` - ARN of the resource to which the Resource Policy is attached.
+    /// * `ResourceArn` (String) ARN of the resource to which the Resource Policy is attached.
     /// 
-    /// Using `pulumi import`, import Bedrock Agent Core Resource Policy using the `ResourceArn`. For example:
+    /// Using `pulumi import`, import Bedrock AgentCore Resource Policy using the `ResourceArn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:bedrock/agentcoreResourcePolicy:AgentcoreResourcePolicy example arn:aws:bedrock-agentcore:us-west-2:012345678901:runtime/abcd1234
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Bedrock
     public partial class AgentcoreResourcePolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Resource policy definition
+        /// Resource policy document in JSON format.
         /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.Bedrock
     public sealed class AgentcoreResourcePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Resource policy definition
+        /// Resource policy document in JSON format.
         /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
@@ -190,7 +190,7 @@ namespace Pulumi.Aws.Bedrock
     public sealed class AgentcoreResourcePolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Resource policy definition
+        /// Resource policy document in JSON format.
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }

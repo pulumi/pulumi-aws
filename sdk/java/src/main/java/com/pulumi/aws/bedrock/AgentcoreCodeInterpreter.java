@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *             .networkConfiguration(AgentcoreCodeInterpreterNetworkConfigurationArgs.builder()
  *                 .networkMode("PUBLIC")
  *                 .build())
- *             .name("example-code-interpreter")
+ *             .name("example_code_interpreter")
  *             .description("Code interpreter for data analysis")
  *             .build());
  * 
@@ -113,7 +113,7 @@ import javax.annotation.Nullable;
  *             .networkConfiguration(AgentcoreCodeInterpreterNetworkConfigurationArgs.builder()
  *                 .networkMode("SANDBOX")
  *                 .build())
- *             .name("example-code-interpreter")
+ *             .name("example_code_interpreter")
  *             .description("Code interpreter with custom execution role")
  *             .executionRoleArn(example.arn())
  *             .build());
@@ -191,14 +191,14 @@ public class AgentcoreCodeInterpreter extends com.pulumi.resources.CustomResourc
         return Codegen.optional(this.description);
     }
     /**
-     * ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
+     * ARN of the IAM role that the code interpreter assumes for execution.
      * 
      */
     @Export(name="executionRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> executionRoleArn;
 
     /**
-     * @return ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
+     * @return ARN of the IAM role that the code interpreter assumes for execution.
      * 
      */
     public Output<Optional<String>> executionRoleArn() {

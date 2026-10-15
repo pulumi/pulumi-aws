@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Msk.Outputs
     public sealed class ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration
     {
         /// <summary>
-        /// The type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
+        /// Type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
         /// </summary>
         public readonly string? Type;
 

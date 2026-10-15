@@ -16,14 +16,14 @@ public final class TaskDefinitionRuntimePlatformArgs extends com.pulumi.resource
     public static final TaskDefinitionRuntimePlatformArgs Empty = new TaskDefinitionRuntimePlatformArgs();
 
     /**
-     * Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
+     * Must be set to either `X86_64` or `ARM64`; see [CPU architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
      * 
      */
     @Import(name="cpuArchitecture")
     private @Nullable Output<String> cpuArchitecture;
 
     /**
-     * @return Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
+     * @return Must be set to either `X86_64` or `ARM64`; see [CPU architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
      * 
      */
     public Optional<Output<String>> cpuArchitecture() {
@@ -71,7 +71,7 @@ public final class TaskDefinitionRuntimePlatformArgs extends com.pulumi.resource
         }
 
         /**
-         * @param cpuArchitecture Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
+         * @param cpuArchitecture Must be set to either `X86_64` or `ARM64`; see [CPU architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class TaskDefinitionRuntimePlatformArgs extends com.pulumi.resource
         }
 
         /**
-         * @param cpuArchitecture Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
+         * @param cpuArchitecture Must be set to either `X86_64` or `ARM64`; see [CPU architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
          * 
          * @return builder
          * 

@@ -15,17 +15,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CrawlerIcebergTarget {
     /**
-     * @return The name of the connection to use to connect to the Iceberg target.
+     * @return Name of the connection to use to connect to the Iceberg target.
      * 
      */
     private @Nullable String connectionName;
     /**
-     * @return A list of glob patterns used to exclude from the crawl.
+     * @return List of glob patterns used to exclude from the crawl.
      * 
      */
     private @Nullable List<String> exclusions;
     /**
-     * @return The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
+     * @return Maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
      * 
      */
     private Integer maximumTraversalDepth;
@@ -37,21 +37,21 @@ public final class CrawlerIcebergTarget {
 
     private CrawlerIcebergTarget() {}
     /**
-     * @return The name of the connection to use to connect to the Iceberg target.
+     * @return Name of the connection to use to connect to the Iceberg target.
      * 
      */
     public Optional<String> connectionName() {
         return Optional.ofNullable(this.connectionName);
     }
     /**
-     * @return A list of glob patterns used to exclude from the crawl.
+     * @return List of glob patterns used to exclude from the crawl.
      * 
      */
     public List<String> exclusions() {
         return this.exclusions == null ? List.of() : this.exclusions;
     }
     /**
-     * @return The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
+     * @return Maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
      * 
      */
     public Integer maximumTraversalDepth() {

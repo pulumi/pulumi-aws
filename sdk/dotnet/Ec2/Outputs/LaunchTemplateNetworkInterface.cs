@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string? AssociateCarrierIpAddress;
         /// <summary>
-        /// Associate a public ip address with the network interface. Boolean value, can be left unset.
+        /// Associate a public IP address with the network interface. Boolean value, can be left unset.
         /// </summary>
         public readonly string? AssociatePublicIpAddress;
         /// <summary>

@@ -69,12 +69,13 @@ namespace Pulumi.Aws.MemoryDb
 
         /// <summary>
         /// ARN of the user.
+        /// * `authentication_mode[0].password_count` - Number of passwords belonging to the user if `Type` is set to `Password`.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Denotes the user's authentication properties. Detailed below.
+        /// Authentication properties for the user. Detailed below.
         /// </summary>
         [Output("authenticationMode")]
         public Output<Outputs.UserAuthenticationMode> AuthenticationMode { get; private set; } = null!;
@@ -92,13 +93,13 @@ namespace Pulumi.Aws.MemoryDb
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -164,7 +165,7 @@ namespace Pulumi.Aws.MemoryDb
         public Input<string> AccessString { get; set; } = null!;
 
         /// <summary>
-        /// Denotes the user's authentication properties. Detailed below.
+        /// Authentication properties for the user. Detailed below.
         /// </summary>
         [Input("authenticationMode", required: true)]
         public Input<Inputs.UserAuthenticationModeArgs> AuthenticationMode { get; set; } = null!;
@@ -179,7 +180,7 @@ namespace Pulumi.Aws.MemoryDb
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -211,12 +212,13 @@ namespace Pulumi.Aws.MemoryDb
 
         /// <summary>
         /// ARN of the user.
+        /// * `authentication_mode[0].password_count` - Number of passwords belonging to the user if `Type` is set to `Password`.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Denotes the user's authentication properties. Detailed below.
+        /// Authentication properties for the user. Detailed below.
         /// </summary>
         [Input("authenticationMode")]
         public Input<Inputs.UserAuthenticationModeGetArgs>? AuthenticationMode { get; set; }
@@ -237,7 +239,7 @@ namespace Pulumi.Aws.MemoryDb
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -249,7 +251,7 @@ namespace Pulumi.Aws.MemoryDb
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

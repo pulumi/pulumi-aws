@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Dms.Inputs
         public Input<int>? ExecuteTimeout { get; set; }
 
         /// <summary>
-        /// Maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
+        /// Maximum size (in KB) of any `.csv` file used to transfer data to a MySQL-compatible database.
         /// </summary>
         [Input("maxFileSize")]
         public Input<int>? MaxFileSize { get; set; }

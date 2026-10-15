@@ -89,14 +89,14 @@ public final class DeploymentGroupState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Autoscaling groups associated with the deployment group.
+     * Auto Scaling groups associated with the deployment group.
      * 
      */
     @Import(name="autoscalingGroups")
     private @Nullable Output<List<String>> autoscalingGroups;
 
     /**
-     * @return Autoscaling groups associated with the deployment group.
+     * @return Auto Scaling groups associated with the deployment group.
      * 
      */
     public Optional<Output<List<String>>> autoscalingGroups() {
@@ -504,7 +504,7 @@ public final class DeploymentGroupState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param autoscalingGroups Autoscaling groups associated with the deployment group.
+         * @param autoscalingGroups Auto Scaling groups associated with the deployment group.
          * 
          * @return builder
          * 
@@ -515,7 +515,7 @@ public final class DeploymentGroupState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param autoscalingGroups Autoscaling groups associated with the deployment group.
+         * @param autoscalingGroups Auto Scaling groups associated with the deployment group.
          * 
          * @return builder
          * 
@@ -525,7 +525,7 @@ public final class DeploymentGroupState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param autoscalingGroups Autoscaling groups associated with the deployment group.
+         * @param autoscalingGroups Auto Scaling groups associated with the deployment group.
          * 
          * @return builder
          * 

@@ -17,43 +17,59 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
     public static final ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsArgs();
 
     /**
-     * Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+     * Number of seconds to wait before retrying a connection to the CDN if the connection is lost.
      * 
      */
     @Import(name="connectionRetryInterval")
     private @Nullable Output<Integer> connectionRetryInterval;
 
     /**
-     * @return Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+     * @return Number of seconds to wait before retrying a connection to the CDN if the connection is lost.
      * 
      */
     public Optional<Output<Integer>> connectionRetryInterval() {
         return Optional.ofNullable(this.connectionRetryInterval);
     }
 
+    /**
+     * Size, in seconds, of the file cache for streaming outputs.
+     * 
+     */
     @Import(name="filecacheDuration")
     private @Nullable Output<Integer> filecacheDuration;
 
+    /**
+     * @return Size, in seconds, of the file cache for streaming outputs.
+     * 
+     */
     public Optional<Output<Integer>> filecacheDuration() {
         return Optional.ofNullable(this.filecacheDuration);
     }
 
+    /**
+     * HTTP transfer mode.
+     * 
+     */
     @Import(name="httpTransferMode")
     private @Nullable Output<String> httpTransferMode;
 
+    /**
+     * @return HTTP transfer mode.
+     * 
+     */
     public Optional<Output<String>> httpTransferMode() {
         return Optional.ofNullable(this.httpTransferMode);
     }
 
     /**
-     * Number of retry attempts.
+     * Number of retry attempts that are made before the channel is put into an error state.
      * 
      */
     @Import(name="numRetries")
     private @Nullable Output<Integer> numRetries;
 
     /**
-     * @return Number of retry attempts.
+     * @return Number of retry attempts that are made before the channel is put into an error state.
      * 
      */
     public Optional<Output<Integer>> numRetries() {
@@ -75,16 +91,32 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         return Optional.ofNullable(this.restartDelay);
     }
 
+    /**
+     * Salt for authenticated Akamai.
+     * 
+     */
     @Import(name="salt")
     private @Nullable Output<String> salt;
 
+    /**
+     * @return Salt for authenticated Akamai.
+     * 
+     */
     public Optional<Output<String>> salt() {
         return Optional.ofNullable(this.salt);
     }
 
+    /**
+     * Token parameter for authenticated Akamai.
+     * 
+     */
     @Import(name="token")
     private @Nullable Output<String> token;
 
+    /**
+     * @return Token parameter for authenticated Akamai.
+     * 
+     */
     public Optional<Output<String>> token() {
         return Optional.ofNullable(this.token);
     }
@@ -120,7 +152,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         }
 
         /**
-         * @param connectionRetryInterval Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+         * @param connectionRetryInterval Number of seconds to wait before retrying a connection to the CDN if the connection is lost.
          * 
          * @return builder
          * 
@@ -131,7 +163,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         }
 
         /**
-         * @param connectionRetryInterval Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+         * @param connectionRetryInterval Number of seconds to wait before retrying a connection to the CDN if the connection is lost.
          * 
          * @return builder
          * 
@@ -140,26 +172,50 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
             return connectionRetryInterval(Output.of(connectionRetryInterval));
         }
 
+        /**
+         * @param filecacheDuration Size, in seconds, of the file cache for streaming outputs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filecacheDuration(@Nullable Output<Integer> filecacheDuration) {
             $.filecacheDuration = filecacheDuration;
             return this;
         }
 
+        /**
+         * @param filecacheDuration Size, in seconds, of the file cache for streaming outputs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filecacheDuration(Integer filecacheDuration) {
             return filecacheDuration(Output.of(filecacheDuration));
         }
 
+        /**
+         * @param httpTransferMode HTTP transfer mode.
+         * 
+         * @return builder
+         * 
+         */
         public Builder httpTransferMode(@Nullable Output<String> httpTransferMode) {
             $.httpTransferMode = httpTransferMode;
             return this;
         }
 
+        /**
+         * @param httpTransferMode HTTP transfer mode.
+         * 
+         * @return builder
+         * 
+         */
         public Builder httpTransferMode(String httpTransferMode) {
             return httpTransferMode(Output.of(httpTransferMode));
         }
 
         /**
-         * @param numRetries Number of retry attempts.
+         * @param numRetries Number of retry attempts that are made before the channel is put into an error state.
          * 
          * @return builder
          * 
@@ -170,7 +226,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         }
 
         /**
-         * @param numRetries Number of retry attempts.
+         * @param numRetries Number of retry attempts that are made before the channel is put into an error state.
          * 
          * @return builder
          * 
@@ -200,20 +256,44 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
             return restartDelay(Output.of(restartDelay));
         }
 
+        /**
+         * @param salt Salt for authenticated Akamai.
+         * 
+         * @return builder
+         * 
+         */
         public Builder salt(@Nullable Output<String> salt) {
             $.salt = salt;
             return this;
         }
 
+        /**
+         * @param salt Salt for authenticated Akamai.
+         * 
+         * @return builder
+         * 
+         */
         public Builder salt(String salt) {
             return salt(Output.of(salt));
         }
 
+        /**
+         * @param token Token parameter for authenticated Akamai.
+         * 
+         * @return builder
+         * 
+         */
         public Builder token(@Nullable Output<String> token) {
             $.token = token;
             return this;
         }
 
+        /**
+         * @param token Token parameter for authenticated Akamai.
+         * 
+         * @return builder
+         * 
+         */
         public Builder token(String token) {
             return token(Output.of(token));
         }

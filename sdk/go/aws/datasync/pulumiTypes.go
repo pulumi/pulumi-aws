@@ -722,7 +722,7 @@ func (o LocationAzureBlobSasConfigurationPtrOutput) Token() pulumi.StringPtrOutp
 type LocationFsxOntapFileSystemProtocol struct {
 	// Network File System (NFS) protocol that DataSync uses to access your FSx ONTAP file system. See NFS below.
 	Nfs *LocationFsxOntapFileSystemProtocolNfs `pulumi:"nfs"`
-	// Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
+	// Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See SMB below.
 	Smb *LocationFsxOntapFileSystemProtocolSmb `pulumi:"smb"`
 }
 
@@ -740,7 +740,7 @@ type LocationFsxOntapFileSystemProtocolInput interface {
 type LocationFsxOntapFileSystemProtocolArgs struct {
 	// Network File System (NFS) protocol that DataSync uses to access your FSx ONTAP file system. See NFS below.
 	Nfs LocationFsxOntapFileSystemProtocolNfsPtrInput `pulumi:"nfs"`
-	// Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
+	// Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See SMB below.
 	Smb LocationFsxOntapFileSystemProtocolSmbPtrInput `pulumi:"smb"`
 }
 
@@ -826,7 +826,7 @@ func (o LocationFsxOntapFileSystemProtocolOutput) Nfs() LocationFsxOntapFileSyst
 	return o.ApplyT(func(v LocationFsxOntapFileSystemProtocol) *LocationFsxOntapFileSystemProtocolNfs { return v.Nfs }).(LocationFsxOntapFileSystemProtocolNfsPtrOutput)
 }
 
-// Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
+// Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See SMB below.
 func (o LocationFsxOntapFileSystemProtocolOutput) Smb() LocationFsxOntapFileSystemProtocolSmbPtrOutput {
 	return o.ApplyT(func(v LocationFsxOntapFileSystemProtocol) *LocationFsxOntapFileSystemProtocolSmb { return v.Smb }).(LocationFsxOntapFileSystemProtocolSmbPtrOutput)
 }
@@ -865,7 +865,7 @@ func (o LocationFsxOntapFileSystemProtocolPtrOutput) Nfs() LocationFsxOntapFileS
 	}).(LocationFsxOntapFileSystemProtocolNfsPtrOutput)
 }
 
-// Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
+// Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See SMB below.
 func (o LocationFsxOntapFileSystemProtocolPtrOutput) Smb() LocationFsxOntapFileSystemProtocolSmbPtrOutput {
 	return o.ApplyT(func(v *LocationFsxOntapFileSystemProtocol) *LocationFsxOntapFileSystemProtocolSmb {
 		if v == nil {

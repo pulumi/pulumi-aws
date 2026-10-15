@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetDirectoryWorkspaceCreationProperty {
     /**
-     * @return The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+     * @return The identifier of your custom security group. Should relate to the same VPC, where WorkSpaces reside in.
      * 
      */
     private String customSecurityGroupId;
@@ -39,7 +39,7 @@ public final class GetDirectoryWorkspaceCreationProperty {
 
     private GetDirectoryWorkspaceCreationProperty() {}
     /**
-     * @return The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+     * @return The identifier of your custom security group. Should relate to the same VPC, where WorkSpaces reside in.
      * 
      */
     public String customSecurityGroupId() {

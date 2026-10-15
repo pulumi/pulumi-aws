@@ -80,7 +80,7 @@ export class InputSecurityGroup extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The list of inputs currently using this InputSecurityGroup.
+     * List of inputs currently using this InputSecurityGroup.
      */
     declare public /*out*/ readonly inputs: pulumi.Output<string[]>;
     /**
@@ -93,7 +93,7 @@ export class InputSecurityGroup extends pulumi.CustomResource {
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * Whitelist rules. See Whitelist Rules for more details.
+     * Whitelist rules. See `whitelistRules` Block for more details.
      *
      * The following arguments are optional:
      */
@@ -144,7 +144,7 @@ export interface InputSecurityGroupState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The list of inputs currently using this InputSecurityGroup.
+     * List of inputs currently using this InputSecurityGroup.
      */
     inputs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -157,7 +157,7 @@ export interface InputSecurityGroupState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Whitelist rules. See Whitelist Rules for more details.
+     * Whitelist rules. See `whitelistRules` Block for more details.
      *
      * The following arguments are optional:
      */
@@ -177,7 +177,7 @@ export interface InputSecurityGroupArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Whitelist rules. See Whitelist Rules for more details.
+     * Whitelist rules. See `whitelistRules` Block for more details.
      *
      * The following arguments are optional:
      */

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings
     {
         /// <summary>
-        /// Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 to the EBU R-128 specification.
+        /// Audio normalization algorithm to use. `Itu17701` conforms to the CALM Act specification; `Itu17702` conforms to the EBU R-128 specification.
         /// </summary>
         public readonly string? Algorithm;
         /// <summary>

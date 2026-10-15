@@ -19,7 +19,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         /// </summary>
         public readonly string? Context;
         /// <summary>
-        /// Specifies the target url of the build status CodeBuild sends to the source provider. The
+        /// Specifies the target URL of the build status CodeBuild sends to the source provider. The
         /// usage of this parameter depends on the source provider.
         /// </summary>
         public readonly string? TargetUrl;

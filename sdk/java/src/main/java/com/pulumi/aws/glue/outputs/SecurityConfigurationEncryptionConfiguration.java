@@ -12,23 +12,39 @@ import java.util.Objects;
 
 @CustomType
 public final class SecurityConfigurationEncryptionConfiguration {
+    /**
+     * @return `cloudwatchEncryption` block as described below, which contains encryption configuration for CloudWatch.
+     * 
+     */
     private SecurityConfigurationEncryptionConfigurationCloudwatchEncryption cloudwatchEncryption;
+    /**
+     * @return `jobBookmarksEncryption` block as described below, which contains encryption configuration for job bookmarks.
+     * 
+     */
     private SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption jobBookmarksEncryption;
     /**
-     * @return A ` s3Encryption  ` block as described below, which contains encryption configuration for S3 data.
+     * @return `s3Encryption` block as described below, which contains encryption configuration for S3 data.
      * 
      */
     private SecurityConfigurationEncryptionConfigurationS3Encryption s3Encryption;
 
     private SecurityConfigurationEncryptionConfiguration() {}
+    /**
+     * @return `cloudwatchEncryption` block as described below, which contains encryption configuration for CloudWatch.
+     * 
+     */
     public SecurityConfigurationEncryptionConfigurationCloudwatchEncryption cloudwatchEncryption() {
         return this.cloudwatchEncryption;
     }
+    /**
+     * @return `jobBookmarksEncryption` block as described below, which contains encryption configuration for job bookmarks.
+     * 
+     */
     public SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption jobBookmarksEncryption() {
         return this.jobBookmarksEncryption;
     }
     /**
-     * @return A ` s3Encryption  ` block as described below, which contains encryption configuration for S3 data.
+     * @return `s3Encryption` block as described below, which contains encryption configuration for S3 data.
      * 
      */
     public SecurityConfigurationEncryptionConfigurationS3Encryption s3Encryption() {

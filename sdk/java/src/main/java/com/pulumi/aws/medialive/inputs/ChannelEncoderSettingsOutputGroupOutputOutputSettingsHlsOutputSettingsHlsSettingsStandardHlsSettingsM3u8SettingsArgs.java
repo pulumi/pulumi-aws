@@ -16,129 +16,257 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
 
     public static final ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs();
 
+    /**
+     * Number of audio frames to insert for each PES packet.
+     * 
+     */
     @Import(name="audioFramesPerPes")
     private @Nullable Output<Integer> audioFramesPerPes;
 
+    /**
+     * @return Number of audio frames to insert for each PES packet.
+     * 
+     */
     public Optional<Output<Integer>> audioFramesPerPes() {
         return Optional.ofNullable(this.audioFramesPerPes);
     }
 
+    /**
+     * Packet identifier (PID) of the elementary audio streams in the transport stream.
+     * 
+     */
     @Import(name="audioPids")
     private @Nullable Output<String> audioPids;
 
+    /**
+     * @return Packet identifier (PID) of the elementary audio streams in the transport stream.
+     * 
+     */
     public Optional<Output<String>> audioPids() {
         return Optional.ofNullable(this.audioPids);
     }
 
+    /**
+     * Packet identifier (PID) for ECM in the transport stream.
+     * 
+     */
     @Import(name="ecmPid")
     private @Nullable Output<String> ecmPid;
 
+    /**
+     * @return Packet identifier (PID) for ECM in the transport stream.
+     * 
+     */
     public Optional<Output<String>> ecmPid() {
         return Optional.ofNullable(this.ecmPid);
     }
 
+    /**
+     * When set to `passthrough`, passes through Nielsen ID3.
+     * 
+     */
     @Import(name="nielsenId3Behavior")
     private @Nullable Output<String> nielsenId3Behavior;
 
+    /**
+     * @return When set to `passthrough`, passes through Nielsen ID3.
+     * 
+     */
     public Optional<Output<String>> nielsenId3Behavior() {
         return Optional.ofNullable(this.nielsenId3Behavior);
     }
 
+    /**
+     * Number of milliseconds between instances of this table in the output transport stream.
+     * 
+     */
     @Import(name="patInterval")
     private @Nullable Output<Integer> patInterval;
 
+    /**
+     * @return Number of milliseconds between instances of this table in the output transport stream.
+     * 
+     */
     public Optional<Output<Integer>> patInterval() {
         return Optional.ofNullable(this.patInterval);
     }
 
+    /**
+     * When set to `pcrEveryPesPacket`, a Program Clock Reference value is inserted for every Packetized Elementary Stream.
+     * 
+     */
     @Import(name="pcrControl")
     private @Nullable Output<String> pcrControl;
 
+    /**
+     * @return When set to `pcrEveryPesPacket`, a Program Clock Reference value is inserted for every Packetized Elementary Stream.
+     * 
+     */
     public Optional<Output<String>> pcrControl() {
         return Optional.ofNullable(this.pcrControl);
     }
 
+    /**
+     * Maximum time, in milliseconds, between Program Clock References.
+     * 
+     */
     @Import(name="pcrPeriod")
     private @Nullable Output<Integer> pcrPeriod;
 
+    /**
+     * @return Maximum time, in milliseconds, between Program Clock References.
+     * 
+     */
     public Optional<Output<Integer>> pcrPeriod() {
         return Optional.ofNullable(this.pcrPeriod);
     }
 
+    /**
+     * Packet identifier (PID) of the Program Clock Reference in the transport stream.
+     * 
+     */
     @Import(name="pcrPid")
     private @Nullable Output<String> pcrPid;
 
+    /**
+     * @return Packet identifier (PID) of the Program Clock Reference in the transport stream.
+     * 
+     */
     public Optional<Output<String>> pcrPid() {
         return Optional.ofNullable(this.pcrPid);
     }
 
+    /**
+     * Number of milliseconds between instances of this table in the output transport stream.
+     * 
+     */
     @Import(name="pmtInterval")
     private @Nullable Output<Integer> pmtInterval;
 
+    /**
+     * @return Number of milliseconds between instances of this table in the output transport stream.
+     * 
+     */
     public Optional<Output<Integer>> pmtInterval() {
         return Optional.ofNullable(this.pmtInterval);
     }
 
+    /**
+     * Packet identifier (PID) for the Program Map Table in the transport stream.
+     * 
+     */
     @Import(name="pmtPid")
     private @Nullable Output<String> pmtPid;
 
+    /**
+     * @return Packet identifier (PID) for the Program Map Table in the transport stream.
+     * 
+     */
     public Optional<Output<String>> pmtPid() {
         return Optional.ofNullable(this.pmtPid);
     }
 
+    /**
+     * Value of the program number field in the Program Map Table.
+     * 
+     */
     @Import(name="programNum")
     private @Nullable Output<Integer> programNum;
 
+    /**
+     * @return Value of the program number field in the Program Map Table.
+     * 
+     */
     public Optional<Output<Integer>> programNum() {
         return Optional.ofNullable(this.programNum);
     }
 
+    /**
+     * When set to `passthrough`, passes through SCTE-35.
+     * 
+     */
     @Import(name="scte35Behavior")
     private @Nullable Output<String> scte35Behavior;
 
+    /**
+     * @return When set to `passthrough`, passes through SCTE-35.
+     * 
+     */
     public Optional<Output<String>> scte35Behavior() {
         return Optional.ofNullable(this.scte35Behavior);
     }
 
     /**
-     * PID from which to read SCTE-35 messages.
+     * Packet identifier (PID) of the SCTE-35 stream in the transport stream.
      * 
      */
     @Import(name="scte35Pid")
     private @Nullable Output<String> scte35Pid;
 
     /**
-     * @return PID from which to read SCTE-35 messages.
+     * @return Packet identifier (PID) of the SCTE-35 stream in the transport stream.
      * 
      */
     public Optional<Output<String>> scte35Pid() {
         return Optional.ofNullable(this.scte35Pid);
     }
 
+    /**
+     * When set to `passthrough`, passes through timed metadata.
+     * 
+     */
     @Import(name="timedMetadataBehavior")
     private @Nullable Output<String> timedMetadataBehavior;
 
+    /**
+     * @return When set to `passthrough`, passes through timed metadata.
+     * 
+     */
     public Optional<Output<String>> timedMetadataBehavior() {
         return Optional.ofNullable(this.timedMetadataBehavior);
     }
 
+    /**
+     * Packet identifier (PID) of the timed metadata stream in the transport stream.
+     * 
+     */
     @Import(name="timedMetadataPid")
     private @Nullable Output<String> timedMetadataPid;
 
+    /**
+     * @return Packet identifier (PID) of the timed metadata stream in the transport stream.
+     * 
+     */
     public Optional<Output<String>> timedMetadataPid() {
         return Optional.ofNullable(this.timedMetadataPid);
     }
 
+    /**
+     * Value of the transport stream ID field in the Program Map Table.
+     * 
+     */
     @Import(name="transportStreamId")
     private @Nullable Output<Integer> transportStreamId;
 
+    /**
+     * @return Value of the transport stream ID field in the Program Map Table.
+     * 
+     */
     public Optional<Output<Integer>> transportStreamId() {
         return Optional.ofNullable(this.transportStreamId);
     }
 
+    /**
+     * Packet identifier (PID) of the elementary video stream in the transport stream.
+     * 
+     */
     @Import(name="videoPid")
     private @Nullable Output<String> videoPid;
 
+    /**
+     * @return Packet identifier (PID) of the elementary video stream in the transport stream.
+     * 
+     */
     public Optional<Output<String>> videoPid() {
         return Optional.ofNullable(this.videoPid);
     }
@@ -183,116 +311,260 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
             $ = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param audioFramesPerPes Number of audio frames to insert for each PES packet.
+         * 
+         * @return builder
+         * 
+         */
         public Builder audioFramesPerPes(@Nullable Output<Integer> audioFramesPerPes) {
             $.audioFramesPerPes = audioFramesPerPes;
             return this;
         }
 
+        /**
+         * @param audioFramesPerPes Number of audio frames to insert for each PES packet.
+         * 
+         * @return builder
+         * 
+         */
         public Builder audioFramesPerPes(Integer audioFramesPerPes) {
             return audioFramesPerPes(Output.of(audioFramesPerPes));
         }
 
+        /**
+         * @param audioPids Packet identifier (PID) of the elementary audio streams in the transport stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder audioPids(@Nullable Output<String> audioPids) {
             $.audioPids = audioPids;
             return this;
         }
 
+        /**
+         * @param audioPids Packet identifier (PID) of the elementary audio streams in the transport stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder audioPids(String audioPids) {
             return audioPids(Output.of(audioPids));
         }
 
+        /**
+         * @param ecmPid Packet identifier (PID) for ECM in the transport stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ecmPid(@Nullable Output<String> ecmPid) {
             $.ecmPid = ecmPid;
             return this;
         }
 
+        /**
+         * @param ecmPid Packet identifier (PID) for ECM in the transport stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ecmPid(String ecmPid) {
             return ecmPid(Output.of(ecmPid));
         }
 
+        /**
+         * @param nielsenId3Behavior When set to `passthrough`, passes through Nielsen ID3.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nielsenId3Behavior(@Nullable Output<String> nielsenId3Behavior) {
             $.nielsenId3Behavior = nielsenId3Behavior;
             return this;
         }
 
+        /**
+         * @param nielsenId3Behavior When set to `passthrough`, passes through Nielsen ID3.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nielsenId3Behavior(String nielsenId3Behavior) {
             return nielsenId3Behavior(Output.of(nielsenId3Behavior));
         }
 
+        /**
+         * @param patInterval Number of milliseconds between instances of this table in the output transport stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder patInterval(@Nullable Output<Integer> patInterval) {
             $.patInterval = patInterval;
             return this;
         }
 
+        /**
+         * @param patInterval Number of milliseconds between instances of this table in the output transport stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder patInterval(Integer patInterval) {
             return patInterval(Output.of(patInterval));
         }
 
+        /**
+         * @param pcrControl When set to `pcrEveryPesPacket`, a Program Clock Reference value is inserted for every Packetized Elementary Stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pcrControl(@Nullable Output<String> pcrControl) {
             $.pcrControl = pcrControl;
             return this;
         }
 
+        /**
+         * @param pcrControl When set to `pcrEveryPesPacket`, a Program Clock Reference value is inserted for every Packetized Elementary Stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pcrControl(String pcrControl) {
             return pcrControl(Output.of(pcrControl));
         }
 
+        /**
+         * @param pcrPeriod Maximum time, in milliseconds, between Program Clock References.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pcrPeriod(@Nullable Output<Integer> pcrPeriod) {
             $.pcrPeriod = pcrPeriod;
             return this;
         }
 
+        /**
+         * @param pcrPeriod Maximum time, in milliseconds, between Program Clock References.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pcrPeriod(Integer pcrPeriod) {
             return pcrPeriod(Output.of(pcrPeriod));
         }
 
+        /**
+         * @param pcrPid Packet identifier (PID) of the Program Clock Reference in the transport stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pcrPid(@Nullable Output<String> pcrPid) {
             $.pcrPid = pcrPid;
             return this;
         }
 
+        /**
+         * @param pcrPid Packet identifier (PID) of the Program Clock Reference in the transport stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pcrPid(String pcrPid) {
             return pcrPid(Output.of(pcrPid));
         }
 
+        /**
+         * @param pmtInterval Number of milliseconds between instances of this table in the output transport stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pmtInterval(@Nullable Output<Integer> pmtInterval) {
             $.pmtInterval = pmtInterval;
             return this;
         }
 
+        /**
+         * @param pmtInterval Number of milliseconds between instances of this table in the output transport stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pmtInterval(Integer pmtInterval) {
             return pmtInterval(Output.of(pmtInterval));
         }
 
+        /**
+         * @param pmtPid Packet identifier (PID) for the Program Map Table in the transport stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pmtPid(@Nullable Output<String> pmtPid) {
             $.pmtPid = pmtPid;
             return this;
         }
 
+        /**
+         * @param pmtPid Packet identifier (PID) for the Program Map Table in the transport stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pmtPid(String pmtPid) {
             return pmtPid(Output.of(pmtPid));
         }
 
+        /**
+         * @param programNum Value of the program number field in the Program Map Table.
+         * 
+         * @return builder
+         * 
+         */
         public Builder programNum(@Nullable Output<Integer> programNum) {
             $.programNum = programNum;
             return this;
         }
 
+        /**
+         * @param programNum Value of the program number field in the Program Map Table.
+         * 
+         * @return builder
+         * 
+         */
         public Builder programNum(Integer programNum) {
             return programNum(Output.of(programNum));
         }
 
+        /**
+         * @param scte35Behavior When set to `passthrough`, passes through SCTE-35.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scte35Behavior(@Nullable Output<String> scte35Behavior) {
             $.scte35Behavior = scte35Behavior;
             return this;
         }
 
+        /**
+         * @param scte35Behavior When set to `passthrough`, passes through SCTE-35.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scte35Behavior(String scte35Behavior) {
             return scte35Behavior(Output.of(scte35Behavior));
         }
 
         /**
-         * @param scte35Pid PID from which to read SCTE-35 messages.
+         * @param scte35Pid Packet identifier (PID) of the SCTE-35 stream in the transport stream.
          * 
          * @return builder
          * 
@@ -303,7 +575,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
         }
 
         /**
-         * @param scte35Pid PID from which to read SCTE-35 messages.
+         * @param scte35Pid Packet identifier (PID) of the SCTE-35 stream in the transport stream.
          * 
          * @return builder
          * 
@@ -312,38 +584,86 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
             return scte35Pid(Output.of(scte35Pid));
         }
 
+        /**
+         * @param timedMetadataBehavior When set to `passthrough`, passes through timed metadata.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timedMetadataBehavior(@Nullable Output<String> timedMetadataBehavior) {
             $.timedMetadataBehavior = timedMetadataBehavior;
             return this;
         }
 
+        /**
+         * @param timedMetadataBehavior When set to `passthrough`, passes through timed metadata.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timedMetadataBehavior(String timedMetadataBehavior) {
             return timedMetadataBehavior(Output.of(timedMetadataBehavior));
         }
 
+        /**
+         * @param timedMetadataPid Packet identifier (PID) of the timed metadata stream in the transport stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timedMetadataPid(@Nullable Output<String> timedMetadataPid) {
             $.timedMetadataPid = timedMetadataPid;
             return this;
         }
 
+        /**
+         * @param timedMetadataPid Packet identifier (PID) of the timed metadata stream in the transport stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timedMetadataPid(String timedMetadataPid) {
             return timedMetadataPid(Output.of(timedMetadataPid));
         }
 
+        /**
+         * @param transportStreamId Value of the transport stream ID field in the Program Map Table.
+         * 
+         * @return builder
+         * 
+         */
         public Builder transportStreamId(@Nullable Output<Integer> transportStreamId) {
             $.transportStreamId = transportStreamId;
             return this;
         }
 
+        /**
+         * @param transportStreamId Value of the transport stream ID field in the Program Map Table.
+         * 
+         * @return builder
+         * 
+         */
         public Builder transportStreamId(Integer transportStreamId) {
             return transportStreamId(Output.of(transportStreamId));
         }
 
+        /**
+         * @param videoPid Packet identifier (PID) of the elementary video stream in the transport stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder videoPid(@Nullable Output<String> videoPid) {
             $.videoPid = videoPid;
             return this;
         }
 
+        /**
+         * @param videoPid Packet identifier (PID) of the elementary video stream in the transport stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder videoPid(String videoPid) {
             return videoPid(Output.of(videoPid));
         }

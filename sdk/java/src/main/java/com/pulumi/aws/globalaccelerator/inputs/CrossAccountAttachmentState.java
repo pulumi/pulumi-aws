@@ -98,14 +98,14 @@ public final class CrossAccountAttachmentState extends com.pulumi.resources.Reso
     }
 
     /**
-     * List of resources to be associated with the accelerator.
+     * List of resources to be associated with the accelerator. See `resource` below.
      * 
      */
     @Import(name="resources")
     private @Nullable Output<List<CrossAccountAttachmentResourceArgs>> resources;
 
     /**
-     * @return List of resources to be associated with the accelerator.
+     * @return List of resources to be associated with the accelerator. See `resource` below.
      * 
      */
     public Optional<Output<List<CrossAccountAttachmentResourceArgs>>> resources() {
@@ -113,14 +113,14 @@ public final class CrossAccountAttachmentState extends com.pulumi.resources.Reso
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -128,14 +128,14 @@ public final class CrossAccountAttachmentState extends com.pulumi.resources.Reso
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -293,7 +293,7 @@ public final class CrossAccountAttachmentState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param resources List of resources to be associated with the accelerator.
+         * @param resources List of resources to be associated with the accelerator. See `resource` below.
          * 
          * @return builder
          * 
@@ -304,7 +304,7 @@ public final class CrossAccountAttachmentState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param resources List of resources to be associated with the accelerator.
+         * @param resources List of resources to be associated with the accelerator. See `resource` below.
          * 
          * @return builder
          * 
@@ -314,7 +314,7 @@ public final class CrossAccountAttachmentState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param resources List of resources to be associated with the accelerator.
+         * @param resources List of resources to be associated with the accelerator. See `resource` below.
          * 
          * @return builder
          * 
@@ -324,7 +324,7 @@ public final class CrossAccountAttachmentState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -335,7 +335,7 @@ public final class CrossAccountAttachmentState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -345,7 +345,7 @@ public final class CrossAccountAttachmentState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -356,7 +356,7 @@ public final class CrossAccountAttachmentState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

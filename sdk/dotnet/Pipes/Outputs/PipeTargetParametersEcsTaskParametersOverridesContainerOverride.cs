@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Pipes.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Commands;
         /// <summary>
-        /// Number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
+        /// Number of CPU units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
         /// </summary>
         public readonly int? Cpu;
         /// <summary>

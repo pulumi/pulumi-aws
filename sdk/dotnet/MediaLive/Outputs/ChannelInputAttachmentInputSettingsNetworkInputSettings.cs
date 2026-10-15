@@ -14,7 +14,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelInputAttachmentInputSettingsNetworkInputSettings
     {
         /// <summary>
-        /// Specifies HLS input settings when the uri is for a HLS manifest. See HLS Input Settings for more details.
+        /// HLS input settings when the URI is for an HLS manifest. See `HlsInputSettings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettings? HlsInputSettings;
         /// <summary>

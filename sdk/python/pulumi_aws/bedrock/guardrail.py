@@ -42,7 +42,7 @@ class GuardrailArgs:
         :param pulumi.Input[_builtins.str] blocked_outputs_messaging: Message to return when the guardrail blocks a model response.
         :param pulumi.Input['GuardrailContentPolicyConfigArgs'] content_policy_config: Content policy config for a guardrail. See `content_policy_config` Block for more information.
         :param pulumi.Input['GuardrailContextualGroundingPolicyConfigArgs'] contextual_grounding_policy_config: Contextual grounding policy config for a guardrail. See `contextual_grounding_policy_config` Block for more information.
-        :param pulumi.Input['GuardrailCrossRegionConfigArgs'] cross_region_config: Configuration block to enable cross-region routing for bedrock guardrails. See `cross_region_config` Block for more information. Note see [available regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) here.
+        :param pulumi.Input['GuardrailCrossRegionConfigArgs'] cross_region_config: Configuration block to enable cross-region routing for bedrock guardrails. See `cross_region_config` Block for more information. See [available Regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region-support.html).
         :param pulumi.Input[_builtins.str] description: Description of the guardrail or its version.
         :param pulumi.Input[_builtins.str] kms_key_arn: KMS key with which the guardrail was encrypted at rest.
         :param pulumi.Input[_builtins.str] name: Name of the guardrail.
@@ -133,7 +133,7 @@ class GuardrailArgs:
     @pulumi.getter(name="crossRegionConfig")
     def cross_region_config(self) -> pulumi.Input[Optional['GuardrailCrossRegionConfigArgs']]:
         """
-        Configuration block to enable cross-region routing for bedrock guardrails. See `cross_region_config` Block for more information. Note see [available regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) here.
+        Configuration block to enable cross-region routing for bedrock guardrails. See `cross_region_config` Block for more information. See [available Regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region-support.html).
         """
         return pulumi.get(self, "cross_region_config")
 
@@ -280,8 +280,8 @@ class _GuardrailState:
         :param pulumi.Input[_builtins.str] blocked_outputs_messaging: Message to return when the guardrail blocks a model response.
         :param pulumi.Input['GuardrailContentPolicyConfigArgs'] content_policy_config: Content policy config for a guardrail. See `content_policy_config` Block for more information.
         :param pulumi.Input['GuardrailContextualGroundingPolicyConfigArgs'] contextual_grounding_policy_config: Contextual grounding policy config for a guardrail. See `contextual_grounding_policy_config` Block for more information.
-        :param pulumi.Input[_builtins.str] created_at: Unix epoch timestamp in seconds for when the Guardrail was created.
-        :param pulumi.Input['GuardrailCrossRegionConfigArgs'] cross_region_config: Configuration block to enable cross-region routing for bedrock guardrails. See `cross_region_config` Block for more information. Note see [available regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) here.
+        :param pulumi.Input[_builtins.str] created_at: Date and time the Guardrail was created, in RFC3339 format.
+        :param pulumi.Input['GuardrailCrossRegionConfigArgs'] cross_region_config: Configuration block to enable cross-region routing for bedrock guardrails. See `cross_region_config` Block for more information. See [available Regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region-support.html).
         :param pulumi.Input[_builtins.str] description: Description of the guardrail or its version.
         :param pulumi.Input[_builtins.str] guardrail_arn: ARN of the Guardrail.
         :param pulumi.Input[_builtins.str] guardrail_id: ID of the Guardrail.
@@ -291,10 +291,11 @@ class _GuardrailState:
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['GuardrailSensitiveInformationPolicyConfigArgs'] sensitive_information_policy_config: Sensitive information policy config for a guardrail. See `sensitive_information_policy_config` Block for more information.
-        :param pulumi.Input[_builtins.str] status: Status of the Bedrock Guardrail. One of `READY`, `FAILED`.
+        :param pulumi.Input[_builtins.str] status: Status of the Bedrock Guardrail.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['GuardrailTopicPolicyConfigArgs'] topic_policy_config: Topic policy config for a guardrail. See `topic_policy_config` Block for more information.
-        :param pulumi.Input[_builtins.str] updated_at: Date and time that the Guardrail list was last updated.
+        :param pulumi.Input[_builtins.str] updated_at: Date and time that the Guardrail was last updated, in RFC3339 format.
         :param pulumi.Input[_builtins.str] version: Version of the Guardrail.
         :param pulumi.Input['GuardrailWordPolicyConfigArgs'] word_policy_config: Word policy config for a guardrail. See `word_policy_config` Block for more information.
         """
@@ -393,7 +394,7 @@ class _GuardrailState:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Unix epoch timestamp in seconds for when the Guardrail was created.
+        Date and time the Guardrail was created, in RFC3339 format.
         """
         return pulumi.get(self, "created_at")
 
@@ -405,7 +406,7 @@ class _GuardrailState:
     @pulumi.getter(name="crossRegionConfig")
     def cross_region_config(self) -> pulumi.Input[Optional['GuardrailCrossRegionConfigArgs']]:
         """
-        Configuration block to enable cross-region routing for bedrock guardrails. See `cross_region_config` Block for more information. Note see [available regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) here.
+        Configuration block to enable cross-region routing for bedrock guardrails. See `cross_region_config` Block for more information. See [available Regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region-support.html).
         """
         return pulumi.get(self, "cross_region_config")
 
@@ -503,7 +504,7 @@ class _GuardrailState:
     @pulumi.getter
     def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Status of the Bedrock Guardrail. One of `READY`, `FAILED`.
+        Status of the Bedrock Guardrail.
         """
         return pulumi.get(self, "status")
 
@@ -526,6 +527,9 @@ class _GuardrailState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -557,7 +561,7 @@ class _GuardrailState:
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Date and time that the Guardrail list was last updated.
+        Date and time that the Guardrail was last updated, in RFC3339 format.
         """
         return pulumi.get(self, "updated_at")
 
@@ -612,7 +616,7 @@ class Guardrail(pulumi.CustomResource):
                  word_policy_config: pulumi.Input[Optional[Union['GuardrailWordPolicyConfigArgs', 'GuardrailWordPolicyConfigArgsDict', 'outputs.GuardrailWordPolicyConfig']]] = None,
                  __props__=None):
         """
-        Resource for managing an Amazon Bedrock Guardrail.
+        Manages an Amazon Bedrock Guardrail.
 
         ## Example Usage
 
@@ -630,7 +634,7 @@ class Guardrail(pulumi.CustomResource):
                     "type": "HATE",
                 }],
                 "tier_configs": [{
-                    "tier_name": "STANDARD",
+                    "tier_name": "CLASSIC",
                 }],
             },
             sensitive_information_policy_config={
@@ -680,7 +684,7 @@ class Guardrail(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Amazon Bedrock Guardrail using using a comma-delimited string of `guardrail_id` and `version`. For example:
+        Using `pulumi import`, import Amazon Bedrock Guardrail using a comma-delimited string of `guardrail_id` and `version`. For example:
 
         ```sh
         $ pulumi import aws:bedrock/guardrail:Guardrail example guardrail-id-12345678,DRAFT
@@ -693,7 +697,7 @@ class Guardrail(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] blocked_outputs_messaging: Message to return when the guardrail blocks a model response.
         :param pulumi.Input[Union['GuardrailContentPolicyConfigArgs', 'GuardrailContentPolicyConfigArgsDict', 'outputs.GuardrailContentPolicyConfig']] content_policy_config: Content policy config for a guardrail. See `content_policy_config` Block for more information.
         :param pulumi.Input[Union['GuardrailContextualGroundingPolicyConfigArgs', 'GuardrailContextualGroundingPolicyConfigArgsDict', 'outputs.GuardrailContextualGroundingPolicyConfig']] contextual_grounding_policy_config: Contextual grounding policy config for a guardrail. See `contextual_grounding_policy_config` Block for more information.
-        :param pulumi.Input[Union['GuardrailCrossRegionConfigArgs', 'GuardrailCrossRegionConfigArgsDict', 'outputs.GuardrailCrossRegionConfig']] cross_region_config: Configuration block to enable cross-region routing for bedrock guardrails. See `cross_region_config` Block for more information. Note see [available regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) here.
+        :param pulumi.Input[Union['GuardrailCrossRegionConfigArgs', 'GuardrailCrossRegionConfigArgsDict', 'outputs.GuardrailCrossRegionConfig']] cross_region_config: Configuration block to enable cross-region routing for bedrock guardrails. See `cross_region_config` Block for more information. See [available Regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region-support.html).
         :param pulumi.Input[_builtins.str] description: Description of the guardrail or its version.
         :param pulumi.Input[_builtins.str] kms_key_arn: KMS key with which the guardrail was encrypted at rest.
         :param pulumi.Input[_builtins.str] name: Name of the guardrail.
@@ -712,7 +716,7 @@ class Guardrail(pulumi.CustomResource):
                  args: GuardrailArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an Amazon Bedrock Guardrail.
+        Manages an Amazon Bedrock Guardrail.
 
         ## Example Usage
 
@@ -730,7 +734,7 @@ class Guardrail(pulumi.CustomResource):
                     "type": "HATE",
                 }],
                 "tier_configs": [{
-                    "tier_name": "STANDARD",
+                    "tier_name": "CLASSIC",
                 }],
             },
             sensitive_information_policy_config={
@@ -780,7 +784,7 @@ class Guardrail(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Amazon Bedrock Guardrail using using a comma-delimited string of `guardrail_id` and `version`. For example:
+        Using `pulumi import`, import Amazon Bedrock Guardrail using a comma-delimited string of `guardrail_id` and `version`. For example:
 
         ```sh
         $ pulumi import aws:bedrock/guardrail:Guardrail example guardrail-id-12345678,DRAFT
@@ -892,8 +896,8 @@ class Guardrail(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] blocked_outputs_messaging: Message to return when the guardrail blocks a model response.
         :param pulumi.Input[Union['GuardrailContentPolicyConfigArgs', 'GuardrailContentPolicyConfigArgsDict', 'outputs.GuardrailContentPolicyConfig']] content_policy_config: Content policy config for a guardrail. See `content_policy_config` Block for more information.
         :param pulumi.Input[Union['GuardrailContextualGroundingPolicyConfigArgs', 'GuardrailContextualGroundingPolicyConfigArgsDict', 'outputs.GuardrailContextualGroundingPolicyConfig']] contextual_grounding_policy_config: Contextual grounding policy config for a guardrail. See `contextual_grounding_policy_config` Block for more information.
-        :param pulumi.Input[_builtins.str] created_at: Unix epoch timestamp in seconds for when the Guardrail was created.
-        :param pulumi.Input[Union['GuardrailCrossRegionConfigArgs', 'GuardrailCrossRegionConfigArgsDict', 'outputs.GuardrailCrossRegionConfig']] cross_region_config: Configuration block to enable cross-region routing for bedrock guardrails. See `cross_region_config` Block for more information. Note see [available regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) here.
+        :param pulumi.Input[_builtins.str] created_at: Date and time the Guardrail was created, in RFC3339 format.
+        :param pulumi.Input[Union['GuardrailCrossRegionConfigArgs', 'GuardrailCrossRegionConfigArgsDict', 'outputs.GuardrailCrossRegionConfig']] cross_region_config: Configuration block to enable cross-region routing for bedrock guardrails. See `cross_region_config` Block for more information. See [available Regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region-support.html).
         :param pulumi.Input[_builtins.str] description: Description of the guardrail or its version.
         :param pulumi.Input[_builtins.str] guardrail_arn: ARN of the Guardrail.
         :param pulumi.Input[_builtins.str] guardrail_id: ID of the Guardrail.
@@ -903,10 +907,11 @@ class Guardrail(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['GuardrailSensitiveInformationPolicyConfigArgs', 'GuardrailSensitiveInformationPolicyConfigArgsDict', 'outputs.GuardrailSensitiveInformationPolicyConfig']] sensitive_information_policy_config: Sensitive information policy config for a guardrail. See `sensitive_information_policy_config` Block for more information.
-        :param pulumi.Input[_builtins.str] status: Status of the Bedrock Guardrail. One of `READY`, `FAILED`.
+        :param pulumi.Input[_builtins.str] status: Status of the Bedrock Guardrail.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Union['GuardrailTopicPolicyConfigArgs', 'GuardrailTopicPolicyConfigArgsDict', 'outputs.GuardrailTopicPolicyConfig']] topic_policy_config: Topic policy config for a guardrail. See `topic_policy_config` Block for more information.
-        :param pulumi.Input[_builtins.str] updated_at: Date and time that the Guardrail list was last updated.
+        :param pulumi.Input[_builtins.str] updated_at: Date and time that the Guardrail was last updated, in RFC3339 format.
         :param pulumi.Input[_builtins.str] version: Version of the Guardrail.
         :param pulumi.Input[Union['GuardrailWordPolicyConfigArgs', 'GuardrailWordPolicyConfigArgsDict', 'outputs.GuardrailWordPolicyConfig']] word_policy_config: Word policy config for a guardrail. See `word_policy_config` Block for more information.
         """
@@ -973,7 +978,7 @@ class Guardrail(pulumi.CustomResource):
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:
         """
-        Unix epoch timestamp in seconds for when the Guardrail was created.
+        Date and time the Guardrail was created, in RFC3339 format.
         """
         return pulumi.get(self, "created_at")
 
@@ -981,7 +986,7 @@ class Guardrail(pulumi.CustomResource):
     @pulumi.getter(name="crossRegionConfig")
     def cross_region_config(self) -> pulumi.Output[Optional['outputs.GuardrailCrossRegionConfig']]:
         """
-        Configuration block to enable cross-region routing for bedrock guardrails. See `cross_region_config` Block for more information. Note see [available regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html) here.
+        Configuration block to enable cross-region routing for bedrock guardrails. See `cross_region_config` Block for more information. See [available Regions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region-support.html).
         """
         return pulumi.get(self, "cross_region_config")
 
@@ -1047,7 +1052,7 @@ class Guardrail(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
         """
-        Status of the Bedrock Guardrail. One of `READY`, `FAILED`.
+        Status of the Bedrock Guardrail.
         """
         return pulumi.get(self, "status")
 
@@ -1062,6 +1067,9 @@ class Guardrail(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
@@ -1081,7 +1089,7 @@ class Guardrail(pulumi.CustomResource):
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[_builtins.str]:
         """
-        Date and time that the Guardrail list was last updated.
+        Date and time that the Guardrail was last updated, in RFC3339 format.
         """
         return pulumi.get(self, "updated_at")
 

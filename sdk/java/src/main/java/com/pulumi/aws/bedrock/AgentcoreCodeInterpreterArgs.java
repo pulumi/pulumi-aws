@@ -52,14 +52,14 @@ public final class AgentcoreCodeInterpreterArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
+     * ARN of the IAM role that the code interpreter assumes for execution.
      * 
      */
     @Import(name="executionRoleArn")
     private @Nullable Output<String> executionRoleArn;
 
     /**
-     * @return ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
+     * @return ARN of the IAM role that the code interpreter assumes for execution.
      * 
      */
     public Optional<Output<String>> executionRoleArn() {
@@ -221,7 +221,7 @@ public final class AgentcoreCodeInterpreterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param executionRoleArn ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
+         * @param executionRoleArn ARN of the IAM role that the code interpreter assumes for execution.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class AgentcoreCodeInterpreterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param executionRoleArn ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
+         * @param executionRoleArn ARN of the IAM role that the code interpreter assumes for execution.
          * 
          * @return builder
          * 

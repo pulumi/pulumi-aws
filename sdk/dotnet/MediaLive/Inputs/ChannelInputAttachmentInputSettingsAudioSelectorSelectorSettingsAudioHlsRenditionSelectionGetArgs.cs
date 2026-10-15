@@ -13,13 +13,13 @@ namespace Pulumi.Aws.MediaLive.Inputs
     public sealed class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the GROUP-ID in the #EXT-X-MEDIA tag of the target HLS audio rendition.
+        /// GROUP-ID in the `#EXT-X-MEDIA` tag of the target HLS audio rendition.
         /// </summary>
         [Input("groupId", required: true)]
         public Input<string> GroupId { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the NAME in the #EXT-X-MEDIA tag of the target HLS audio rendition.
+        /// NAME in the `#EXT-X-MEDIA` tag of the target HLS audio rendition.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

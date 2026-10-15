@@ -16,7 +16,7 @@ public final class GetRegistryResult {
      */
     private String arn;
     /**
-     * @return A description of the registry.
+     * @return Description of the registry.
      * 
      */
     private String description;
@@ -32,7 +32,7 @@ public final class GetRegistryResult {
         return this.arn;
     }
     /**
-     * @return A description of the registry.
+     * @return Description of the registry.
      * 
      */
     public String description() {

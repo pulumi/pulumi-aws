@@ -87,15 +87,15 @@ import (
 type RoleAssociation struct {
 	pulumi.CustomResourceState
 
-	// The AWS SSO group ids to be assigned the role given in `role`.
+	// AWS SSO group IDs to be assigned the role given in `role`.
 	GroupIds pulumi.StringArrayOutput `pulumi:"groupIds"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
+	// Grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
 	Role pulumi.StringOutput `pulumi:"role"`
-	// The AWS SSO user ids to be assigned the role given in `role`.
+	// AWS SSO user IDs to be assigned the role given in `role`.
 	UserIds pulumi.StringArrayOutput `pulumi:"userIds"`
-	// The workspace id.
+	// Workspace ID.
 	//
 	// The following arguments are optional:
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
@@ -137,30 +137,30 @@ func GetRoleAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RoleAssociation resources.
 type roleAssociationState struct {
-	// The AWS SSO group ids to be assigned the role given in `role`.
+	// AWS SSO group IDs to be assigned the role given in `role`.
 	GroupIds []string `pulumi:"groupIds"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
+	// Grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
 	Role *string `pulumi:"role"`
-	// The AWS SSO user ids to be assigned the role given in `role`.
+	// AWS SSO user IDs to be assigned the role given in `role`.
 	UserIds []string `pulumi:"userIds"`
-	// The workspace id.
+	// Workspace ID.
 	//
 	// The following arguments are optional:
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
 type RoleAssociationState struct {
-	// The AWS SSO group ids to be assigned the role given in `role`.
+	// AWS SSO group IDs to be assigned the role given in `role`.
 	GroupIds pulumi.StringArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
+	// Grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
 	Role pulumi.StringPtrInput
-	// The AWS SSO user ids to be assigned the role given in `role`.
+	// AWS SSO user IDs to be assigned the role given in `role`.
 	UserIds pulumi.StringArrayInput
-	// The workspace id.
+	// Workspace ID.
 	//
 	// The following arguments are optional:
 	WorkspaceId pulumi.StringPtrInput
@@ -171,15 +171,15 @@ func (RoleAssociationState) ElementType() reflect.Type {
 }
 
 type roleAssociationArgs struct {
-	// The AWS SSO group ids to be assigned the role given in `role`.
+	// AWS SSO group IDs to be assigned the role given in `role`.
 	GroupIds []string `pulumi:"groupIds"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
+	// Grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
 	Role string `pulumi:"role"`
-	// The AWS SSO user ids to be assigned the role given in `role`.
+	// AWS SSO user IDs to be assigned the role given in `role`.
 	UserIds []string `pulumi:"userIds"`
-	// The workspace id.
+	// Workspace ID.
 	//
 	// The following arguments are optional:
 	WorkspaceId string `pulumi:"workspaceId"`
@@ -187,15 +187,15 @@ type roleAssociationArgs struct {
 
 // The set of arguments for constructing a RoleAssociation resource.
 type RoleAssociationArgs struct {
-	// The AWS SSO group ids to be assigned the role given in `role`.
+	// AWS SSO group IDs to be assigned the role given in `role`.
 	GroupIds pulumi.StringArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
+	// Grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
 	Role pulumi.StringInput
-	// The AWS SSO user ids to be assigned the role given in `role`.
+	// AWS SSO user IDs to be assigned the role given in `role`.
 	UserIds pulumi.StringArrayInput
-	// The workspace id.
+	// Workspace ID.
 	//
 	// The following arguments are optional:
 	WorkspaceId pulumi.StringInput
@@ -288,7 +288,7 @@ func (o RoleAssociationOutput) ToRoleAssociationOutputWithContext(ctx context.Co
 	return o
 }
 
-// The AWS SSO group ids to be assigned the role given in `role`.
+// AWS SSO group IDs to be assigned the role given in `role`.
 func (o RoleAssociationOutput) GroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RoleAssociation) pulumi.StringArrayOutput { return v.GroupIds }).(pulumi.StringArrayOutput)
 }
@@ -298,17 +298,17 @@ func (o RoleAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoleAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
+// Grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
 func (o RoleAssociationOutput) Role() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoleAssociation) pulumi.StringOutput { return v.Role }).(pulumi.StringOutput)
 }
 
-// The AWS SSO user ids to be assigned the role given in `role`.
+// AWS SSO user IDs to be assigned the role given in `role`.
 func (o RoleAssociationOutput) UserIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RoleAssociation) pulumi.StringArrayOutput { return v.UserIds }).(pulumi.StringArrayOutput)
 }
 
-// The workspace id.
+// Workspace ID.
 //
 // The following arguments are optional:
 func (o RoleAssociationOutput) WorkspaceId() pulumi.StringOutput {

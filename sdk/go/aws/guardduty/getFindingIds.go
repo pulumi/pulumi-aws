@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS GuardDuty Finding Ids.
+// Data source for managing an AWS GuardDuty Finding IDs.
 //
 // ## Example Usage
 //
@@ -61,9 +61,9 @@ type GetFindingIdsArgs struct {
 // A collection of values returned by getFindingIds.
 type GetFindingIdsResult struct {
 	DetectorId string `pulumi:"detectorId"`
-	// A list of finding IDs for the specified detector.
+	// List of finding IDs for the specified detector.
 	FindingIds []string `pulumi:"findingIds"`
-	// Indicates whether findings are present for the specified detector.
+	// Whether findings are present for the specified detector.
 	HasFindings bool   `pulumi:"hasFindings"`
 	Id          string `pulumi:"id"`
 	Region      string `pulumi:"region"`
@@ -105,12 +105,12 @@ func (o GetFindingIdsResultOutput) DetectorId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFindingIdsResult) string { return v.DetectorId }).(pulumi.StringOutput)
 }
 
-// A list of finding IDs for the specified detector.
+// List of finding IDs for the specified detector.
 func (o GetFindingIdsResultOutput) FindingIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetFindingIdsResult) []string { return v.FindingIds }).(pulumi.StringArrayOutput)
 }
 
-// Indicates whether findings are present for the specified detector.
+// Whether findings are present for the specified detector.
 func (o GetFindingIdsResultOutput) HasFindings() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetFindingIdsResult) bool { return v.HasFindings }).(pulumi.BoolOutput)
 }

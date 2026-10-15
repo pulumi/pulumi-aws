@@ -68,42 +68,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:docdb/subnetGroup:SubnetGroup")
 public class SubnetGroup extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the docDB subnet group.
+     * The ARN of the DocDB subnet group.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the docDB subnet group.
+     * @return The ARN of the DocDB subnet group.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The description of the docDB subnet group. Defaults to &#34;Managed by Pulumi&#34;.
+     * The description of the DocDB subnet group. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
-     * @return The description of the docDB subnet group. Defaults to &#34;Managed by Pulumi&#34;.
+     * @return The description of the DocDB subnet group. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
     public Output<String> description() {
         return this.description;
     }
     /**
-     * The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
+     * The name of the DocDB subnet group. If omitted, the provider will assign a random, unique name.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
+     * @return The name of the DocDB subnet group. If omitted, the provider will assign a random, unique name.
      * 
      */
     public Output<String> name() {
@@ -152,14 +152,14 @@ public class SubnetGroup extends com.pulumi.resources.CustomResource {
         return this.subnetIds;
     }
     /**
-     * The network type of the docDB subnet group (`IPV4` or `DUAL`).
+     * The network type of the DocDB subnet group (`IPV4` or `DUAL`).
      * 
      */
     @Export(name="supportedNetworkTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> supportedNetworkTypes;
 
     /**
-     * @return The network type of the docDB subnet group (`IPV4` or `DUAL`).
+     * @return The network type of the DocDB subnet group (`IPV4` or `DUAL`).
      * 
      */
     public Output<List<String>> supportedNetworkTypes() {

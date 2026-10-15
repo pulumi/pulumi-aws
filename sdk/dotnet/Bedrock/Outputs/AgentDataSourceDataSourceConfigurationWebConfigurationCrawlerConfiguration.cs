@@ -18,11 +18,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly Outputs.AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimits? CrawlerLimits;
         /// <summary>
-        /// List of one or more exclusion regular expression patterns to exclude object types that match the pattern.
+        /// List of one or more exclusion regular expression patterns to exclude URLs that match the pattern.
         /// </summary>
         public readonly ImmutableArray<string> ExclusionFilters;
         /// <summary>
-        /// List of one or more inclusion regular expression patterns to include object types that match the pattern.
+        /// List of one or more inclusion regular expression patterns to include URLs that match the pattern.
         /// </summary>
         public readonly ImmutableArray<string> InclusionFilters;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string? Scope;
         /// <summary>
-        /// String used to identify the crawler or bot when it accesses a web server. Default value is `bedrockbot_UUID`.
+        /// Custom suffix appended to the `bedrockbot_UUID` user agent header that the crawler uses when it accesses a web server. Must be between 15 and 40 characters.
         /// </summary>
         public readonly string? UserAgent;
 

@@ -58,7 +58,7 @@ type Resource struct {
 	//
 	// The following arguments are optional:
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Flag to enable AWS LakeFormation hybrid access permission mode.
+	// Flag to enable AWS Lake Formation hybrid access permission mode.
 	HybridAccessEnabled pulumi.BoolOutput `pulumi:"hybridAccessEnabled"`
 	// Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	LastModified pulumi.StringOutput `pulumi:"lastModified"`
@@ -113,7 +113,7 @@ type resourceState struct {
 	//
 	// The following arguments are optional:
 	Arn *string `pulumi:"arn"`
-	// Flag to enable AWS LakeFormation hybrid access permission mode.
+	// Flag to enable AWS Lake Formation hybrid access permission mode.
 	HybridAccessEnabled *bool `pulumi:"hybridAccessEnabled"`
 	// Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	LastModified *string `pulumi:"lastModified"`
@@ -136,7 +136,7 @@ type ResourceState struct {
 	//
 	// The following arguments are optional:
 	Arn pulumi.StringPtrInput
-	// Flag to enable AWS LakeFormation hybrid access permission mode.
+	// Flag to enable AWS Lake Formation hybrid access permission mode.
 	HybridAccessEnabled pulumi.BoolPtrInput
 	// Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	LastModified pulumi.StringPtrInput
@@ -163,7 +163,7 @@ type resourceArgs struct {
 	//
 	// The following arguments are optional:
 	Arn string `pulumi:"arn"`
-	// Flag to enable AWS LakeFormation hybrid access permission mode.
+	// Flag to enable AWS Lake Formation hybrid access permission mode.
 	HybridAccessEnabled *bool `pulumi:"hybridAccessEnabled"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -185,7 +185,7 @@ type ResourceArgs struct {
 	//
 	// The following arguments are optional:
 	Arn pulumi.StringInput
-	// Flag to enable AWS LakeFormation hybrid access permission mode.
+	// Flag to enable AWS Lake Formation hybrid access permission mode.
 	HybridAccessEnabled pulumi.BoolPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -295,7 +295,7 @@ func (o ResourceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Flag to enable AWS LakeFormation hybrid access permission mode.
+// Flag to enable AWS Lake Formation hybrid access permission mode.
 func (o ResourceOutput) HybridAccessEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Resource) pulumi.BoolOutput { return v.HybridAccessEnabled }).(pulumi.BoolOutput)
 }

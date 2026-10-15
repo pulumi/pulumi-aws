@@ -51,7 +51,7 @@ export interface GetCatalogTableArgs {
      */
     name: string;
     /**
-     * The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `transactionId`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
+     * Time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `transactionId`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
      */
     queryAsOfTime?: string;
     /**
@@ -59,7 +59,7 @@ export interface GetCatalogTableArgs {
      */
     region?: string;
     /**
-     * The transaction ID at which to read the table contents.
+     * Transaction ID at which to read the table contents.
      */
     transactionId?: number;
 }
@@ -69,7 +69,7 @@ export interface GetCatalogTableArgs {
  */
 export interface GetCatalogTableResult {
     /**
-     * The ARN of the Glue Table.
+     * ARN of the Glue Table.
      */
     readonly arn: string;
     /**
@@ -183,7 +183,7 @@ export interface GetCatalogTableOutputArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `transactionId`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
+     * Time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `transactionId`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
      */
     queryAsOfTime?: pulumi.Input<string | undefined>;
     /**
@@ -191,7 +191,7 @@ export interface GetCatalogTableOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The transaction ID at which to read the table contents.
+     * Transaction ID at which to read the table contents.
      */
     transactionId?: pulumi.Input<number | undefined>;
 }

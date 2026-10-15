@@ -30,9 +30,17 @@ public final class ClusterPolicyState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.clusterArn);
     }
 
+    /**
+     * Current version of the policy.
+     * 
+     */
     @Import(name="currentVersion")
     private @Nullable Output<String> currentVersion;
 
+    /**
+     * @return Current version of the policy.
+     * 
+     */
     public Optional<Output<String>> currentVersion() {
         return Optional.ofNullable(this.currentVersion);
     }
@@ -115,11 +123,23 @@ public final class ClusterPolicyState extends com.pulumi.resources.ResourceArgs 
             return clusterArn(Output.of(clusterArn));
         }
 
+        /**
+         * @param currentVersion Current version of the policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder currentVersion(@Nullable Output<String> currentVersion) {
             $.currentVersion = currentVersion;
             return this;
         }
 
+        /**
+         * @param currentVersion Current version of the policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder currentVersion(String currentVersion) {
             return currentVersion(Output.of(currentVersion));
         }

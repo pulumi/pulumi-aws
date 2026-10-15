@@ -89,13 +89,13 @@ namespace Pulumi.Aws.GlobalAccelerator
         public Output<string?> ClientAffinity { get; private set; } = null!;
 
         /// <summary>
-        /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+        /// Port ranges for the connections from clients to the accelerator. See `PortRange` below.
         /// </summary>
         [Output("portRanges")]
         public Output<ImmutableArray<Outputs.ListenerPortRange>> PortRanges { get; private set; } = null!;
 
         /// <summary>
-        /// The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
+        /// Protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
         /// </summary>
         [Output("protocol")]
         public Output<string> Protocol { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         private InputList<Inputs.ListenerPortRangeArgs>? _portRanges;
 
         /// <summary>
-        /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+        /// Port ranges for the connections from clients to the accelerator. See `PortRange` below.
         /// </summary>
         public InputList<Inputs.ListenerPortRangeArgs> PortRanges
         {
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         }
 
         /// <summary>
-        /// The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
+        /// Protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
         /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
@@ -206,7 +206,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         private InputList<Inputs.ListenerPortRangeGetArgs>? _portRanges;
 
         /// <summary>
-        /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+        /// Port ranges for the connections from clients to the accelerator. See `PortRange` below.
         /// </summary>
         public InputList<Inputs.ListenerPortRangeGetArgs> PortRanges
         {
@@ -215,7 +215,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         }
 
         /// <summary>
-        /// The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
+        /// Protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }

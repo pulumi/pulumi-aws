@@ -368,7 +368,7 @@ type SnapshotImportDiskContainer struct {
 	Description *string `pulumi:"description"`
 	// The format of the disk image being imported. One of `VHD` or `VMDK`.
 	Format string `pulumi:"format"`
-	// The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `userBucket` must be set.
+	// The URL to the Amazon S3-based disk image being imported. It can either be an HTTPS URL (`https://..`) or an Amazon S3 URL (`s3://..`). One of `url` or `userBucket` must be set.
 	Url *string `pulumi:"url"`
 	// The Amazon S3 bucket for the disk image. One of `url` or `userBucket` must be set. Detailed below.
 	UserBucket *SnapshotImportDiskContainerUserBucket `pulumi:"userBucket"`
@@ -390,7 +390,7 @@ type SnapshotImportDiskContainerArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The format of the disk image being imported. One of `VHD` or `VMDK`.
 	Format pulumi.StringInput `pulumi:"format"`
-	// The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `userBucket` must be set.
+	// The URL to the Amazon S3-based disk image being imported. It can either be an HTTPS URL (`https://..`) or an Amazon S3 URL (`s3://..`). One of `url` or `userBucket` must be set.
 	Url pulumi.StringPtrInput `pulumi:"url"`
 	// The Amazon S3 bucket for the disk image. One of `url` or `userBucket` must be set. Detailed below.
 	UserBucket SnapshotImportDiskContainerUserBucketPtrInput `pulumi:"userBucket"`
@@ -483,7 +483,7 @@ func (o SnapshotImportDiskContainerOutput) Format() pulumi.StringOutput {
 	return o.ApplyT(func(v SnapshotImportDiskContainer) string { return v.Format }).(pulumi.StringOutput)
 }
 
-// The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `userBucket` must be set.
+// The URL to the Amazon S3-based disk image being imported. It can either be an HTTPS URL (`https://..`) or an Amazon S3 URL (`s3://..`). One of `url` or `userBucket` must be set.
 func (o SnapshotImportDiskContainerOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SnapshotImportDiskContainer) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
@@ -537,7 +537,7 @@ func (o SnapshotImportDiskContainerPtrOutput) Format() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `userBucket` must be set.
+// The URL to the Amazon S3-based disk image being imported. It can either be an HTTPS URL (`https://..`) or an Amazon S3 URL (`s3://..`). One of `url` or `userBucket` must be set.
 func (o SnapshotImportDiskContainerPtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SnapshotImportDiskContainer) *string {
 		if v == nil {

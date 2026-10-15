@@ -40,7 +40,7 @@ class MethodArgs:
         :param pulumi.Input[_builtins.str] rest_api: ID of the associated REST API
         :param pulumi.Input[_builtins.bool] api_key_required: Specify if the method requires an API key
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authorization_scopes: Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
-        :param pulumi.Input[_builtins.str] authorizer_id: Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+        :param pulumi.Input[_builtins.str] authorizer_id: Authorizer ID to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
         :param pulumi.Input[_builtins.str] operation_name: Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] request_models: Map of the API models used for the request's content type where key is the content type (e.g., `application/json`) and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
@@ -144,7 +144,7 @@ class MethodArgs:
     @pulumi.getter(name="authorizerId")
     def authorizer_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+        Authorizer ID to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
         """
         return pulumi.get(self, "authorizer_id")
 
@@ -234,7 +234,7 @@ class _MethodState:
         :param pulumi.Input[_builtins.bool] api_key_required: Specify if the method requires an API key
         :param pulumi.Input[_builtins.str] authorization: Type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authorization_scopes: Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
-        :param pulumi.Input[_builtins.str] authorizer_id: Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+        :param pulumi.Input[_builtins.str] authorizer_id: Authorizer ID to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
         :param pulumi.Input[_builtins.str] http_method: HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
         :param pulumi.Input[_builtins.str] operation_name: Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -309,7 +309,7 @@ class _MethodState:
     @pulumi.getter(name="authorizerId")
     def authorizer_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+        Authorizer ID to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
         """
         return pulumi.get(self, "authorizer_id")
 
@@ -513,7 +513,7 @@ class Method(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] api_key_required: Specify if the method requires an API key
         :param pulumi.Input[_builtins.str] authorization: Type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authorization_scopes: Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
-        :param pulumi.Input[_builtins.str] authorizer_id: Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+        :param pulumi.Input[_builtins.str] authorizer_id: Authorizer ID to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
         :param pulumi.Input[_builtins.str] http_method: HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
         :param pulumi.Input[_builtins.str] operation_name: Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -692,7 +692,7 @@ class Method(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] api_key_required: Specify if the method requires an API key
         :param pulumi.Input[_builtins.str] authorization: Type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authorization_scopes: Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
-        :param pulumi.Input[_builtins.str] authorizer_id: Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+        :param pulumi.Input[_builtins.str] authorizer_id: Authorizer ID to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
         :param pulumi.Input[_builtins.str] http_method: HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
         :param pulumi.Input[_builtins.str] operation_name: Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -748,7 +748,7 @@ class Method(pulumi.CustomResource):
     @pulumi.getter(name="authorizerId")
     def authorizer_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+        Authorizer ID to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
         """
         return pulumi.get(self, "authorizer_id")
 

@@ -47,14 +47,14 @@ public final class ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs ext
     }
 
     /**
-     * . Username to be used.
+     * Username for the server.
      * 
      */
     @Import(name="username")
     private @Nullable Output<String> username;
 
     /**
-     * @return . Username to be used.
+     * @return Username for the server.
      * 
      */
     public Optional<Output<String>> username() {
@@ -130,7 +130,7 @@ public final class ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs ext
         }
 
         /**
-         * @param username . Username to be used.
+         * @param username Username for the server.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs ext
         }
 
         /**
-         * @param username . Username to be used.
+         * @param username Username for the server.
          * 
          * @return builder
          * 

@@ -83,9 +83,9 @@ type Listener struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
 	ClientAffinity pulumi.StringPtrOutput `pulumi:"clientAffinity"`
-	// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+	// Port ranges for the connections from clients to the accelerator. See `portRange` below.
 	PortRanges ListenerPortRangeArrayOutput `pulumi:"portRanges"`
-	// The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
+	// Protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
 }
 
@@ -134,9 +134,9 @@ type listenerState struct {
 	Arn *string `pulumi:"arn"`
 	// Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
 	ClientAffinity *string `pulumi:"clientAffinity"`
-	// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+	// Port ranges for the connections from clients to the accelerator. See `portRange` below.
 	PortRanges []ListenerPortRange `pulumi:"portRanges"`
-	// The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
+	// Protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
 	Protocol *string `pulumi:"protocol"`
 }
 
@@ -147,9 +147,9 @@ type ListenerState struct {
 	Arn pulumi.StringPtrInput
 	// Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
 	ClientAffinity pulumi.StringPtrInput
-	// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+	// Port ranges for the connections from clients to the accelerator. See `portRange` below.
 	PortRanges ListenerPortRangeArrayInput
-	// The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
+	// Protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
 	Protocol pulumi.StringPtrInput
 }
 
@@ -162,9 +162,9 @@ type listenerArgs struct {
 	AcceleratorArn string `pulumi:"acceleratorArn"`
 	// Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
 	ClientAffinity *string `pulumi:"clientAffinity"`
-	// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+	// Port ranges for the connections from clients to the accelerator. See `portRange` below.
 	PortRanges []ListenerPortRange `pulumi:"portRanges"`
-	// The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
+	// Protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
 	Protocol string `pulumi:"protocol"`
 }
 
@@ -174,9 +174,9 @@ type ListenerArgs struct {
 	AcceleratorArn pulumi.StringInput
 	// Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
 	ClientAffinity pulumi.StringPtrInput
-	// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+	// Port ranges for the connections from clients to the accelerator. See `portRange` below.
 	PortRanges ListenerPortRangeArrayInput
-	// The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
+	// Protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
 	Protocol pulumi.StringInput
 }
 
@@ -282,12 +282,12 @@ func (o ListenerOutput) ClientAffinity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringPtrOutput { return v.ClientAffinity }).(pulumi.StringPtrOutput)
 }
 
-// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+// Port ranges for the connections from clients to the accelerator. See `portRange` below.
 func (o ListenerOutput) PortRanges() ListenerPortRangeArrayOutput {
 	return o.ApplyT(func(v *Listener) ListenerPortRangeArrayOutput { return v.PortRanges }).(ListenerPortRangeArrayOutput)
 }
 
-// The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
+// Protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
 func (o ListenerOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.Protocol }).(pulumi.StringOutput)
 }

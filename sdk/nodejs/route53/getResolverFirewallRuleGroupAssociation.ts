@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * The following example shows how to get a firewall rule group association from its id.
+ * The following example shows how to get a firewall rule group association from its ID.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -110,7 +110,7 @@ export interface GetResolverFirewallRuleGroupAssociationResult {
  *
  * ## Example Usage
  *
- * The following example shows how to get a firewall rule group association from its id.
+ * The following example shows how to get a firewall rule group association from its ID.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

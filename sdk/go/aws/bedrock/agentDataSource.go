@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Agents for Amazon Bedrock Data Source.
+// Manages an AWS Agents for Amazon Bedrock Data Source.
 //
 // ## Example Usage
 //
@@ -212,6 +212,83 @@ import (
 //				},
 //				KnowledgeBaseId: pulumi.Any(exampleAwsBedrockagentKnowledgeBase.Id),
 //				Name:            pulumi.String("multimodal-example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### GraphRAG with Neptune Analytics
+//
+// Knowledge bases that use `NEPTUNE_ANALYTICS` storage require every associated data source to set `contextEnrichmentConfiguration`.
+//
+// The graph construction model must be one that GraphRAG currently supports, and the supported models are reachable only through a cross-Region [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html). Passing a plain foundation model ARN fails with `ValidationException: Invalid graph bedrock foundation model provided`.
+//
+// The knowledge base service role needs:
+//
+// * `bedrock:GetInferenceProfile` on `*`. Scoping this to the profile ARN is not honored, and creation fails with `Not authorized to call GetInferenceProfile` even when the granted ARN matches the one in the error.
+// * `bedrock:InvokeModel` on the inference profile ARN.
+// * `bedrock:InvokeModel` on the underlying foundation model in every Region the profile routes to, which `aws bedrock get-inference-profile` reports as `models[].modelArn`.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := bedrock.NewAgentKnowledgeBase(ctx, "example", &bedrock.AgentKnowledgeBaseArgs{
+//				KnowledgeBaseConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationArgs{
+//					VectorKnowledgeBaseConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs{
+//						EmbeddingModelArn: pulumi.String("arn:aws:bedrock:us-east-1::foundation-model/cohere.embed-english-v3"),
+//					},
+//					Type: pulumi.String("VECTOR"),
+//				},
+//				StorageConfiguration: &bedrock.AgentKnowledgeBaseStorageConfigurationArgs{
+//					NeptuneAnalyticsConfiguration: &bedrock.AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs{
+//						FieldMapping: &bedrock.AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs{
+//							MetadataField: pulumi.String("metadata"),
+//							TextField:     pulumi.String("text"),
+//						},
+//						GraphArn: pulumi.Any(exampleAwsNeptunegraphGraph.Arn),
+//					},
+//					Type: pulumi.String("NEPTUNE_ANALYTICS"),
+//				},
+//				Name:    pulumi.String("graphrag-example"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = bedrock.NewAgentDataSource(ctx, "example", &bedrock.AgentDataSourceArgs{
+//				DataSourceConfiguration: &bedrock.AgentDataSourceDataSourceConfigurationArgs{
+//					S3Configuration: &bedrock.AgentDataSourceDataSourceConfigurationS3ConfigurationArgs{
+//						BucketArn: pulumi.Any(exampleAwsS3Bucket.Arn),
+//					},
+//					Type: pulumi.String("S3"),
+//				},
+//				VectorIngestionConfiguration: &bedrock.AgentDataSourceVectorIngestionConfigurationArgs{
+//					ContextEnrichmentConfiguration: &bedrock.AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationArgs{
+//						BedrockFoundationModelConfiguration: &bedrock.AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationArgs{
+//							EnrichmentStrategyConfiguration: &bedrock.AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfigurationBedrockFoundationModelConfigurationEnrichmentStrategyConfigurationArgs{
+//								Method: pulumi.String("CHUNK_ENTITY_EXTRACTION"),
+//							},
+//							ModelArn: pulumi.Sprintf("arn:aws:bedrock:us-east-1:%v:inference-profile/us.anthropic.claude-haiku-4-5-20251001-v1:0", current.AccountId),
+//						},
+//						Type: pulumi.String("BEDROCK_FOUNDATION_MODEL"),
+//					},
+//				},
+//				KnowledgeBaseId: example.ID().ToIDOutput().ToStringOutput(),
+//				Name:            pulumi.String("graphrag-example"),
 //			})
 //			if err != nil {
 //				return err

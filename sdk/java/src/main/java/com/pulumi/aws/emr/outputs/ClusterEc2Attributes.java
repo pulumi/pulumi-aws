@@ -39,7 +39,7 @@ public final class ClusterEc2Attributes {
      */
     private String instanceProfile;
     /**
-     * @return Amazon EC2 key pair that can be used to ssh to the master node as the user called `hadoop`.
+     * @return Amazon EC2 key pair that can be used to SSH to the master node as the user called `hadoop`.
      * 
      */
     private @Nullable String keyName;
@@ -49,7 +49,7 @@ public final class ClusterEc2Attributes {
      */
     private @Nullable String serviceAccessSecurityGroup;
     /**
-     * @return VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in an Amazon VPC.
+     * @return VPC subnet ID where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in an Amazon VPC.
      * 
      */
     private @Nullable String subnetId;
@@ -98,7 +98,7 @@ public final class ClusterEc2Attributes {
         return this.instanceProfile;
     }
     /**
-     * @return Amazon EC2 key pair that can be used to ssh to the master node as the user called `hadoop`.
+     * @return Amazon EC2 key pair that can be used to SSH to the master node as the user called `hadoop`.
      * 
      */
     public Optional<String> keyName() {
@@ -112,7 +112,7 @@ public final class ClusterEc2Attributes {
         return Optional.ofNullable(this.serviceAccessSecurityGroup);
     }
     /**
-     * @return VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in an Amazon VPC.
+     * @return VPC subnet ID where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in an Amazon VPC.
      * 
      */
     public Optional<String> subnetId() {

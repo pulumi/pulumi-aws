@@ -61,11 +61,11 @@ export class Snapshot extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the snapshot.
+     * ARN of the snapshot.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The configuration of the cluster from which the snapshot was taken.
+     * Configuration of the cluster from which the snapshot was taken.
      */
     declare public /*out*/ readonly clusterConfigurations: pulumi.Output<outputs.memorydb.SnapshotClusterConfiguration[]>;
     /**
@@ -89,15 +89,15 @@ export class Snapshot extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
+     * Whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
      */
     declare public /*out*/ readonly source: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -150,11 +150,11 @@ export class Snapshot extends pulumi.CustomResource {
  */
 export interface SnapshotState {
     /**
-     * The ARN of the snapshot.
+     * ARN of the snapshot.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The configuration of the cluster from which the snapshot was taken.
+     * Configuration of the cluster from which the snapshot was taken.
      */
     clusterConfigurations?: pulumi.Input<pulumi.Input<inputs.memorydb.SnapshotClusterConfiguration>[] | undefined>;
     /**
@@ -178,15 +178,15 @@ export interface SnapshotState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
+     * Whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
      */
     source?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -216,7 +216,7 @@ export interface SnapshotArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

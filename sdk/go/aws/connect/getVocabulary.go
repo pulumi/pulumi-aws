@@ -88,7 +88,7 @@ type LookupVocabularyArgs struct {
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the Vocabulary.
 	Tags map[string]string `pulumi:"tags"`
-	// Returns information on a specific Vocabulary by Vocabulary id
+	// Returns information on a specific Vocabulary by Vocabulary ID
 	//
 	// > **NOTE:** `instanceId` and one of either `name` or `vocabularyId` is required.
 	VocabularyId *string `pulumi:"vocabularyId"`
@@ -134,7 +134,7 @@ type LookupVocabularyOutputArgs struct {
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// A map of tags to assign to the Vocabulary.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Returns information on a specific Vocabulary by Vocabulary id
+	// Returns information on a specific Vocabulary by Vocabulary ID
 	//
 	// > **NOTE:** `instanceId` and one of either `name` or `vocabularyId` is required.
 	VocabularyId pulumi.StringPtrInput `pulumi:"vocabularyId"`

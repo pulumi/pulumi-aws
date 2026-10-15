@@ -60,7 +60,7 @@ export interface GetDetectorResult {
      */
     readonly features: outputs.guardduty.GetDetectorFeature[];
     /**
-     * The frequency of notifications sent about subsequent finding occurrences.
+     * Frequency of notifications sent about subsequent finding occurrences.
      */
     readonly findingPublishingFrequency: string;
     readonly id: string;

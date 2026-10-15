@@ -51,14 +51,14 @@ public final class CatalogDatabaseState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
+     * Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` Block below.
      * 
      */
     @Import(name="createTableDefaultPermissions")
     private @Nullable Output<List<CatalogDatabaseCreateTableDefaultPermissionArgs>> createTableDefaultPermissions;
 
     /**
-     * @return Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
+     * @return Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` Block below.
      * 
      */
     public Optional<Output<List<CatalogDatabaseCreateTableDefaultPermissionArgs>>> createTableDefaultPermissions() {
@@ -81,14 +81,14 @@ public final class CatalogDatabaseState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
+     * Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` Block below.
      * 
      */
     @Import(name="federatedDatabase")
     private @Nullable Output<CatalogDatabaseFederatedDatabaseArgs> federatedDatabase;
 
     /**
-     * @return Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
+     * @return Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` Block below.
      * 
      */
     public Optional<Output<CatalogDatabaseFederatedDatabaseArgs>> federatedDatabase() {
@@ -171,14 +171,14 @@ public final class CatalogDatabaseState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -186,14 +186,14 @@ public final class CatalogDatabaseState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Configuration block for a target database for resource linking. See `targetDatabase` below.
+     * Configuration block for a target database for resource linking. See `targetDatabase` Block below.
      * 
      */
     @Import(name="targetDatabase")
     private @Nullable Output<CatalogDatabaseTargetDatabaseArgs> targetDatabase;
 
     /**
-     * @return Configuration block for a target database for resource linking. See `targetDatabase` below.
+     * @return Configuration block for a target database for resource linking. See `targetDatabase` Block below.
      * 
      */
     public Optional<Output<CatalogDatabaseTargetDatabaseArgs>> targetDatabase() {
@@ -278,7 +278,7 @@ public final class CatalogDatabaseState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param createTableDefaultPermissions Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
+         * @param createTableDefaultPermissions Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` Block below.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class CatalogDatabaseState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param createTableDefaultPermissions Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
+         * @param createTableDefaultPermissions Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` Block below.
          * 
          * @return builder
          * 
@@ -299,7 +299,7 @@ public final class CatalogDatabaseState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param createTableDefaultPermissions Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
+         * @param createTableDefaultPermissions Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` Block below.
          * 
          * @return builder
          * 
@@ -330,7 +330,7 @@ public final class CatalogDatabaseState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param federatedDatabase Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
+         * @param federatedDatabase Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` Block below.
          * 
          * @return builder
          * 
@@ -341,7 +341,7 @@ public final class CatalogDatabaseState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param federatedDatabase Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
+         * @param federatedDatabase Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` Block below.
          * 
          * @return builder
          * 
@@ -456,7 +456,7 @@ public final class CatalogDatabaseState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -467,7 +467,7 @@ public final class CatalogDatabaseState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -477,7 +477,7 @@ public final class CatalogDatabaseState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param targetDatabase Configuration block for a target database for resource linking. See `targetDatabase` below.
+         * @param targetDatabase Configuration block for a target database for resource linking. See `targetDatabase` Block below.
          * 
          * @return builder
          * 
@@ -488,7 +488,7 @@ public final class CatalogDatabaseState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param targetDatabase Configuration block for a target database for resource linking. See `targetDatabase` below.
+         * @param targetDatabase Configuration block for a target database for resource linking. See `targetDatabase` Block below.
          * 
          * @return builder
          * 

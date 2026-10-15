@@ -103,7 +103,7 @@ namespace Pulumi.Aws.MediaConvert
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -135,7 +135,7 @@ namespace Pulumi.Aws.MediaConvert
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -154,21 +154,21 @@ namespace Pulumi.Aws.MediaConvert
     public sealed class GetQueueResult
     {
         /// <summary>
-        /// The Arn of the queue.
+        /// ARN of the queue.
         /// </summary>
         public readonly string Arn;
         public readonly string Id;
         /// <summary>
-        /// The same as `Id`.
+        /// Same as `Id`.
         /// </summary>
         public readonly string Name;
         public readonly string Region;
         /// <summary>
-        /// The status of the queue.
+        /// Status of the queue.
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

@@ -12,6 +12,9 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Frame capture S3 settings. See `FrameCaptureS3Settings` Block for details.
+        /// </summary>
         [Input("frameCaptureS3Settings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsArgs>? FrameCaptureS3Settings { get; set; }
 

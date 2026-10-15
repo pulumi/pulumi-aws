@@ -68,28 +68,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:grafana/workspaceServiceAccount:WorkspaceServiceAccount")
 public class WorkspaceServiceAccount extends com.pulumi.resources.CustomResource {
     /**
-     * The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
+     * Permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
      * 
      */
     @Export(name="grafanaRole", refs={String.class}, tree="[0]")
     private Output<String> grafanaRole;
 
     /**
-     * @return The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
+     * @return Permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
      * 
      */
     public Output<String> grafanaRole() {
         return this.grafanaRole;
     }
     /**
-     * A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
+     * Name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
+     * @return Name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
      * 
      */
     public Output<String> name() {
@@ -124,14 +124,14 @@ public class WorkspaceServiceAccount extends com.pulumi.resources.CustomResource
         return this.serviceAccountId;
     }
     /**
-     * The Grafana workspace with which the service account is associated.
+     * Grafana workspace with which the service account is associated.
      * 
      */
     @Export(name="workspaceId", refs={String.class}, tree="[0]")
     private Output<String> workspaceId;
 
     /**
-     * @return The Grafana workspace with which the service account is associated.
+     * @return Grafana workspace with which the service account is associated.
      * 
      */
     public Output<String> workspaceId() {

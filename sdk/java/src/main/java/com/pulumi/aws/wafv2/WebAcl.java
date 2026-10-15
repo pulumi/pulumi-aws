@@ -12,6 +12,7 @@ import com.pulumi.aws.wafv2.outputs.WebAclChallengeConfig;
 import com.pulumi.aws.wafv2.outputs.WebAclCustomResponseBody;
 import com.pulumi.aws.wafv2.outputs.WebAclDataProtectionConfig;
 import com.pulumi.aws.wafv2.outputs.WebAclDefaultAction;
+import com.pulumi.aws.wafv2.outputs.WebAclMonetizationConfig;
 import com.pulumi.aws.wafv2.outputs.WebAclRule;
 import com.pulumi.aws.wafv2.outputs.WebAclVisibilityConfig;
 import com.pulumi.core.Output;
@@ -188,6 +189,20 @@ public class WebAcl extends com.pulumi.resources.CustomResource {
 
     public Output<String> lockToken() {
         return this.lockToken;
+    }
+    /**
+     * Monetization configuration for the web ACL. Provide this when any rule in the web ACL uses the `monetize` action. See `monetizationConfig` below for details.
+     * 
+     */
+    @Export(name="monetizationConfig", refs={WebAclMonetizationConfig.class}, tree="[0]")
+    private Output</* @Nullable */ WebAclMonetizationConfig> monetizationConfig;
+
+    /**
+     * @return Monetization configuration for the web ACL. Provide this when any rule in the web ACL uses the `monetize` action. See `monetizationConfig` below for details.
+     * 
+     */
+    public Output<Optional<WebAclMonetizationConfig>> monetizationConfig() {
+        return Codegen.optional(this.monetizationConfig);
     }
     /**
      * Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.

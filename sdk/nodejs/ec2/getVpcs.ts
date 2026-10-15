@@ -8,13 +8,13 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * This resource can be useful for getting back a list of VPC Ids for a region.
+ * This resource can be useful for getting back a list of VPC IDs for a region.
  *
- * The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
+ * The following example retrieves a list of VPC IDs with a custom tag of `service` set to a value of "production".
  *
  * ## Example Usage
  *
- * The following shows outputting all VPC Ids.
+ * The following shows outputting all VPC IDs.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -93,20 +93,20 @@ export interface GetVpcsResult {
      */
     readonly id: string;
     /**
-     * List of all the VPC Ids found.
+     * List of all the VPC IDs found.
      */
     readonly ids: string[];
     readonly region: string;
     readonly tags: {[key: string]: string};
 }
 /**
- * This resource can be useful for getting back a list of VPC Ids for a region.
+ * This resource can be useful for getting back a list of VPC IDs for a region.
  *
- * The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
+ * The following example retrieves a list of VPC IDs with a custom tag of `service` set to a value of "production".
  *
  * ## Example Usage
  *
- * The following shows outputting all VPC Ids.
+ * The following shows outputting all VPC IDs.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

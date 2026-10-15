@@ -12,13 +12,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo {
+    /**
+     * @return Provisioned throughput configuration. See `provisionedThroughput` Block for details.
+     * 
+     */
     private List<GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput> provisionedThroughputs;
+    /**
+     * @return Size in GiB of the EBS volume for the data drive on each broker node.
+     * 
+     */
     private Integer volumeSize;
 
     private GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo() {}
+    /**
+     * @return Provisioned throughput configuration. See `provisionedThroughput` Block for details.
+     * 
+     */
     public List<GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput> provisionedThroughputs() {
         return this.provisionedThroughputs;
     }
+    /**
+     * @return Size in GiB of the EBS volume for the data drive on each broker node.
+     * 
+     */
     public Integer volumeSize() {
         return this.volumeSize;
     }

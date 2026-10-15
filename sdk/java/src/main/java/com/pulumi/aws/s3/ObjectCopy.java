@@ -435,28 +435,28 @@ public class ObjectCopy extends com.pulumi.resources.CustomResource {
         return this.etag;
     }
     /**
-     * Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+     * Account ID of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      * 
      */
     @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 
     /**
-     * @return Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+     * @return Account ID of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      * 
      */
     public Output<Optional<String>> expectedBucketOwner() {
         return Codegen.optional(this.expectedBucketOwner);
     }
     /**
-     * Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+     * Account ID of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      * 
      */
     @Export(name="expectedSourceBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedSourceBucketOwner;
 
     /**
-     * @return Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+     * @return Account ID of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      * 
      */
     public Output<Optional<String>> expectedSourceBucketOwner() {

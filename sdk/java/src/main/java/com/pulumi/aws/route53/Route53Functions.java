@@ -66,7 +66,7 @@ public final class Route53Functions {
      * 
      * ## Example Usage
      * 
-     * The following example shows how to get a delegation set from its id.
+     * The following example shows how to get a delegation set from its ID.
      * 
      * <pre>
      * {@code
@@ -110,7 +110,7 @@ public final class Route53Functions {
      * 
      * ## Example Usage
      * 
-     * The following example shows how to get a delegation set from its id.
+     * The following example shows how to get a delegation set from its ID.
      * 
      * <pre>
      * {@code
@@ -154,7 +154,7 @@ public final class Route53Functions {
      * 
      * ## Example Usage
      * 
-     * The following example shows how to get a delegation set from its id.
+     * The following example shows how to get a delegation set from its ID.
      * 
      * <pre>
      * {@code
@@ -198,7 +198,7 @@ public final class Route53Functions {
      * 
      * ## Example Usage
      * 
-     * The following example shows how to get a delegation set from its id.
+     * The following example shows how to get a delegation set from its ID.
      * 
      * <pre>
      * {@code
@@ -242,7 +242,7 @@ public final class Route53Functions {
      * 
      * ## Example Usage
      * 
-     * The following example shows how to get a delegation set from its id.
+     * The following example shows how to get a delegation set from its ID.
      * 
      * <pre>
      * {@code
@@ -3317,7 +3317,7 @@ public final class Route53Functions {
      * 
      * ## Example Usage
      * 
-     * The following example shows how to get a firewall rule group association from its id.
+     * The following example shows how to get a firewall rule group association from its ID.
      * 
      * <pre>
      * {@code
@@ -3361,7 +3361,7 @@ public final class Route53Functions {
      * 
      * ## Example Usage
      * 
-     * The following example shows how to get a firewall rule group association from its id.
+     * The following example shows how to get a firewall rule group association from its ID.
      * 
      * <pre>
      * {@code
@@ -3405,7 +3405,7 @@ public final class Route53Functions {
      * 
      * ## Example Usage
      * 
-     * The following example shows how to get a firewall rule group association from its id.
+     * The following example shows how to get a firewall rule group association from its ID.
      * 
      * <pre>
      * {@code
@@ -3449,7 +3449,7 @@ public final class Route53Functions {
      * 
      * ## Example Usage
      * 
-     * The following example shows how to get a firewall rule group association from its id.
+     * The following example shows how to get a firewall rule group association from its ID.
      * 
      * <pre>
      * {@code
@@ -3493,7 +3493,7 @@ public final class Route53Functions {
      * 
      * ## Example Usage
      * 
-     * The following example shows how to get a firewall rule group association from its id.
+     * The following example shows how to get a firewall rule group association from its ID.
      * 
      * <pre>
      * {@code
@@ -3535,7 +3535,7 @@ public final class Route53Functions {
      * 
      * ## Example Usage
      * 
-     * The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
+     * The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group ID.
      * 
      * <pre>
      * {@code
@@ -3577,7 +3577,7 @@ public final class Route53Functions {
      * 
      * ## Example Usage
      * 
-     * The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
+     * The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group ID.
      * 
      * <pre>
      * {@code
@@ -3619,7 +3619,7 @@ public final class Route53Functions {
      * 
      * ## Example Usage
      * 
-     * The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
+     * The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group ID.
      * 
      * <pre>
      * {@code
@@ -3661,7 +3661,7 @@ public final class Route53Functions {
      * 
      * ## Example Usage
      * 
-     * The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
+     * The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group ID.
      * 
      * <pre>
      * {@code
@@ -3703,7 +3703,7 @@ public final class Route53Functions {
      * 
      * ## Example Usage
      * 
-     * The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
+     * The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group ID.
      * 
      * <pre>
      * {@code

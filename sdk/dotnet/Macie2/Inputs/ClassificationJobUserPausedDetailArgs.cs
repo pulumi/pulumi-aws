@@ -12,12 +12,21 @@ namespace Pulumi.Aws.Macie2.Inputs
 
     public sealed class ClassificationJobUserPausedDetailArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Date and time, in UTC and extended RFC 3339 format, when the job or job run will expire and be cancelled if it isn't resumed.
+        /// </summary>
         [Input("jobExpiresAt")]
         public Input<string>? JobExpiresAt { get; set; }
 
+        /// <summary>
+        /// ARN of the AWS Health event that Macie sent to notify of the job or job run's imminent expiration.
+        /// </summary>
         [Input("jobImminentExpirationHealthEventArn")]
         public Input<string>? JobImminentExpirationHealthEventArn { get; set; }
 
+        /// <summary>
+        /// Date and time, in UTC and extended RFC 3339 format, when the job was paused.
+        /// </summary>
         [Input("jobPausedAt")]
         public Input<string>? JobPausedAt { get; set; }
 

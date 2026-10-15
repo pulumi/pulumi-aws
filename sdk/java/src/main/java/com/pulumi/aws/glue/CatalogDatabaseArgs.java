@@ -36,14 +36,14 @@ public final class CatalogDatabaseArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
+     * Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` Block below.
      * 
      */
     @Import(name="createTableDefaultPermissions")
     private @Nullable Output<List<CatalogDatabaseCreateTableDefaultPermissionArgs>> createTableDefaultPermissions;
 
     /**
-     * @return Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
+     * @return Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` Block below.
      * 
      */
     public Optional<Output<List<CatalogDatabaseCreateTableDefaultPermissionArgs>>> createTableDefaultPermissions() {
@@ -66,14 +66,14 @@ public final class CatalogDatabaseArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
+     * Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` Block below.
      * 
      */
     @Import(name="federatedDatabase")
     private @Nullable Output<CatalogDatabaseFederatedDatabaseArgs> federatedDatabase;
 
     /**
-     * @return Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
+     * @return Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` Block below.
      * 
      */
     public Optional<Output<CatalogDatabaseFederatedDatabaseArgs>> federatedDatabase() {
@@ -156,14 +156,14 @@ public final class CatalogDatabaseArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Configuration block for a target database for resource linking. See `targetDatabase` below.
+     * Configuration block for a target database for resource linking. See `targetDatabase` Block below.
      * 
      */
     @Import(name="targetDatabase")
     private @Nullable Output<CatalogDatabaseTargetDatabaseArgs> targetDatabase;
 
     /**
-     * @return Configuration block for a target database for resource linking. See `targetDatabase` below.
+     * @return Configuration block for a target database for resource linking. See `targetDatabase` Block below.
      * 
      */
     public Optional<Output<CatalogDatabaseTargetDatabaseArgs>> targetDatabase() {
@@ -225,7 +225,7 @@ public final class CatalogDatabaseArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param createTableDefaultPermissions Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
+         * @param createTableDefaultPermissions Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` Block below.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class CatalogDatabaseArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param createTableDefaultPermissions Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
+         * @param createTableDefaultPermissions Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` Block below.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class CatalogDatabaseArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param createTableDefaultPermissions Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
+         * @param createTableDefaultPermissions Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` Block below.
          * 
          * @return builder
          * 
@@ -277,7 +277,7 @@ public final class CatalogDatabaseArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param federatedDatabase Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
+         * @param federatedDatabase Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` Block below.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class CatalogDatabaseArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param federatedDatabase Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
+         * @param federatedDatabase Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` Block below.
          * 
          * @return builder
          * 
@@ -403,7 +403,7 @@ public final class CatalogDatabaseArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param targetDatabase Configuration block for a target database for resource linking. See `targetDatabase` below.
+         * @param targetDatabase Configuration block for a target database for resource linking. See `targetDatabase` Block below.
          * 
          * @return builder
          * 
@@ -414,7 +414,7 @@ public final class CatalogDatabaseArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param targetDatabase Configuration block for a target database for resource linking. See `targetDatabase` below.
+         * @param targetDatabase Configuration block for a target database for resource linking. See `targetDatabase` Block below.
          * 
          * @return builder
          * 

@@ -44,7 +44,7 @@ public final class GetCustomModelResult {
      */
     private String jobName;
     /**
-     * @return Key-value mapping of tags for the fine-tuning job.
+     * @return Key-value mapping of tags for the customization job.
      * 
      */
     private Map<String,String> jobTags;
@@ -136,7 +136,7 @@ public final class GetCustomModelResult {
         return this.jobName;
     }
     /**
-     * @return Key-value mapping of tags for the fine-tuning job.
+     * @return Key-value mapping of tags for the customization job.
      * 
      */
     public Map<String,String> jobTags() {

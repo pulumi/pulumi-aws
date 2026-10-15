@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings {
     /**
-     * @return The height of the FEC protection matrix.
+     * @return Height of the FEC protection matrix.
      * 
      */
     private @Nullable Integer columnDepth;
@@ -23,14 +23,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
      */
     private @Nullable String includeFec;
     /**
-     * @return The width of the FEC protection matrix.
+     * @return Width of the FEC protection matrix.
      * 
      */
     private @Nullable Integer rowLength;
 
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings() {}
     /**
-     * @return The height of the FEC protection matrix.
+     * @return Height of the FEC protection matrix.
      * 
      */
     public Optional<Integer> columnDepth() {
@@ -44,7 +44,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
         return Optional.ofNullable(this.includeFec);
     }
     /**
-     * @return The width of the FEC protection matrix.
+     * @return Width of the FEC protection matrix.
      * 
      */
     public Optional<Integer> rowLength() {

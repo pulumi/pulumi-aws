@@ -1431,7 +1431,7 @@ func (o DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArra
 }
 
 type DirectoryWorkspaceCreationProperties struct {
-	// The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+	// The identifier of your custom security group. Should relate to the same VPC, where WorkSpaces reside in.
 	CustomSecurityGroupId *string `pulumi:"customSecurityGroupId"`
 	// The default organizational unit (OU) for your WorkSpace directories. Should conform `"OU=<value>,DC=<value>,...,DC=<value>"` pattern.
 	DefaultOu *string `pulumi:"defaultOu"`
@@ -1455,7 +1455,7 @@ type DirectoryWorkspaceCreationPropertiesInput interface {
 }
 
 type DirectoryWorkspaceCreationPropertiesArgs struct {
-	// The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+	// The identifier of your custom security group. Should relate to the same VPC, where WorkSpaces reside in.
 	CustomSecurityGroupId pulumi.StringPtrInput `pulumi:"customSecurityGroupId"`
 	// The default organizational unit (OU) for your WorkSpace directories. Should conform `"OU=<value>,DC=<value>,...,DC=<value>"` pattern.
 	DefaultOu pulumi.StringPtrInput `pulumi:"defaultOu"`
@@ -1544,7 +1544,7 @@ func (o DirectoryWorkspaceCreationPropertiesOutput) ToDirectoryWorkspaceCreation
 	}).(DirectoryWorkspaceCreationPropertiesPtrOutput)
 }
 
-// The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+// The identifier of your custom security group. Should relate to the same VPC, where WorkSpaces reside in.
 func (o DirectoryWorkspaceCreationPropertiesOutput) CustomSecurityGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DirectoryWorkspaceCreationProperties) *string { return v.CustomSecurityGroupId }).(pulumi.StringPtrOutput)
 }
@@ -1593,7 +1593,7 @@ func (o DirectoryWorkspaceCreationPropertiesPtrOutput) Elem() DirectoryWorkspace
 	}).(DirectoryWorkspaceCreationPropertiesOutput)
 }
 
-// The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+// The identifier of your custom security group. Should relate to the same VPC, where WorkSpaces reside in.
 func (o DirectoryWorkspaceCreationPropertiesPtrOutput) CustomSecurityGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DirectoryWorkspaceCreationProperties) *string {
 		if v == nil {
@@ -3747,7 +3747,7 @@ func (o GetDirectoryWorkspaceAccessPropertyAccessEndpointConfigAccessEndpointArr
 }
 
 type GetDirectoryWorkspaceCreationProperty struct {
-	// The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+	// The identifier of your custom security group. Should relate to the same VPC, where WorkSpaces reside in.
 	CustomSecurityGroupId string `pulumi:"customSecurityGroupId"`
 	// The default organizational unit (OU) for your WorkSpace directories.
 	DefaultOu string `pulumi:"defaultOu"`
@@ -3771,7 +3771,7 @@ type GetDirectoryWorkspaceCreationPropertyInput interface {
 }
 
 type GetDirectoryWorkspaceCreationPropertyArgs struct {
-	// The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+	// The identifier of your custom security group. Should relate to the same VPC, where WorkSpaces reside in.
 	CustomSecurityGroupId pulumi.StringInput `pulumi:"customSecurityGroupId"`
 	// The default organizational unit (OU) for your WorkSpace directories.
 	DefaultOu pulumi.StringInput `pulumi:"defaultOu"`
@@ -3834,7 +3834,7 @@ func (o GetDirectoryWorkspaceCreationPropertyOutput) ToGetDirectoryWorkspaceCrea
 	return o
 }
 
-// The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+// The identifier of your custom security group. Should relate to the same VPC, where WorkSpaces reside in.
 func (o GetDirectoryWorkspaceCreationPropertyOutput) CustomSecurityGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDirectoryWorkspaceCreationProperty) string { return v.CustomSecurityGroupId }).(pulumi.StringOutput)
 }

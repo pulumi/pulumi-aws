@@ -101,11 +101,11 @@ type MultiplexProgram struct {
 
 	// Multiplex ID.
 	MultiplexId pulumi.StringOutput `pulumi:"multiplexId"`
-	// MultiplexProgram settings. See Multiplex Program Settings for more details.
-	//
-	// The following arguments are optional:
+	// MultiplexProgram settings. See `multiplexProgramSettings` Block for more details.
 	MultiplexProgramSettings MultiplexProgramMultiplexProgramSettingsPtrOutput `pulumi:"multiplexProgramSettings"`
 	// Unique program name.
+	//
+	// The following arguments are optional:
 	ProgramName pulumi.StringOutput `pulumi:"programName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringOutput               `pulumi:"region"`
@@ -150,11 +150,11 @@ func GetMultiplexProgram(ctx *pulumi.Context,
 type multiplexProgramState struct {
 	// Multiplex ID.
 	MultiplexId *string `pulumi:"multiplexId"`
-	// MultiplexProgram settings. See Multiplex Program Settings for more details.
-	//
-	// The following arguments are optional:
+	// MultiplexProgram settings. See `multiplexProgramSettings` Block for more details.
 	MultiplexProgramSettings *MultiplexProgramMultiplexProgramSettings `pulumi:"multiplexProgramSettings"`
 	// Unique program name.
+	//
+	// The following arguments are optional:
 	ProgramName *string `pulumi:"programName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string                   `pulumi:"region"`
@@ -164,11 +164,11 @@ type multiplexProgramState struct {
 type MultiplexProgramState struct {
 	// Multiplex ID.
 	MultiplexId pulumi.StringPtrInput
-	// MultiplexProgram settings. See Multiplex Program Settings for more details.
-	//
-	// The following arguments are optional:
+	// MultiplexProgram settings. See `multiplexProgramSettings` Block for more details.
 	MultiplexProgramSettings MultiplexProgramMultiplexProgramSettingsPtrInput
 	// Unique program name.
+	//
+	// The following arguments are optional:
 	ProgramName pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
@@ -182,11 +182,11 @@ func (MultiplexProgramState) ElementType() reflect.Type {
 type multiplexProgramArgs struct {
 	// Multiplex ID.
 	MultiplexId string `pulumi:"multiplexId"`
-	// MultiplexProgram settings. See Multiplex Program Settings for more details.
-	//
-	// The following arguments are optional:
+	// MultiplexProgram settings. See `multiplexProgramSettings` Block for more details.
 	MultiplexProgramSettings *MultiplexProgramMultiplexProgramSettings `pulumi:"multiplexProgramSettings"`
 	// Unique program name.
+	//
+	// The following arguments are optional:
 	ProgramName string `pulumi:"programName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string                   `pulumi:"region"`
@@ -197,11 +197,11 @@ type multiplexProgramArgs struct {
 type MultiplexProgramArgs struct {
 	// Multiplex ID.
 	MultiplexId pulumi.StringInput
-	// MultiplexProgram settings. See Multiplex Program Settings for more details.
-	//
-	// The following arguments are optional:
+	// MultiplexProgram settings. See `multiplexProgramSettings` Block for more details.
 	MultiplexProgramSettings MultiplexProgramMultiplexProgramSettingsPtrInput
 	// Unique program name.
+	//
+	// The following arguments are optional:
 	ProgramName pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
@@ -300,9 +300,7 @@ func (o MultiplexProgramOutput) MultiplexId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultiplexProgram) pulumi.StringOutput { return v.MultiplexId }).(pulumi.StringOutput)
 }
 
-// MultiplexProgram settings. See Multiplex Program Settings for more details.
-//
-// The following arguments are optional:
+// MultiplexProgram settings. See `multiplexProgramSettings` Block for more details.
 func (o MultiplexProgramOutput) MultiplexProgramSettings() MultiplexProgramMultiplexProgramSettingsPtrOutput {
 	return o.ApplyT(func(v *MultiplexProgram) MultiplexProgramMultiplexProgramSettingsPtrOutput {
 		return v.MultiplexProgramSettings
@@ -310,6 +308,8 @@ func (o MultiplexProgramOutput) MultiplexProgramSettings() MultiplexProgramMulti
 }
 
 // Unique program name.
+//
+// The following arguments are optional:
 func (o MultiplexProgramOutput) ProgramName() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultiplexProgram) pulumi.StringOutput { return v.ProgramName }).(pulumi.StringOutput)
 }

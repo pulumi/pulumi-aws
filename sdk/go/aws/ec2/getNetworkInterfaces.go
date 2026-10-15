@@ -13,7 +13,7 @@ import (
 
 // ## Example Usage
 //
-// The following shows outputting all network interface ids in a region.
+// The following shows outputting all network interface IDs in a region.
 //
 // ```go
 // package main
@@ -38,7 +38,7 @@ import (
 //
 // ```
 //
-// The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
+// The following example retrieves a list of all network interface IDs with a custom tag of `Name` set to a value of `test`.
 //
 // ```go
 // package main
@@ -67,7 +67,7 @@ import (
 //
 // ```
 //
-// The following example retrieves a network interface ids which associated
+// The following example retrieves a network interface IDs which associated
 // with specific subnet.
 //
 // ```go
@@ -127,7 +127,7 @@ type GetNetworkInterfacesResult struct {
 	Filters []GetNetworkInterfacesFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// List of all the network interface ids found.
+	// List of all the network interface IDs found.
 	Ids    []string          `pulumi:"ids"`
 	Region string            `pulumi:"region"`
 	Tags   map[string]string `pulumi:"tags"`
@@ -177,7 +177,7 @@ func (o GetNetworkInterfacesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkInterfacesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of all the network interface ids found.
+// List of all the network interface IDs found.
 func (o GetNetworkInterfacesResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetNetworkInterfacesResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

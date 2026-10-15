@@ -17,14 +17,14 @@ public final class WorkspaceServiceAccountTokenState extends com.pulumi.resource
     public static final WorkspaceServiceAccountTokenState Empty = new WorkspaceServiceAccountTokenState();
 
     /**
-     * Specifies when the service account token was created.
+     * When the service account token was created.
      * 
      */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
     /**
-     * @return Specifies when the service account token was created.
+     * @return When the service account token was created.
      * 
      */
     public Optional<Output<String>> createdAt() {
@@ -32,14 +32,14 @@ public final class WorkspaceServiceAccountTokenState extends com.pulumi.resource
     }
 
     /**
-     * Specifies when the service account token will expire.
+     * When the service account token will expire.
      * 
      */
     @Import(name="expiresAt")
     private @Nullable Output<String> expiresAt;
 
     /**
-     * @return Specifies when the service account token will expire.
+     * @return When the service account token will expire.
      * 
      */
     public Optional<Output<String>> expiresAt() {
@@ -47,14 +47,14 @@ public final class WorkspaceServiceAccountTokenState extends com.pulumi.resource
     }
 
     /**
-     * The key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
+     * Key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return The key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
+     * @return Key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
      * 
      */
     public Optional<Output<String>> key() {
@@ -62,14 +62,14 @@ public final class WorkspaceServiceAccountTokenState extends com.pulumi.resource
     }
 
     /**
-     * A name for the token to create. The name must be unique within the workspace.
+     * Name for the token to create. The name must be unique within the workspace.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A name for the token to create. The name must be unique within the workspace.
+     * @return Name for the token to create. The name must be unique within the workspace.
      * 
      */
     public Optional<Output<String>> name() {
@@ -107,14 +107,14 @@ public final class WorkspaceServiceAccountTokenState extends com.pulumi.resource
     }
 
     /**
-     * The ID of the service account for which to create a token.
+     * ID of the service account for which to create a token.
      * 
      */
     @Import(name="serviceAccountId")
     private @Nullable Output<String> serviceAccountId;
 
     /**
-     * @return The ID of the service account for which to create a token.
+     * @return ID of the service account for which to create a token.
      * 
      */
     public Optional<Output<String>> serviceAccountId() {
@@ -137,14 +137,14 @@ public final class WorkspaceServiceAccountTokenState extends com.pulumi.resource
     }
 
     /**
-     * The Grafana workspace with which the service account token is associated.
+     * Grafana workspace with which the service account token is associated.
      * 
      */
     @Import(name="workspaceId")
     private @Nullable Output<String> workspaceId;
 
     /**
-     * @return The Grafana workspace with which the service account token is associated.
+     * @return Grafana workspace with which the service account token is associated.
      * 
      */
     public Optional<Output<String>> workspaceId() {
@@ -184,7 +184,7 @@ public final class WorkspaceServiceAccountTokenState extends com.pulumi.resource
         }
 
         /**
-         * @param createdAt Specifies when the service account token was created.
+         * @param createdAt When the service account token was created.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class WorkspaceServiceAccountTokenState extends com.pulumi.resource
         }
 
         /**
-         * @param createdAt Specifies when the service account token was created.
+         * @param createdAt When the service account token was created.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class WorkspaceServiceAccountTokenState extends com.pulumi.resource
         }
 
         /**
-         * @param expiresAt Specifies when the service account token will expire.
+         * @param expiresAt When the service account token will expire.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class WorkspaceServiceAccountTokenState extends com.pulumi.resource
         }
 
         /**
-         * @param expiresAt Specifies when the service account token will expire.
+         * @param expiresAt When the service account token will expire.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class WorkspaceServiceAccountTokenState extends com.pulumi.resource
         }
 
         /**
-         * @param key The key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
+         * @param key Key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class WorkspaceServiceAccountTokenState extends com.pulumi.resource
         }
 
         /**
-         * @param key The key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
+         * @param key Key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class WorkspaceServiceAccountTokenState extends com.pulumi.resource
         }
 
         /**
-         * @param name A name for the token to create. The name must be unique within the workspace.
+         * @param name Name for the token to create. The name must be unique within the workspace.
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class WorkspaceServiceAccountTokenState extends com.pulumi.resource
         }
 
         /**
-         * @param name A name for the token to create. The name must be unique within the workspace.
+         * @param name Name for the token to create. The name must be unique within the workspace.
          * 
          * @return builder
          * 
@@ -310,7 +310,7 @@ public final class WorkspaceServiceAccountTokenState extends com.pulumi.resource
         }
 
         /**
-         * @param serviceAccountId The ID of the service account for which to create a token.
+         * @param serviceAccountId ID of the service account for which to create a token.
          * 
          * @return builder
          * 
@@ -321,7 +321,7 @@ public final class WorkspaceServiceAccountTokenState extends com.pulumi.resource
         }
 
         /**
-         * @param serviceAccountId The ID of the service account for which to create a token.
+         * @param serviceAccountId ID of the service account for which to create a token.
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class WorkspaceServiceAccountTokenState extends com.pulumi.resource
         }
 
         /**
-         * @param workspaceId The Grafana workspace with which the service account token is associated.
+         * @param workspaceId Grafana workspace with which the service account token is associated.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class WorkspaceServiceAccountTokenState extends com.pulumi.resource
         }
 
         /**
-         * @param workspaceId The Grafana workspace with which the service account token is associated.
+         * @param workspaceId Grafana workspace with which the service account token is associated.
          * 
          * @return builder
          * 

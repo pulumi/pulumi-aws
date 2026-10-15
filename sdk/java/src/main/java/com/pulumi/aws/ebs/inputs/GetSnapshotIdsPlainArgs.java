@@ -32,14 +32,14 @@ public final class GetSnapshotIdsPlainArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
+     * Returns the snapshots owned by the specified owner ID. Multiple owners can be specified.
      * 
      */
     @Import(name="owners")
     private @Nullable List<String> owners;
 
     /**
-     * @return Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
+     * @return Returns the snapshots owned by the specified owner ID. Multiple owners can be specified.
      * 
      */
     public Optional<List<String>> owners() {
@@ -125,7 +125,7 @@ public final class GetSnapshotIdsPlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param owners Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
+         * @param owners Returns the snapshots owned by the specified owner ID. Multiple owners can be specified.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class GetSnapshotIdsPlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param owners Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
+         * @param owners Returns the snapshots owned by the specified owner ID. Multiple owners can be specified.
          * 
          * @return builder
          * 

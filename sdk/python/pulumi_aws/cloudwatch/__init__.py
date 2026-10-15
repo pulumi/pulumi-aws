@@ -51,5 +51,6 @@ from .metric_alarm import *
 from .metric_stream import *
 from .otel_enrichment import *
 from .query_definition import *
+from .resource_metrics_configuration import *
 from ._inputs import *
 from . import outputs

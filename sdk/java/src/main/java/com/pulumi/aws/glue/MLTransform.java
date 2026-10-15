@@ -185,112 +185,112 @@ public class MLTransform extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * The version of glue to use, for example &#34;1.0&#34;. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+     * Version of glue to use, for example &#34;1.0&#34;. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
      * 
      */
     @Export(name="glueVersion", refs={String.class}, tree="[0]")
     private Output<String> glueVersion;
 
     /**
-     * @return The version of glue to use, for example &#34;1.0&#34;. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+     * @return Version of glue to use, for example &#34;1.0&#34;. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
      * 
      */
     public Output<String> glueVersion() {
         return this.glueVersion;
     }
     /**
-     * A list of AWS Glue table definitions used by the transform. see Input Record Tables.
+     * List of AWS Glue table definitions used by the transform. See `inputRecordTables`.
      * 
      */
     @Export(name="inputRecordTables", refs={List.class,MLTransformInputRecordTable.class}, tree="[0,1]")
     private Output<List<MLTransformInputRecordTable>> inputRecordTables;
 
     /**
-     * @return A list of AWS Glue table definitions used by the transform. see Input Record Tables.
+     * @return List of AWS Glue table definitions used by the transform. See `inputRecordTables`.
      * 
      */
     public Output<List<MLTransformInputRecordTable>> inputRecordTables() {
         return this.inputRecordTables;
     }
     /**
-     * The number of labels available for this transform.
+     * Number of labels available for this transform.
      * 
      */
     @Export(name="labelCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> labelCount;
 
     /**
-     * @return The number of labels available for this transform.
+     * @return Number of labels available for this transform.
      * 
      */
     public Output<Integer> labelCount() {
         return this.labelCount;
     }
     /**
-     * The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
+     * Number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
      * 
      */
     @Export(name="maxCapacity", refs={Double.class}, tree="[0]")
     private Output<Double> maxCapacity;
 
     /**
-     * @return The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
+     * @return Number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
      * 
      */
     public Output<Double> maxCapacity() {
         return this.maxCapacity;
     }
     /**
-     * The maximum number of times to retry this ML Transform if it fails.
+     * Maximum number of times to retry this ML Transform if it fails.
      * 
      */
     @Export(name="maxRetries", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxRetries;
 
     /**
-     * @return The maximum number of times to retry this ML Transform if it fails.
+     * @return Maximum number of times to retry this ML Transform if it fails.
      * 
      */
     public Output<Optional<Integer>> maxRetries() {
         return Codegen.optional(this.maxRetries);
     }
     /**
-     * The name you assign to this ML Transform. It must be unique in your account.
+     * Name you assign to this ML Transform. It must be unique in your account.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name you assign to this ML Transform. It must be unique in your account.
+     * @return Name you assign to this ML Transform. It must be unique in your account.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
+     * Number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
      * 
      */
     @Export(name="numberOfWorkers", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> numberOfWorkers;
 
     /**
-     * @return The number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
+     * @return Number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
      * 
      */
     public Output<Optional<Integer>> numberOfWorkers() {
         return Codegen.optional(this.numberOfWorkers);
     }
     /**
-     * The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
+     * Algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. See `parameters`.
      * 
      */
     @Export(name="parameters", refs={MLTransformParameters.class}, tree="[0]")
     private Output<MLTransformParameters> parameters;
 
     /**
-     * @return The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
+     * @return Algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. See `parameters`.
      * 
      */
     public Output<MLTransformParameters> parameters() {
@@ -311,28 +311,28 @@ public class MLTransform extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The ARN of the IAM role associated with this ML Transform.
+     * ARN of the IAM role associated with this ML Transform.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
-     * @return The ARN of the IAM role associated with this ML Transform.
+     * @return ARN of the IAM role associated with this ML Transform.
      * 
      */
     public Output<String> roleArn() {
         return this.roleArn;
     }
     /**
-     * The object that represents the schema that this transform accepts. see Schema.
+     * Object that represents the schema that this transform accepts. See `schema`.
      * 
      */
     @Export(name="schemas", refs={List.class,MLTransformSchema.class}, tree="[0,1]")
     private Output<List<MLTransformSchema>> schemas;
 
     /**
-     * @return The object that represents the schema that this transform accepts. see Schema.
+     * @return Object that represents the schema that this transform accepts. See `schema`.
      * 
      */
     public Output<List<MLTransformSchema>> schemas() {
@@ -353,42 +353,42 @@ public class MLTransform extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
+     * ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
      * 
      */
     @Export(name="timeout", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> timeout;
 
     /**
-     * @return The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
+     * @return ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
      * 
      */
     public Output<Optional<Integer>> timeout() {
         return Codegen.optional(this.timeout);
     }
     /**
-     * The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
+     * Type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
      * 
      */
     @Export(name="workerType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> workerType;
 
     /**
-     * @return The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
+     * @return Type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
      * 
      */
     public Output<Optional<String>> workerType() {

@@ -67,14 +67,14 @@ public final class TaskDefinitionVolumeArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Configuration block for an FSX Windows File Server volume. Detailed below.
+     * Configuration block for an FSx Windows File Server volume. Detailed below.
      * 
      */
     @Import(name="fsxWindowsFileServerVolumeConfiguration")
     private @Nullable Output<TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs> fsxWindowsFileServerVolumeConfiguration;
 
     /**
-     * @return Configuration block for an FSX Windows File Server volume. Detailed below.
+     * @return Configuration block for an FSx Windows File Server volume. Detailed below.
      * 
      */
     public Optional<Output<TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs>> fsxWindowsFileServerVolumeConfiguration() {
@@ -220,7 +220,7 @@ public final class TaskDefinitionVolumeArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param fsxWindowsFileServerVolumeConfiguration Configuration block for an FSX Windows File Server volume. Detailed below.
+         * @param fsxWindowsFileServerVolumeConfiguration Configuration block for an FSx Windows File Server volume. Detailed below.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class TaskDefinitionVolumeArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param fsxWindowsFileServerVolumeConfiguration Configuration block for an FSX Windows File Server volume. Detailed below.
+         * @param fsxWindowsFileServerVolumeConfiguration Configuration block for an FSx Windows File Server volume. Detailed below.
          * 
          * @return builder
          * 

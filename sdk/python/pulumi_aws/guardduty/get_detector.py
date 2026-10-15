@@ -73,7 +73,7 @@ class GetDetectorResult:
     @pulumi.getter(name="findingPublishingFrequency")
     def finding_publishing_frequency(self) -> _builtins.str:
         """
-        The frequency of notifications sent about subsequent finding occurrences.
+        Frequency of notifications sent about subsequent finding occurrences.
         """
         return pulumi.get(self, "finding_publishing_frequency")
 

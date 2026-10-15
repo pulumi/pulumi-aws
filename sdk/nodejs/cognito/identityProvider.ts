@@ -94,7 +94,7 @@ export class IdentityProvider extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The user pool id
+     * The user pool ID
      */
     declare public readonly userPoolId: pulumi.Output<string>;
 
@@ -174,7 +174,7 @@ export interface IdentityProviderState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The user pool id
+     * The user pool ID
      */
     userPoolId?: pulumi.Input<string | undefined>;
 }
@@ -208,7 +208,7 @@ export interface IdentityProviderArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The user pool id
+     * The user pool ID
      */
     userPoolId: pulumi.Input<string>;
 }

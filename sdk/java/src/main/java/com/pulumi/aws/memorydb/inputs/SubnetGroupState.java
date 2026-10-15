@@ -18,14 +18,14 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
     public static final SubnetGroupState Empty = new SubnetGroupState();
 
     /**
-     * The ARN of the subnet group.
+     * ARN of the subnet group.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the subnet group.
+     * @return ARN of the subnet group.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -112,14 +112,14 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -127,14 +127,14 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -142,14 +142,14 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The VPC in which the subnet group exists.
+     * VPC in which the subnet group exists.
      * 
      */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
     /**
-     * @return The VPC in which the subnet group exists.
+     * @return VPC in which the subnet group exists.
      * 
      */
     public Optional<Output<String>> vpcId() {
@@ -189,7 +189,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the subnet group.
+         * @param arn ARN of the subnet group.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the subnet group.
+         * @param arn ARN of the subnet group.
          * 
          * @return builder
          * 
@@ -331,7 +331,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcId The VPC in which the subnet group exists.
+         * @param vpcId VPC in which the subnet group exists.
          * 
          * @return builder
          * 
@@ -384,7 +384,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcId The VPC in which the subnet group exists.
+         * @param vpcId VPC in which the subnet group exists.
          * 
          * @return builder
          * 

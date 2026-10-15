@@ -298,14 +298,14 @@ public class Invocation extends com.pulumi.resources.CustomResource {
         return this.result;
     }
     /**
-     * Tenant Id to serve invocations from specified tenant.
+     * Tenant ID to serve invocations from specified tenant.
      * 
      */
     @Export(name="tenantId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tenantId;
 
     /**
-     * @return Tenant Id to serve invocations from specified tenant.
+     * @return Tenant ID to serve invocations from specified tenant.
      * 
      */
     public Output<Optional<String>> tenantId() {

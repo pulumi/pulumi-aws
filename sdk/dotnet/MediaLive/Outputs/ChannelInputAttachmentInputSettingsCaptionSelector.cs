@@ -13,13 +13,17 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelInputAttachmentInputSettingsCaptionSelector
     {
+        /// <summary>
+        /// When specified, indicates the three-letter language code of the caption track to extract from the source.
+        /// </summary>
         public readonly string? LanguageCode;
         /// <summary>
-        /// Name of the Channel.
-        /// 
-        /// The following arguments are optional:
+        /// Name of the caption selector.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Caption selector settings. See `caption_selector.selector_settings` Block for details.
+        /// </summary>
         public readonly Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings? SelectorSettings;
 
         [OutputConstructor]

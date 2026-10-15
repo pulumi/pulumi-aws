@@ -217,28 +217,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:gamelift/gameServerGroup:GameServerGroup")
 public class GameServerGroup extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the GameLift Game Server Group.
+     * ARN of the GameLift Game Server Group.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the GameLift Game Server Group.
+     * @return ARN of the GameLift Game Server Group.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The ARN of the created EC2 Auto Scaling group.
+     * ARN of the created EC2 Auto Scaling group.
      * 
      */
     @Export(name="autoScalingGroupArn", refs={String.class}, tree="[0]")
     private Output<String> autoScalingGroupArn;
 
     /**
-     * @return The ARN of the created EC2 Auto Scaling group.
+     * @return ARN of the created EC2 Auto Scaling group.
      * 
      */
     public Output<String> autoScalingGroupArn() {
@@ -251,56 +251,42 @@ public class GameServerGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.autoScalingPolicy);
     }
     /**
-     * Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
-     * Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
+     * How GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances. Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
      * 
      */
     @Export(name="balancingStrategy", refs={String.class}, tree="[0]")
     private Output<String> balancingStrategy;
 
     /**
-     * @return Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
-     * Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
+     * @return How GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances. Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
      * 
      */
     public Output<String> balancingStrategy() {
         return this.balancingStrategy;
     }
     /**
-     * Name of the game server group.
-     * This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
+     * Name of the game server group. This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
      * 
      */
     @Export(name="gameServerGroupName", refs={String.class}, tree="[0]")
     private Output<String> gameServerGroupName;
 
     /**
-     * @return Name of the game server group.
-     * This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
+     * @return Name of the game server group. This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
      * 
      */
     public Output<String> gameServerGroupName() {
         return this.gameServerGroupName;
     }
     /**
-     * Indicates whether instances in the game server group are protected from early termination.
-     * Unprotected instances that have active game servers running might be terminated during a scale-down event,
-     * causing players to be dropped from the game.
-     * Protected instances cannot be terminated while there are active game servers running except in the event
-     * of a forced game server group deletion.
-     * Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
+     * Whether instances in the game server group are protected from early termination. Unprotected instances that have active game servers running might be terminated during a scale-down event, causing players to be dropped from the game. Protected instances cannot be terminated while there are active game servers running except in the event of a forced game server group deletion. Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
      * 
      */
     @Export(name="gameServerProtectionPolicy", refs={String.class}, tree="[0]")
     private Output<String> gameServerProtectionPolicy;
 
     /**
-     * @return Indicates whether instances in the game server group are protected from early termination.
-     * Unprotected instances that have active game servers running might be terminated during a scale-down event,
-     * causing players to be dropped from the game.
-     * Protected instances cannot be terminated while there are active game servers running except in the event
-     * of a forced game server group deletion.
-     * Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
+     * @return Whether instances in the game server group are protected from early termination. Unprotected instances that have active game servers running might be terminated during a scale-down event, causing players to be dropped from the game. Protected instances cannot be terminated while there are active game servers running except in the event of a forced game server group deletion. Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
      * 
      */
     public Output<String> gameServerProtectionPolicy() {
@@ -319,32 +305,28 @@ public class GameServerGroup extends com.pulumi.resources.CustomResource {
         return this.launchTemplate;
     }
     /**
-     * The maximum number of instances allowed in the EC2 Auto Scaling group.
-     * During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
+     * Maximum number of instances allowed in the EC2 Auto Scaling group. During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
      * 
      */
     @Export(name="maxSize", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxSize;
 
     /**
-     * @return The maximum number of instances allowed in the EC2 Auto Scaling group.
-     * During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
+     * @return Maximum number of instances allowed in the EC2 Auto Scaling group. During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
      * 
      */
     public Output<Integer> maxSize() {
         return this.maxSize;
     }
     /**
-     * The minimum number of instances allowed in the EC2 Auto Scaling group.
-     * During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
+     * Minimum number of instances allowed in the EC2 Auto Scaling group. During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
      * 
      */
     @Export(name="minSize", refs={Integer.class}, tree="[0]")
     private Output<Integer> minSize;
 
     /**
-     * @return The minimum number of instances allowed in the EC2 Auto Scaling group.
-     * During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
+     * @return Minimum number of instances allowed in the EC2 Auto Scaling group. During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
      * 
      */
     public Output<Integer> minSize() {
@@ -399,16 +381,14 @@ public class GameServerGroup extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * A list of VPC subnets to use with instances in the game server group.
-     * By default, all GameLift FleetIQ-supported Availability Zones are used.
+     * List of VPC subnets to use with instances in the game server group. By default, all GameLift FleetIQ-supported Availability Zones are used.
      * 
      */
     @Export(name="vpcSubnets", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> vpcSubnets;
 
     /**
-     * @return A list of VPC subnets to use with instances in the game server group.
-     * By default, all GameLift FleetIQ-supported Availability Zones are used.
+     * @return List of VPC subnets to use with instances in the game server group. By default, all GameLift FleetIQ-supported Availability Zones are used.
      * 
      */
     public Output<Optional<List<String>>> vpcSubnets() {

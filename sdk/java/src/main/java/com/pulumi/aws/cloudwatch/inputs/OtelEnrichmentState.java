@@ -3,10 +3,13 @@
 
 package com.pulumi.aws.cloudwatch.inputs;
 
+import com.pulumi.aws.cloudwatch.inputs.OtelEnrichmentExcludeFilterArgs;
+import com.pulumi.aws.cloudwatch.inputs.OtelEnrichmentIncludeFilterArgs;
 import com.pulumi.aws.cloudwatch.inputs.OtelEnrichmentTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -15,6 +18,36 @@ import javax.annotation.Nullable;
 public final class OtelEnrichmentState extends com.pulumi.resources.ResourceArgs {
 
     public static final OtelEnrichmentState Empty = new OtelEnrichmentState();
+
+    /**
+     * Namespaces and metric names to leave unenriched. See below.
+     * 
+     */
+    @Import(name="excludeFilters")
+    private @Nullable Output<List<OtelEnrichmentExcludeFilterArgs>> excludeFilters;
+
+    /**
+     * @return Namespaces and metric names to leave unenriched. See below.
+     * 
+     */
+    public Optional<Output<List<OtelEnrichmentExcludeFilterArgs>>> excludeFilters() {
+        return Optional.ofNullable(this.excludeFilters);
+    }
+
+    /**
+     * Namespaces and metric names to enrich. See below.
+     * 
+     */
+    @Import(name="includeFilters")
+    private @Nullable Output<List<OtelEnrichmentIncludeFilterArgs>> includeFilters;
+
+    /**
+     * @return Namespaces and metric names to enrich. See below.
+     * 
+     */
+    public Optional<Output<List<OtelEnrichmentIncludeFilterArgs>>> includeFilters() {
+        return Optional.ofNullable(this.includeFilters);
+    }
 
     /**
      * AWS region where this resource is managed.
@@ -41,6 +74,8 @@ public final class OtelEnrichmentState extends com.pulumi.resources.ResourceArgs
     private OtelEnrichmentState() {}
 
     private OtelEnrichmentState(OtelEnrichmentState $) {
+        this.excludeFilters = $.excludeFilters;
+        this.includeFilters = $.includeFilters;
         this.region = $.region;
         this.timeouts = $.timeouts;
     }
@@ -61,6 +96,68 @@ public final class OtelEnrichmentState extends com.pulumi.resources.ResourceArgs
 
         public Builder(OtelEnrichmentState defaults) {
             $ = new OtelEnrichmentState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param excludeFilters Namespaces and metric names to leave unenriched. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder excludeFilters(@Nullable Output<List<OtelEnrichmentExcludeFilterArgs>> excludeFilters) {
+            $.excludeFilters = excludeFilters;
+            return this;
+        }
+
+        /**
+         * @param excludeFilters Namespaces and metric names to leave unenriched. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder excludeFilters(List<OtelEnrichmentExcludeFilterArgs> excludeFilters) {
+            return excludeFilters(Output.of(excludeFilters));
+        }
+
+        /**
+         * @param excludeFilters Namespaces and metric names to leave unenriched. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder excludeFilters(OtelEnrichmentExcludeFilterArgs... excludeFilters) {
+            return excludeFilters(List.of(excludeFilters));
+        }
+
+        /**
+         * @param includeFilters Namespaces and metric names to enrich. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includeFilters(@Nullable Output<List<OtelEnrichmentIncludeFilterArgs>> includeFilters) {
+            $.includeFilters = includeFilters;
+            return this;
+        }
+
+        /**
+         * @param includeFilters Namespaces and metric names to enrich. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includeFilters(List<OtelEnrichmentIncludeFilterArgs> includeFilters) {
+            return includeFilters(Output.of(includeFilters));
+        }
+
+        /**
+         * @param includeFilters Namespaces and metric names to enrich. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includeFilters(OtelEnrichmentIncludeFilterArgs... includeFilters) {
+            return includeFilters(List.of(includeFilters));
         }
 
         /**

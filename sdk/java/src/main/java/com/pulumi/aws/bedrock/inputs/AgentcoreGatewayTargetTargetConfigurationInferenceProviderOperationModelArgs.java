@@ -14,9 +14,17 @@ public final class AgentcoreGatewayTargetTargetConfigurationInferenceProviderOpe
 
     public static final AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperationModelArgs Empty = new AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperationModelArgs();
 
+    /**
+     * Model ID or glob pattern that identifies the model (for example, `anthropic.claude-opus-*` or `openai.gpt-oss-*`).
+     * 
+     */
     @Import(name="model", required=true)
     private Output<String> model;
 
+    /**
+     * @return Model ID or glob pattern that identifies the model (for example, `anthropic.claude-opus-*` or `openai.gpt-oss-*`).
+     * 
+     */
     public Output<String> model() {
         return this.model;
     }
@@ -45,11 +53,23 @@ public final class AgentcoreGatewayTargetTargetConfigurationInferenceProviderOpe
             $ = new AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperationModelArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param model Model ID or glob pattern that identifies the model (for example, `anthropic.claude-opus-*` or `openai.gpt-oss-*`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder model(Output<String> model) {
             $.model = model;
             return this;
         }
 
+        /**
+         * @param model Model ID or glob pattern that identifies the model (for example, `anthropic.claude-opus-*` or `openai.gpt-oss-*`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder model(String model) {
             return model(Output.of(model));
         }

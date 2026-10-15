@@ -111,7 +111,7 @@ export interface GetInstanceResult {
      */
     readonly dbSubnetGroup: string;
     /**
-     * List of log types to export to cloudwatch.
+     * List of log types to export to CloudWatch.
      */
     readonly enabledCloudwatchLogsExports: string[];
     /**

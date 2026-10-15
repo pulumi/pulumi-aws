@@ -1018,7 +1018,7 @@ class DomainEncryptAtRestArgs:
 class DomainLogPublishingOptionArgsDict(TypedDict):
     cloudwatch_log_group_arn: pulumi.Input[_builtins.str]
     """
-    ARN of the Cloudwatch log group to which log needs to be published.
+    ARN of the CloudWatch log group to which log needs to be published.
     """
     log_type: pulumi.Input[_builtins.str]
     """
@@ -1036,7 +1036,7 @@ class DomainLogPublishingOptionArgs:
                  log_type: pulumi.Input[_builtins.str],
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.str] cloudwatch_log_group_arn: ARN of the Cloudwatch log group to which log needs to be published.
+        :param pulumi.Input[_builtins.str] cloudwatch_log_group_arn: ARN of the CloudWatch log group to which log needs to be published.
         :param pulumi.Input[_builtins.str] log_type: Type of Elasticsearch log. Valid values: `INDEX_SLOW_LOGS`, `SEARCH_SLOW_LOGS`, `ES_APPLICATION_LOGS`, `AUDIT_LOGS`.
         :param pulumi.Input[_builtins.bool] enabled: Whether given log publishing option is enabled or not.
         """
@@ -1049,7 +1049,7 @@ class DomainLogPublishingOptionArgs:
     @pulumi.getter(name="cloudwatchLogGroupArn")
     def cloudwatch_log_group_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        ARN of the Cloudwatch log group to which log needs to be published.
+        ARN of the CloudWatch log group to which log needs to be published.
         """
         return pulumi.get(self, "cloudwatch_log_group_arn")
 
@@ -1266,7 +1266,7 @@ class DomainSamlOptionsSamlOptionsIdpArgsDict(TypedDict):
     """
     metadata_content: pulumi.Input[_builtins.str]
     """
-    The Metadata of the SAML application in xml format.
+    The Metadata of the SAML application in XML format.
     """
 
 @pulumi.input_type
@@ -1276,7 +1276,7 @@ class DomainSamlOptionsSamlOptionsIdpArgs:
                  metadata_content: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.str] entity_id: The unique Entity ID of the application in SAML Identity Provider.
-        :param pulumi.Input[_builtins.str] metadata_content: The Metadata of the SAML application in xml format.
+        :param pulumi.Input[_builtins.str] metadata_content: The Metadata of the SAML application in XML format.
         """
         pulumi.set(__self__, "entity_id", entity_id)
         pulumi.set(__self__, "metadata_content", metadata_content)
@@ -1297,7 +1297,7 @@ class DomainSamlOptionsSamlOptionsIdpArgs:
     @pulumi.getter(name="metadataContent")
     def metadata_content(self) -> pulumi.Input[_builtins.str]:
         """
-        The Metadata of the SAML application in xml format.
+        The Metadata of the SAML application in XML format.
         """
         return pulumi.get(self, "metadata_content")
 
@@ -1481,7 +1481,7 @@ class VpcEndpointVpcOptionsArgsDict(TypedDict):
     availability_zones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, elasticsearch Service uses the default security group for the VPC.
+    The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, Elasticsearch Service uses the default security group for the VPC.
     """
     vpc_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
@@ -1494,7 +1494,7 @@ class VpcEndpointVpcOptionsArgs:
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of subnet IDs associated with the VPC endpoints for the domain. If your domain uses multiple Availability Zones, you need to provide two subnet IDs, one per zone. Otherwise, provide only one.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, elasticsearch Service uses the default security group for the VPC.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, Elasticsearch Service uses the default security group for the VPC.
         """
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         if availability_zones is not None:
@@ -1529,7 +1529,7 @@ class VpcEndpointVpcOptionsArgs:
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, elasticsearch Service uses the default security group for the VPC.
+        The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, Elasticsearch Service uses the default security group for the VPC.
         """
         return pulumi.get(self, "security_group_ids")
 

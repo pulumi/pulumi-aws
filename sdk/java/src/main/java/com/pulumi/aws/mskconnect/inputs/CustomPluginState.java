@@ -34,14 +34,14 @@ public final class CustomPluginState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of the plugin file. Allowed values are `ZIP` and `JAR`.
+     * Type of the plugin file. Allowed values are `ZIP` and `JAR`.
      * 
      */
     @Import(name="contentType")
     private @Nullable Output<String> contentType;
 
     /**
-     * @return The type of the plugin file. Allowed values are `ZIP` and `JAR`.
+     * @return Type of the plugin file. Allowed values are `ZIP` and `JAR`.
      * 
      */
     public Optional<Output<String>> contentType() {
@@ -49,14 +49,14 @@ public final class CustomPluginState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A summary description of the custom plugin.
+     * Summary description of the custom plugin.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A summary description of the custom plugin.
+     * @return Summary description of the custom plugin.
      * 
      */
     public Optional<Output<String>> description() {
@@ -94,14 +94,14 @@ public final class CustomPluginState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the custom plugin..
+     * Name of the custom plugin.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the custom plugin..
+     * @return Name of the custom plugin.
      * 
      */
     public Optional<Output<String>> name() {
@@ -139,14 +139,14 @@ public final class CustomPluginState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -154,14 +154,14 @@ public final class CustomPluginState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -223,7 +223,7 @@ public final class CustomPluginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contentType The type of the plugin file. Allowed values are `ZIP` and `JAR`.
+         * @param contentType Type of the plugin file. Allowed values are `ZIP` and `JAR`.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class CustomPluginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contentType The type of the plugin file. Allowed values are `ZIP` and `JAR`.
+         * @param contentType Type of the plugin file. Allowed values are `ZIP` and `JAR`.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class CustomPluginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A summary description of the custom plugin.
+         * @param description Summary description of the custom plugin.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class CustomPluginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A summary description of the custom plugin.
+         * @param description Summary description of the custom plugin.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class CustomPluginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the custom plugin..
+         * @param name Name of the custom plugin.
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class CustomPluginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the custom plugin..
+         * @param name Name of the custom plugin.
          * 
          * @return builder
          * 
@@ -370,7 +370,7 @@ public final class CustomPluginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -381,7 +381,7 @@ public final class CustomPluginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -391,7 +391,7 @@ public final class CustomPluginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -402,7 +402,7 @@ public final class CustomPluginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

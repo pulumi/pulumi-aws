@@ -17,9 +17,12 @@ namespace Pulumi.Aws.Glue.Outputs
         /// Free-form text comment.
         /// </summary>
         public readonly string? Comment;
+        /// <summary>
+        /// Name of the Column.
+        /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The datatype of data in the Column.
+        /// Datatype of data in the Column.
         /// </summary>
         public readonly string? Type;
 

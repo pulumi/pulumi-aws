@@ -74,10 +74,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+        /// Block describing whether dynamic routing is enabled or disabled for the transit gateway peering request. If not configured, the value is populated from the API. See options below for more details!
         /// </summary>
         [Output("options")]
-        public Output<Outputs.PeeringAttachmentOptions?> Options { get; private set; } = null!;
+        public Output<Outputs.PeeringAttachmentOptions> Options { get; private set; } = null!;
 
         /// <summary>
         /// Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public sealed class PeeringAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+        /// Block describing whether dynamic routing is enabled or disabled for the transit gateway peering request. If not configured, the value is populated from the API. See options below for more details!
         /// </summary>
         [Input("options")]
         public Input<Inputs.PeeringAttachmentOptionsArgs>? Options { get; set; }
@@ -233,7 +233,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+        /// Block describing whether dynamic routing is enabled or disabled for the transit gateway peering request. If not configured, the value is populated from the API. See options below for more details!
         /// </summary>
         [Input("options")]
         public Input<Inputs.PeeringAttachmentOptionsGetArgs>? Options { get; set; }

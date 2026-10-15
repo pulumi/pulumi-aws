@@ -12,11 +12,14 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// CBET check digits to use for the watermark.
+        /// </summary>
         [Input("cbetCheckDigitString", required: true)]
         public Input<string> CbetCheckDigitString { get; set; } = null!;
 
         /// <summary>
-        /// Determines the method of CBET insertion mode when prior encoding is detected on the same layer.
+        /// Method of CBET insertion mode when prior encoding is detected on the same layer.
         /// </summary>
         [Input("cbetStepaside", required: true)]
         public Input<string> CbetStepaside { get; set; } = null!;

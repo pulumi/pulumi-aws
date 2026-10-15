@@ -14,7 +14,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition
     {
         /// <summary>
-        /// Failover condition type-specific settings. See Failover Condition Settings for more details.
+        /// Failover condition type-specific settings. See `FailoverConditionSettings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings? FailoverConditionSettings;
 

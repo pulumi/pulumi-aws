@@ -17,62 +17,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CatalogTableOptimizerConfiguration {
     /**
-     * @return The configuration block for a compaction optimizer. See Compaction Configuration for additional details.
+     * @return Configuration block for a compaction optimizer. See `compactionConfiguration` Block for additional details.
      * 
      */
     private @Nullable CatalogTableOptimizerConfigurationCompactionConfiguration compactionConfiguration;
     /**
-     * @return Indicates whether the table optimizer is enabled.
+     * @return Whether the table optimizer is enabled.
      * 
      */
     private Boolean enabled;
     /**
-     * @return The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
+     * @return Configuration block for an orphan file deletion optimizer. See `orphanFileDeletionConfiguration` Block for additional details.
      * 
      */
     private @Nullable CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration orphanFileDeletionConfiguration;
     /**
-     * @return The configuration block for a snapshot retention optimizer. See Retention Configuration for additional details.
+     * @return Configuration block for a snapshot retention optimizer. See `retentionConfiguration` Block for additional details.
      * 
      */
     private @Nullable CatalogTableOptimizerConfigurationRetentionConfiguration retentionConfiguration;
     /**
-     * @return The ARN of the IAM role to use for the table optimizer.
+     * @return ARN of the IAM role to use for the table optimizer.
      * 
      */
     private String roleArn;
 
     private CatalogTableOptimizerConfiguration() {}
     /**
-     * @return The configuration block for a compaction optimizer. See Compaction Configuration for additional details.
+     * @return Configuration block for a compaction optimizer. See `compactionConfiguration` Block for additional details.
      * 
      */
     public Optional<CatalogTableOptimizerConfigurationCompactionConfiguration> compactionConfiguration() {
         return Optional.ofNullable(this.compactionConfiguration);
     }
     /**
-     * @return Indicates whether the table optimizer is enabled.
+     * @return Whether the table optimizer is enabled.
      * 
      */
     public Boolean enabled() {
         return this.enabled;
     }
     /**
-     * @return The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
+     * @return Configuration block for an orphan file deletion optimizer. See `orphanFileDeletionConfiguration` Block for additional details.
      * 
      */
     public Optional<CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration> orphanFileDeletionConfiguration() {
         return Optional.ofNullable(this.orphanFileDeletionConfiguration);
     }
     /**
-     * @return The configuration block for a snapshot retention optimizer. See Retention Configuration for additional details.
+     * @return Configuration block for a snapshot retention optimizer. See `retentionConfiguration` Block for additional details.
      * 
      */
     public Optional<CatalogTableOptimizerConfigurationRetentionConfiguration> retentionConfiguration() {
         return Optional.ofNullable(this.retentionConfiguration);
     }
     /**
-     * @return The ARN of the IAM role to use for the table optimizer.
+     * @return ARN of the IAM role to use for the table optimizer.
      * 
      */
     public String roleArn() {

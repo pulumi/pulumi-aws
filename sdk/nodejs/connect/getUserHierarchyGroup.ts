@@ -52,7 +52,7 @@ export function getUserHierarchyGroup(args: GetUserHierarchyGroupArgs, opts?: pu
  */
 export interface GetUserHierarchyGroupArgs {
     /**
-     * Returns information on a specific hierarchy group by hierarchy group id
+     * Returns information on a specific hierarchy group by hierarchy group ID
      */
     hierarchyGroupId?: string;
     /**
@@ -152,7 +152,7 @@ export function getUserHierarchyGroupOutput(args: GetUserHierarchyGroupOutputArg
  */
 export interface GetUserHierarchyGroupOutputArgs {
     /**
-     * Returns information on a specific hierarchy group by hierarchy group id
+     * Returns information on a specific hierarchy group by hierarchy group ID
      */
     hierarchyGroupId?: pulumi.Input<string | undefined>;
     /**

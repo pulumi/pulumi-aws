@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  * instances to be requested on the Spot market.
  *
  * > **NOTE [AWS strongly discourages](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use) the use of the legacy APIs called by this resource.
- * We recommend using the EC2 Fleet or Auto Scaling Group resources instead.
+ * We recommend using the EC2 Fleet or Auto Scaling group resources instead.
  *
  * ## Example Usage
  *
@@ -117,7 +117,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > In this example, we use a `dynamic` block to define zero or more `launchSpecification` blocks, producing one for each element in the list of subnet ids.
+ * > In this example, we use a `dynamic` block to define zero or more `launchSpecification` blocks, producing one for each element in the list of subnet IDs.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

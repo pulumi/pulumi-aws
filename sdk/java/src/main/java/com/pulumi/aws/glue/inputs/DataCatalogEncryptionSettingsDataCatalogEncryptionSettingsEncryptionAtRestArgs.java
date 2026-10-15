@@ -17,14 +17,14 @@ public final class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEnc
     public static final DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs Empty = new DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs();
 
     /**
-     * The encryption-at-rest mode for encrypting Data Catalog data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-KMS-WITH-SERVICE-ROLE`.
+     * Encryption-at-rest mode for encrypting Data Catalog data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-KMS-WITH-SERVICE-ROLE`.
      * 
      */
     @Import(name="catalogEncryptionMode", required=true)
     private Output<String> catalogEncryptionMode;
 
     /**
-     * @return The encryption-at-rest mode for encrypting Data Catalog data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-KMS-WITH-SERVICE-ROLE`.
+     * @return Encryption-at-rest mode for encrypting Data Catalog data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-KMS-WITH-SERVICE-ROLE`.
      * 
      */
     public Output<String> catalogEncryptionMode() {
@@ -32,14 +32,14 @@ public final class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEnc
     }
 
     /**
-     * The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
+     * ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
      * 
      */
     @Import(name="catalogEncryptionServiceRole")
     private @Nullable Output<String> catalogEncryptionServiceRole;
 
     /**
-     * @return The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
+     * @return ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
      * 
      */
     public Optional<Output<String>> catalogEncryptionServiceRole() {
@@ -47,14 +47,14 @@ public final class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEnc
     }
 
     /**
-     * The ARN of the AWS KMS key to use for encryption at rest.
+     * ARN of the AWS KMS key to use for encryption at rest.
      * 
      */
     @Import(name="sseAwsKmsKeyId")
     private @Nullable Output<String> sseAwsKmsKeyId;
 
     /**
-     * @return The ARN of the AWS KMS key to use for encryption at rest.
+     * @return ARN of the AWS KMS key to use for encryption at rest.
      * 
      */
     public Optional<Output<String>> sseAwsKmsKeyId() {
@@ -88,7 +88,7 @@ public final class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEnc
         }
 
         /**
-         * @param catalogEncryptionMode The encryption-at-rest mode for encrypting Data Catalog data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-KMS-WITH-SERVICE-ROLE`.
+         * @param catalogEncryptionMode Encryption-at-rest mode for encrypting Data Catalog data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-KMS-WITH-SERVICE-ROLE`.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEnc
         }
 
         /**
-         * @param catalogEncryptionMode The encryption-at-rest mode for encrypting Data Catalog data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-KMS-WITH-SERVICE-ROLE`.
+         * @param catalogEncryptionMode Encryption-at-rest mode for encrypting Data Catalog data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-KMS-WITH-SERVICE-ROLE`.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEnc
         }
 
         /**
-         * @param catalogEncryptionServiceRole The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
+         * @param catalogEncryptionServiceRole ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEnc
         }
 
         /**
-         * @param catalogEncryptionServiceRole The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
+         * @param catalogEncryptionServiceRole ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEnc
         }
 
         /**
-         * @param sseAwsKmsKeyId The ARN of the AWS KMS key to use for encryption at rest.
+         * @param sseAwsKmsKeyId ARN of the AWS KMS key to use for encryption at rest.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEnc
         }
 
         /**
-         * @param sseAwsKmsKeyId The ARN of the AWS KMS key to use for encryption at rest.
+         * @param sseAwsKmsKeyId ARN of the AWS KMS key to use for encryption at rest.
          * 
          * @return builder
          * 

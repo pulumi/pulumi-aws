@@ -129,7 +129,7 @@ export class DeploymentConfig extends pulumi.CustomResource {
      */
     declare public readonly computePlatform: pulumi.Output<string | undefined>;
     /**
-     * The AWS Assigned deployment config id
+     * The AWS Assigned deployment config ID
      */
     declare public /*out*/ readonly deploymentConfigId: pulumi.Output<string>;
     /**
@@ -203,7 +203,7 @@ export interface DeploymentConfigState {
      */
     computePlatform?: pulumi.Input<string | undefined>;
     /**
-     * The AWS Assigned deployment config id
+     * The AWS Assigned deployment config ID
      */
     deploymentConfigId?: pulumi.Input<string | undefined>;
     /**

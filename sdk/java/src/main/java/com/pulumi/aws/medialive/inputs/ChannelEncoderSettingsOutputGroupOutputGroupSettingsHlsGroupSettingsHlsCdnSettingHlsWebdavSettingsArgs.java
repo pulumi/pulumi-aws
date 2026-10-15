@@ -17,43 +17,59 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
     public static final ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsArgs();
 
     /**
-     * Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+     * Number of seconds to wait before retrying a connection to the CDN if the connection is lost.
      * 
      */
     @Import(name="connectionRetryInterval")
     private @Nullable Output<Integer> connectionRetryInterval;
 
     /**
-     * @return Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+     * @return Number of seconds to wait before retrying a connection to the CDN if the connection is lost.
      * 
      */
     public Optional<Output<Integer>> connectionRetryInterval() {
         return Optional.ofNullable(this.connectionRetryInterval);
     }
 
+    /**
+     * Size, in seconds, of the file cache for streaming outputs.
+     * 
+     */
     @Import(name="filecacheDuration")
     private @Nullable Output<Integer> filecacheDuration;
 
+    /**
+     * @return Size, in seconds, of the file cache for streaming outputs.
+     * 
+     */
     public Optional<Output<Integer>> filecacheDuration() {
         return Optional.ofNullable(this.filecacheDuration);
     }
 
+    /**
+     * HTTP transfer mode.
+     * 
+     */
     @Import(name="httpTransferMode")
     private @Nullable Output<String> httpTransferMode;
 
+    /**
+     * @return HTTP transfer mode.
+     * 
+     */
     public Optional<Output<String>> httpTransferMode() {
         return Optional.ofNullable(this.httpTransferMode);
     }
 
     /**
-     * Number of retry attempts.
+     * Number of retry attempts that are made before the channel is put into an error state.
      * 
      */
     @Import(name="numRetries")
     private @Nullable Output<Integer> numRetries;
 
     /**
-     * @return Number of retry attempts.
+     * @return Number of retry attempts that are made before the channel is put into an error state.
      * 
      */
     public Optional<Output<Integer>> numRetries() {
@@ -104,7 +120,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         }
 
         /**
-         * @param connectionRetryInterval Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+         * @param connectionRetryInterval Number of seconds to wait before retrying a connection to the CDN if the connection is lost.
          * 
          * @return builder
          * 
@@ -115,7 +131,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         }
 
         /**
-         * @param connectionRetryInterval Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+         * @param connectionRetryInterval Number of seconds to wait before retrying a connection to the CDN if the connection is lost.
          * 
          * @return builder
          * 
@@ -124,26 +140,50 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
             return connectionRetryInterval(Output.of(connectionRetryInterval));
         }
 
+        /**
+         * @param filecacheDuration Size, in seconds, of the file cache for streaming outputs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filecacheDuration(@Nullable Output<Integer> filecacheDuration) {
             $.filecacheDuration = filecacheDuration;
             return this;
         }
 
+        /**
+         * @param filecacheDuration Size, in seconds, of the file cache for streaming outputs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filecacheDuration(Integer filecacheDuration) {
             return filecacheDuration(Output.of(filecacheDuration));
         }
 
+        /**
+         * @param httpTransferMode HTTP transfer mode.
+         * 
+         * @return builder
+         * 
+         */
         public Builder httpTransferMode(@Nullable Output<String> httpTransferMode) {
             $.httpTransferMode = httpTransferMode;
             return this;
         }
 
+        /**
+         * @param httpTransferMode HTTP transfer mode.
+         * 
+         * @return builder
+         * 
+         */
         public Builder httpTransferMode(String httpTransferMode) {
             return httpTransferMode(Output.of(httpTransferMode));
         }
 
         /**
-         * @param numRetries Number of retry attempts.
+         * @param numRetries Number of retry attempts that are made before the channel is put into an error state.
          * 
          * @return builder
          * 
@@ -154,7 +194,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         }
 
         /**
-         * @param numRetries Number of retry attempts.
+         * @param numRetries Number of retry attempts that are made before the channel is put into an error state.
          * 
          * @return builder
          * 

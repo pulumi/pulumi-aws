@@ -19,13 +19,13 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<string>? AdaptiveQuantization { get; set; }
 
         /// <summary>
-        /// Indicates that AFD values will be written into the output stream.
+        /// Whether AFD values are written into the output stream.
         /// </summary>
         [Input("afdSignaling")]
         public Input<string>? AfdSignaling { get; set; }
 
         /// <summary>
-        /// Whether or not EML should insert an Alternative Transfer Function SEI message.
+        /// Whether EML inserts an Alternative Transfer Function SEI message.
         /// </summary>
         [Input("alternativeTransferFunction")]
         public Input<string>? AlternativeTransferFunction { get; set; }
@@ -37,35 +37,38 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<int> Bitrate { get; set; } = null!;
 
         /// <summary>
-        /// Size of buffer in bits.
+        /// Size of the buffer in bits.
         /// </summary>
         [Input("bufSize")]
         public Input<int>? BufSize { get; set; }
 
         /// <summary>
-        /// Includes color space metadata in the output.
+        /// Whether color space metadata is included in the output.
         /// </summary>
         [Input("colorMetadata")]
         public Input<string>? ColorMetadata { get; set; }
 
         /// <summary>
-        /// Define the color metadata for the output. H265 Color Space Settings for more details.
+        /// Color metadata for the output. See `ColorSpaceSettings` Block for details.
         /// </summary>
         [Input("colorSpaceSettings")]
         public Input<Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs>? ColorSpaceSettings { get; set; }
 
         /// <summary>
-        /// Filters to apply to an encode. See H265 Filter Settings for more details.
+        /// Filters to apply to an encode. See `FilterSettings` Block for details.
         /// </summary>
         [Input("filterSettings")]
         public Input<Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs>? FilterSettings { get; set; }
 
         /// <summary>
-        /// Four bit AFD value to write on all frames of video in the output stream.
+        /// Four-bit AFD value to write on all frames of video in the output stream.
         /// </summary>
         [Input("fixedAfd")]
         public Input<string>? FixedAfd { get; set; }
 
+        /// <summary>
+        /// Makes adjustments within each frame to reduce flicker on the I-frames.
+        /// </summary>
         [Input("flickerAq")]
         public Input<string>? FlickerAq { get; set; }
 
@@ -88,13 +91,13 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<int>? GopClosedCadence { get; set; }
 
         /// <summary>
-        /// GOP size in units of either frames of seconds per `GopSizeUnits`.
+        /// GOP size in units of either frames or seconds per `GopSizeUnits`.
         /// </summary>
         [Input("gopSize")]
         public Input<double>? GopSize { get; set; }
 
         /// <summary>
-        /// Indicates if the `GopSize` is specified in frames or seconds.
+        /// Whether `GopSize` is specified in frames or seconds.
         /// </summary>
         [Input("gopSizeUnits")]
         public Input<string>? GopSizeUnits { get; set; }
@@ -112,25 +115,25 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<string>? LookAheadRateControl { get; set; }
 
         /// <summary>
-        /// Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+        /// Maximum bitrate, used to accommodate expected spikes in the complexity of the video.
         /// </summary>
         [Input("maxBitrate")]
         public Input<int>? MaxBitrate { get; set; }
 
         /// <summary>
-        /// Min interval.
+        /// Minimum interval, in frames, between two I-frames.
         /// </summary>
         [Input("minIInterval")]
         public Input<int>? MinIInterval { get; set; }
 
         /// <summary>
-        /// Set the minimum QP.
+        /// Sets the minimum QP.
         /// </summary>
         [Input("minQp")]
         public Input<int>? MinQp { get; set; }
 
         /// <summary>
-        /// Enables or disables motion vector over picture boundaries.
+        /// Enables or disables motion vectors over picture boundaries.
         /// </summary>
         [Input("mvOverPictureBoundaries")]
         public Input<string>? MvOverPictureBoundaries { get; set; }
@@ -142,13 +145,13 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<string>? MvTemporalPredictor { get; set; }
 
         /// <summary>
-        /// Pixel Aspect Ratio denominator.
+        /// Pixel aspect ratio denominator.
         /// </summary>
         [Input("parDenominator")]
         public Input<int>? ParDenominator { get; set; }
 
         /// <summary>
-        /// Pixel Aspect Ratio numerator.
+        /// Pixel aspect ratio numerator.
         /// </summary>
         [Input("parNumerator")]
         public Input<int>? ParNumerator { get; set; }
@@ -160,7 +163,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<string>? Profile { get; set; }
 
         /// <summary>
-        /// Controls the target quality for the video encode.
+        /// Target quality for the video encode.
         /// </summary>
         [Input("qvbrQualityLevel")]
         public Input<int>? QvbrQualityLevel { get; set; }
@@ -172,7 +175,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<string>? RateControlMode { get; set; }
 
         /// <summary>
-        /// Sets the scan type of the output.
+        /// Scan type of the output.
         /// </summary>
         [Input("scanType")]
         public Input<string>? ScanType { get; set; }
@@ -190,13 +193,13 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<int>? Slices { get; set; }
 
         /// <summary>
-        /// Set the H265 tier in the output.
+        /// H265 tier in the output.
         /// </summary>
         [Input("tier")]
         public Input<string>? Tier { get; set; }
 
         /// <summary>
-        /// Sets the height of tiles.
+        /// Height of tiles.
         /// </summary>
         [Input("tileHeight")]
         public Input<int>? TileHeight { get; set; }
@@ -208,25 +211,25 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<string>? TilePadding { get; set; }
 
         /// <summary>
-        /// Sets the width of tiles.
+        /// Width of tiles.
         /// </summary>
         [Input("tileWidth")]
         public Input<int>? TileWidth { get; set; }
 
         /// <summary>
-        /// Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
+        /// Apply a burned-in timecode. See `TimecodeBurninSettings` Block for details.
         /// </summary>
         [Input("timecodeBurninSettings")]
         public Input<Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs>? TimecodeBurninSettings { get; set; }
 
         /// <summary>
-        /// Determines how timecodes should be inserted into the video elementary stream.
+        /// How timecodes are inserted into the video elementary stream.
         /// </summary>
         [Input("timecodeInsertion")]
         public Input<string>? TimecodeInsertion { get; set; }
 
         /// <summary>
-        /// Sets the size of the treeblock.
+        /// Size of the treeblock.
         /// </summary>
         [Input("treeblockSize")]
         public Input<string>? TreeblockSize { get; set; }

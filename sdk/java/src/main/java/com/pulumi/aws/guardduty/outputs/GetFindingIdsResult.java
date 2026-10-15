@@ -14,12 +14,12 @@ import java.util.Objects;
 public final class GetFindingIdsResult {
     private String detectorId;
     /**
-     * @return A list of finding IDs for the specified detector.
+     * @return List of finding IDs for the specified detector.
      * 
      */
     private List<String> findingIds;
     /**
-     * @return Indicates whether findings are present for the specified detector.
+     * @return Whether findings are present for the specified detector.
      * 
      */
     private Boolean hasFindings;
@@ -31,14 +31,14 @@ public final class GetFindingIdsResult {
         return this.detectorId;
     }
     /**
-     * @return A list of finding IDs for the specified detector.
+     * @return List of finding IDs for the specified detector.
      * 
      */
     public List<String> findingIds() {
         return this.findingIds;
     }
     /**
-     * @return Indicates whether findings are present for the specified detector.
+     * @return Whether findings are present for the specified detector.
      * 
      */
     public Boolean hasFindings() {

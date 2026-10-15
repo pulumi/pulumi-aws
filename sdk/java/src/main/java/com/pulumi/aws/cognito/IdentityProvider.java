@@ -166,14 +166,14 @@ public class IdentityProvider extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The user pool id
+     * The user pool ID
      * 
      */
     @Export(name="userPoolId", refs={String.class}, tree="[0]")
     private Output<String> userPoolId;
 
     /**
-     * @return The user pool id
+     * @return The user pool ID
      * 
      */
     public Output<String> userPoolId() {

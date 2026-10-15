@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Mwaa.Outputs
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
         /// <summary>
-        /// The private subnet IDs in which the environment should be created. MWAA requires two subnets.
+        /// Private subnet IDs in which the environment should be created. MWAA requires two subnets.
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
 

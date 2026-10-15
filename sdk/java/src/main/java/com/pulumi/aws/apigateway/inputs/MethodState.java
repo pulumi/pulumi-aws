@@ -64,14 +64,14 @@ public final class MethodState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+     * Authorizer ID to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
      * 
      */
     @Import(name="authorizerId")
     private @Nullable Output<String> authorizerId;
 
     /**
-     * @return Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+     * @return Authorizer ID to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
      * 
      */
     public Optional<Output<String>> authorizerId() {
@@ -307,7 +307,7 @@ public final class MethodState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorizerId Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+         * @param authorizerId Authorizer ID to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class MethodState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorizerId Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
+         * @param authorizerId Authorizer ID to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
          * 
          * @return builder
          * 

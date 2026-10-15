@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentPromptVariantTemplateConfigurationChatMessage
     {
         /// <summary>
-        /// Content for the message you pass to, or receive from a model. See `Content` Block for more information.
+        /// Content for the message you pass to, or receive from, a model. See `Content` Block for more information.
         /// </summary>
         public readonly Outputs.AgentPromptVariantTemplateConfigurationChatMessageContent? Content;
         /// <summary>

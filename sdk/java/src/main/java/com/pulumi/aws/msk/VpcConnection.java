@@ -82,28 +82,28 @@ public class VpcConnection extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
+     * Authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
      * 
      */
     @Export(name="authentication", refs={String.class}, tree="[0]")
     private Output<String> authentication;
 
     /**
-     * @return The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
+     * @return Authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
      * 
      */
     public Output<String> authentication() {
         return this.authentication;
     }
     /**
-     * The list of subnets in the client VPC to connect to.
+     * List of subnets in the client VPC to connect to.
      * 
      */
     @Export(name="clientSubnets", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> clientSubnets;
 
     /**
-     * @return The list of subnets in the client VPC to connect to.
+     * @return List of subnets in the client VPC to connect to.
      * 
      */
     public Output<List<String>> clientSubnets() {
@@ -124,42 +124,42 @@ public class VpcConnection extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The security groups to attach to the ENIs for the broker nodes.
+     * Security groups to attach to the ENIs for the broker nodes.
      * 
      */
     @Export(name="securityGroups", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroups;
 
     /**
-     * @return The security groups to attach to the ENIs for the broker nodes.
+     * @return Security groups to attach to the ENIs for the broker nodes.
      * 
      */
     public Output<List<String>> securityGroups() {
         return this.securityGroups;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -180,14 +180,14 @@ public class VpcConnection extends com.pulumi.resources.CustomResource {
         return this.targetClusterArn;
     }
     /**
-     * The VPC ID of the remote client.
+     * VPC ID of the remote client.
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**
-     * @return The VPC ID of the remote client.
+     * @return VPC ID of the remote client.
      * 
      */
     public Output<String> vpcId() {

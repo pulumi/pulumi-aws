@@ -34,14 +34,14 @@ public final class CatalogCatalogPropertiesArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Configuration block for data lake access properties. See `dataLakeAccessProperties` below.
+     * Configuration block for data lake access properties. See `dataLakeAccessProperties` Block below.
      * 
      */
     @Import(name="dataLakeAccessProperties")
     private @Nullable Output<CatalogCatalogPropertiesDataLakeAccessPropertiesArgs> dataLakeAccessProperties;
 
     /**
-     * @return Configuration block for data lake access properties. See `dataLakeAccessProperties` below.
+     * @return Configuration block for data lake access properties. See `dataLakeAccessProperties` Block below.
      * 
      */
     public Optional<Output<CatalogCatalogPropertiesDataLakeAccessPropertiesArgs>> dataLakeAccessProperties() {
@@ -49,14 +49,14 @@ public final class CatalogCatalogPropertiesArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Configuration block for Iceberg optimization properties. See `icebergOptimizationProperties` below.
+     * Configuration block for Iceberg optimization properties. See `icebergOptimizationProperties` Block below.
      * 
      */
     @Import(name="icebergOptimizationProperties")
     private @Nullable Output<CatalogCatalogPropertiesIcebergOptimizationPropertiesArgs> icebergOptimizationProperties;
 
     /**
-     * @return Configuration block for Iceberg optimization properties. See `icebergOptimizationProperties` below.
+     * @return Configuration block for Iceberg optimization properties. See `icebergOptimizationProperties` Block below.
      * 
      */
     public Optional<Output<CatalogCatalogPropertiesIcebergOptimizationPropertiesArgs>> icebergOptimizationProperties() {
@@ -111,7 +111,7 @@ public final class CatalogCatalogPropertiesArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param dataLakeAccessProperties Configuration block for data lake access properties. See `dataLakeAccessProperties` below.
+         * @param dataLakeAccessProperties Configuration block for data lake access properties. See `dataLakeAccessProperties` Block below.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class CatalogCatalogPropertiesArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param dataLakeAccessProperties Configuration block for data lake access properties. See `dataLakeAccessProperties` below.
+         * @param dataLakeAccessProperties Configuration block for data lake access properties. See `dataLakeAccessProperties` Block below.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class CatalogCatalogPropertiesArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param icebergOptimizationProperties Configuration block for Iceberg optimization properties. See `icebergOptimizationProperties` below.
+         * @param icebergOptimizationProperties Configuration block for Iceberg optimization properties. See `icebergOptimizationProperties` Block below.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class CatalogCatalogPropertiesArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param icebergOptimizationProperties Configuration block for Iceberg optimization properties. See `icebergOptimizationProperties` below.
+         * @param icebergOptimizationProperties Configuration block for Iceberg optimization properties. See `icebergOptimizationProperties` Block below.
          * 
          * @return builder
          * 

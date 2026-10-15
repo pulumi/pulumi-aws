@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import `aws.macie2.ClassificationJob` using the id. For example:
+ * Using `pulumi import`, import `aws.macie2.ClassificationJob` using the ID. For example:
  * 
  * ```sh
  * $ pulumi import aws:macie2/classificationJob:ClassificationJob example abcd1
@@ -84,110 +84,126 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:macie2/classificationJob:ClassificationJob")
 public class ClassificationJob extends com.pulumi.resources.CustomResource {
     /**
-     * The date and time, in UTC and extended RFC 3339 format, when the job was created.
+     * Date and time, in UTC and extended RFC 3339 format, when the job was created.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
-     * @return The date and time, in UTC and extended RFC 3339 format, when the job was created.
+     * @return Date and time, in UTC and extended RFC 3339 format, when the job was created.
      * 
      */
     public Output<String> createdAt() {
         return this.createdAt;
     }
     /**
-     * The custom data identifiers to use for data analysis and classification.
+     * Custom data identifiers to use for data analysis and classification.
      * 
      */
     @Export(name="customDataIdentifierIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> customDataIdentifierIds;
 
     /**
-     * @return The custom data identifiers to use for data analysis and classification.
+     * @return Custom data identifiers to use for data analysis and classification.
      * 
      */
     public Output<List<String>> customDataIdentifierIds() {
         return this.customDataIdentifierIds;
     }
     /**
-     * A custom description of the job. The description can contain as many as 200 characters.
+     * Custom description of the job. Can contain as many as 200 characters.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
-     * @return A custom description of the job. The description can contain as many as 200 characters.
+     * @return Custom description of the job. Can contain as many as 200 characters.
      * 
      */
     public Output<String> description() {
         return this.description;
     }
     /**
-     * Specifies whether to analyze all existing, eligible objects immediately after the job is created.
+     * Whether to analyze all existing, eligible objects immediately after the job is created.
      * 
      */
     @Export(name="initialRun", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> initialRun;
 
     /**
-     * @return Specifies whether to analyze all existing, eligible objects immediately after the job is created.
+     * @return Whether to analyze all existing, eligible objects immediately after the job is created.
      * 
      */
     public Output<Optional<Boolean>> initialRun() {
         return Codegen.optional(this.initialRun);
     }
+    /**
+     * ARN of the classification job.
+     * 
+     */
     @Export(name="jobArn", refs={String.class}, tree="[0]")
     private Output<String> jobArn;
 
+    /**
+     * @return ARN of the classification job.
+     * 
+     */
     public Output<String> jobArn() {
         return this.jobArn;
     }
+    /**
+     * Unique identifier (ID) of the classification job.
+     * 
+     */
     @Export(name="jobId", refs={String.class}, tree="[0]")
     private Output<String> jobId;
 
+    /**
+     * @return Unique identifier (ID) of the classification job.
+     * 
+     */
     public Output<String> jobId() {
         return this.jobId;
     }
     /**
-     * The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
+     * Status for the job. Valid values are `CANCELLED`, `RUNNING` and `USER_PAUSED`.
      * 
      */
     @Export(name="jobStatus", refs={String.class}, tree="[0]")
     private Output<String> jobStatus;
 
     /**
-     * @return The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
+     * @return Status for the job. Valid values are `CANCELLED`, `RUNNING` and `USER_PAUSED`.
      * 
      */
     public Output<String> jobStatus() {
         return this.jobStatus;
     }
     /**
-     * The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don&#39;t specify a value for the `scheduleFrequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `scheduleFrequency` property to define the recurrence pattern for the job.
+     * Schedule for running the job. Valid values are `ONE_TIME`, to run the job only once, and `SCHEDULED`, to run the job on a daily, weekly, or monthly basis. When set to `SCHEDULED`, use `scheduleFrequency` to define the recurrence pattern for the job.
      * 
      */
     @Export(name="jobType", refs={String.class}, tree="[0]")
     private Output<String> jobType;
 
     /**
-     * @return The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don&#39;t specify a value for the `scheduleFrequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `scheduleFrequency` property to define the recurrence pattern for the job.
+     * @return Schedule for running the job. Valid values are `ONE_TIME`, to run the job only once, and `SCHEDULED`, to run the job on a daily, weekly, or monthly basis. When set to `SCHEDULED`, use `scheduleFrequency` to define the recurrence pattern for the job.
      * 
      */
     public Output<String> jobType() {
         return this.jobType;
     }
     /**
-     * A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     * Custom name for the job. Can contain as many as 500 characters. If omitted, Terraform assigns a random, unique name. Conflicts with `namePrefix`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     * @return Custom name for the job. Can contain as many as 500 characters. If omitted, Terraform assigns a random, unique name. Conflicts with `namePrefix`.
      * 
      */
     public Output<String> name() {
@@ -222,42 +238,42 @@ public class ClassificationJob extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
+     * S3 buckets that contain the objects to analyze, and the scope of that analysis. See `s3JobDefinition` Block for details.
      * 
      */
     @Export(name="s3JobDefinition", refs={ClassificationJobS3JobDefinition.class}, tree="[0]")
     private Output<ClassificationJobS3JobDefinition> s3JobDefinition;
 
     /**
-     * @return The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
+     * @return S3 buckets that contain the objects to analyze, and the scope of that analysis. See `s3JobDefinition` Block for details.
      * 
      */
     public Output<ClassificationJobS3JobDefinition> s3JobDefinition() {
         return this.s3JobDefinition;
     }
     /**
-     * The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
+     * Sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
      * 
      */
     @Export(name="samplingPercentage", refs={Integer.class}, tree="[0]")
     private Output<Integer> samplingPercentage;
 
     /**
-     * @return The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
+     * @return Sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
      * 
      */
     public Output<Integer> samplingPercentage() {
         return this.samplingPercentage;
     }
     /**
-     * The recurrence pattern for running the job. To run the job only once, don&#39;t specify a value for this property and set the value for the `jobType` property to `ONE_TIME`. (documented below)
+     * Recurrence pattern for running the job. To run the job only once, omit this argument and set `jobType` to `ONE_TIME`. See `scheduleFrequency` Block for details.
      * 
      */
     @Export(name="scheduleFrequency", refs={ClassificationJobScheduleFrequency.class}, tree="[0]")
     private Output<ClassificationJobScheduleFrequency> scheduleFrequency;
 
     /**
-     * @return The recurrence pattern for running the job. To run the job only once, don&#39;t specify a value for this property and set the value for the `jobType` property to `ONE_TIME`. (documented below)
+     * @return Recurrence pattern for running the job. To run the job only once, omit this argument and set `jobType` to `ONE_TIME`. See `scheduleFrequency` Block for details.
      * 
      */
     public Output<ClassificationJobScheduleFrequency> scheduleFrequency() {
@@ -278,28 +294,28 @@ public class ClassificationJob extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be canceled if it isn&#39;t resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
+     * If the current status of the job is `USER_PAUSED`, information about when the job was paused and when the job or job run will expire and be cancelled if it isn&#39;t resumed. This value is present only if `jobStatus` is `USER_PAUSED`. See `userPausedDetails` Block for details.
      * 
      */
     @Export(name="userPausedDetails", refs={List.class,ClassificationJobUserPausedDetail.class}, tree="[0,1]")
     private Output<List<ClassificationJobUserPausedDetail>> userPausedDetails;
 
     /**
-     * @return If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be canceled if it isn&#39;t resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
+     * @return If the current status of the job is `USER_PAUSED`, information about when the job was paused and when the job or job run will expire and be cancelled if it isn&#39;t resumed. This value is present only if `jobStatus` is `USER_PAUSED`. See `userPausedDetails` Block for details.
      * 
      */
     public Output<List<ClassificationJobUserPausedDetail>> userPausedDetails() {

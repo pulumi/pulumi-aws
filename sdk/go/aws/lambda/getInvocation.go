@@ -140,7 +140,7 @@ type LookupInvocationArgs struct {
 	Qualifier *string `pulumi:"qualifier"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Tenant Id to serve invocations from specified tenant.
+	// Tenant ID to serve invocations from specified tenant.
 	TenantId *string `pulumi:"tenantId"`
 }
 
@@ -174,7 +174,7 @@ type LookupInvocationOutputArgs struct {
 	Qualifier pulumi.StringPtrInput `pulumi:"qualifier"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Tenant Id to serve invocations from specified tenant.
+	// Tenant ID to serve invocations from specified tenant.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 

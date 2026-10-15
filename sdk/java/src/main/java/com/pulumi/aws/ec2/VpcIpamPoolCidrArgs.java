@@ -64,14 +64,14 @@ public final class VpcIpamPoolCidrArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
+     * If provided, the CIDR provisioned into the specified pool will be the next available CIDR given this declared netmask length. Conflicts with `cidr`.
      * 
      */
     @Import(name="netmaskLength")
     private @Nullable Output<Integer> netmaskLength;
 
     /**
-     * @return If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
+     * @return If provided, the CIDR provisioned into the specified pool will be the next available CIDR given this declared netmask length. Conflicts with `cidr`.
      * 
      */
     public Optional<Output<Integer>> netmaskLength() {
@@ -185,7 +185,7 @@ public final class VpcIpamPoolCidrArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param netmaskLength If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
+         * @param netmaskLength If provided, the CIDR provisioned into the specified pool will be the next available CIDR given this declared netmask length. Conflicts with `cidr`.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class VpcIpamPoolCidrArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param netmaskLength If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
+         * @param netmaskLength If provided, the CIDR provisioned into the specified pool will be the next available CIDR given this declared netmask length. Conflicts with `cidr`.
          * 
          * @return builder
          * 

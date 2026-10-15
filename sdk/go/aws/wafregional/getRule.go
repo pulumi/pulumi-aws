@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// `wafregional.Rule` Retrieves a WAF Regional Rule Resource Id.
+// `wafregional.Rule` Retrieves a WAF Regional Rule Resource ID.
 //
 // ## Example Usage
 //

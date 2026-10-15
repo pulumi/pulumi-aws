@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Returns a list of Amazon Bedrock custom models.
+// Provides details about Amazon Bedrock custom models.
 //
 // ## Example Usage
 //

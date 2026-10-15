@@ -16,14 +16,14 @@ public final class ReplicatorReplicationInfoListTopicReplicationTopicNameConfigu
     public static final ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs Empty = new ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs();
 
     /**
-     * The type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
+     * Type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
+     * @return Type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -55,7 +55,7 @@ public final class ReplicatorReplicationInfoListTopicReplicationTopicNameConfigu
         }
 
         /**
-         * @param type The type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
+         * @param type Type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class ReplicatorReplicationInfoListTopicReplicationTopicNameConfigu
         }
 
         /**
-         * @param type The type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
+         * @param type Type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
          * 
          * @return builder
          * 

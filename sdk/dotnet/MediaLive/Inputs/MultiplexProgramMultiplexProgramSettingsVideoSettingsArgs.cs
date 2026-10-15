@@ -19,7 +19,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<int>? ConstantBitrate { get; set; }
 
         /// <summary>
-        /// Statmux settings. See Statmux Settings for more details.
+        /// Statmux settings. See `StatmuxSettings` Block for more details.
         /// </summary>
         [Input("statmuxSettings")]
         public Input<Inputs.MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs>? StatmuxSettings { get; set; }

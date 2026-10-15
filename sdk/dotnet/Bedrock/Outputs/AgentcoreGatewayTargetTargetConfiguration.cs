@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreGatewayTargetTargetConfiguration
     {
         /// <summary>
-        /// HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `Http` Block below.
+        /// HTTP target configuration for routing requests directly to an AgentCore Runtime agent or to an external HTTPS endpoint. See `Http` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationHttp? Http;
         /// <summary>

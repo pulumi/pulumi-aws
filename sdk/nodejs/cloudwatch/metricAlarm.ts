@@ -250,6 +250,30 @@ import {Topic} from "../sns";
  * });
  * ```
  *
+ * ### With a Wall Clock Evaluation Window
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.cloudwatch.MetricAlarm("example", {
+ *     evaluationWindow: {
+ *         wallClockWindow: {
+ *             timezone: "America/New_York",
+ *         },
+ *     },
+ *     name: "example-daily-errors",
+ *     comparisonOperator: "GreaterThanThreshold",
+ *     evaluationPeriods: 1,
+ *     metricName: "Errors",
+ *     namespace: "ExampleApp",
+ *     period: 86400,
+ *     statistic: "Sum",
+ *     threshold: 0,
+ *     alarmActions: [exampleAwsSnsTopic.arn],
+ * });
+ * ```
+ *
  * > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extendedStatistic` parameters.
  * You must choose one or the other.
  *
@@ -347,6 +371,10 @@ export class MetricAlarm extends pulumi.CustomResource {
      * The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
      */
     declare public readonly evaluationPeriods: pulumi.Output<number | undefined>;
+    /**
+     * Configures the alarm to use a wall clock evaluation window instead of the default sliding window. Not supported for alarms that use `evaluationCriteria`. See `evaluationWindow` below.
+     */
+    declare public readonly evaluationWindow: pulumi.Output<outputs.cloudwatch.MetricAlarmEvaluationWindow | undefined>;
     /**
      * The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
      */
@@ -449,6 +477,7 @@ export class MetricAlarm extends pulumi.CustomResource {
             resourceInputs["evaluationCriteria"] = state?.evaluationCriteria;
             resourceInputs["evaluationInterval"] = state?.evaluationInterval;
             resourceInputs["evaluationPeriods"] = state?.evaluationPeriods;
+            resourceInputs["evaluationWindow"] = state?.evaluationWindow;
             resourceInputs["extendedStatistic"] = state?.extendedStatistic;
             resourceInputs["insufficientDataActions"] = state?.insufficientDataActions;
             resourceInputs["metricName"] = state?.metricName;
@@ -478,6 +507,7 @@ export class MetricAlarm extends pulumi.CustomResource {
             resourceInputs["evaluationCriteria"] = args?.evaluationCriteria;
             resourceInputs["evaluationInterval"] = args?.evaluationInterval;
             resourceInputs["evaluationPeriods"] = args?.evaluationPeriods;
+            resourceInputs["evaluationWindow"] = args?.evaluationWindow;
             resourceInputs["extendedStatistic"] = args?.extendedStatistic;
             resourceInputs["insufficientDataActions"] = args?.insufficientDataActions;
             resourceInputs["metricName"] = args?.metricName;
@@ -553,6 +583,10 @@ export interface MetricAlarmState {
      * The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
      */
     evaluationPeriods?: pulumi.Input<number | undefined>;
+    /**
+     * Configures the alarm to use a wall clock evaluation window instead of the default sliding window. Not supported for alarms that use `evaluationCriteria`. See `evaluationWindow` below.
+     */
+    evaluationWindow?: pulumi.Input<inputs.cloudwatch.MetricAlarmEvaluationWindow | undefined>;
     /**
      * The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
      */
@@ -679,6 +713,10 @@ export interface MetricAlarmArgs {
      * The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
      */
     evaluationPeriods?: pulumi.Input<number | undefined>;
+    /**
+     * Configures the alarm to use a wall clock evaluation window instead of the default sliding window. Not supported for alarms that use `evaluationCriteria`. See `evaluationWindow` below.
+     */
+    evaluationWindow?: pulumi.Input<inputs.cloudwatch.MetricAlarmEvaluationWindow | undefined>;
     /**
      * The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
      */

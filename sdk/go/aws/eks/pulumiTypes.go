@@ -7086,7 +7086,7 @@ func (o NodeGroupRemoteAccessPtrOutput) SourceSecurityGroupIds() pulumi.StringAr
 }
 
 type NodeGroupResource struct {
-	// List of objects containing information about AutoScaling Groups.
+	// List of objects containing information about Auto Scaling groups.
 	AutoscalingGroups []NodeGroupResourceAutoscalingGroup `pulumi:"autoscalingGroups"`
 	// Identifier of the remote access EC2 Security Group.
 	RemoteAccessSecurityGroupId *string `pulumi:"remoteAccessSecurityGroupId"`
@@ -7104,7 +7104,7 @@ type NodeGroupResourceInput interface {
 }
 
 type NodeGroupResourceArgs struct {
-	// List of objects containing information about AutoScaling Groups.
+	// List of objects containing information about Auto Scaling groups.
 	AutoscalingGroups NodeGroupResourceAutoscalingGroupArrayInput `pulumi:"autoscalingGroups"`
 	// Identifier of the remote access EC2 Security Group.
 	RemoteAccessSecurityGroupId pulumi.StringPtrInput `pulumi:"remoteAccessSecurityGroupId"`
@@ -7161,7 +7161,7 @@ func (o NodeGroupResourceOutput) ToNodeGroupResourceOutputWithContext(ctx contex
 	return o
 }
 
-// List of objects containing information about AutoScaling Groups.
+// List of objects containing information about Auto Scaling groups.
 func (o NodeGroupResourceOutput) AutoscalingGroups() NodeGroupResourceAutoscalingGroupArrayOutput {
 	return o.ApplyT(func(v NodeGroupResource) []NodeGroupResourceAutoscalingGroup { return v.AutoscalingGroups }).(NodeGroupResourceAutoscalingGroupArrayOutput)
 }
@@ -7192,7 +7192,7 @@ func (o NodeGroupResourceArrayOutput) Index(i pulumi.IntInput) NodeGroupResource
 }
 
 type NodeGroupResourceAutoscalingGroup struct {
-	// Name of the AutoScaling Group.
+	// Name of the Auto Scaling group.
 	Name *string `pulumi:"name"`
 }
 
@@ -7208,7 +7208,7 @@ type NodeGroupResourceAutoscalingGroupInput interface {
 }
 
 type NodeGroupResourceAutoscalingGroupArgs struct {
-	// Name of the AutoScaling Group.
+	// Name of the Auto Scaling group.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -7263,7 +7263,7 @@ func (o NodeGroupResourceAutoscalingGroupOutput) ToNodeGroupResourceAutoscalingG
 	return o
 }
 
-// Name of the AutoScaling Group.
+// Name of the Auto Scaling group.
 func (o NodeGroupResourceAutoscalingGroupOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NodeGroupResourceAutoscalingGroup) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -7754,13 +7754,13 @@ func (o NodeGroupUpdateConfigPtrOutput) UpdateStrategy() pulumi.StringPtrOutput 
 }
 
 type NodeGroupWarmPoolConfig struct {
-	// Maximum number of instances that are allowed to be in the warm pool combined with the Auto Scaling Group. Use `-1` to specify an unlimited capacity.
+	// Maximum number of instances that are allowed to be in the warm pool combined with the Auto Scaling group. Use `-1` to specify an unlimited capacity.
 	MaxGroupPreparedCapacity *int `pulumi:"maxGroupPreparedCapacity"`
 	// Minimum number of instances to maintain in the warm pool. Defaults to `0`.
 	MinSize *int `pulumi:"minSize"`
 	// Instance state to transition warm pool instances to. Valid values: `STOPPED`, `RUNNING`, `HIBERNATED`. Defaults to `STOPPED`.
 	PoolState *string `pulumi:"poolState"`
-	// Whether to return instances in the Auto Scaling Group to the warm pool on scale in. Not supported on Bottlerocket. Defaults to `false`.
+	// Whether to return instances in the Auto Scaling group to the warm pool on scale in. Not supported on Bottlerocket. Defaults to `false`.
 	ReuseOnScaleIn *bool `pulumi:"reuseOnScaleIn"`
 }
 
@@ -7776,13 +7776,13 @@ type NodeGroupWarmPoolConfigInput interface {
 }
 
 type NodeGroupWarmPoolConfigArgs struct {
-	// Maximum number of instances that are allowed to be in the warm pool combined with the Auto Scaling Group. Use `-1` to specify an unlimited capacity.
+	// Maximum number of instances that are allowed to be in the warm pool combined with the Auto Scaling group. Use `-1` to specify an unlimited capacity.
 	MaxGroupPreparedCapacity pulumi.IntPtrInput `pulumi:"maxGroupPreparedCapacity"`
 	// Minimum number of instances to maintain in the warm pool. Defaults to `0`.
 	MinSize pulumi.IntPtrInput `pulumi:"minSize"`
 	// Instance state to transition warm pool instances to. Valid values: `STOPPED`, `RUNNING`, `HIBERNATED`. Defaults to `STOPPED`.
 	PoolState pulumi.StringPtrInput `pulumi:"poolState"`
-	// Whether to return instances in the Auto Scaling Group to the warm pool on scale in. Not supported on Bottlerocket. Defaults to `false`.
+	// Whether to return instances in the Auto Scaling group to the warm pool on scale in. Not supported on Bottlerocket. Defaults to `false`.
 	ReuseOnScaleIn pulumi.BoolPtrInput `pulumi:"reuseOnScaleIn"`
 }
 
@@ -7863,7 +7863,7 @@ func (o NodeGroupWarmPoolConfigOutput) ToNodeGroupWarmPoolConfigPtrOutputWithCon
 	}).(NodeGroupWarmPoolConfigPtrOutput)
 }
 
-// Maximum number of instances that are allowed to be in the warm pool combined with the Auto Scaling Group. Use `-1` to specify an unlimited capacity.
+// Maximum number of instances that are allowed to be in the warm pool combined with the Auto Scaling group. Use `-1` to specify an unlimited capacity.
 func (o NodeGroupWarmPoolConfigOutput) MaxGroupPreparedCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NodeGroupWarmPoolConfig) *int { return v.MaxGroupPreparedCapacity }).(pulumi.IntPtrOutput)
 }
@@ -7878,7 +7878,7 @@ func (o NodeGroupWarmPoolConfigOutput) PoolState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NodeGroupWarmPoolConfig) *string { return v.PoolState }).(pulumi.StringPtrOutput)
 }
 
-// Whether to return instances in the Auto Scaling Group to the warm pool on scale in. Not supported on Bottlerocket. Defaults to `false`.
+// Whether to return instances in the Auto Scaling group to the warm pool on scale in. Not supported on Bottlerocket. Defaults to `false`.
 func (o NodeGroupWarmPoolConfigOutput) ReuseOnScaleIn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NodeGroupWarmPoolConfig) *bool { return v.ReuseOnScaleIn }).(pulumi.BoolPtrOutput)
 }
@@ -7907,7 +7907,7 @@ func (o NodeGroupWarmPoolConfigPtrOutput) Elem() NodeGroupWarmPoolConfigOutput {
 	}).(NodeGroupWarmPoolConfigOutput)
 }
 
-// Maximum number of instances that are allowed to be in the warm pool combined with the Auto Scaling Group. Use `-1` to specify an unlimited capacity.
+// Maximum number of instances that are allowed to be in the warm pool combined with the Auto Scaling group. Use `-1` to specify an unlimited capacity.
 func (o NodeGroupWarmPoolConfigPtrOutput) MaxGroupPreparedCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NodeGroupWarmPoolConfig) *int {
 		if v == nil {
@@ -7937,7 +7937,7 @@ func (o NodeGroupWarmPoolConfigPtrOutput) PoolState() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether to return instances in the Auto Scaling Group to the warm pool on scale in. Not supported on Bottlerocket. Defaults to `false`.
+// Whether to return instances in the Auto Scaling group to the warm pool on scale in. Not supported on Bottlerocket. Defaults to `false`.
 func (o NodeGroupWarmPoolConfigPtrOutput) ReuseOnScaleIn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NodeGroupWarmPoolConfig) *bool {
 		if v == nil {
@@ -10868,7 +10868,7 @@ type GetClusterVersionsClusterVersion struct {
 	ControlPlaneComponentConfigs []GetClusterVersionsClusterVersionControlPlaneComponentConfig `pulumi:"controlPlaneComponentConfigs"`
 	// Available provisioned control plane scaling tiers and their capabilities.
 	ControlPlaneScalingTiers []GetClusterVersionsClusterVersionControlPlaneScalingTier `pulumi:"controlPlaneScalingTiers"`
-	// Default eks platform version for the cluster version.
+	// Default EKS platform version for the cluster version.
 	DefaultPlatformVersion string `pulumi:"defaultPlatformVersion"`
 	// Default Kubernetes version for the cluster version.
 	DefaultVersion bool `pulumi:"defaultVersion"`
@@ -10906,7 +10906,7 @@ type GetClusterVersionsClusterVersionArgs struct {
 	ControlPlaneComponentConfigs GetClusterVersionsClusterVersionControlPlaneComponentConfigArrayInput `pulumi:"controlPlaneComponentConfigs"`
 	// Available provisioned control plane scaling tiers and their capabilities.
 	ControlPlaneScalingTiers GetClusterVersionsClusterVersionControlPlaneScalingTierArrayInput `pulumi:"controlPlaneScalingTiers"`
-	// Default eks platform version for the cluster version.
+	// Default EKS platform version for the cluster version.
 	DefaultPlatformVersion pulumi.StringInput `pulumi:"defaultPlatformVersion"`
 	// Default Kubernetes version for the cluster version.
 	DefaultVersion pulumi.BoolInput `pulumi:"defaultVersion"`
@@ -10999,7 +10999,7 @@ func (o GetClusterVersionsClusterVersionOutput) ControlPlaneScalingTiers() GetCl
 	}).(GetClusterVersionsClusterVersionControlPlaneScalingTierArrayOutput)
 }
 
-// Default eks platform version for the cluster version.
+// Default EKS platform version for the cluster version.
 func (o GetClusterVersionsClusterVersionOutput) DefaultPlatformVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterVersionsClusterVersion) string { return v.DefaultPlatformVersion }).(pulumi.StringOutput)
 }
@@ -16975,7 +16975,7 @@ func (o GetClusterZonalShiftConfigArrayOutput) Index(i pulumi.IntInput) GetClust
 type GetNodeGroupLaunchTemplate struct {
 	// The ID of the launch template.
 	Id string `pulumi:"id"`
-	// Name of the AutoScaling Group.
+	// Name of the Auto Scaling group.
 	Name string `pulumi:"name"`
 	// Kubernetes version.
 	Version string `pulumi:"version"`
@@ -16995,7 +16995,7 @@ type GetNodeGroupLaunchTemplateInput interface {
 type GetNodeGroupLaunchTemplateArgs struct {
 	// The ID of the launch template.
 	Id pulumi.StringInput `pulumi:"id"`
-	// Name of the AutoScaling Group.
+	// Name of the Auto Scaling group.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Kubernetes version.
 	Version pulumi.StringInput `pulumi:"version"`
@@ -17057,7 +17057,7 @@ func (o GetNodeGroupLaunchTemplateOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNodeGroupLaunchTemplate) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Name of the AutoScaling Group.
+// Name of the Auto Scaling group.
 func (o GetNodeGroupLaunchTemplateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNodeGroupLaunchTemplate) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -17194,7 +17194,7 @@ func (o GetNodeGroupRemoteAccessArrayOutput) Index(i pulumi.IntInput) GetNodeGro
 }
 
 type GetNodeGroupResource struct {
-	// List of objects containing information about AutoScaling Groups.
+	// List of objects containing information about Auto Scaling groups.
 	AutoscalingGroups []GetNodeGroupResourceAutoscalingGroup `pulumi:"autoscalingGroups"`
 	// Identifier of the remote access EC2 Security Group.
 	RemoteAccessSecurityGroupId string `pulumi:"remoteAccessSecurityGroupId"`
@@ -17212,7 +17212,7 @@ type GetNodeGroupResourceInput interface {
 }
 
 type GetNodeGroupResourceArgs struct {
-	// List of objects containing information about AutoScaling Groups.
+	// List of objects containing information about Auto Scaling groups.
 	AutoscalingGroups GetNodeGroupResourceAutoscalingGroupArrayInput `pulumi:"autoscalingGroups"`
 	// Identifier of the remote access EC2 Security Group.
 	RemoteAccessSecurityGroupId pulumi.StringInput `pulumi:"remoteAccessSecurityGroupId"`
@@ -17269,7 +17269,7 @@ func (o GetNodeGroupResourceOutput) ToGetNodeGroupResourceOutputWithContext(ctx 
 	return o
 }
 
-// List of objects containing information about AutoScaling Groups.
+// List of objects containing information about Auto Scaling groups.
 func (o GetNodeGroupResourceOutput) AutoscalingGroups() GetNodeGroupResourceAutoscalingGroupArrayOutput {
 	return o.ApplyT(func(v GetNodeGroupResource) []GetNodeGroupResourceAutoscalingGroup { return v.AutoscalingGroups }).(GetNodeGroupResourceAutoscalingGroupArrayOutput)
 }
@@ -17300,7 +17300,7 @@ func (o GetNodeGroupResourceArrayOutput) Index(i pulumi.IntInput) GetNodeGroupRe
 }
 
 type GetNodeGroupResourceAutoscalingGroup struct {
-	// Name of the AutoScaling Group.
+	// Name of the Auto Scaling group.
 	Name string `pulumi:"name"`
 }
 
@@ -17316,7 +17316,7 @@ type GetNodeGroupResourceAutoscalingGroupInput interface {
 }
 
 type GetNodeGroupResourceAutoscalingGroupArgs struct {
-	// Name of the AutoScaling Group.
+	// Name of the Auto Scaling group.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -17371,7 +17371,7 @@ func (o GetNodeGroupResourceAutoscalingGroupOutput) ToGetNodeGroupResourceAutosc
 	return o
 }
 
-// Name of the AutoScaling Group.
+// Name of the Auto Scaling group.
 func (o GetNodeGroupResourceAutoscalingGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNodeGroupResourceAutoscalingGroup) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -17733,13 +17733,13 @@ func (o GetNodeGroupUpdateConfigArrayOutput) Index(i pulumi.IntInput) GetNodeGro
 }
 
 type GetNodeGroupWarmPoolConfig struct {
-	// Maximum number of instances allowed to be in the warm pool combined with the Auto Scaling Group.
+	// Maximum number of instances allowed to be in the warm pool combined with the Auto Scaling group.
 	MaxGroupPreparedCapacity int `pulumi:"maxGroupPreparedCapacity"`
 	// Minimum number of instances maintained in the warm pool.
 	MinSize int `pulumi:"minSize"`
 	// Instance state that warm pool instances are transitioned to.
 	PoolState string `pulumi:"poolState"`
-	// Whether instances in the Auto Scaling Group are returned to the warm pool on scale in.
+	// Whether instances in the Auto Scaling group are returned to the warm pool on scale in.
 	ReuseOnScaleIn bool `pulumi:"reuseOnScaleIn"`
 }
 
@@ -17755,13 +17755,13 @@ type GetNodeGroupWarmPoolConfigInput interface {
 }
 
 type GetNodeGroupWarmPoolConfigArgs struct {
-	// Maximum number of instances allowed to be in the warm pool combined with the Auto Scaling Group.
+	// Maximum number of instances allowed to be in the warm pool combined with the Auto Scaling group.
 	MaxGroupPreparedCapacity pulumi.IntInput `pulumi:"maxGroupPreparedCapacity"`
 	// Minimum number of instances maintained in the warm pool.
 	MinSize pulumi.IntInput `pulumi:"minSize"`
 	// Instance state that warm pool instances are transitioned to.
 	PoolState pulumi.StringInput `pulumi:"poolState"`
-	// Whether instances in the Auto Scaling Group are returned to the warm pool on scale in.
+	// Whether instances in the Auto Scaling group are returned to the warm pool on scale in.
 	ReuseOnScaleIn pulumi.BoolInput `pulumi:"reuseOnScaleIn"`
 }
 
@@ -17816,7 +17816,7 @@ func (o GetNodeGroupWarmPoolConfigOutput) ToGetNodeGroupWarmPoolConfigOutputWith
 	return o
 }
 
-// Maximum number of instances allowed to be in the warm pool combined with the Auto Scaling Group.
+// Maximum number of instances allowed to be in the warm pool combined with the Auto Scaling group.
 func (o GetNodeGroupWarmPoolConfigOutput) MaxGroupPreparedCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v GetNodeGroupWarmPoolConfig) int { return v.MaxGroupPreparedCapacity }).(pulumi.IntOutput)
 }
@@ -17831,7 +17831,7 @@ func (o GetNodeGroupWarmPoolConfigOutput) PoolState() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNodeGroupWarmPoolConfig) string { return v.PoolState }).(pulumi.StringOutput)
 }
 
-// Whether instances in the Auto Scaling Group are returned to the warm pool on scale in.
+// Whether instances in the Auto Scaling group are returned to the warm pool on scale in.
 func (o GetNodeGroupWarmPoolConfigOutput) ReuseOnScaleIn() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetNodeGroupWarmPoolConfig) bool { return v.ReuseOnScaleIn }).(pulumi.BoolOutput)
 }

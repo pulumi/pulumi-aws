@@ -139,7 +139,7 @@ class _DeploymentConfigState:
 
         :param pulumi.Input[_builtins.str] arn: The ARN of the deployment config.
         :param pulumi.Input[_builtins.str] compute_platform: The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
-        :param pulumi.Input[_builtins.str] deployment_config_id: The AWS Assigned deployment config id
+        :param pulumi.Input[_builtins.str] deployment_config_id: The AWS Assigned deployment config ID
         :param pulumi.Input[_builtins.str] deployment_config_name: The name of the deployment config.
         :param pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs'] minimum_healthy_hosts: A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -191,7 +191,7 @@ class _DeploymentConfigState:
     @pulumi.getter(name="deploymentConfigId")
     def deployment_config_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The AWS Assigned deployment config id
+        The AWS Assigned deployment config ID
         """
         return pulumi.get(self, "deployment_config_id")
 
@@ -517,7 +517,7 @@ class DeploymentConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: The ARN of the deployment config.
         :param pulumi.Input[_builtins.str] compute_platform: The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
-        :param pulumi.Input[_builtins.str] deployment_config_id: The AWS Assigned deployment config id
+        :param pulumi.Input[_builtins.str] deployment_config_id: The AWS Assigned deployment config ID
         :param pulumi.Input[_builtins.str] deployment_config_name: The name of the deployment config.
         :param pulumi.Input[Union['DeploymentConfigMinimumHealthyHostsArgs', 'DeploymentConfigMinimumHealthyHostsArgsDict', 'outputs.DeploymentConfigMinimumHealthyHosts']] minimum_healthy_hosts: A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -558,7 +558,7 @@ class DeploymentConfig(pulumi.CustomResource):
     @pulumi.getter(name="deploymentConfigId")
     def deployment_config_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The AWS Assigned deployment config id
+        The AWS Assigned deployment config ID
         """
         return pulumi.get(self, "deployment_config_id")
 

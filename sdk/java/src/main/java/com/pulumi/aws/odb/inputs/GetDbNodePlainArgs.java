@@ -31,7 +31,7 @@ public final class GetDbNodePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Unique identifier of db node associated with vm cluster.
+     * Unique identifier of DB node associated with vm cluster.
      * 
      * The following arguments are optional:
      * 
@@ -40,7 +40,7 @@ public final class GetDbNodePlainArgs extends com.pulumi.resources.InvokeArgs {
     private String id;
 
     /**
-     * @return Unique identifier of db node associated with vm cluster.
+     * @return Unique identifier of DB node associated with vm cluster.
      * 
      * The following arguments are optional:
      * 
@@ -102,7 +102,7 @@ public final class GetDbNodePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id Unique identifier of db node associated with vm cluster.
+         * @param id Unique identifier of DB node associated with vm cluster.
          * 
          * The following arguments are optional:
          * 

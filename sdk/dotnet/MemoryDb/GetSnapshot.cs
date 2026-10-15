@@ -158,7 +158,7 @@ namespace Pulumi.Aws.MemoryDb
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The configuration of the cluster from which the snapshot was taken.
+        /// Configuration of the cluster from which the snapshot was taken.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSnapshotClusterConfigurationResult> ClusterConfigurations;
         /// <summary>

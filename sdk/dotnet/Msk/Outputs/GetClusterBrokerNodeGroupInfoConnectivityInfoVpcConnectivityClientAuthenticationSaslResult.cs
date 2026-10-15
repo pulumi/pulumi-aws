@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Msk.Outputs
     [OutputType]
     public sealed class GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslResult
     {
+        /// <summary>
+        /// Whether SASL IAM authentication is enabled for VPC connectivity.
+        /// </summary>
         public readonly bool Iam;
+        /// <summary>
+        /// Whether SASL SCRAM authentication is enabled for VPC connectivity.
+        /// </summary>
         public readonly bool Scram;
 
         [OutputConstructor]

@@ -17,6 +17,9 @@ namespace Pulumi.Aws.Msk.Outputs
         /// Name of the Kinesis Data Firehose delivery stream to deliver logs to.
         /// </summary>
         public readonly string? DeliveryStream;
+        /// <summary>
+        /// Whether to enable or disable streaming broker logs to Kinesis Data Firehose.
+        /// </summary>
         public readonly bool Enabled;
 
         [OutputConstructor]

@@ -17,14 +17,14 @@ public final class ClassificationExportConfigurationS3DestinationArgs extends co
     public static final ClassificationExportConfigurationS3DestinationArgs Empty = new ClassificationExportConfigurationS3DestinationArgs();
 
     /**
-     * The Amazon S3 bucket name in which Amazon Macie exports the data classification results.
+     * Amazon S3 bucket name in which Amazon Macie exports the data classification results.
      * 
      */
     @Import(name="bucketName", required=true)
     private Output<String> bucketName;
 
     /**
-     * @return The Amazon S3 bucket name in which Amazon Macie exports the data classification results.
+     * @return Amazon S3 bucket name in which Amazon Macie exports the data classification results.
      * 
      */
     public Output<String> bucketName() {
@@ -32,14 +32,14 @@ public final class ClassificationExportConfigurationS3DestinationArgs extends co
     }
 
     /**
-     * The object key for the bucket in which Amazon Macie exports the data classification results.
+     * Object key for the bucket in which Amazon Macie exports the data classification results.
      * 
      */
     @Import(name="keyPrefix")
     private @Nullable Output<String> keyPrefix;
 
     /**
-     * @return The object key for the bucket in which Amazon Macie exports the data classification results.
+     * @return Object key for the bucket in which Amazon Macie exports the data classification results.
      * 
      */
     public Optional<Output<String>> keyPrefix() {
@@ -49,16 +49,12 @@ public final class ClassificationExportConfigurationS3DestinationArgs extends co
     /**
      * ARN of the KMS key to be used to encrypt the data.
      * 
-     * Additional information can be found in the [Storing and retaining sensitive data discovery results with Amazon Macie for AWS Macie documentation](https://docs.aws.amazon.com/macie/latest/user/discovery-results-repository-s3.html).
-     * 
      */
     @Import(name="kmsKeyArn", required=true)
     private Output<String> kmsKeyArn;
 
     /**
      * @return ARN of the KMS key to be used to encrypt the data.
-     * 
-     * Additional information can be found in the [Storing and retaining sensitive data discovery results with Amazon Macie for AWS Macie documentation](https://docs.aws.amazon.com/macie/latest/user/discovery-results-repository-s3.html).
      * 
      */
     public Output<String> kmsKeyArn() {
@@ -92,7 +88,7 @@ public final class ClassificationExportConfigurationS3DestinationArgs extends co
         }
 
         /**
-         * @param bucketName The Amazon S3 bucket name in which Amazon Macie exports the data classification results.
+         * @param bucketName Amazon S3 bucket name in which Amazon Macie exports the data classification results.
          * 
          * @return builder
          * 
@@ -103,7 +99,7 @@ public final class ClassificationExportConfigurationS3DestinationArgs extends co
         }
 
         /**
-         * @param bucketName The Amazon S3 bucket name in which Amazon Macie exports the data classification results.
+         * @param bucketName Amazon S3 bucket name in which Amazon Macie exports the data classification results.
          * 
          * @return builder
          * 
@@ -113,7 +109,7 @@ public final class ClassificationExportConfigurationS3DestinationArgs extends co
         }
 
         /**
-         * @param keyPrefix The object key for the bucket in which Amazon Macie exports the data classification results.
+         * @param keyPrefix Object key for the bucket in which Amazon Macie exports the data classification results.
          * 
          * @return builder
          * 
@@ -124,7 +120,7 @@ public final class ClassificationExportConfigurationS3DestinationArgs extends co
         }
 
         /**
-         * @param keyPrefix The object key for the bucket in which Amazon Macie exports the data classification results.
+         * @param keyPrefix Object key for the bucket in which Amazon Macie exports the data classification results.
          * 
          * @return builder
          * 
@@ -136,8 +132,6 @@ public final class ClassificationExportConfigurationS3DestinationArgs extends co
         /**
          * @param kmsKeyArn ARN of the KMS key to be used to encrypt the data.
          * 
-         * Additional information can be found in the [Storing and retaining sensitive data discovery results with Amazon Macie for AWS Macie documentation](https://docs.aws.amazon.com/macie/latest/user/discovery-results-repository-s3.html).
-         * 
          * @return builder
          * 
          */
@@ -148,8 +142,6 @@ public final class ClassificationExportConfigurationS3DestinationArgs extends co
 
         /**
          * @param kmsKeyArn ARN of the KMS key to be used to encrypt the data.
-         * 
-         * Additional information can be found in the [Storing and retaining sensitive data discovery results with Amazon Macie for AWS Macie documentation](https://docs.aws.amazon.com/macie/latest/user/discovery-results-repository-s3.html).
          * 
          * @return builder
          * 

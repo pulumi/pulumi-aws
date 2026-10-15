@@ -84,7 +84,7 @@ namespace Pulumi.Aws.LakeFormation
     /// });
     /// ```
     /// 
-    /// ### Enable EMR access to LakeFormation resources
+    /// ### Enable EMR access to Lake Formation resources
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

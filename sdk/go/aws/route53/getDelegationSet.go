@@ -17,7 +17,7 @@ import (
 //
 // ## Example Usage
 //
-// The following example shows how to get a delegation set from its id.
+// The following example shows how to get a delegation set from its ID.
 //
 // ```go
 // package main

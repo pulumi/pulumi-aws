@@ -68,7 +68,7 @@ class EventTargetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['EventTargetRunCommandTargetArgs']]] run_command_targets: Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
         :param pulumi.Input['EventTargetSagemakerPipelineTargetArgs'] sagemaker_pipeline_target: Parameters used when you are using the rule to invoke an Amazon SageMaker AI Pipeline. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input['EventTargetSqsTargetArgs'] sqs_target: Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[_builtins.str] target_id: The unique target assignment ID. If missing, will generate a random, unique id.
+        :param pulumi.Input[_builtins.str] target_id: The unique target assignment ID. If missing, will generate a random, unique ID.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "rule", rule)
@@ -358,7 +358,7 @@ class EventTargetArgs:
     @pulumi.getter(name="targetId")
     def target_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The unique target assignment ID. If missing, will generate a random, unique id.
+        The unique target assignment ID. If missing, will generate a random, unique ID.
         """
         return pulumi.get(self, "target_id")
 
@@ -417,7 +417,7 @@ class _EventTargetState:
         :param pulumi.Input[Sequence[pulumi.Input['EventTargetRunCommandTargetArgs']]] run_command_targets: Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
         :param pulumi.Input['EventTargetSagemakerPipelineTargetArgs'] sagemaker_pipeline_target: Parameters used when you are using the rule to invoke an Amazon SageMaker AI Pipeline. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input['EventTargetSqsTargetArgs'] sqs_target: Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[_builtins.str] target_id: The unique target assignment ID. If missing, will generate a random, unique id.
+        :param pulumi.Input[_builtins.str] target_id: The unique target assignment ID. If missing, will generate a random, unique ID.
         """
         if appsync_target is not None:
             pulumi.set(__self__, "appsync_target", appsync_target)
@@ -709,7 +709,7 @@ class _EventTargetState:
     @pulumi.getter(name="targetId")
     def target_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The unique target assignment ID. If missing, will generate a random, unique id.
+        The unique target assignment ID. If missing, will generate a random, unique ID.
         """
         return pulumi.get(self, "target_id")
 
@@ -1054,7 +1054,7 @@ class EventTarget(pulumi.CustomResource):
             rule=example_event_rule.name)
         ```
 
-        ### Cloudwatch Log Group Usage
+        ### CloudWatch Log Group Usage
 
         ```python
         import pulumi
@@ -1235,7 +1235,7 @@ class EventTarget(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['EventTargetRunCommandTargetArgs', 'EventTargetRunCommandTargetArgsDict', 'outputs.EventTargetRunCommandTarget']]]] run_command_targets: Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
         :param pulumi.Input[Union['EventTargetSagemakerPipelineTargetArgs', 'EventTargetSagemakerPipelineTargetArgsDict', 'outputs.EventTargetSagemakerPipelineTarget']] sagemaker_pipeline_target: Parameters used when you are using the rule to invoke an Amazon SageMaker AI Pipeline. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[Union['EventTargetSqsTargetArgs', 'EventTargetSqsTargetArgsDict', 'outputs.EventTargetSqsTarget']] sqs_target: Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[_builtins.str] target_id: The unique target assignment ID. If missing, will generate a random, unique id.
+        :param pulumi.Input[_builtins.str] target_id: The unique target assignment ID. If missing, will generate a random, unique ID.
         """
         ...
     @overload
@@ -1551,7 +1551,7 @@ class EventTarget(pulumi.CustomResource):
             rule=example_event_rule.name)
         ```
 
-        ### Cloudwatch Log Group Usage
+        ### CloudWatch Log Group Usage
 
         ```python
         import pulumi
@@ -1838,7 +1838,7 @@ class EventTarget(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['EventTargetRunCommandTargetArgs', 'EventTargetRunCommandTargetArgsDict', 'outputs.EventTargetRunCommandTarget']]]] run_command_targets: Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
         :param pulumi.Input[Union['EventTargetSagemakerPipelineTargetArgs', 'EventTargetSagemakerPipelineTargetArgsDict', 'outputs.EventTargetSagemakerPipelineTarget']] sagemaker_pipeline_target: Parameters used when you are using the rule to invoke an Amazon SageMaker AI Pipeline. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[Union['EventTargetSqsTargetArgs', 'EventTargetSqsTargetArgsDict', 'outputs.EventTargetSqsTarget']] sqs_target: Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[_builtins.str] target_id: The unique target assignment ID. If missing, will generate a random, unique id.
+        :param pulumi.Input[_builtins.str] target_id: The unique target assignment ID. If missing, will generate a random, unique ID.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -2034,7 +2034,7 @@ class EventTarget(pulumi.CustomResource):
     @pulumi.getter(name="targetId")
     def target_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The unique target assignment ID. If missing, will generate a random, unique id.
+        The unique target assignment ID. If missing, will generate a random, unique ID.
         """
         return pulumi.get(self, "target_id")
 

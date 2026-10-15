@@ -78,11 +78,12 @@ type Fleet struct {
 	// Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
 	FleetType pulumi.StringPtrOutput `pulumi:"fleetType"`
 	// ARN of an IAM role that instances in the fleet can assume.
-	InstanceRoleArn pulumi.StringPtrOutput   `pulumi:"instanceRoleArn"`
-	LogPaths        pulumi.StringArrayOutput `pulumi:"logPaths"`
+	InstanceRoleArn pulumi.StringPtrOutput `pulumi:"instanceRoleArn"`
+	// List of paths from which the fleet captures logs.
+	LogPaths pulumi.StringArrayOutput `pulumi:"logPaths"`
 	// List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
 	MetricGroups pulumi.StringArrayOutput `pulumi:"metricGroups"`
-	// The name of the fleet.
+	// Name of the fleet.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
 	NewGameSessionProtectionPolicy pulumi.StringPtrOutput `pulumi:"newGameSessionProtectionPolicy"`
@@ -100,7 +101,7 @@ type Fleet struct {
 	ScriptId pulumi.StringPtrOutput `pulumi:"scriptId"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -154,11 +155,12 @@ type fleetState struct {
 	// Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
 	FleetType *string `pulumi:"fleetType"`
 	// ARN of an IAM role that instances in the fleet can assume.
-	InstanceRoleArn *string  `pulumi:"instanceRoleArn"`
-	LogPaths        []string `pulumi:"logPaths"`
+	InstanceRoleArn *string `pulumi:"instanceRoleArn"`
+	// List of paths from which the fleet captures logs.
+	LogPaths []string `pulumi:"logPaths"`
 	// List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
 	MetricGroups []string `pulumi:"metricGroups"`
-	// The name of the fleet.
+	// Name of the fleet.
 	Name *string `pulumi:"name"`
 	// Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
 	NewGameSessionProtectionPolicy *string `pulumi:"newGameSessionProtectionPolicy"`
@@ -176,7 +178,7 @@ type fleetState struct {
 	ScriptId *string `pulumi:"scriptId"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -199,10 +201,11 @@ type FleetState struct {
 	FleetType pulumi.StringPtrInput
 	// ARN of an IAM role that instances in the fleet can assume.
 	InstanceRoleArn pulumi.StringPtrInput
-	LogPaths        pulumi.StringArrayInput
+	// List of paths from which the fleet captures logs.
+	LogPaths pulumi.StringArrayInput
 	// List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
 	MetricGroups pulumi.StringArrayInput
-	// The name of the fleet.
+	// Name of the fleet.
 	Name pulumi.StringPtrInput
 	// Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
 	NewGameSessionProtectionPolicy pulumi.StringPtrInput
@@ -220,7 +223,7 @@ type FleetState struct {
 	ScriptId pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -245,7 +248,7 @@ type fleetArgs struct {
 	InstanceRoleArn *string `pulumi:"instanceRoleArn"`
 	// List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
 	MetricGroups []string `pulumi:"metricGroups"`
-	// The name of the fleet.
+	// Name of the fleet.
 	Name *string `pulumi:"name"`
 	// Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
 	NewGameSessionProtectionPolicy *string `pulumi:"newGameSessionProtectionPolicy"`
@@ -279,7 +282,7 @@ type FleetArgs struct {
 	InstanceRoleArn pulumi.StringPtrInput
 	// List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
 	MetricGroups pulumi.StringArrayInput
-	// The name of the fleet.
+	// Name of the fleet.
 	Name pulumi.StringPtrInput
 	// Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
 	NewGameSessionProtectionPolicy pulumi.StringPtrInput
@@ -427,6 +430,7 @@ func (o FleetOutput) InstanceRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.InstanceRoleArn }).(pulumi.StringPtrOutput)
 }
 
+// List of paths from which the fleet captures logs.
 func (o FleetOutput) LogPaths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringArrayOutput { return v.LogPaths }).(pulumi.StringArrayOutput)
 }
@@ -436,7 +440,7 @@ func (o FleetOutput) MetricGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringArrayOutput { return v.MetricGroups }).(pulumi.StringArrayOutput)
 }
 
-// The name of the fleet.
+// Name of the fleet.
 func (o FleetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -481,7 +485,7 @@ func (o FleetOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o FleetOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

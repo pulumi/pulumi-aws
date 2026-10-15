@@ -104,11 +104,11 @@ type CrossAccountAttachment struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of AWS account IDs that are allowed to associate resources with the accelerator.
 	Principals pulumi.StringArrayOutput `pulumi:"principals"`
-	// List of resources to be associated with the accelerator.
+	// List of resources to be associated with the accelerator. See `resource` below.
 	Resources CrossAccountAttachmentResourceArrayOutput `pulumi:"resources"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -154,11 +154,11 @@ type crossAccountAttachmentState struct {
 	Name *string `pulumi:"name"`
 	// List of AWS account IDs that are allowed to associate resources with the accelerator.
 	Principals []string `pulumi:"principals"`
-	// List of resources to be associated with the accelerator.
+	// List of resources to be associated with the accelerator. See `resource` below.
 	Resources []CrossAccountAttachmentResource `pulumi:"resources"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -175,11 +175,11 @@ type CrossAccountAttachmentState struct {
 	Name pulumi.StringPtrInput
 	// List of AWS account IDs that are allowed to associate resources with the accelerator.
 	Principals pulumi.StringArrayInput
-	// List of resources to be associated with the accelerator.
+	// List of resources to be associated with the accelerator. See `resource` below.
 	Resources CrossAccountAttachmentResourceArrayInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -194,9 +194,9 @@ type crossAccountAttachmentArgs struct {
 	Name *string `pulumi:"name"`
 	// List of AWS account IDs that are allowed to associate resources with the accelerator.
 	Principals []string `pulumi:"principals"`
-	// List of resources to be associated with the accelerator.
+	// List of resources to be associated with the accelerator. See `resource` below.
 	Resources []CrossAccountAttachmentResource `pulumi:"resources"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -208,9 +208,9 @@ type CrossAccountAttachmentArgs struct {
 	Name pulumi.StringPtrInput
 	// List of AWS account IDs that are allowed to associate resources with the accelerator.
 	Principals pulumi.StringArrayInput
-	// List of resources to be associated with the accelerator.
+	// List of resources to be associated with the accelerator. See `resource` below.
 	Resources CrossAccountAttachmentResourceArrayInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -328,17 +328,17 @@ func (o CrossAccountAttachmentOutput) Principals() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CrossAccountAttachment) pulumi.StringArrayOutput { return v.Principals }).(pulumi.StringArrayOutput)
 }
 
-// List of resources to be associated with the accelerator.
+// List of resources to be associated with the accelerator. See `resource` below.
 func (o CrossAccountAttachmentOutput) Resources() CrossAccountAttachmentResourceArrayOutput {
 	return o.ApplyT(func(v *CrossAccountAttachment) CrossAccountAttachmentResourceArrayOutput { return v.Resources }).(CrossAccountAttachmentResourceArrayOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CrossAccountAttachmentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CrossAccountAttachment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o CrossAccountAttachmentOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CrossAccountAttachment) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -62,7 +62,7 @@ type LookupDetectorResult struct {
 	Arn string `pulumi:"arn"`
 	// Current configuration of the detector features.
 	Features []GetDetectorFeatureType `pulumi:"features"`
-	// The frequency of notifications sent about subsequent finding occurrences.
+	// Frequency of notifications sent about subsequent finding occurrences.
 	FindingPublishingFrequency string `pulumi:"findingPublishingFrequency"`
 	Id                         string `pulumi:"id"`
 	Region                     string `pulumi:"region"`
@@ -118,7 +118,7 @@ func (o LookupDetectorResultOutput) Features() GetDetectorFeatureTypeArrayOutput
 	return o.ApplyT(func(v LookupDetectorResult) []GetDetectorFeatureType { return v.Features }).(GetDetectorFeatureTypeArrayOutput)
 }
 
-// The frequency of notifications sent about subsequent finding occurrences.
+// Frequency of notifications sent about subsequent finding occurrences.
 func (o LookupDetectorResultOutput) FindingPublishingFrequency() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDetectorResult) string { return v.FindingPublishingFrequency }).(pulumi.StringOutput)
 }

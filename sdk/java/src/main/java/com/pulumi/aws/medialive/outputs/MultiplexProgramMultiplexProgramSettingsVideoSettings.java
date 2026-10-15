@@ -18,7 +18,7 @@ public final class MultiplexProgramMultiplexProgramSettingsVideoSettings {
      */
     private @Nullable Integer constantBitrate;
     /**
-     * @return Statmux settings. See Statmux Settings for more details.
+     * @return Statmux settings. See `statmuxSettings` Block for more details.
      * 
      */
     private @Nullable MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings statmuxSettings;
@@ -32,7 +32,7 @@ public final class MultiplexProgramMultiplexProgramSettingsVideoSettings {
         return Optional.ofNullable(this.constantBitrate);
     }
     /**
-     * @return Statmux settings. See Statmux Settings for more details.
+     * @return Statmux settings. See `statmuxSettings` Block for more details.
      * 
      */
     public Optional<MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings> statmuxSettings() {

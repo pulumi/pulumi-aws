@@ -224,7 +224,7 @@ import (
 type ParameterGroup struct {
 	pulumi.CustomResourceState
 
-	// ARN of the db parameter group.
+	// ARN of the DB parameter group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Description of the DB parameter group. Defaults to "Managed by Pulumi".
 	Description pulumi.StringOutput `pulumi:"description"`
@@ -282,7 +282,7 @@ func GetParameterGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ParameterGroup resources.
 type parameterGroupState struct {
-	// ARN of the db parameter group.
+	// ARN of the DB parameter group.
 	Arn *string `pulumi:"arn"`
 	// Description of the DB parameter group. Defaults to "Managed by Pulumi".
 	Description *string `pulumi:"description"`
@@ -305,7 +305,7 @@ type parameterGroupState struct {
 }
 
 type ParameterGroupState struct {
-	// ARN of the db parameter group.
+	// ARN of the DB parameter group.
 	Arn pulumi.StringPtrInput
 	// Description of the DB parameter group. Defaults to "Managed by Pulumi".
 	Description pulumi.StringPtrInput
@@ -457,7 +457,7 @@ func (o ParameterGroupOutput) ToParameterGroupOutputWithContext(ctx context.Cont
 	return o
 }
 
-// ARN of the db parameter group.
+// ARN of the DB parameter group.
 func (o ParameterGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

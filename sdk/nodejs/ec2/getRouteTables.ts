@@ -8,12 +8,12 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
+ * This resource can be useful for getting back a list of route table IDs to be referenced elsewhere.
  *
  * ## Example Usage
  *
- * The following adds a route for a particular cidr block to every (private
- * kops) route table in a specified vpc to use a particular vpc peering
+ * The following adds a route for a particular CIDR block to every (private
+ * kops) route table in a specified VPC to use a particular VPC peering
  * connection.
  *
  * ```typescript
@@ -83,7 +83,7 @@ export interface GetRouteTablesResult {
      */
     readonly id: string;
     /**
-     * List of all the route table ids found.
+     * List of all the route table IDs found.
      */
     readonly ids: string[];
     readonly region: string;
@@ -91,12 +91,12 @@ export interface GetRouteTablesResult {
     readonly vpcId?: string;
 }
 /**
- * This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
+ * This resource can be useful for getting back a list of route table IDs to be referenced elsewhere.
  *
  * ## Example Usage
  *
- * The following adds a route for a particular cidr block to every (private
- * kops) route table in a specified vpc to use a particular vpc peering
+ * The following adds a route for a particular CIDR block to every (private
+ * kops) route table in a specified VPC to use a particular VPC peering
  * connection.
  *
  * ```typescript

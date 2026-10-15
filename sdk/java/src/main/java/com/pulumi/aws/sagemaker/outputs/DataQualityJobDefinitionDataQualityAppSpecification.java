@@ -29,7 +29,7 @@ public final class DataQualityJobDefinitionDataQualityAppSpecification {
      */
     private @Nullable String postAnalyticsProcessorSourceUri;
     /**
-     * @return An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.
+     * @return An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted JSON so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.
      * 
      */
     private @Nullable String recordPreprocessorSourceUri;
@@ -57,7 +57,7 @@ public final class DataQualityJobDefinitionDataQualityAppSpecification {
         return Optional.ofNullable(this.postAnalyticsProcessorSourceUri);
     }
     /**
-     * @return An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.
+     * @return An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted JSON so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.
      * 
      */
     public Optional<String> recordPreprocessorSourceUri() {

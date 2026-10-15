@@ -24,7 +24,7 @@ class InvitationAccepterArgs:
         """
         The set of arguments for constructing a InvitationAccepter resource.
 
-        :param pulumi.Input[_builtins.str] administrator_account_id: The AWS account ID for the account that sent the invitation.
+        :param pulumi.Input[_builtins.str] administrator_account_id: AWS account ID for the account that sent the invitation.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "administrator_account_id", administrator_account_id)
@@ -35,7 +35,7 @@ class InvitationAccepterArgs:
     @pulumi.getter(name="administratorAccountId")
     def administrator_account_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The AWS account ID for the account that sent the invitation.
+        AWS account ID for the account that sent the invitation.
         """
         return pulumi.get(self, "administrator_account_id")
 
@@ -65,8 +65,8 @@ class _InvitationAccepterState:
         """
         Input properties used for looking up and filtering InvitationAccepter resources.
 
-        :param pulumi.Input[_builtins.str] administrator_account_id: The AWS account ID for the account that sent the invitation.
-        :param pulumi.Input[_builtins.str] invitation_id: The unique identifier for the invitation.
+        :param pulumi.Input[_builtins.str] administrator_account_id: AWS account ID for the account that sent the invitation.
+        :param pulumi.Input[_builtins.str] invitation_id: Unique identifier for the invitation.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if administrator_account_id is not None:
@@ -80,7 +80,7 @@ class _InvitationAccepterState:
     @pulumi.getter(name="administratorAccountId")
     def administrator_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The AWS account ID for the account that sent the invitation.
+        AWS account ID for the account that sent the invitation.
         """
         return pulumi.get(self, "administrator_account_id")
 
@@ -92,7 +92,7 @@ class _InvitationAccepterState:
     @pulumi.getter(name="invitationId")
     def invitation_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The unique identifier for the invitation.
+        Unique identifier for the invitation.
         """
         return pulumi.get(self, "invitation_id")
 
@@ -154,7 +154,7 @@ class InvitationAccepter(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] administrator_account_id: The AWS account ID for the account that sent the invitation.
+        :param pulumi.Input[_builtins.str] administrator_account_id: AWS account ID for the account that sent the invitation.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -244,8 +244,8 @@ class InvitationAccepter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] administrator_account_id: The AWS account ID for the account that sent the invitation.
-        :param pulumi.Input[_builtins.str] invitation_id: The unique identifier for the invitation.
+        :param pulumi.Input[_builtins.str] administrator_account_id: AWS account ID for the account that sent the invitation.
+        :param pulumi.Input[_builtins.str] invitation_id: Unique identifier for the invitation.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -261,7 +261,7 @@ class InvitationAccepter(pulumi.CustomResource):
     @pulumi.getter(name="administratorAccountId")
     def administrator_account_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The AWS account ID for the account that sent the invitation.
+        AWS account ID for the account that sent the invitation.
         """
         return pulumi.get(self, "administrator_account_id")
 
@@ -269,7 +269,7 @@ class InvitationAccepter(pulumi.CustomResource):
     @pulumi.getter(name="invitationId")
     def invitation_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The unique identifier for the invitation.
+        Unique identifier for the invitation.
         """
         return pulumi.get(self, "invitation_id")
 

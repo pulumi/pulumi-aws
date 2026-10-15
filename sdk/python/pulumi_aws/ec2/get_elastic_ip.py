@@ -131,7 +131,7 @@ class GetElasticIpResult:
     @pulumi.getter
     def domain(self) -> _builtins.str:
         """
-        Whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
+        Whether the address is for use in EC2-Classic (`standard`) or in a VPC (`vpc`).
         """
         return pulumi.get(self, "domain")
 

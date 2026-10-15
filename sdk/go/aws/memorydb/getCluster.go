@@ -93,11 +93,11 @@ type LookupClusterResult struct {
 	NetworkType string `pulumi:"networkType"`
 	// Compute and memory capacity of the nodes in the cluster.
 	NodeType string `pulumi:"nodeType"`
-	// The number of replicas to apply to each shard.
+	// Number of replicas to apply to each shard.
 	NumReplicasPerShard int `pulumi:"numReplicasPerShard"`
 	// Number of shards in the cluster.
 	NumShards int `pulumi:"numShards"`
-	// The name of the parameter group associated with the cluster.
+	// Name of the parameter group associated with the cluster.
 	ParameterGroupName string `pulumi:"parameterGroupName"`
 	// Port number that this node is listening on.
 	Port   int    `pulumi:"port"`
@@ -106,13 +106,13 @@ type LookupClusterResult struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// Set of shards in this cluster.
 	Shards []GetClusterShard `pulumi:"shards"`
-	// The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled.
+	// Number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled.
 	SnapshotRetentionLimit int `pulumi:"snapshotRetentionLimit"`
 	// Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
 	SnapshotWindow string `pulumi:"snapshotWindow"`
 	// ARN of the SNS topic to which cluster notifications are sent.
 	SnsTopicArn string `pulumi:"snsTopicArn"`
-	// The name of the subnet group used for the cluster.
+	// Name of the subnet group used for the cluster.
 	SubnetGroupName string `pulumi:"subnetGroupName"`
 	// Map of tags assigned to the cluster.
 	Tags map[string]string `pulumi:"tags"`
@@ -238,7 +238,7 @@ func (o LookupClusterResultOutput) NodeType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.NodeType }).(pulumi.StringOutput)
 }
 
-// The number of replicas to apply to each shard.
+// Number of replicas to apply to each shard.
 func (o LookupClusterResultOutput) NumReplicasPerShard() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupClusterResult) int { return v.NumReplicasPerShard }).(pulumi.IntOutput)
 }
@@ -248,7 +248,7 @@ func (o LookupClusterResultOutput) NumShards() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupClusterResult) int { return v.NumShards }).(pulumi.IntOutput)
 }
 
-// The name of the parameter group associated with the cluster.
+// Name of the parameter group associated with the cluster.
 func (o LookupClusterResultOutput) ParameterGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ParameterGroupName }).(pulumi.StringOutput)
 }
@@ -272,7 +272,7 @@ func (o LookupClusterResultOutput) Shards() GetClusterShardArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []GetClusterShard { return v.Shards }).(GetClusterShardArrayOutput)
 }
 
-// The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled.
+// Number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled.
 func (o LookupClusterResultOutput) SnapshotRetentionLimit() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupClusterResult) int { return v.SnapshotRetentionLimit }).(pulumi.IntOutput)
 }
@@ -287,7 +287,7 @@ func (o LookupClusterResultOutput) SnsTopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.SnsTopicArn }).(pulumi.StringOutput)
 }
 
-// The name of the subnet group used for the cluster.
+// Name of the subnet group used for the cluster.
 func (o LookupClusterResultOutput) SubnetGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.SubnetGroupName }).(pulumi.StringOutput)
 }

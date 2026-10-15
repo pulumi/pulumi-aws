@@ -18,11 +18,11 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AdditionalLocations;
         /// <summary>
-        /// A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+        /// List of reducer grouping columns, clustering columns, and bucketing columns in the table.
         /// </summary>
         public readonly ImmutableArray<string> BucketColumns;
         /// <summary>
-        /// A list of the Columns in the table.
+        /// List of the `Columns` in the table.
         /// </summary>
         public readonly ImmutableArray<Outputs.PartitionStorageDescriptorColumn> Columns;
         /// <summary>
@@ -30,11 +30,11 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly bool? Compressed;
         /// <summary>
-        /// The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+        /// Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
         /// </summary>
         public readonly string? InputFormat;
         /// <summary>
-        /// The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+        /// Physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
         /// </summary>
         public readonly string? Location;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly int? NumberOfBuckets;
         /// <summary>
-        /// The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+        /// Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
         /// </summary>
         public readonly string? OutputFormat;
         /// <summary>
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly Outputs.PartitionStorageDescriptorSkewedInfo? SkewedInfo;
         /// <summary>
-        /// A list of Order objects specifying the sort order of each bucket in the table.
+        /// List of `SortColumns` objects specifying the sort order of each bucket in the table.
         /// </summary>
         public readonly ImmutableArray<Outputs.PartitionStorageDescriptorSortColumn> SortColumns;
         /// <summary>

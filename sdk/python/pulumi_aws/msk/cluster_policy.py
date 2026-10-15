@@ -82,6 +82,7 @@ class _ClusterPolicyState:
         Input properties used for looking up and filtering ClusterPolicy resources.
 
         :param pulumi.Input[_builtins.str] cluster_arn: ARN that uniquely identifies the cluster.
+        :param pulumi.Input[_builtins.str] current_version: Current version of the policy.
         :param pulumi.Input[_builtins.str] policy: Resource policy for cluster.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -109,6 +110,9 @@ class _ClusterPolicyState:
     @_builtins.property
     @pulumi.getter(name="currentVersion")
     def current_version(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Current version of the policy.
+        """
         return pulumi.get(self, "current_version")
 
     @current_version.setter
@@ -307,6 +311,7 @@ class ClusterPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_arn: ARN that uniquely identifies the cluster.
+        :param pulumi.Input[_builtins.str] current_version: Current version of the policy.
         :param pulumi.Input[_builtins.str] policy: Resource policy for cluster.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -331,6 +336,9 @@ class ClusterPolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="currentVersion")
     def current_version(self) -> pulumi.Output[_builtins.str]:
+        """
+        Current version of the policy.
+        """
         return pulumi.get(self, "current_version")
 
     @_builtins.property

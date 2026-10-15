@@ -83,7 +83,7 @@ export class UsagePlanKey extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Id of the usage plan resource representing to associate the key to.
+     * ID of the usage plan resource representing to associate the key to.
      */
     declare public readonly usagePlanId: pulumi.Output<string>;
     /**
@@ -154,7 +154,7 @@ export interface UsagePlanKeyState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Id of the usage plan resource representing to associate the key to.
+     * ID of the usage plan resource representing to associate the key to.
      */
     usagePlanId?: pulumi.Input<string | undefined>;
     /**
@@ -180,7 +180,7 @@ export interface UsagePlanKeyArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Id of the usage plan resource representing to associate the key to.
+     * ID of the usage plan resource representing to associate the key to.
      */
     usagePlanId: pulumi.Input<string>;
 }

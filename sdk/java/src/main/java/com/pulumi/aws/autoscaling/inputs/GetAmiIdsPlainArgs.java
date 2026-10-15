@@ -32,14 +32,14 @@ public final class GetAmiIdsPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * List of autoscaling group names
+     * List of Auto Scaling group names
      * 
      */
     @Import(name="names")
     private @Nullable List<String> names;
 
     /**
-     * @return List of autoscaling group names
+     * @return List of Auto Scaling group names
      * 
      */
     public Optional<List<String>> names() {
@@ -109,7 +109,7 @@ public final class GetAmiIdsPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param names List of autoscaling group names
+         * @param names List of Auto Scaling group names
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class GetAmiIdsPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param names List of autoscaling group names
+         * @param names List of Auto Scaling group names
          * 
          * @return builder
          * 

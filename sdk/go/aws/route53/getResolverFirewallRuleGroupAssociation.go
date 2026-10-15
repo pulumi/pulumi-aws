@@ -17,7 +17,7 @@ import (
 //
 // ## Example Usage
 //
-// The following example shows how to get a firewall rule group association from its id.
+// The following example shows how to get a firewall rule group association from its ID.
 //
 // ```go
 // package main

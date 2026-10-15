@@ -379,7 +379,7 @@ namespace Pulumi.Aws.ElasticSearch
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Domain-specific endpoint for kibana without https scheme.
+        /// Domain-specific endpoint for kibana without HTTPS scheme.
         /// </summary>
         [Output("kibanaEndpoint")]
         public Output<string> KibanaEndpoint { get; private set; } = null!;
@@ -695,7 +695,7 @@ namespace Pulumi.Aws.ElasticSearch
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// Domain-specific endpoint for kibana without https scheme.
+        /// Domain-specific endpoint for kibana without HTTPS scheme.
         /// </summary>
         [Input("kibanaEndpoint")]
         public Input<string>? KibanaEndpoint { get; set; }

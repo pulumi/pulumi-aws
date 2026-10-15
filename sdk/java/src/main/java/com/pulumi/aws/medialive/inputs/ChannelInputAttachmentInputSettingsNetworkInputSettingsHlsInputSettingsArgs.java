@@ -17,14 +17,14 @@ public final class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInp
     public static final ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs Empty = new ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs();
 
     /**
-     * The bitrate is specified in bits per second, as in an HLS manifest.
+     * Bitrate, in bits per second, as in an HLS manifest.
      * 
      */
     @Import(name="bandwidth")
     private @Nullable Output<Integer> bandwidth;
 
     /**
-     * @return The bitrate is specified in bits per second, as in an HLS manifest.
+     * @return Bitrate, in bits per second, as in an HLS manifest.
      * 
      */
     public Optional<Output<Integer>> bandwidth() {
@@ -47,14 +47,14 @@ public final class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInp
     }
 
     /**
-     * The number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
+     * Number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
      * 
      */
     @Import(name="retries")
     private @Nullable Output<Integer> retries;
 
     /**
-     * @return The number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
+     * @return Number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
      * 
      */
     public Optional<Output<Integer>> retries() {
@@ -62,23 +62,31 @@ public final class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInp
     }
 
     /**
-     * The number of seconds between retries when an attempt to read a manifest or segment fails.
+     * Number of seconds between retries when an attempt to read a manifest or segment fails.
      * 
      */
     @Import(name="retryInterval")
     private @Nullable Output<Integer> retryInterval;
 
     /**
-     * @return The number of seconds between retries when an attempt to read a manifest or segment fails.
+     * @return Number of seconds between retries when an attempt to read a manifest or segment fails.
      * 
      */
     public Optional<Output<Integer>> retryInterval() {
         return Optional.ofNullable(this.retryInterval);
     }
 
+    /**
+     * Source for the SCTE-35 messages that MediaLive ingests.
+     * 
+     */
     @Import(name="scte35Source")
     private @Nullable Output<String> scte35Source;
 
+    /**
+     * @return Source for the SCTE-35 messages that MediaLive ingests.
+     * 
+     */
     public Optional<Output<String>> scte35Source() {
         return Optional.ofNullable(this.scte35Source);
     }
@@ -112,7 +120,7 @@ public final class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInp
         }
 
         /**
-         * @param bandwidth The bitrate is specified in bits per second, as in an HLS manifest.
+         * @param bandwidth Bitrate, in bits per second, as in an HLS manifest.
          * 
          * @return builder
          * 
@@ -123,7 +131,7 @@ public final class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInp
         }
 
         /**
-         * @param bandwidth The bitrate is specified in bits per second, as in an HLS manifest.
+         * @param bandwidth Bitrate, in bits per second, as in an HLS manifest.
          * 
          * @return builder
          * 
@@ -154,7 +162,7 @@ public final class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInp
         }
 
         /**
-         * @param retries The number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
+         * @param retries Number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
          * 
          * @return builder
          * 
@@ -165,7 +173,7 @@ public final class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInp
         }
 
         /**
-         * @param retries The number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
+         * @param retries Number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
          * 
          * @return builder
          * 
@@ -175,7 +183,7 @@ public final class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInp
         }
 
         /**
-         * @param retryInterval The number of seconds between retries when an attempt to read a manifest or segment fails.
+         * @param retryInterval Number of seconds between retries when an attempt to read a manifest or segment fails.
          * 
          * @return builder
          * 
@@ -186,7 +194,7 @@ public final class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInp
         }
 
         /**
-         * @param retryInterval The number of seconds between retries when an attempt to read a manifest or segment fails.
+         * @param retryInterval Number of seconds between retries when an attempt to read a manifest or segment fails.
          * 
          * @return builder
          * 
@@ -195,11 +203,23 @@ public final class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInp
             return retryInterval(Output.of(retryInterval));
         }
 
+        /**
+         * @param scte35Source Source for the SCTE-35 messages that MediaLive ingests.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scte35Source(@Nullable Output<String> scte35Source) {
             $.scte35Source = scte35Source;
             return this;
         }
 
+        /**
+         * @param scte35Source Source for the SCTE-35 messages that MediaLive ingests.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scte35Source(String scte35Source) {
             return scte35Source(Output.of(scte35Source));
         }

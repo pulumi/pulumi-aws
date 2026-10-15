@@ -13,7 +13,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
     public sealed class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The amount of time (in milliseconds) that no input is detected. After that time, an input failover will occur.
+        /// Amount of time, in milliseconds, that no input is detected before an input failover occurs.
         /// </summary>
         [Input("inputLossThresholdMsec")]
         public Input<int>? InputLossThresholdMsec { get; set; }

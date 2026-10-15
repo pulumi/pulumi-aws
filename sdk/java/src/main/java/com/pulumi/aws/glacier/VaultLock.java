@@ -187,14 +187,14 @@ public class VaultLock extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The name of the Glacier Vault.
+     * Name of the Glacier Vault.
      * 
      */
     @Export(name="vaultName", refs={String.class}, tree="[0]")
     private Output<String> vaultName;
 
     /**
-     * @return The name of the Glacier Vault.
+     * @return Name of the Glacier Vault.
      * 
      */
     public Output<String> vaultName() {

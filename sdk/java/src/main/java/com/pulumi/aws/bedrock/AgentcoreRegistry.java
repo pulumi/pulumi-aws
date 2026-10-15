@@ -69,6 +69,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.bedrock.AgentcoreRegistry;
  * import com.pulumi.aws.bedrock.AgentcoreRegistryArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreRegistryApprovalConfigurationArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -83,9 +84,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AgentcoreRegistry("example", AgentcoreRegistryArgs.builder()
+ *             .approvalConfigurations(AgentcoreRegistryApprovalConfigurationArgs.builder()
+ *                 .autoApproval(true)
+ *                 .build())
  *             .name("example_registry")
  *             .description("MCP servers and tools for the platform team")
- *             .autoApproval(true)
  *             .build());
  * 
  *     }
@@ -142,12 +145,12 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `registryId` (String) Registry ID.
+ * * `registryId` (String) Registry ID.
  * 
  * #### Optional
  * 
- * * `accountId` (String) AWS account ID for this resource.
- * * `region` (String) AWS Region for this resource.
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
  * 
  * Using `pulumi import`, import a Bedrock AgentCore Registry by registry ID. For example:
  * 
@@ -215,7 +218,7 @@ public class AgentcoreRegistry extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+     * Name of the registry. Must be unique within your account, start with a letter or number, and contain only letters, numbers, underscores, hyphens, periods, and forward slashes. Maximum length of 64 characters.
      * 
      * The following arguments are optional:
      * 
@@ -224,7 +227,7 @@ public class AgentcoreRegistry extends com.pulumi.resources.CustomResource {
     private Output<String> name;
 
     /**
-     * @return Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+     * @return Name of the registry. Must be unique within your account, start with a letter or number, and contain only letters, numbers, underscores, hyphens, periods, and forward slashes. Maximum length of 64 characters.
      * 
      * The following arguments are optional:
      * 

@@ -86,7 +86,7 @@ type LookupRoutingProfileArgs struct {
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Returns information on a specific Routing Profile by Routing Profile id
+	// Returns information on a specific Routing Profile by Routing Profile ID
 	//
 	// > **NOTE:** `instanceId` and one of either `name` or `routingProfileId` is required.
 	RoutingProfileId *string `pulumi:"routingProfileId"`
@@ -129,7 +129,7 @@ type LookupRoutingProfileOutputArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Returns information on a specific Routing Profile by Routing Profile id
+	// Returns information on a specific Routing Profile by Routing Profile ID
 	//
 	// > **NOTE:** `instanceId` and one of either `name` or `routingProfileId` is required.
 	RoutingProfileId pulumi.StringPtrInput `pulumi:"routingProfileId"`

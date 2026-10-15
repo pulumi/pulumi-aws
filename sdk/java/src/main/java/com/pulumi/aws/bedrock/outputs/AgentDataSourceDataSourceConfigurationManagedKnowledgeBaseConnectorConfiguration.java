@@ -5,6 +5,7 @@ package com.pulumi.aws.bedrock.outputs;
 
 import com.pulumi.aws.bedrock.outputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfiguration;
 import com.pulumi.aws.bedrock.outputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfiguration;
+import com.pulumi.aws.bedrock.outputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedule;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
@@ -28,6 +29,11 @@ public final class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseCon
      * 
      */
     private @Nullable AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfiguration mediaExtractionConfiguration;
+    /**
+     * @return Recurring schedule on which the connector automatically syncs this data source. See `syncSchedule` Block for details.
+     * 
+     */
+    private @Nullable AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedule syncSchedule;
 
     private AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfiguration() {}
     /**
@@ -51,6 +57,13 @@ public final class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseCon
     public Optional<AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfiguration> mediaExtractionConfiguration() {
         return Optional.ofNullable(this.mediaExtractionConfiguration);
     }
+    /**
+     * @return Recurring schedule on which the connector automatically syncs this data source. See `syncSchedule` Block for details.
+     * 
+     */
+    public Optional<AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedule> syncSchedule() {
+        return Optional.ofNullable(this.syncSchedule);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -64,12 +77,14 @@ public final class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseCon
         private @Nullable String connectorParameters;
         private @Nullable AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfiguration deletionProtectionConfiguration;
         private @Nullable AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfiguration mediaExtractionConfiguration;
+        private @Nullable AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedule syncSchedule;
         public Builder() {}
         public Builder(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.connectorParameters = defaults.connectorParameters;
     	      this.deletionProtectionConfiguration = defaults.deletionProtectionConfiguration;
     	      this.mediaExtractionConfiguration = defaults.mediaExtractionConfiguration;
+    	      this.syncSchedule = defaults.syncSchedule;
         }
 
         @CustomType.Setter
@@ -90,11 +105,18 @@ public final class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseCon
             this.mediaExtractionConfiguration = mediaExtractionConfiguration;
             return this;
         }
+        @CustomType.Setter
+        public Builder syncSchedule(@Nullable AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationSyncSchedule syncSchedule) {
+
+            this.syncSchedule = syncSchedule;
+            return this;
+        }
         public AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfiguration build() {
             final var _resultValue = new AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfiguration();
             _resultValue.connectorParameters = connectorParameters;
             _resultValue.deletionProtectionConfiguration = deletionProtectionConfiguration;
             _resultValue.mediaExtractionConfiguration = mediaExtractionConfiguration;
+            _resultValue.syncSchedule = syncSchedule;
             return _resultValue;
         }
     }

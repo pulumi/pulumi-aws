@@ -157,7 +157,7 @@ public final class GetAmiResult {
      */
     private String rootDeviceType;
     /**
-     * @return Snapshot id associated with the root device, if any (only applies to `ebs` root devices).
+     * @return Snapshot ID associated with the root device, if any (only applies to `ebs` root devices).
      * 
      */
     private String rootSnapshotId;
@@ -406,7 +406,7 @@ public final class GetAmiResult {
         return this.rootDeviceType;
     }
     /**
-     * @return Snapshot id associated with the root device, if any (only applies to `ebs` root devices).
+     * @return Snapshot ID associated with the root device, if any (only applies to `ebs` root devices).
      * 
      */
     public String rootSnapshotId() {

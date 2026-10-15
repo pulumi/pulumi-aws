@@ -81,14 +81,14 @@ public final class GetInvocationArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Tenant Id to serve invocations from specified tenant.
+     * Tenant ID to serve invocations from specified tenant.
      * 
      */
     @Import(name="tenantId")
     private @Nullable Output<String> tenantId;
 
     /**
-     * @return Tenant Id to serve invocations from specified tenant.
+     * @return Tenant ID to serve invocations from specified tenant.
      * 
      */
     public Optional<Output<String>> tenantId() {
@@ -212,7 +212,7 @@ public final class GetInvocationArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tenantId Tenant Id to serve invocations from specified tenant.
+         * @param tenantId Tenant ID to serve invocations from specified tenant.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class GetInvocationArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tenantId Tenant Id to serve invocations from specified tenant.
+         * @param tenantId Tenant ID to serve invocations from specified tenant.
          * 
          * @return builder
          * 

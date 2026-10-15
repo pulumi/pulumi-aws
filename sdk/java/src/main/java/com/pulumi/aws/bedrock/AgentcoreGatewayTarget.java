@@ -41,6 +41,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.lambda.Function;
  * import com.pulumi.aws.lambda.FunctionArgs;
+ * import com.pulumi.aws.iam.RolePolicy;
+ * import com.pulumi.aws.iam.RolePolicyArgs;
  * import com.pulumi.aws.bedrock.AgentcoreGateway;
  * import com.pulumi.aws.bedrock.AgentcoreGatewayArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayAuthorizerConfigurationArgs;
@@ -60,6 +62,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArgs;
  * import com.pulumi.asset.FileArchive;
+ * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -113,6 +116,20 @@ import javax.annotation.Nullable;
  *             .runtime("nodejs24.x")
  *             .build());
  * 
+ *         final var gatewayLambdaInvoke = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect("Allow")
+ *                 .actions("lambda:InvokeFunction")
+ *                 .resources(example.arn())
+ *                 .build())
+ *             .build());
+ * 
+ *         var gatewayLambdaInvokeRolePolicy = new RolePolicy("gatewayLambdaInvokeRolePolicy", RolePolicyArgs.builder()
+ *             .name("example-gateway-lambda-invoke")
+ *             .role(gatewayRole.id())
+ *             .policy(gatewayLambdaInvoke.applyValue(_gatewayLambdaInvoke -> _gatewayLambdaInvoke.json()))
+ *             .build());
+ * 
  *         var exampleAgentcoreGateway = new AgentcoreGateway("exampleAgentcoreGateway", AgentcoreGatewayArgs.builder()
  *             .authorizerConfiguration(AgentcoreGatewayAuthorizerConfigurationArgs.builder()
  *                 .customJwtAuthorizer(AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs.builder()
@@ -121,6 +138,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .name("example-gateway")
  *             .roleArn(gatewayRole.arn())
+ *             .authorizerType("CUSTOM_JWT")
  *             .build());
  * 
  *         var exampleAgentcoreGatewayTarget = new AgentcoreGatewayTarget("exampleAgentcoreGatewayTarget", AgentcoreGatewayTargetArgs.builder()
@@ -148,9 +166,12 @@ import javax.annotation.Nullable;
  *                                                     .type("string")
  *                                                     .build(),
  *                                                 AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs.builder()
- *                                                     .items(Arrays.asList(Map.of("type", "string")))
  *                                                     .name("tags")
  *                                                     .type("array")
+ *                                                     .itemsJson(serializeJson(
+ *                                                         jsonObject(
+ *                                                             jsonProperty("type", "string")
+ *                                                         )))
  *                                                     .build())
  *                                             .name("options")
  *                                             .type("object")
@@ -182,158 +203,6 @@ import javax.annotation.Nullable;
  *             .name("example-target")
  *             .gatewayIdentifier(exampleAgentcoreGateway.gatewayId())
  *             .description("Lambda function target for processing requests")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Target with API Key Authentication
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.bedrock.AgentcoreGatewayTarget;
- * import com.pulumi.aws.bedrock.AgentcoreGatewayTargetArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetCredentialProviderConfigurationArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs;
- * import java.util.ArrayList;
- * import java.util.Arrays;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var apiKeyExample = new AgentcoreGatewayTarget("apiKeyExample", AgentcoreGatewayTargetArgs.builder()
- *             .credentialProviderConfiguration(AgentcoreGatewayTargetCredentialProviderConfigurationArgs.builder()
- *                 .apiKey(AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs.builder()
- *                     .providerArn("arn:aws:iam::123456789012:oidc-provider/example.com")
- *                     .credentialLocation("HEADER")
- *                     .credentialParameterName("X-API-Key")
- *                     .credentialPrefix("Bearer")
- *                     .build())
- *                 .build())
- *             .targetConfiguration(AgentcoreGatewayTargetTargetConfigurationArgs.builder()
- *                 .mcp(AgentcoreGatewayTargetTargetConfigurationMcpArgs.builder()
- *                     .lambda(AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs.builder()
- *                         .toolSchema(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs.builder()
- *                             .inlinePayloads(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs.builder()
- *                                 .inputSchema(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs.builder()
- *                                     .type("string")
- *                                     .description("Simple string input for API calls")
- *                                     .build())
- *                                 .name("api_tool")
- *                                 .description("External API integration tool")
- *                                 .build())
- *                             .build())
- *                         .lambdaArn(example.arn())
- *                         .build())
- *                     .build())
- *                 .build())
- *             .name("api-target")
- *             .gatewayIdentifier(exampleAwsBedrockagentcoreGateway.gatewayId())
- *             .description("External API target with API key authentication")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Target with OAuth Authentication
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.bedrock.AgentcoreGatewayTarget;
- * import com.pulumi.aws.bedrock.AgentcoreGatewayTargetArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetCredentialProviderConfigurationArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArgs;
- * import java.util.ArrayList;
- * import java.util.Arrays;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var oauthExample = new AgentcoreGatewayTarget("oauthExample", AgentcoreGatewayTargetArgs.builder()
- *             .credentialProviderConfiguration(AgentcoreGatewayTargetCredentialProviderConfigurationArgs.builder()
- *                 .oauth(AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs.builder()
- *                     .providerArn("arn:aws:iam::123456789012:oidc-provider/oauth.example.com")
- *                     .scopes(                    
- *                         "read",
- *                         "write")
- *                     .grantType("authorization_code")
- *                     .defaultReturnUrl("https://myapp.example.com/callback")
- *                     .customParameters(Map.of("client_type", "confidential"))
- *                     .build())
- *                 .build())
- *             .targetConfiguration(AgentcoreGatewayTargetTargetConfigurationArgs.builder()
- *                 .mcp(AgentcoreGatewayTargetTargetConfigurationMcpArgs.builder()
- *                     .lambda(AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs.builder()
- *                         .toolSchema(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs.builder()
- *                             .inlinePayloads(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs.builder()
- *                                 .inputSchema(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs.builder()
- *                                     .items(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgs.builder()
- *                                         .properties(                                        
- *                                             AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArgs.builder()
- *                                                 .name("id")
- *                                                 .type("string")
- *                                                 .required(true)
- *                                                 .build(),
- *                                             AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArgs.builder()
- *                                                 .name("value")
- *                                                 .type("number")
- *                                                 .build())
- *                                         .type("object")
- *                                         .build())
- *                                     .type("array")
- *                                     .build())
- *                                 .name("oauth_tool")
- *                                 .description("OAuth-authenticated service")
- *                                 .build())
- *                             .build())
- *                         .lambdaArn(example.arn())
- *                         .build())
- *                     .build())
- *                 .build())
- *             .name("oauth-target")
- *             .gatewayIdentifier(exampleAwsBedrockagentcoreGateway.gatewayId())
  *             .build());
  * 
  *     }
@@ -713,7 +582,7 @@ import javax.annotation.Nullable;
  * 
  * #### Optional
  * 
- * * `accountId` (String) Account ID where this resource is managed.
+ * * `accountId` (String) AWS Account where this resource is managed.
  * * `region` (String) Region where this resource is managed.
  * 
  * Using `pulumi import`, import gateway targets using `gatewayIdentifier` and `targetId` separated by a comma (`,`). For example:

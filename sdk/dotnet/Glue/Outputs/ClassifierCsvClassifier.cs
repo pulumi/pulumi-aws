@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly bool? AllowSingleColumn;
         /// <summary>
-        /// Indicates whether the CSV file contains a header. This can be one of "ABSENT", "PRESENT", or "UNKNOWN".
+        /// Whether the CSV file contains a header. This can be one of "ABSENT", "PRESENT", or "UNKNOWN".
         /// </summary>
         public readonly string? ContainsHeader;
         /// <summary>
@@ -26,27 +26,27 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly bool? CustomDatatypeConfigured;
         /// <summary>
-        /// A list of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
+        /// List of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
         /// </summary>
         public readonly ImmutableArray<string> CustomDatatypes;
         /// <summary>
-        /// The delimiter used in the CSV to separate columns.
+        /// Delimiter used in the CSV to separate columns.
         /// </summary>
         public readonly string? Delimiter;
         /// <summary>
-        /// Specifies whether to trim column values.
+        /// Whether to trim column values.
         /// </summary>
         public readonly bool? DisableValueTrimming;
         /// <summary>
-        /// A list of strings representing column names.
+        /// List of strings representing column names.
         /// </summary>
         public readonly ImmutableArray<string> Headers;
         /// <summary>
-        /// A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+        /// Custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
         /// </summary>
         public readonly string? QuoteSymbol;
         /// <summary>
-        /// The SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
+        /// SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
         /// </summary>
         public readonly string? Serde;
 

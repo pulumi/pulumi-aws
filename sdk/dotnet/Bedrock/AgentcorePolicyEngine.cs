@@ -83,12 +83,12 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// #### Required
     /// 
-    /// - `PolicyEngineId` (String) Policy engine ID.
+    /// * `PolicyEngineId` (String) Policy engine ID.
     /// 
     /// #### Optional
     /// 
-    /// * `AccountId` (String) AWS account ID for this resource.
-    /// * `Region` (String) AWS Region for this resource.
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
     /// 
     /// Using `pulumi import`, import a Bedrock AgentCore Policy Engine by policy engine ID. For example:
     /// 
@@ -106,7 +106,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the KMS key used to encrypt the policy engine. If not set, AWS uses an AWS managed key.
+        /// ARN of the KMS key used to encrypt the policy engine. If not set, the policy engine is encrypted with an AWS owned key.
         /// </summary>
         [Output("encryptionKeyArn")]
         public Output<string?> EncryptionKeyArn { get; private set; } = null!;
@@ -205,7 +205,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// ARN of the KMS key used to encrypt the policy engine. If not set, AWS uses an AWS managed key.
+        /// ARN of the KMS key used to encrypt the policy engine. If not set, the policy engine is encrypted with an AWS owned key.
         /// </summary>
         [Input("encryptionKeyArn")]
         public Input<string>? EncryptionKeyArn { get; set; }
@@ -254,7 +254,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// ARN of the KMS key used to encrypt the policy engine. If not set, AWS uses an AWS managed key.
+        /// ARN of the KMS key used to encrypt the policy engine. If not set, the policy engine is encrypted with an AWS owned key.
         /// </summary>
         [Input("encryptionKeyArn")]
         public Input<string>? EncryptionKeyArn { get; set; }

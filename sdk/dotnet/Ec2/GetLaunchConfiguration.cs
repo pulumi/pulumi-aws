@@ -191,7 +191,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLaunchConfigurationRootBlockDeviceResult> RootBlockDevices;
         /// <summary>
-        /// List of associated Security Group IDS.
+        /// List of associated Security Group IDs.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
         /// <summary>

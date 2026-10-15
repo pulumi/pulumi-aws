@@ -70,7 +70,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
         private InputList<Inputs.DistributionDefaultCacheBehaviorFunctionAssociationGetArgs>? _functionAssociations;
 
         /// <summary>
-        /// A config block that triggers a cloudfront function with specific actions (maximum 2).
+        /// A config block that triggers a CloudFront function with specific actions (maximum 2).
         /// </summary>
         public InputList<Inputs.DistributionDefaultCacheBehaviorFunctionAssociationGetArgs> FunctionAssociations
         {
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
         }
 
         /// <summary>
-        /// A config block that sets the grpc config.
+        /// A config block that sets the gRPC config.
         /// </summary>
         [Input("grpcConfig")]
         public Input<Inputs.DistributionDefaultCacheBehaviorGrpcConfigGetArgs>? GrpcConfig { get; set; }

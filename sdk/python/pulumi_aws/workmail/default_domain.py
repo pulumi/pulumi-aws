@@ -141,7 +141,7 @@ class DefaultDomain(pulumi.CustomResource):
         """
         Manages the default mail domain for an AWS WorkMail organization.
 
-        > **NOTE:** This does not register a domain for workmail. This resource requires a verified domain name to be used as default domain for workmail organization.
+        > **NOTE:** This does not register a domain for WorkMail. This resource requires a verified domain name to be used as default domain for WorkMail organization.
 
         ## Example Usage
 
@@ -192,7 +192,7 @@ class DefaultDomain(pulumi.CustomResource):
         """
         Manages the default mail domain for an AWS WorkMail organization.
 
-        > **NOTE:** This does not register a domain for workmail. This resource requires a verified domain name to be used as default domain for workmail organization.
+        > **NOTE:** This does not register a domain for WorkMail. This resource requires a verified domain name to be used as default domain for WorkMail organization.
 
         ## Example Usage
 

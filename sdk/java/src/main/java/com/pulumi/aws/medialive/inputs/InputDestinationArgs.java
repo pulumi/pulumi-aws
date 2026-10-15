@@ -15,14 +15,14 @@ public final class InputDestinationArgs extends com.pulumi.resources.ResourceArg
     public static final InputDestinationArgs Empty = new InputDestinationArgs();
 
     /**
-     * A unique name for the location the RTMP stream is being pushed to.
+     * Unique name for the location the RTMP stream is being pushed to.
      * 
      */
     @Import(name="streamName", required=true)
     private Output<String> streamName;
 
     /**
-     * @return A unique name for the location the RTMP stream is being pushed to.
+     * @return Unique name for the location the RTMP stream is being pushed to.
      * 
      */
     public Output<String> streamName() {
@@ -54,7 +54,7 @@ public final class InputDestinationArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param streamName A unique name for the location the RTMP stream is being pushed to.
+         * @param streamName Unique name for the location the RTMP stream is being pushed to.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class InputDestinationArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param streamName A unique name for the location the RTMP stream is being pushed to.
+         * @param streamName Unique name for the location the RTMP stream is being pushed to.
          * 
          * @return builder
          * 

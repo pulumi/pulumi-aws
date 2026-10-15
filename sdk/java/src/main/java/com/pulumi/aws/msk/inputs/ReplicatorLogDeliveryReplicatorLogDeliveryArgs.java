@@ -18,14 +18,14 @@ public final class ReplicatorLogDeliveryReplicatorLogDeliveryArgs extends com.pu
     public static final ReplicatorLogDeliveryReplicatorLogDeliveryArgs Empty = new ReplicatorLogDeliveryReplicatorLogDeliveryArgs();
 
     /**
-     * Configuration block for replicator log delivery to Amazon CloudWatch Logs. Detailed below.
+     * Configuration block for replicator log delivery to Amazon CloudWatch Logs. See `cloudwatchLogs` Block below.
      * 
      */
     @Import(name="cloudwatchLogs")
     private @Nullable Output<ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsArgs> cloudwatchLogs;
 
     /**
-     * @return Configuration block for replicator log delivery to Amazon CloudWatch Logs. Detailed below.
+     * @return Configuration block for replicator log delivery to Amazon CloudWatch Logs. See `cloudwatchLogs` Block below.
      * 
      */
     public Optional<Output<ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsArgs>> cloudwatchLogs() {
@@ -33,14 +33,14 @@ public final class ReplicatorLogDeliveryReplicatorLogDeliveryArgs extends com.pu
     }
 
     /**
-     * Configuration block for replicator log delivery to Amazon Data Firehose. Detailed below.
+     * Configuration block for replicator log delivery to Amazon Data Firehose. See `firehose` Block below.
      * 
      */
     @Import(name="firehose")
     private @Nullable Output<ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseArgs> firehose;
 
     /**
-     * @return Configuration block for replicator log delivery to Amazon Data Firehose. Detailed below.
+     * @return Configuration block for replicator log delivery to Amazon Data Firehose. See `firehose` Block below.
      * 
      */
     public Optional<Output<ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseArgs>> firehose() {
@@ -48,14 +48,14 @@ public final class ReplicatorLogDeliveryReplicatorLogDeliveryArgs extends com.pu
     }
 
     /**
-     * Configuration block for replicator log delivery to Amazon S3. Detailed below.
+     * Configuration block for replicator log delivery to Amazon S3. See `s3` Block below.
      * 
      */
     @Import(name="s3")
     private @Nullable Output<ReplicatorLogDeliveryReplicatorLogDeliveryS3Args> s3;
 
     /**
-     * @return Configuration block for replicator log delivery to Amazon S3. Detailed below.
+     * @return Configuration block for replicator log delivery to Amazon S3. See `s3` Block below.
      * 
      */
     public Optional<Output<ReplicatorLogDeliveryReplicatorLogDeliveryS3Args>> s3() {
@@ -89,7 +89,7 @@ public final class ReplicatorLogDeliveryReplicatorLogDeliveryArgs extends com.pu
         }
 
         /**
-         * @param cloudwatchLogs Configuration block for replicator log delivery to Amazon CloudWatch Logs. Detailed below.
+         * @param cloudwatchLogs Configuration block for replicator log delivery to Amazon CloudWatch Logs. See `cloudwatchLogs` Block below.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class ReplicatorLogDeliveryReplicatorLogDeliveryArgs extends com.pu
         }
 
         /**
-         * @param cloudwatchLogs Configuration block for replicator log delivery to Amazon CloudWatch Logs. Detailed below.
+         * @param cloudwatchLogs Configuration block for replicator log delivery to Amazon CloudWatch Logs. See `cloudwatchLogs` Block below.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class ReplicatorLogDeliveryReplicatorLogDeliveryArgs extends com.pu
         }
 
         /**
-         * @param firehose Configuration block for replicator log delivery to Amazon Data Firehose. Detailed below.
+         * @param firehose Configuration block for replicator log delivery to Amazon Data Firehose. See `firehose` Block below.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class ReplicatorLogDeliveryReplicatorLogDeliveryArgs extends com.pu
         }
 
         /**
-         * @param firehose Configuration block for replicator log delivery to Amazon Data Firehose. Detailed below.
+         * @param firehose Configuration block for replicator log delivery to Amazon Data Firehose. See `firehose` Block below.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class ReplicatorLogDeliveryReplicatorLogDeliveryArgs extends com.pu
         }
 
         /**
-         * @param s3 Configuration block for replicator log delivery to Amazon S3. Detailed below.
+         * @param s3 Configuration block for replicator log delivery to Amazon S3. See `s3` Block below.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class ReplicatorLogDeliveryReplicatorLogDeliveryArgs extends com.pu
         }
 
         /**
-         * @param s3 Configuration block for replicator log delivery to Amazon S3. Detailed below.
+         * @param s3 Configuration block for replicator log delivery to Amazon S3. See `s3` Block below.
          * 
          * @return builder
          * 

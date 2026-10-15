@@ -13,19 +13,19 @@ namespace Pulumi.Aws.MediaLive.Inputs
     public sealed class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Parameters that control the interactions with the CDN. See Archive CDN Settings for more details.
+        /// Parameters that control the interactions with the CDN. See `ArchiveCdnSettings` Block for details.
         /// </summary>
         [Input("archiveCdnSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsGetArgs>? ArchiveCdnSettings { get; set; }
 
         /// <summary>
-        /// A director and base filename where archive files should be written. See Destination for more details.
+        /// Directory and base filename where archive files are written. See `Destination` Block for details.
         /// </summary>
         [Input("destination", required: true)]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationGetArgs> Destination { get; set; } = null!;
 
         /// <summary>
-        /// Number of seconds to write to archive file before closing and starting a new one.
+        /// Number of seconds to write to an archive file before closing and starting a new one.
         /// </summary>
         [Input("rolloverInterval")]
         public Input<int>? RolloverInterval { get; set; }

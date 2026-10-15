@@ -149,43 +149,34 @@ export class GameServerGroup extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the GameLift Game Server Group.
+     * ARN of the GameLift Game Server Group.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The ARN of the created EC2 Auto Scaling group.
+     * ARN of the created EC2 Auto Scaling group.
      */
     declare public /*out*/ readonly autoScalingGroupArn: pulumi.Output<string>;
     declare public readonly autoScalingPolicy: pulumi.Output<outputs.gamelift.GameServerGroupAutoScalingPolicy | undefined>;
     /**
-     * Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
-     * Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
+     * How GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances. Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
      */
     declare public readonly balancingStrategy: pulumi.Output<string>;
     /**
-     * Name of the game server group.
-     * This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
+     * Name of the game server group. This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
      */
     declare public readonly gameServerGroupName: pulumi.Output<string>;
     /**
-     * Indicates whether instances in the game server group are protected from early termination.
-     * Unprotected instances that have active game servers running might be terminated during a scale-down event,
-     * causing players to be dropped from the game.
-     * Protected instances cannot be terminated while there are active game servers running except in the event
-     * of a forced game server group deletion.
-     * Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
+     * Whether instances in the game server group are protected from early termination. Unprotected instances that have active game servers running might be terminated during a scale-down event, causing players to be dropped from the game. Protected instances cannot be terminated while there are active game servers running except in the event of a forced game server group deletion. Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
      */
     declare public readonly gameServerProtectionPolicy: pulumi.Output<string>;
     declare public readonly instanceDefinitions: pulumi.Output<outputs.gamelift.GameServerGroupInstanceDefinition[]>;
     declare public readonly launchTemplate: pulumi.Output<outputs.gamelift.GameServerGroupLaunchTemplate>;
     /**
-     * The maximum number of instances allowed in the EC2 Auto Scaling group.
-     * During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
+     * Maximum number of instances allowed in the EC2 Auto Scaling group. During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
      */
     declare public readonly maxSize: pulumi.Output<number>;
     /**
-     * The minimum number of instances allowed in the EC2 Auto Scaling group.
-     * During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
+     * Minimum number of instances allowed in the EC2 Auto Scaling group. During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
      */
     declare public readonly minSize: pulumi.Output<number>;
     /**
@@ -202,8 +193,7 @@ export class GameServerGroup extends pulumi.CustomResource {
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * A list of VPC subnets to use with instances in the game server group.
-     * By default, all GameLift FleetIQ-supported Availability Zones are used.
+     * List of VPC subnets to use with instances in the game server group. By default, all GameLift FleetIQ-supported Availability Zones are used.
      */
     declare public readonly vpcSubnets: pulumi.Output<string[] | undefined>;
 
@@ -281,43 +271,34 @@ export class GameServerGroup extends pulumi.CustomResource {
  */
 export interface GameServerGroupState {
     /**
-     * The ARN of the GameLift Game Server Group.
+     * ARN of the GameLift Game Server Group.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the created EC2 Auto Scaling group.
+     * ARN of the created EC2 Auto Scaling group.
      */
     autoScalingGroupArn?: pulumi.Input<string | undefined>;
     autoScalingPolicy?: pulumi.Input<inputs.gamelift.GameServerGroupAutoScalingPolicy | undefined>;
     /**
-     * Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
-     * Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
+     * How GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances. Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
      */
     balancingStrategy?: pulumi.Input<string | undefined>;
     /**
-     * Name of the game server group.
-     * This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
+     * Name of the game server group. This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
      */
     gameServerGroupName?: pulumi.Input<string | undefined>;
     /**
-     * Indicates whether instances in the game server group are protected from early termination.
-     * Unprotected instances that have active game servers running might be terminated during a scale-down event,
-     * causing players to be dropped from the game.
-     * Protected instances cannot be terminated while there are active game servers running except in the event
-     * of a forced game server group deletion.
-     * Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
+     * Whether instances in the game server group are protected from early termination. Unprotected instances that have active game servers running might be terminated during a scale-down event, causing players to be dropped from the game. Protected instances cannot be terminated while there are active game servers running except in the event of a forced game server group deletion. Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
      */
     gameServerProtectionPolicy?: pulumi.Input<string | undefined>;
     instanceDefinitions?: pulumi.Input<pulumi.Input<inputs.gamelift.GameServerGroupInstanceDefinition>[] | undefined>;
     launchTemplate?: pulumi.Input<inputs.gamelift.GameServerGroupLaunchTemplate | undefined>;
     /**
-     * The maximum number of instances allowed in the EC2 Auto Scaling group.
-     * During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
+     * Maximum number of instances allowed in the EC2 Auto Scaling group. During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
      */
     maxSize?: pulumi.Input<number | undefined>;
     /**
-     * The minimum number of instances allowed in the EC2 Auto Scaling group.
-     * During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
+     * Minimum number of instances allowed in the EC2 Auto Scaling group. During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
      */
     minSize?: pulumi.Input<number | undefined>;
     /**
@@ -334,8 +315,7 @@ export interface GameServerGroupState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A list of VPC subnets to use with instances in the game server group.
-     * By default, all GameLift FleetIQ-supported Availability Zones are used.
+     * List of VPC subnets to use with instances in the game server group. By default, all GameLift FleetIQ-supported Availability Zones are used.
      */
     vpcSubnets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
@@ -346,34 +326,25 @@ export interface GameServerGroupState {
 export interface GameServerGroupArgs {
     autoScalingPolicy?: pulumi.Input<inputs.gamelift.GameServerGroupAutoScalingPolicy | undefined>;
     /**
-     * Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
-     * Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
+     * How GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances. Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
      */
     balancingStrategy?: pulumi.Input<string | undefined>;
     /**
-     * Name of the game server group.
-     * This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
+     * Name of the game server group. This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
      */
     gameServerGroupName: pulumi.Input<string>;
     /**
-     * Indicates whether instances in the game server group are protected from early termination.
-     * Unprotected instances that have active game servers running might be terminated during a scale-down event,
-     * causing players to be dropped from the game.
-     * Protected instances cannot be terminated while there are active game servers running except in the event
-     * of a forced game server group deletion.
-     * Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
+     * Whether instances in the game server group are protected from early termination. Unprotected instances that have active game servers running might be terminated during a scale-down event, causing players to be dropped from the game. Protected instances cannot be terminated while there are active game servers running except in the event of a forced game server group deletion. Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
      */
     gameServerProtectionPolicy?: pulumi.Input<string | undefined>;
     instanceDefinitions: pulumi.Input<pulumi.Input<inputs.gamelift.GameServerGroupInstanceDefinition>[]>;
     launchTemplate: pulumi.Input<inputs.gamelift.GameServerGroupLaunchTemplate>;
     /**
-     * The maximum number of instances allowed in the EC2 Auto Scaling group.
-     * During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
+     * Maximum number of instances allowed in the EC2 Auto Scaling group. During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
      */
     maxSize: pulumi.Input<number>;
     /**
-     * The minimum number of instances allowed in the EC2 Auto Scaling group.
-     * During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
+     * Minimum number of instances allowed in the EC2 Auto Scaling group. During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
      */
     minSize: pulumi.Input<number>;
     /**
@@ -389,8 +360,7 @@ export interface GameServerGroupArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A list of VPC subnets to use with instances in the game server group.
-     * By default, all GameLift FleetIQ-supported Availability Zones are used.
+     * List of VPC subnets to use with instances in the game server group. By default, all GameLift FleetIQ-supported Availability Zones are used.
      */
     vpcSubnets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

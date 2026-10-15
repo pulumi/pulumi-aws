@@ -29,7 +29,7 @@ public final class GetInferenceProfileResult {
     private String inferenceProfileArn;
     private String inferenceProfileId;
     /**
-     * @return Unique identifier of the inference profile.
+     * @return Name of the inference profile.
      * 
      */
     private String inferenceProfileName;
@@ -81,7 +81,7 @@ public final class GetInferenceProfileResult {
         return this.inferenceProfileId;
     }
     /**
-     * @return Unique identifier of the inference profile.
+     * @return Name of the inference profile.
      * 
      */
     public String inferenceProfileName() {

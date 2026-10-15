@@ -81,14 +81,14 @@ public class Partition extends com.pulumi.resources.CustomResource {
         return this.catalogId;
     }
     /**
-     * The time at which the partition was created.
+     * Time at which the partition was created.
      * 
      */
     @Export(name="creationTime", refs={String.class}, tree="[0]")
     private Output<String> creationTime;
 
     /**
-     * @return The time at which the partition was created.
+     * @return Time at which the partition was created.
      * 
      */
     public Output<String> creationTime() {
@@ -109,28 +109,28 @@ public class Partition extends com.pulumi.resources.CustomResource {
         return this.databaseName;
     }
     /**
-     * The last time at which the partition was accessed.
+     * Last time at which the partition was accessed.
      * 
      */
     @Export(name="lastAccessedTime", refs={String.class}, tree="[0]")
     private Output<String> lastAccessedTime;
 
     /**
-     * @return The last time at which the partition was accessed.
+     * @return Last time at which the partition was accessed.
      * 
      */
     public Output<String> lastAccessedTime() {
         return this.lastAccessedTime;
     }
     /**
-     * The last time at which column statistics were computed for this partition.
+     * Last time at which column statistics were computed for this partition.
      * 
      */
     @Export(name="lastAnalyzedTime", refs={String.class}, tree="[0]")
     private Output<String> lastAnalyzedTime;
 
     /**
-     * @return The last time at which column statistics were computed for this partition.
+     * @return Last time at which column statistics were computed for this partition.
      * 
      */
     public Output<String> lastAnalyzedTime() {
@@ -151,14 +151,14 @@ public class Partition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.parameters);
     }
     /**
-     * The values that define the partition.
+     * Values that define the partition.
      * 
      */
     @Export(name="partitionValues", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> partitionValues;
 
     /**
-     * @return The values that define the partition.
+     * @return Values that define the partition.
      * 
      */
     public Output<List<String>> partitionValues() {
@@ -179,22 +179,30 @@ public class Partition extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+     * Storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
      * 
      */
     @Export(name="storageDescriptor", refs={PartitionStorageDescriptor.class}, tree="[0]")
     private Output</* @Nullable */ PartitionStorageDescriptor> storageDescriptor;
 
     /**
-     * @return A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+     * @return Storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
      * 
      */
     public Output<Optional<PartitionStorageDescriptor>> storageDescriptor() {
         return Codegen.optional(this.storageDescriptor);
     }
+    /**
+     * Name of the table. For Hive compatibility, this must be entirely lowercase.
+     * 
+     */
     @Export(name="tableName", refs={String.class}, tree="[0]")
     private Output<String> tableName;
 
+    /**
+     * @return Name of the table. For Hive compatibility, this must be entirely lowercase.
+     * 
+     */
     public Output<String> tableName() {
         return this.tableName;
     }

@@ -52,7 +52,7 @@ namespace Pulumi.Aws.LakeFormation
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Flag to enable AWS LakeFormation hybrid access permission mode.
+        /// Flag to enable AWS Lake Formation hybrid access permission mode.
         /// </summary>
         [Output("hybridAccessEnabled")]
         public Output<bool> HybridAccessEnabled { get; private set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.Aws.LakeFormation
         public Input<string> Arn { get; set; } = null!;
 
         /// <summary>
-        /// Flag to enable AWS LakeFormation hybrid access permission mode.
+        /// Flag to enable AWS Lake Formation hybrid access permission mode.
         /// </summary>
         [Input("hybridAccessEnabled")]
         public Input<bool>? HybridAccessEnabled { get; set; }
@@ -204,7 +204,7 @@ namespace Pulumi.Aws.LakeFormation
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Flag to enable AWS LakeFormation hybrid access permission mode.
+        /// Flag to enable AWS Lake Formation hybrid access permission mode.
         /// </summary>
         [Input("hybridAccessEnabled")]
         public Input<bool>? HybridAccessEnabled { get; set; }

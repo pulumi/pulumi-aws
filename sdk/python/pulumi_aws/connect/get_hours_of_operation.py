@@ -187,7 +187,7 @@ def get_hours_of_operation(hours_of_operation_id: Optional[_builtins.str] = None
     ```
 
 
-    :param _builtins.str hours_of_operation_id: Returns information on a specific Hours of Operation by hours of operation id
+    :param _builtins.str hours_of_operation_id: Returns information on a specific Hours of Operation by hours of operation ID
     :param _builtins.str instance_id: Reference to the hosting Amazon Connect Instance
     :param _builtins.str name: Returns information on a specific Hours of Operation by name
            
@@ -247,7 +247,7 @@ def get_hours_of_operation_output(hours_of_operation_id: pulumi.Input[Optional[O
     ```
 
 
-    :param _builtins.str hours_of_operation_id: Returns information on a specific Hours of Operation by hours of operation id
+    :param _builtins.str hours_of_operation_id: Returns information on a specific Hours of Operation by hours of operation ID
     :param _builtins.str instance_id: Reference to the hosting Amazon Connect Instance
     :param _builtins.str name: Returns information on a specific Hours of Operation by name
            

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Bedrock
 {
     /// <summary>
-    /// Resource for managing an AWS Bedrock Inference Profile.
+    /// Manages an AWS Bedrock Inference Profile.
     /// 
     /// ## Example Usage
     /// 
@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Bedrock Inference Profile using the `Name`. For example:
+    /// Using `pulumi import`, import Bedrock Inference Profile using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:bedrock/inferenceProfile:InferenceProfile example inference_profile-id-12345678
@@ -110,6 +110,9 @@ namespace Pulumi.Aws.Bedrock
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -293,6 +296,10 @@ namespace Pulumi.Aws.Bedrock
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

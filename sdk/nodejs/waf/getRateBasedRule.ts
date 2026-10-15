@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * `aws.waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource Id.
+ * `aws.waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource ID.
  *
  * ## Example Usage
  *
@@ -46,7 +46,7 @@ export interface GetRateBasedRuleResult {
     readonly name: string;
 }
 /**
- * `aws.waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource Id.
+ * `aws.waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource ID.
  *
  * ## Example Usage
  *

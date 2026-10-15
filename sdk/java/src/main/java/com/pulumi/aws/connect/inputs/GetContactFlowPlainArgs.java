@@ -17,14 +17,14 @@ public final class GetContactFlowPlainArgs extends com.pulumi.resources.InvokeAr
     public static final GetContactFlowPlainArgs Empty = new GetContactFlowPlainArgs();
 
     /**
-     * Returns information on a specific Contact Flow by contact flow id
+     * Returns information on a specific Contact Flow by contact flow ID
      * 
      */
     @Import(name="contactFlowId")
     private @Nullable String contactFlowId;
 
     /**
-     * @return Returns information on a specific Contact Flow by contact flow id
+     * @return Returns information on a specific Contact Flow by contact flow ID
      * 
      */
     public Optional<String> contactFlowId() {
@@ -140,7 +140,7 @@ public final class GetContactFlowPlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param contactFlowId Returns information on a specific Contact Flow by contact flow id
+         * @param contactFlowId Returns information on a specific Contact Flow by contact flow ID
          * 
          * @return builder
          * 

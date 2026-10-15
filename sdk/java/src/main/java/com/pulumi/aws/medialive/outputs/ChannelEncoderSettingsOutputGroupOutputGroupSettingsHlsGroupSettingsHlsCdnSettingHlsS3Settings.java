@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3Settings {
     /**
-     * @return Specify the canned ACL to apply to each S3 request.
+     * @return Canned ACL to apply to each S3 request.
      * 
      */
     private @Nullable String cannedAcl;
 
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3Settings() {}
     /**
-     * @return Specify the canned ACL to apply to each S3 request.
+     * @return Canned ACL to apply to each S3 request.
      * 
      */
     public Optional<String> cannedAcl() {

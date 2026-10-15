@@ -95,32 +95,31 @@ namespace Pulumi.Aws.Glacier
     public partial class Vault : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The policy document. This is a JSON formatted string.
-        /// The heredoc syntax or `File` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
+        /// Policy document. This is a JSON formatted string. The heredoc syntax or `File` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
         /// </summary>
         [Output("accessPolicy")]
         public Output<string?> AccessPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the vault.
+        /// ARN of the vault.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The URI of the vault that was created.
+        /// URI of the vault that was created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
+        /// Name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The notifications for the Vault. Fields documented below.
+        /// Notifications for the Vault. See below.
         /// </summary>
         [Output("notification")]
         public Output<Outputs.VaultNotification?> Notification { get; private set; } = null!;
@@ -132,13 +131,13 @@ namespace Pulumi.Aws.Glacier
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -190,20 +189,19 @@ namespace Pulumi.Aws.Glacier
     public sealed class VaultArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The policy document. This is a JSON formatted string.
-        /// The heredoc syntax or `File` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
+        /// Policy document. This is a JSON formatted string. The heredoc syntax or `File` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
         /// </summary>
         [Input("accessPolicy")]
         public Input<string>? AccessPolicy { get; set; }
 
         /// <summary>
-        /// The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
+        /// Name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The notifications for the Vault. Fields documented below.
+        /// Notifications for the Vault. See below.
         /// </summary>
         [Input("notification")]
         public Input<Inputs.VaultNotificationArgs>? Notification { get; set; }
@@ -218,7 +216,7 @@ namespace Pulumi.Aws.Glacier
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -235,32 +233,31 @@ namespace Pulumi.Aws.Glacier
     public sealed class VaultState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The policy document. This is a JSON formatted string.
-        /// The heredoc syntax or `File` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
+        /// Policy document. This is a JSON formatted string. The heredoc syntax or `File` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
         /// </summary>
         [Input("accessPolicy")]
         public Input<string>? AccessPolicy { get; set; }
 
         /// <summary>
-        /// The ARN of the vault.
+        /// ARN of the vault.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The URI of the vault that was created.
+        /// URI of the vault that was created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
+        /// Name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The notifications for the Vault. Fields documented below.
+        /// Notifications for the Vault. See below.
         /// </summary>
         [Input("notification")]
         public Input<Inputs.VaultNotificationGetArgs>? Notification { get; set; }
@@ -275,7 +272,7 @@ namespace Pulumi.Aws.Glacier
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -287,7 +284,7 @@ namespace Pulumi.Aws.Glacier
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

@@ -17,14 +17,14 @@ public final class CustomRoutingEndpointGroupDestinationConfigurationArgs extend
     public static final CustomRoutingEndpointGroupDestinationConfigurationArgs Empty = new CustomRoutingEndpointGroupDestinationConfigurationArgs();
 
     /**
-     * The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
+     * First port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
      * 
      */
     @Import(name="fromPort", required=true)
     private Output<Integer> fromPort;
 
     /**
-     * @return The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
+     * @return First port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
      * 
      */
     public Output<Integer> fromPort() {
@@ -32,14 +32,14 @@ public final class CustomRoutingEndpointGroupDestinationConfigurationArgs extend
     }
 
     /**
-     * The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either `&#34;TCP&#34;` or `&#34;UDP&#34;`.
+     * Protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either `&#34;TCP&#34;` or `&#34;UDP&#34;`.
      * 
      */
     @Import(name="protocols", required=true)
     private Output<List<String>> protocols;
 
     /**
-     * @return The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either `&#34;TCP&#34;` or `&#34;UDP&#34;`.
+     * @return Protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either `&#34;TCP&#34;` or `&#34;UDP&#34;`.
      * 
      */
     public Output<List<String>> protocols() {
@@ -47,14 +47,14 @@ public final class CustomRoutingEndpointGroupDestinationConfigurationArgs extend
     }
 
     /**
-     * The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
+     * Last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
      * 
      */
     @Import(name="toPort", required=true)
     private Output<Integer> toPort;
 
     /**
-     * @return The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
+     * @return Last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
      * 
      */
     public Output<Integer> toPort() {
@@ -88,7 +88,7 @@ public final class CustomRoutingEndpointGroupDestinationConfigurationArgs extend
         }
 
         /**
-         * @param fromPort The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
+         * @param fromPort First port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class CustomRoutingEndpointGroupDestinationConfigurationArgs extend
         }
 
         /**
-         * @param fromPort The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
+         * @param fromPort First port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class CustomRoutingEndpointGroupDestinationConfigurationArgs extend
         }
 
         /**
-         * @param protocols The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either `&#34;TCP&#34;` or `&#34;UDP&#34;`.
+         * @param protocols Protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either `&#34;TCP&#34;` or `&#34;UDP&#34;`.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class CustomRoutingEndpointGroupDestinationConfigurationArgs extend
         }
 
         /**
-         * @param protocols The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either `&#34;TCP&#34;` or `&#34;UDP&#34;`.
+         * @param protocols Protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either `&#34;TCP&#34;` or `&#34;UDP&#34;`.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class CustomRoutingEndpointGroupDestinationConfigurationArgs extend
         }
 
         /**
-         * @param protocols The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either `&#34;TCP&#34;` or `&#34;UDP&#34;`.
+         * @param protocols Protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either `&#34;TCP&#34;` or `&#34;UDP&#34;`.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class CustomRoutingEndpointGroupDestinationConfigurationArgs extend
         }
 
         /**
-         * @param toPort The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
+         * @param toPort Last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class CustomRoutingEndpointGroupDestinationConfigurationArgs extend
         }
 
         /**
-         * @param toPort The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
+         * @param toPort Last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
          * 
          * @return builder
          * 

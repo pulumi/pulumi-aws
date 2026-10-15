@@ -134,7 +134,7 @@ export class Vpc extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly defaultSecurityGroupId: pulumi.Output<string>;
     /**
-     * DHCP options id of the desired VPC.
+     * DHCP options ID of the desired VPC.
      */
     declare public /*out*/ readonly dhcpOptionsId: pulumi.Output<string>;
     /**
@@ -298,7 +298,7 @@ export interface VpcState {
      */
     defaultSecurityGroupId?: pulumi.Input<string | undefined>;
     /**
-     * DHCP options id of the desired VPC.
+     * DHCP options ID of the desired VPC.
      */
     dhcpOptionsId?: pulumi.Input<string | undefined>;
     /**

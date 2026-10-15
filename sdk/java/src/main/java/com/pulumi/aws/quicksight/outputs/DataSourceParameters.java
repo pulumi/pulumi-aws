@@ -52,7 +52,7 @@ public final class DataSourceParameters {
      */
     private @Nullable DataSourceParametersAuroraPostgresql auroraPostgresql;
     /**
-     * @return Parameters for connecting to AWS IOT Analytics.
+     * @return Parameters for connecting to AWS IoT Analytics.
      * 
      */
     private @Nullable DataSourceParametersAwsIotAnalytics awsIotAnalytics;
@@ -167,7 +167,7 @@ public final class DataSourceParameters {
         return Optional.ofNullable(this.auroraPostgresql);
     }
     /**
-     * @return Parameters for connecting to AWS IOT Analytics.
+     * @return Parameters for connecting to AWS IoT Analytics.
      * 
      */
     public Optional<DataSourceParametersAwsIotAnalytics> awsIotAnalytics() {

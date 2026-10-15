@@ -13,12 +13,12 @@ import java.util.Objects;
 @CustomType
 public final class GetClusterShardNode {
     /**
-     * @return The Availability Zone in which the node resides.
+     * @return Availability Zone in which the node resides.
      * 
      */
     private String availabilityZone;
     /**
-     * @return The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
+     * @return Date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
      * 
      */
     private String createTime;
@@ -31,14 +31,14 @@ public final class GetClusterShardNode {
 
     private GetClusterShardNode() {}
     /**
-     * @return The Availability Zone in which the node resides.
+     * @return Availability Zone in which the node resides.
      * 
      */
     public String availabilityZone() {
         return this.availabilityZone;
     }
     /**
-     * @return The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
+     * @return Date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
      * 
      */
     public String createTime() {

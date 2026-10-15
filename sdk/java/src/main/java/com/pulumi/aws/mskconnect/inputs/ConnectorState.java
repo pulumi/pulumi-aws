@@ -55,14 +55,14 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of keys to values that represent the configuration for the connector.
+     * Map of keys to values that represent the configuration for the connector.
      * 
      */
     @Import(name="connectorConfiguration")
     private @Nullable Output<Map<String,String>> connectorConfiguration;
 
     /**
-     * @return A map of keys to values that represent the configuration for the connector.
+     * @return Map of keys to values that represent the configuration for the connector.
      * 
      */
     public Optional<Output<Map<String,String>>> connectorConfiguration() {
@@ -70,14 +70,14 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A summary description of the connector.
+     * Summary description of the connector.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A summary description of the connector.
+     * @return Summary description of the connector.
      * 
      */
     public Optional<Output<String>> description() {
@@ -85,14 +85,14 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies which Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
+     * Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
      * 
      */
     @Import(name="kafkaCluster")
     private @Nullable Output<ConnectorKafkaClusterArgs> kafkaCluster;
 
     /**
-     * @return Specifies which Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
+     * @return Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
      * 
      */
     public Optional<Output<ConnectorKafkaClusterArgs>> kafkaCluster() {
@@ -130,14 +130,14 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster&#39;s version and the plugins.
+     * Version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster&#39;s version and the plugins.
      * 
      */
     @Import(name="kafkaconnectVersion")
     private @Nullable Output<String> kafkaconnectVersion;
 
     /**
-     * @return The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster&#39;s version and the plugins.
+     * @return Version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster&#39;s version and the plugins.
      * 
      */
     public Optional<Output<String>> kafkaconnectVersion() {
@@ -160,14 +160,14 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the connector.
+     * Name of the connector.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the connector.
+     * @return Name of the connector.
      * 
      */
     public Optional<Output<String>> name() {
@@ -175,14 +175,14 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies which plugins to use for the connector. See `plugin` Block for details.
+     * Plugins to use for the connector. See `plugin` Block for details.
      * 
      */
     @Import(name="plugins")
     private @Nullable Output<List<ConnectorPluginArgs>> plugins;
 
     /**
-     * @return Specifies which plugins to use for the connector. See `plugin` Block for details.
+     * @return Plugins to use for the connector. See `plugin` Block for details.
      * 
      */
     public Optional<Output<List<ConnectorPluginArgs>>> plugins() {
@@ -224,14 +224,14 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -239,14 +239,14 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -254,14 +254,14 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The current version of the connector.
+     * Current version of the connector.
      * 
      */
     @Import(name="version")
     private @Nullable Output<String> version;
 
     /**
-     * @return The current version of the connector.
+     * @return Current version of the connector.
      * 
      */
     public Optional<Output<String>> version() {
@@ -269,14 +269,14 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies which worker configuration to use with the connector. See `workerConfiguration` Block for details.
+     * Worker configuration to use with the connector. See `workerConfiguration` Block for details.
      * 
      */
     @Import(name="workerConfiguration")
     private @Nullable Output<ConnectorWorkerConfigurationArgs> workerConfiguration;
 
     /**
-     * @return Specifies which worker configuration to use with the connector. See `workerConfiguration` Block for details.
+     * @return Worker configuration to use with the connector. See `workerConfiguration` Block for details.
      * 
      */
     public Optional<Output<ConnectorWorkerConfigurationArgs>> workerConfiguration() {
@@ -366,7 +366,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectorConfiguration A map of keys to values that represent the configuration for the connector.
+         * @param connectorConfiguration Map of keys to values that represent the configuration for the connector.
          * 
          * @return builder
          * 
@@ -377,7 +377,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectorConfiguration A map of keys to values that represent the configuration for the connector.
+         * @param connectorConfiguration Map of keys to values that represent the configuration for the connector.
          * 
          * @return builder
          * 
@@ -387,7 +387,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A summary description of the connector.
+         * @param description Summary description of the connector.
          * 
          * @return builder
          * 
@@ -398,7 +398,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A summary description of the connector.
+         * @param description Summary description of the connector.
          * 
          * @return builder
          * 
@@ -408,7 +408,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kafkaCluster Specifies which Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
+         * @param kafkaCluster Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
          * 
          * @return builder
          * 
@@ -419,7 +419,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kafkaCluster Specifies which Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
+         * @param kafkaCluster Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
          * 
          * @return builder
          * 
@@ -471,7 +471,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kafkaconnectVersion The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster&#39;s version and the plugins.
+         * @param kafkaconnectVersion Version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster&#39;s version and the plugins.
          * 
          * @return builder
          * 
@@ -482,7 +482,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kafkaconnectVersion The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster&#39;s version and the plugins.
+         * @param kafkaconnectVersion Version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster&#39;s version and the plugins.
          * 
          * @return builder
          * 
@@ -513,7 +513,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the connector.
+         * @param name Name of the connector.
          * 
          * @return builder
          * 
@@ -524,7 +524,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the connector.
+         * @param name Name of the connector.
          * 
          * @return builder
          * 
@@ -534,7 +534,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param plugins Specifies which plugins to use for the connector. See `plugin` Block for details.
+         * @param plugins Plugins to use for the connector. See `plugin` Block for details.
          * 
          * @return builder
          * 
@@ -545,7 +545,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param plugins Specifies which plugins to use for the connector. See `plugin` Block for details.
+         * @param plugins Plugins to use for the connector. See `plugin` Block for details.
          * 
          * @return builder
          * 
@@ -555,7 +555,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param plugins Specifies which plugins to use for the connector. See `plugin` Block for details.
+         * @param plugins Plugins to use for the connector. See `plugin` Block for details.
          * 
          * @return builder
          * 
@@ -611,7 +611,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -622,7 +622,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -632,7 +632,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -643,7 +643,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -653,7 +653,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param version The current version of the connector.
+         * @param version Current version of the connector.
          * 
          * @return builder
          * 
@@ -664,7 +664,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param version The current version of the connector.
+         * @param version Current version of the connector.
          * 
          * @return builder
          * 
@@ -674,7 +674,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workerConfiguration Specifies which worker configuration to use with the connector. See `workerConfiguration` Block for details.
+         * @param workerConfiguration Worker configuration to use with the connector. See `workerConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -685,7 +685,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workerConfiguration Specifies which worker configuration to use with the connector. See `workerConfiguration` Block for details.
+         * @param workerConfiguration Worker configuration to use with the connector. See `workerConfiguration` Block for details.
          * 
          * @return builder
          * 

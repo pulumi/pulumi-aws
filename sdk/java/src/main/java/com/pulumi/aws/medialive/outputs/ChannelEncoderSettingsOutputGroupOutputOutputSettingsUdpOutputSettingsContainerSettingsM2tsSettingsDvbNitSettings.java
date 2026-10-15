@@ -13,17 +13,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings {
+    /**
+     * @return Numeric value placed in the Network Information Table.
+     * 
+     */
     private Integer networkId;
+    /**
+     * @return Network name text placed in the Network Information Table.
+     * 
+     */
     private String networkName;
+    /**
+     * @return Number of milliseconds between instances of this table in the output transport stream.
+     * 
+     */
     private @Nullable Integer repInterval;
 
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings() {}
+    /**
+     * @return Numeric value placed in the Network Information Table.
+     * 
+     */
     public Integer networkId() {
         return this.networkId;
     }
+    /**
+     * @return Network name text placed in the Network Information Table.
+     * 
+     */
     public String networkName() {
         return this.networkName;
     }
+    /**
+     * @return Number of milliseconds between instances of this table in the output transport stream.
+     * 
+     */
     public Optional<Integer> repInterval() {
         return Optional.ofNullable(this.repInterval);
     }

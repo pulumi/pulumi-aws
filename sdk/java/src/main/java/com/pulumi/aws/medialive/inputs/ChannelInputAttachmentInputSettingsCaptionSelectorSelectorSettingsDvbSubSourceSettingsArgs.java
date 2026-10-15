@@ -17,14 +17,14 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
     public static final ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs Empty = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs();
 
     /**
-     * If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
+     * Language to consider when translating the image-based source to text, for a referencing WebVTT caption description.
      * 
      */
     @Import(name="ocrLanguage")
     private @Nullable Output<String> ocrLanguage;
 
     /**
-     * @return If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
+     * @return Language to consider when translating the image-based source to text, for a referencing WebVTT caption description.
      * 
      */
     public Optional<Output<String>> ocrLanguage() {
@@ -32,14 +32,14 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
     }
 
     /**
-     * When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
+     * PID for the source content when using DVB-Sub with Burn-In or SMPTE-TT. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
      * 
      */
     @Import(name="pid")
     private @Nullable Output<Integer> pid;
 
     /**
-     * @return When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
+     * @return PID for the source content when using DVB-Sub with Burn-In or SMPTE-TT. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
      * 
      */
     public Optional<Output<Integer>> pid() {
@@ -72,7 +72,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         /**
-         * @param ocrLanguage If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
+         * @param ocrLanguage Language to consider when translating the image-based source to text, for a referencing WebVTT caption description.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         /**
-         * @param ocrLanguage If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
+         * @param ocrLanguage Language to consider when translating the image-based source to text, for a referencing WebVTT caption description.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         /**
-         * @param pid When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
+         * @param pid PID for the source content when using DVB-Sub with Burn-In or SMPTE-TT. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         /**
-         * @param pid When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
+         * @param pid PID for the source content when using DVB-Sub with Burn-In or SMPTE-TT. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
          * 
          * @return builder
          * 

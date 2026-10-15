@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Mq.Inputs
         private InputList<string>? _endpoints;
 
         /// <summary>
-        /// `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
+        /// Broker's wire-level protocol endpoints, referenceable e.g., as `instances.0.endpoints.0`.
         /// </summary>
         public InputList<string> Endpoints
         {

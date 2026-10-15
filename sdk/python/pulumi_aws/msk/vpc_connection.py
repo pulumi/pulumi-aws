@@ -29,13 +29,13 @@ class VpcConnectionArgs:
         """
         The set of arguments for constructing a VpcConnection resource.
 
-        :param pulumi.Input[_builtins.str] authentication: The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_subnets: The list of subnets in the client VPC to connect to.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: The security groups to attach to the ENIs for the broker nodes.
+        :param pulumi.Input[_builtins.str] authentication: Authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_subnets: List of subnets in the client VPC to connect to.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: Security groups to attach to the ENIs for the broker nodes.
         :param pulumi.Input[_builtins.str] target_cluster_arn: ARN of the cluster.
-        :param pulumi.Input[_builtins.str] vpc_id: The VPC ID of the remote client.
+        :param pulumi.Input[_builtins.str] vpc_id: VPC ID of the remote client.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "authentication", authentication)
         pulumi.set(__self__, "client_subnets", client_subnets)
@@ -51,7 +51,7 @@ class VpcConnectionArgs:
     @pulumi.getter
     def authentication(self) -> pulumi.Input[_builtins.str]:
         """
-        The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
+        Authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
         """
         return pulumi.get(self, "authentication")
 
@@ -63,7 +63,7 @@ class VpcConnectionArgs:
     @pulumi.getter(name="clientSubnets")
     def client_subnets(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        The list of subnets in the client VPC to connect to.
+        List of subnets in the client VPC to connect to.
         """
         return pulumi.get(self, "client_subnets")
 
@@ -75,7 +75,7 @@ class VpcConnectionArgs:
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        The security groups to attach to the ENIs for the broker nodes.
+        Security groups to attach to the ENIs for the broker nodes.
         """
         return pulumi.get(self, "security_groups")
 
@@ -99,7 +99,7 @@ class VpcConnectionArgs:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The VPC ID of the remote client.
+        VPC ID of the remote client.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -123,7 +123,7 @@ class VpcConnectionArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -148,14 +148,14 @@ class _VpcConnectionState:
         Input properties used for looking up and filtering VpcConnection resources.
 
         :param pulumi.Input[_builtins.str] arn: ARN of the VPC connection.
-        :param pulumi.Input[_builtins.str] authentication: The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_subnets: The list of subnets in the client VPC to connect to.
+        :param pulumi.Input[_builtins.str] authentication: Authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_subnets: List of subnets in the client VPC to connect to.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: The security groups to attach to the ENIs for the broker nodes.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: Security groups to attach to the ENIs for the broker nodes.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] target_cluster_arn: ARN of the cluster.
-        :param pulumi.Input[_builtins.str] vpc_id: The VPC ID of the remote client.
+        :param pulumi.Input[_builtins.str] vpc_id: VPC ID of the remote client.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -192,7 +192,7 @@ class _VpcConnectionState:
     @pulumi.getter
     def authentication(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
+        Authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
         """
         return pulumi.get(self, "authentication")
 
@@ -204,7 +204,7 @@ class _VpcConnectionState:
     @pulumi.getter(name="clientSubnets")
     def client_subnets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The list of subnets in the client VPC to connect to.
+        List of subnets in the client VPC to connect to.
         """
         return pulumi.get(self, "client_subnets")
 
@@ -228,7 +228,7 @@ class _VpcConnectionState:
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The security groups to attach to the ENIs for the broker nodes.
+        Security groups to attach to the ENIs for the broker nodes.
         """
         return pulumi.get(self, "security_groups")
 
@@ -240,7 +240,7 @@ class _VpcConnectionState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -252,7 +252,7 @@ class _VpcConnectionState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -276,7 +276,7 @@ class _VpcConnectionState:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The VPC ID of the remote client.
+        VPC ID of the remote client.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -327,13 +327,13 @@ class VpcConnection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] authentication: The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_subnets: The list of subnets in the client VPC to connect to.
+        :param pulumi.Input[_builtins.str] authentication: Authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_subnets: List of subnets in the client VPC to connect to.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: The security groups to attach to the ENIs for the broker nodes.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: Security groups to attach to the ENIs for the broker nodes.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] target_cluster_arn: ARN of the cluster.
-        :param pulumi.Input[_builtins.str] vpc_id: The VPC ID of the remote client.
+        :param pulumi.Input[_builtins.str] vpc_id: VPC ID of the remote client.
         """
         ...
     @overload
@@ -444,14 +444,14 @@ class VpcConnection(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the VPC connection.
-        :param pulumi.Input[_builtins.str] authentication: The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_subnets: The list of subnets in the client VPC to connect to.
+        :param pulumi.Input[_builtins.str] authentication: Authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_subnets: List of subnets in the client VPC to connect to.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: The security groups to attach to the ENIs for the broker nodes.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: Security groups to attach to the ENIs for the broker nodes.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] target_cluster_arn: ARN of the cluster.
-        :param pulumi.Input[_builtins.str] vpc_id: The VPC ID of the remote client.
+        :param pulumi.Input[_builtins.str] vpc_id: VPC ID of the remote client.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -480,7 +480,7 @@ class VpcConnection(pulumi.CustomResource):
     @pulumi.getter
     def authentication(self) -> pulumi.Output[_builtins.str]:
         """
-        The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
+        Authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
         """
         return pulumi.get(self, "authentication")
 
@@ -488,7 +488,7 @@ class VpcConnection(pulumi.CustomResource):
     @pulumi.getter(name="clientSubnets")
     def client_subnets(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        The list of subnets in the client VPC to connect to.
+        List of subnets in the client VPC to connect to.
         """
         return pulumi.get(self, "client_subnets")
 
@@ -504,7 +504,7 @@ class VpcConnection(pulumi.CustomResource):
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        The security groups to attach to the ENIs for the broker nodes.
+        Security groups to attach to the ENIs for the broker nodes.
         """
         return pulumi.get(self, "security_groups")
 
@@ -512,7 +512,7 @@ class VpcConnection(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -520,7 +520,7 @@ class VpcConnection(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -536,7 +536,7 @@ class VpcConnection(pulumi.CustomResource):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The VPC ID of the remote client.
+        VPC ID of the remote client.
         """
         return pulumi.get(self, "vpc_id")
 

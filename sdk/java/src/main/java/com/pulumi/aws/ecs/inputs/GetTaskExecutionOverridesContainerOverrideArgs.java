@@ -36,14 +36,14 @@ public final class GetTaskExecutionOverridesContainerOverrideArgs extends com.pu
     }
 
     /**
-     * Number of cpu units reserved for the container, instead of the default value from the task definition.
+     * Number of CPU units reserved for the container, instead of the default value from the task definition.
      * 
      */
     @Import(name="cpu")
     private @Nullable Output<Integer> cpu;
 
     /**
-     * @return Number of cpu units reserved for the container, instead of the default value from the task definition.
+     * @return Number of CPU units reserved for the container, instead of the default value from the task definition.
      * 
      */
     public Optional<Output<Integer>> cpu() {
@@ -187,7 +187,7 @@ public final class GetTaskExecutionOverridesContainerOverrideArgs extends com.pu
         }
 
         /**
-         * @param cpu Number of cpu units reserved for the container, instead of the default value from the task definition.
+         * @param cpu Number of CPU units reserved for the container, instead of the default value from the task definition.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class GetTaskExecutionOverridesContainerOverrideArgs extends com.pu
         }
 
         /**
-         * @param cpu Number of cpu units reserved for the container, instead of the default value from the task definition.
+         * @param cpu Number of CPU units reserved for the container, instead of the default value from the task definition.
          * 
          * @return builder
          * 

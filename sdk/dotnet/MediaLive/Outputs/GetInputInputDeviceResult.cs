@@ -14,7 +14,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class GetInputInputDeviceResult
     {
         /// <summary>
-        /// The ID of the Input.
+        /// ID of the Input.
         /// </summary>
         public readonly string Id;
 

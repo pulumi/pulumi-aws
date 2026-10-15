@@ -53,13 +53,13 @@ namespace Pulumi.Aws.CodeConnections
     public partial class Connection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The codeconnections connection ARN.
+        /// The CodeConnections connection ARN.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The codeconnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
+        /// The CodeConnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
         /// </summary>
         [Output("connectionStatus")]
         public Output<string> ConnectionStatus { get; private set; } = null!;
@@ -200,13 +200,13 @@ namespace Pulumi.Aws.CodeConnections
     public sealed class ConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The codeconnections connection ARN.
+        /// The CodeConnections connection ARN.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The codeconnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
+        /// The CodeConnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
         /// </summary>
         [Input("connectionStatus")]
         public Input<string>? ConnectionStatus { get; set; }

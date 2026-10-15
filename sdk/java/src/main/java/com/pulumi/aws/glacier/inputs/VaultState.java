@@ -18,16 +18,14 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
     public static final VaultState Empty = new VaultState();
 
     /**
-     * The policy document. This is a JSON formatted string.
-     * The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
+     * Policy document. This is a JSON formatted string. The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
      * 
      */
     @Import(name="accessPolicy")
     private @Nullable Output<String> accessPolicy;
 
     /**
-     * @return The policy document. This is a JSON formatted string.
-     * The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
+     * @return Policy document. This is a JSON formatted string. The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
      * 
      */
     public Optional<Output<String>> accessPolicy() {
@@ -35,14 +33,14 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the vault.
+     * ARN of the vault.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the vault.
+     * @return ARN of the vault.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -50,14 +48,14 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The URI of the vault that was created.
+     * URI of the vault that was created.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return The URI of the vault that was created.
+     * @return URI of the vault that was created.
      * 
      */
     public Optional<Output<String>> location() {
@@ -65,14 +63,14 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, &#39;_&#39; (underscore), &#39;-&#39; (hyphen), and &#39;.&#39; (period).
+     * Name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, &#39;_&#39; (underscore), &#39;-&#39; (hyphen), and &#39;.&#39; (period).
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, &#39;_&#39; (underscore), &#39;-&#39; (hyphen), and &#39;.&#39; (period).
+     * @return Name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, &#39;_&#39; (underscore), &#39;-&#39; (hyphen), and &#39;.&#39; (period).
      * 
      */
     public Optional<Output<String>> name() {
@@ -80,14 +78,14 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The notifications for the Vault. Fields documented below.
+     * Notifications for the Vault. See below.
      * 
      */
     @Import(name="notification")
     private @Nullable Output<VaultNotificationArgs> notification;
 
     /**
-     * @return The notifications for the Vault. Fields documented below.
+     * @return Notifications for the Vault. See below.
      * 
      */
     public Optional<Output<VaultNotificationArgs>> notification() {
@@ -110,14 +108,14 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -125,14 +123,14 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -171,8 +169,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessPolicy The policy document. This is a JSON formatted string.
-         * The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
+         * @param accessPolicy Policy document. This is a JSON formatted string. The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
          * 
          * @return builder
          * 
@@ -183,8 +180,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessPolicy The policy document. This is a JSON formatted string.
-         * The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
+         * @param accessPolicy Policy document. This is a JSON formatted string. The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
          * 
          * @return builder
          * 
@@ -194,7 +190,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the vault.
+         * @param arn ARN of the vault.
          * 
          * @return builder
          * 
@@ -205,7 +201,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the vault.
+         * @param arn ARN of the vault.
          * 
          * @return builder
          * 
@@ -215,7 +211,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The URI of the vault that was created.
+         * @param location URI of the vault that was created.
          * 
          * @return builder
          * 
@@ -226,7 +222,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The URI of the vault that was created.
+         * @param location URI of the vault that was created.
          * 
          * @return builder
          * 
@@ -236,7 +232,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, &#39;_&#39; (underscore), &#39;-&#39; (hyphen), and &#39;.&#39; (period).
+         * @param name Name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, &#39;_&#39; (underscore), &#39;-&#39; (hyphen), and &#39;.&#39; (period).
          * 
          * @return builder
          * 
@@ -247,7 +243,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, &#39;_&#39; (underscore), &#39;-&#39; (hyphen), and &#39;.&#39; (period).
+         * @param name Name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, &#39;_&#39; (underscore), &#39;-&#39; (hyphen), and &#39;.&#39; (period).
          * 
          * @return builder
          * 
@@ -257,7 +253,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notification The notifications for the Vault. Fields documented below.
+         * @param notification Notifications for the Vault. See below.
          * 
          * @return builder
          * 
@@ -268,7 +264,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notification The notifications for the Vault. Fields documented below.
+         * @param notification Notifications for the Vault. See below.
          * 
          * @return builder
          * 
@@ -299,7 +295,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -310,7 +306,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -320,7 +316,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -331,7 +327,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

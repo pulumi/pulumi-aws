@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource {
     /**
-     * @return IP address type for the endpoint. Valid values: `IPV4`, `DUALSTACK`.
+     * @return IP address type for the endpoint. Valid values: `IPV4`, `IPV6`.
      * 
      */
     private String endpointIpAddressType;
@@ -47,7 +47,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
 
     private AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource() {}
     /**
-     * @return IP address type for the endpoint. Valid values: `IPV4`, `DUALSTACK`.
+     * @return IP address type for the endpoint. Valid values: `IPV4`, `IPV6`.
      * 
      */
     public String endpointIpAddressType() {

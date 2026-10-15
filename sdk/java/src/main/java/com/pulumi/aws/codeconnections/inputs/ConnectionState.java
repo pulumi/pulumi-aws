@@ -18,14 +18,14 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
     public static final ConnectionState Empty = new ConnectionState();
 
     /**
-     * The codeconnections connection ARN.
+     * The CodeConnections connection ARN.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The codeconnections connection ARN.
+     * @return The CodeConnections connection ARN.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -33,14 +33,14 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The codeconnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
+     * The CodeConnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
      * 
      */
     @Import(name="connectionStatus")
     private @Nullable Output<String> connectionStatus;
 
     /**
-     * @return The codeconnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
+     * @return The CodeConnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
      * 
      */
     public Optional<Output<String>> connectionStatus() {
@@ -185,7 +185,7 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The codeconnections connection ARN.
+         * @param arn The CodeConnections connection ARN.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The codeconnections connection ARN.
+         * @param arn The CodeConnections connection ARN.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionStatus The codeconnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
+         * @param connectionStatus The CodeConnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionStatus The codeconnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
+         * @param connectionStatus The CodeConnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
          * 
          * @return builder
          * 

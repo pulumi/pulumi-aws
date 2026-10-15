@@ -92,6 +92,50 @@ namespace Pulumi.Aws.ResilienceHub
     /// });
     /// ```
     /// 
+    /// ### EKS Cluster Scoped by Labels
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.ResilienceHub.V2InputSource("example", new()
+    ///     {
+    ///         ResourceConfiguration = new Aws.ResilienceHub.Inputs.V2InputSourceResourceConfigurationArgs
+    ///         {
+    ///             Eks = new Aws.ResilienceHub.Inputs.V2InputSourceResourceConfigurationEksArgs
+    ///             {
+    ///                 LabelSelector = new Aws.ResilienceHub.Inputs.V2InputSourceResourceConfigurationEksLabelSelectorArgs
+    ///                 {
+    ///                     MatchExpressions = new[]
+    ///                     {
+    ///                         new Aws.ResilienceHub.Inputs.V2InputSourceResourceConfigurationEksLabelSelectorMatchExpressionArgs
+    ///                         {
+    ///                             Key = "deprecated",
+    ///                             Operator = "DOES_NOT_EXIST",
+    ///                         },
+    ///                     },
+    ///                     MatchLabels = 
+    ///                     {
+    ///                         { "app", "payments" },
+    ///                     },
+    ///                 },
+    ///                 ClusterArn = "arn:aws:eks:us-west-2:123456789012:cluster/my-cluster",
+    ///                 Namespaces = new[]
+    ///                 {
+    ///                     "default",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ServiceArn = exampleAwsResiliencehubv2Service.Arn,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ### Identity Schema

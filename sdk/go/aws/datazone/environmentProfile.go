@@ -191,7 +191,7 @@ import (
 type EnvironmentProfile struct {
 	pulumi.CustomResourceState
 
-	// Id of the AWS account being used.
+	// ID of the AWS account being used.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// Desired region for environment profile.
 	AwsAccountRegion pulumi.StringOutput `pulumi:"awsAccountRegion"`
@@ -259,7 +259,7 @@ func GetEnvironmentProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EnvironmentProfile resources.
 type environmentProfileState struct {
-	// Id of the AWS account being used.
+	// ID of the AWS account being used.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Desired region for environment profile.
 	AwsAccountRegion *string `pulumi:"awsAccountRegion"`
@@ -286,7 +286,7 @@ type environmentProfileState struct {
 }
 
 type EnvironmentProfileState struct {
-	// Id of the AWS account being used.
+	// ID of the AWS account being used.
 	AwsAccountId pulumi.StringPtrInput
 	// Desired region for environment profile.
 	AwsAccountRegion pulumi.StringPtrInput
@@ -317,7 +317,7 @@ func (EnvironmentProfileState) ElementType() reflect.Type {
 }
 
 type environmentProfileArgs struct {
-	// Id of the AWS account being used.
+	// ID of the AWS account being used.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Desired region for environment profile.
 	AwsAccountRegion string `pulumi:"awsAccountRegion"`
@@ -339,7 +339,7 @@ type environmentProfileArgs struct {
 
 // The set of arguments for constructing a EnvironmentProfile resource.
 type EnvironmentProfileArgs struct {
-	// Id of the AWS account being used.
+	// ID of the AWS account being used.
 	AwsAccountId pulumi.StringPtrInput
 	// Desired region for environment profile.
 	AwsAccountRegion pulumi.StringInput
@@ -446,7 +446,7 @@ func (o EnvironmentProfileOutput) ToEnvironmentProfileOutputWithContext(ctx cont
 	return o
 }
 
-// Id of the AWS account being used.
+// ID of the AWS account being used.
 func (o EnvironmentProfileOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnvironmentProfile) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }

@@ -24,7 +24,7 @@ public final class GetUserResult {
      */
     private String arn;
     /**
-     * @return Denotes the user&#39;s authentication properties.
+     * @return Authentication properties for the user.
      * 
      */
     private List<GetUserAuthenticationMode> authenticationModes;
@@ -62,7 +62,7 @@ public final class GetUserResult {
         return this.arn;
     }
     /**
-     * @return Denotes the user&#39;s authentication properties.
+     * @return Authentication properties for the user.
      * 
      */
     public List<GetUserAuthenticationMode> authenticationModes() {

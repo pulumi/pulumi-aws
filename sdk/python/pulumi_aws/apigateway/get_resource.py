@@ -105,8 +105,8 @@ def get_resource(path: Optional[_builtins.str] = None,
                  rest_api_id: Optional[_builtins.str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceResult:
     """
-    Use this data source to get the id of a Resource in API Gateway.
-    To fetch the Resource, you must provide the REST API id as well as the full path.
+    Use this data source to get the ID of a Resource in API Gateway.
+    To fetch the Resource, you must provide the REST API ID as well as the full path.
 
     ## Example Usage
 
@@ -122,7 +122,7 @@ def get_resource(path: Optional[_builtins.str] = None,
 
     :param _builtins.str path: Full path of the resource.  If no path is found, an error will be returned.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str rest_api_id: REST API id that owns the resource. If no REST API is found, an error will be returned.
+    :param _builtins.str rest_api_id: REST API ID that owns the resource. If no REST API is found, an error will be returned.
     """
     __args__ = dict()
     __args__['path'] = path
@@ -143,8 +143,8 @@ def get_resource_output(path: pulumi.Input[Optional[_builtins.str]] = None,
                         rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceResult]:
     """
-    Use this data source to get the id of a Resource in API Gateway.
-    To fetch the Resource, you must provide the REST API id as well as the full path.
+    Use this data source to get the ID of a Resource in API Gateway.
+    To fetch the Resource, you must provide the REST API ID as well as the full path.
 
     ## Example Usage
 
@@ -160,7 +160,7 @@ def get_resource_output(path: pulumi.Input[Optional[_builtins.str]] = None,
 
     :param _builtins.str path: Full path of the resource.  If no path is found, an error will be returned.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str rest_api_id: REST API id that owns the resource. If no REST API is found, an error will be returned.
+    :param _builtins.str rest_api_id: REST API ID that owns the resource. If no REST API is found, an error will be returned.
     """
     __args__ = dict()
     __args__['path'] = path

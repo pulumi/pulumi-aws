@@ -396,6 +396,48 @@ import (
 //
 // ```
 //
+// ### With a Wall Clock Evaluation Window
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudwatch.NewMetricAlarm(ctx, "example", &cloudwatch.MetricAlarmArgs{
+//				EvaluationWindow: &cloudwatch.MetricAlarmEvaluationWindowArgs{
+//					WallClockWindow: &cloudwatch.MetricAlarmEvaluationWindowWallClockWindowArgs{
+//						Timezone: pulumi.String("America/New_York"),
+//					},
+//				},
+//				Name:               pulumi.String("example-daily-errors"),
+//				ComparisonOperator: pulumi.String("GreaterThanThreshold"),
+//				EvaluationPeriods:  pulumi.Int(1),
+//				MetricName:         pulumi.String("Errors"),
+//				Namespace:          pulumi.String("ExampleApp"),
+//				Period:             pulumi.Int(86400),
+//				Statistic:          pulumi.String("Sum"),
+//				Threshold:          pulumi.Float64(0),
+//				AlarmActions: pulumi.Array{
+//					exampleAwsSnsTopic.Arn,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extendedStatistic` parameters.
 // You must choose one or the other.
 //
@@ -445,6 +487,8 @@ type MetricAlarm struct {
 	EvaluationInterval pulumi.IntPtrOutput `pulumi:"evaluationInterval"`
 	// The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
 	EvaluationPeriods pulumi.IntPtrOutput `pulumi:"evaluationPeriods"`
+	// Configures the alarm to use a wall clock evaluation window instead of the default sliding window. Not supported for alarms that use `evaluationCriteria`. See `evaluationWindow` below.
+	EvaluationWindow MetricAlarmEvaluationWindowPtrOutput `pulumi:"evaluationWindow"`
 	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
 	ExtendedStatistic pulumi.StringPtrOutput `pulumi:"extendedStatistic"`
 	// List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
@@ -545,6 +589,8 @@ type metricAlarmState struct {
 	EvaluationInterval *int `pulumi:"evaluationInterval"`
 	// The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
 	EvaluationPeriods *int `pulumi:"evaluationPeriods"`
+	// Configures the alarm to use a wall clock evaluation window instead of the default sliding window. Not supported for alarms that use `evaluationCriteria`. See `evaluationWindow` below.
+	EvaluationWindow *MetricAlarmEvaluationWindow `pulumi:"evaluationWindow"`
 	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
 	ExtendedStatistic *string `pulumi:"extendedStatistic"`
 	// List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
@@ -616,6 +662,8 @@ type MetricAlarmState struct {
 	EvaluationInterval pulumi.IntPtrInput
 	// The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
 	EvaluationPeriods pulumi.IntPtrInput
+	// Configures the alarm to use a wall clock evaluation window instead of the default sliding window. Not supported for alarms that use `evaluationCriteria`. See `evaluationWindow` below.
+	EvaluationWindow MetricAlarmEvaluationWindowPtrInput
 	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
 	ExtendedStatistic pulumi.StringPtrInput
 	// List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
@@ -689,6 +737,8 @@ type metricAlarmArgs struct {
 	EvaluationInterval *int `pulumi:"evaluationInterval"`
 	// The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
 	EvaluationPeriods *int `pulumi:"evaluationPeriods"`
+	// Configures the alarm to use a wall clock evaluation window instead of the default sliding window. Not supported for alarms that use `evaluationCriteria`. See `evaluationWindow` below.
+	EvaluationWindow *MetricAlarmEvaluationWindow `pulumi:"evaluationWindow"`
 	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
 	ExtendedStatistic *string `pulumi:"extendedStatistic"`
 	// List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
@@ -757,6 +807,8 @@ type MetricAlarmArgs struct {
 	EvaluationInterval pulumi.IntPtrInput
 	// The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
 	EvaluationPeriods pulumi.IntPtrInput
+	// Configures the alarm to use a wall clock evaluation window instead of the default sliding window. Not supported for alarms that use `evaluationCriteria`. See `evaluationWindow` below.
+	EvaluationWindow MetricAlarmEvaluationWindowPtrInput
 	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
 	ExtendedStatistic pulumi.StringPtrInput
 	// List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
@@ -943,6 +995,11 @@ func (o MetricAlarmOutput) EvaluationInterval() pulumi.IntPtrOutput {
 // The number of periods over which data is compared to the specified threshold. Required for traditional metric alarms.
 func (o MetricAlarmOutput) EvaluationPeriods() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MetricAlarm) pulumi.IntPtrOutput { return v.EvaluationPeriods }).(pulumi.IntPtrOutput)
+}
+
+// Configures the alarm to use a wall clock evaluation window instead of the default sliding window. Not supported for alarms that use `evaluationCriteria`. See `evaluationWindow` below.
+func (o MetricAlarmOutput) EvaluationWindow() MetricAlarmEvaluationWindowPtrOutput {
+	return o.ApplyT(func(v *MetricAlarm) MetricAlarmEvaluationWindowPtrOutput { return v.EvaluationWindow }).(MetricAlarmEvaluationWindowPtrOutput)
 }
 
 // The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.

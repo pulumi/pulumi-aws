@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetImagePipelineImageScanningConfiguration {
     /**
-     * @return List if an object with ecr configuration for image scanning
+     * @return List if an object with ECR configuration for image scanning
      * 
      */
     private List<GetImagePipelineImageScanningConfigurationEcrConfiguration> ecrConfigurations;
@@ -25,7 +25,7 @@ public final class GetImagePipelineImageScanningConfiguration {
 
     private GetImagePipelineImageScanningConfiguration() {}
     /**
-     * @return List if an object with ecr configuration for image scanning
+     * @return List if an object with ECR configuration for image scanning
      * 
      */
     public List<GetImagePipelineImageScanningConfigurationEcrConfiguration> ecrConfigurations() {

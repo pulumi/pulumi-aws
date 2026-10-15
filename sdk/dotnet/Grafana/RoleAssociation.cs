@@ -76,7 +76,7 @@ namespace Pulumi.Aws.Grafana
     public partial class RoleAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The AWS SSO group ids to be assigned the role given in `Role`.
+        /// AWS SSO group IDs to be assigned the role given in `Role`.
         /// </summary>
         [Output("groupIds")]
         public Output<ImmutableArray<string>> GroupIds { get; private set; } = null!;
@@ -88,19 +88,19 @@ namespace Pulumi.Aws.Grafana
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
+        /// Grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
         /// </summary>
         [Output("role")]
         public Output<string> Role { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS SSO user ids to be assigned the role given in `Role`.
+        /// AWS SSO user IDs to be assigned the role given in `Role`.
         /// </summary>
         [Output("userIds")]
         public Output<ImmutableArray<string>> UserIds { get; private set; } = null!;
 
         /// <summary>
-        /// The workspace id.
+        /// Workspace ID.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -157,7 +157,7 @@ namespace Pulumi.Aws.Grafana
         private InputList<string>? _groupIds;
 
         /// <summary>
-        /// The AWS SSO group ids to be assigned the role given in `Role`.
+        /// AWS SSO group IDs to be assigned the role given in `Role`.
         /// </summary>
         public InputList<string> GroupIds
         {
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.Grafana
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
+        /// Grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
         /// </summary>
         [Input("role", required: true)]
         public Input<string> Role { get; set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.Aws.Grafana
         private InputList<string>? _userIds;
 
         /// <summary>
-        /// The AWS SSO user ids to be assigned the role given in `Role`.
+        /// AWS SSO user IDs to be assigned the role given in `Role`.
         /// </summary>
         public InputList<string> UserIds
         {
@@ -190,7 +190,7 @@ namespace Pulumi.Aws.Grafana
         }
 
         /// <summary>
-        /// The workspace id.
+        /// Workspace ID.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -209,7 +209,7 @@ namespace Pulumi.Aws.Grafana
         private InputList<string>? _groupIds;
 
         /// <summary>
-        /// The AWS SSO group ids to be assigned the role given in `Role`.
+        /// AWS SSO group IDs to be assigned the role given in `Role`.
         /// </summary>
         public InputList<string> GroupIds
         {
@@ -224,7 +224,7 @@ namespace Pulumi.Aws.Grafana
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
+        /// Grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
@@ -233,7 +233,7 @@ namespace Pulumi.Aws.Grafana
         private InputList<string>? _userIds;
 
         /// <summary>
-        /// The AWS SSO user ids to be assigned the role given in `Role`.
+        /// AWS SSO user IDs to be assigned the role given in `Role`.
         /// </summary>
         public InputList<string> UserIds
         {
@@ -242,7 +242,7 @@ namespace Pulumi.Aws.Grafana
         }
 
         /// <summary>
-        /// The workspace id.
+        /// Workspace ID.
         /// 
         /// The following arguments are optional:
         /// </summary>

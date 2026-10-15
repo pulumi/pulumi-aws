@@ -144,11 +144,11 @@ type DataQualityRuleset struct {
 
 	// ARN of the Glue Data Quality Ruleset.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The time and date that this data quality ruleset was created.
+	// Time and date that this data quality ruleset was created.
 	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
 	// Description of the data quality ruleset.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The time and date that this data quality ruleset was created.
+	// Time and date that this data quality ruleset was created.
 	LastModifiedOn pulumi.StringOutput `pulumi:"lastModifiedOn"`
 	// Name of the data quality ruleset.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -156,13 +156,13 @@ type DataQualityRuleset struct {
 	RecommendationRunId pulumi.StringOutput `pulumi:"recommendationRunId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
+	// Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
 	Ruleset pulumi.StringOutput `pulumi:"ruleset"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// A Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` below.
+	// Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` Block below.
 	TargetTable DataQualityRulesetTargetTablePtrOutput `pulumi:"targetTable"`
 }
 
@@ -201,11 +201,11 @@ func GetDataQualityRuleset(ctx *pulumi.Context,
 type dataQualityRulesetState struct {
 	// ARN of the Glue Data Quality Ruleset.
 	Arn *string `pulumi:"arn"`
-	// The time and date that this data quality ruleset was created.
+	// Time and date that this data quality ruleset was created.
 	CreatedOn *string `pulumi:"createdOn"`
 	// Description of the data quality ruleset.
 	Description *string `pulumi:"description"`
-	// The time and date that this data quality ruleset was created.
+	// Time and date that this data quality ruleset was created.
 	LastModifiedOn *string `pulumi:"lastModifiedOn"`
 	// Name of the data quality ruleset.
 	Name *string `pulumi:"name"`
@@ -213,24 +213,24 @@ type dataQualityRulesetState struct {
 	RecommendationRunId *string `pulumi:"recommendationRunId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
+	// Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
 	Ruleset *string `pulumi:"ruleset"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// A Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` below.
+	// Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` Block below.
 	TargetTable *DataQualityRulesetTargetTable `pulumi:"targetTable"`
 }
 
 type DataQualityRulesetState struct {
 	// ARN of the Glue Data Quality Ruleset.
 	Arn pulumi.StringPtrInput
-	// The time and date that this data quality ruleset was created.
+	// Time and date that this data quality ruleset was created.
 	CreatedOn pulumi.StringPtrInput
 	// Description of the data quality ruleset.
 	Description pulumi.StringPtrInput
-	// The time and date that this data quality ruleset was created.
+	// Time and date that this data quality ruleset was created.
 	LastModifiedOn pulumi.StringPtrInput
 	// Name of the data quality ruleset.
 	Name pulumi.StringPtrInput
@@ -238,13 +238,13 @@ type DataQualityRulesetState struct {
 	RecommendationRunId pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
+	// Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
 	Ruleset pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// A Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` below.
+	// Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` Block below.
 	TargetTable DataQualityRulesetTargetTablePtrInput
 }
 
@@ -259,11 +259,11 @@ type dataQualityRulesetArgs struct {
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
+	// Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
 	Ruleset string `pulumi:"ruleset"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` below.
+	// Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` Block below.
 	TargetTable *DataQualityRulesetTargetTable `pulumi:"targetTable"`
 }
 
@@ -275,11 +275,11 @@ type DataQualityRulesetArgs struct {
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
+	// Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
 	Ruleset pulumi.StringInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` below.
+	// Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` Block below.
 	TargetTable DataQualityRulesetTargetTablePtrInput
 }
 
@@ -375,7 +375,7 @@ func (o DataQualityRulesetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataQualityRuleset) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The time and date that this data quality ruleset was created.
+// Time and date that this data quality ruleset was created.
 func (o DataQualityRulesetOutput) CreatedOn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataQualityRuleset) pulumi.StringOutput { return v.CreatedOn }).(pulumi.StringOutput)
 }
@@ -385,7 +385,7 @@ func (o DataQualityRulesetOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataQualityRuleset) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The time and date that this data quality ruleset was created.
+// Time and date that this data quality ruleset was created.
 func (o DataQualityRulesetOutput) LastModifiedOn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataQualityRuleset) pulumi.StringOutput { return v.LastModifiedOn }).(pulumi.StringOutput)
 }
@@ -405,7 +405,7 @@ func (o DataQualityRulesetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataQualityRuleset) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
+// Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
 func (o DataQualityRulesetOutput) Ruleset() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataQualityRuleset) pulumi.StringOutput { return v.Ruleset }).(pulumi.StringOutput)
 }
@@ -415,12 +415,12 @@ func (o DataQualityRulesetOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataQualityRuleset) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DataQualityRulesetOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataQualityRuleset) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// A Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` below.
+// Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` Block below.
 func (o DataQualityRulesetOutput) TargetTable() DataQualityRulesetTargetTablePtrOutput {
 	return o.ApplyT(func(v *DataQualityRuleset) DataQualityRulesetTargetTablePtrOutput { return v.TargetTable }).(DataQualityRulesetTargetTablePtrOutput)
 }

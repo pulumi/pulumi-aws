@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Bedrock
     public static class GetCustomModels
     {
         /// <summary>
-        /// Returns a list of Amazon Bedrock custom models.
+        /// Provides details about Amazon Bedrock custom models.
         /// 
         /// ## Example Usage
         /// 
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Bedrock
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Aws.Bedrock.GetCustomModels.Invoke();
+        ///     var example = Aws.Bedrock.GetCustomModels.Invoke();
         /// 
         /// });
         /// ```
@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Bedrock
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomModelsResult>("aws:bedrock/getCustomModels:getCustomModels", args ?? new GetCustomModelsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Returns a list of Amazon Bedrock custom models.
+        /// Provides details about Amazon Bedrock custom models.
         /// 
         /// ## Example Usage
         /// 
@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Bedrock
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Aws.Bedrock.GetCustomModels.Invoke();
+        ///     var example = Aws.Bedrock.GetCustomModels.Invoke();
         /// 
         /// });
         /// ```
@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Bedrock
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomModelsResult>("aws:bedrock/getCustomModels:getCustomModels", args ?? new GetCustomModelsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Returns a list of Amazon Bedrock custom models.
+        /// Provides details about Amazon Bedrock custom models.
         /// 
         /// ## Example Usage
         /// 
@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Bedrock
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Aws.Bedrock.GetCustomModels.Invoke();
+        ///     var example = Aws.Bedrock.GetCustomModels.Invoke();
         /// 
         /// });
         /// ```

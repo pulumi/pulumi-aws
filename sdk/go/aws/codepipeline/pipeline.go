@@ -247,7 +247,7 @@ import (
 type Pipeline struct {
 	pulumi.CustomResourceState
 
-	// Codepipeline ARN.
+	// CodePipeline ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// One or more artifactStore blocks. Artifact stores are documented below.
 	ArtifactStores PipelineArtifactStoreArrayOutput `pulumi:"artifactStores"`
@@ -316,7 +316,7 @@ func GetPipeline(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Pipeline resources.
 type pipelineState struct {
-	// Codepipeline ARN.
+	// CodePipeline ARN.
 	Arn *string `pulumi:"arn"`
 	// One or more artifactStore blocks. Artifact stores are documented below.
 	ArtifactStores []PipelineArtifactStore `pulumi:"artifactStores"`
@@ -347,7 +347,7 @@ type pipelineState struct {
 }
 
 type PipelineState struct {
-	// Codepipeline ARN.
+	// CodePipeline ARN.
 	Arn pulumi.StringPtrInput
 	// One or more artifactStore blocks. Artifact stores are documented below.
 	ArtifactStores PipelineArtifactStoreArrayInput
@@ -519,7 +519,7 @@ func (o PipelineOutput) ToPipelineOutputWithContext(ctx context.Context) Pipelin
 	return o
 }
 
-// Codepipeline ARN.
+// CodePipeline ARN.
 func (o PipelineOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

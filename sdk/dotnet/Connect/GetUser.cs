@@ -184,7 +184,7 @@ namespace Pulumi.Aws.Connect
         }
 
         /// <summary>
-        /// Returns information on a specific User by User id
+        /// Returns information on a specific User by User ID
         /// 
         /// &gt; **NOTE:** `InstanceId` and one of either `Name` or `UserId` is required.
         /// </summary>
@@ -230,7 +230,7 @@ namespace Pulumi.Aws.Connect
         }
 
         /// <summary>
-        /// Returns information on a specific User by User id
+        /// Returns information on a specific User by User ID
         /// 
         /// &gt; **NOTE:** `InstanceId` and one of either `Name` or `UserId` is required.
         /// </summary>

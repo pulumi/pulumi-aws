@@ -60,7 +60,7 @@ namespace Pulumi.Aws.MemoryDb
     public partial class SubnetGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the subnet group.
+        /// ARN of the subnet group.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -98,19 +98,19 @@ namespace Pulumi.Aws.MemoryDb
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The VPC in which the subnet group exists.
+        /// VPC in which the subnet group exists.
         /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
@@ -203,7 +203,7 @@ namespace Pulumi.Aws.MemoryDb
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -220,7 +220,7 @@ namespace Pulumi.Aws.MemoryDb
     public sealed class SubnetGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the subnet group.
+        /// ARN of the subnet group.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -267,7 +267,7 @@ namespace Pulumi.Aws.MemoryDb
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -279,7 +279,7 @@ namespace Pulumi.Aws.MemoryDb
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -288,7 +288,7 @@ namespace Pulumi.Aws.MemoryDb
         }
 
         /// <summary>
-        /// The VPC in which the subnet group exists.
+        /// VPC in which the subnet group exists.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

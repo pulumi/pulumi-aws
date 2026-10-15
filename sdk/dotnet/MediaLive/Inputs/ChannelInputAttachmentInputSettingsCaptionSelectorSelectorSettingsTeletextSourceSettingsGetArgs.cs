@@ -13,13 +13,13 @@ namespace Pulumi.Aws.MediaLive.Inputs
     public sealed class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Optionally defines a region where TTML style captions will be displayed. See Caption Rectangle for more details.
+        /// Region where TTML style captions are displayed. See `OutputRectangle` Block for details.
         /// </summary>
         [Input("outputRectangle")]
         public Input<Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleGetArgs>? OutputRectangle { get; set; }
 
         /// <summary>
-        /// Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no “0x” prefix.
+        /// Teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303), specified as a hexadecimal string with no `0x` prefix. Unused for passthrough.
         /// </summary>
         [Input("pageNumber")]
         public Input<string>? PageNumber { get; set; }

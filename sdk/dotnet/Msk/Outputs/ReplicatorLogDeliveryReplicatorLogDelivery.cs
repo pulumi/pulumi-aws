@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Msk.Outputs
     public sealed class ReplicatorLogDeliveryReplicatorLogDelivery
     {
         /// <summary>
-        /// Configuration block for replicator log delivery to Amazon CloudWatch Logs. Detailed below.
+        /// Configuration block for replicator log delivery to Amazon CloudWatch Logs. See `CloudwatchLogs` Block below.
         /// </summary>
         public readonly Outputs.ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogs? CloudwatchLogs;
         /// <summary>
-        /// Configuration block for replicator log delivery to Amazon Data Firehose. Detailed below.
+        /// Configuration block for replicator log delivery to Amazon Data Firehose. See `Firehose` Block below.
         /// </summary>
         public readonly Outputs.ReplicatorLogDeliveryReplicatorLogDeliveryFirehose? Firehose;
         /// <summary>
-        /// Configuration block for replicator log delivery to Amazon S3. Detailed below.
+        /// Configuration block for replicator log delivery to Amazon S3. See `S3` Block below.
         /// </summary>
         public readonly Outputs.ReplicatorLogDeliveryReplicatorLogDeliveryS3? S3;
 

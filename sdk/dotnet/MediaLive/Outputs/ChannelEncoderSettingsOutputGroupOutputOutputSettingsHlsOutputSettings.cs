@@ -13,12 +13,21 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings
     {
+        /// <summary>
+        /// Only applicable when this output is referencing an H.265 video description. Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
+        /// </summary>
         public readonly string? H265PackagingType;
+        /// <summary>
+        /// Settings regarding the underlying stream. See `HlsSettings` Block for details.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings HlsSettings;
         /// <summary>
         /// String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
         /// </summary>
         public readonly string? NameModifier;
+        /// <summary>
+        /// String concatenated to the end of the destination filename.
+        /// </summary>
         public readonly string? SegmentModifier;
 
         [OutputConstructor]

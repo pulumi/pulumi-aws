@@ -13,6 +13,9 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings
     {
+        /// <summary>
+        /// Static key settings. See `StaticKeySettings` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySetting> StaticKeySettings;
 
         [OutputConstructor]

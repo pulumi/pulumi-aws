@@ -18,14 +18,14 @@ public final class CrawlerJdbcTargetArgs extends com.pulumi.resources.ResourceAr
     public static final CrawlerJdbcTargetArgs Empty = new CrawlerJdbcTargetArgs();
 
     /**
-     * The name of the connection to use to connect to the JDBC target.
+     * Name of the connection to use to connect to the JDBC target.
      * 
      */
     @Import(name="connectionName", required=true)
     private Output<String> connectionName;
 
     /**
-     * @return The name of the connection to use to connect to the JDBC target.
+     * @return Name of the connection to use to connect to the JDBC target.
      * 
      */
     public Output<String> connectionName() {
@@ -48,14 +48,14 @@ public final class CrawlerJdbcTargetArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A list of glob patterns used to exclude from the crawl.
+     * List of glob patterns used to exclude from the crawl.
      * 
      */
     @Import(name="exclusions")
     private @Nullable Output<List<String>> exclusions;
 
     /**
-     * @return A list of glob patterns used to exclude from the crawl.
+     * @return List of glob patterns used to exclude from the crawl.
      * 
      */
     public Optional<Output<List<String>>> exclusions() {
@@ -63,14 +63,14 @@ public final class CrawlerJdbcTargetArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The path of the JDBC target.
+     * Path of the JDBC target.
      * 
      */
     @Import(name="path", required=true)
     private Output<String> path;
 
     /**
-     * @return The path of the JDBC target.
+     * @return Path of the JDBC target.
      * 
      */
     public Output<String> path() {
@@ -105,7 +105,7 @@ public final class CrawlerJdbcTargetArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param connectionName The name of the connection to use to connect to the JDBC target.
+         * @param connectionName Name of the connection to use to connect to the JDBC target.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class CrawlerJdbcTargetArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param connectionName The name of the connection to use to connect to the JDBC target.
+         * @param connectionName Name of the connection to use to connect to the JDBC target.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class CrawlerJdbcTargetArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param exclusions A list of glob patterns used to exclude from the crawl.
+         * @param exclusions List of glob patterns used to exclude from the crawl.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class CrawlerJdbcTargetArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param exclusions A list of glob patterns used to exclude from the crawl.
+         * @param exclusions List of glob patterns used to exclude from the crawl.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class CrawlerJdbcTargetArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param exclusions A list of glob patterns used to exclude from the crawl.
+         * @param exclusions List of glob patterns used to exclude from the crawl.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class CrawlerJdbcTargetArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param path The path of the JDBC target.
+         * @param path Path of the JDBC target.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class CrawlerJdbcTargetArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param path The path of the JDBC target.
+         * @param path Path of the JDBC target.
          * 
          * @return builder
          * 

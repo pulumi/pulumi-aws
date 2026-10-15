@@ -148,7 +148,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `harnessId` (String) ID of the harness.
+ * * `harnessId` (String) ID of the harness.
  *
  * #### Optional
  *
@@ -214,7 +214,7 @@ export class AgentcoreHarness extends pulumi.CustomResource {
      */
     declare public readonly environmentVariables: pulumi.Output<{[key: string]: string}>;
     /**
-     * Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
+     * Compute environment configuration. See `environment` Block below. If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
      */
     declare public readonly environments: pulumi.Output<outputs.bedrock.AgentcoreHarnessEnvironment[] | undefined>;
     /**
@@ -226,7 +226,7 @@ export class AgentcoreHarness extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly harnessId: pulumi.Output<string>;
     /**
-     * Name of the harness. Must be 1-40 characters, alphanumeric and underscores only.
+     * Name of the harness. Must be 1-40 characters, start with a letter, and contain only alphanumeric characters and underscores.
      */
     declare public readonly harnessName: pulumi.Output<string>;
     /**
@@ -234,7 +234,7 @@ export class AgentcoreHarness extends pulumi.CustomResource {
      */
     declare public readonly maxIterations: pulumi.Output<number>;
     /**
-     * Maximum number of tokens in the model response.
+     * Maximum total number of output tokens the agent can generate across all model calls within a single invocation.
      */
     declare public readonly maxTokens: pulumi.Output<number>;
     /**
@@ -397,7 +397,7 @@ export interface AgentcoreHarnessState {
      */
     environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
+     * Compute environment configuration. See `environment` Block below. If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
      */
     environments?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironment>[] | undefined>;
     /**
@@ -409,7 +409,7 @@ export interface AgentcoreHarnessState {
      */
     harnessId?: pulumi.Input<string | undefined>;
     /**
-     * Name of the harness. Must be 1-40 characters, alphanumeric and underscores only.
+     * Name of the harness. Must be 1-40 characters, start with a letter, and contain only alphanumeric characters and underscores.
      */
     harnessName?: pulumi.Input<string | undefined>;
     /**
@@ -417,7 +417,7 @@ export interface AgentcoreHarnessState {
      */
     maxIterations?: pulumi.Input<number | undefined>;
     /**
-     * Maximum number of tokens in the model response.
+     * Maximum total number of output tokens the agent can generate across all model calls within a single invocation.
      */
     maxTokens?: pulumi.Input<number | undefined>;
     /**
@@ -490,7 +490,7 @@ export interface AgentcoreHarnessArgs {
      */
     environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
+     * Compute environment configuration. See `environment` Block below. If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
      */
     environments?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironment>[] | undefined>;
     /**
@@ -498,7 +498,7 @@ export interface AgentcoreHarnessArgs {
      */
     executionRoleArn: pulumi.Input<string>;
     /**
-     * Name of the harness. Must be 1-40 characters, alphanumeric and underscores only.
+     * Name of the harness. Must be 1-40 characters, start with a letter, and contain only alphanumeric characters and underscores.
      */
     harnessName: pulumi.Input<string>;
     /**
@@ -506,7 +506,7 @@ export interface AgentcoreHarnessArgs {
      */
     maxIterations?: pulumi.Input<number | undefined>;
     /**
-     * Maximum number of tokens in the model response.
+     * Maximum total number of output tokens the agent can generate across all model calls within a single invocation.
      */
     maxTokens?: pulumi.Input<number | undefined>;
     /**

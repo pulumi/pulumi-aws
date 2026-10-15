@@ -6,12 +6,15 @@ package com.pulumi.aws.cloudwatch;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.cloudwatch.OtelEnrichmentArgs;
 import com.pulumi.aws.cloudwatch.inputs.OtelEnrichmentState;
+import com.pulumi.aws.cloudwatch.outputs.OtelEnrichmentExcludeFilter;
+import com.pulumi.aws.cloudwatch.outputs.OtelEnrichmentIncludeFilter;
 import com.pulumi.aws.cloudwatch.outputs.OtelEnrichmentTimeouts;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -19,6 +22,10 @@ import javax.annotation.Nullable;
  * Manages AWS CloudWatch OTel enrichment. This is a singleton resource that enables OTel enrichment at the account level.
  * 
  * &gt; **NOTE:** This resource requires the `aws.observabilityadmin.TelemetryEnrichment` resource to be configured first. Without telemetry enrichment enabled, OTel enrichment will not function properly even if the API accepts the configuration.
+ * 
+ * &gt; **NOTE:** Creating this Terraform resource starts AWS CloudWatch OTel enrichment and deleting this Terraform resource stops AWS CloudWatch OTel enrichment.
+ * 
+ * Filters are evaluated as follows. `includeFilter` is applied first, then the `excludeFilter` match set is subtracted from the result. Exclusion always wins, so a metric matched by both is not enriched. An inactive direction is permissive: with no `includeFilter`, every supported namespace is in scope, and with no `excludeFilter`, nothing is removed. Namespaces and metric names are matched exactly and case-sensitively, with no wildcards or prefixes, so `AWS/EC2` matches only `AWS/EC2`. At most 100 selectors are allowed across `includeFilter` and `excludeFilter` **combined**. Two lists of 60 selectors each satisfy the per-list limit but are rejected together.
  * 
  * ## Example Usage
  * 
@@ -59,6 +66,64 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Filter Enrichment by Namespace and Metric
+ * 
+ * By default every namespace that CloudWatch supports is enriched. Narrow that scope with `includeFilter` and `excludeFilter`. The configuration below enriches all of `AWS/EC2` except two network metrics, plus exactly two `AWS/RDS` metrics, and nothing else.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.observabilityadmin.TelemetryEnrichment;
+ * import com.pulumi.aws.cloudwatch.OtelEnrichment;
+ * import com.pulumi.aws.cloudwatch.OtelEnrichmentArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.OtelEnrichmentExcludeFilterArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.OtelEnrichmentIncludeFilterArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new TelemetryEnrichment("example");
+ * 
+ *         var exampleOtelEnrichment = new OtelEnrichment("exampleOtelEnrichment", OtelEnrichmentArgs.builder()
+ *             .excludeFilters(OtelEnrichmentExcludeFilterArgs.builder()
+ *                 .namespace("AWS/EC2")
+ *                 .metricNames(                
+ *                     "NetworkPacketsIn",
+ *                     "NetworkPacketsOut")
+ *                 .build())
+ *             .includeFilters(            
+ *                 OtelEnrichmentIncludeFilterArgs.builder()
+ *                     .namespace("AWS/EC2")
+ *                     .build(),
+ *                 OtelEnrichmentIncludeFilterArgs.builder()
+ *                     .namespace("AWS/RDS")
+ *                     .metricNames(                    
+ *                         "CPUUtilization",
+ *                         "DatabaseConnections")
+ *                     .build())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(example)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * ### Identity Schema
@@ -81,6 +146,34 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:cloudwatch/otelEnrichment:OtelEnrichment")
 public class OtelEnrichment extends com.pulumi.resources.CustomResource {
+    /**
+     * Namespaces and metric names to leave unenriched. See below.
+     * 
+     */
+    @Export(name="excludeFilters", refs={List.class,OtelEnrichmentExcludeFilter.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<OtelEnrichmentExcludeFilter>> excludeFilters;
+
+    /**
+     * @return Namespaces and metric names to leave unenriched. See below.
+     * 
+     */
+    public Output<Optional<List<OtelEnrichmentExcludeFilter>>> excludeFilters() {
+        return Codegen.optional(this.excludeFilters);
+    }
+    /**
+     * Namespaces and metric names to enrich. See below.
+     * 
+     */
+    @Export(name="includeFilters", refs={List.class,OtelEnrichmentIncludeFilter.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<OtelEnrichmentIncludeFilter>> includeFilters;
+
+    /**
+     * @return Namespaces and metric names to enrich. See below.
+     * 
+     */
+    public Output<Optional<List<OtelEnrichmentIncludeFilter>>> includeFilters() {
+        return Codegen.optional(this.includeFilters);
+    }
     /**
      * AWS region where this resource is managed.
      * 

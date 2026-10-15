@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
         /// </summary>
         public readonly Outputs.DataSourceParametersAuroraPostgresql? AuroraPostgresql;
         /// <summary>
-        /// Parameters for connecting to AWS IOT Analytics.
+        /// Parameters for connecting to AWS IoT Analytics.
         /// </summary>
         public readonly Outputs.DataSourceParametersAwsIotAnalytics? AwsIotAnalytics;
         /// <summary>

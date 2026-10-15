@@ -164,7 +164,7 @@ type LookupAmiResult struct {
 	RootDeviceName string `pulumi:"rootDeviceName"`
 	// Type of root device (ie: `ebs` or `instance-store`).
 	RootDeviceType string `pulumi:"rootDeviceType"`
-	// Snapshot id associated with the root device, if any (only applies to `ebs` root devices).
+	// Snapshot ID associated with the root device, if any (only applies to `ebs` root devices).
 	RootSnapshotId string `pulumi:"rootSnapshotId"`
 	// Whether enhanced networking is enabled.
 	SriovNetSupport string `pulumi:"sriovNetSupport"`
@@ -395,7 +395,7 @@ func (o LookupAmiResultOutput) RootDeviceType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAmiResult) string { return v.RootDeviceType }).(pulumi.StringOutput)
 }
 
-// Snapshot id associated with the root device, if any (only applies to `ebs` root devices).
+// Snapshot ID associated with the root device, if any (only applies to `ebs` root devices).
 func (o LookupAmiResultOutput) RootSnapshotId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAmiResult) string { return v.RootSnapshotId }).(pulumi.StringOutput)
 }

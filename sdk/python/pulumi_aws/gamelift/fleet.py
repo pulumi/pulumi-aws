@@ -47,7 +47,7 @@ class FleetArgs:
         :param pulumi.Input[_builtins.str] fleet_type: Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
         :param pulumi.Input[_builtins.str] instance_role_arn: ARN of an IAM role that instances in the fleet can assume.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] metric_groups: List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
-        :param pulumi.Input[_builtins.str] name: The name of the fleet.
+        :param pulumi.Input[_builtins.str] name: Name of the fleet.
         :param pulumi.Input[_builtins.str] new_game_session_protection_policy: Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['FleetResourceCreationLimitPolicyArgs'] resource_creation_limit_policy: Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
@@ -185,7 +185,7 @@ class FleetArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the fleet.
+        Name of the fleet.
         """
         return pulumi.get(self, "name")
 
@@ -302,8 +302,9 @@ class _FleetState:
         :param pulumi.Input[_builtins.str] ec2_instance_type: Name of an EC2 instance typeE.g., `t2.micro`
         :param pulumi.Input[_builtins.str] fleet_type: Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
         :param pulumi.Input[_builtins.str] instance_role_arn: ARN of an IAM role that instances in the fleet can assume.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] log_paths: List of paths from which the fleet captures logs.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] metric_groups: List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
-        :param pulumi.Input[_builtins.str] name: The name of the fleet.
+        :param pulumi.Input[_builtins.str] name: Name of the fleet.
         :param pulumi.Input[_builtins.str] new_game_session_protection_policy: Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
         :param pulumi.Input[_builtins.str] operating_system: Operating system of the fleet's computing resources.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -312,7 +313,7 @@ class _FleetState:
         :param pulumi.Input[_builtins.str] script_arn: Script ARN.
         :param pulumi.Input[_builtins.str] script_id: ID of the GameLift Script to be deployed on the fleet. Conflicts with `build_id`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -468,6 +469,9 @@ class _FleetState:
     @_builtins.property
     @pulumi.getter(name="logPaths")
     def log_paths(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of paths from which the fleet captures logs.
+        """
         return pulumi.get(self, "log_paths")
 
     @log_paths.setter
@@ -490,7 +494,7 @@ class _FleetState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the fleet.
+        Name of the fleet.
         """
         return pulumi.get(self, "name")
 
@@ -598,7 +602,7 @@ class _FleetState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -670,7 +674,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] fleet_type: Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
         :param pulumi.Input[_builtins.str] instance_role_arn: ARN of an IAM role that instances in the fleet can assume.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] metric_groups: List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
-        :param pulumi.Input[_builtins.str] name: The name of the fleet.
+        :param pulumi.Input[_builtins.str] name: Name of the fleet.
         :param pulumi.Input[_builtins.str] new_game_session_protection_policy: Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['FleetResourceCreationLimitPolicyArgs', 'FleetResourceCreationLimitPolicyArgsDict', 'outputs.FleetResourceCreationLimitPolicy']] resource_creation_limit_policy: Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
@@ -824,8 +828,9 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] ec2_instance_type: Name of an EC2 instance typeE.g., `t2.micro`
         :param pulumi.Input[_builtins.str] fleet_type: Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
         :param pulumi.Input[_builtins.str] instance_role_arn: ARN of an IAM role that instances in the fleet can assume.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] log_paths: List of paths from which the fleet captures logs.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] metric_groups: List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
-        :param pulumi.Input[_builtins.str] name: The name of the fleet.
+        :param pulumi.Input[_builtins.str] name: Name of the fleet.
         :param pulumi.Input[_builtins.str] new_game_session_protection_policy: Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
         :param pulumi.Input[_builtins.str] operating_system: Operating system of the fleet's computing resources.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -834,7 +839,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] script_arn: Script ARN.
         :param pulumi.Input[_builtins.str] script_id: ID of the GameLift Script to be deployed on the fleet. Conflicts with `build_id`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -938,6 +943,9 @@ class Fleet(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="logPaths")
     def log_paths(self) -> pulumi.Output[Sequence[_builtins.str]]:
+        """
+        List of paths from which the fleet captures logs.
+        """
         return pulumi.get(self, "log_paths")
 
     @_builtins.property
@@ -952,7 +960,7 @@ class Fleet(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the fleet.
+        Name of the fleet.
         """
         return pulumi.get(self, "name")
 
@@ -1024,7 +1032,7 @@ class Fleet(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

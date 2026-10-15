@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketV2Grant {
     /**
-     * @return Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
+     * @return Canonical user ID to grant for. Used only when `type` is `CanonicalUser`.
      * 
      */
     private @Nullable String id;
@@ -29,14 +29,14 @@ public final class BucketV2Grant {
      */
     private String type;
     /**
-     * @return Uri address to grant for. Used only when `type` is `Group`.
+     * @return URI address to grant for. Used only when `type` is `Group`.
      * 
      */
     private @Nullable String uri;
 
     private BucketV2Grant() {}
     /**
-     * @return Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
+     * @return Canonical user ID to grant for. Used only when `type` is `CanonicalUser`.
      * 
      */
     public Optional<String> id() {
@@ -57,7 +57,7 @@ public final class BucketV2Grant {
         return this.type;
     }
     /**
-     * @return Uri address to grant for. Used only when `type` is `Group`.
+     * @return URI address to grant for. Used only when `type` is `Group`.
      * 
      */
     public Optional<String> uri() {

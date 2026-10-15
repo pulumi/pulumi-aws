@@ -32,9 +32,9 @@ class MemberDetectorFeatureArgs:
 
         :param pulumi.Input[_builtins.str] account_id: Member account ID to be updated.
         :param pulumi.Input[_builtins.str] detector_id: Amazon GuardDuty detector ID.
-        :param pulumi.Input[_builtins.str] status: The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
+        :param pulumi.Input[_builtins.str] status: Status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
         :param pulumi.Input[Sequence[pulumi.Input['MemberDetectorFeatureAdditionalConfigurationArgs']]] additional_configurations: Additional feature configuration block. See below.
-        :param pulumi.Input[_builtins.str] name: The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+        :param pulumi.Input[_builtins.str] name: Name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "account_id", account_id)
@@ -75,7 +75,7 @@ class MemberDetectorFeatureArgs:
     @pulumi.getter
     def status(self) -> pulumi.Input[_builtins.str]:
         """
-        The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
+        Status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
         """
         return pulumi.get(self, "status")
 
@@ -99,7 +99,7 @@ class MemberDetectorFeatureArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+        Name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
         """
         return pulumi.get(self, "name")
 
@@ -135,9 +135,9 @@ class _MemberDetectorFeatureState:
         :param pulumi.Input[_builtins.str] account_id: Member account ID to be updated.
         :param pulumi.Input[Sequence[pulumi.Input['MemberDetectorFeatureAdditionalConfigurationArgs']]] additional_configurations: Additional feature configuration block. See below.
         :param pulumi.Input[_builtins.str] detector_id: Amazon GuardDuty detector ID.
-        :param pulumi.Input[_builtins.str] name: The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+        :param pulumi.Input[_builtins.str] name: Name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
+        :param pulumi.Input[_builtins.str] status: Status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -192,7 +192,7 @@ class _MemberDetectorFeatureState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+        Name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
         """
         return pulumi.get(self, "name")
 
@@ -216,7 +216,7 @@ class _MemberDetectorFeatureState:
     @pulumi.getter
     def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
+        Status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
         """
         return pulumi.get(self, "status")
 
@@ -288,9 +288,9 @@ class MemberDetectorFeature(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] account_id: Member account ID to be updated.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MemberDetectorFeatureAdditionalConfigurationArgs', 'MemberDetectorFeatureAdditionalConfigurationArgsDict', 'outputs.MemberDetectorFeatureAdditionalConfiguration']]]] additional_configurations: Additional feature configuration block. See below.
         :param pulumi.Input[_builtins.str] detector_id: Amazon GuardDuty detector ID.
-        :param pulumi.Input[_builtins.str] name: The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+        :param pulumi.Input[_builtins.str] name: Name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
+        :param pulumi.Input[_builtins.str] status: Status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
         """
         ...
     @overload
@@ -411,9 +411,9 @@ class MemberDetectorFeature(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] account_id: Member account ID to be updated.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MemberDetectorFeatureAdditionalConfigurationArgs', 'MemberDetectorFeatureAdditionalConfigurationArgsDict', 'outputs.MemberDetectorFeatureAdditionalConfiguration']]]] additional_configurations: Additional feature configuration block. See below.
         :param pulumi.Input[_builtins.str] detector_id: Amazon GuardDuty detector ID.
-        :param pulumi.Input[_builtins.str] name: The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+        :param pulumi.Input[_builtins.str] name: Name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
+        :param pulumi.Input[_builtins.str] status: Status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -455,7 +455,7 @@ class MemberDetectorFeature(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+        Name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
         """
         return pulumi.get(self, "name")
 
@@ -471,7 +471,7 @@ class MemberDetectorFeature(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
         """
-        The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
+        Status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
         """
         return pulumi.get(self, "status")
 

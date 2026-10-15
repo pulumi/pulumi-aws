@@ -155,14 +155,14 @@ public final class MaintenanceWindowTaskState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+     * The targets (either instances or window target IDs). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target IDs are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
      * 
      */
     @Import(name="targets")
     private @Nullable Output<List<MaintenanceWindowTaskTargetArgs>> targets;
 
     /**
-     * @return The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+     * @return The targets (either instances or window target IDs). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target IDs are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
      * 
      */
     public Optional<Output<List<MaintenanceWindowTaskTargetArgs>>> targets() {
@@ -215,14 +215,14 @@ public final class MaintenanceWindowTaskState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The Id of the maintenance window to register the task with.
+     * The ID of the maintenance window to register the task with.
      * 
      */
     @Import(name="windowId")
     private @Nullable Output<String> windowId;
 
     /**
-     * @return The Id of the maintenance window to register the task with.
+     * @return The ID of the maintenance window to register the task with.
      * 
      */
     public Optional<Output<String>> windowId() {
@@ -472,7 +472,7 @@ public final class MaintenanceWindowTaskState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param targets The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+         * @param targets The targets (either instances or window target IDs). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target IDs are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
          * 
          * @return builder
          * 
@@ -483,7 +483,7 @@ public final class MaintenanceWindowTaskState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param targets The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+         * @param targets The targets (either instances or window target IDs). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target IDs are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
          * 
          * @return builder
          * 
@@ -493,7 +493,7 @@ public final class MaintenanceWindowTaskState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param targets The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+         * @param targets The targets (either instances or window target IDs). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target IDs are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
          * 
          * @return builder
          * 
@@ -566,7 +566,7 @@ public final class MaintenanceWindowTaskState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param windowId The Id of the maintenance window to register the task with.
+         * @param windowId The ID of the maintenance window to register the task with.
          * 
          * @return builder
          * 
@@ -577,7 +577,7 @@ public final class MaintenanceWindowTaskState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param windowId The Id of the maintenance window to register the task with.
+         * @param windowId The ID of the maintenance window to register the task with.
          * 
          * @return builder
          * 

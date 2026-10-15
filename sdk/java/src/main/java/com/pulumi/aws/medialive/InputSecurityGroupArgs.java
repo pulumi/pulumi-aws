@@ -50,7 +50,7 @@ public final class InputSecurityGroupArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Whitelist rules. See Whitelist Rules for more details.
+     * Whitelist rules. See `whitelistRules` Block for more details.
      * 
      * The following arguments are optional:
      * 
@@ -59,7 +59,7 @@ public final class InputSecurityGroupArgs extends com.pulumi.resources.ResourceA
     private Output<List<InputSecurityGroupWhitelistRuleArgs>> whitelistRules;
 
     /**
-     * @return Whitelist rules. See Whitelist Rules for more details.
+     * @return Whitelist rules. See `whitelistRules` Block for more details.
      * 
      * The following arguments are optional:
      * 
@@ -137,7 +137,7 @@ public final class InputSecurityGroupArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param whitelistRules Whitelist rules. See Whitelist Rules for more details.
+         * @param whitelistRules Whitelist rules. See `whitelistRules` Block for more details.
          * 
          * The following arguments are optional:
          * 
@@ -150,7 +150,7 @@ public final class InputSecurityGroupArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param whitelistRules Whitelist rules. See Whitelist Rules for more details.
+         * @param whitelistRules Whitelist rules. See `whitelistRules` Block for more details.
          * 
          * The following arguments are optional:
          * 
@@ -162,7 +162,7 @@ public final class InputSecurityGroupArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param whitelistRules Whitelist rules. See Whitelist Rules for more details.
+         * @param whitelistRules Whitelist rules. See `whitelistRules` Block for more details.
          * 
          * The following arguments are optional:
          * 

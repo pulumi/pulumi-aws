@@ -12,21 +12,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings {
+    /**
+     * @return Group to which the audio rendition belongs.
+     * 
+     */
     private @Nullable String audioGroupId;
+    /**
+     * @return Image for an audio-only output. See `audioOnlyImage` Block for details.
+     * 
+     */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImage audioOnlyImage;
+    /**
+     * @return Four types of audio-only tracks.
+     * 
+     */
     private @Nullable String audioTrackType;
+    /**
+     * @return Whether the stream is an audio-only stream.
+     * 
+     */
     private @Nullable String segmentType;
 
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings() {}
+    /**
+     * @return Group to which the audio rendition belongs.
+     * 
+     */
     public Optional<String> audioGroupId() {
         return Optional.ofNullable(this.audioGroupId);
     }
+    /**
+     * @return Image for an audio-only output. See `audioOnlyImage` Block for details.
+     * 
+     */
     public Optional<ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImage> audioOnlyImage() {
         return Optional.ofNullable(this.audioOnlyImage);
     }
+    /**
+     * @return Four types of audio-only tracks.
+     * 
+     */
     public Optional<String> audioTrackType() {
         return Optional.ofNullable(this.audioTrackType);
     }
+    /**
+     * @return Whether the stream is an audio-only stream.
+     * 
+     */
     public Optional<String> segmentType() {
         return Optional.ofNullable(this.segmentType);
     }

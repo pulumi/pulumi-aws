@@ -14,11 +14,11 @@ namespace Pulumi.Aws.MskConnect.Outputs
     public sealed class ConnectorKafkaClusterApacheKafkaClusterVpc
     {
         /// <summary>
-        /// The security groups for the connector.
+        /// Security groups for the connector.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
         /// <summary>
-        /// The subnets for the connector.
+        /// Subnets for the connector.
         /// </summary>
         public readonly ImmutableArray<string> Subnets;
 

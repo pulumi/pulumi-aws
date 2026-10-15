@@ -30,7 +30,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// </summary>
         public readonly ImmutableArray<int> CheckpointPercentages;
         /// <summary>
-        /// Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
+        /// Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling group's health check grace period.
         /// </summary>
         public readonly string? InstanceWarmup;
         /// <summary>

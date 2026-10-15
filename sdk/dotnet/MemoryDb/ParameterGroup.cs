@@ -53,7 +53,7 @@ namespace Pulumi.Aws.MemoryDb
     public partial class ParameterGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the parameter group.
+        /// ARN of the parameter group.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.MemoryDb
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The engine version that the parameter group can be used with.
+        /// Engine version that the parameter group can be used with.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -97,13 +97,13 @@ namespace Pulumi.Aws.MemoryDb
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -161,7 +161,7 @@ namespace Pulumi.Aws.MemoryDb
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The engine version that the parameter group can be used with.
+        /// Engine version that the parameter group can be used with.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -202,7 +202,7 @@ namespace Pulumi.Aws.MemoryDb
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -219,7 +219,7 @@ namespace Pulumi.Aws.MemoryDb
     public sealed class ParameterGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the parameter group.
+        /// ARN of the parameter group.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -231,7 +231,7 @@ namespace Pulumi.Aws.MemoryDb
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The engine version that the parameter group can be used with.
+        /// Engine version that the parameter group can be used with.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -272,7 +272,7 @@ namespace Pulumi.Aws.MemoryDb
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -284,7 +284,7 @@ namespace Pulumi.Aws.MemoryDb
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

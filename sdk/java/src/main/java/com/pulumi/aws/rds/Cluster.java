@@ -1087,14 +1087,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableLocalWriteForwarding);
     }
     /**
-     * Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
+     * Set of log types to export to CloudWatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
      * 
      */
     @Export(name="enabledCloudwatchLogsExports", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> enabledCloudwatchLogsExports;
 
     /**
-     * @return Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
+     * @return Set of log types to export to CloudWatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
      * 
      */
     public Output<Optional<List<String>>> enabledCloudwatchLogsExports() {
@@ -1507,6 +1507,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      */
     public Output<String> preferredMaintenanceWindow() {
         return this.preferredMaintenanceWindow;
+    }
+    /**
+     * Whether the DB cluster is publicly accessible. Valid only for Multi-AZ DB clusters. If not specified, defaults to `true` when `dbSubnetGroupName` is not set or is `default`, and `false` otherwise. If `true`, the VPC of the DB subnet group must have an internet gateway attached. Cannot be used with `s3Import`.
+     * 
+     */
+    @Export(name="publiclyAccessible", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> publiclyAccessible;
+
+    /**
+     * @return Whether the DB cluster is publicly accessible. Valid only for Multi-AZ DB clusters. If not specified, defaults to `true` when `dbSubnetGroupName` is not set or is `default`, and `false` otherwise. If `true`, the VPC of the DB subnet group must have an internet gateway attached. Cannot be used with `s3Import`.
+     * 
+     */
+    public Output<Boolean> publiclyAccessible() {
+        return this.publiclyAccessible;
     }
     /**
      * Read-only endpoint for the Aurora cluster, automatically load-balanced across replicas

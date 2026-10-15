@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing AWS Bedrock Foundation Models.
+// Provides details about AWS Bedrock Foundation Models.
 //
 // ## Example Usage
 //
@@ -76,7 +76,7 @@ func GetModels(ctx *pulumi.Context, args *GetModelsArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getModels.
 type GetModelsArgs struct {
-	// Customization type to filter on. Valid values are `FINE_TUNING`.
+	// Customization type to filter on. Valid values are `FINE_TUNING`, `CONTINUED_PRE_TRAINING`, and `DISTILLATION`.
 	ByCustomizationType *string `pulumi:"byCustomizationType"`
 	// Inference type to filter on. Valid values are `ON_DEMAND` and `PROVISIONED`.
 	ByInferenceType *string `pulumi:"byInferenceType"`
@@ -108,7 +108,7 @@ func GetModelsOutput(ctx *pulumi.Context, args GetModelsOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getModels.
 type GetModelsOutputArgs struct {
-	// Customization type to filter on. Valid values are `FINE_TUNING`.
+	// Customization type to filter on. Valid values are `FINE_TUNING`, `CONTINUED_PRE_TRAINING`, and `DISTILLATION`.
 	ByCustomizationType pulumi.StringPtrInput `pulumi:"byCustomizationType"`
 	// Inference type to filter on. Valid values are `ON_DEMAND` and `PROVISIONED`.
 	ByInferenceType pulumi.StringPtrInput `pulumi:"byInferenceType"`

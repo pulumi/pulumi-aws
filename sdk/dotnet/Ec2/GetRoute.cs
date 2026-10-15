@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// ## Example Usage
         /// 
-        /// The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
+        /// The following example shows how one might use a CIDR value to find a network interface ID and use this to create a data source of that network interface.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// ## Example Usage
         /// 
-        /// The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
+        /// The following example shows how one might use a CIDR value to find a network interface ID and use this to create a data source of that network interface.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// ## Example Usage
         /// 
-        /// The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
+        /// The following example shows how one might use a CIDR value to find a network interface ID and use this to create a data source of that network interface.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;

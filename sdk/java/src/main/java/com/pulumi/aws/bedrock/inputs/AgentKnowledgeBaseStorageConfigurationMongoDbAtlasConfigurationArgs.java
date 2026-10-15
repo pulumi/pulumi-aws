@@ -78,14 +78,14 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
     }
 
     /**
-     * Name of the service that hosts the MongoDB Atlas database.
+     * Name of the VPC endpoint service in your account that is connected to your MongoDB Atlas cluster.
      * 
      */
     @Import(name="endpointServiceName")
     private @Nullable Output<String> endpointServiceName;
 
     /**
-     * @return Name of the service that hosts the MongoDB Atlas database.
+     * @return Name of the VPC endpoint service in your account that is connected to your MongoDB Atlas cluster.
      * 
      */
     public Optional<Output<String>> endpointServiceName() {
@@ -108,14 +108,14 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
     }
 
     /**
-     * Name of the vector index.
+     * Name of the text search index in the MongoDB collection. Required for hybrid search.
      * 
      */
     @Import(name="textIndexName")
     private @Nullable Output<String> textIndexName;
 
     /**
-     * @return Name of the vector index.
+     * @return Name of the text search index in the MongoDB collection. Required for hybrid search.
      * 
      */
     public Optional<Output<String>> textIndexName() {
@@ -253,7 +253,7 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
         }
 
         /**
-         * @param endpointServiceName Name of the service that hosts the MongoDB Atlas database.
+         * @param endpointServiceName Name of the VPC endpoint service in your account that is connected to your MongoDB Atlas cluster.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
         }
 
         /**
-         * @param endpointServiceName Name of the service that hosts the MongoDB Atlas database.
+         * @param endpointServiceName Name of the VPC endpoint service in your account that is connected to your MongoDB Atlas cluster.
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
         }
 
         /**
-         * @param textIndexName Name of the vector index.
+         * @param textIndexName Name of the text search index in the MongoDB collection. Required for hybrid search.
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
         }
 
         /**
-         * @param textIndexName Name of the vector index.
+         * @param textIndexName Name of the text search index in the MongoDB collection. Required for hybrid search.
          * 
          * @return builder
          * 

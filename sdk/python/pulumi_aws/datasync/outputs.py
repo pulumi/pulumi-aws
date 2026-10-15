@@ -186,7 +186,7 @@ class LocationFsxOntapFileSystemProtocol(dict):
                  smb: Optional['outputs.LocationFsxOntapFileSystemProtocolSmb'] = None):
         """
         :param 'LocationFsxOntapFileSystemProtocolNfsArgs' nfs: Network File System (NFS) protocol that DataSync uses to access your FSx ONTAP file system. See NFS below.
-        :param 'LocationFsxOntapFileSystemProtocolSmbArgs' smb: Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
+        :param 'LocationFsxOntapFileSystemProtocolSmbArgs' smb: Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See SMB below.
         """
         if nfs is not None:
             pulumi.set(__self__, "nfs", nfs)
@@ -205,7 +205,7 @@ class LocationFsxOntapFileSystemProtocol(dict):
     @pulumi.getter
     def smb(self) -> Optional['outputs.LocationFsxOntapFileSystemProtocolSmb']:
         """
-        Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
+        Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See SMB below.
         """
         return pulumi.get(self, "smb")
 

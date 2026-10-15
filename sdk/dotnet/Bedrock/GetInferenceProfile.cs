@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Bedrock
     public static class GetInferenceProfile
     {
         /// <summary>
-        /// Data source for managing an AWS Bedrock Inference Profile.
+        /// Provides details about an AWS Bedrock Inference Profile.
         /// 
         /// ## Example Usage
         /// 
@@ -26,11 +26,11 @@ namespace Pulumi.Aws.Bedrock
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Aws.Bedrock.GetInferenceProfiles.Invoke();
+        ///     var example = Aws.Bedrock.GetInferenceProfiles.Invoke();
         /// 
-        ///     var testGetInferenceProfile = Aws.Bedrock.GetInferenceProfile.Invoke(new()
+        ///     var exampleGetInferenceProfile = Aws.Bedrock.GetInferenceProfile.Invoke(new()
         ///     {
-        ///         InferenceProfileId = test.Apply(getInferenceProfilesResult =&gt; getInferenceProfilesResult.InferenceProfileSummaries[0]?.InferenceProfileId),
+        ///         InferenceProfileId = example.Apply(getInferenceProfilesResult =&gt; getInferenceProfilesResult.InferenceProfileSummaries[0]?.InferenceProfileId),
         ///     });
         /// 
         /// });
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Bedrock
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInferenceProfileResult>("aws:bedrock/getInferenceProfile:getInferenceProfile", args ?? new GetInferenceProfileArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data source for managing an AWS Bedrock Inference Profile.
+        /// Provides details about an AWS Bedrock Inference Profile.
         /// 
         /// ## Example Usage
         /// 
@@ -54,11 +54,11 @@ namespace Pulumi.Aws.Bedrock
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Aws.Bedrock.GetInferenceProfiles.Invoke();
+        ///     var example = Aws.Bedrock.GetInferenceProfiles.Invoke();
         /// 
-        ///     var testGetInferenceProfile = Aws.Bedrock.GetInferenceProfile.Invoke(new()
+        ///     var exampleGetInferenceProfile = Aws.Bedrock.GetInferenceProfile.Invoke(new()
         ///     {
-        ///         InferenceProfileId = test.Apply(getInferenceProfilesResult =&gt; getInferenceProfilesResult.InferenceProfileSummaries[0]?.InferenceProfileId),
+        ///         InferenceProfileId = example.Apply(getInferenceProfilesResult =&gt; getInferenceProfilesResult.InferenceProfileSummaries[0]?.InferenceProfileId),
         ///     });
         /// 
         /// });
@@ -68,7 +68,7 @@ namespace Pulumi.Aws.Bedrock
             => global::Pulumi.Deployment.Instance.Invoke<GetInferenceProfileResult>("aws:bedrock/getInferenceProfile:getInferenceProfile", args ?? new GetInferenceProfileInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data source for managing an AWS Bedrock Inference Profile.
+        /// Provides details about an AWS Bedrock Inference Profile.
         /// 
         /// ## Example Usage
         /// 
@@ -82,11 +82,11 @@ namespace Pulumi.Aws.Bedrock
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Aws.Bedrock.GetInferenceProfiles.Invoke();
+        ///     var example = Aws.Bedrock.GetInferenceProfiles.Invoke();
         /// 
-        ///     var testGetInferenceProfile = Aws.Bedrock.GetInferenceProfile.Invoke(new()
+        ///     var exampleGetInferenceProfile = Aws.Bedrock.GetInferenceProfile.Invoke(new()
         ///     {
-        ///         InferenceProfileId = test.Apply(getInferenceProfilesResult =&gt; getInferenceProfilesResult.InferenceProfileSummaries[0]?.InferenceProfileId),
+        ///         InferenceProfileId = example.Apply(getInferenceProfilesResult =&gt; getInferenceProfilesResult.InferenceProfileSummaries[0]?.InferenceProfileId),
         ///     });
         /// 
         /// });
@@ -155,7 +155,7 @@ namespace Pulumi.Aws.Bedrock
         public readonly string InferenceProfileArn;
         public readonly string InferenceProfileId;
         /// <summary>
-        /// Unique identifier of the inference profile.
+        /// Name of the inference profile.
         /// </summary>
         public readonly string InferenceProfileName;
         /// <summary>

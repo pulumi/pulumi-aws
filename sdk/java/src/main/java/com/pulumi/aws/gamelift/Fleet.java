@@ -204,9 +204,17 @@ public class Fleet extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> instanceRoleArn() {
         return Codegen.optional(this.instanceRoleArn);
     }
+    /**
+     * List of paths from which the fleet captures logs.
+     * 
+     */
     @Export(name="logPaths", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> logPaths;
 
+    /**
+     * @return List of paths from which the fleet captures logs.
+     * 
+     */
     public Output<List<String>> logPaths() {
         return this.logPaths;
     }
@@ -225,14 +233,14 @@ public class Fleet extends com.pulumi.resources.CustomResource {
         return this.metricGroups;
     }
     /**
-     * The name of the fleet.
+     * Name of the fleet.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the fleet.
+     * @return Name of the fleet.
      * 
      */
     public Output<String> name() {
@@ -351,14 +359,14 @@ public class Fleet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

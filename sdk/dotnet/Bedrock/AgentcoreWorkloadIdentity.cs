@@ -66,12 +66,12 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// #### Required
     /// 
-    /// * `Name` - (String) Name of the workload identity.
+    /// * `Name` (String) Name of the workload identity.
     /// 
     /// #### Optional
     /// 
-    /// * `AccountId` - (String) AWS Account where this resource is managed.
-    /// * `Region` - (String) Region where this resource is managed.
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
     /// 
     /// Using `pulumi import`, import Bedrock AgentCore Workload Identity using the workload identity name. For example:
     /// 

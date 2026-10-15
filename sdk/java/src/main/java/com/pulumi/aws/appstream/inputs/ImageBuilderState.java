@@ -52,14 +52,14 @@ public final class ImageBuilderState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN of the appstream image builder.
+     * ARN of the AppStream image builder.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return ARN of the appstream image builder.
+     * @return ARN of the AppStream image builder.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -389,7 +389,7 @@ public final class ImageBuilderState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of the appstream image builder.
+         * @param arn ARN of the AppStream image builder.
          * 
          * @return builder
          * 
@@ -400,7 +400,7 @@ public final class ImageBuilderState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of the appstream image builder.
+         * @param arn ARN of the AppStream image builder.
          * 
          * @return builder
          * 

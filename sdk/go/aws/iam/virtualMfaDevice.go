@@ -70,7 +70,7 @@ type VirtualMfaDevice struct {
 	QrCodePng pulumi.StringOutput `pulumi:"qrCodePng"`
 	// Serial number associated with the virtual MFA device.
 	SerialNumber pulumi.StringOutput `pulumi:"serialNumber"`
-	// Map of resource tags for the virtual mfa device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags for the virtual MFA device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -125,7 +125,7 @@ type virtualMfaDeviceState struct {
 	QrCodePng *string `pulumi:"qrCodePng"`
 	// Serial number associated with the virtual MFA device.
 	SerialNumber *string `pulumi:"serialNumber"`
-	// Map of resource tags for the virtual mfa device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags for the virtual MFA device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -148,7 +148,7 @@ type VirtualMfaDeviceState struct {
 	QrCodePng pulumi.StringPtrInput
 	// Serial number associated with the virtual MFA device.
 	SerialNumber pulumi.StringPtrInput
-	// Map of resource tags for the virtual mfa device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags for the virtual MFA device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -165,7 +165,7 @@ func (VirtualMfaDeviceState) ElementType() reflect.Type {
 type virtualMfaDeviceArgs struct {
 	// Path for the virtual MFA device.
 	Path *string `pulumi:"path"`
-	// Map of resource tags for the virtual mfa device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags for the virtual MFA device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
 	VirtualMfaDeviceName string `pulumi:"virtualMfaDeviceName"`
@@ -175,7 +175,7 @@ type virtualMfaDeviceArgs struct {
 type VirtualMfaDeviceArgs struct {
 	// Path for the virtual MFA device.
 	Path pulumi.StringPtrInput
-	// Map of resource tags for the virtual mfa device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags for the virtual MFA device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
 	VirtualMfaDeviceName pulumi.StringInput
@@ -298,7 +298,7 @@ func (o VirtualMfaDeviceOutput) SerialNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualMfaDevice) pulumi.StringOutput { return v.SerialNumber }).(pulumi.StringOutput)
 }
 
-// Map of resource tags for the virtual mfa device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of resource tags for the virtual MFA device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VirtualMfaDeviceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VirtualMfaDevice) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

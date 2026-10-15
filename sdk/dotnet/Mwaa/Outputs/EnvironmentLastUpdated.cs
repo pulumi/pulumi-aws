@@ -14,12 +14,15 @@ namespace Pulumi.Aws.Mwaa.Outputs
     public sealed class EnvironmentLastUpdated
     {
         /// <summary>
-        /// The Created At date of the MWAA Environment
+        /// Date and time the environment was last updated.
         /// </summary>
         public readonly string? CreatedAt;
+        /// <summary>
+        /// Error that occurred during the last update, if any. See `last_updated.error` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.EnvironmentLastUpdatedError> Errors;
         /// <summary>
-        /// The status of the Amazon MWAA Environment
+        /// Status of the last update.
         /// </summary>
         public readonly string? Status;
 

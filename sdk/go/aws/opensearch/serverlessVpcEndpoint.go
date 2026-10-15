@@ -59,7 +59,7 @@ import (
 // * `accountId` (String) AWS Account where this resource is managed.
 // * `region` (String) Region where this resource is managed.
 //
-// Using `pulumi import`, import OpenSearchServerless Vpc Endpoint using the `id`. For example:
+// Using `pulumi import`, import OpenSearchServerless VPC Endpoint using the `id`. For example:
 //
 // ```sh
 // $ pulumi import aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint example vpce-8012925589

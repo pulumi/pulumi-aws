@@ -67,27 +67,25 @@ type CustomRoutingAccelerator struct {
 
 	// ARN of the custom accelerator.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The attributes of the accelerator. Fields documented below.
+	// Configuration block with accelerator attributes. See `attributes` below.
 	Attributes CustomRoutingAcceleratorAttributesPtrOutput `pulumi:"attributes"`
-	// The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
+	// DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
-	// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
+	// Whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// -  The Global Accelerator Route 53 zone ID that can be used to
-	//    route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-	//    is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+	// Global Accelerator Route 53 zone ID used to route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the accelerator. This is an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
 	HostedZoneId pulumi.StringOutput `pulumi:"hostedZoneId"`
-	// The IP address type that an accelerator supports. For a custom routing accelerator, the value must be `"IPV4"`.
+	// IP address type that an accelerator supports. For a custom routing accelerator, the value must be `"IPV4"`.
 	IpAddressType pulumi.StringPtrOutput `pulumi:"ipAddressType"`
-	// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+	// IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
 	IpAddresses pulumi.StringArrayOutput `pulumi:"ipAddresses"`
-	// IP address set associated with the accelerator.
+	// IP address set associated with the accelerator. See `ipSets` below.
 	IpSets CustomRoutingAcceleratorIpSetArrayOutput `pulumi:"ipSets"`
-	// The name of a custom routing accelerator.
+	// Name of a custom routing accelerator.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -123,54 +121,50 @@ func GetCustomRoutingAccelerator(ctx *pulumi.Context,
 type customRoutingAcceleratorState struct {
 	// ARN of the custom accelerator.
 	Arn *string `pulumi:"arn"`
-	// The attributes of the accelerator. Fields documented below.
+	// Configuration block with accelerator attributes. See `attributes` below.
 	Attributes *CustomRoutingAcceleratorAttributes `pulumi:"attributes"`
-	// The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
+	// DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
 	DnsName *string `pulumi:"dnsName"`
-	// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
+	// Whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
 	Enabled *bool `pulumi:"enabled"`
-	// -  The Global Accelerator Route 53 zone ID that can be used to
-	//    route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-	//    is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+	// Global Accelerator Route 53 zone ID used to route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the accelerator. This is an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
 	HostedZoneId *string `pulumi:"hostedZoneId"`
-	// The IP address type that an accelerator supports. For a custom routing accelerator, the value must be `"IPV4"`.
+	// IP address type that an accelerator supports. For a custom routing accelerator, the value must be `"IPV4"`.
 	IpAddressType *string `pulumi:"ipAddressType"`
-	// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+	// IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
 	IpAddresses []string `pulumi:"ipAddresses"`
-	// IP address set associated with the accelerator.
+	// IP address set associated with the accelerator. See `ipSets` below.
 	IpSets []CustomRoutingAcceleratorIpSet `pulumi:"ipSets"`
-	// The name of a custom routing accelerator.
+	// Name of a custom routing accelerator.
 	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type CustomRoutingAcceleratorState struct {
 	// ARN of the custom accelerator.
 	Arn pulumi.StringPtrInput
-	// The attributes of the accelerator. Fields documented below.
+	// Configuration block with accelerator attributes. See `attributes` below.
 	Attributes CustomRoutingAcceleratorAttributesPtrInput
-	// The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
+	// DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
 	DnsName pulumi.StringPtrInput
-	// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
+	// Whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
 	Enabled pulumi.BoolPtrInput
-	// -  The Global Accelerator Route 53 zone ID that can be used to
-	//    route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-	//    is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+	// Global Accelerator Route 53 zone ID used to route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the accelerator. This is an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
 	HostedZoneId pulumi.StringPtrInput
-	// The IP address type that an accelerator supports. For a custom routing accelerator, the value must be `"IPV4"`.
+	// IP address type that an accelerator supports. For a custom routing accelerator, the value must be `"IPV4"`.
 	IpAddressType pulumi.StringPtrInput
-	// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+	// IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
 	IpAddresses pulumi.StringArrayInput
-	// IP address set associated with the accelerator.
+	// IP address set associated with the accelerator. See `ipSets` below.
 	IpSets CustomRoutingAcceleratorIpSetArrayInput
-	// The name of a custom routing accelerator.
+	// Name of a custom routing accelerator.
 	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -179,33 +173,33 @@ func (CustomRoutingAcceleratorState) ElementType() reflect.Type {
 }
 
 type customRoutingAcceleratorArgs struct {
-	// The attributes of the accelerator. Fields documented below.
+	// Configuration block with accelerator attributes. See `attributes` below.
 	Attributes *CustomRoutingAcceleratorAttributes `pulumi:"attributes"`
-	// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
+	// Whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
 	Enabled *bool `pulumi:"enabled"`
-	// The IP address type that an accelerator supports. For a custom routing accelerator, the value must be `"IPV4"`.
+	// IP address type that an accelerator supports. For a custom routing accelerator, the value must be `"IPV4"`.
 	IpAddressType *string `pulumi:"ipAddressType"`
-	// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+	// IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
 	IpAddresses []string `pulumi:"ipAddresses"`
-	// The name of a custom routing accelerator.
+	// Name of a custom routing accelerator.
 	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CustomRoutingAccelerator resource.
 type CustomRoutingAcceleratorArgs struct {
-	// The attributes of the accelerator. Fields documented below.
+	// Configuration block with accelerator attributes. See `attributes` below.
 	Attributes CustomRoutingAcceleratorAttributesPtrInput
-	// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
+	// Whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
 	Enabled pulumi.BoolPtrInput
-	// The IP address type that an accelerator supports. For a custom routing accelerator, the value must be `"IPV4"`.
+	// IP address type that an accelerator supports. For a custom routing accelerator, the value must be `"IPV4"`.
 	IpAddressType pulumi.StringPtrInput
-	// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+	// IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
 	IpAddresses pulumi.StringArrayInput
-	// The name of a custom routing accelerator.
+	// Name of a custom routing accelerator.
 	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -301,54 +295,52 @@ func (o CustomRoutingAcceleratorOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomRoutingAccelerator) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The attributes of the accelerator. Fields documented below.
+// Configuration block with accelerator attributes. See `attributes` below.
 func (o CustomRoutingAcceleratorOutput) Attributes() CustomRoutingAcceleratorAttributesPtrOutput {
 	return o.ApplyT(func(v *CustomRoutingAccelerator) CustomRoutingAcceleratorAttributesPtrOutput { return v.Attributes }).(CustomRoutingAcceleratorAttributesPtrOutput)
 }
 
-// The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
+// DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
 func (o CustomRoutingAcceleratorOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomRoutingAccelerator) pulumi.StringOutput { return v.DnsName }).(pulumi.StringOutput)
 }
 
-// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
+// Whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
 func (o CustomRoutingAcceleratorOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CustomRoutingAccelerator) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-//   - The Global Accelerator Route 53 zone ID that can be used to
-//     route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-//     is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+// Global Accelerator Route 53 zone ID used to route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the accelerator. This is an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
 func (o CustomRoutingAcceleratorOutput) HostedZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomRoutingAccelerator) pulumi.StringOutput { return v.HostedZoneId }).(pulumi.StringOutput)
 }
 
-// The IP address type that an accelerator supports. For a custom routing accelerator, the value must be `"IPV4"`.
+// IP address type that an accelerator supports. For a custom routing accelerator, the value must be `"IPV4"`.
 func (o CustomRoutingAcceleratorOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomRoutingAccelerator) pulumi.StringPtrOutput { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }
 
-// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+// IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
 func (o CustomRoutingAcceleratorOutput) IpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CustomRoutingAccelerator) pulumi.StringArrayOutput { return v.IpAddresses }).(pulumi.StringArrayOutput)
 }
 
-// IP address set associated with the accelerator.
+// IP address set associated with the accelerator. See `ipSets` below.
 func (o CustomRoutingAcceleratorOutput) IpSets() CustomRoutingAcceleratorIpSetArrayOutput {
 	return o.ApplyT(func(v *CustomRoutingAccelerator) CustomRoutingAcceleratorIpSetArrayOutput { return v.IpSets }).(CustomRoutingAcceleratorIpSetArrayOutput)
 }
 
-// The name of a custom routing accelerator.
+// Name of a custom routing accelerator.
 func (o CustomRoutingAcceleratorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomRoutingAccelerator) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CustomRoutingAcceleratorOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CustomRoutingAccelerator) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o CustomRoutingAcceleratorOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CustomRoutingAccelerator) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

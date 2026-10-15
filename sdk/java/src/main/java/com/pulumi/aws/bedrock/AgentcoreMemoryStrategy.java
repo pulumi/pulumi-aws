@@ -22,11 +22,7 @@ import javax.annotation.Nullable;
 /**
  * Manages an AWS Bedrock AgentCore Memory Strategy. Memory strategies define how the agent processes and organizes information within a memory, such as semantic understanding, summarization, or custom processing logic.
  * 
- * **Important Limitations:**
- * 
- * - Each memory can have a maximum of 6 strategies total
- * - Only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory
- * - Multiple `CUSTOM` strategies are allowed (subject to the total limit of 6)
+ * &gt; **Note:** Each memory can have a maximum of 6 strategies. Only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory. Multiple `CUSTOM` strategies are allowed, subject to the total limit of 6.
  * 
  * ## Example Usage
  * 
@@ -55,7 +51,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var semantic = new AgentcoreMemoryStrategy("semantic", AgentcoreMemoryStrategyArgs.builder()
- *             .name("semantic-strategy")
+ *             .name("semantic_strategy")
  *             .memoryId(example.id())
  *             .type("SEMANTIC")
  *             .description("Semantic understanding strategy")
@@ -92,7 +88,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var summary = new AgentcoreMemoryStrategy("summary", AgentcoreMemoryStrategyArgs.builder()
- *             .name("summary-strategy")
+ *             .name("summary_strategy")
  *             .memoryId(example.id())
  *             .type("SUMMARIZATION")
  *             .description("Text summarization strategy")
@@ -129,7 +125,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var userPref = new AgentcoreMemoryStrategy("userPref", AgentcoreMemoryStrategyArgs.builder()
- *             .name("user-preference-strategy")
+ *             .name("user_preference_strategy")
  *             .memoryId(example.id())
  *             .type("USER_PREFERENCE")
  *             .description("User preference tracking strategy")
@@ -166,7 +162,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var episodic = new AgentcoreMemoryStrategy("episodic", AgentcoreMemoryStrategyArgs.builder()
- *             .name("episodic-strategy")
+ *             .name("episodic_strategy")
  *             .memoryId(example.id())
  *             .type("EPISODIC")
  *             .description("Episodic memory strategy")
@@ -217,7 +213,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .type("SEMANTIC_OVERRIDE")
  *                 .build())
- *             .name("custom-semantic-strategy")
+ *             .name("custom_semantic_strategy")
  *             .memoryId(example.id())
  *             .memoryExecutionRoleArn(example.memoryExecutionRoleArn())
  *             .type("CUSTOM")
@@ -264,7 +260,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .type("SUMMARY_OVERRIDE")
  *                 .build())
- *             .name("custom-summary-strategy")
+ *             .name("custom_summary_strategy")
  *             .memoryId(example.id())
  *             .type("CUSTOM")
  *             .description("Custom summarization strategy")
@@ -315,7 +311,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .type("USER_PREFERENCE_OVERRIDE")
  *                 .build())
- *             .name("custom-user-preference-strategy")
+ *             .name("custom_user_preference_strategy")
  *             .memoryId(example.id())
  *             .type("CUSTOM")
  *             .description("Custom user preference tracking strategy")
@@ -341,6 +337,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreMemoryStrategyConfigurationArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreMemoryStrategyConfigurationConsolidationArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreMemoryStrategyConfigurationExtractionArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreMemoryStrategyConfigurationReflectionArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -364,9 +361,14 @@ import javax.annotation.Nullable;
  *                     .appendToPrompt("Extract key events and episodes from interactions")
  *                     .modelId("anthropic.claude-3-haiku-20240307-v1:0")
  *                     .build())
+ *                 .reflection(AgentcoreMemoryStrategyConfigurationReflectionArgs.builder()
+ *                     .appendToPrompt("Reflect on episodes to derive cross-session insights")
+ *                     .modelId("anthropic.claude-3-sonnet-20240229-v1:0")
+ *                     .namespaceTemplates("/strategies/{memoryStrategyId}/actors/{actorId}")
+ *                     .build())
  *                 .type("EPISODIC_OVERRIDE")
  *                 .build())
- *             .name("custom-episodic-strategy")
+ *             .name("custom_episodic_strategy")
  *             .memoryId(example.id())
  *             .memoryExecutionRoleArn(example.memoryExecutionRoleArn())
  *             .type("CUSTOM")
@@ -391,56 +393,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.bedrock.AgentcoreMemoryStrategy;
  * import com.pulumi.aws.bedrock.AgentcoreMemoryStrategyArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreMemoryStrategyConfigurationArgs;
- * import java.util.ArrayList;
- * import java.util.Arrays;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var selfManaged = new AgentcoreMemoryStrategy("selfManaged", AgentcoreMemoryStrategyArgs.builder()
- *             .configuration(AgentcoreMemoryStrategyConfigurationArgs.builder()
- *                 .selfManaged(Arrays.asList(Map.ofEntries(
- *                     Map.entry("invocationConfiguration", Arrays.asList(Map.ofEntries(
- *                         Map.entry("topicArn", example.arn()),
- *                         Map.entry("payloadDeliveryBucketName", exampleAwsS3Bucket.bucket())
- *                     ))),
- *                     Map.entry("triggerConditions", Arrays.asList(Map.of("messageBasedTrigger", Arrays.asList(Map.of("messageCount", 12))))),
- *                     Map.entry("historicalContextWindowSize", 10)
- *                 )))
- *                 .type("SELF_MANAGED")
- *                 .build())
- *             .name("self-managed-strategy")
- *             .memoryId(exampleAwsBedrockagentcoreMemory.id())
- *             .memoryExecutionRoleArn(exampleAwsBedrockagentcoreMemory.memoryExecutionRoleArn())
- *             .type("CUSTOM")
- *             .description("Self-managed processing strategy")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * 
- * ### Custom Strategy with Self-Managed Configuration
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.bedrock.AgentcoreMemoryStrategy;
- * import com.pulumi.aws.bedrock.AgentcoreMemoryStrategyArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentcoreMemoryStrategyConfigurationArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
@@ -458,16 +413,20 @@ import javax.annotation.Nullable;
  *         var selfManaged = new AgentcoreMemoryStrategy("selfManaged", AgentcoreMemoryStrategyArgs.builder()
  *             .configuration(AgentcoreMemoryStrategyConfigurationArgs.builder()
  *                 .selfManagedConfiguration(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationArgs.builder()
+ *                     .triggerConditions(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsArgs.builder()
+ *                         .messageBasedTrigger(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTriggerArgs.builder()
+ *                             .messageCount(12)
+ *                             .build())
+ *                         .build())
  *                     .invocationConfiguration(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfigurationArgs.builder()
  *                         .topicArn(example.arn())
  *                         .payloadDeliveryBucketName(exampleAwsS3Bucket.bucket())
  *                         .build())
- *                     .triggerCondition(Arrays.asList(Map.of("messageBasedTrigger", Arrays.asList(Map.of("messageCount", 12)))))
  *                     .historicalContextWindowSize(10)
  *                     .build())
  *                 .type("SELF_MANAGED")
  *                 .build())
- *             .name("self-managed-strategy")
+ *             .name("self_managed_strategy")
  *             .memoryId(exampleAwsBedrockagentcoreMemory.id())
  *             .memoryExecutionRoleArn(exampleAwsBedrockagentcoreMemory.memoryExecutionRoleArn())
  *             .type("CUSTOM")
@@ -490,7 +449,7 @@ import javax.annotation.Nullable;
  * 
  * #### Optional
  * 
- * * `accountId` (String) Account ID where this resource is managed.
+ * * `accountId` (String) AWS Account where this resource is managed.
  * * `region` (String) Region where this resource is managed.
  * 
  * Using `pulumi import`, import memory strategies using `memoryId` and `memoryStrategyId` separated by a comma (`,`). For example:
@@ -605,21 +564,21 @@ public class AgentcoreMemoryStrategy extends com.pulumi.resources.CustomResource
         return this.name;
     }
     /**
-     * Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured for all strategies except `CUSTOM` strategies using `SELF_MANAGED` configuration.
+     * Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured, except for `CUSTOM` strategies using `SELF_MANAGED` configuration, where neither can be configured.
      * 
      */
     @Export(name="namespaceTemplates", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> namespaceTemplates;
 
     /**
-     * @return Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured for all strategies except `CUSTOM` strategies using `SELF_MANAGED` configuration.
+     * @return Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured, except for `CUSTOM` strategies using `SELF_MANAGED` configuration, where neither can be configured.
      * 
      */
     public Output<List<String>> namespaceTemplates() {
         return this.namespaceTemplates;
     }
     /**
-     * Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
+     * Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured, except for `CUSTOM` strategies using `SELF_MANAGED` configuration, where neither can be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
      * 
      * @deprecated
      * namespaces is deprecated. Use namespaceTemplates instead.
@@ -630,7 +589,7 @@ public class AgentcoreMemoryStrategy extends com.pulumi.resources.CustomResource
     private Output<List<String>> namespaces;
 
     /**
-     * @return Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
+     * @return Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured, except for `CUSTOM` strategies using `SELF_MANAGED` configuration, where neither can be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
      * 
      */
     public Output<List<String>> namespaces() {

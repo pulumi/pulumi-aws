@@ -104,7 +104,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### With multiple Security profile ids specified in securityProfileIds
+ * ### With multiple Security profile IDs specified in securityProfileIds
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -205,7 +205,7 @@ export class User extends pulumi.CustomResource {
      */
     declare public readonly routingProfileId: pulumi.Output<string>;
     /**
-     * A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
+     * A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile IDs. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
      */
     declare public readonly securityProfileIds: pulumi.Output<string[]>;
     /**
@@ -330,7 +330,7 @@ export interface UserState {
      */
     routingProfileId?: pulumi.Input<string | undefined>;
     /**
-     * A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
+     * A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile IDs. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
      */
     securityProfileIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -389,7 +389,7 @@ export interface UserArgs {
      */
     routingProfileId: pulumi.Input<string>;
     /**
-     * A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
+     * A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile IDs. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
      */
     securityProfileIds: pulumi.Input<pulumi.Input<string>[]>;
     /**

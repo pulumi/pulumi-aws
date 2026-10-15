@@ -363,7 +363,7 @@ class AgentPrompt(pulumi.CustomResource):
                  variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentPromptVariantArgs', 'AgentPromptVariantArgsDict', 'outputs.AgentPromptVariant']]]]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Bedrock Agents Prompt.
+        Manages an AWS Bedrock Agents Prompt.
 
         ## Example Usage
 
@@ -441,7 +441,7 @@ class AgentPrompt(pulumi.CustomResource):
                  args: Optional[AgentPromptArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Bedrock Agents Prompt.
+        Manages an AWS Bedrock Agents Prompt.
 
         ## Example Usage
 

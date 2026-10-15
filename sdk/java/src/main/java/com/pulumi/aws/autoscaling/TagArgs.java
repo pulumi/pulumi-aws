@@ -18,14 +18,14 @@ public final class TagArgs extends com.pulumi.resources.ResourceArgs {
     public static final TagArgs Empty = new TagArgs();
 
     /**
-     * Name of the Autoscaling Group to apply the tag to.
+     * Name of the Auto Scaling group to apply the tag to.
      * 
      */
     @Import(name="autoscalingGroupName", required=true)
     private Output<String> autoscalingGroupName;
 
     /**
-     * @return Name of the Autoscaling Group to apply the tag to.
+     * @return Name of the Auto Scaling group to apply the tag to.
      * 
      */
     public Output<String> autoscalingGroupName() {
@@ -89,7 +89,7 @@ public final class TagArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoscalingGroupName Name of the Autoscaling Group to apply the tag to.
+         * @param autoscalingGroupName Name of the Auto Scaling group to apply the tag to.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class TagArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoscalingGroupName Name of the Autoscaling Group to apply the tag to.
+         * @param autoscalingGroupName Name of the Auto Scaling group to apply the tag to.
          * 
          * @return builder
          * 

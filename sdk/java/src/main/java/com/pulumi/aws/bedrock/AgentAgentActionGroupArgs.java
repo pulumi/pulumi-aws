@@ -161,14 +161,14 @@ public final class AgentAgentActionGroupArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+     * Whether to prepare the agent after creation or modification. Defaults to `true`.
      * 
      */
     @Import(name="prepareAgent")
     private @Nullable Output<Boolean> prepareAgent;
 
     /**
-     * @return Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+     * @return Whether to prepare the agent after creation or modification. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> prepareAgent() {
@@ -191,14 +191,14 @@ public final class AgentAgentActionGroupArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Whether the in-use check is skipped when deleting the action group.
+     * Whether to skip the in-use check when deleting the action group. Defaults to `false`.
      * 
      */
     @Import(name="skipResourceInUseCheck")
     private @Nullable Output<Boolean> skipResourceInUseCheck;
 
     /**
-     * @return Whether the in-use check is skipped when deleting the action group.
+     * @return Whether to skip the in-use check when deleting the action group. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> skipResourceInUseCheck() {
@@ -442,7 +442,7 @@ public final class AgentAgentActionGroupArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param prepareAgent Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+         * @param prepareAgent Whether to prepare the agent after creation or modification. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -453,7 +453,7 @@ public final class AgentAgentActionGroupArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param prepareAgent Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+         * @param prepareAgent Whether to prepare the agent after creation or modification. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -484,7 +484,7 @@ public final class AgentAgentActionGroupArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param skipResourceInUseCheck Whether the in-use check is skipped when deleting the action group.
+         * @param skipResourceInUseCheck Whether to skip the in-use check when deleting the action group. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -495,7 +495,7 @@ public final class AgentAgentActionGroupArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param skipResourceInUseCheck Whether the in-use check is skipped when deleting the action group.
+         * @param skipResourceInUseCheck Whether to skip the in-use check when deleting the action group. Defaults to `false`.
          * 
          * @return builder
          * 

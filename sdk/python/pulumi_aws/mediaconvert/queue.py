@@ -32,14 +32,14 @@ class QueueArgs:
         """
         The set of arguments for constructing a Queue resource.
 
-        :param pulumi.Input[_builtins.int] concurrent_jobs: The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
-        :param pulumi.Input[_builtins.str] description: A description of the queue
-        :param pulumi.Input[_builtins.str] name: A unique identifier describing the queue
-        :param pulumi.Input[_builtins.str] pricing_plan: Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
+        :param pulumi.Input[_builtins.int] concurrent_jobs: Maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+        :param pulumi.Input[_builtins.str] description: Description of the queue
+        :param pulumi.Input[_builtins.str] name: Unique identifier describing the queue
+        :param pulumi.Input[_builtins.str] pricing_plan: Whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['QueueReservationPlanSettingsArgs'] reservation_plan_settings: A detail pricing plan of the  reserved queue. See below.
-        :param pulumi.Input[_builtins.str] status: A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input['QueueReservationPlanSettingsArgs'] reservation_plan_settings: Detail pricing plan of the reserved queue. See below.
+        :param pulumi.Input[_builtins.str] status: Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if concurrent_jobs is not None:
             pulumi.set(__self__, "concurrent_jobs", concurrent_jobs)
@@ -62,7 +62,7 @@ class QueueArgs:
     @pulumi.getter(name="concurrentJobs")
     def concurrent_jobs(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+        Maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
         """
         return pulumi.get(self, "concurrent_jobs")
 
@@ -74,7 +74,7 @@ class QueueArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A description of the queue
+        Description of the queue
         """
         return pulumi.get(self, "description")
 
@@ -86,7 +86,7 @@ class QueueArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A unique identifier describing the queue
+        Unique identifier describing the queue
         """
         return pulumi.get(self, "name")
 
@@ -98,7 +98,7 @@ class QueueArgs:
     @pulumi.getter(name="pricingPlan")
     def pricing_plan(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
+        Whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
         """
         return pulumi.get(self, "pricing_plan")
 
@@ -122,7 +122,7 @@ class QueueArgs:
     @pulumi.getter(name="reservationPlanSettings")
     def reservation_plan_settings(self) -> pulumi.Input[Optional['QueueReservationPlanSettingsArgs']]:
         """
-        A detail pricing plan of the  reserved queue. See below.
+        Detail pricing plan of the reserved queue. See below.
         """
         return pulumi.get(self, "reservation_plan_settings")
 
@@ -134,7 +134,7 @@ class QueueArgs:
     @pulumi.getter
     def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+        Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
         """
         return pulumi.get(self, "status")
 
@@ -146,7 +146,7 @@ class QueueArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -171,16 +171,16 @@ class _QueueState:
         """
         Input properties used for looking up and filtering Queue resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Arn of the queue
-        :param pulumi.Input[_builtins.int] concurrent_jobs: The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
-        :param pulumi.Input[_builtins.str] description: A description of the queue
-        :param pulumi.Input[_builtins.str] name: A unique identifier describing the queue
-        :param pulumi.Input[_builtins.str] pricing_plan: Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
+        :param pulumi.Input[_builtins.str] arn: ARN of the queue
+        :param pulumi.Input[_builtins.int] concurrent_jobs: Maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+        :param pulumi.Input[_builtins.str] description: Description of the queue
+        :param pulumi.Input[_builtins.str] name: Unique identifier describing the queue
+        :param pulumi.Input[_builtins.str] pricing_plan: Whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['QueueReservationPlanSettingsArgs'] reservation_plan_settings: A detail pricing plan of the  reserved queue. See below.
-        :param pulumi.Input[_builtins.str] status: A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input['QueueReservationPlanSettingsArgs'] reservation_plan_settings: Detail pricing plan of the reserved queue. See below.
+        :param pulumi.Input[_builtins.str] status: Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -207,7 +207,7 @@ class _QueueState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Arn of the queue
+        ARN of the queue
         """
         return pulumi.get(self, "arn")
 
@@ -219,7 +219,7 @@ class _QueueState:
     @pulumi.getter(name="concurrentJobs")
     def concurrent_jobs(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+        Maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
         """
         return pulumi.get(self, "concurrent_jobs")
 
@@ -231,7 +231,7 @@ class _QueueState:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A description of the queue
+        Description of the queue
         """
         return pulumi.get(self, "description")
 
@@ -243,7 +243,7 @@ class _QueueState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A unique identifier describing the queue
+        Unique identifier describing the queue
         """
         return pulumi.get(self, "name")
 
@@ -255,7 +255,7 @@ class _QueueState:
     @pulumi.getter(name="pricingPlan")
     def pricing_plan(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
+        Whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
         """
         return pulumi.get(self, "pricing_plan")
 
@@ -279,7 +279,7 @@ class _QueueState:
     @pulumi.getter(name="reservationPlanSettings")
     def reservation_plan_settings(self) -> pulumi.Input[Optional['QueueReservationPlanSettingsArgs']]:
         """
-        A detail pricing plan of the  reserved queue. See below.
+        Detail pricing plan of the reserved queue. See below.
         """
         return pulumi.get(self, "reservation_plan_settings")
 
@@ -291,7 +291,7 @@ class _QueueState:
     @pulumi.getter
     def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+        Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
         """
         return pulumi.get(self, "status")
 
@@ -303,7 +303,7 @@ class _QueueState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -315,7 +315,7 @@ class _QueueState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -362,14 +362,14 @@ class Queue(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] concurrent_jobs: The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
-        :param pulumi.Input[_builtins.str] description: A description of the queue
-        :param pulumi.Input[_builtins.str] name: A unique identifier describing the queue
-        :param pulumi.Input[_builtins.str] pricing_plan: Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
+        :param pulumi.Input[_builtins.int] concurrent_jobs: Maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+        :param pulumi.Input[_builtins.str] description: Description of the queue
+        :param pulumi.Input[_builtins.str] name: Unique identifier describing the queue
+        :param pulumi.Input[_builtins.str] pricing_plan: Whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['QueueReservationPlanSettingsArgs', 'QueueReservationPlanSettingsArgsDict', 'outputs.QueueReservationPlanSettings']] reservation_plan_settings: A detail pricing plan of the  reserved queue. See below.
-        :param pulumi.Input[_builtins.str] status: A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Union['QueueReservationPlanSettingsArgs', 'QueueReservationPlanSettingsArgsDict', 'outputs.QueueReservationPlanSettings']] reservation_plan_settings: Detail pricing plan of the reserved queue. See below.
+        :param pulumi.Input[_builtins.str] status: Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -467,16 +467,16 @@ class Queue(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Arn of the queue
-        :param pulumi.Input[_builtins.int] concurrent_jobs: The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
-        :param pulumi.Input[_builtins.str] description: A description of the queue
-        :param pulumi.Input[_builtins.str] name: A unique identifier describing the queue
-        :param pulumi.Input[_builtins.str] pricing_plan: Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
+        :param pulumi.Input[_builtins.str] arn: ARN of the queue
+        :param pulumi.Input[_builtins.int] concurrent_jobs: Maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+        :param pulumi.Input[_builtins.str] description: Description of the queue
+        :param pulumi.Input[_builtins.str] name: Unique identifier describing the queue
+        :param pulumi.Input[_builtins.str] pricing_plan: Whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['QueueReservationPlanSettingsArgs', 'QueueReservationPlanSettingsArgsDict', 'outputs.QueueReservationPlanSettings']] reservation_plan_settings: A detail pricing plan of the  reserved queue. See below.
-        :param pulumi.Input[_builtins.str] status: A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Union['QueueReservationPlanSettingsArgs', 'QueueReservationPlanSettingsArgsDict', 'outputs.QueueReservationPlanSettings']] reservation_plan_settings: Detail pricing plan of the reserved queue. See below.
+        :param pulumi.Input[_builtins.str] status: Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -498,7 +498,7 @@ class Queue(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Arn of the queue
+        ARN of the queue
         """
         return pulumi.get(self, "arn")
 
@@ -506,7 +506,7 @@ class Queue(pulumi.CustomResource):
     @pulumi.getter(name="concurrentJobs")
     def concurrent_jobs(self) -> pulumi.Output[_builtins.int]:
         """
-        The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+        Maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
         """
         return pulumi.get(self, "concurrent_jobs")
 
@@ -514,7 +514,7 @@ class Queue(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        A description of the queue
+        Description of the queue
         """
         return pulumi.get(self, "description")
 
@@ -522,7 +522,7 @@ class Queue(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        A unique identifier describing the queue
+        Unique identifier describing the queue
         """
         return pulumi.get(self, "name")
 
@@ -530,7 +530,7 @@ class Queue(pulumi.CustomResource):
     @pulumi.getter(name="pricingPlan")
     def pricing_plan(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
+        Whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
         """
         return pulumi.get(self, "pricing_plan")
 
@@ -546,7 +546,7 @@ class Queue(pulumi.CustomResource):
     @pulumi.getter(name="reservationPlanSettings")
     def reservation_plan_settings(self) -> pulumi.Output['outputs.QueueReservationPlanSettings']:
         """
-        A detail pricing plan of the  reserved queue. See below.
+        Detail pricing plan of the reserved queue. See below.
         """
         return pulumi.get(self, "reservation_plan_settings")
 
@@ -554,7 +554,7 @@ class Queue(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+        Status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
         """
         return pulumi.get(self, "status")
 
@@ -562,7 +562,7 @@ class Queue(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -570,7 +570,7 @@ class Queue(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

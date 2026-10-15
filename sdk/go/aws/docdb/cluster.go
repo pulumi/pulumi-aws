@@ -94,7 +94,7 @@ type Cluster struct {
 	DbSubnetGroupName pulumi.StringOutput `pulumi:"dbSubnetGroupName"`
 	// A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. Defaults to `false`.
 	DeletionProtection pulumi.BoolPtrOutput `pulumi:"deletionProtection"`
-	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
+	// List of log types to export to CloudWatch. If omitted, no logs will be exported.
 	// The following log types are supported: `audit`, `profiler`.
 	EnabledCloudwatchLogsExports pulumi.StringArrayOutput `pulumi:"enabledCloudwatchLogsExports"`
 	// The DNS address of the DocumentDB instance
@@ -231,7 +231,7 @@ type clusterState struct {
 	DbSubnetGroupName *string `pulumi:"dbSubnetGroupName"`
 	// A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. Defaults to `false`.
 	DeletionProtection *bool `pulumi:"deletionProtection"`
-	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
+	// List of log types to export to CloudWatch. If omitted, no logs will be exported.
 	// The following log types are supported: `audit`, `profiler`.
 	EnabledCloudwatchLogsExports []string `pulumi:"enabledCloudwatchLogsExports"`
 	// The DNS address of the DocumentDB instance
@@ -328,7 +328,7 @@ type ClusterState struct {
 	DbSubnetGroupName pulumi.StringPtrInput
 	// A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. Defaults to `false`.
 	DeletionProtection pulumi.BoolPtrInput
-	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
+	// List of log types to export to CloudWatch. If omitted, no logs will be exported.
 	// The following log types are supported: `audit`, `profiler`.
 	EnabledCloudwatchLogsExports pulumi.StringArrayInput
 	// The DNS address of the DocumentDB instance
@@ -425,7 +425,7 @@ type clusterArgs struct {
 	DbSubnetGroupName *string `pulumi:"dbSubnetGroupName"`
 	// A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. Defaults to `false`.
 	DeletionProtection *bool `pulumi:"deletionProtection"`
-	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
+	// List of log types to export to CloudWatch. If omitted, no logs will be exported.
 	// The following log types are supported: `audit`, `profiler`.
 	EnabledCloudwatchLogsExports []string `pulumi:"enabledCloudwatchLogsExports"`
 	// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
@@ -510,7 +510,7 @@ type ClusterArgs struct {
 	DbSubnetGroupName pulumi.StringPtrInput
 	// A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. Defaults to `false`.
 	DeletionProtection pulumi.BoolPtrInput
-	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
+	// List of log types to export to CloudWatch. If omitted, no logs will be exported.
 	// The following log types are supported: `audit`, `profiler`.
 	EnabledCloudwatchLogsExports pulumi.StringArrayInput
 	// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
@@ -720,7 +720,7 @@ func (o ClusterOutput) DeletionProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.DeletionProtection }).(pulumi.BoolPtrOutput)
 }
 
-// List of log types to export to cloudwatch. If omitted, no logs will be exported.
+// List of log types to export to CloudWatch. If omitted, no logs will be exported.
 // The following log types are supported: `audit`, `profiler`.
 func (o ClusterOutput) EnabledCloudwatchLogsExports() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.EnabledCloudwatchLogsExports }).(pulumi.StringArrayOutput)

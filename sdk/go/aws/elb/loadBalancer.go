@@ -133,7 +133,7 @@ type LoadBalancer struct {
 	HealthCheck LoadBalancerHealthCheckOutput `pulumi:"healthCheck"`
 	// The time in seconds that the connection is allowed to be idle. Default: `60`
 	IdleTimeout pulumi.IntPtrOutput `pulumi:"idleTimeout"`
-	// A list of instance ids to place in the ELB pool.
+	// A list of instance IDs to place in the ELB pool.
 	Instances pulumi.StringArrayOutput `pulumi:"instances"`
 	// If true, ELB will be an internal ELB.
 	Internal pulumi.BoolOutput `pulumi:"internal"`
@@ -229,7 +229,7 @@ type loadBalancerState struct {
 	HealthCheck *LoadBalancerHealthCheck `pulumi:"healthCheck"`
 	// The time in seconds that the connection is allowed to be idle. Default: `60`
 	IdleTimeout *int `pulumi:"idleTimeout"`
-	// A list of instance ids to place in the ELB pool.
+	// A list of instance IDs to place in the ELB pool.
 	Instances []string `pulumi:"instances"`
 	// If true, ELB will be an internal ELB.
 	Internal *bool `pulumi:"internal"`
@@ -287,7 +287,7 @@ type LoadBalancerState struct {
 	HealthCheck LoadBalancerHealthCheckPtrInput
 	// The time in seconds that the connection is allowed to be idle. Default: `60`
 	IdleTimeout pulumi.IntPtrInput
-	// A list of instance ids to place in the ELB pool.
+	// A list of instance IDs to place in the ELB pool.
 	Instances pulumi.StringArrayInput
 	// If true, ELB will be an internal ELB.
 	Internal pulumi.BoolPtrInput
@@ -345,7 +345,7 @@ type loadBalancerArgs struct {
 	HealthCheck *LoadBalancerHealthCheck `pulumi:"healthCheck"`
 	// The time in seconds that the connection is allowed to be idle. Default: `60`
 	IdleTimeout *int `pulumi:"idleTimeout"`
-	// A list of instance ids to place in the ELB pool.
+	// A list of instance IDs to place in the ELB pool.
 	Instances []string `pulumi:"instances"`
 	// If true, ELB will be an internal ELB.
 	Internal *bool `pulumi:"internal"`
@@ -392,7 +392,7 @@ type LoadBalancerArgs struct {
 	HealthCheck LoadBalancerHealthCheckPtrInput
 	// The time in seconds that the connection is allowed to be idle. Default: `60`
 	IdleTimeout pulumi.IntPtrInput
-	// A list of instance ids to place in the ELB pool.
+	// A list of instance IDs to place in the ELB pool.
 	Instances pulumi.StringArrayInput
 	// If true, ELB will be an internal ELB.
 	Internal pulumi.BoolPtrInput
@@ -558,7 +558,7 @@ func (o LoadBalancerOutput) IdleTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.IntPtrOutput { return v.IdleTimeout }).(pulumi.IntPtrOutput)
 }
 
-// A list of instance ids to place in the ELB pool.
+// A list of instance IDs to place in the ELB pool.
 func (o LoadBalancerOutput) Instances() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringArrayOutput { return v.Instances }).(pulumi.StringArrayOutput)
 }

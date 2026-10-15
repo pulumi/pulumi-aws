@@ -40,7 +40,7 @@ export interface GetQueueArgs {
      */
     region?: string;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tags?: {[key: string]: string};
 }
@@ -50,21 +50,21 @@ export interface GetQueueArgs {
  */
 export interface GetQueueResult {
     /**
-     * The Arn of the queue.
+     * ARN of the queue.
      */
     readonly arn: string;
     readonly id: string;
     /**
-     * The same as `id`.
+     * Same as `id`.
      */
     readonly name: string;
     readonly region: string;
     /**
-     * The status of the queue.
+     * Status of the queue.
      */
     readonly status: string;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     readonly tags: {[key: string]: string};
 }
@@ -104,7 +104,7 @@ export interface GetQueueOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

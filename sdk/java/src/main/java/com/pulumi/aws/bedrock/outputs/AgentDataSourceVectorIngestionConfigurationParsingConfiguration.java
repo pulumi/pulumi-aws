@@ -25,7 +25,7 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
      */
     private @Nullable AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration bedrockFoundationModelConfiguration;
     /**
-     * @return Parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
+     * @return Parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`, `SMART_PARSING`, `MULTI_MODAL_EMBEDDINGS`.
      * 
      */
     private String parsingStrategy;
@@ -46,7 +46,7 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
         return Optional.ofNullable(this.bedrockFoundationModelConfiguration);
     }
     /**
-     * @return Parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
+     * @return Parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`, `SMART_PARSING`, `MULTI_MODAL_EMBEDDINGS`.
      * 
      */
     public String parsingStrategy() {

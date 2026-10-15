@@ -219,7 +219,7 @@ namespace Pulumi.Aws.MemoryDb
         /// </summary>
         public readonly string NodeType;
         /// <summary>
-        /// The number of replicas to apply to each shard.
+        /// Number of replicas to apply to each shard.
         /// </summary>
         public readonly int NumReplicasPerShard;
         /// <summary>
@@ -227,7 +227,7 @@ namespace Pulumi.Aws.MemoryDb
         /// </summary>
         public readonly int NumShards;
         /// <summary>
-        /// The name of the parameter group associated with the cluster.
+        /// Name of the parameter group associated with the cluster.
         /// </summary>
         public readonly string ParameterGroupName;
         /// <summary>
@@ -244,7 +244,7 @@ namespace Pulumi.Aws.MemoryDb
         /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterShardResult> Shards;
         /// <summary>
-        /// The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled.
+        /// Number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled.
         /// </summary>
         public readonly int SnapshotRetentionLimit;
         /// <summary>
@@ -256,7 +256,7 @@ namespace Pulumi.Aws.MemoryDb
         /// </summary>
         public readonly string SnsTopicArn;
         /// <summary>
-        /// The name of the subnet group used for the cluster.
+        /// Name of the subnet group used for the cluster.
         /// </summary>
         public readonly string SubnetGroupName;
         /// <summary>

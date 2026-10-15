@@ -137,7 +137,7 @@ namespace Pulumi.Aws.Ssm
     /// });
     /// ```
     /// 
-    /// ### Create an association with multiple instances with their instance ids
+    /// ### Create an association with multiple instances with their instance IDs
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

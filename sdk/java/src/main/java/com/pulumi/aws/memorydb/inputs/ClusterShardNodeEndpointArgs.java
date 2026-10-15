@@ -32,14 +32,14 @@ public final class ClusterShardNodeEndpointArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The port number on which each of the nodes accepts connections. Defaults to `6379`.
+     * Port number on which each of the nodes accepts connections. Defaults to `6379`.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return The port number on which each of the nodes accepts connections. Defaults to `6379`.
+     * @return Port number on which each of the nodes accepts connections. Defaults to `6379`.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -93,7 +93,7 @@ public final class ClusterShardNodeEndpointArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param port The port number on which each of the nodes accepts connections. Defaults to `6379`.
+         * @param port Port number on which each of the nodes accepts connections. Defaults to `6379`.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ClusterShardNodeEndpointArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param port The port number on which each of the nodes accepts connections. Defaults to `6379`.
+         * @param port Port number on which each of the nodes accepts connections. Defaults to `6379`.
          * 
          * @return builder
          * 

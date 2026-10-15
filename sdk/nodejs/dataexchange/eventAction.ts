@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Data Exchange Event Action using the id. For example:
+ * Using `pulumi import`, import Data Exchange Event Action using the ID. For example:
  *
  * ```sh
  * $ pulumi import aws:dataexchange/eventAction:EventAction example example-event-action-id

@@ -146,7 +146,7 @@ export class Pipeline extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly pipelineArn: pulumi.Output<string>;
     /**
-     * The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with `\n`.
+     * The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a `.yaml` file. If you provide the configuration as a string, each new line must be escaped with `\n`.
      */
     declare public readonly pipelineConfigurationBody: pulumi.Output<string>;
     /**
@@ -270,7 +270,7 @@ export interface PipelineState {
      */
     pipelineArn?: pulumi.Input<string | undefined>;
     /**
-     * The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with `\n`.
+     * The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a `.yaml` file. If you provide the configuration as a string, each new line must be escaped with `\n`.
      */
     pipelineConfigurationBody?: pulumi.Input<string | undefined>;
     /**
@@ -324,7 +324,7 @@ export interface PipelineArgs {
      */
     minUnits: pulumi.Input<number>;
     /**
-     * The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with `\n`.
+     * The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a `.yaml` file. If you provide the configuration as a string, each new line must be escaped with `\n`.
      */
     pipelineConfigurationBody: pulumi.Input<string>;
     /**

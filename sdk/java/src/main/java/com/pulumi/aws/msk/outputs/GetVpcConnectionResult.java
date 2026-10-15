@@ -14,12 +14,12 @@ import java.util.Objects;
 public final class GetVpcConnectionResult {
     private String arn;
     /**
-     * @return The authentication type for the client VPC Connection.
+     * @return Authentication type for the client VPC Connection.
      * 
      */
     private String authentication;
     /**
-     * @return The list of subnets in the client VPC.
+     * @return List of subnets in the client VPC.
      * 
      */
     private List<String> clientSubnets;
@@ -30,7 +30,7 @@ public final class GetVpcConnectionResult {
     private String id;
     private String region;
     /**
-     * @return The security groups attached to the ENIs for the broker nodes.
+     * @return Security groups attached to the ENIs for the broker nodes.
      * 
      */
     private List<String> securityGroups;
@@ -45,7 +45,7 @@ public final class GetVpcConnectionResult {
      */
     private String targetClusterArn;
     /**
-     * @return The VPC ID of the remote client.
+     * @return VPC ID of the remote client.
      * 
      */
     private String vpcId;
@@ -55,14 +55,14 @@ public final class GetVpcConnectionResult {
         return this.arn;
     }
     /**
-     * @return The authentication type for the client VPC Connection.
+     * @return Authentication type for the client VPC Connection.
      * 
      */
     public String authentication() {
         return this.authentication;
     }
     /**
-     * @return The list of subnets in the client VPC.
+     * @return List of subnets in the client VPC.
      * 
      */
     public List<String> clientSubnets() {
@@ -79,7 +79,7 @@ public final class GetVpcConnectionResult {
         return this.region;
     }
     /**
-     * @return The security groups attached to the ENIs for the broker nodes.
+     * @return Security groups attached to the ENIs for the broker nodes.
      * 
      */
     public List<String> securityGroups() {
@@ -100,7 +100,7 @@ public final class GetVpcConnectionResult {
         return this.targetClusterArn;
     }
     /**
-     * @return The VPC ID of the remote client.
+     * @return VPC ID of the remote client.
      * 
      */
     public String vpcId() {

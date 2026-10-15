@@ -71,7 +71,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws.appstream.Stack` using the id. For example:
+ * Using `pulumi import`, import `aws.appstream.Stack` using the ID. For example:
  *
  * ```sh
  * $ pulumi import aws:appstream/stack:Stack example stackID
@@ -114,7 +114,7 @@ export class Stack extends pulumi.CustomResource {
      */
     declare public readonly applicationSettings: pulumi.Output<outputs.appstream.StackApplicationSettings>;
     /**
-     * ARN of the appstream stack.
+     * ARN of the AppStream stack.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -235,7 +235,7 @@ export interface StackState {
      */
     applicationSettings?: pulumi.Input<inputs.appstream.StackApplicationSettings | undefined>;
     /**
-     * ARN of the appstream stack.
+     * ARN of the AppStream stack.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

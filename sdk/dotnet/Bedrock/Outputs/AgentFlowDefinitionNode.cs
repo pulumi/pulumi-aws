@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly Outputs.AgentFlowDefinitionNodeConfiguration? Configuration;
         /// <summary>
-        /// Configurations for an input flow node in your flow. The node `Inputs` can't be specified for this node. This block has no arguments.
+        /// Configurations for an input flow node in your flow. The `definition.node.input` block can't be specified for this node. This block has no arguments.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentFlowDefinitionNodeInput> Inputs;
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Configurations for an output flow node in your flow. The node `Outputs` can't be specified for this node. This block has no arguments.
+        /// Configurations for an output flow node in your flow. The `definition.node.output` block can't be specified for this node. This block has no arguments.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentFlowDefinitionNodeOutput> Outputs;
         /// <summary>

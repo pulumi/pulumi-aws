@@ -624,7 +624,7 @@ type Cluster struct {
 	EnableHttpEndpoint pulumi.BoolPtrOutput `pulumi:"enableHttpEndpoint"`
 	// Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
 	EnableLocalWriteForwarding pulumi.BoolPtrOutput `pulumi:"enableLocalWriteForwarding"`
-	// Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
+	// Set of log types to export to CloudWatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
 	EnabledCloudwatchLogsExports pulumi.StringArrayOutput `pulumi:"enabledCloudwatchLogsExports"`
 	// DNS address of the RDS instance
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
@@ -685,6 +685,8 @@ type Cluster struct {
 	PreferredBackupWindow pulumi.StringOutput `pulumi:"preferredBackupWindow"`
 	// Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
 	PreferredMaintenanceWindow pulumi.StringOutput `pulumi:"preferredMaintenanceWindow"`
+	// Whether the DB cluster is publicly accessible. Valid only for Multi-AZ DB clusters. If not specified, defaults to `true` when `dbSubnetGroupName` is not set or is `default`, and `false` otherwise. If `true`, the VPC of the DB subnet group must have an internet gateway attached. Cannot be used with `s3Import`.
+	PubliclyAccessible pulumi.BoolOutput `pulumi:"publiclyAccessible"`
 	// Read-only endpoint for the Aurora cluster, automatically load-balanced across replicas
 	ReaderEndpoint pulumi.StringOutput `pulumi:"readerEndpoint"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -824,7 +826,7 @@ type clusterState struct {
 	EnableHttpEndpoint *bool `pulumi:"enableHttpEndpoint"`
 	// Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
 	EnableLocalWriteForwarding *bool `pulumi:"enableLocalWriteForwarding"`
-	// Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
+	// Set of log types to export to CloudWatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
 	EnabledCloudwatchLogsExports []string `pulumi:"enabledCloudwatchLogsExports"`
 	// DNS address of the RDS instance
 	Endpoint *string `pulumi:"endpoint"`
@@ -885,6 +887,8 @@ type clusterState struct {
 	PreferredBackupWindow *string `pulumi:"preferredBackupWindow"`
 	// Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
+	// Whether the DB cluster is publicly accessible. Valid only for Multi-AZ DB clusters. If not specified, defaults to `true` when `dbSubnetGroupName` is not set or is `default`, and `false` otherwise. If `true`, the VPC of the DB subnet group must have an internet gateway attached. Cannot be used with `s3Import`.
+	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// Read-only endpoint for the Aurora cluster, automatically load-balanced across replicas
 	ReaderEndpoint *string `pulumi:"readerEndpoint"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -981,7 +985,7 @@ type ClusterState struct {
 	EnableHttpEndpoint pulumi.BoolPtrInput
 	// Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
 	EnableLocalWriteForwarding pulumi.BoolPtrInput
-	// Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
+	// Set of log types to export to CloudWatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
 	EnabledCloudwatchLogsExports pulumi.StringArrayInput
 	// DNS address of the RDS instance
 	Endpoint pulumi.StringPtrInput
@@ -1042,6 +1046,8 @@ type ClusterState struct {
 	PreferredBackupWindow pulumi.StringPtrInput
 	// Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
 	PreferredMaintenanceWindow pulumi.StringPtrInput
+	// Whether the DB cluster is publicly accessible. Valid only for Multi-AZ DB clusters. If not specified, defaults to `true` when `dbSubnetGroupName` is not set or is `default`, and `false` otherwise. If `true`, the VPC of the DB subnet group must have an internet gateway attached. Cannot be used with `s3Import`.
+	PubliclyAccessible pulumi.BoolPtrInput
 	// Read-only endpoint for the Aurora cluster, automatically load-balanced across replicas
 	ReaderEndpoint pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -1136,7 +1142,7 @@ type clusterArgs struct {
 	EnableHttpEndpoint *bool `pulumi:"enableHttpEndpoint"`
 	// Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
 	EnableLocalWriteForwarding *bool `pulumi:"enableLocalWriteForwarding"`
-	// Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
+	// Set of log types to export to CloudWatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
 	EnabledCloudwatchLogsExports []string `pulumi:"enabledCloudwatchLogsExports"`
 	// Name of the database engine to be used for this DB cluster. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
 	Engine string `pulumi:"engine"`
@@ -1189,6 +1195,8 @@ type clusterArgs struct {
 	PreferredBackupWindow *string `pulumi:"preferredBackupWindow"`
 	// Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
+	// Whether the DB cluster is publicly accessible. Valid only for Multi-AZ DB clusters. If not specified, defaults to `true` when `dbSubnetGroupName` is not set or is `default`, and `false` otherwise. If `true`, the VPC of the DB subnet group must have an internet gateway attached. Cannot be used with `s3Import`.
+	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. **Note:** Removing this attribute after creation will promote the read replica to a standalone cluster. If DB Cluster is part of a Global Cluster, use the `ignoreChanges` resource option to prevent Pulumi from showing differences for this argument instead of configuring this value.
@@ -1274,7 +1282,7 @@ type ClusterArgs struct {
 	EnableHttpEndpoint pulumi.BoolPtrInput
 	// Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
 	EnableLocalWriteForwarding pulumi.BoolPtrInput
-	// Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
+	// Set of log types to export to CloudWatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
 	EnabledCloudwatchLogsExports pulumi.StringArrayInput
 	// Name of the database engine to be used for this DB cluster. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
 	Engine pulumi.StringInput
@@ -1327,6 +1335,8 @@ type ClusterArgs struct {
 	PreferredBackupWindow pulumi.StringPtrInput
 	// Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
 	PreferredMaintenanceWindow pulumi.StringPtrInput
+	// Whether the DB cluster is publicly accessible. Valid only for Multi-AZ DB clusters. If not specified, defaults to `true` when `dbSubnetGroupName` is not set or is `default`, and `false` otherwise. If `true`, the VPC of the DB subnet group must have an internet gateway attached. Cannot be used with `s3Import`.
+	PubliclyAccessible pulumi.BoolPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. **Note:** Removing this attribute after creation will promote the read replica to a standalone cluster. If DB Cluster is part of a Global Cluster, use the `ignoreChanges` resource option to prevent Pulumi from showing differences for this argument instead of configuring this value.
@@ -1593,7 +1603,7 @@ func (o ClusterOutput) EnableLocalWriteForwarding() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.EnableLocalWriteForwarding }).(pulumi.BoolPtrOutput)
 }
 
-// Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
+// Set of log types to export to CloudWatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `iam-db-auth-error`, `instance`, `postgresql` (PostgreSQL), `slowquery`.
 func (o ClusterOutput) EnabledCloudwatchLogsExports() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.EnabledCloudwatchLogsExports }).(pulumi.StringArrayOutput)
 }
@@ -1742,6 +1752,11 @@ func (o ClusterOutput) PreferredBackupWindow() pulumi.StringOutput {
 // Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
 func (o ClusterOutput) PreferredMaintenanceWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringOutput)
+}
+
+// Whether the DB cluster is publicly accessible. Valid only for Multi-AZ DB clusters. If not specified, defaults to `true` when `dbSubnetGroupName` is not set or is `default`, and `false` otherwise. If `true`, the VPC of the DB subnet group must have an internet gateway attached. Cannot be used with `s3Import`.
+func (o ClusterOutput) PubliclyAccessible() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolOutput { return v.PubliclyAccessible }).(pulumi.BoolOutput)
 }
 
 // Read-only endpoint for the Aurora cluster, automatically load-balanced across replicas

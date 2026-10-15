@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentFlowDefinitionNodeInputGetArgs>? _inputs;
 
         /// <summary>
-        /// Configurations for an input flow node in your flow. The node `Inputs` can't be specified for this node. This block has no arguments.
+        /// Configurations for an input flow node in your flow. The `definition.node.input` block can't be specified for this node. This block has no arguments.
         /// </summary>
         public InputList<Inputs.AgentFlowDefinitionNodeInputGetArgs> Inputs
         {
@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentFlowDefinitionNodeOutputGetArgs>? _outputs;
 
         /// <summary>
-        /// Configurations for an output flow node in your flow. The node `Outputs` can't be specified for this node. This block has no arguments.
+        /// Configurations for an output flow node in your flow. The `definition.node.output` block can't be specified for this node. This block has no arguments.
         /// </summary>
         public InputList<Inputs.AgentFlowDefinitionNodeOutputGetArgs> Outputs
         {

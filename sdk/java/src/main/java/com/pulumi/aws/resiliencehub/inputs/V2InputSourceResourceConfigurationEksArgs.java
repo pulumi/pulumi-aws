@@ -3,12 +3,15 @@
 
 package com.pulumi.aws.resiliencehub.inputs;
 
+import com.pulumi.aws.resiliencehub.inputs.V2InputSourceResourceConfigurationEksLabelSelectorArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class V2InputSourceResourceConfigurationEksArgs extends com.pulumi.resources.ResourceArgs {
@@ -31,6 +34,21 @@ public final class V2InputSourceResourceConfigurationEksArgs extends com.pulumi.
     }
 
     /**
+     * Kubernetes label selector that narrows discovery to the objects whose labels match. When omitted, all supported objects in the selected namespaces are discovered. See `labelSelector` Block below.
+     * 
+     */
+    @Import(name="labelSelector")
+    private @Nullable Output<V2InputSourceResourceConfigurationEksLabelSelectorArgs> labelSelector;
+
+    /**
+     * @return Kubernetes label selector that narrows discovery to the objects whose labels match. When omitted, all supported objects in the selected namespaces are discovered. See `labelSelector` Block below.
+     * 
+     */
+    public Optional<Output<V2InputSourceResourceConfigurationEksLabelSelectorArgs>> labelSelector() {
+        return Optional.ofNullable(this.labelSelector);
+    }
+
+    /**
      * List of Kubernetes namespaces within the EKS cluster.
      * 
      */
@@ -49,6 +67,7 @@ public final class V2InputSourceResourceConfigurationEksArgs extends com.pulumi.
 
     private V2InputSourceResourceConfigurationEksArgs(V2InputSourceResourceConfigurationEksArgs $) {
         this.clusterArn = $.clusterArn;
+        this.labelSelector = $.labelSelector;
         this.namespaces = $.namespaces;
     }
 
@@ -89,6 +108,27 @@ public final class V2InputSourceResourceConfigurationEksArgs extends com.pulumi.
          */
         public Builder clusterArn(String clusterArn) {
             return clusterArn(Output.of(clusterArn));
+        }
+
+        /**
+         * @param labelSelector Kubernetes label selector that narrows discovery to the objects whose labels match. When omitted, all supported objects in the selected namespaces are discovered. See `labelSelector` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder labelSelector(@Nullable Output<V2InputSourceResourceConfigurationEksLabelSelectorArgs> labelSelector) {
+            $.labelSelector = labelSelector;
+            return this;
+        }
+
+        /**
+         * @param labelSelector Kubernetes label selector that narrows discovery to the objects whose labels match. When omitted, all supported objects in the selected namespaces are discovered. See `labelSelector` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder labelSelector(V2InputSourceResourceConfigurationEksLabelSelectorArgs labelSelector) {
+            return labelSelector(Output.of(labelSelector));
         }
 
         /**

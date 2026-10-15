@@ -320,23 +320,26 @@ namespace Pulumi.Aws.Msk
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Current version of the MSK Replicator.
+        /// </summary>
         [Output("currentVersion")]
         public Output<string> CurrentVersion { get; private set; } = null!;
 
         /// <summary>
-        /// A summary description of the replicator.
+        /// Summary description of the replicator.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
+        /// Source and target Kafka clusters for the replicator. Exactly two blocks are required. See `KafkaCluster` Block below.
         /// </summary>
         [Output("kafkaClusters")]
         public Output<ImmutableArray<Outputs.ReplicatorKafkaCluster>> KafkaClusters { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for delivering replicator logs to customer destinations. Detailed below.
+        /// Configuration block for delivering replicator logs to customer destinations. See `LogDelivery` Block below.
         /// </summary>
         [Output("logDelivery")]
         public Output<Outputs.ReplicatorLogDelivery?> LogDelivery { get; private set; } = null!;
@@ -348,31 +351,31 @@ namespace Pulumi.Aws.Msk
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
+        /// List of replication configurations, where each configuration targets a given source cluster to target cluster replication flow. See `ReplicationInfoList` Block below.
         /// </summary>
         [Output("replicationInfoList")]
         public Output<Outputs.ReplicatorReplicationInfoList> ReplicationInfoList { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the replicator.
+        /// Name of the replicator.
         /// </summary>
         [Output("replicatorName")]
         public Output<string> ReplicatorName { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
+        /// ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
         /// </summary>
         [Output("serviceExecutionRoleArn")]
         public Output<string> ServiceExecutionRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -424,7 +427,7 @@ namespace Pulumi.Aws.Msk
     public sealed class ReplicatorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A summary description of the replicator.
+        /// Summary description of the replicator.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -433,7 +436,7 @@ namespace Pulumi.Aws.Msk
         private InputList<Inputs.ReplicatorKafkaClusterArgs>? _kafkaClusters;
 
         /// <summary>
-        /// The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
+        /// Source and target Kafka clusters for the replicator. Exactly two blocks are required. See `KafkaCluster` Block below.
         /// </summary>
         public InputList<Inputs.ReplicatorKafkaClusterArgs> KafkaClusters
         {
@@ -442,7 +445,7 @@ namespace Pulumi.Aws.Msk
         }
 
         /// <summary>
-        /// Configuration block for delivering replicator logs to customer destinations. Detailed below.
+        /// Configuration block for delivering replicator logs to customer destinations. See `LogDelivery` Block below.
         /// </summary>
         [Input("logDelivery")]
         public Input<Inputs.ReplicatorLogDeliveryArgs>? LogDelivery { get; set; }
@@ -454,19 +457,19 @@ namespace Pulumi.Aws.Msk
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
+        /// List of replication configurations, where each configuration targets a given source cluster to target cluster replication flow. See `ReplicationInfoList` Block below.
         /// </summary>
         [Input("replicationInfoList", required: true)]
         public Input<Inputs.ReplicatorReplicationInfoListArgs> ReplicationInfoList { get; set; } = null!;
 
         /// <summary>
-        /// The name of the replicator.
+        /// Name of the replicator.
         /// </summary>
         [Input("replicatorName", required: true)]
         public Input<string> ReplicatorName { get; set; } = null!;
 
         /// <summary>
-        /// The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
+        /// ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
         /// </summary>
         [Input("serviceExecutionRoleArn", required: true)]
         public Input<string> ServiceExecutionRoleArn { get; set; } = null!;
@@ -475,7 +478,7 @@ namespace Pulumi.Aws.Msk
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -497,11 +500,14 @@ namespace Pulumi.Aws.Msk
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Current version of the MSK Replicator.
+        /// </summary>
         [Input("currentVersion")]
         public Input<string>? CurrentVersion { get; set; }
 
         /// <summary>
-        /// A summary description of the replicator.
+        /// Summary description of the replicator.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -510,7 +516,7 @@ namespace Pulumi.Aws.Msk
         private InputList<Inputs.ReplicatorKafkaClusterGetArgs>? _kafkaClusters;
 
         /// <summary>
-        /// The source and target Kafka clusters for the replicator. Exactly two blocks are required. Detailed below.
+        /// Source and target Kafka clusters for the replicator. Exactly two blocks are required. See `KafkaCluster` Block below.
         /// </summary>
         public InputList<Inputs.ReplicatorKafkaClusterGetArgs> KafkaClusters
         {
@@ -519,7 +525,7 @@ namespace Pulumi.Aws.Msk
         }
 
         /// <summary>
-        /// Configuration block for delivering replicator logs to customer destinations. Detailed below.
+        /// Configuration block for delivering replicator logs to customer destinations. See `LogDelivery` Block below.
         /// </summary>
         [Input("logDelivery")]
         public Input<Inputs.ReplicatorLogDeliveryGetArgs>? LogDelivery { get; set; }
@@ -531,19 +537,19 @@ namespace Pulumi.Aws.Msk
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
+        /// List of replication configurations, where each configuration targets a given source cluster to target cluster replication flow. See `ReplicationInfoList` Block below.
         /// </summary>
         [Input("replicationInfoList")]
         public Input<Inputs.ReplicatorReplicationInfoListGetArgs>? ReplicationInfoList { get; set; }
 
         /// <summary>
-        /// The name of the replicator.
+        /// Name of the replicator.
         /// </summary>
         [Input("replicatorName")]
         public Input<string>? ReplicatorName { get; set; }
 
         /// <summary>
-        /// The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
+        /// ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
         /// </summary>
         [Input("serviceExecutionRoleArn")]
         public Input<string>? ServiceExecutionRoleArn { get; set; }
@@ -552,7 +558,7 @@ namespace Pulumi.Aws.Msk
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -564,7 +570,7 @@ namespace Pulumi.Aws.Msk
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

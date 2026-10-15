@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Ebs.Inputs
         public Input<string> Format { get; set; } = null!;
 
         /// <summary>
-        /// The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `Url` or `UserBucket` must be set.
+        /// The URL to the Amazon S3-based disk image being imported. It can either be an HTTPS URL (`https://..`) or an Amazon S3 URL (`s3://..`). One of `Url` or `UserBucket` must be set.
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }

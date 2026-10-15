@@ -106,9 +106,9 @@ import (
 type ContainerPolicy struct {
 	pulumi.CustomResourceState
 
-	// The name of the container.
+	// Name of the container.
 	ContainerName pulumi.StringOutput `pulumi:"containerName"`
-	// The contents of the policy.
+	// Contents of the policy. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -150,18 +150,18 @@ func GetContainerPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ContainerPolicy resources.
 type containerPolicyState struct {
-	// The name of the container.
+	// Name of the container.
 	ContainerName *string `pulumi:"containerName"`
-	// The contents of the policy.
+	// Contents of the policy. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
 	Policy *string `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 type ContainerPolicyState struct {
-	// The name of the container.
+	// Name of the container.
 	ContainerName pulumi.StringPtrInput
-	// The contents of the policy.
+	// Contents of the policy. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
 	Policy pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -172,9 +172,9 @@ func (ContainerPolicyState) ElementType() reflect.Type {
 }
 
 type containerPolicyArgs struct {
-	// The name of the container.
+	// Name of the container.
 	ContainerName string `pulumi:"containerName"`
-	// The contents of the policy.
+	// Contents of the policy. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
 	Policy string `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -182,9 +182,9 @@ type containerPolicyArgs struct {
 
 // The set of arguments for constructing a ContainerPolicy resource.
 type ContainerPolicyArgs struct {
-	// The name of the container.
+	// Name of the container.
 	ContainerName pulumi.StringInput
-	// The contents of the policy.
+	// Contents of the policy. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
 	Policy pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -277,12 +277,12 @@ func (o ContainerPolicyOutput) ToContainerPolicyOutputWithContext(ctx context.Co
 	return o
 }
 
-// The name of the container.
+// Name of the container.
 func (o ContainerPolicyOutput) ContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerPolicy) pulumi.StringOutput { return v.ContainerName }).(pulumi.StringOutput)
 }
 
-// The contents of the policy.
+// Contents of the policy. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
 func (o ContainerPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }

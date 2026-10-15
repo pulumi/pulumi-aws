@@ -364,7 +364,7 @@ namespace Pulumi.Aws.SecurityHub.Inputs
         private InputList<Inputs.InsightFiltersNetworkDestinationIpv4GetArgs>? _networkDestinationIpv4s;
 
         /// <summary>
-        /// The destination IPv4 address of network-related information about a finding. See Ip Filter below for more details.
+        /// The destination IPv4 address of network-related information about a finding. See IP Filter below for more details.
         /// </summary>
         public InputList<Inputs.InsightFiltersNetworkDestinationIpv4GetArgs> NetworkDestinationIpv4s
         {
@@ -376,7 +376,7 @@ namespace Pulumi.Aws.SecurityHub.Inputs
         private InputList<Inputs.InsightFiltersNetworkDestinationIpv6GetArgs>? _networkDestinationIpv6s;
 
         /// <summary>
-        /// The destination IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+        /// The destination IPv6 address of network-related information about a finding. See IP Filter below for more details.
         /// </summary>
         public InputList<Inputs.InsightFiltersNetworkDestinationIpv6GetArgs> NetworkDestinationIpv6s
         {
@@ -436,7 +436,7 @@ namespace Pulumi.Aws.SecurityHub.Inputs
         private InputList<Inputs.InsightFiltersNetworkSourceIpv4GetArgs>? _networkSourceIpv4s;
 
         /// <summary>
-        /// The source IPv4 address of network-related information about a finding. See Ip Filter below for more details.
+        /// The source IPv4 address of network-related information about a finding. See IP Filter below for more details.
         /// </summary>
         public InputList<Inputs.InsightFiltersNetworkSourceIpv4GetArgs> NetworkSourceIpv4s
         {
@@ -448,7 +448,7 @@ namespace Pulumi.Aws.SecurityHub.Inputs
         private InputList<Inputs.InsightFiltersNetworkSourceIpv6GetArgs>? _networkSourceIpv6s;
 
         /// <summary>
-        /// The source IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+        /// The source IPv6 address of network-related information about a finding. See IP Filter below for more details.
         /// </summary>
         public InputList<Inputs.InsightFiltersNetworkSourceIpv6GetArgs> NetworkSourceIpv6s
         {
@@ -700,7 +700,7 @@ namespace Pulumi.Aws.SecurityHub.Inputs
         private InputList<Inputs.InsightFiltersResourceAwsEc2InstanceIpv4AddressGetArgs>? _resourceAwsEc2InstanceIpv4Addresses;
 
         /// <summary>
-        /// The IPv4 addresses associated with the instance. See Ip Filter below for more details.
+        /// The IPv4 addresses associated with the instance. See IP Filter below for more details.
         /// </summary>
         public InputList<Inputs.InsightFiltersResourceAwsEc2InstanceIpv4AddressGetArgs> ResourceAwsEc2InstanceIpv4Addresses
         {
@@ -712,7 +712,7 @@ namespace Pulumi.Aws.SecurityHub.Inputs
         private InputList<Inputs.InsightFiltersResourceAwsEc2InstanceIpv6AddressGetArgs>? _resourceAwsEc2InstanceIpv6Addresses;
 
         /// <summary>
-        /// The IPv6 addresses associated with the instance. See Ip Filter below for more details.
+        /// The IPv6 addresses associated with the instance. See IP Filter below for more details.
         /// </summary>
         public InputList<Inputs.InsightFiltersResourceAwsEc2InstanceIpv6AddressGetArgs> ResourceAwsEc2InstanceIpv6Addresses
         {

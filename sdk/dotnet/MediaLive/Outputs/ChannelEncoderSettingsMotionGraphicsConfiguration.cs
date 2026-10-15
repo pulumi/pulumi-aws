@@ -14,11 +14,11 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelEncoderSettingsMotionGraphicsConfiguration
     {
         /// <summary>
-        /// Motion Graphics Insertion.
+        /// Whether to activate motion graphics insertion.
         /// </summary>
         public readonly string? MotionGraphicsInsertion;
         /// <summary>
-        /// Motion Graphics Settings. See Motion Graphics Settings for more details.
+        /// Motion graphics settings. See `MotionGraphicsSettings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings MotionGraphicsSettings;
 

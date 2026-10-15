@@ -17,7 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Resource for managing an AWS Bedrock Guardrail Version.
+ * Manages an AWS Bedrock Guardrail Version.
  * 
  * ## Example Usage
  * 
@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new GuardrailVersion("example", GuardrailVersionArgs.builder()
  *             .description("example")
- *             .guardrailArn(test.guardrailArn())
+ *             .guardrailArn(exampleAwsBedrockGuardrail.guardrailArn())
  *             .skipDestroy(true)
  *             .build());
  * 
@@ -58,10 +58,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Amazon Bedrock Guardrail Version using using a comma-delimited string of `guardrailArn` and `version`. For example:
+ * Using `pulumi import`, import Amazon Bedrock Guardrail Version using a comma-delimited string of `guardrailArn` and `version`. For example:
  * 
  * ```sh
- * $ pulumi import aws:bedrock/guardrailVersion:GuardrailVersion example arn:aws:bedrock:us-west-2:123456789012:guardrail-id-12345678,1
+ * $ pulumi import aws:bedrock/guardrailVersion:GuardrailVersion example arn:aws:bedrock:us-west-2:123456789012:guardrail/guardrail-id-12345678,1
  * ```
  * 
  */
@@ -114,14 +114,14 @@ public class GuardrailVersion extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Whether to retain the old version of a previously deployed Guardrail. Default is `false`
+     * Whether to retain the old version of a previously deployed Guardrail. Default is `false`.
      * 
      */
     @Export(name="skipDestroy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> skipDestroy;
 
     /**
-     * @return Whether to retain the old version of a previously deployed Guardrail. Default is `false`
+     * @return Whether to retain the old version of a previously deployed Guardrail. Default is `false`.
      * 
      */
     public Output<Optional<Boolean>> skipDestroy() {

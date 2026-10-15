@@ -17,14 +17,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
     public static final ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArgs();
 
     /**
-     * The height of the FEC protection matrix.
+     * Height of the FEC protection matrix.
      * 
      */
     @Import(name="columnDepth")
     private @Nullable Output<Integer> columnDepth;
 
     /**
-     * @return The height of the FEC protection matrix.
+     * @return Height of the FEC protection matrix.
      * 
      */
     public Optional<Output<Integer>> columnDepth() {
@@ -47,14 +47,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
     }
 
     /**
-     * The width of the FEC protection matrix.
+     * Width of the FEC protection matrix.
      * 
      */
     @Import(name="rowLength")
     private @Nullable Output<Integer> rowLength;
 
     /**
-     * @return The width of the FEC protection matrix.
+     * @return Width of the FEC protection matrix.
      * 
      */
     public Optional<Output<Integer>> rowLength() {
@@ -88,7 +88,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
         }
 
         /**
-         * @param columnDepth The height of the FEC protection matrix.
+         * @param columnDepth Height of the FEC protection matrix.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
         }
 
         /**
-         * @param columnDepth The height of the FEC protection matrix.
+         * @param columnDepth Height of the FEC protection matrix.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
         }
 
         /**
-         * @param rowLength The width of the FEC protection matrix.
+         * @param rowLength Width of the FEC protection matrix.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
         }
 
         /**
-         * @param rowLength The width of the FEC protection matrix.
+         * @param rowLength Width of the FEC protection matrix.
          * 
          * @return builder
          * 

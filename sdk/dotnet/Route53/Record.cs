@@ -265,7 +265,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// Setting the `TF_AWS_ROUTE53_RECORD_BATCH_READS` environment variable to `True` causes the provider to fetch all records for hosted zones referenced by `aws.route53.Record` once and cache the results in memory for the duration of the `Plan` or `Apply`, regardless of how many records are managed. No per-resource configuration is required.
     /// 
-    /// &gt; **Warning:** When `TF_AWS_ROUTE53_RECORD_BATCH_READS` is set to a true value, the provider caches a zone's full record set the first time a record in that zone is read, then serves all subsequent reads from that cache. The caching layer ensures removal of cache entries for any records that are updated during an `Apply` operation; however, any changes made to records outside of Terraform (e.g. via the AWS Console or CLI) after the cache is populated will not be detected.
+    /// &gt; **Warning:** When `TF_AWS_ROUTE53_RECORD_BATCH_READS` is set to a true value, the provider caches a zone's full record set the first time a record in that zone is read, then serves all subsequent reads from that cache. The caching layer ensures removal of cache entries for any records that are updated during an `Apply` operation; however, any changes made to records outside of Pulumi (e.g. via the AWS Console or CLI) after the cache is populated will not be detected.
     /// 
     /// ## Import
     /// 

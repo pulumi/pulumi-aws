@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl {
+    /**
+     * @return Whether SASL IAM authentication is enabled for VPC connectivity.
+     * 
+     */
     private Boolean iam;
+    /**
+     * @return Whether SASL SCRAM authentication is enabled for VPC connectivity.
+     * 
+     */
     private Boolean scram;
 
     private GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl() {}
+    /**
+     * @return Whether SASL IAM authentication is enabled for VPC connectivity.
+     * 
+     */
     public Boolean iam() {
         return this.iam;
     }
+    /**
+     * @return Whether SASL SCRAM authentication is enabled for VPC connectivity.
+     * 
+     */
     public Boolean scram() {
         return this.scram;
     }

@@ -38,20 +38,20 @@ class ClusterArgs:
         """
         The set of arguments for constructing a Cluster resource.
 
-        :param pulumi.Input['ClusterBrokerNodeGroupInfoArgs'] broker_node_group_info: Configuration block for the broker nodes of the Kafka cluster. See broker_node_group_info Argument Reference below.
-        :param pulumi.Input[_builtins.str] kafka_version: Specify the desired Kafka software version.
-        :param pulumi.Input[_builtins.int] number_of_broker_nodes: The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
-        :param pulumi.Input['ClusterClientAuthenticationArgs'] client_authentication: Configuration block for specifying a client authentication. See client_authentication Argument Reference below.
+        :param pulumi.Input['ClusterBrokerNodeGroupInfoArgs'] broker_node_group_info: Configuration block for the broker nodes of the Kafka cluster. See `broker_node_group_info` Block below.
+        :param pulumi.Input[_builtins.str] kafka_version: Desired Kafka software version.
+        :param pulumi.Input[_builtins.int] number_of_broker_nodes: Desired total number of broker nodes in the kafka cluster. It must be a multiple of the number of specified client subnets.
+        :param pulumi.Input['ClusterClientAuthenticationArgs'] client_authentication: Configuration block for specifying a client authentication. See `client_authentication` Block below.
         :param pulumi.Input[_builtins.str] cluster_name: Name of the MSK cluster.
-        :param pulumi.Input['ClusterConfigurationInfoArgs'] configuration_info: Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configuration_info Argument Reference below.
-        :param pulumi.Input['ClusterEncryptionInfoArgs'] encryption_info: Configuration block for specifying encryption. See encryption_info Argument Reference below.
-        :param pulumi.Input[_builtins.str] enhanced_monitoring: Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
-        :param pulumi.Input['ClusterLoggingInfoArgs'] logging_info: Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See logging_info Argument Reference below.
-        :param pulumi.Input['ClusterOpenMonitoringArgs'] open_monitoring: Configuration block for JMX and Node monitoring for the MSK cluster. See open_monitoring Argument Reference below.
-        :param pulumi.Input['ClusterRebalancingArgs'] rebalancing: Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+        :param pulumi.Input['ClusterConfigurationInfoArgs'] configuration_info: Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See `configuration_info` Block below.
+        :param pulumi.Input['ClusterEncryptionInfoArgs'] encryption_info: Configuration block for specifying encryption. See `encryption_info` Block below.
+        :param pulumi.Input[_builtins.str] enhanced_monitoring: Desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html).
+        :param pulumi.Input['ClusterLoggingInfoArgs'] logging_info: Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See `logging_info` Block below.
+        :param pulumi.Input['ClusterOpenMonitoringArgs'] open_monitoring: Configuration block for JMX and Node monitoring for the MSK cluster. See `open_monitoring` Block below.
+        :param pulumi.Input['ClusterRebalancingArgs'] rebalancing: Configuration block for intelligent rebalancing. See `rebalancing` Block below. Only applicable to MSK Provisioned clusters with Express brokers.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] storage_mode: Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "broker_node_group_info", broker_node_group_info)
         pulumi.set(__self__, "kafka_version", kafka_version)
@@ -83,7 +83,7 @@ class ClusterArgs:
     @pulumi.getter(name="brokerNodeGroupInfo")
     def broker_node_group_info(self) -> pulumi.Input['ClusterBrokerNodeGroupInfoArgs']:
         """
-        Configuration block for the broker nodes of the Kafka cluster. See broker_node_group_info Argument Reference below.
+        Configuration block for the broker nodes of the Kafka cluster. See `broker_node_group_info` Block below.
         """
         return pulumi.get(self, "broker_node_group_info")
 
@@ -95,7 +95,7 @@ class ClusterArgs:
     @pulumi.getter(name="kafkaVersion")
     def kafka_version(self) -> pulumi.Input[_builtins.str]:
         """
-        Specify the desired Kafka software version.
+        Desired Kafka software version.
         """
         return pulumi.get(self, "kafka_version")
 
@@ -107,7 +107,7 @@ class ClusterArgs:
     @pulumi.getter(name="numberOfBrokerNodes")
     def number_of_broker_nodes(self) -> pulumi.Input[_builtins.int]:
         """
-        The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
+        Desired total number of broker nodes in the kafka cluster. It must be a multiple of the number of specified client subnets.
         """
         return pulumi.get(self, "number_of_broker_nodes")
 
@@ -119,7 +119,7 @@ class ClusterArgs:
     @pulumi.getter(name="clientAuthentication")
     def client_authentication(self) -> pulumi.Input[Optional['ClusterClientAuthenticationArgs']]:
         """
-        Configuration block for specifying a client authentication. See client_authentication Argument Reference below.
+        Configuration block for specifying a client authentication. See `client_authentication` Block below.
         """
         return pulumi.get(self, "client_authentication")
 
@@ -143,7 +143,7 @@ class ClusterArgs:
     @pulumi.getter(name="configurationInfo")
     def configuration_info(self) -> pulumi.Input[Optional['ClusterConfigurationInfoArgs']]:
         """
-        Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configuration_info Argument Reference below.
+        Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See `configuration_info` Block below.
         """
         return pulumi.get(self, "configuration_info")
 
@@ -155,7 +155,7 @@ class ClusterArgs:
     @pulumi.getter(name="encryptionInfo")
     def encryption_info(self) -> pulumi.Input[Optional['ClusterEncryptionInfoArgs']]:
         """
-        Configuration block for specifying encryption. See encryption_info Argument Reference below.
+        Configuration block for specifying encryption. See `encryption_info` Block below.
         """
         return pulumi.get(self, "encryption_info")
 
@@ -167,7 +167,7 @@ class ClusterArgs:
     @pulumi.getter(name="enhancedMonitoring")
     def enhanced_monitoring(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
+        Desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html).
         """
         return pulumi.get(self, "enhanced_monitoring")
 
@@ -179,7 +179,7 @@ class ClusterArgs:
     @pulumi.getter(name="loggingInfo")
     def logging_info(self) -> pulumi.Input[Optional['ClusterLoggingInfoArgs']]:
         """
-        Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See logging_info Argument Reference below.
+        Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See `logging_info` Block below.
         """
         return pulumi.get(self, "logging_info")
 
@@ -191,7 +191,7 @@ class ClusterArgs:
     @pulumi.getter(name="openMonitoring")
     def open_monitoring(self) -> pulumi.Input[Optional['ClusterOpenMonitoringArgs']]:
         """
-        Configuration block for JMX and Node monitoring for the MSK cluster. See open_monitoring Argument Reference below.
+        Configuration block for JMX and Node monitoring for the MSK cluster. See `open_monitoring` Block below.
         """
         return pulumi.get(self, "open_monitoring")
 
@@ -203,7 +203,7 @@ class ClusterArgs:
     @pulumi.getter
     def rebalancing(self) -> pulumi.Input[Optional['ClusterRebalancingArgs']]:
         """
-        Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+        Configuration block for intelligent rebalancing. See `rebalancing` Block below. Only applicable to MSK Provisioned clusters with Express brokers.
         """
         return pulumi.get(self, "rebalancing")
 
@@ -239,7 +239,7 @@ class ClusterArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -301,29 +301,29 @@ class _ClusterState:
         :param pulumi.Input[_builtins.str] bootstrap_brokers_sasl_scram_ipv6: One or more IPv6 DNS names (or IP addresses) and SASL SCRAM port pairs. This attribute will have a value if the cluster is configured with `broker_node_group_info.0.connectivity_info.0.network_type` set to `DUAL` and `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         :param pulumi.Input[_builtins.str] bootstrap_brokers_tls: One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         :param pulumi.Input[_builtins.str] bootstrap_brokers_tls_ipv6: One or more IPv6 DNS names (or IP addresses) and TLS port pairs. This attribute will have a value if the cluster is configured with `broker_node_group_info.0.connectivity_info.0.network_type` set to `DUAL` and `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
-        :param pulumi.Input[_builtins.str] bootstrap_brokers_vpc_connectivity_sasl_iam: A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
-        :param pulumi.Input[_builtins.str] bootstrap_brokers_vpc_connectivity_sasl_scram: A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
-        :param pulumi.Input[_builtins.str] bootstrap_brokers_vpc_connectivity_tls: A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
-        :param pulumi.Input['ClusterBrokerNodeGroupInfoArgs'] broker_node_group_info: Configuration block for the broker nodes of the Kafka cluster. See broker_node_group_info Argument Reference below.
-        :param pulumi.Input['ClusterClientAuthenticationArgs'] client_authentication: Configuration block for specifying a client authentication. See client_authentication Argument Reference below.
+        :param pulumi.Input[_builtins.str] bootstrap_brokers_vpc_connectivity_sasl_iam: One or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+        :param pulumi.Input[_builtins.str] bootstrap_brokers_vpc_connectivity_sasl_scram: One or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+        :param pulumi.Input[_builtins.str] bootstrap_brokers_vpc_connectivity_tls: One or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+        :param pulumi.Input['ClusterBrokerNodeGroupInfoArgs'] broker_node_group_info: Configuration block for the broker nodes of the Kafka cluster. See `broker_node_group_info` Block below.
+        :param pulumi.Input['ClusterClientAuthenticationArgs'] client_authentication: Configuration block for specifying a client authentication. See `client_authentication` Block below.
         :param pulumi.Input[_builtins.str] cluster_name: Name of the MSK cluster.
         :param pulumi.Input[_builtins.str] cluster_uuid: UUID of the MSK cluster, for use in IAM policies.
-        :param pulumi.Input['ClusterConfigurationInfoArgs'] configuration_info: Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configuration_info Argument Reference below.
+        :param pulumi.Input['ClusterConfigurationInfoArgs'] configuration_info: Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See `configuration_info` Block below.
         :param pulumi.Input[_builtins.str] current_version: Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
         :param pulumi.Input[_builtins.str] customer_action_status: Status indicating whether Amazon MSK requires customer action for the cluster. Valid values are `NONE`, `ACTION_RECOMMENDED`, and `CRITICAL_ACTION_REQUIRED`.
-        :param pulumi.Input['ClusterEncryptionInfoArgs'] encryption_info: Configuration block for specifying encryption. See encryption_info Argument Reference below.
-        :param pulumi.Input[_builtins.str] enhanced_monitoring: Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
-        :param pulumi.Input[_builtins.str] kafka_version: Specify the desired Kafka software version.
-        :param pulumi.Input['ClusterLoggingInfoArgs'] logging_info: Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See logging_info Argument Reference below.
-        :param pulumi.Input[_builtins.int] number_of_broker_nodes: The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
-        :param pulumi.Input['ClusterOpenMonitoringArgs'] open_monitoring: Configuration block for JMX and Node monitoring for the MSK cluster. See open_monitoring Argument Reference below.
-        :param pulumi.Input['ClusterRebalancingArgs'] rebalancing: Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+        :param pulumi.Input['ClusterEncryptionInfoArgs'] encryption_info: Configuration block for specifying encryption. See `encryption_info` Block below.
+        :param pulumi.Input[_builtins.str] enhanced_monitoring: Desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html).
+        :param pulumi.Input[_builtins.str] kafka_version: Desired Kafka software version.
+        :param pulumi.Input['ClusterLoggingInfoArgs'] logging_info: Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See `logging_info` Block below.
+        :param pulumi.Input[_builtins.int] number_of_broker_nodes: Desired total number of broker nodes in the kafka cluster. It must be a multiple of the number of specified client subnets.
+        :param pulumi.Input['ClusterOpenMonitoringArgs'] open_monitoring: Configuration block for JMX and Node monitoring for the MSK cluster. See `open_monitoring` Block below.
+        :param pulumi.Input['ClusterRebalancingArgs'] rebalancing: Configuration block for intelligent rebalancing. See `rebalancing` Block below. Only applicable to MSK Provisioned clusters with Express brokers.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] storage_mode: Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] zookeeper_connect_string: A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
-        :param pulumi.Input[_builtins.str] zookeeper_connect_string_tls: A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] zookeeper_connect_string: Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+        :param pulumi.Input[_builtins.str] zookeeper_connect_string_tls: Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -544,7 +544,7 @@ class _ClusterState:
     @pulumi.getter(name="bootstrapBrokersVpcConnectivitySaslIam")
     def bootstrap_brokers_vpc_connectivity_sasl_iam(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+        One or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
         """
         return pulumi.get(self, "bootstrap_brokers_vpc_connectivity_sasl_iam")
 
@@ -556,7 +556,7 @@ class _ClusterState:
     @pulumi.getter(name="bootstrapBrokersVpcConnectivitySaslScram")
     def bootstrap_brokers_vpc_connectivity_sasl_scram(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+        One or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
         """
         return pulumi.get(self, "bootstrap_brokers_vpc_connectivity_sasl_scram")
 
@@ -568,7 +568,7 @@ class _ClusterState:
     @pulumi.getter(name="bootstrapBrokersVpcConnectivityTls")
     def bootstrap_brokers_vpc_connectivity_tls(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+        One or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
         """
         return pulumi.get(self, "bootstrap_brokers_vpc_connectivity_tls")
 
@@ -580,7 +580,7 @@ class _ClusterState:
     @pulumi.getter(name="brokerNodeGroupInfo")
     def broker_node_group_info(self) -> pulumi.Input[Optional['ClusterBrokerNodeGroupInfoArgs']]:
         """
-        Configuration block for the broker nodes of the Kafka cluster. See broker_node_group_info Argument Reference below.
+        Configuration block for the broker nodes of the Kafka cluster. See `broker_node_group_info` Block below.
         """
         return pulumi.get(self, "broker_node_group_info")
 
@@ -592,7 +592,7 @@ class _ClusterState:
     @pulumi.getter(name="clientAuthentication")
     def client_authentication(self) -> pulumi.Input[Optional['ClusterClientAuthenticationArgs']]:
         """
-        Configuration block for specifying a client authentication. See client_authentication Argument Reference below.
+        Configuration block for specifying a client authentication. See `client_authentication` Block below.
         """
         return pulumi.get(self, "client_authentication")
 
@@ -628,7 +628,7 @@ class _ClusterState:
     @pulumi.getter(name="configurationInfo")
     def configuration_info(self) -> pulumi.Input[Optional['ClusterConfigurationInfoArgs']]:
         """
-        Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configuration_info Argument Reference below.
+        Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See `configuration_info` Block below.
         """
         return pulumi.get(self, "configuration_info")
 
@@ -664,7 +664,7 @@ class _ClusterState:
     @pulumi.getter(name="encryptionInfo")
     def encryption_info(self) -> pulumi.Input[Optional['ClusterEncryptionInfoArgs']]:
         """
-        Configuration block for specifying encryption. See encryption_info Argument Reference below.
+        Configuration block for specifying encryption. See `encryption_info` Block below.
         """
         return pulumi.get(self, "encryption_info")
 
@@ -676,7 +676,7 @@ class _ClusterState:
     @pulumi.getter(name="enhancedMonitoring")
     def enhanced_monitoring(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
+        Desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html).
         """
         return pulumi.get(self, "enhanced_monitoring")
 
@@ -688,7 +688,7 @@ class _ClusterState:
     @pulumi.getter(name="kafkaVersion")
     def kafka_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specify the desired Kafka software version.
+        Desired Kafka software version.
         """
         return pulumi.get(self, "kafka_version")
 
@@ -700,7 +700,7 @@ class _ClusterState:
     @pulumi.getter(name="loggingInfo")
     def logging_info(self) -> pulumi.Input[Optional['ClusterLoggingInfoArgs']]:
         """
-        Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See logging_info Argument Reference below.
+        Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See `logging_info` Block below.
         """
         return pulumi.get(self, "logging_info")
 
@@ -712,7 +712,7 @@ class _ClusterState:
     @pulumi.getter(name="numberOfBrokerNodes")
     def number_of_broker_nodes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
+        Desired total number of broker nodes in the kafka cluster. It must be a multiple of the number of specified client subnets.
         """
         return pulumi.get(self, "number_of_broker_nodes")
 
@@ -724,7 +724,7 @@ class _ClusterState:
     @pulumi.getter(name="openMonitoring")
     def open_monitoring(self) -> pulumi.Input[Optional['ClusterOpenMonitoringArgs']]:
         """
-        Configuration block for JMX and Node monitoring for the MSK cluster. See open_monitoring Argument Reference below.
+        Configuration block for JMX and Node monitoring for the MSK cluster. See `open_monitoring` Block below.
         """
         return pulumi.get(self, "open_monitoring")
 
@@ -736,7 +736,7 @@ class _ClusterState:
     @pulumi.getter
     def rebalancing(self) -> pulumi.Input[Optional['ClusterRebalancingArgs']]:
         """
-        Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+        Configuration block for intelligent rebalancing. See `rebalancing` Block below. Only applicable to MSK Provisioned clusters with Express brokers.
         """
         return pulumi.get(self, "rebalancing")
 
@@ -772,7 +772,7 @@ class _ClusterState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -784,7 +784,7 @@ class _ClusterState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -796,7 +796,7 @@ class _ClusterState:
     @pulumi.getter(name="zookeeperConnectString")
     def zookeeper_connect_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+        Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
         """
         return pulumi.get(self, "zookeeper_connect_string")
 
@@ -808,7 +808,7 @@ class _ClusterState:
     @pulumi.getter(name="zookeeperConnectStringTls")
     def zookeeper_connect_string_tls(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+        Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
         """
         return pulumi.get(self, "zookeeper_connect_string_tls")
 
@@ -996,20 +996,20 @@ class Cluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ClusterBrokerNodeGroupInfoArgs', 'ClusterBrokerNodeGroupInfoArgsDict', 'outputs.ClusterBrokerNodeGroupInfo']] broker_node_group_info: Configuration block for the broker nodes of the Kafka cluster. See broker_node_group_info Argument Reference below.
-        :param pulumi.Input[Union['ClusterClientAuthenticationArgs', 'ClusterClientAuthenticationArgsDict', 'outputs.ClusterClientAuthentication']] client_authentication: Configuration block for specifying a client authentication. See client_authentication Argument Reference below.
+        :param pulumi.Input[Union['ClusterBrokerNodeGroupInfoArgs', 'ClusterBrokerNodeGroupInfoArgsDict', 'outputs.ClusterBrokerNodeGroupInfo']] broker_node_group_info: Configuration block for the broker nodes of the Kafka cluster. See `broker_node_group_info` Block below.
+        :param pulumi.Input[Union['ClusterClientAuthenticationArgs', 'ClusterClientAuthenticationArgsDict', 'outputs.ClusterClientAuthentication']] client_authentication: Configuration block for specifying a client authentication. See `client_authentication` Block below.
         :param pulumi.Input[_builtins.str] cluster_name: Name of the MSK cluster.
-        :param pulumi.Input[Union['ClusterConfigurationInfoArgs', 'ClusterConfigurationInfoArgsDict', 'outputs.ClusterConfigurationInfo']] configuration_info: Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configuration_info Argument Reference below.
-        :param pulumi.Input[Union['ClusterEncryptionInfoArgs', 'ClusterEncryptionInfoArgsDict', 'outputs.ClusterEncryptionInfo']] encryption_info: Configuration block for specifying encryption. See encryption_info Argument Reference below.
-        :param pulumi.Input[_builtins.str] enhanced_monitoring: Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
-        :param pulumi.Input[_builtins.str] kafka_version: Specify the desired Kafka software version.
-        :param pulumi.Input[Union['ClusterLoggingInfoArgs', 'ClusterLoggingInfoArgsDict', 'outputs.ClusterLoggingInfo']] logging_info: Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See logging_info Argument Reference below.
-        :param pulumi.Input[_builtins.int] number_of_broker_nodes: The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
-        :param pulumi.Input[Union['ClusterOpenMonitoringArgs', 'ClusterOpenMonitoringArgsDict', 'outputs.ClusterOpenMonitoring']] open_monitoring: Configuration block for JMX and Node monitoring for the MSK cluster. See open_monitoring Argument Reference below.
-        :param pulumi.Input[Union['ClusterRebalancingArgs', 'ClusterRebalancingArgsDict', 'outputs.ClusterRebalancing']] rebalancing: Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+        :param pulumi.Input[Union['ClusterConfigurationInfoArgs', 'ClusterConfigurationInfoArgsDict', 'outputs.ClusterConfigurationInfo']] configuration_info: Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See `configuration_info` Block below.
+        :param pulumi.Input[Union['ClusterEncryptionInfoArgs', 'ClusterEncryptionInfoArgsDict', 'outputs.ClusterEncryptionInfo']] encryption_info: Configuration block for specifying encryption. See `encryption_info` Block below.
+        :param pulumi.Input[_builtins.str] enhanced_monitoring: Desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html).
+        :param pulumi.Input[_builtins.str] kafka_version: Desired Kafka software version.
+        :param pulumi.Input[Union['ClusterLoggingInfoArgs', 'ClusterLoggingInfoArgsDict', 'outputs.ClusterLoggingInfo']] logging_info: Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See `logging_info` Block below.
+        :param pulumi.Input[_builtins.int] number_of_broker_nodes: Desired total number of broker nodes in the kafka cluster. It must be a multiple of the number of specified client subnets.
+        :param pulumi.Input[Union['ClusterOpenMonitoringArgs', 'ClusterOpenMonitoringArgsDict', 'outputs.ClusterOpenMonitoring']] open_monitoring: Configuration block for JMX and Node monitoring for the MSK cluster. See `open_monitoring` Block below.
+        :param pulumi.Input[Union['ClusterRebalancingArgs', 'ClusterRebalancingArgsDict', 'outputs.ClusterRebalancing']] rebalancing: Configuration block for intelligent rebalancing. See `rebalancing` Block below. Only applicable to MSK Provisioned clusters with Express brokers.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] storage_mode: Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -1316,29 +1316,29 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] bootstrap_brokers_sasl_scram_ipv6: One or more IPv6 DNS names (or IP addresses) and SASL SCRAM port pairs. This attribute will have a value if the cluster is configured with `broker_node_group_info.0.connectivity_info.0.network_type` set to `DUAL` and `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         :param pulumi.Input[_builtins.str] bootstrap_brokers_tls: One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         :param pulumi.Input[_builtins.str] bootstrap_brokers_tls_ipv6: One or more IPv6 DNS names (or IP addresses) and TLS port pairs. This attribute will have a value if the cluster is configured with `broker_node_group_info.0.connectivity_info.0.network_type` set to `DUAL` and `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
-        :param pulumi.Input[_builtins.str] bootstrap_brokers_vpc_connectivity_sasl_iam: A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
-        :param pulumi.Input[_builtins.str] bootstrap_brokers_vpc_connectivity_sasl_scram: A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
-        :param pulumi.Input[_builtins.str] bootstrap_brokers_vpc_connectivity_tls: A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
-        :param pulumi.Input[Union['ClusterBrokerNodeGroupInfoArgs', 'ClusterBrokerNodeGroupInfoArgsDict', 'outputs.ClusterBrokerNodeGroupInfo']] broker_node_group_info: Configuration block for the broker nodes of the Kafka cluster. See broker_node_group_info Argument Reference below.
-        :param pulumi.Input[Union['ClusterClientAuthenticationArgs', 'ClusterClientAuthenticationArgsDict', 'outputs.ClusterClientAuthentication']] client_authentication: Configuration block for specifying a client authentication. See client_authentication Argument Reference below.
+        :param pulumi.Input[_builtins.str] bootstrap_brokers_vpc_connectivity_sasl_iam: One or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+        :param pulumi.Input[_builtins.str] bootstrap_brokers_vpc_connectivity_sasl_scram: One or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+        :param pulumi.Input[_builtins.str] bootstrap_brokers_vpc_connectivity_tls: One or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+        :param pulumi.Input[Union['ClusterBrokerNodeGroupInfoArgs', 'ClusterBrokerNodeGroupInfoArgsDict', 'outputs.ClusterBrokerNodeGroupInfo']] broker_node_group_info: Configuration block for the broker nodes of the Kafka cluster. See `broker_node_group_info` Block below.
+        :param pulumi.Input[Union['ClusterClientAuthenticationArgs', 'ClusterClientAuthenticationArgsDict', 'outputs.ClusterClientAuthentication']] client_authentication: Configuration block for specifying a client authentication. See `client_authentication` Block below.
         :param pulumi.Input[_builtins.str] cluster_name: Name of the MSK cluster.
         :param pulumi.Input[_builtins.str] cluster_uuid: UUID of the MSK cluster, for use in IAM policies.
-        :param pulumi.Input[Union['ClusterConfigurationInfoArgs', 'ClusterConfigurationInfoArgsDict', 'outputs.ClusterConfigurationInfo']] configuration_info: Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configuration_info Argument Reference below.
+        :param pulumi.Input[Union['ClusterConfigurationInfoArgs', 'ClusterConfigurationInfoArgsDict', 'outputs.ClusterConfigurationInfo']] configuration_info: Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See `configuration_info` Block below.
         :param pulumi.Input[_builtins.str] current_version: Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
         :param pulumi.Input[_builtins.str] customer_action_status: Status indicating whether Amazon MSK requires customer action for the cluster. Valid values are `NONE`, `ACTION_RECOMMENDED`, and `CRITICAL_ACTION_REQUIRED`.
-        :param pulumi.Input[Union['ClusterEncryptionInfoArgs', 'ClusterEncryptionInfoArgsDict', 'outputs.ClusterEncryptionInfo']] encryption_info: Configuration block for specifying encryption. See encryption_info Argument Reference below.
-        :param pulumi.Input[_builtins.str] enhanced_monitoring: Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
-        :param pulumi.Input[_builtins.str] kafka_version: Specify the desired Kafka software version.
-        :param pulumi.Input[Union['ClusterLoggingInfoArgs', 'ClusterLoggingInfoArgsDict', 'outputs.ClusterLoggingInfo']] logging_info: Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See logging_info Argument Reference below.
-        :param pulumi.Input[_builtins.int] number_of_broker_nodes: The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
-        :param pulumi.Input[Union['ClusterOpenMonitoringArgs', 'ClusterOpenMonitoringArgsDict', 'outputs.ClusterOpenMonitoring']] open_monitoring: Configuration block for JMX and Node monitoring for the MSK cluster. See open_monitoring Argument Reference below.
-        :param pulumi.Input[Union['ClusterRebalancingArgs', 'ClusterRebalancingArgsDict', 'outputs.ClusterRebalancing']] rebalancing: Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+        :param pulumi.Input[Union['ClusterEncryptionInfoArgs', 'ClusterEncryptionInfoArgsDict', 'outputs.ClusterEncryptionInfo']] encryption_info: Configuration block for specifying encryption. See `encryption_info` Block below.
+        :param pulumi.Input[_builtins.str] enhanced_monitoring: Desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html).
+        :param pulumi.Input[_builtins.str] kafka_version: Desired Kafka software version.
+        :param pulumi.Input[Union['ClusterLoggingInfoArgs', 'ClusterLoggingInfoArgsDict', 'outputs.ClusterLoggingInfo']] logging_info: Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See `logging_info` Block below.
+        :param pulumi.Input[_builtins.int] number_of_broker_nodes: Desired total number of broker nodes in the kafka cluster. It must be a multiple of the number of specified client subnets.
+        :param pulumi.Input[Union['ClusterOpenMonitoringArgs', 'ClusterOpenMonitoringArgsDict', 'outputs.ClusterOpenMonitoring']] open_monitoring: Configuration block for JMX and Node monitoring for the MSK cluster. See `open_monitoring` Block below.
+        :param pulumi.Input[Union['ClusterRebalancingArgs', 'ClusterRebalancingArgsDict', 'outputs.ClusterRebalancing']] rebalancing: Configuration block for intelligent rebalancing. See `rebalancing` Block below. Only applicable to MSK Provisioned clusters with Express brokers.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] storage_mode: Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] zookeeper_connect_string: A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
-        :param pulumi.Input[_builtins.str] zookeeper_connect_string_tls: A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] zookeeper_connect_string: Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+        :param pulumi.Input[_builtins.str] zookeeper_connect_string_tls: Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1481,7 +1481,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="bootstrapBrokersVpcConnectivitySaslIam")
     def bootstrap_brokers_vpc_connectivity_sasl_iam(self) -> pulumi.Output[_builtins.str]:
         """
-        A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+        One or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
         """
         return pulumi.get(self, "bootstrap_brokers_vpc_connectivity_sasl_iam")
 
@@ -1489,7 +1489,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="bootstrapBrokersVpcConnectivitySaslScram")
     def bootstrap_brokers_vpc_connectivity_sasl_scram(self) -> pulumi.Output[_builtins.str]:
         """
-        A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+        One or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
         """
         return pulumi.get(self, "bootstrap_brokers_vpc_connectivity_sasl_scram")
 
@@ -1497,7 +1497,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="bootstrapBrokersVpcConnectivityTls")
     def bootstrap_brokers_vpc_connectivity_tls(self) -> pulumi.Output[_builtins.str]:
         """
-        A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+        One or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
         """
         return pulumi.get(self, "bootstrap_brokers_vpc_connectivity_tls")
 
@@ -1505,7 +1505,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="brokerNodeGroupInfo")
     def broker_node_group_info(self) -> pulumi.Output['outputs.ClusterBrokerNodeGroupInfo']:
         """
-        Configuration block for the broker nodes of the Kafka cluster. See broker_node_group_info Argument Reference below.
+        Configuration block for the broker nodes of the Kafka cluster. See `broker_node_group_info` Block below.
         """
         return pulumi.get(self, "broker_node_group_info")
 
@@ -1513,7 +1513,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="clientAuthentication")
     def client_authentication(self) -> pulumi.Output[Optional['outputs.ClusterClientAuthentication']]:
         """
-        Configuration block for specifying a client authentication. See client_authentication Argument Reference below.
+        Configuration block for specifying a client authentication. See `client_authentication` Block below.
         """
         return pulumi.get(self, "client_authentication")
 
@@ -1537,7 +1537,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="configurationInfo")
     def configuration_info(self) -> pulumi.Output[Optional['outputs.ClusterConfigurationInfo']]:
         """
-        Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configuration_info Argument Reference below.
+        Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See `configuration_info` Block below.
         """
         return pulumi.get(self, "configuration_info")
 
@@ -1561,7 +1561,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="encryptionInfo")
     def encryption_info(self) -> pulumi.Output[Optional['outputs.ClusterEncryptionInfo']]:
         """
-        Configuration block for specifying encryption. See encryption_info Argument Reference below.
+        Configuration block for specifying encryption. See `encryption_info` Block below.
         """
         return pulumi.get(self, "encryption_info")
 
@@ -1569,7 +1569,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="enhancedMonitoring")
     def enhanced_monitoring(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
+        Desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html).
         """
         return pulumi.get(self, "enhanced_monitoring")
 
@@ -1577,7 +1577,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="kafkaVersion")
     def kafka_version(self) -> pulumi.Output[_builtins.str]:
         """
-        Specify the desired Kafka software version.
+        Desired Kafka software version.
         """
         return pulumi.get(self, "kafka_version")
 
@@ -1585,7 +1585,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="loggingInfo")
     def logging_info(self) -> pulumi.Output[Optional['outputs.ClusterLoggingInfo']]:
         """
-        Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See logging_info Argument Reference below.
+        Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See `logging_info` Block below.
         """
         return pulumi.get(self, "logging_info")
 
@@ -1593,7 +1593,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="numberOfBrokerNodes")
     def number_of_broker_nodes(self) -> pulumi.Output[_builtins.int]:
         """
-        The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
+        Desired total number of broker nodes in the kafka cluster. It must be a multiple of the number of specified client subnets.
         """
         return pulumi.get(self, "number_of_broker_nodes")
 
@@ -1601,7 +1601,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="openMonitoring")
     def open_monitoring(self) -> pulumi.Output[Optional['outputs.ClusterOpenMonitoring']]:
         """
-        Configuration block for JMX and Node monitoring for the MSK cluster. See open_monitoring Argument Reference below.
+        Configuration block for JMX and Node monitoring for the MSK cluster. See `open_monitoring` Block below.
         """
         return pulumi.get(self, "open_monitoring")
 
@@ -1609,7 +1609,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def rebalancing(self) -> pulumi.Output['outputs.ClusterRebalancing']:
         """
-        Configuration block for intelligent rebalancing. See rebalancing Argument Reference below. Only applicable to MSK Provisioned clusters with Express brokers.
+        Configuration block for intelligent rebalancing. See `rebalancing` Block below. Only applicable to MSK Provisioned clusters with Express brokers.
         """
         return pulumi.get(self, "rebalancing")
 
@@ -1633,7 +1633,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -1641,7 +1641,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -1649,7 +1649,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="zookeeperConnectString")
     def zookeeper_connect_string(self) -> pulumi.Output[_builtins.str]:
         """
-        A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+        Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
         """
         return pulumi.get(self, "zookeeper_connect_string")
 
@@ -1657,7 +1657,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="zookeeperConnectStringTls")
     def zookeeper_connect_string_tls(self) -> pulumi.Output[_builtins.str]:
         """
-        A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+        Comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
         """
         return pulumi.get(self, "zookeeper_connect_string_tls")
 

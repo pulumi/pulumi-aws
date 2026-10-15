@@ -17,14 +17,14 @@ public final class ApplicationNetworkConfigurationArgs extends com.pulumi.resour
     public static final ApplicationNetworkConfigurationArgs Empty = new ApplicationNetworkConfigurationArgs();
 
     /**
-     * The array of security group Ids for customer VPC connectivity.
+     * The array of security group IDs for customer VPC connectivity.
      * 
      */
     @Import(name="securityGroupIds")
     private @Nullable Output<List<String>> securityGroupIds;
 
     /**
-     * @return The array of security group Ids for customer VPC connectivity.
+     * @return The array of security group IDs for customer VPC connectivity.
      * 
      */
     public Optional<Output<List<String>>> securityGroupIds() {
@@ -32,14 +32,14 @@ public final class ApplicationNetworkConfigurationArgs extends com.pulumi.resour
     }
 
     /**
-     * The array of subnet Ids for customer VPC connectivity.
+     * The array of subnet IDs for customer VPC connectivity.
      * 
      */
     @Import(name="subnetIds")
     private @Nullable Output<List<String>> subnetIds;
 
     /**
-     * @return The array of subnet Ids for customer VPC connectivity.
+     * @return The array of subnet IDs for customer VPC connectivity.
      * 
      */
     public Optional<Output<List<String>>> subnetIds() {
@@ -72,7 +72,7 @@ public final class ApplicationNetworkConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param securityGroupIds The array of security group Ids for customer VPC connectivity.
+         * @param securityGroupIds The array of security group IDs for customer VPC connectivity.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ApplicationNetworkConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param securityGroupIds The array of security group Ids for customer VPC connectivity.
+         * @param securityGroupIds The array of security group IDs for customer VPC connectivity.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ApplicationNetworkConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param securityGroupIds The array of security group Ids for customer VPC connectivity.
+         * @param securityGroupIds The array of security group IDs for customer VPC connectivity.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ApplicationNetworkConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param subnetIds The array of subnet Ids for customer VPC connectivity.
+         * @param subnetIds The array of subnet IDs for customer VPC connectivity.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class ApplicationNetworkConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param subnetIds The array of subnet Ids for customer VPC connectivity.
+         * @param subnetIds The array of subnet IDs for customer VPC connectivity.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class ApplicationNetworkConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param subnetIds The array of subnet Ids for customer VPC connectivity.
+         * @param subnetIds The array of subnet IDs for customer VPC connectivity.
          * 
          * @return builder
          * 

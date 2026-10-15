@@ -26,12 +26,12 @@ public final class MultiplexProgramMultiplexProgramSettings {
      */
     private Integer programNumber;
     /**
-     * @return Service Descriptor. See Service Descriptor for more details.
+     * @return Service Descriptor. See `serviceDescriptor` Block for more details.
      * 
      */
     private @Nullable MultiplexProgramMultiplexProgramSettingsServiceDescriptor serviceDescriptor;
     /**
-     * @return Video settings. See Video Settings for more details.
+     * @return Video settings. See `videoSettings` Block for more details.
      * 
      */
     private @Nullable MultiplexProgramMultiplexProgramSettingsVideoSettings videoSettings;
@@ -52,14 +52,14 @@ public final class MultiplexProgramMultiplexProgramSettings {
         return this.programNumber;
     }
     /**
-     * @return Service Descriptor. See Service Descriptor for more details.
+     * @return Service Descriptor. See `serviceDescriptor` Block for more details.
      * 
      */
     public Optional<MultiplexProgramMultiplexProgramSettingsServiceDescriptor> serviceDescriptor() {
         return Optional.ofNullable(this.serviceDescriptor);
     }
     /**
-     * @return Video settings. See Video Settings for more details.
+     * @return Video settings. See `videoSettings` Block for more details.
      * 
      */
     public Optional<MultiplexProgramMultiplexProgramSettingsVideoSettings> videoSettings() {

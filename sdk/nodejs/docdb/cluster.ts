@@ -127,7 +127,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly deletionProtection: pulumi.Output<boolean | undefined>;
     /**
-     * List of log types to export to cloudwatch. If omitted, no logs will be exported.
+     * List of log types to export to CloudWatch. If omitted, no logs will be exported.
      * The following log types are supported: `audit`, `profiler`.
      */
     declare public readonly enabledCloudwatchLogsExports: pulumi.Output<string[] | undefined>;
@@ -411,7 +411,7 @@ export interface ClusterState {
      */
     deletionProtection?: pulumi.Input<boolean | undefined>;
     /**
-     * List of log types to export to cloudwatch. If omitted, no logs will be exported.
+     * List of log types to export to CloudWatch. If omitted, no logs will be exported.
      * The following log types are supported: `audit`, `profiler`.
      */
     enabledCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[] | undefined>;
@@ -583,7 +583,7 @@ export interface ClusterArgs {
      */
     deletionProtection?: pulumi.Input<boolean | undefined>;
     /**
-     * List of log types to export to cloudwatch. If omitted, no logs will be exported.
+     * List of log types to export to CloudWatch. If omitted, no logs will be exported.
      * The following log types are supported: `audit`, `profiler`.
      */
     enabledCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[] | undefined>;

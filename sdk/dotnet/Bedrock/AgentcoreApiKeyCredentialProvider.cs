@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Bedrock
     public partial class AgentcoreApiKeyCredentialProvider : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// API key value. Conflicts with `ApiKeyWo` and `ApiKeySecretConfig`. This value will be visible in pulumi preview outputs and logs.
+        /// API key value. Exactly one of `ApiKey`, `ApiKeySecretConfig`, or `ApiKeyWo` must be set. This value is stored in plain text in the Terraform state; use `ApiKeyWo` to avoid this.
         /// </summary>
         [Output("apiKey")]
         public Output<string?> ApiKey { get; private set; } = null!;
@@ -135,7 +135,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string?> ApiKeyWo { get; private set; } = null!;
 
         /// <summary>
-        /// Required when `ApiKeyWo` is set. Changing this value triggers an update to `ApiKeyWo`.
+        /// Version used together with the write-only API key. Required when `ApiKeyWo` is set. Changing this value triggers an update to `ApiKeyWo`.
         /// </summary>
         [Output("apiKeyWoVersion")]
         public Output<int?> ApiKeyWoVersion { get; private set; } = null!;
@@ -227,7 +227,7 @@ namespace Pulumi.Aws.Bedrock
         private Input<string>? _apiKey;
 
         /// <summary>
-        /// API key value. Conflicts with `ApiKeyWo` and `ApiKeySecretConfig`. This value will be visible in pulumi preview outputs and logs.
+        /// API key value. Exactly one of `ApiKey`, `ApiKeySecretConfig`, or `ApiKeyWo` must be set. This value is stored in plain text in the Terraform state; use `ApiKeyWo` to avoid this.
         /// </summary>
         public Input<string>? ApiKey
         {
@@ -269,7 +269,7 @@ namespace Pulumi.Aws.Bedrock
         }
 
         /// <summary>
-        /// Required when `ApiKeyWo` is set. Changing this value triggers an update to `ApiKeyWo`.
+        /// Version used together with the write-only API key. Required when `ApiKeyWo` is set. Changing this value triggers an update to `ApiKeyWo`.
         /// </summary>
         [Input("apiKeyWoVersion")]
         public Input<int>? ApiKeyWoVersion { get; set; }
@@ -312,7 +312,7 @@ namespace Pulumi.Aws.Bedrock
         private Input<string>? _apiKey;
 
         /// <summary>
-        /// API key value. Conflicts with `ApiKeyWo` and `ApiKeySecretConfig`. This value will be visible in pulumi preview outputs and logs.
+        /// API key value. Exactly one of `ApiKey`, `ApiKeySecretConfig`, or `ApiKeyWo` must be set. This value is stored in plain text in the Terraform state; use `ApiKeyWo` to avoid this.
         /// </summary>
         public Input<string>? ApiKey
         {
@@ -366,7 +366,7 @@ namespace Pulumi.Aws.Bedrock
         }
 
         /// <summary>
-        /// Required when `ApiKeyWo` is set. Changing this value triggers an update to `ApiKeyWo`.
+        /// Version used together with the write-only API key. Required when `ApiKeyWo` is set. Changing this value triggers an update to `ApiKeyWo`.
         /// </summary>
         [Input("apiKeyWoVersion")]
         public Input<int>? ApiKeyWoVersion { get; set; }

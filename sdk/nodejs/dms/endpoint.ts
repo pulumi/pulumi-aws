@@ -169,7 +169,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     declare public readonly serverName: pulumi.Output<string | undefined>;
     /**
-     * ARN used by the service access IAM role for dynamodb endpoints.
+     * ARN used by the service access IAM role for DynamoDB endpoints.
      */
     declare public readonly serviceAccessRole: pulumi.Output<string | undefined>;
     /**
@@ -381,7 +381,7 @@ export interface EndpointState {
      */
     serverName?: pulumi.Input<string | undefined>;
     /**
-     * ARN used by the service access IAM role for dynamodb endpoints.
+     * ARN used by the service access IAM role for DynamoDB endpoints.
      */
     serviceAccessRole?: pulumi.Input<string | undefined>;
     /**
@@ -500,7 +500,7 @@ export interface EndpointArgs {
      */
     serverName?: pulumi.Input<string | undefined>;
     /**
-     * ARN used by the service access IAM role for dynamodb endpoints.
+     * ARN used by the service access IAM role for DynamoDB endpoints.
      */
     serviceAccessRole?: pulumi.Input<string | undefined>;
     /**

@@ -14,23 +14,23 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelInputAttachmentInputSettings
     {
         /// <summary>
-        /// Used to select the audio stream to decode for inputs that have multiple. See Audio Selectors for more details.
+        /// Select the audio stream to decode for inputs that have multiple. See `AudioSelector` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.ChannelInputAttachmentInputSettingsAudioSelector> AudioSelectors;
         /// <summary>
-        /// Used to select the caption input to use for inputs that have multiple available. See Caption Selectors for more details.
+        /// Select the caption input to use for inputs that have multiple available. See `CaptionSelector` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.ChannelInputAttachmentInputSettingsCaptionSelector> CaptionSelectors;
         /// <summary>
-        /// Enable or disable the deblock filter when filtering.
+        /// Whether to enable the deblock filter when filtering.
         /// </summary>
         public readonly string? DeblockFilter;
         /// <summary>
-        /// Enable or disable the denoise filter when filtering.
+        /// Whether to enable the denoise filter when filtering.
         /// </summary>
         public readonly string? DenoiseFilter;
         /// <summary>
-        /// Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
+        /// Magnitude of filtering from 1 (minimal) to 5 (strongest).
         /// </summary>
         public readonly int? FilterStrength;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly string? InputFilter;
         /// <summary>
-        /// Input settings. See Network Input Settings for more details.
+        /// Input settings. See `NetworkInputSettings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelInputAttachmentInputSettingsNetworkInputSettings? NetworkInputSettings;
         /// <summary>
@@ -46,13 +46,16 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly int? Scte35Pid;
         /// <summary>
-        /// Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
+        /// Whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
         /// </summary>
         public readonly string? Smpte2038DataPreference;
         /// <summary>
         /// Loop input if it is a file.
         /// </summary>
         public readonly string? SourceEndBehavior;
+        /// <summary>
+        /// Information about one video to extract from the input. See `VideoSelector` Block for details.
+        /// </summary>
         public readonly Outputs.ChannelInputAttachmentInputSettingsVideoSelector? VideoSelector;
 
         [OutputConstructor]

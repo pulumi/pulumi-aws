@@ -162,7 +162,7 @@ namespace Pulumi.Aws.MemoryDb
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The minimum engine version supported by the ACL.
+        /// Minimum engine version supported by the ACL.
         /// </summary>
         public readonly string MinimumEngineVersion;
         public readonly string Name;

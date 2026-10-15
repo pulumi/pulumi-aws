@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings {
+    /**
+     * @return Language to consider when translating the image-based source to text, for a referencing WebVTT caption description.
+     * 
+     */
     private @Nullable String ocrLanguage;
+    /**
+     * @return PID field used with the caption selector `languageCode` field as follows. Specify PID and language: extracts captions from that PID; the language is informational. Specify PID and omit language: extracts the specified PID. Omit PID and specify language: extracts the specified language, whichever PID that happens to be. Omit PID and omit language: valid only if the source is DVB-Sub that is being passed through; all languages are passed through.
+     * 
+     */
     private @Nullable Integer pid;
 
     private ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings() {}
+    /**
+     * @return Language to consider when translating the image-based source to text, for a referencing WebVTT caption description.
+     * 
+     */
     public Optional<String> ocrLanguage() {
         return Optional.ofNullable(this.ocrLanguage);
     }
+    /**
+     * @return PID field used with the caption selector `languageCode` field as follows. Specify PID and language: extracts captions from that PID; the language is informational. Specify PID and omit language: extracts the specified PID. Omit PID and specify language: extracts the specified language, whichever PID that happens to be. Omit PID and omit language: valid only if the source is DVB-Sub that is being passed through; all languages are passed through.
+     * 
+     */
     public Optional<Integer> pid() {
         return Optional.ofNullable(this.pid);
     }

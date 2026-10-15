@@ -8,11 +8,11 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides an Application AutoScaling ScheduledAction resource.
+ * Provides an Application Auto Scaling ScheduledAction resource.
  *
  * ## Example Usage
  *
- * ### DynamoDB Table Autoscaling
+ * ### DynamoDB Table AutoScaling
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### ECS Service Autoscaling
+ * ### ECS Service AutoScaling
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -125,7 +125,7 @@ export class ScheduledAction extends pulumi.CustomResource {
      */
     declare public readonly schedule: pulumi.Output<string>;
     /**
-     * Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs
+     * Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: `ecs`
      */
     declare public readonly serviceNamespace: pulumi.Output<string>;
     /**
@@ -232,7 +232,7 @@ export interface ScheduledActionState {
      */
     schedule?: pulumi.Input<string | undefined>;
     /**
-     * Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs
+     * Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: `ecs`
      */
     serviceNamespace?: pulumi.Input<string | undefined>;
     /**
@@ -278,7 +278,7 @@ export interface ScheduledActionArgs {
      */
     schedule: pulumi.Input<string>;
     /**
-     * Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs
+     * Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: `ecs`
      */
     serviceNamespace: pulumi.Input<string>;
     /**

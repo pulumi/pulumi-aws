@@ -13,9 +13,12 @@ namespace Pulumi.Aws.Mwaa.Outputs
     [OutputType]
     public sealed class EnvironmentLoggingConfigurationTaskLogs
     {
+        /// <summary>
+        /// ARN of the CloudWatch Logs log group where the logs are published.
+        /// </summary>
         public readonly string? CloudWatchLogGroupArn;
         /// <summary>
-        /// Enabling or disabling the collection of logs
+        /// Whether to enable the collection of logs.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>

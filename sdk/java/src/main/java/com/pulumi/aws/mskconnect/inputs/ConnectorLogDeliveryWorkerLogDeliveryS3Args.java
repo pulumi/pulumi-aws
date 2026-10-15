@@ -18,14 +18,14 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryS3Args extends com.pulum
     public static final ConnectorLogDeliveryWorkerLogDeliveryS3Args Empty = new ConnectorLogDeliveryWorkerLogDeliveryS3Args();
 
     /**
-     * The name of the S3 bucket that is the destination for log delivery.
+     * Name of the S3 bucket that is the destination for log delivery.
      * 
      */
     @Import(name="bucket")
     private @Nullable Output<String> bucket;
 
     /**
-     * @return The name of the S3 bucket that is the destination for log delivery.
+     * @return Name of the S3 bucket that is the destination for log delivery.
      * 
      */
     public Optional<Output<String>> bucket() {
@@ -33,14 +33,14 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryS3Args extends com.pulum
     }
 
     /**
-     * Specifies whether connector logs get sent to the specified Amazon S3 destination.
+     * Whether connector logs get sent to the specified Amazon S3 destination.
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return Specifies whether connector logs get sent to the specified Amazon S3 destination.
+     * @return Whether connector logs get sent to the specified Amazon S3 destination.
      * 
      */
     public Output<Boolean> enabled() {
@@ -48,14 +48,14 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryS3Args extends com.pulum
     }
 
     /**
-     * The S3 prefix that is the destination for log delivery.
+     * S3 prefix that is the destination for log delivery.
      * 
      */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
     /**
-     * @return The S3 prefix that is the destination for log delivery.
+     * @return S3 prefix that is the destination for log delivery.
      * 
      */
     public Optional<Output<String>> prefix() {
@@ -89,7 +89,7 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryS3Args extends com.pulum
         }
 
         /**
-         * @param bucket The name of the S3 bucket that is the destination for log delivery.
+         * @param bucket Name of the S3 bucket that is the destination for log delivery.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryS3Args extends com.pulum
         }
 
         /**
-         * @param bucket The name of the S3 bucket that is the destination for log delivery.
+         * @param bucket Name of the S3 bucket that is the destination for log delivery.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryS3Args extends com.pulum
         }
 
         /**
-         * @param enabled Specifies whether connector logs get sent to the specified Amazon S3 destination.
+         * @param enabled Whether connector logs get sent to the specified Amazon S3 destination.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryS3Args extends com.pulum
         }
 
         /**
-         * @param enabled Specifies whether connector logs get sent to the specified Amazon S3 destination.
+         * @param enabled Whether connector logs get sent to the specified Amazon S3 destination.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryS3Args extends com.pulum
         }
 
         /**
-         * @param prefix The S3 prefix that is the destination for log delivery.
+         * @param prefix S3 prefix that is the destination for log delivery.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryS3Args extends com.pulum
         }
 
         /**
-         * @param prefix The S3 prefix that is the destination for log delivery.
+         * @param prefix S3 prefix that is the destination for log delivery.
          * 
          * @return builder
          * 

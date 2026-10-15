@@ -68,7 +68,7 @@ type Member struct {
 
 	// AWS account ID for member account.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// The detector ID of the GuardDuty account where you want to create member accounts.
+	// Detector ID of the GuardDuty account where you want to create member accounts.
 	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
 	// Boolean whether an email notification is sent to the accounts. Defaults to `false`.
 	DisableEmailNotification pulumi.BoolPtrOutput `pulumi:"disableEmailNotification"`
@@ -80,7 +80,7 @@ type Member struct {
 	Invite pulumi.BoolPtrOutput `pulumi:"invite"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
+	// Status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
 	RelationshipStatus pulumi.StringOutput `pulumi:"relationshipStatus"`
 }
 
@@ -125,7 +125,7 @@ func GetMember(ctx *pulumi.Context,
 type memberState struct {
 	// AWS account ID for member account.
 	AccountId *string `pulumi:"accountId"`
-	// The detector ID of the GuardDuty account where you want to create member accounts.
+	// Detector ID of the GuardDuty account where you want to create member accounts.
 	DetectorId *string `pulumi:"detectorId"`
 	// Boolean whether an email notification is sent to the accounts. Defaults to `false`.
 	DisableEmailNotification *bool `pulumi:"disableEmailNotification"`
@@ -137,14 +137,14 @@ type memberState struct {
 	Invite *bool `pulumi:"invite"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
+	// Status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
 	RelationshipStatus *string `pulumi:"relationshipStatus"`
 }
 
 type MemberState struct {
 	// AWS account ID for member account.
 	AccountId pulumi.StringPtrInput
-	// The detector ID of the GuardDuty account where you want to create member accounts.
+	// Detector ID of the GuardDuty account where you want to create member accounts.
 	DetectorId pulumi.StringPtrInput
 	// Boolean whether an email notification is sent to the accounts. Defaults to `false`.
 	DisableEmailNotification pulumi.BoolPtrInput
@@ -156,7 +156,7 @@ type MemberState struct {
 	Invite pulumi.BoolPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
+	// Status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
 	RelationshipStatus pulumi.StringPtrInput
 }
 
@@ -167,7 +167,7 @@ func (MemberState) ElementType() reflect.Type {
 type memberArgs struct {
 	// AWS account ID for member account.
 	AccountId string `pulumi:"accountId"`
-	// The detector ID of the GuardDuty account where you want to create member accounts.
+	// Detector ID of the GuardDuty account where you want to create member accounts.
 	DetectorId string `pulumi:"detectorId"`
 	// Boolean whether an email notification is sent to the accounts. Defaults to `false`.
 	DisableEmailNotification *bool `pulumi:"disableEmailNotification"`
@@ -185,7 +185,7 @@ type memberArgs struct {
 type MemberArgs struct {
 	// AWS account ID for member account.
 	AccountId pulumi.StringInput
-	// The detector ID of the GuardDuty account where you want to create member accounts.
+	// Detector ID of the GuardDuty account where you want to create member accounts.
 	DetectorId pulumi.StringInput
 	// Boolean whether an email notification is sent to the accounts. Defaults to `false`.
 	DisableEmailNotification pulumi.BoolPtrInput
@@ -291,7 +291,7 @@ func (o MemberOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// The detector ID of the GuardDuty account where you want to create member accounts.
+// Detector ID of the GuardDuty account where you want to create member accounts.
 func (o MemberOutput) DetectorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.DetectorId }).(pulumi.StringOutput)
 }
@@ -321,7 +321,7 @@ func (o MemberOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
+// Status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
 func (o MemberOutput) RelationshipStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.RelationshipStatus }).(pulumi.StringOutput)
 }

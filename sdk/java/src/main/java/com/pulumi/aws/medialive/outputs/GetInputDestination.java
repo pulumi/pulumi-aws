@@ -12,21 +12,53 @@ import java.util.Objects;
 
 @CustomType
 public final class GetInputDestination {
+    /**
+     * @return IP address.
+     * 
+     */
     private String ip;
+    /**
+     * @return Port.
+     * 
+     */
     private String port;
+    /**
+     * @return URL where the stream is pulled from.
+     * 
+     */
     private String url;
+    /**
+     * @return VPC settings. See `destinations.vpc` Block for more details.
+     * 
+     */
     private List<GetInputDestinationVpc> vpcs;
 
     private GetInputDestination() {}
+    /**
+     * @return IP address.
+     * 
+     */
     public String ip() {
         return this.ip;
     }
+    /**
+     * @return Port.
+     * 
+     */
     public String port() {
         return this.port;
     }
+    /**
+     * @return URL where the stream is pulled from.
+     * 
+     */
     public String url() {
         return this.url;
     }
+    /**
+     * @return VPC settings. See `destinations.vpc` Block for more details.
+     * 
+     */
     public List<GetInputDestinationVpc> vpcs() {
         return this.vpcs;
     }

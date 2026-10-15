@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class CatalogTableOptimizerConfigurationRetentionConfiguration
     {
         /// <summary>
-        /// The configuration for an Iceberg snapshot retention optimizer.
+        /// Configuration for an Iceberg snapshot retention optimizer. See `configuration.retention_configuration.iceberg_configuration` Block for additional details.
         /// </summary>
         public readonly Outputs.CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration? IcebergConfiguration;
 

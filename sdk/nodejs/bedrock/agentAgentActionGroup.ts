@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource for managing an AWS Agents for Amazon Bedrock Agent Action Group.
+ * Manages an AWS Agents for Amazon Bedrock Agent Action Group.
  *
  * ## Example Usage
  *
@@ -122,7 +122,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Agents for Amazon Bedrock Agent Action Group the action group ID, the agent ID, and the agent version separated by `,`. For example:
+ * Using `pulumi import`, import Agents for Amazon Bedrock Agent Action Group using the action group ID, the agent ID, and the agent version separated by `,`. For example:
  *
  * ```sh
  * $ pulumi import aws:bedrock/agentAgentActionGroup:AgentAgentActionGroup example MMAUDBZTH4,GGRRAED6JP,DRAFT
@@ -199,7 +199,7 @@ export class AgentAgentActionGroup extends pulumi.CustomResource {
      */
     declare public readonly parentActionGroupSignature: pulumi.Output<string | undefined>;
     /**
-     * Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+     * Whether to prepare the agent after creation or modification. Defaults to `true`.
      */
     declare public readonly prepareAgent: pulumi.Output<boolean>;
     /**
@@ -207,7 +207,7 @@ export class AgentAgentActionGroup extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Whether the in-use check is skipped when deleting the action group.
+     * Whether to skip the in-use check when deleting the action group. Defaults to `false`.
      */
     declare public readonly skipResourceInUseCheck: pulumi.Output<boolean>;
     declare public readonly timeouts: pulumi.Output<outputs.bedrock.AgentAgentActionGroupTimeouts | undefined>;
@@ -317,7 +317,7 @@ export interface AgentAgentActionGroupState {
      */
     parentActionGroupSignature?: pulumi.Input<string | undefined>;
     /**
-     * Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+     * Whether to prepare the agent after creation or modification. Defaults to `true`.
      */
     prepareAgent?: pulumi.Input<boolean | undefined>;
     /**
@@ -325,7 +325,7 @@ export interface AgentAgentActionGroupState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Whether the in-use check is skipped when deleting the action group.
+     * Whether to skip the in-use check when deleting the action group. Defaults to `false`.
      */
     skipResourceInUseCheck?: pulumi.Input<boolean | undefined>;
     timeouts?: pulumi.Input<inputs.bedrock.AgentAgentActionGroupTimeouts | undefined>;
@@ -374,7 +374,7 @@ export interface AgentAgentActionGroupArgs {
      */
     parentActionGroupSignature?: pulumi.Input<string | undefined>;
     /**
-     * Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+     * Whether to prepare the agent after creation or modification. Defaults to `true`.
      */
     prepareAgent?: pulumi.Input<boolean | undefined>;
     /**
@@ -382,7 +382,7 @@ export interface AgentAgentActionGroupArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Whether the in-use check is skipped when deleting the action group.
+     * Whether to skip the in-use check when deleting the action group. Defaults to `false`.
      */
     skipResourceInUseCheck?: pulumi.Input<boolean | undefined>;
     timeouts?: pulumi.Input<inputs.bedrock.AgentAgentActionGroupTimeouts | undefined>;

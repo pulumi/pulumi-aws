@@ -15,38 +15,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting {
     /**
-     * @return Parameters that control the interactions with the CDN. See Archive CDN Settings for more details.
+     * @return Parameters that control the interactions with the CDN. See `archiveCdnSettings` Block for details.
      * 
      */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettings archiveCdnSettings;
     /**
-     * @return A director and base filename where archive files should be written. See Destination for more details.
+     * @return Directory and base filename where archive files are written. See `destination` Block for details.
      * 
      */
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestination destination;
     /**
-     * @return Number of seconds to write to archive file before closing and starting a new one.
+     * @return Number of seconds to write to an archive file before closing and starting a new one.
      * 
      */
     private @Nullable Integer rolloverInterval;
 
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting() {}
     /**
-     * @return Parameters that control the interactions with the CDN. See Archive CDN Settings for more details.
+     * @return Parameters that control the interactions with the CDN. See `archiveCdnSettings` Block for details.
      * 
      */
     public Optional<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettings> archiveCdnSettings() {
         return Optional.ofNullable(this.archiveCdnSettings);
     }
     /**
-     * @return A director and base filename where archive files should be written. See Destination for more details.
+     * @return Directory and base filename where archive files are written. See `destination` Block for details.
      * 
      */
     public ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestination destination() {
         return this.destination;
     }
     /**
-     * @return Number of seconds to write to archive file before closing and starting a new one.
+     * @return Number of seconds to write to an archive file before closing and starting a new one.
      * 
      */
     public Optional<Integer> rolloverInterval() {

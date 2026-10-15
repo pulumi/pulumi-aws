@@ -35,6 +35,7 @@ class DeploymentArgs:
         :param pulumi.Input[_builtins.int] application_version: Version to application to deploy
         :param pulumi.Input[_builtins.str] environment_id: Environment to deploy application to.
         :param pulumi.Input[_builtins.bool] start: Start the application once deployed.
+        :param pulumi.Input[_builtins.bool] force_stop: Stop the application during deployment, even if it is running.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "application_id", application_id)
@@ -99,6 +100,9 @@ class DeploymentArgs:
     @_builtins.property
     @pulumi.getter(name="forceStop")
     def force_stop(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Stop the application during deployment, even if it is running.
+        """
         return pulumi.get(self, "force_stop")
 
     @force_stop.setter
@@ -143,7 +147,9 @@ class _DeploymentState:
 
         :param pulumi.Input[_builtins.str] application_id: Application to deploy.
         :param pulumi.Input[_builtins.int] application_version: Version to application to deploy
+        :param pulumi.Input[_builtins.str] deployment_id: Unique identifier of the deployment.
         :param pulumi.Input[_builtins.str] environment_id: Environment to deploy application to.
+        :param pulumi.Input[_builtins.bool] force_stop: Stop the application during deployment, even if it is running.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] start: Start the application once deployed.
         """
@@ -191,6 +197,9 @@ class _DeploymentState:
     @_builtins.property
     @pulumi.getter(name="deploymentId")
     def deployment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Unique identifier of the deployment.
+        """
         return pulumi.get(self, "deployment_id")
 
     @deployment_id.setter
@@ -212,6 +221,9 @@ class _DeploymentState:
     @_builtins.property
     @pulumi.getter(name="forceStop")
     def force_stop(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Stop the application during deployment, even if it is running.
+        """
         return pulumi.get(self, "force_stop")
 
     @force_stop.setter
@@ -298,6 +310,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] application_id: Application to deploy.
         :param pulumi.Input[_builtins.int] application_version: Version to application to deploy
         :param pulumi.Input[_builtins.str] environment_id: Environment to deploy application to.
+        :param pulumi.Input[_builtins.bool] force_stop: Stop the application during deployment, even if it is running.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] start: Start the application once deployed.
         """
@@ -408,7 +421,9 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: Application to deploy.
         :param pulumi.Input[_builtins.int] application_version: Version to application to deploy
+        :param pulumi.Input[_builtins.str] deployment_id: Unique identifier of the deployment.
         :param pulumi.Input[_builtins.str] environment_id: Environment to deploy application to.
+        :param pulumi.Input[_builtins.bool] force_stop: Stop the application during deployment, even if it is running.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] start: Start the application once deployed.
         """
@@ -445,6 +460,9 @@ class Deployment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="deploymentId")
     def deployment_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        Unique identifier of the deployment.
+        """
         return pulumi.get(self, "deployment_id")
 
     @_builtins.property
@@ -458,6 +476,9 @@ class Deployment(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="forceStop")
     def force_stop(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Stop the application during deployment, even if it is running.
+        """
         return pulumi.get(self, "force_stop")
 
     @_builtins.property

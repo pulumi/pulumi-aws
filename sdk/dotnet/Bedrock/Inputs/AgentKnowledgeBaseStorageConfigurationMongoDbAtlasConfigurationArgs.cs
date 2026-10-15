@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string> Endpoint { get; set; } = null!;
 
         /// <summary>
-        /// Name of the service that hosts the MongoDB Atlas database.
+        /// Name of the VPC endpoint service in your account that is connected to your MongoDB Atlas cluster.
         /// </summary>
         [Input("endpointServiceName")]
         public Input<string>? EndpointServiceName { get; set; }
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<Inputs.AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs> FieldMapping { get; set; } = null!;
 
         /// <summary>
-        /// Name of the vector index.
+        /// Name of the text search index in the MongoDB collection. Required for hybrid search.
         /// </summary>
         [Input("textIndexName")]
         public Input<string>? TextIndexName { get; set; }

@@ -117,7 +117,7 @@ def get_resolver_firewall_rules(action: Optional[_builtins.str] = None,
 
     ## Example Usage
 
-    The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
+    The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group ID.
 
     ```python
     import pulumi
@@ -157,7 +157,7 @@ def get_resolver_firewall_rules_output(action: pulumi.Input[Optional[Optional[_b
 
     ## Example Usage
 
-    The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
+    The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group ID.
 
     ```python
     import pulumi

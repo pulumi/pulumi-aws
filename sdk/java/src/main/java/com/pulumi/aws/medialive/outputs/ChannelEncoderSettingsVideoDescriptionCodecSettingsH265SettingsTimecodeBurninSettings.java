@@ -12,38 +12,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings {
     /**
-     * @return Set a prefix on the burned in timecode.
+     * @return Prefix on the burned-in timecode.
      * 
      */
     private @Nullable String prefix;
     /**
-     * @return Sets the size of the burned in timecode.
+     * @return Size of the burned-in timecode.
      * 
      */
     private @Nullable String timecodeBurninFontSize;
     /**
-     * @return Sets the position of the burned in timecode.
+     * @return Position of the burned-in timecode.
      * 
      */
     private @Nullable String timecodeBurninPosition;
 
     private ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings() {}
     /**
-     * @return Set a prefix on the burned in timecode.
+     * @return Prefix on the burned-in timecode.
      * 
      */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }
     /**
-     * @return Sets the size of the burned in timecode.
+     * @return Size of the burned-in timecode.
      * 
      */
     public Optional<String> timecodeBurninFontSize() {
         return Optional.ofNullable(this.timecodeBurninFontSize);
     }
     /**
-     * @return Sets the position of the burned in timecode.
+     * @return Position of the burned-in timecode.
      * 
      */
     public Optional<String> timecodeBurninPosition() {

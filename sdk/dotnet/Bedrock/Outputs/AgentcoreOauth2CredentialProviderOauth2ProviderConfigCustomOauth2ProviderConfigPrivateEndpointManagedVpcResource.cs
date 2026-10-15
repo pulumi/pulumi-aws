@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource
     {
         /// <summary>
-        /// IP address type for the endpoint. Valid values: `IPV4`, `DUALSTACK`.
+        /// IP address type for the endpoint. Valid values: `IPV4`, `IPV6`.
         /// </summary>
         public readonly string EndpointIpAddressType;
         /// <summary>

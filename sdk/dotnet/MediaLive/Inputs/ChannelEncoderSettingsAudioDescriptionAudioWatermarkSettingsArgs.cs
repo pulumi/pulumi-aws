@@ -12,6 +12,9 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Settings to configure Nielsen watermarks in the audio encode. See `NielsenWatermarksSettings` Block for details.
+        /// </summary>
         [Input("nielsenWatermarksSettings")]
         public Input<Inputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsArgs>? NielsenWatermarksSettings { get; set; }
 

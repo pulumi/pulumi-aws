@@ -34,14 +34,14 @@ public final class CapacityProviderState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
+     * Configuration block for the provider for the ECS Auto Scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
      * 
      */
     @Import(name="autoScalingGroupProvider")
     private @Nullable Output<CapacityProviderAutoScalingGroupProviderArgs> autoScalingGroupProvider;
 
     /**
-     * @return Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
+     * @return Configuration block for the provider for the ECS Auto Scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
      * 
      */
     public Optional<Output<CapacityProviderAutoScalingGroupProviderArgs>> autoScalingGroupProvider() {
@@ -191,7 +191,7 @@ public final class CapacityProviderState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param autoScalingGroupProvider Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
+         * @param autoScalingGroupProvider Configuration block for the provider for the ECS Auto Scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class CapacityProviderState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param autoScalingGroupProvider Configuration block for the provider for the ECS auto scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
+         * @param autoScalingGroupProvider Configuration block for the provider for the ECS Auto Scaling group. Detailed below. Exactly one of `autoScalingGroupProvider` or `managedInstancesProvider` must be specified.
          * 
          * @return builder
          * 

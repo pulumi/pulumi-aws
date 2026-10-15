@@ -2889,7 +2889,7 @@ class GetCloudAutonomousVmClustersCloudAutonomousVmClusterResult(dict):
                  odb_network_id: _builtins.str):
         """
         :param _builtins.str arn: ARN for the Exadata infrastructure.
-        :param _builtins.str cloud_exadata_infrastructure_id: Cloud exadata infrastructure id associated with this cloud autonomous VM cluster.
+        :param _builtins.str cloud_exadata_infrastructure_id: Cloud exadata infrastructure ID associated with this cloud autonomous VM cluster.
         :param _builtins.str display_name: Display name of the Autonomous VM cluster.
         :param _builtins.str id: Unique identifier of the cloud autonomous vm cluster.
         :param _builtins.str oci_resource_anchor_name: Name of the OCI resource anchor associated with this Autonomous VM cluster.
@@ -2918,7 +2918,7 @@ class GetCloudAutonomousVmClustersCloudAutonomousVmClusterResult(dict):
     @pulumi.getter(name="cloudExadataInfrastructureId")
     def cloud_exadata_infrastructure_id(self) -> _builtins.str:
         """
-        Cloud exadata infrastructure id associated with this cloud autonomous VM cluster.
+        Cloud exadata infrastructure ID associated with this cloud autonomous VM cluster.
         """
         return pulumi.get(self, "cloud_exadata_infrastructure_id")
 

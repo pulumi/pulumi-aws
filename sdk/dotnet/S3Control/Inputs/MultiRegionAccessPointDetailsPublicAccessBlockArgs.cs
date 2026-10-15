@@ -13,7 +13,7 @@ namespace Pulumi.Aws.S3Control.Inputs
     public sealed class MultiRegionAccessPointDetailsPublicAccessBlockArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `True`. Enabling this setting does not affect existing policies or ACLs. When set to `True`, PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
+        /// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `True`. Enabling this setting does not affect existing policies or ACLs. When set to `True`, PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
         /// </summary>
         [Input("blockPublicAcls")]
         public Input<bool>? BlockPublicAcls { get; set; }

@@ -33,17 +33,17 @@ public final class GetCatalogResult {
      */
     private String catalogId;
     /**
-     * @return Catalog properties. See `catalogProperties` below.
+     * @return Catalog properties. See `catalogProperties` Block below.
      * 
      */
     private List<GetCatalogCatalogProperty> catalogProperties;
     /**
-     * @return Default permissions on databases for principals. See `createDatabaseDefaultPermissions` below.
+     * @return Default permissions on databases for principals. See `createDatabaseDefaultPermissions` Block below.
      * 
      */
     private List<GetCatalogCreateDatabaseDefaultPermission> createDatabaseDefaultPermissions;
     /**
-     * @return Default permissions on tables for principals. See `createTableDefaultPermissions` below.
+     * @return Default permissions on tables for principals. See `createTableDefaultPermissions` Block below.
      * 
      */
     private List<GetCatalogCreateTableDefaultPermission> createTableDefaultPermissions;
@@ -58,7 +58,7 @@ public final class GetCatalogResult {
      */
     private String description;
     /**
-     * @return Federated catalog configuration. See `federatedCatalog` below.
+     * @return Federated catalog configuration. See `federatedCatalog` Block below.
      * 
      */
     private List<GetCatalogFederatedCatalog> federatedCatalogs;
@@ -75,7 +75,7 @@ public final class GetCatalogResult {
      */
     private Map<String,String> tags;
     /**
-     * @return Target Redshift catalog configuration. See `targetRedshiftCatalog` below.
+     * @return Target Redshift catalog configuration. See `targetRedshiftCatalog` Block below.
      * 
      */
     private List<GetCatalogTargetRedshiftCatalog> targetRedshiftCatalogs;
@@ -108,21 +108,21 @@ public final class GetCatalogResult {
         return this.catalogId;
     }
     /**
-     * @return Catalog properties. See `catalogProperties` below.
+     * @return Catalog properties. See `catalogProperties` Block below.
      * 
      */
     public List<GetCatalogCatalogProperty> catalogProperties() {
         return this.catalogProperties;
     }
     /**
-     * @return Default permissions on databases for principals. See `createDatabaseDefaultPermissions` below.
+     * @return Default permissions on databases for principals. See `createDatabaseDefaultPermissions` Block below.
      * 
      */
     public List<GetCatalogCreateDatabaseDefaultPermission> createDatabaseDefaultPermissions() {
         return this.createDatabaseDefaultPermissions;
     }
     /**
-     * @return Default permissions on tables for principals. See `createTableDefaultPermissions` below.
+     * @return Default permissions on tables for principals. See `createTableDefaultPermissions` Block below.
      * 
      */
     public List<GetCatalogCreateTableDefaultPermission> createTableDefaultPermissions() {
@@ -143,7 +143,7 @@ public final class GetCatalogResult {
         return this.description;
     }
     /**
-     * @return Federated catalog configuration. See `federatedCatalog` below.
+     * @return Federated catalog configuration. See `federatedCatalog` Block below.
      * 
      */
     public List<GetCatalogFederatedCatalog> federatedCatalogs() {
@@ -170,7 +170,7 @@ public final class GetCatalogResult {
         return this.tags;
     }
     /**
-     * @return Target Redshift catalog configuration. See `targetRedshiftCatalog` below.
+     * @return Target Redshift catalog configuration. See `targetRedshiftCatalog` Block below.
      * 
      */
     public List<GetCatalogTargetRedshiftCatalog> targetRedshiftCatalogs() {

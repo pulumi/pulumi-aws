@@ -35,14 +35,14 @@ public final class GetTaskExecutionOverridesContainerOverride extends com.pulumi
     }
 
     /**
-     * Number of cpu units reserved for the container, instead of the default value from the task definition.
+     * Number of CPU units reserved for the container, instead of the default value from the task definition.
      * 
      */
     @Import(name="cpu")
     private @Nullable Integer cpu;
 
     /**
-     * @return Number of cpu units reserved for the container, instead of the default value from the task definition.
+     * @return Number of CPU units reserved for the container, instead of the default value from the task definition.
      * 
      */
     public Optional<Integer> cpu() {
@@ -176,7 +176,7 @@ public final class GetTaskExecutionOverridesContainerOverride extends com.pulumi
         }
 
         /**
-         * @param cpu Number of cpu units reserved for the container, instead of the default value from the task definition.
+         * @param cpu Number of CPU units reserved for the container, instead of the default value from the task definition.
          * 
          * @return builder
          * 

@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings {
     /**
-     * @return Html Motion Graphics Settings.
+     * @return HTML motion graphics settings. Can be set as an empty block.
      * 
      */
     private @Nullable ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettings htmlMotionGraphicsSettings;
 
     private ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings() {}
     /**
-     * @return Html Motion Graphics Settings.
+     * @return HTML motion graphics settings. Can be set as an empty block.
      * 
      */
     public Optional<ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettings> htmlMotionGraphicsSettings() {

@@ -93,14 +93,14 @@ public final class EndpointMysqlSettingsArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
+     * Maximum size (in KB) of any `.csv` file used to transfer data to a MySQL-compatible database.
      * 
      */
     @Import(name="maxFileSize")
     private @Nullable Output<Integer> maxFileSize;
 
     /**
-     * @return Maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
+     * @return Maximum size (in KB) of any `.csv` file used to transfer data to a MySQL-compatible database.
      * 
      */
     public Optional<Output<Integer>> maxFileSize() {
@@ -306,7 +306,7 @@ public final class EndpointMysqlSettingsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param maxFileSize Maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
+         * @param maxFileSize Maximum size (in KB) of any `.csv` file used to transfer data to a MySQL-compatible database.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class EndpointMysqlSettingsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param maxFileSize Maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
+         * @param maxFileSize Maximum size (in KB) of any `.csv` file used to transfer data to a MySQL-compatible database.
          * 
          * @return builder
          * 

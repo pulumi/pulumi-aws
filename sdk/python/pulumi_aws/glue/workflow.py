@@ -28,10 +28,10 @@ class WorkflowArgs:
         """
         The set of arguments for constructing a Workflow resource.
 
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] default_run_properties: A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] default_run_properties: Map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
         :param pulumi.Input[_builtins.str] description: Description of the workflow.
         :param pulumi.Input[_builtins.int] max_concurrent_runs: Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
-        :param pulumi.Input[_builtins.str] name: The name you assign to this workflow.
+        :param pulumi.Input[_builtins.str] name: Name you assign to this workflow.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -52,7 +52,7 @@ class WorkflowArgs:
     @pulumi.getter(name="defaultRunProperties")
     def default_run_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+        Map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
         """
         return pulumi.get(self, "default_run_properties")
 
@@ -88,7 +88,7 @@ class WorkflowArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name you assign to this workflow.
+        Name you assign to this workflow.
         """
         return pulumi.get(self, "name")
 
@@ -136,13 +136,13 @@ class _WorkflowState:
         Input properties used for looking up and filtering Workflow resources.
 
         :param pulumi.Input[_builtins.str] arn: ARN of Glue Workflow
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] default_run_properties: A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] default_run_properties: Map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
         :param pulumi.Input[_builtins.str] description: Description of the workflow.
         :param pulumi.Input[_builtins.int] max_concurrent_runs: Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
-        :param pulumi.Input[_builtins.str] name: The name you assign to this workflow.
+        :param pulumi.Input[_builtins.str] name: Name you assign to this workflow.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -177,7 +177,7 @@ class _WorkflowState:
     @pulumi.getter(name="defaultRunProperties")
     def default_run_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+        Map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
         """
         return pulumi.get(self, "default_run_properties")
 
@@ -213,7 +213,7 @@ class _WorkflowState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name you assign to this workflow.
+        Name you assign to this workflow.
         """
         return pulumi.get(self, "name")
 
@@ -249,7 +249,7 @@ class _WorkflowState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -316,10 +316,10 @@ class Workflow(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] default_run_properties: A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] default_run_properties: Map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
         :param pulumi.Input[_builtins.str] description: Description of the workflow.
         :param pulumi.Input[_builtins.int] max_concurrent_runs: Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
-        :param pulumi.Input[_builtins.str] name: The name you assign to this workflow.
+        :param pulumi.Input[_builtins.str] name: Name you assign to this workflow.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -436,13 +436,13 @@ class Workflow(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of Glue Workflow
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] default_run_properties: A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] default_run_properties: Map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
         :param pulumi.Input[_builtins.str] description: Description of the workflow.
         :param pulumi.Input[_builtins.int] max_concurrent_runs: Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
-        :param pulumi.Input[_builtins.str] name: The name you assign to this workflow.
+        :param pulumi.Input[_builtins.str] name: Name you assign to this workflow.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -470,7 +470,7 @@ class Workflow(pulumi.CustomResource):
     @pulumi.getter(name="defaultRunProperties")
     def default_run_properties(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+        Map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
         """
         return pulumi.get(self, "default_run_properties")
 
@@ -494,7 +494,7 @@ class Workflow(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name you assign to this workflow.
+        Name you assign to this workflow.
         """
         return pulumi.get(self, "name")
 
@@ -518,7 +518,7 @@ class Workflow(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

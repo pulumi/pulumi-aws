@@ -18,14 +18,14 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
     public static final SchemaArgs Empty = new SchemaArgs();
 
     /**
-     * The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
+     * Compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
      * 
      */
     @Import(name="compatibility", required=true)
     private Output<String> compatibility;
 
     /**
-     * @return The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
+     * @return Compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
      * 
      */
     public Output<String> compatibility() {
@@ -33,14 +33,14 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
+     * Data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
      * 
      */
     @Import(name="dataFormat", required=true)
     private Output<String> dataFormat;
 
     /**
-     * @return The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
+     * @return Data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
      * 
      */
     public Output<String> dataFormat() {
@@ -48,14 +48,14 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A description of the schema.
+     * Description of the schema.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description of the schema.
+     * @return Description of the schema.
      * 
      */
     public Optional<Output<String>> description() {
@@ -78,14 +78,14 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the Glue Registry to create the schema in.
+     * ARN of the Glue Registry to create the schema in.
      * 
      */
     @Import(name="registryArn")
     private @Nullable Output<String> registryArn;
 
     /**
-     * @return The ARN of the Glue Registry to create the schema in.
+     * @return ARN of the Glue Registry to create the schema in.
      * 
      */
     public Optional<Output<String>> registryArn() {
@@ -93,14 +93,14 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The schema definition using the `dataFormat` setting for `schemaName`.
+     * Schema definition using the `dataFormat` setting for `schemaName`.
      * 
      */
     @Import(name="schemaDefinition", required=true)
     private Output<String> schemaDefinition;
 
     /**
-     * @return The schema definition using the `dataFormat` setting for `schemaName`.
+     * @return Schema definition using the `dataFormat` setting for `schemaName`.
      * 
      */
     public Output<String> schemaDefinition() {
@@ -108,14 +108,14 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Name of the schema.
+     * Name of the schema.
      * 
      */
     @Import(name="schemaName", required=true)
     private Output<String> schemaName;
 
     /**
-     * @return The Name of the schema.
+     * @return Name of the schema.
      * 
      */
     public Output<String> schemaName() {
@@ -169,7 +169,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param compatibility The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
+         * @param compatibility Compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param compatibility The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
+         * @param compatibility Compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataFormat The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
+         * @param dataFormat Data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataFormat The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
+         * @param dataFormat Data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the schema.
+         * @param description Description of the schema.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the schema.
+         * @param description Description of the schema.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param registryArn The ARN of the Glue Registry to create the schema in.
+         * @param registryArn ARN of the Glue Registry to create the schema in.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param registryArn The ARN of the Glue Registry to create the schema in.
+         * @param registryArn ARN of the Glue Registry to create the schema in.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schemaDefinition The schema definition using the `dataFormat` setting for `schemaName`.
+         * @param schemaDefinition Schema definition using the `dataFormat` setting for `schemaName`.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schemaDefinition The schema definition using the `dataFormat` setting for `schemaName`.
+         * @param schemaDefinition Schema definition using the `dataFormat` setting for `schemaName`.
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schemaName The Name of the schema.
+         * @param schemaName Name of the schema.
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schemaName The Name of the schema.
+         * @param schemaName Name of the schema.
          * 
          * @return builder
          * 

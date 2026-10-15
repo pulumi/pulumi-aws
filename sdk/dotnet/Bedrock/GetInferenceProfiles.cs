@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Bedrock
     public static class GetInferenceProfiles
     {
         /// <summary>
-        /// Data source for managing AWS Bedrock Inference Profiles.
+        /// Provides details about AWS Bedrock Inference Profiles.
         /// 
         /// ## Example Usage
         /// 
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Bedrock
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Aws.Bedrock.GetInferenceProfiles.Invoke();
+        ///     var example = Aws.Bedrock.GetInferenceProfiles.Invoke();
         /// 
         /// });
         /// ```
@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Bedrock
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Aws.Bedrock.GetInferenceProfiles.Invoke(new()
+        ///     var example = Aws.Bedrock.GetInferenceProfiles.Invoke(new()
         ///     {
         ///         Type = "APPLICATION",
         ///     });
@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Bedrock
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInferenceProfilesResult>("aws:bedrock/getInferenceProfiles:getInferenceProfiles", args ?? new GetInferenceProfilesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data source for managing AWS Bedrock Inference Profiles.
+        /// Provides details about AWS Bedrock Inference Profiles.
         /// 
         /// ## Example Usage
         /// 
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Bedrock
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Aws.Bedrock.GetInferenceProfiles.Invoke();
+        ///     var example = Aws.Bedrock.GetInferenceProfiles.Invoke();
         /// 
         /// });
         /// ```
@@ -82,7 +82,7 @@ namespace Pulumi.Aws.Bedrock
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Aws.Bedrock.GetInferenceProfiles.Invoke(new()
+        ///     var example = Aws.Bedrock.GetInferenceProfiles.Invoke(new()
         ///     {
         ///         Type = "APPLICATION",
         ///     });
@@ -94,7 +94,7 @@ namespace Pulumi.Aws.Bedrock
             => global::Pulumi.Deployment.Instance.Invoke<GetInferenceProfilesResult>("aws:bedrock/getInferenceProfiles:getInferenceProfiles", args ?? new GetInferenceProfilesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data source for managing AWS Bedrock Inference Profiles.
+        /// Provides details about AWS Bedrock Inference Profiles.
         /// 
         /// ## Example Usage
         /// 
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Bedrock
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Aws.Bedrock.GetInferenceProfiles.Invoke();
+        ///     var example = Aws.Bedrock.GetInferenceProfiles.Invoke();
         /// 
         /// });
         /// ```
@@ -123,7 +123,7 @@ namespace Pulumi.Aws.Bedrock
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Aws.Bedrock.GetInferenceProfiles.Invoke(new()
+        ///     var example = Aws.Bedrock.GetInferenceProfiles.Invoke(new()
         ///     {
         ///         Type = "APPLICATION",
         ///     });

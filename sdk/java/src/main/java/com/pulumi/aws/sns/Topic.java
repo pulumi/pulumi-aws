@@ -252,14 +252,14 @@ public class Topic extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.archivePolicy);
     }
     /**
-     * The ARN of the SNS topic, as a more obvious property (clone of id)
+     * The ARN of the SNS topic, as a more obvious property (clone of `id`)
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the SNS topic, as a more obvious property (clone of id)
+     * @return The ARN of the SNS topic, as a more obvious property (clone of `id`)
      * 
      */
     public Output<String> arn() {

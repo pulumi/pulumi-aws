@@ -133,28 +133,28 @@ public class Listener extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.clientAffinity);
     }
     /**
-     * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+     * Port ranges for the connections from clients to the accelerator. See `portRange` below.
      * 
      */
     @Export(name="portRanges", refs={List.class,ListenerPortRange.class}, tree="[0,1]")
     private Output<List<ListenerPortRange>> portRanges;
 
     /**
-     * @return The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+     * @return Port ranges for the connections from clients to the accelerator. See `portRange` below.
      * 
      */
     public Output<List<ListenerPortRange>> portRanges() {
         return this.portRanges;
     }
     /**
-     * The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
+     * Protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
      * 
      */
     @Export(name="protocol", refs={String.class}, tree="[0]")
     private Output<String> protocol;
 
     /**
-     * @return The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
+     * @return Protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
      * 
      */
     public Output<String> protocol() {

@@ -12,7 +12,7 @@ namespace Pulumi.Aws.BedrockFoundation
     public static class GetModel
     {
         /// <summary>
-        /// Data source for managing an AWS Bedrock Foundation Model.
+        /// Provides details about an AWS Bedrock Foundation Model.
         /// 
         /// ## Example Usage
         /// 
@@ -26,11 +26,11 @@ namespace Pulumi.Aws.BedrockFoundation
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Aws.BedrockFoundation.GetModels.Invoke();
+        ///     var example = Aws.BedrockFoundation.GetModels.Invoke();
         /// 
-        ///     var testGetModel = Aws.BedrockFoundation.GetModel.Invoke(new()
+        ///     var exampleGetModel = Aws.BedrockFoundation.GetModel.Invoke(new()
         ///     {
-        ///         ModelId = test.Apply(getModelsResult =&gt; getModelsResult.ModelSummaries[0]?.ModelId),
+        ///         ModelId = example.Apply(getModelsResult =&gt; getModelsResult.ModelSummaries[0]?.ModelId),
         ///     });
         /// 
         /// });
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.BedrockFoundation
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetModelResult>("aws:bedrockfoundation/getModel:getModel", args ?? new GetModelArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data source for managing an AWS Bedrock Foundation Model.
+        /// Provides details about an AWS Bedrock Foundation Model.
         /// 
         /// ## Example Usage
         /// 
@@ -54,11 +54,11 @@ namespace Pulumi.Aws.BedrockFoundation
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Aws.BedrockFoundation.GetModels.Invoke();
+        ///     var example = Aws.BedrockFoundation.GetModels.Invoke();
         /// 
-        ///     var testGetModel = Aws.BedrockFoundation.GetModel.Invoke(new()
+        ///     var exampleGetModel = Aws.BedrockFoundation.GetModel.Invoke(new()
         ///     {
-        ///         ModelId = test.Apply(getModelsResult =&gt; getModelsResult.ModelSummaries[0]?.ModelId),
+        ///         ModelId = example.Apply(getModelsResult =&gt; getModelsResult.ModelSummaries[0]?.ModelId),
         ///     });
         /// 
         /// });
@@ -68,7 +68,7 @@ namespace Pulumi.Aws.BedrockFoundation
             => global::Pulumi.Deployment.Instance.Invoke<GetModelResult>("aws:bedrockfoundation/getModel:getModel", args ?? new GetModelInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data source for managing an AWS Bedrock Foundation Model.
+        /// Provides details about an AWS Bedrock Foundation Model.
         /// 
         /// ## Example Usage
         /// 
@@ -82,11 +82,11 @@ namespace Pulumi.Aws.BedrockFoundation
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Aws.BedrockFoundation.GetModels.Invoke();
+        ///     var example = Aws.BedrockFoundation.GetModels.Invoke();
         /// 
-        ///     var testGetModel = Aws.BedrockFoundation.GetModel.Invoke(new()
+        ///     var exampleGetModel = Aws.BedrockFoundation.GetModel.Invoke(new()
         ///     {
-        ///         ModelId = test.Apply(getModelsResult =&gt; getModelsResult.ModelSummaries[0]?.ModelId),
+        ///         ModelId = example.Apply(getModelsResult =&gt; getModelsResult.ModelSummaries[0]?.ModelId),
         ///     });
         /// 
         /// });

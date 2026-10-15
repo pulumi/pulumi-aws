@@ -13,7 +13,7 @@ namespace Pulumi.Aws.M2.Inputs
     public sealed class EnvironmentStorageConfigurationEfsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Id of the EFS filesystem to mount.
+        /// ID of the EFS filesystem to mount.
         /// </summary>
         [Input("fileSystemId", required: true)]
         public Input<string> FileSystemId { get; set; } = null!;

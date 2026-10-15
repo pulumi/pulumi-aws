@@ -16,9 +16,17 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
 
     public static final ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsArgs();
 
+    /**
+     * Static key settings. See `staticKeySettings` Block for details.
+     * 
+     */
     @Import(name="staticKeySettings")
     private @Nullable Output<List<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgs>> staticKeySettings;
 
+    /**
+     * @return Static key settings. See `staticKeySettings` Block for details.
+     * 
+     */
     public Optional<Output<List<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgs>>> staticKeySettings() {
         return Optional.ofNullable(this.staticKeySettings);
     }
@@ -47,15 +55,33 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
             $ = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param staticKeySettings Static key settings. See `staticKeySettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder staticKeySettings(@Nullable Output<List<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgs>> staticKeySettings) {
             $.staticKeySettings = staticKeySettings;
             return this;
         }
 
+        /**
+         * @param staticKeySettings Static key settings. See `staticKeySettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder staticKeySettings(List<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgs> staticKeySettings) {
             return staticKeySettings(Output.of(staticKeySettings));
         }
 
+        /**
+         * @param staticKeySettings Static key settings. See `staticKeySettings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder staticKeySettings(ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgs... staticKeySettings) {
             return staticKeySettings(List.of(staticKeySettings));
         }

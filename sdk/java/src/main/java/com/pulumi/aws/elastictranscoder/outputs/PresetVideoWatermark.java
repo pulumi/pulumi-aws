@@ -22,7 +22,7 @@ public final class PresetVideoWatermark {
      */
     private @Nullable String horizontalOffset;
     /**
-     * @return A unique identifier for the settings for one watermark. The value of Id can be up to 40 characters long. You can specify settings for up to four watermarks.
+     * @return A unique identifier for the settings for one watermark. The value of ID can be up to 40 characters long. You can specify settings for up to four watermarks.
      * 
      */
     private @Nullable String id;
@@ -78,7 +78,7 @@ public final class PresetVideoWatermark {
         return Optional.ofNullable(this.horizontalOffset);
     }
     /**
-     * @return A unique identifier for the settings for one watermark. The value of Id can be up to 40 characters long. You can specify settings for up to four watermarks.
+     * @return A unique identifier for the settings for one watermark. The value of ID can be up to 40 characters long. You can specify settings for up to four watermarks.
      * 
      */
     public Optional<String> id() {

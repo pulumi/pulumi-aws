@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentcoreGatewayTargetTargetConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `Http` Block below.
+        /// HTTP target configuration for routing requests directly to an AgentCore Runtime agent or to an external HTTPS endpoint. See `Http` Block below.
         /// </summary>
         [Input("http")]
         public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationHttpGetArgs>? Http { get; set; }

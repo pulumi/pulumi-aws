@@ -597,28 +597,28 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.cognitoOptions);
     }
     /**
-     * Domain-specific endpoint for Dashboard without https scheme.
+     * Domain-specific endpoint for Dashboard without HTTPS scheme.
      * 
      */
     @Export(name="dashboardEndpoint", refs={String.class}, tree="[0]")
     private Output<String> dashboardEndpoint;
 
     /**
-     * @return Domain-specific endpoint for Dashboard without https scheme.
+     * @return Domain-specific endpoint for Dashboard without HTTPS scheme.
      * 
      */
     public Output<String> dashboardEndpoint() {
         return this.dashboardEndpoint;
     }
     /**
-     * V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
+     * V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without HTTPS scheme.
      * 
      */
     @Export(name="dashboardEndpointV2", refs={String.class}, tree="[0]")
     private Output<String> dashboardEndpointV2;
 
     /**
-     * @return V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
+     * @return V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without HTTPS scheme.
      * 
      */
     public Output<String> dashboardEndpointV2() {

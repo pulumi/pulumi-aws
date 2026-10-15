@@ -14,13 +14,13 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// `aws.ec2.Vpc` provides details about a specific VPC.
         /// 
-        /// This resource can prove useful when a module accepts a vpc id as
+        /// This resource can prove useful when a module accepts a VPC ID as
         /// an input variable and needs to, for example, determine the CIDR block of that
         /// VPC.
         /// 
         /// ## Example Usage
         /// 
-        /// The following example shows how one might accept a VPC id as a variable
+        /// The following example shows how one might accept a VPC ID as a variable
         /// and use this data source to obtain the data necessary to create a subnet
         /// within it.
         /// 
@@ -61,13 +61,13 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// `aws.ec2.Vpc` provides details about a specific VPC.
         /// 
-        /// This resource can prove useful when a module accepts a vpc id as
+        /// This resource can prove useful when a module accepts a VPC ID as
         /// an input variable and needs to, for example, determine the CIDR block of that
         /// VPC.
         /// 
         /// ## Example Usage
         /// 
-        /// The following example shows how one might accept a VPC id as a variable
+        /// The following example shows how one might accept a VPC ID as a variable
         /// and use this data source to obtain the data necessary to create a subnet
         /// within it.
         /// 
@@ -108,13 +108,13 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// `aws.ec2.Vpc` provides details about a specific VPC.
         /// 
-        /// This resource can prove useful when a module accepts a vpc id as
+        /// This resource can prove useful when a module accepts a VPC ID as
         /// an input variable and needs to, for example, determine the CIDR block of that
         /// VPC.
         /// 
         /// ## Example Usage
         /// 
-        /// The following example shows how one might accept a VPC id as a variable
+        /// The following example shows how one might accept a VPC ID as a variable
         /// and use this data source to obtain the data necessary to create a subnet
         /// within it.
         /// 
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.Ec2
         public bool? Default { get; set; }
 
         /// <summary>
-        /// DHCP options id of the desired VPC.
+        /// DHCP options ID of the desired VPC.
         /// </summary>
         [Input("dhcpOptionsId")]
         public string? DhcpOptionsId { get; set; }
@@ -237,7 +237,7 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? Default { get; set; }
 
         /// <summary>
-        /// DHCP options id of the desired VPC.
+        /// DHCP options ID of the desired VPC.
         /// </summary>
         [Input("dhcpOptionsId")]
         public Input<string>? DhcpOptionsId { get; set; }

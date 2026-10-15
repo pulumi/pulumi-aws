@@ -32,16 +32,14 @@ public final class MainRouteTableAssociationArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The ID of the Route Table to set as the new
-     * main route table for the target VPC
+     * ID of the Route Table to set as the new main route table for the target VPC
      * 
      */
     @Import(name="routeTableId", required=true)
     private Output<String> routeTableId;
 
     /**
-     * @return The ID of the Route Table to set as the new
-     * main route table for the target VPC
+     * @return ID of the Route Table to set as the new main route table for the target VPC
      * 
      */
     public Output<String> routeTableId() {
@@ -49,14 +47,14 @@ public final class MainRouteTableAssociationArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The ID of the VPC whose main route table should be set
+     * ID of the VPC whose main route table should be set
      * 
      */
     @Import(name="vpcId", required=true)
     private Output<String> vpcId;
 
     /**
-     * @return The ID of the VPC whose main route table should be set
+     * @return ID of the VPC whose main route table should be set
      * 
      */
     public Output<String> vpcId() {
@@ -111,8 +109,7 @@ public final class MainRouteTableAssociationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param routeTableId The ID of the Route Table to set as the new
-         * main route table for the target VPC
+         * @param routeTableId ID of the Route Table to set as the new main route table for the target VPC
          * 
          * @return builder
          * 
@@ -123,8 +120,7 @@ public final class MainRouteTableAssociationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param routeTableId The ID of the Route Table to set as the new
-         * main route table for the target VPC
+         * @param routeTableId ID of the Route Table to set as the new main route table for the target VPC
          * 
          * @return builder
          * 
@@ -134,7 +130,7 @@ public final class MainRouteTableAssociationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param vpcId The ID of the VPC whose main route table should be set
+         * @param vpcId ID of the VPC whose main route table should be set
          * 
          * @return builder
          * 
@@ -145,7 +141,7 @@ public final class MainRouteTableAssociationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param vpcId The ID of the VPC whose main route table should be set
+         * @param vpcId ID of the VPC whose main route table should be set
          * 
          * @return builder
          * 

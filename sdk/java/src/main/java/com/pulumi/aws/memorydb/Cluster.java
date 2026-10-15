@@ -78,28 +78,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:memorydb/cluster:Cluster")
 public class Cluster extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the Access Control List to associate with the cluster.
+     * Name of the Access Control List to associate with the cluster.
      * 
      */
     @Export(name="aclName", refs={String.class}, tree="[0]")
     private Output<String> aclName;
 
     /**
-     * @return The name of the Access Control List to associate with the cluster.
+     * @return Name of the Access Control List to associate with the cluster.
      * 
      */
     public Output<String> aclName() {
         return this.aclName;
     }
     /**
-     * The ARN of the cluster.
+     * ARN of the cluster.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the cluster.
+     * @return ARN of the cluster.
      * 
      */
     public Output<String> arn() {
@@ -154,14 +154,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+     * Engine that will run on your nodes. Supported values are `redis` and `valkey`.
      * 
      */
     @Export(name="engine", refs={String.class}, tree="[0]")
     private Output<String> engine;
 
     /**
-     * @return The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+     * @return Engine that will run on your nodes. Supported values are `redis` and `valkey`.
      * 
      */
     public Output<String> engine() {
@@ -238,28 +238,28 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.kmsKeyArn);
     }
     /**
-     * Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+     * Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
      * 
      */
     @Export(name="maintenanceWindow", refs={String.class}, tree="[0]")
     private Output<String> maintenanceWindow;
 
     /**
-     * @return Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+     * @return Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
      * 
      */
     public Output<String> maintenanceWindow() {
         return this.maintenanceWindow;
     }
     /**
-     * The multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
+     * Multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
      * 
      */
     @Export(name="multiRegionClusterName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> multiRegionClusterName;
 
     /**
-     * @return The multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
+     * @return Multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
      * 
      */
     public Output<Optional<String>> multiRegionClusterName() {
@@ -308,7 +308,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.networkType;
     }
     /**
-     * The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+     * Compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
      * 
      * The following arguments are optional:
      * 
@@ -317,7 +317,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     private Output<String> nodeType;
 
     /**
-     * @return The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+     * @return Compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
      * 
      * The following arguments are optional:
      * 
@@ -326,56 +326,56 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.nodeType;
     }
     /**
-     * The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
+     * Number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
      * 
      */
     @Export(name="numReplicasPerShard", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> numReplicasPerShard;
 
     /**
-     * @return The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
+     * @return Number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
      * 
      */
     public Output<Optional<Integer>> numReplicasPerShard() {
         return Codegen.optional(this.numReplicasPerShard);
     }
     /**
-     * The number of shards in the cluster. Defaults to `1`.
+     * Number of shards in the cluster. Defaults to `1`.
      * 
      */
     @Export(name="numShards", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> numShards;
 
     /**
-     * @return The number of shards in the cluster. Defaults to `1`.
+     * @return Number of shards in the cluster. Defaults to `1`.
      * 
      */
     public Output<Optional<Integer>> numShards() {
         return Codegen.optional(this.numShards);
     }
     /**
-     * The name of the parameter group associated with the cluster.
+     * Name of the parameter group associated with the cluster.
      * 
      */
     @Export(name="parameterGroupName", refs={String.class}, tree="[0]")
     private Output<String> parameterGroupName;
 
     /**
-     * @return The name of the parameter group associated with the cluster.
+     * @return Name of the parameter group associated with the cluster.
      * 
      */
     public Output<String> parameterGroupName() {
         return this.parameterGroupName;
     }
     /**
-     * The port number on which each of the nodes accepts connections. Defaults to `6379`.
+     * Port number on which each of the nodes accepts connections. Defaults to `6379`.
      * 
      */
     @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output<Integer> port;
 
     /**
-     * @return The port number on which each of the nodes accepts connections. Defaults to `6379`.
+     * @return Port number on which each of the nodes accepts connections. Defaults to `6379`.
      * 
      */
     public Output<Integer> port() {
@@ -438,42 +438,42 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.snapshotArns);
     }
     /**
-     * The name of a snapshot from which to restore data into the new cluster.
+     * Name of a snapshot from which to restore data into the new cluster.
      * 
      */
     @Export(name="snapshotName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> snapshotName;
 
     /**
-     * @return The name of a snapshot from which to restore data into the new cluster.
+     * @return Name of a snapshot from which to restore data into the new cluster.
      * 
      */
     public Output<Optional<String>> snapshotName() {
         return Codegen.optional(this.snapshotName);
     }
     /**
-     * The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
+     * Number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
      * 
      */
     @Export(name="snapshotRetentionLimit", refs={Integer.class}, tree="[0]")
     private Output<Integer> snapshotRetentionLimit;
 
     /**
-     * @return The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
+     * @return Number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
      * 
      */
     public Output<Integer> snapshotRetentionLimit() {
         return this.snapshotRetentionLimit;
     }
     /**
-     * The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
+     * Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
      * 
      */
     @Export(name="snapshotWindow", refs={String.class}, tree="[0]")
     private Output<String> snapshotWindow;
 
     /**
-     * @return The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
+     * @return Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
      * 
      */
     public Output<String> snapshotWindow() {
@@ -494,56 +494,56 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.snsTopicArn);
     }
     /**
-     * The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
+     * Name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
      * 
      */
     @Export(name="subnetGroupName", refs={String.class}, tree="[0]")
     private Output<String> subnetGroupName;
 
     /**
-     * @return The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
+     * @return Name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
      * 
      */
     public Output<String> subnetGroupName() {
         return this.subnetGroupName;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * A flag to enable in-transit encryption on the cluster. When set to `false`, the `aclName` must be `open-access`. Defaults to `true`.
+     * Whether to enable in-transit encryption on the cluster. When set to `false`, the `aclName` must be `open-access`. Defaults to `true`.
      * 
      */
     @Export(name="tlsEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> tlsEnabled;
 
     /**
-     * @return A flag to enable in-transit encryption on the cluster. When set to `false`, the `aclName` must be `open-access`. Defaults to `true`.
+     * @return Whether to enable in-transit encryption on the cluster. When set to `false`, the `aclName` must be `open-access`. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> tlsEnabled() {

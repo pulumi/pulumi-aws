@@ -58,6 +58,9 @@ namespace Pulumi.Aws.M2
         [Output("applicationVersion")]
         public Output<int> ApplicationVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// Unique identifier of the deployment.
+        /// </summary>
         [Output("deploymentId")]
         public Output<string> DeploymentId { get; private set; } = null!;
 
@@ -67,6 +70,9 @@ namespace Pulumi.Aws.M2
         [Output("environmentId")]
         public Output<string> EnvironmentId { get; private set; } = null!;
 
+        /// <summary>
+        /// Stop the application during deployment, even if it is running.
+        /// </summary>
         [Output("forceStop")]
         public Output<bool?> ForceStop { get; private set; } = null!;
 
@@ -149,6 +155,9 @@ namespace Pulumi.Aws.M2
         [Input("environmentId", required: true)]
         public Input<string> EnvironmentId { get; set; } = null!;
 
+        /// <summary>
+        /// Stop the application during deployment, even if it is running.
+        /// </summary>
         [Input("forceStop")]
         public Input<bool>? ForceStop { get; set; }
 
@@ -187,6 +196,9 @@ namespace Pulumi.Aws.M2
         [Input("applicationVersion")]
         public Input<int>? ApplicationVersion { get; set; }
 
+        /// <summary>
+        /// Unique identifier of the deployment.
+        /// </summary>
         [Input("deploymentId")]
         public Input<string>? DeploymentId { get; set; }
 
@@ -196,6 +208,9 @@ namespace Pulumi.Aws.M2
         [Input("environmentId")]
         public Input<string>? EnvironmentId { get; set; }
 
+        /// <summary>
+        /// Stop the application during deployment, even if it is running.
+        /// </summary>
         [Input("forceStop")]
         public Input<bool>? ForceStop { get; set; }
 

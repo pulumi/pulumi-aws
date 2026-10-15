@@ -14,31 +14,31 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings
     {
         /// <summary>
-        /// Ancillary Source Settings. See Ancillary Source Settings for more details.
+        /// Ancillary source settings. See `AncillarySourceSettings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings? AncillarySourceSettings;
         /// <summary>
-        /// ARIB Source Settings.
+        /// ARIB source settings. Can be set as an empty block.
         /// </summary>
         public readonly Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings? AribSourceSettings;
         /// <summary>
-        /// DVB Sub Source Settings. See DVB Sub Source Settings for more details.
+        /// DVB Sub source settings. See `DvbSubSourceSettings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings? DvbSubSourceSettings;
         /// <summary>
-        /// Embedded Source Settings. See Embedded Source Settings for more details.
+        /// Embedded source settings. See `EmbeddedSourceSettings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings? EmbeddedSourceSettings;
         /// <summary>
-        /// SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
+        /// SCTE-20 source settings. See `Scte20SourceSettings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings? Scte20SourceSettings;
         /// <summary>
-        /// SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
+        /// SCTE-27 source settings. See `Scte27SourceSettings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings? Scte27SourceSettings;
         /// <summary>
-        /// Teletext Source Settings. See Teletext Source Settings for more details.
+        /// Teletext source settings. See `TeletextSourceSettings` Block for details.
         /// </summary>
         public readonly Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings? TeletextSourceSettings;
 

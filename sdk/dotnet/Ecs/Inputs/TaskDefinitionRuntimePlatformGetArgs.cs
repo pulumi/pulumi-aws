@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ecs.Inputs
     public sealed class TaskDefinitionRuntimePlatformGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
+        /// Must be set to either `X86_64` or `ARM64`; see [CPU architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
         /// </summary>
         [Input("cpuArchitecture")]
         public Input<string>? CpuArchitecture { get; set; }

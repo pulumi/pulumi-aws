@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class ServerlessClusterClientAuthentication {
     /**
-     * @return Details for client authentication using SASL. See below.
+     * @return Details for client authentication using SASL. See `sasl` Block below.
      * 
      */
     private ServerlessClusterClientAuthenticationSasl sasl;
 
     private ServerlessClusterClientAuthentication() {}
     /**
-     * @return Details for client authentication using SASL. See below.
+     * @return Details for client authentication using SASL. See `sasl` Block below.
      * 
      */
     public ServerlessClusterClientAuthenticationSasl sasl() {

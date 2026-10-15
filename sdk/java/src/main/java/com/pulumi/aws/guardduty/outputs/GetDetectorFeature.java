@@ -18,7 +18,7 @@ public final class GetDetectorFeature {
      */
     private List<GetDetectorFeatureAdditionalConfiguration> additionalConfigurations;
     /**
-     * @return The name of the detector feature.
+     * @return Name of the detector feature.
      * 
      */
     private String name;
@@ -37,7 +37,7 @@ public final class GetDetectorFeature {
         return this.additionalConfigurations;
     }
     /**
-     * @return The name of the detector feature.
+     * @return Name of the detector feature.
      * 
      */
     public String name() {

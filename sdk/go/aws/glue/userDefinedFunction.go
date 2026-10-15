@@ -67,25 +67,25 @@ import (
 type UserDefinedFunction struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the Glue User Defined Function.
+	// ARN of the Glue User Defined Function.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
 	CatalogId pulumi.StringPtrOutput `pulumi:"catalogId"`
-	// The Java class that contains the function code.
+	// Java class that contains the function code.
 	ClassName pulumi.StringOutput `pulumi:"className"`
-	// The time at which the function was created.
+	// Time at which the function was created.
 	CreateTime pulumi.StringOutput `pulumi:"createTime"`
-	// The name of the Database to create the Function.
+	// Name of the Database to create the Function.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
-	// The name of the function.
+	// Name of the function.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The owner of the function.
+	// Owner of the function.
 	OwnerName pulumi.StringOutput `pulumi:"ownerName"`
-	// The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
+	// Owner type. can be one of `USER`, `ROLE`, and `GROUP`.
 	OwnerType pulumi.StringOutput `pulumi:"ownerType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The configuration block for Resource URIs. See resource uris below for more details.
+	// Configuration block for Resource URIs. See `resourceUris` Block below for more details.
 	ResourceUris UserDefinedFunctionResourceUriArrayOutput `pulumi:"resourceUris"`
 }
 
@@ -131,48 +131,48 @@ func GetUserDefinedFunction(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserDefinedFunction resources.
 type userDefinedFunctionState struct {
-	// The ARN of the Glue User Defined Function.
+	// ARN of the Glue User Defined Function.
 	Arn *string `pulumi:"arn"`
 	// ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
 	CatalogId *string `pulumi:"catalogId"`
-	// The Java class that contains the function code.
+	// Java class that contains the function code.
 	ClassName *string `pulumi:"className"`
-	// The time at which the function was created.
+	// Time at which the function was created.
 	CreateTime *string `pulumi:"createTime"`
-	// The name of the Database to create the Function.
+	// Name of the Database to create the Function.
 	DatabaseName *string `pulumi:"databaseName"`
-	// The name of the function.
+	// Name of the function.
 	Name *string `pulumi:"name"`
-	// The owner of the function.
+	// Owner of the function.
 	OwnerName *string `pulumi:"ownerName"`
-	// The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
+	// Owner type. can be one of `USER`, `ROLE`, and `GROUP`.
 	OwnerType *string `pulumi:"ownerType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The configuration block for Resource URIs. See resource uris below for more details.
+	// Configuration block for Resource URIs. See `resourceUris` Block below for more details.
 	ResourceUris []UserDefinedFunctionResourceUri `pulumi:"resourceUris"`
 }
 
 type UserDefinedFunctionState struct {
-	// The ARN of the Glue User Defined Function.
+	// ARN of the Glue User Defined Function.
 	Arn pulumi.StringPtrInput
 	// ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
 	CatalogId pulumi.StringPtrInput
-	// The Java class that contains the function code.
+	// Java class that contains the function code.
 	ClassName pulumi.StringPtrInput
-	// The time at which the function was created.
+	// Time at which the function was created.
 	CreateTime pulumi.StringPtrInput
-	// The name of the Database to create the Function.
+	// Name of the Database to create the Function.
 	DatabaseName pulumi.StringPtrInput
-	// The name of the function.
+	// Name of the function.
 	Name pulumi.StringPtrInput
-	// The owner of the function.
+	// Owner of the function.
 	OwnerName pulumi.StringPtrInput
-	// The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
+	// Owner type. can be one of `USER`, `ROLE`, and `GROUP`.
 	OwnerType pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The configuration block for Resource URIs. See resource uris below for more details.
+	// Configuration block for Resource URIs. See `resourceUris` Block below for more details.
 	ResourceUris UserDefinedFunctionResourceUriArrayInput
 }
 
@@ -183,19 +183,19 @@ func (UserDefinedFunctionState) ElementType() reflect.Type {
 type userDefinedFunctionArgs struct {
 	// ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
 	CatalogId *string `pulumi:"catalogId"`
-	// The Java class that contains the function code.
+	// Java class that contains the function code.
 	ClassName string `pulumi:"className"`
-	// The name of the Database to create the Function.
+	// Name of the Database to create the Function.
 	DatabaseName string `pulumi:"databaseName"`
-	// The name of the function.
+	// Name of the function.
 	Name *string `pulumi:"name"`
-	// The owner of the function.
+	// Owner of the function.
 	OwnerName string `pulumi:"ownerName"`
-	// The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
+	// Owner type. can be one of `USER`, `ROLE`, and `GROUP`.
 	OwnerType string `pulumi:"ownerType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The configuration block for Resource URIs. See resource uris below for more details.
+	// Configuration block for Resource URIs. See `resourceUris` Block below for more details.
 	ResourceUris []UserDefinedFunctionResourceUri `pulumi:"resourceUris"`
 }
 
@@ -203,19 +203,19 @@ type userDefinedFunctionArgs struct {
 type UserDefinedFunctionArgs struct {
 	// ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
 	CatalogId pulumi.StringPtrInput
-	// The Java class that contains the function code.
+	// Java class that contains the function code.
 	ClassName pulumi.StringInput
-	// The name of the Database to create the Function.
+	// Name of the Database to create the Function.
 	DatabaseName pulumi.StringInput
-	// The name of the function.
+	// Name of the function.
 	Name pulumi.StringPtrInput
-	// The owner of the function.
+	// Owner of the function.
 	OwnerName pulumi.StringInput
-	// The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
+	// Owner type. can be one of `USER`, `ROLE`, and `GROUP`.
 	OwnerType pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The configuration block for Resource URIs. See resource uris below for more details.
+	// Configuration block for Resource URIs. See `resourceUris` Block below for more details.
 	ResourceUris UserDefinedFunctionResourceUriArrayInput
 }
 
@@ -306,7 +306,7 @@ func (o UserDefinedFunctionOutput) ToUserDefinedFunctionOutputWithContext(ctx co
 	return o
 }
 
-// The ARN of the Glue User Defined Function.
+// ARN of the Glue User Defined Function.
 func (o UserDefinedFunctionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserDefinedFunction) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -316,32 +316,32 @@ func (o UserDefinedFunctionOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserDefinedFunction) pulumi.StringPtrOutput { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
 
-// The Java class that contains the function code.
+// Java class that contains the function code.
 func (o UserDefinedFunctionOutput) ClassName() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserDefinedFunction) pulumi.StringOutput { return v.ClassName }).(pulumi.StringOutput)
 }
 
-// The time at which the function was created.
+// Time at which the function was created.
 func (o UserDefinedFunctionOutput) CreateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserDefinedFunction) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
 }
 
-// The name of the Database to create the Function.
+// Name of the Database to create the Function.
 func (o UserDefinedFunctionOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserDefinedFunction) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// The name of the function.
+// Name of the function.
 func (o UserDefinedFunctionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserDefinedFunction) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The owner of the function.
+// Owner of the function.
 func (o UserDefinedFunctionOutput) OwnerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserDefinedFunction) pulumi.StringOutput { return v.OwnerName }).(pulumi.StringOutput)
 }
 
-// The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
+// Owner type. can be one of `USER`, `ROLE`, and `GROUP`.
 func (o UserDefinedFunctionOutput) OwnerType() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserDefinedFunction) pulumi.StringOutput { return v.OwnerType }).(pulumi.StringOutput)
 }
@@ -351,7 +351,7 @@ func (o UserDefinedFunctionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserDefinedFunction) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The configuration block for Resource URIs. See resource uris below for more details.
+// Configuration block for Resource URIs. See `resourceUris` Block below for more details.
 func (o UserDefinedFunctionOutput) ResourceUris() UserDefinedFunctionResourceUriArrayOutput {
 	return o.ApplyT(func(v *UserDefinedFunction) UserDefinedFunctionResourceUriArrayOutput { return v.ResourceUris }).(UserDefinedFunctionResourceUriArrayOutput)
 }

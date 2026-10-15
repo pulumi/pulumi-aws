@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Eks.Inputs
     public sealed class NodeGroupResourceAutoscalingGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the AutoScaling Group.
+        /// Name of the Auto Scaling group.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

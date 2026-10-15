@@ -15,14 +15,14 @@ public final class ClusterOpenMonitoringPrometheusJmxExporterArgs extends com.pu
     public static final ClusterOpenMonitoringPrometheusJmxExporterArgs Empty = new ClusterOpenMonitoringPrometheusJmxExporterArgs();
 
     /**
-     * Indicates whether you want to enable or disable the Node Exporter.
+     * Whether to enable or disable the JMX Exporter.
      * 
      */
     @Import(name="enabledInBroker", required=true)
     private Output<Boolean> enabledInBroker;
 
     /**
-     * @return Indicates whether you want to enable or disable the Node Exporter.
+     * @return Whether to enable or disable the JMX Exporter.
      * 
      */
     public Output<Boolean> enabledInBroker() {
@@ -54,7 +54,7 @@ public final class ClusterOpenMonitoringPrometheusJmxExporterArgs extends com.pu
         }
 
         /**
-         * @param enabledInBroker Indicates whether you want to enable or disable the Node Exporter.
+         * @param enabledInBroker Whether to enable or disable the JMX Exporter.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ClusterOpenMonitoringPrometheusJmxExporterArgs extends com.pu
         }
 
         /**
-         * @param enabledInBroker Indicates whether you want to enable or disable the Node Exporter.
+         * @param enabledInBroker Whether to enable or disable the JMX Exporter.
          * 
          * @return builder
          * 

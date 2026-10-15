@@ -98,28 +98,28 @@ public class Hsm extends com.pulumi.resources.CustomResource {
         return this.clusterId;
     }
     /**
-     * The id of the ENI interface allocated for HSM module.
+     * The ID of the ENI interface allocated for HSM module.
      * 
      */
     @Export(name="hsmEniId", refs={String.class}, tree="[0]")
     private Output<String> hsmEniId;
 
     /**
-     * @return The id of the ENI interface allocated for HSM module.
+     * @return The ID of the ENI interface allocated for HSM module.
      * 
      */
     public Output<String> hsmEniId() {
         return this.hsmEniId;
     }
     /**
-     * The id of the HSM module.
+     * The ID of the HSM module.
      * 
      */
     @Export(name="hsmId", refs={String.class}, tree="[0]")
     private Output<String> hsmId;
 
     /**
-     * @return The id of the HSM module.
+     * @return The ID of the HSM module.
      * 
      */
     public Output<String> hsmId() {

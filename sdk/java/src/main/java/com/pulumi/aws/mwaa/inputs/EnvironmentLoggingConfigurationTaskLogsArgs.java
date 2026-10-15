@@ -16,22 +16,30 @@ public final class EnvironmentLoggingConfigurationTaskLogsArgs extends com.pulum
 
     public static final EnvironmentLoggingConfigurationTaskLogsArgs Empty = new EnvironmentLoggingConfigurationTaskLogsArgs();
 
+    /**
+     * ARN of the CloudWatch Logs log group where the logs are published.
+     * 
+     */
     @Import(name="cloudWatchLogGroupArn")
     private @Nullable Output<String> cloudWatchLogGroupArn;
 
+    /**
+     * @return ARN of the CloudWatch Logs log group where the logs are published.
+     * 
+     */
     public Optional<Output<String>> cloudWatchLogGroupArn() {
         return Optional.ofNullable(this.cloudWatchLogGroupArn);
     }
 
     /**
-     * Enabling or disabling the collection of logs
+     * Whether to enable the collection of logs.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Enabling or disabling the collection of logs
+     * @return Whether to enable the collection of logs.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -79,17 +87,29 @@ public final class EnvironmentLoggingConfigurationTaskLogsArgs extends com.pulum
             $ = new EnvironmentLoggingConfigurationTaskLogsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param cloudWatchLogGroupArn ARN of the CloudWatch Logs log group where the logs are published.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cloudWatchLogGroupArn(@Nullable Output<String> cloudWatchLogGroupArn) {
             $.cloudWatchLogGroupArn = cloudWatchLogGroupArn;
             return this;
         }
 
+        /**
+         * @param cloudWatchLogGroupArn ARN of the CloudWatch Logs log group where the logs are published.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cloudWatchLogGroupArn(String cloudWatchLogGroupArn) {
             return cloudWatchLogGroupArn(Output.of(cloudWatchLogGroupArn));
         }
 
         /**
-         * @param enabled Enabling or disabling the collection of logs
+         * @param enabled Whether to enable the collection of logs.
          * 
          * @return builder
          * 
@@ -100,7 +120,7 @@ public final class EnvironmentLoggingConfigurationTaskLogsArgs extends com.pulum
         }
 
         /**
-         * @param enabled Enabling or disabling the collection of logs
+         * @param enabled Whether to enable the collection of logs.
          * 
          * @return builder
          * 

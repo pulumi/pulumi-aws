@@ -13,7 +13,7 @@ namespace Pulumi.Aws.IvsChat.Inputs
     public sealed class LoggingConfigurationDestinationConfigurationCloudwatchLogsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
+        /// Name of the Amazon CloudWatch Logs destination where chat activity will be logged.
         /// </summary>
         [Input("logGroupName", required: true)]
         public Input<string> LogGroupName { get; set; } = null!;

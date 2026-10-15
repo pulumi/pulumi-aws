@@ -31,7 +31,7 @@ class TrustStoreRevocationArgs:
         :param pulumi.Input[_builtins.str] revocations_s3_key: S3 object key holding the client certificate CA bundle.
         :param pulumi.Input[_builtins.str] trust_store_arn: Trust Store ARN.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] revocations_s3_object_version: Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+        :param pulumi.Input[_builtins.str] revocations_s3_object_version: Version ID of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
         """
         pulumi.set(__self__, "revocations_s3_bucket", revocations_s3_bucket)
         pulumi.set(__self__, "revocations_s3_key", revocations_s3_key)
@@ -93,7 +93,7 @@ class TrustStoreRevocationArgs:
     @pulumi.getter(name="revocationsS3ObjectVersion")
     def revocations_s3_object_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+        Version ID of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
         """
         return pulumi.get(self, "revocations_s3_object_version")
 
@@ -118,7 +118,7 @@ class _TrustStoreRevocationState:
         :param pulumi.Input[_builtins.int] revocation_id: AWS assigned RevocationId, (number).
         :param pulumi.Input[_builtins.str] revocations_s3_bucket: S3 Bucket name holding the client certificate CA bundle.
         :param pulumi.Input[_builtins.str] revocations_s3_key: S3 object key holding the client certificate CA bundle.
-        :param pulumi.Input[_builtins.str] revocations_s3_object_version: Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+        :param pulumi.Input[_builtins.str] revocations_s3_object_version: Version ID of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
         :param pulumi.Input[_builtins.str] trust_store_arn: Trust Store ARN.
         """
         if region is not None:
@@ -186,7 +186,7 @@ class _TrustStoreRevocationState:
     @pulumi.getter(name="revocationsS3ObjectVersion")
     def revocations_s3_object_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+        Version ID of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
         """
         return pulumi.get(self, "revocations_s3_object_version")
 
@@ -254,7 +254,7 @@ class TrustStoreRevocation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] revocations_s3_bucket: S3 Bucket name holding the client certificate CA bundle.
         :param pulumi.Input[_builtins.str] revocations_s3_key: S3 object key holding the client certificate CA bundle.
-        :param pulumi.Input[_builtins.str] revocations_s3_object_version: Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+        :param pulumi.Input[_builtins.str] revocations_s3_object_version: Version ID of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
         :param pulumi.Input[_builtins.str] trust_store_arn: Trust Store ARN.
         """
         ...
@@ -361,7 +361,7 @@ class TrustStoreRevocation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] revocation_id: AWS assigned RevocationId, (number).
         :param pulumi.Input[_builtins.str] revocations_s3_bucket: S3 Bucket name holding the client certificate CA bundle.
         :param pulumi.Input[_builtins.str] revocations_s3_key: S3 object key holding the client certificate CA bundle.
-        :param pulumi.Input[_builtins.str] revocations_s3_object_version: Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+        :param pulumi.Input[_builtins.str] revocations_s3_object_version: Version ID of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
         :param pulumi.Input[_builtins.str] trust_store_arn: Trust Store ARN.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -412,7 +412,7 @@ class TrustStoreRevocation(pulumi.CustomResource):
     @pulumi.getter(name="revocationsS3ObjectVersion")
     def revocations_s3_object_version(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+        Version ID of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
         """
         return pulumi.get(self, "revocations_s3_object_version")
 

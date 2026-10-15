@@ -54,7 +54,7 @@ namespace Pulumi.Aws.CloudWatch.Outputs
         /// </summary>
         public readonly string? PropagateTags;
         /// <summary>
-        /// A map of tags to assign to ecs resources.
+        /// A map of tags to assign to ECS resources.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>

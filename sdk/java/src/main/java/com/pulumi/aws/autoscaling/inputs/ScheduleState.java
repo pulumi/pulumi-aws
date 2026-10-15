@@ -17,14 +17,14 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
     public static final ScheduleState Empty = new ScheduleState();
 
     /**
-     * ARN assigned by AWS to the autoscaling schedule.
+     * ARN assigned by AWS to the Auto Scaling schedule.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return ARN assigned by AWS to the autoscaling schedule.
+     * @return ARN assigned by AWS to the Auto Scaling schedule.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -224,7 +224,7 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN assigned by AWS to the autoscaling schedule.
+         * @param arn ARN assigned by AWS to the Auto Scaling schedule.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN assigned by AWS to the autoscaling schedule.
+         * @param arn ARN assigned by AWS to the Auto Scaling schedule.
          * 
          * @return builder
          * 

@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import `aws.macie2.Account` using the id. For example:
+ * Using `pulumi import`, import `aws.macie2.Account` using the ID. For example:
  * 
  * ```sh
  * $ pulumi import aws:macie2/account:Account example abcd1
@@ -62,28 +62,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:macie2/account:Account")
 public class Account extends com.pulumi.resources.CustomResource {
     /**
-     * The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
+     * Date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
-     * @return The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
+     * @return Date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
      * 
      */
     public Output<String> createdAt() {
         return this.createdAt;
     }
     /**
-     * Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
+     * How often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
      * 
      */
     @Export(name="findingPublishingFrequency", refs={String.class}, tree="[0]")
     private Output<String> findingPublishingFrequency;
 
     /**
-     * @return Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
+     * @return How often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
      * 
      */
     public Output<String> findingPublishingFrequency() {
@@ -118,28 +118,28 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.serviceRole;
     }
     /**
-     * Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
+     * Status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
+     * @return Status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
      * 
      */
     public Output<String> status() {
         return this.status;
     }
     /**
-     * The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
+     * Date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
      * 
      */
     @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
     /**
-     * @return The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
+     * @return Date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
      * 
      */
     public Output<String> updatedAt() {

@@ -156,42 +156,42 @@ public class Connector extends com.pulumi.resources.CustomResource {
         return this.capacity;
     }
     /**
-     * A map of keys to values that represent the configuration for the connector.
+     * Map of keys to values that represent the configuration for the connector.
      * 
      */
     @Export(name="connectorConfiguration", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> connectorConfiguration;
 
     /**
-     * @return A map of keys to values that represent the configuration for the connector.
+     * @return Map of keys to values that represent the configuration for the connector.
      * 
      */
     public Output<Map<String,String>> connectorConfiguration() {
         return this.connectorConfiguration;
     }
     /**
-     * A summary description of the connector.
+     * Summary description of the connector.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A summary description of the connector.
+     * @return Summary description of the connector.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * Specifies which Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
+     * Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
      * 
      */
     @Export(name="kafkaCluster", refs={ConnectorKafkaCluster.class}, tree="[0]")
     private Output<ConnectorKafkaCluster> kafkaCluster;
 
     /**
-     * @return Specifies which Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
+     * @return Apache Kafka cluster to connect to. See `kafkaCluster` Block for details.
      * 
      */
     public Output<ConnectorKafkaCluster> kafkaCluster() {
@@ -226,14 +226,14 @@ public class Connector extends com.pulumi.resources.CustomResource {
         return this.kafkaClusterEncryptionInTransit;
     }
     /**
-     * The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster&#39;s version and the plugins.
+     * Version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster&#39;s version and the plugins.
      * 
      */
     @Export(name="kafkaconnectVersion", refs={String.class}, tree="[0]")
     private Output<String> kafkaconnectVersion;
 
     /**
-     * @return The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster&#39;s version and the plugins.
+     * @return Version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster&#39;s version and the plugins.
      * 
      */
     public Output<String> kafkaconnectVersion() {
@@ -254,28 +254,28 @@ public class Connector extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.logDelivery);
     }
     /**
-     * The name of the connector.
+     * Name of the connector.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the connector.
+     * @return Name of the connector.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Specifies which plugins to use for the connector. See `plugin` Block for details.
+     * Plugins to use for the connector. See `plugin` Block for details.
      * 
      */
     @Export(name="plugins", refs={List.class,ConnectorPlugin.class}, tree="[0,1]")
     private Output<List<ConnectorPlugin>> plugins;
 
     /**
-     * @return Specifies which plugins to use for the connector. See `plugin` Block for details.
+     * @return Plugins to use for the connector. See `plugin` Block for details.
      * 
      */
     public Output<List<ConnectorPlugin>> plugins() {
@@ -314,56 +314,56 @@ public class Connector extends com.pulumi.resources.CustomResource {
         return this.serviceExecutionRoleArn;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * The current version of the connector.
+     * Current version of the connector.
      * 
      */
     @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
     /**
-     * @return The current version of the connector.
+     * @return Current version of the connector.
      * 
      */
     public Output<String> version() {
         return this.version;
     }
     /**
-     * Specifies which worker configuration to use with the connector. See `workerConfiguration` Block for details.
+     * Worker configuration to use with the connector. See `workerConfiguration` Block for details.
      * 
      */
     @Export(name="workerConfiguration", refs={ConnectorWorkerConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ConnectorWorkerConfiguration> workerConfiguration;
 
     /**
-     * @return Specifies which worker configuration to use with the connector. See `workerConfiguration` Block for details.
+     * @return Worker configuration to use with the connector. See `workerConfiguration` Block for details.
      * 
      */
     public Output<Optional<ConnectorWorkerConfiguration>> workerConfiguration() {

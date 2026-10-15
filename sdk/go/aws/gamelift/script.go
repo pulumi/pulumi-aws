@@ -64,11 +64,11 @@ type Script struct {
 	StorageLocation ScriptStorageLocationOutput `pulumi:"storageLocation"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Version that is associated with this script.
 	Version pulumi.StringPtrOutput `pulumi:"version"`
-	// A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
+	// Data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
 	ZipFile pulumi.StringPtrOutput `pulumi:"zipFile"`
 }
 
@@ -112,11 +112,11 @@ type scriptState struct {
 	StorageLocation *ScriptStorageLocation `pulumi:"storageLocation"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Version that is associated with this script.
 	Version *string `pulumi:"version"`
-	// A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
+	// Data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
 	ZipFile *string `pulumi:"zipFile"`
 }
 
@@ -131,11 +131,11 @@ type ScriptState struct {
 	StorageLocation ScriptStorageLocationPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Version that is associated with this script.
 	Version pulumi.StringPtrInput
-	// A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
+	// Data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
 	ZipFile pulumi.StringPtrInput
 }
 
@@ -154,7 +154,7 @@ type scriptArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Version that is associated with this script.
 	Version *string `pulumi:"version"`
-	// A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
+	// Data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
 	ZipFile *string `pulumi:"zipFile"`
 }
 
@@ -170,7 +170,7 @@ type ScriptArgs struct {
 	Tags pulumi.StringMapInput
 	// Version that is associated with this script.
 	Version pulumi.StringPtrInput
-	// A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
+	// Data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
 	ZipFile pulumi.StringPtrInput
 }
 
@@ -286,7 +286,7 @@ func (o ScriptOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Script) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ScriptOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Script) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
@@ -296,7 +296,7 @@ func (o ScriptOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Script) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
 }
 
-// A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
+// Data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
 func (o ScriptOutput) ZipFile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Script) pulumi.StringPtrOutput { return v.ZipFile }).(pulumi.StringPtrOutput)
 }

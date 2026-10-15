@@ -22,7 +22,7 @@ namespace Pulumi.Aws.ElasticTranscoder.Outputs
         /// </summary>
         public readonly string? HorizontalOffset;
         /// <summary>
-        /// A unique identifier for the settings for one watermark. The value of Id can be up to 40 characters long. You can specify settings for up to four watermarks.
+        /// A unique identifier for the settings for one watermark. The value of ID can be up to 40 characters long. You can specify settings for up to four watermarks.
         /// </summary>
         public readonly string? Id;
         /// <summary>

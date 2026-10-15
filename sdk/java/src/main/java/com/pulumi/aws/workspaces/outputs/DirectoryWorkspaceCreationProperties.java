@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DirectoryWorkspaceCreationProperties {
     /**
-     * @return The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+     * @return The identifier of your custom security group. Should relate to the same VPC, where WorkSpaces reside in.
      * 
      */
     private @Nullable String customSecurityGroupId;
@@ -40,7 +40,7 @@ public final class DirectoryWorkspaceCreationProperties {
 
     private DirectoryWorkspaceCreationProperties() {}
     /**
-     * @return The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+     * @return The identifier of your custom security group. Should relate to the same VPC, where WorkSpaces reside in.
      * 
      */
     public Optional<String> customSecurityGroupId() {

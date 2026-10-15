@@ -154,7 +154,7 @@ namespace Pulumi.Aws.Connect
     public sealed class GetUserHierarchyGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Returns information on a specific hierarchy group by hierarchy group id
+        /// Returns information on a specific hierarchy group by hierarchy group ID
         /// </summary>
         [Input("hierarchyGroupId")]
         public string? HierarchyGroupId { get; set; }
@@ -200,7 +200,7 @@ namespace Pulumi.Aws.Connect
     public sealed class GetUserHierarchyGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Returns information on a specific hierarchy group by hierarchy group id
+        /// Returns information on a specific hierarchy group by hierarchy group ID
         /// </summary>
         [Input("hierarchyGroupId")]
         public Input<string>? HierarchyGroupId { get; set; }

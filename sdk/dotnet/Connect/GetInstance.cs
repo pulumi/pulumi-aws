@@ -156,7 +156,7 @@ namespace Pulumi.Aws.Connect
         public string? InstanceAlias { get; set; }
 
         /// <summary>
-        /// Returns information on a specific connect instance by id
+        /// Returns information on a specific connect instance by ID
         /// </summary>
         [Input("instanceId")]
         public string? InstanceId { get; set; }
@@ -196,7 +196,7 @@ namespace Pulumi.Aws.Connect
         public Input<string>? InstanceAlias { get; set; }
 
         /// <summary>
-        /// Returns information on a specific connect instance by id
+        /// Returns information on a specific connect instance by ID
         /// </summary>
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }

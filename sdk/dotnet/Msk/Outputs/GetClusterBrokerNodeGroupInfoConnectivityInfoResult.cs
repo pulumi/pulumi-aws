@@ -13,8 +13,17 @@ namespace Pulumi.Aws.Msk.Outputs
     [OutputType]
     public sealed class GetClusterBrokerNodeGroupInfoConnectivityInfoResult
     {
+        /// <summary>
+        /// Network type of the cluster.
+        /// </summary>
         public readonly string NetworkType;
+        /// <summary>
+        /// Public access configuration. See `PublicAccess` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessResult> PublicAccesses;
+        /// <summary>
+        /// VPC connectivity configuration. See `VpcConnectivity` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityResult> VpcConnectivities;
 
         [OutputConstructor]

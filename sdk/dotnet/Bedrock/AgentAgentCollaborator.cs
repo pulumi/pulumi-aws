@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Bedrock
 {
     /// <summary>
-    /// Resource for managing an AWS Bedrock Agents Agent Collaborator.
+    /// Manages an AWS Bedrock Agents Agent Collaborator.
     /// 
     /// ## Example Usage
     /// 
@@ -100,8 +100,8 @@ namespace Pulumi.Aws.Bedrock
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     $"arn:{currentAgent.Partition}:bedrock:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:agent/*",
-    ///                     $"arn:{currentAgent.Partition}:bedrock:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:agent-alias/*",
+    ///                     $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:bedrock:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:agent/*",
+    ///                     $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:bedrock:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:agent-alias/*",
     ///                 },
     ///             },
     ///         },
@@ -125,7 +125,7 @@ namespace Pulumi.Aws.Bedrock
     ///         AgentResourceRoleArn = example.Arn,
     ///         IdleSessionTtlInSeconds = 500,
     ///         FoundationModel = "anthropic.claude-3-5-sonnet-20241022-v2:0",
-    ///         Instruction = "do what the supervisor tells you to do",
+    ///         Instruction = "You are a collaborator agent. Do what the supervisor tells you to do.",
     ///     });
     /// 
     ///     var exampleSupervisor = new Aws.Bedrock.AgentAgent("example_supervisor", new()
@@ -135,7 +135,7 @@ namespace Pulumi.Aws.Bedrock
     ///         AgentCollaboration = "SUPERVISOR",
     ///         IdleSessionTtlInSeconds = 500,
     ///         FoundationModel = "anthropic.claude-3-5-sonnet-20241022-v2:0",
-    ///         Instruction = "tell the sub agent what to do",
+    ///         Instruction = "You are a supervisor agent. Tell the sub agent what to do.",
     ///         PrepareAgent = false,
     ///     });
     /// 
@@ -172,17 +172,20 @@ namespace Pulumi.Aws.Bedrock
     [AwsResourceType("aws:bedrock/agentAgentCollaborator:AgentAgentCollaborator")]
     public partial class AgentAgentCollaborator : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Agent descriptor for the agent collaborator. See `AgentDescriptor` Block for details.
+        /// </summary>
         [Output("agentDescriptor")]
         public Output<Outputs.AgentAgentCollaboratorAgentDescriptor> AgentDescriptor { get; private set; } = null!;
 
         /// <summary>
-        /// ID if the agent to associate the collaborator.
+        /// ID of the agent to associate the collaborator with.
         /// </summary>
         [Output("agentId")]
         public Output<string> AgentId { get; private set; } = null!;
 
         /// <summary>
-        /// Version of the agent to associate the collaborator. Defaults to `DRAFT`.
+        /// Version of the agent to associate the collaborator with. Defaults to `DRAFT`.
         /// </summary>
         [Output("agentVersion")]
         public Output<string> AgentVersion { get; private set; } = null!;
@@ -274,17 +277,20 @@ namespace Pulumi.Aws.Bedrock
 
     public sealed class AgentAgentCollaboratorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Agent descriptor for the agent collaborator. See `AgentDescriptor` Block for details.
+        /// </summary>
         [Input("agentDescriptor", required: true)]
         public Input<Inputs.AgentAgentCollaboratorAgentDescriptorArgs> AgentDescriptor { get; set; } = null!;
 
         /// <summary>
-        /// ID if the agent to associate the collaborator.
+        /// ID of the agent to associate the collaborator with.
         /// </summary>
         [Input("agentId", required: true)]
         public Input<string> AgentId { get; set; } = null!;
 
         /// <summary>
-        /// Version of the agent to associate the collaborator. Defaults to `DRAFT`.
+        /// Version of the agent to associate the collaborator with. Defaults to `DRAFT`.
         /// </summary>
         [Input("agentVersion")]
         public Input<string>? AgentVersion { get; set; }
@@ -332,17 +338,20 @@ namespace Pulumi.Aws.Bedrock
 
     public sealed class AgentAgentCollaboratorState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Agent descriptor for the agent collaborator. See `AgentDescriptor` Block for details.
+        /// </summary>
         [Input("agentDescriptor")]
         public Input<Inputs.AgentAgentCollaboratorAgentDescriptorGetArgs>? AgentDescriptor { get; set; }
 
         /// <summary>
-        /// ID if the agent to associate the collaborator.
+        /// ID of the agent to associate the collaborator with.
         /// </summary>
         [Input("agentId")]
         public Input<string>? AgentId { get; set; }
 
         /// <summary>
-        /// Version of the agent to associate the collaborator. Defaults to `DRAFT`.
+        /// Version of the agent to associate the collaborator with. Defaults to `DRAFT`.
         /// </summary>
         [Input("agentVersion")]
         public Input<string>? AgentVersion { get; set; }

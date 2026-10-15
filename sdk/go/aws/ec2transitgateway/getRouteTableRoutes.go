@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides informations for routes of a specific transit gateway, such as state, type, cidr
+// Provides informations for routes of a specific transit gateway, such as state, type, CIDR
 //
 // ## Example Usage
 //

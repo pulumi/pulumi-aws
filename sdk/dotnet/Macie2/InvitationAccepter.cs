@@ -66,13 +66,13 @@ namespace Pulumi.Aws.Macie2
     public partial class InvitationAccepter : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The AWS account ID for the account that sent the invitation.
+        /// AWS account ID for the account that sent the invitation.
         /// </summary>
         [Output("administratorAccountId")]
         public Output<string> AdministratorAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The unique identifier for the invitation.
+        /// Unique identifier for the invitation.
         /// </summary>
         [Output("invitationId")]
         public Output<string> InvitationId { get; private set; } = null!;
@@ -130,7 +130,7 @@ namespace Pulumi.Aws.Macie2
     public sealed class InvitationAccepterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS account ID for the account that sent the invitation.
+        /// AWS account ID for the account that sent the invitation.
         /// </summary>
         [Input("administratorAccountId", required: true)]
         public Input<string> AdministratorAccountId { get; set; } = null!;
@@ -150,13 +150,13 @@ namespace Pulumi.Aws.Macie2
     public sealed class InvitationAccepterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS account ID for the account that sent the invitation.
+        /// AWS account ID for the account that sent the invitation.
         /// </summary>
         [Input("administratorAccountId")]
         public Input<string>? AdministratorAccountId { get; set; }
 
         /// <summary>
-        /// The unique identifier for the invitation.
+        /// Unique identifier for the invitation.
         /// </summary>
         [Input("invitationId")]
         public Input<string>? InvitationId { get; set; }

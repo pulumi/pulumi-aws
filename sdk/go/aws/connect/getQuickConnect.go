@@ -86,7 +86,7 @@ type LookupQuickConnectArgs struct {
 	//
 	// > **NOTE:** `instanceId` and one of either `name` or `quickConnectId` is required.
 	Name *string `pulumi:"name"`
-	// Returns information on a specific Quick Connect by Quick Connect id
+	// Returns information on a specific Quick Connect by Quick Connect ID
 	QuickConnectId *string `pulumi:"quickConnectId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -126,7 +126,7 @@ type LookupQuickConnectOutputArgs struct {
 	//
 	// > **NOTE:** `instanceId` and one of either `name` or `quickConnectId` is required.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Returns information on a specific Quick Connect by Quick Connect id
+	// Returns information on a specific Quick Connect by Quick Connect ID
 	QuickConnectId pulumi.StringPtrInput `pulumi:"quickConnectId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`

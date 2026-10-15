@@ -38,7 +38,7 @@ class UserArgs:
         :param pulumi.Input[_builtins.str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input['UserPhoneConfigArgs'] phone_config: A block that contains information about the phone settings for the user. Documented below.
         :param pulumi.Input[_builtins.str] routing_profile_id: The identifier of the routing profile for the user.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_profile_ids: A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_profile_ids: A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile IDs. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
         :param pulumi.Input[_builtins.str] directory_user_id: The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
         :param pulumi.Input[_builtins.str] hierarchy_group_id: The identifier of the hierarchy group for the user.
         :param pulumi.Input['UserIdentityInfoArgs'] identity_info: A block that contains information about the identity of the user. Documented below.
@@ -107,7 +107,7 @@ class UserArgs:
     @pulumi.getter(name="securityProfileIds")
     def security_profile_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
+        A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile IDs. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
         """
         return pulumi.get(self, "security_profile_ids")
 
@@ -231,7 +231,7 @@ class _UserState:
         :param pulumi.Input['UserPhoneConfigArgs'] phone_config: A block that contains information about the phone settings for the user. Documented below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] routing_profile_id: The identifier of the routing profile for the user.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_profile_ids: A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_profile_ids: A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile IDs. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the user. If configured with a provider
                `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -390,7 +390,7 @@ class _UserState:
     @pulumi.getter(name="securityProfileIds")
     def security_profile_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
+        A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile IDs. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
         """
         return pulumi.get(self, "security_profile_ids")
 
@@ -547,7 +547,7 @@ class User(pulumi.CustomResource):
             security_profile_ids=[example_aws_connect_security_profile["securityProfileId"]])
         ```
 
-        ### With multiple Security profile ids specified in security_profile_ids
+        ### With multiple Security profile IDs specified in security_profile_ids
 
         ```python
         import pulumi
@@ -590,7 +590,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[Union['UserPhoneConfigArgs', 'UserPhoneConfigArgsDict', 'outputs.UserPhoneConfig']] phone_config: A block that contains information about the phone settings for the user. Documented below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] routing_profile_id: The identifier of the routing profile for the user.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_profile_ids: A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_profile_ids: A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile IDs. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the user. If configured with a provider
                `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -693,7 +693,7 @@ class User(pulumi.CustomResource):
             security_profile_ids=[example_aws_connect_security_profile["securityProfileId"]])
         ```
 
-        ### With multiple Security profile ids specified in security_profile_ids
+        ### With multiple Security profile IDs specified in security_profile_ids
 
         ```python
         import pulumi
@@ -825,7 +825,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[Union['UserPhoneConfigArgs', 'UserPhoneConfigArgsDict', 'outputs.UserPhoneConfig']] phone_config: A block that contains information about the phone settings for the user. Documented below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] routing_profile_id: The identifier of the routing profile for the user.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_profile_ids: A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_profile_ids: A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile IDs. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the user. If configured with a provider
                `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -935,7 +935,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="securityProfileIds")
     def security_profile_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
+        A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile IDs. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
         """
         return pulumi.get(self, "security_profile_ids")
 

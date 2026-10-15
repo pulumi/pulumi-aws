@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GroupCapacityReservationSpecificationCapacityReservationTarget {
     /**
-     * @return List of On-Demand Capacity Reservation Ids. Conflicts with `capacityReservationResourceGroupArns`.
+     * @return List of On-Demand Capacity Reservation IDs. Conflicts with `capacityReservationResourceGroupArns`.
      * 
      */
     private @Nullable List<String> capacityReservationIds;
@@ -24,7 +24,7 @@ public final class GroupCapacityReservationSpecificationCapacityReservationTarge
 
     private GroupCapacityReservationSpecificationCapacityReservationTarget() {}
     /**
-     * @return List of On-Demand Capacity Reservation Ids. Conflicts with `capacityReservationResourceGroupArns`.
+     * @return List of On-Demand Capacity Reservation IDs. Conflicts with `capacityReservationResourceGroupArns`.
      * 
      */
     public List<String> capacityReservationIds() {

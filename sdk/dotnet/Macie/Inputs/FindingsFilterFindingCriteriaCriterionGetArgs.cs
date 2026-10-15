@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Macie.Inputs
         private InputList<string>? _eqExactMatches;
 
         /// <summary>
-        /// The value for the property exclusively matches (equals an exact match for) all the specified values. If you specify multiple values, Amazon Macie uses AND logic to join the values.
+        /// Value for the property exclusively matches (equals an exact match for) all the specified values. If you specify multiple values, Amazon Macie uses AND logic to join the values.
         /// </summary>
         public InputList<string> EqExactMatches
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Macie.Inputs
         private InputList<string>? _eqs;
 
         /// <summary>
-        /// The value for the property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
+        /// Value for the property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
         /// </summary>
         public InputList<string> Eqs
         {
@@ -37,31 +37,31 @@ namespace Pulumi.Aws.Macie.Inputs
         }
 
         /// <summary>
-        /// The name of the field to be evaluated.
+        /// Name of the field to be evaluated.
         /// </summary>
         [Input("field", required: true)]
         public Input<string> Field { get; set; } = null!;
 
         /// <summary>
-        /// The value for the property is greater than the specified value.
+        /// Value for the property is greater than the specified value.
         /// </summary>
         [Input("gt")]
         public Input<string>? Gt { get; set; }
 
         /// <summary>
-        /// The value for the property is greater than or equal to the specified value.
+        /// Value for the property is greater than or equal to the specified value.
         /// </summary>
         [Input("gte")]
         public Input<string>? Gte { get; set; }
 
         /// <summary>
-        /// The value for the property is less than the specified value.
+        /// Value for the property is less than the specified value.
         /// </summary>
         [Input("lt")]
         public Input<string>? Lt { get; set; }
 
         /// <summary>
-        /// The value for the property is less than or equal to the specified value.
+        /// Value for the property is less than or equal to the specified value.
         /// </summary>
         [Input("lte")]
         public Input<string>? Lte { get; set; }
@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Macie.Inputs
         private InputList<string>? _neqs;
 
         /// <summary>
-        /// The value for the property doesn't match (doesn't equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
+        /// Value for the property doesn't match (doesn't equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
         /// </summary>
         public InputList<string> Neqs
         {

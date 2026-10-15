@@ -68,7 +68,7 @@ namespace Pulumi.Aws.Organizations
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
-        /// Id of the Organizations resource to tag.
+        /// ID of the Organizations resource to tag.
         /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
@@ -132,7 +132,7 @@ namespace Pulumi.Aws.Organizations
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// Id of the Organizations resource to tag.
+        /// ID of the Organizations resource to tag.
         /// </summary>
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.Aws.Organizations
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// Id of the Organizations resource to tag.
+        /// ID of the Organizations resource to tag.
         /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }

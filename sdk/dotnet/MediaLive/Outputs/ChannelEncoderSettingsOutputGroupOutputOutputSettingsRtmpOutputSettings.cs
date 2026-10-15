@@ -14,15 +14,15 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings
     {
         /// <summary>
-        /// Setting to allow self signed or verified RTMP certificates.
+        /// Whether to allow self-signed or verified RTMP certificates.
         /// </summary>
         public readonly string? CertificateMode;
         /// <summary>
-        /// Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+        /// Number of seconds to wait before retrying a connection to the Flash Media Server if the connection is lost.
         /// </summary>
         public readonly int? ConnectionRetryInterval;
         /// <summary>
-        /// The RTMP endpoint excluding the stream name. See Destination for more details.
+        /// RTMP endpoint excluding the stream name. See `Destination` Block for details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination Destination;
         /// <summary>

@@ -1237,7 +1237,7 @@ type GetAccessPointPosixUser struct {
 	Gid int `pulumi:"gid"`
 	// Secondary group IDs
 	SecondaryGids []int `pulumi:"secondaryGids"`
-	// User Id
+	// User ID
 	Uid int `pulumi:"uid"`
 }
 
@@ -1257,7 +1257,7 @@ type GetAccessPointPosixUserArgs struct {
 	Gid pulumi.IntInput `pulumi:"gid"`
 	// Secondary group IDs
 	SecondaryGids pulumi.IntArrayInput `pulumi:"secondaryGids"`
-	// User Id
+	// User ID
 	Uid pulumi.IntInput `pulumi:"uid"`
 }
 
@@ -1322,7 +1322,7 @@ func (o GetAccessPointPosixUserOutput) SecondaryGids() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v GetAccessPointPosixUser) []int { return v.SecondaryGids }).(pulumi.IntArrayOutput)
 }
 
-// User Id
+// User ID
 func (o GetAccessPointPosixUserOutput) Uid() pulumi.IntOutput {
 	return o.ApplyT(func(v GetAccessPointPosixUser) int { return v.Uid }).(pulumi.IntOutput)
 }

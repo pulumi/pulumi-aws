@@ -109,6 +109,9 @@ namespace Pulumi.Aws.GameLift
         [Output("instanceRoleArn")]
         public Output<string?> InstanceRoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// List of paths from which the fleet captures logs.
+        /// </summary>
         [Output("logPaths")]
         public Output<ImmutableArray<string>> LogPaths { get; private set; } = null!;
 
@@ -119,7 +122,7 @@ namespace Pulumi.Aws.GameLift
         public Output<ImmutableArray<string>> MetricGroups { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the fleet.
+        /// Name of the fleet.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -173,7 +176,7 @@ namespace Pulumi.Aws.GameLift
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -285,7 +288,7 @@ namespace Pulumi.Aws.GameLift
         }
 
         /// <summary>
-        /// The name of the fleet.
+        /// Name of the fleet.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -402,6 +405,10 @@ namespace Pulumi.Aws.GameLift
 
         [Input("logPaths")]
         private InputList<string>? _logPaths;
+
+        /// <summary>
+        /// List of paths from which the fleet captures logs.
+        /// </summary>
         public InputList<string> LogPaths
         {
             get => _logPaths ?? (_logPaths = new InputList<string>());
@@ -421,7 +428,7 @@ namespace Pulumi.Aws.GameLift
         }
 
         /// <summary>
-        /// The name of the fleet.
+        /// Name of the fleet.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -484,7 +491,7 @@ namespace Pulumi.Aws.GameLift
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

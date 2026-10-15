@@ -58,7 +58,7 @@ import (
 //
 // ```
 //
-// ### Cidr Example
+// ### CIDR Example
 //
 // ## Import
 //

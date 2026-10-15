@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetInputMediaConnectFlow {
+    /**
+     * @return ARN of the MediaConnect Flow.
+     * 
+     */
     private String flowArn;
 
     private GetInputMediaConnectFlow() {}
+    /**
+     * @return ARN of the MediaConnect Flow.
+     * 
+     */
     public String flowArn() {
         return this.flowArn;
     }

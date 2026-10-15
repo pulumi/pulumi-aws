@@ -19,14 +19,14 @@ public final class ChannelInputAttachmentArgs extends com.pulumi.resources.Resou
     public static final ChannelInputAttachmentArgs Empty = new ChannelInputAttachmentArgs();
 
     /**
-     * User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input. See Automatic Input Failover Settings for more details.
+     * Settings that define the conditions for declaring the input unhealthy and failing over to a different input. See `automaticInputFailoverSettings` Block for details.
      * 
      */
     @Import(name="automaticInputFailoverSettings")
     private @Nullable Output<ChannelInputAttachmentAutomaticInputFailoverSettingsArgs> automaticInputFailoverSettings;
 
     /**
-     * @return User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input. See Automatic Input Failover Settings for more details.
+     * @return Settings that define the conditions for declaring the input unhealthy and failing over to a different input. See `automaticInputFailoverSettings` Block for details.
      * 
      */
     public Optional<Output<ChannelInputAttachmentAutomaticInputFailoverSettingsArgs>> automaticInputFailoverSettings() {
@@ -49,14 +49,14 @@ public final class ChannelInputAttachmentArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The ID of the input.
+     * ID of the input.
      * 
      */
     @Import(name="inputId", required=true)
     private Output<String> inputId;
 
     /**
-     * @return The ID of the input.
+     * @return ID of the input.
      * 
      */
     public Output<String> inputId() {
@@ -64,14 +64,14 @@ public final class ChannelInputAttachmentArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Settings of an input. See Input Settings for more details.
+     * Settings of an input. See `inputSettings` Block for details.
      * 
      */
     @Import(name="inputSettings")
     private @Nullable Output<ChannelInputAttachmentInputSettingsArgs> inputSettings;
 
     /**
-     * @return Settings of an input. See Input Settings for more details.
+     * @return Settings of an input. See `inputSettings` Block for details.
      * 
      */
     public Optional<Output<ChannelInputAttachmentInputSettingsArgs>> inputSettings() {
@@ -106,7 +106,7 @@ public final class ChannelInputAttachmentArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param automaticInputFailoverSettings User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input. See Automatic Input Failover Settings for more details.
+         * @param automaticInputFailoverSettings Settings that define the conditions for declaring the input unhealthy and failing over to a different input. See `automaticInputFailoverSettings` Block for details.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class ChannelInputAttachmentArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param automaticInputFailoverSettings User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input. See Automatic Input Failover Settings for more details.
+         * @param automaticInputFailoverSettings Settings that define the conditions for declaring the input unhealthy and failing over to a different input. See `automaticInputFailoverSettings` Block for details.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class ChannelInputAttachmentArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param inputId The ID of the input.
+         * @param inputId ID of the input.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class ChannelInputAttachmentArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param inputId The ID of the input.
+         * @param inputId ID of the input.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class ChannelInputAttachmentArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param inputSettings Settings of an input. See Input Settings for more details.
+         * @param inputSettings Settings of an input. See `inputSettings` Block for details.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class ChannelInputAttachmentArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param inputSettings Settings of an input. See Input Settings for more details.
+         * @param inputSettings Settings of an input. See `inputSettings` Block for details.
          * 
          * @return builder
          * 

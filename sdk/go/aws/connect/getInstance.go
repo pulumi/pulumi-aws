@@ -82,7 +82,7 @@ type LookupInstanceArgs struct {
 	//
 	// > **NOTE:** One of either `instanceId` or `instanceAlias` is required.
 	InstanceAlias *string `pulumi:"instanceAlias"`
-	// Returns information on a specific connect instance by id
+	// Returns information on a specific connect instance by ID
 	InstanceId *string `pulumi:"instanceId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -135,7 +135,7 @@ type LookupInstanceOutputArgs struct {
 	//
 	// > **NOTE:** One of either `instanceId` or `instanceAlias` is required.
 	InstanceAlias pulumi.StringPtrInput `pulumi:"instanceAlias"`
-	// Returns information on a specific connect instance by id
+	// Returns information on a specific connect instance by ID
 	InstanceId pulumi.StringPtrInput `pulumi:"instanceId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`

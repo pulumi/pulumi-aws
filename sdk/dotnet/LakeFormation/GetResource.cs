@@ -131,7 +131,7 @@ namespace Pulumi.Aws.LakeFormation
     {
         public readonly string Arn;
         /// <summary>
-        /// Flag to enable AWS LakeFormation hybrid access permission mode.
+        /// Flag to enable AWS Lake Formation hybrid access permission mode.
         /// </summary>
         public readonly bool HybridAccessEnabled;
         /// <summary>

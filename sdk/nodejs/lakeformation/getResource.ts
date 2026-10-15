@@ -46,7 +46,7 @@ export interface GetResourceArgs {
 export interface GetResourceResult {
     readonly arn: string;
     /**
-     * Flag to enable AWS LakeFormation hybrid access permission mode.
+     * Flag to enable AWS Lake Formation hybrid access permission mode.
      */
     readonly hybridAccessEnabled: boolean;
     /**

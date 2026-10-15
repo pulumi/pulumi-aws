@@ -649,7 +649,7 @@ import (
 //
 // ```
 //
-// ### Cloudwatch Log Group Usage
+// ### CloudWatch Log Group Usage
 //
 // ```go
 // package main
@@ -969,7 +969,7 @@ type EventTarget struct {
 	SagemakerPipelineTarget EventTargetSagemakerPipelineTargetPtrOutput `pulumi:"sagemakerPipelineTarget"`
 	// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
 	SqsTarget EventTargetSqsTargetPtrOutput `pulumi:"sqsTarget"`
-	// The unique target assignment ID. If missing, will generate a random, unique id.
+	// The unique target assignment ID. If missing, will generate a random, unique ID.
 	TargetId pulumi.StringOutput `pulumi:"targetId"`
 }
 
@@ -1052,7 +1052,7 @@ type eventTargetState struct {
 	SagemakerPipelineTarget *EventTargetSagemakerPipelineTarget `pulumi:"sagemakerPipelineTarget"`
 	// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
 	SqsTarget *EventTargetSqsTarget `pulumi:"sqsTarget"`
-	// The unique target assignment ID. If missing, will generate a random, unique id.
+	// The unique target assignment ID. If missing, will generate a random, unique ID.
 	TargetId *string `pulumi:"targetId"`
 }
 
@@ -1100,7 +1100,7 @@ type EventTargetState struct {
 	SagemakerPipelineTarget EventTargetSagemakerPipelineTargetPtrInput
 	// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
 	SqsTarget EventTargetSqsTargetPtrInput
-	// The unique target assignment ID. If missing, will generate a random, unique id.
+	// The unique target assignment ID. If missing, will generate a random, unique ID.
 	TargetId pulumi.StringPtrInput
 }
 
@@ -1152,7 +1152,7 @@ type eventTargetArgs struct {
 	SagemakerPipelineTarget *EventTargetSagemakerPipelineTarget `pulumi:"sagemakerPipelineTarget"`
 	// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
 	SqsTarget *EventTargetSqsTarget `pulumi:"sqsTarget"`
-	// The unique target assignment ID. If missing, will generate a random, unique id.
+	// The unique target assignment ID. If missing, will generate a random, unique ID.
 	TargetId *string `pulumi:"targetId"`
 }
 
@@ -1201,7 +1201,7 @@ type EventTargetArgs struct {
 	SagemakerPipelineTarget EventTargetSagemakerPipelineTargetPtrInput
 	// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
 	SqsTarget EventTargetSqsTargetPtrInput
-	// The unique target assignment ID. If missing, will generate a random, unique id.
+	// The unique target assignment ID. If missing, will generate a random, unique ID.
 	TargetId pulumi.StringPtrInput
 }
 
@@ -1395,7 +1395,7 @@ func (o EventTargetOutput) SqsTarget() EventTargetSqsTargetPtrOutput {
 	return o.ApplyT(func(v *EventTarget) EventTargetSqsTargetPtrOutput { return v.SqsTarget }).(EventTargetSqsTargetPtrOutput)
 }
 
-// The unique target assignment ID. If missing, will generate a random, unique id.
+// The unique target assignment ID. If missing, will generate a random, unique ID.
 func (o EventTargetOutput) TargetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventTarget) pulumi.StringOutput { return v.TargetId }).(pulumi.StringOutput)
 }

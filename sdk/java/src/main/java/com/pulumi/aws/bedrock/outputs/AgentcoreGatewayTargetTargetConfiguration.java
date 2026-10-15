@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreGatewayTargetTargetConfiguration {
     /**
-     * @return HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` Block below.
+     * @return HTTP target configuration for routing requests directly to an AgentCore Runtime agent or to an external HTTPS endpoint. See `http` Block below.
      * 
      */
     private @Nullable AgentcoreGatewayTargetTargetConfigurationHttp http;
@@ -31,7 +31,7 @@ public final class AgentcoreGatewayTargetTargetConfiguration {
 
     private AgentcoreGatewayTargetTargetConfiguration() {}
     /**
-     * @return HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` Block below.
+     * @return HTTP target configuration for routing requests directly to an AgentCore Runtime agent or to an external HTTPS endpoint. See `http` Block below.
      * 
      */
     public Optional<AgentcoreGatewayTargetTargetConfigurationHttp> http() {

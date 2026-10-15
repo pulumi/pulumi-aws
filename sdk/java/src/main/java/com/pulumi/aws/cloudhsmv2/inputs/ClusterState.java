@@ -34,14 +34,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The id of the CloudHSM cluster.
+     * The ID of the CloudHSM cluster.
      * 
      */
     @Import(name="clusterId")
     private @Nullable Output<String> clusterId;
 
     /**
-     * @return The id of the CloudHSM cluster.
+     * @return The ID of the CloudHSM cluster.
      * 
      */
     public Optional<Output<String>> clusterId() {
@@ -184,14 +184,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The id of the VPC that the CloudHSM cluster resides in.
+     * The ID of the VPC that the CloudHSM cluster resides in.
      * 
      */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
     /**
-     * @return The id of the VPC that the CloudHSM cluster resides in.
+     * @return The ID of the VPC that the CloudHSM cluster resides in.
      * 
      */
     public Optional<Output<String>> vpcId() {
@@ -265,7 +265,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterId The id of the CloudHSM cluster.
+         * @param clusterId The ID of the CloudHSM cluster.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterId The id of the CloudHSM cluster.
+         * @param clusterId The ID of the CloudHSM cluster.
          * 
          * @return builder
          * 
@@ -485,7 +485,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcId The id of the VPC that the CloudHSM cluster resides in.
+         * @param vpcId The ID of the VPC that the CloudHSM cluster resides in.
          * 
          * @return builder
          * 
@@ -496,7 +496,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcId The id of the VPC that the CloudHSM cluster resides in.
+         * @param vpcId The ID of the VPC that the CloudHSM cluster resides in.
          * 
          * @return builder
          * 

@@ -11,12 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
+// This resource can be useful for getting back a list of route table IDs to be referenced elsewhere.
 //
 // ## Example Usage
 //
-// The following adds a route for a particular cidr block to every (private
-// kops) route table in a specified vpc to use a particular vpc peering
+// The following adds a route for a particular CIDR block to every (private
+// kops) route table in a specified VPC to use a particular VPC peering
 // connection.
 //
 // ```go
@@ -94,7 +94,7 @@ type GetRouteTablesResult struct {
 	Filters []GetRouteTablesFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// List of all the route table ids found.
+	// List of all the route table IDs found.
 	Ids    []string          `pulumi:"ids"`
 	Region string            `pulumi:"region"`
 	Tags   map[string]string `pulumi:"tags"`
@@ -147,7 +147,7 @@ func (o GetRouteTablesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteTablesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of all the route table ids found.
+// List of all the route table IDs found.
 func (o GetRouteTablesResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetRouteTablesResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

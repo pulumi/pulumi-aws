@@ -34,14 +34,14 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Denotes the user&#39;s authentication properties. Detailed below.
+     * Authentication properties for the user. Detailed below.
      * 
      */
     @Import(name="authenticationMode", required=true)
     private Output<UserAuthenticationModeArgs> authenticationMode;
 
     /**
-     * @return Denotes the user&#39;s authentication properties. Detailed below.
+     * @return Authentication properties for the user. Detailed below.
      * 
      */
     public Output<UserAuthenticationModeArgs> authenticationMode() {
@@ -64,14 +64,14 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -147,7 +147,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authenticationMode Denotes the user&#39;s authentication properties. Detailed below.
+         * @param authenticationMode Authentication properties for the user. Detailed below.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authenticationMode Denotes the user&#39;s authentication properties. Detailed below.
+         * @param authenticationMode Authentication properties for the user. Detailed below.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

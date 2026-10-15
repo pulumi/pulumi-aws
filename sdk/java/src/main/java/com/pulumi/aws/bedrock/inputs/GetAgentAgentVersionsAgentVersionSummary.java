@@ -93,14 +93,14 @@ public final class GetAgentAgentVersionsAgentVersionSummary extends com.pulumi.r
     }
 
     /**
-     * Details about the guardrail associated with the agent. See `guardrailConfiguration` Block
+     * Details about the guardrail associated with the agent. See `guardrailConfiguration` Block.
      * 
      */
     @Import(name="guardrailConfigurations")
     private @Nullable List<GetAgentAgentVersionsAgentVersionSummaryGuardrailConfiguration> guardrailConfigurations;
 
     /**
-     * @return Details about the guardrail associated with the agent. See `guardrailConfiguration` Block
+     * @return Details about the guardrail associated with the agent. See `guardrailConfiguration` Block.
      * 
      */
     public Optional<List<GetAgentAgentVersionsAgentVersionSummaryGuardrailConfiguration>> guardrailConfigurations() {
@@ -208,7 +208,7 @@ public final class GetAgentAgentVersionsAgentVersionSummary extends com.pulumi.r
         }
 
         /**
-         * @param guardrailConfigurations Details about the guardrail associated with the agent. See `guardrailConfiguration` Block
+         * @param guardrailConfigurations Details about the guardrail associated with the agent. See `guardrailConfiguration` Block.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class GetAgentAgentVersionsAgentVersionSummary extends com.pulumi.r
         }
 
         /**
-         * @param guardrailConfigurations Details about the guardrail associated with the agent. See `guardrailConfiguration` Block
+         * @param guardrailConfigurations Details about the guardrail associated with the agent. See `guardrailConfiguration` Block.
          * 
          * @return builder
          * 

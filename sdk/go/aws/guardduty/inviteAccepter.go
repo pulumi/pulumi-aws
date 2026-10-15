@@ -70,7 +70,7 @@ import (
 type InviteAccepter struct {
 	pulumi.CustomResourceState
 
-	// The detector ID of the member GuardDuty account.
+	// Detector ID of the member GuardDuty account.
 	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
 	// AWS account ID for primary account.
 	MasterAccountId pulumi.StringOutput `pulumi:"masterAccountId"`
@@ -114,7 +114,7 @@ func GetInviteAccepter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InviteAccepter resources.
 type inviteAccepterState struct {
-	// The detector ID of the member GuardDuty account.
+	// Detector ID of the member GuardDuty account.
 	DetectorId *string `pulumi:"detectorId"`
 	// AWS account ID for primary account.
 	MasterAccountId *string `pulumi:"masterAccountId"`
@@ -123,7 +123,7 @@ type inviteAccepterState struct {
 }
 
 type InviteAccepterState struct {
-	// The detector ID of the member GuardDuty account.
+	// Detector ID of the member GuardDuty account.
 	DetectorId pulumi.StringPtrInput
 	// AWS account ID for primary account.
 	MasterAccountId pulumi.StringPtrInput
@@ -136,7 +136,7 @@ func (InviteAccepterState) ElementType() reflect.Type {
 }
 
 type inviteAccepterArgs struct {
-	// The detector ID of the member GuardDuty account.
+	// Detector ID of the member GuardDuty account.
 	DetectorId string `pulumi:"detectorId"`
 	// AWS account ID for primary account.
 	MasterAccountId string `pulumi:"masterAccountId"`
@@ -146,7 +146,7 @@ type inviteAccepterArgs struct {
 
 // The set of arguments for constructing a InviteAccepter resource.
 type InviteAccepterArgs struct {
-	// The detector ID of the member GuardDuty account.
+	// Detector ID of the member GuardDuty account.
 	DetectorId pulumi.StringInput
 	// AWS account ID for primary account.
 	MasterAccountId pulumi.StringInput
@@ -241,7 +241,7 @@ func (o InviteAccepterOutput) ToInviteAccepterOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The detector ID of the member GuardDuty account.
+// Detector ID of the member GuardDuty account.
 func (o InviteAccepterOutput) DetectorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InviteAccepter) pulumi.StringOutput { return v.DetectorId }).(pulumi.StringOutput)
 }

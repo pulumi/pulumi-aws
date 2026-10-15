@@ -65,7 +65,7 @@ export class Member extends pulumi.CustomResource {
      */
     declare public readonly accountId: pulumi.Output<string>;
     /**
-     * The detector ID of the GuardDuty account where you want to create member accounts.
+     * Detector ID of the GuardDuty account where you want to create member accounts.
      */
     declare public readonly detectorId: pulumi.Output<string>;
     /**
@@ -89,7 +89,7 @@ export class Member extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
+     * Status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
      */
     declare public /*out*/ readonly relationshipStatus: pulumi.Output<string>;
 
@@ -148,7 +148,7 @@ export interface MemberState {
      */
     accountId?: pulumi.Input<string | undefined>;
     /**
-     * The detector ID of the GuardDuty account where you want to create member accounts.
+     * Detector ID of the GuardDuty account where you want to create member accounts.
      */
     detectorId?: pulumi.Input<string | undefined>;
     /**
@@ -172,7 +172,7 @@ export interface MemberState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
+     * Status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
      */
     relationshipStatus?: pulumi.Input<string | undefined>;
 }
@@ -186,7 +186,7 @@ export interface MemberArgs {
      */
     accountId: pulumi.Input<string>;
     /**
-     * The detector ID of the GuardDuty account where you want to create member accounts.
+     * Detector ID of the GuardDuty account where you want to create member accounts.
      */
     detectorId: pulumi.Input<string>;
     /**

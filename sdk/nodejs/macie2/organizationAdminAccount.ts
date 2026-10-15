@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws.macie2.OrganizationAdminAccount` using the id. For example:
+ * Using `pulumi import`, import `aws.macie2.OrganizationAdminAccount` using the ID. For example:
  *
  * ```sh
  * $ pulumi import aws:macie2/organizationAdminAccount:OrganizationAdminAccount example abcd1
@@ -56,7 +56,7 @@ export class OrganizationAdminAccount extends pulumi.CustomResource {
     }
 
     /**
-     * The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
+     * AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
      */
     declare public readonly adminAccountId: pulumi.Output<string>;
     /**
@@ -97,7 +97,7 @@ export class OrganizationAdminAccount extends pulumi.CustomResource {
  */
 export interface OrganizationAdminAccountState {
     /**
-     * The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
+     * AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
      */
     adminAccountId?: pulumi.Input<string | undefined>;
     /**
@@ -111,7 +111,7 @@ export interface OrganizationAdminAccountState {
  */
 export interface OrganizationAdminAccountArgs {
     /**
-     * The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
+     * AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
      */
     adminAccountId: pulumi.Input<string>;
     /**

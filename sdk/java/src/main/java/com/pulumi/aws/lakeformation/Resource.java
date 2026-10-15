@@ -84,14 +84,14 @@ public class Resource extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Flag to enable AWS LakeFormation hybrid access permission mode.
+     * Flag to enable AWS Lake Formation hybrid access permission mode.
      * 
      */
     @Export(name="hybridAccessEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> hybridAccessEnabled;
 
     /**
-     * @return Flag to enable AWS LakeFormation hybrid access permission mode.
+     * @return Flag to enable AWS Lake Formation hybrid access permission mode.
      * 
      */
     public Output<Boolean> hybridAccessEnabled() {

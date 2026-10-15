@@ -12,12 +12,21 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelInputSpecificationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Codec to use for the input.
+        /// </summary>
         [Input("codec", required: true)]
         public Input<string> Codec { get; set; } = null!;
 
+        /// <summary>
+        /// Maximum input resolution.
+        /// </summary>
         [Input("inputResolution", required: true)]
         public Input<string> InputResolution { get; set; } = null!;
 
+        /// <summary>
+        /// Maximum input bitrate for an input.
+        /// </summary>
         [Input("maximumBitrate", required: true)]
         public Input<string> MaximumBitrate { get; set; } = null!;
 

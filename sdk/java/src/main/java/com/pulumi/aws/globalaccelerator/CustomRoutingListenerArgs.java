@@ -32,14 +32,14 @@ public final class CustomRoutingListenerArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+     * Port ranges for the connections from clients to the accelerator. See `portRange` below.
      * 
      */
     @Import(name="portRanges", required=true)
     private Output<List<CustomRoutingListenerPortRangeArgs>> portRanges;
 
     /**
-     * @return The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+     * @return Port ranges for the connections from clients to the accelerator. See `portRange` below.
      * 
      */
     public Output<List<CustomRoutingListenerPortRangeArgs>> portRanges() {
@@ -93,7 +93,7 @@ public final class CustomRoutingListenerArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param portRanges The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+         * @param portRanges Port ranges for the connections from clients to the accelerator. See `portRange` below.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class CustomRoutingListenerArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param portRanges The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+         * @param portRanges Port ranges for the connections from clients to the accelerator. See `portRange` below.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class CustomRoutingListenerArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param portRanges The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+         * @param portRanges Port ranges for the connections from clients to the accelerator. See `portRange` below.
          * 
          * @return builder
          * 

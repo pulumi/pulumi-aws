@@ -19,7 +19,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Settings associated with the output group. See Output Group Settings for more details.
+        /// Settings associated with the output group. See `OutputGroupSettings` Block for details.
         /// </summary>
         [Input("outputGroupSettings", required: true)]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs> OutputGroupSettings { get; set; } = null!;
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         private InputList<Inputs.ChannelEncoderSettingsOutputGroupOutputArgs>? _outputs;
 
         /// <summary>
-        /// List of outputs. See Outputs for more details.
+        /// List of outputs. See `Outputs` Block for details.
         /// </summary>
         public InputList<Inputs.ChannelEncoderSettingsOutputGroupOutputArgs> Outputs
         {

@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string MapBlockKey;
         /// <summary>
-        /// Whether the parameter is required for the agent to complete the function for action group invocation.
+        /// Whether to require the parameter for the agent to complete the function for action group invocation.
         /// </summary>
         public readonly bool? Required;
         /// <summary>

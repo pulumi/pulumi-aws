@@ -101,7 +101,7 @@ export interface GetSubnetsResult {
      */
     readonly id: string;
     /**
-     * List of all the subnet ids found.
+     * List of all the subnet IDs found.
      */
     readonly ids: string[];
     readonly region: string;

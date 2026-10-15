@@ -175,14 +175,14 @@ public final class EventTargetEcsTargetArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A map of tags to assign to ecs resources.
+     * A map of tags to assign to ECS resources.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to ecs resources.
+     * @return A map of tags to assign to ECS resources.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -496,7 +496,7 @@ public final class EventTargetEcsTargetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param tags A map of tags to assign to ecs resources.
+         * @param tags A map of tags to assign to ECS resources.
          * 
          * @return builder
          * 
@@ -507,7 +507,7 @@ public final class EventTargetEcsTargetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param tags A map of tags to assign to ecs resources.
+         * @param tags A map of tags to assign to ECS resources.
          * 
          * @return builder
          * 

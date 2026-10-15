@@ -12,9 +12,15 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Bits per sample.
+        /// </summary>
         [Input("bitDepth")]
         public Input<double>? BitDepth { get; set; }
 
+        /// <summary>
+        /// WAV coding mode.
+        /// </summary>
         [Input("codingMode")]
         public Input<string>? CodingMode { get; set; }
 

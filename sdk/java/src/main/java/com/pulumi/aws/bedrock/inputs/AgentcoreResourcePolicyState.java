@@ -16,14 +16,14 @@ public final class AgentcoreResourcePolicyState extends com.pulumi.resources.Res
     public static final AgentcoreResourcePolicyState Empty = new AgentcoreResourcePolicyState();
 
     /**
-     * Resource policy definition
+     * Resource policy document in JSON format.
      * 
      */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
     /**
-     * @return Resource policy definition
+     * @return Resource policy document in JSON format.
      * 
      */
     public Optional<Output<String>> policy() {
@@ -91,7 +91,7 @@ public final class AgentcoreResourcePolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param policy Resource policy definition
+         * @param policy Resource policy document in JSON format.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class AgentcoreResourcePolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param policy Resource policy definition
+         * @param policy Resource policy document in JSON format.
          * 
          * @return builder
          * 

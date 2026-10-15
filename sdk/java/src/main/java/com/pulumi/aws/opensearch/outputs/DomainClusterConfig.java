@@ -68,7 +68,7 @@ public final class DomainClusterConfig {
      */
     private @Nullable Boolean warmEnabled;
     /**
-     * @return Instance type for the OpenSearch cluster&#39;s warm nodes. Valid values are `ultrawarm1.medium.search`, `ultrawarm1.large.search` and `ultrawarm1.xlarge.search`. `warmType` can be only and must be set when `warmEnabled` is set to `true`.
+     * @return Instance type for the OpenSearch cluster&#39;s warm nodes. `warmType` can be only and must be set when `warmEnabled` is set to `true`.
      * 
      */
     private @Nullable String warmType;
@@ -155,7 +155,7 @@ public final class DomainClusterConfig {
         return Optional.ofNullable(this.warmEnabled);
     }
     /**
-     * @return Instance type for the OpenSearch cluster&#39;s warm nodes. Valid values are `ultrawarm1.medium.search`, `ultrawarm1.large.search` and `ultrawarm1.xlarge.search`. `warmType` can be only and must be set when `warmEnabled` is set to `true`.
+     * @return Instance type for the OpenSearch cluster&#39;s warm nodes. `warmType` can be only and must be set when `warmEnabled` is set to `true`.
      * 
      */
     public Optional<String> warmType() {

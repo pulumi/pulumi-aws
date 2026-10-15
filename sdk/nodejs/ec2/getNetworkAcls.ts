@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * ## Example Usage
  *
- * The following shows outputting all network ACL ids in a vpc.
+ * The following shows outputting all network ACL IDs in a VPC.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * }
  * ```
  *
- * The following example retrieves a list of all network ACL ids in a VPC with a custom
+ * The following example retrieves a list of all network ACL IDs in a VPC with a custom
  * tag of `Tier` set to a value of "Private".
  *
  * ```typescript
@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * The following example retrieves a network ACL id in a VPC which associated
+ * The following example retrieves a network ACL ID in a VPC which associated
  * with specific subnet.
  *
  * ```typescript
@@ -101,7 +101,7 @@ export interface GetNetworkAclsResult {
      */
     readonly id: string;
     /**
-     * List of all the network ACL ids found.
+     * List of all the network ACL IDs found.
      */
     readonly ids: string[];
     readonly region: string;
@@ -111,7 +111,7 @@ export interface GetNetworkAclsResult {
 /**
  * ## Example Usage
  *
- * The following shows outputting all network ACL ids in a vpc.
+ * The following shows outputting all network ACL IDs in a VPC.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -127,7 +127,7 @@ export interface GetNetworkAclsResult {
  * }
  * ```
  *
- * The following example retrieves a list of all network ACL ids in a VPC with a custom
+ * The following example retrieves a list of all network ACL IDs in a VPC with a custom
  * tag of `Tier` set to a value of "Private".
  *
  * ```typescript
@@ -142,7 +142,7 @@ export interface GetNetworkAclsResult {
  * });
  * ```
  *
- * The following example retrieves a network ACL id in a VPC which associated
+ * The following example retrieves a network ACL ID in a VPC which associated
  * with specific subnet.
  *
  * ```typescript

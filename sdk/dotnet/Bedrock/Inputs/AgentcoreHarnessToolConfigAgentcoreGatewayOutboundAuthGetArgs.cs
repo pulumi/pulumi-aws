@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Set to `True` to use AWS IAM authentication.
+        /// Whether to use AWS IAM authentication. Must be `True` if set.
         /// </summary>
         [Input("awsIam")]
         public Input<bool>? AwsIam { get; set; }
 
         /// <summary>
-        /// Set to `True` to disable authentication.
+        /// Whether to disable authentication. Must be `True` if set.
         /// </summary>
         [Input("none")]
         public Input<bool>? None { get; set; }

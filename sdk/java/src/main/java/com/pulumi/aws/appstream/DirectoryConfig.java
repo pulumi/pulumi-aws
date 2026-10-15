@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import `aws.appstream.DirectoryConfig` using the id. For example:
+ * Using `pulumi import`, import `aws.appstream.DirectoryConfig` using the ID. For example:
  * 
  * ```sh
  * $ pulumi import aws:appstream/directoryConfig:DirectoryConfig example directoryNameExample

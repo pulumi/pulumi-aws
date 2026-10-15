@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Log subscription for AWS Directory Service that pushes logs to cloudwatch.
+// Provides a Log subscription for AWS Directory Service that pushes logs to CloudWatch.
 //
 // ## Example Usage
 //
@@ -85,7 +85,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Directory Service Log Subscriptions using the directory id. For example:
+// Using `pulumi import`, import Directory Service Log Subscriptions using the directory ID. For example:
 //
 // ```sh
 // $ pulumi import aws:directoryservice/logSubscription:LogSubscription msad d-1234567890
@@ -95,7 +95,7 @@ type LogSubscription struct {
 
 	// ID of directory.
 	DirectoryId pulumi.StringOutput `pulumi:"directoryId"`
-	// Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
+	// Name of the CloudWatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
 	LogGroupName pulumi.StringOutput `pulumi:"logGroupName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -145,7 +145,7 @@ func GetLogSubscription(ctx *pulumi.Context,
 type logSubscriptionState struct {
 	// ID of directory.
 	DirectoryId *string `pulumi:"directoryId"`
-	// Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
+	// Name of the CloudWatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
 	LogGroupName *string `pulumi:"logGroupName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -154,7 +154,7 @@ type logSubscriptionState struct {
 type LogSubscriptionState struct {
 	// ID of directory.
 	DirectoryId pulumi.StringPtrInput
-	// Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
+	// Name of the CloudWatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
 	LogGroupName pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -167,7 +167,7 @@ func (LogSubscriptionState) ElementType() reflect.Type {
 type logSubscriptionArgs struct {
 	// ID of directory.
 	DirectoryId string `pulumi:"directoryId"`
-	// Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
+	// Name of the CloudWatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
 	LogGroupName string `pulumi:"logGroupName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -177,7 +177,7 @@ type logSubscriptionArgs struct {
 type LogSubscriptionArgs struct {
 	// ID of directory.
 	DirectoryId pulumi.StringInput
-	// Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
+	// Name of the CloudWatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
 	LogGroupName pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -275,7 +275,7 @@ func (o LogSubscriptionOutput) DirectoryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogSubscription) pulumi.StringOutput { return v.DirectoryId }).(pulumi.StringOutput)
 }
 
-// Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
+// Name of the CloudWatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
 func (o LogSubscriptionOutput) LogGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogSubscription) pulumi.StringOutput { return v.LogGroupName }).(pulumi.StringOutput)
 }

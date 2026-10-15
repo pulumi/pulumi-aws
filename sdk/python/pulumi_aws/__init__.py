@@ -127,6 +127,8 @@ if typing.TYPE_CHECKING:
     cloudtrail = __cloudtrail
     import pulumi_aws.cloudwatch as __cloudwatch
     cloudwatch = __cloudwatch
+    import pulumi_aws.cloudwatchomni as __cloudwatchomni
+    cloudwatchomni = __cloudwatchomni
     import pulumi_aws.codeartifact as __codeartifact
     codeartifact = __codeartifact
     import pulumi_aws.codebuild as __codebuild
@@ -183,6 +185,8 @@ if typing.TYPE_CHECKING:
     detective = __detective
     import pulumi_aws.devicefarm as __devicefarm
     devicefarm = __devicefarm
+    import pulumi_aws.devopsagent as __devopsagent
+    devopsagent = __devopsagent
     import pulumi_aws.devopsguru as __devopsguru
     devopsguru = __devopsguru
     import pulumi_aws.directconnect as __directconnect
@@ -369,6 +373,8 @@ if typing.TYPE_CHECKING:
     polly = __polly
     import pulumi_aws.pricing as __pricing
     pricing = __pricing
+    import pulumi_aws.pricingplanmanager as __pricingplanmanager
+    pricingplanmanager = __pricingplanmanager
     import pulumi_aws.qbusiness as __qbusiness
     qbusiness = __qbusiness
     import pulumi_aws.qldb as __qldb
@@ -553,6 +559,7 @@ else:
     cloudsearch = _utilities.lazy_import('pulumi_aws.cloudsearch')
     cloudtrail = _utilities.lazy_import('pulumi_aws.cloudtrail')
     cloudwatch = _utilities.lazy_import('pulumi_aws.cloudwatch')
+    cloudwatchomni = _utilities.lazy_import('pulumi_aws.cloudwatchomni')
     codeartifact = _utilities.lazy_import('pulumi_aws.codeartifact')
     codebuild = _utilities.lazy_import('pulumi_aws.codebuild')
     codecatalyst = _utilities.lazy_import('pulumi_aws.codecatalyst')
@@ -581,6 +588,7 @@ else:
     dax = _utilities.lazy_import('pulumi_aws.dax')
     detective = _utilities.lazy_import('pulumi_aws.detective')
     devicefarm = _utilities.lazy_import('pulumi_aws.devicefarm')
+    devopsagent = _utilities.lazy_import('pulumi_aws.devopsagent')
     devopsguru = _utilities.lazy_import('pulumi_aws.devopsguru')
     directconnect = _utilities.lazy_import('pulumi_aws.directconnect')
     directoryservice = _utilities.lazy_import('pulumi_aws.directoryservice')
@@ -674,6 +682,7 @@ else:
     pipes = _utilities.lazy_import('pulumi_aws.pipes')
     polly = _utilities.lazy_import('pulumi_aws.polly')
     pricing = _utilities.lazy_import('pulumi_aws.pricing')
+    pricingplanmanager = _utilities.lazy_import('pulumi_aws.pricingplanmanager')
     qbusiness = _utilities.lazy_import('pulumi_aws.qbusiness')
     qldb = _utilities.lazy_import('pulumi_aws.qldb')
     quicksight = _utilities.lazy_import('pulumi_aws.quicksight')
@@ -3331,6 +3340,30 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "cloudwatch/resourceMetricsConfiguration",
+  "fqn": "pulumi_aws.cloudwatch",
+  "classes": {
+   "aws:cloudwatch/resourceMetricsConfiguration:ResourceMetricsConfiguration": "ResourceMetricsConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cloudwatchomni/domain",
+  "fqn": "pulumi_aws.cloudwatchomni",
+  "classes": {
+   "aws:cloudwatchomni/domain:Domain": "Domain"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cloudwatchomni/space",
+  "fqn": "pulumi_aws.cloudwatchomni",
+  "classes": {
+   "aws:cloudwatchomni/space:Space": "Space"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "codeartifact/domain",
   "fqn": "pulumi_aws.codeartifact",
   "classes": {
@@ -4311,6 +4344,14 @@ _utilities.register(
   "fqn": "pulumi_aws.devicefarm",
   "classes": {
    "aws:devicefarm/upload:Upload": "Upload"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "devopsagent/agentSpace",
+  "fqn": "pulumi_aws.devopsagent",
+  "classes": {
+   "aws:devopsagent/agentSpace:AgentSpace": "AgentSpace"
   }
  },
  {
@@ -10247,6 +10288,14 @@ _utilities.register(
   "fqn": "pulumi_aws.pipes",
   "classes": {
    "aws:pipes/pipe:Pipe": "Pipe"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "pricingplanmanager/subscription",
+  "fqn": "pulumi_aws.pricingplanmanager",
+  "classes": {
+   "aws:pricingplanmanager/subscription:Subscription": "Subscription"
   }
  },
  {

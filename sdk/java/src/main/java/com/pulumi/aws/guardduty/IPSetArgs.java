@@ -19,14 +19,14 @@ public final class IPSetArgs extends com.pulumi.resources.ResourceArgs {
     public static final IPSetArgs Empty = new IPSetArgs();
 
     /**
-     * Specifies whether GuardDuty is to start using the uploaded IPSet.
+     * Whether to start using the uploaded IPSet.
      * 
      */
     @Import(name="activate", required=true)
     private Output<Boolean> activate;
 
     /**
-     * @return Specifies whether GuardDuty is to start using the uploaded IPSet.
+     * @return Whether to start using the uploaded IPSet.
      * 
      */
     public Output<Boolean> activate() {
@@ -34,14 +34,14 @@ public final class IPSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The detector ID of the GuardDuty.
+     * Detector ID of the GuardDuty.
      * 
      */
     @Import(name="detectorId", required=true)
     private Output<String> detectorId;
 
     /**
-     * @return The detector ID of the GuardDuty.
+     * @return Detector ID of the GuardDuty.
      * 
      */
     public Output<String> detectorId() {
@@ -49,14 +49,14 @@ public final class IPSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
+     * Format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
      * 
      */
     @Import(name="format", required=true)
     private Output<String> format;
 
     /**
-     * @return The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
+     * @return Format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
      * 
      */
     public Output<String> format() {
@@ -64,14 +64,14 @@ public final class IPSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The URI of the file that contains the IPSet.
+     * URI of the file that contains the IPSet.
      * 
      */
     @Import(name="location", required=true)
     private Output<String> location;
 
     /**
-     * @return The URI of the file that contains the IPSet.
+     * @return URI of the file that contains the IPSet.
      * 
      */
     public Output<String> location() {
@@ -79,14 +79,14 @@ public final class IPSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The friendly name to identify the IPSet.
+     * Friendly name to identify the IPSet.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The friendly name to identify the IPSet.
+     * @return Friendly name to identify the IPSet.
      * 
      */
     public Optional<Output<String>> name() {
@@ -154,7 +154,7 @@ public final class IPSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param activate Specifies whether GuardDuty is to start using the uploaded IPSet.
+         * @param activate Whether to start using the uploaded IPSet.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class IPSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param activate Specifies whether GuardDuty is to start using the uploaded IPSet.
+         * @param activate Whether to start using the uploaded IPSet.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class IPSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param detectorId The detector ID of the GuardDuty.
+         * @param detectorId Detector ID of the GuardDuty.
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class IPSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param detectorId The detector ID of the GuardDuty.
+         * @param detectorId Detector ID of the GuardDuty.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class IPSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param format The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
+         * @param format Format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class IPSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param format The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
+         * @param format Format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class IPSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The URI of the file that contains the IPSet.
+         * @param location URI of the file that contains the IPSet.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class IPSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The URI of the file that contains the IPSet.
+         * @param location URI of the file that contains the IPSet.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class IPSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The friendly name to identify the IPSet.
+         * @param name Friendly name to identify the IPSet.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class IPSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The friendly name to identify the IPSet.
+         * @param name Friendly name to identify the IPSet.
          * 
          * @return builder
          * 

@@ -73,7 +73,7 @@ class GetUserResult:
     @pulumi.getter(name="authenticationModes")
     def authentication_modes(self) -> Sequence['outputs.GetUserAuthenticationModeResult']:
         """
-        Denotes the user's authentication properties.
+        Authentication properties for the user.
         """
         return pulumi.get(self, "authentication_modes")
 

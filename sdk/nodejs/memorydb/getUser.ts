@@ -61,7 +61,7 @@ export interface GetUserResult {
      */
     readonly arn: string;
     /**
-     * Denotes the user's authentication properties.
+     * Authentication properties for the user.
      */
     readonly authenticationModes: outputs.memorydb.GetUserAuthenticationMode[];
     /**

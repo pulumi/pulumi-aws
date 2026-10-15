@@ -75,7 +75,7 @@ export class TrafficMirrorTarget extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
+     * The VPC Endpoint ID of the Gateway Load Balancer that is associated with the target.
      */
     declare public readonly gatewayLoadBalancerEndpointId: pulumi.Output<string | undefined>;
     /**
@@ -157,7 +157,7 @@ export interface TrafficMirrorTargetState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
+     * The VPC Endpoint ID of the Gateway Load Balancer that is associated with the target.
      */
     gatewayLoadBalancerEndpointId?: pulumi.Input<string | undefined>;
     /**
@@ -197,7 +197,7 @@ export interface TrafficMirrorTargetArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
+     * The VPC Endpoint ID of the Gateway Load Balancer that is associated with the target.
      */
     gatewayLoadBalancerEndpointId?: pulumi.Input<string | undefined>;
     /**

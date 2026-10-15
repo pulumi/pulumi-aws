@@ -51,7 +51,7 @@ import (
 type Account struct {
 	pulumi.CustomResourceState
 
-	// ARN of the SecurityHub Hub created in the account.
+	// ARN of the Security Hub Hub created in the account.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Whether to automatically enable new controls when they are added to standards that are enabled. By default, this is set to true, and new controls are enabled automatically. To not automatically enable new controls, set this to false.
 	AutoEnableControls pulumi.BoolPtrOutput `pulumi:"autoEnableControls"`
@@ -93,7 +93,7 @@ func GetAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Account resources.
 type accountState struct {
-	// ARN of the SecurityHub Hub created in the account.
+	// ARN of the Security Hub Hub created in the account.
 	Arn *string `pulumi:"arn"`
 	// Whether to automatically enable new controls when they are added to standards that are enabled. By default, this is set to true, and new controls are enabled automatically. To not automatically enable new controls, set this to false.
 	AutoEnableControls *bool `pulumi:"autoEnableControls"`
@@ -106,7 +106,7 @@ type accountState struct {
 }
 
 type AccountState struct {
-	// ARN of the SecurityHub Hub created in the account.
+	// ARN of the Security Hub Hub created in the account.
 	Arn pulumi.StringPtrInput
 	// Whether to automatically enable new controls when they are added to standards that are enabled. By default, this is set to true, and new controls are enabled automatically. To not automatically enable new controls, set this to false.
 	AutoEnableControls pulumi.BoolPtrInput
@@ -232,7 +232,7 @@ func (o AccountOutput) ToAccountOutputWithContext(ctx context.Context) AccountOu
 	return o
 }
 
-// ARN of the SecurityHub Hub created in the account.
+// ARN of the Security Hub Hub created in the account.
 func (o AccountOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

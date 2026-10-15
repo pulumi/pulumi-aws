@@ -31,14 +31,14 @@ public final class EnvironmentNetworkConfigurationArgs extends com.pulumi.resour
     }
 
     /**
-     * The private subnet IDs in which the environment should be created. MWAA requires two subnets.
+     * Private subnet IDs in which the environment should be created. MWAA requires two subnets.
      * 
      */
     @Import(name="subnetIds", required=true)
     private Output<List<String>> subnetIds;
 
     /**
-     * @return The private subnet IDs in which the environment should be created. MWAA requires two subnets.
+     * @return Private subnet IDs in which the environment should be created. MWAA requires two subnets.
      * 
      */
     public Output<List<String>> subnetIds() {
@@ -102,7 +102,7 @@ public final class EnvironmentNetworkConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param subnetIds The private subnet IDs in which the environment should be created. MWAA requires two subnets.
+         * @param subnetIds Private subnet IDs in which the environment should be created. MWAA requires two subnets.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class EnvironmentNetworkConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param subnetIds The private subnet IDs in which the environment should be created. MWAA requires two subnets.
+         * @param subnetIds Private subnet IDs in which the environment should be created. MWAA requires two subnets.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class EnvironmentNetworkConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param subnetIds The private subnet IDs in which the environment should be created. MWAA requires two subnets.
+         * @param subnetIds Private subnet IDs in which the environment should be created. MWAA requires two subnets.
          * 
          * @return builder
          * 

@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Agents for Amazon Bedrock Agent.
+// Manages an AWS Agents for Amazon Bedrock Agent.
 //
 // ## Example Usage
 //
@@ -163,7 +163,7 @@ type AgentAgent struct {
 	IdleSessionTtlInSeconds pulumi.IntOutput `pulumi:"idleSessionTtlInSeconds"`
 	// Instructions that tell the agent what it should do and how it should interact with users. If `prepareAgent` is `true` this argument is required. The valid range is 40 - 20000 characters.
 	Instruction pulumi.StringOutput `pulumi:"instruction"`
-	// Configurations for the agent's ability to retain the conversational context.
+	// Configurations for the agent's ability to retain the conversational context. See `memoryConfiguration` Block for details.
 	MemoryConfigurations AgentAgentMemoryConfigurationArrayOutput `pulumi:"memoryConfigurations"`
 	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent pulumi.BoolOutput `pulumi:"prepareAgent"`
@@ -173,7 +173,7 @@ type AgentAgent struct {
 	PromptOverrideConfigurations AgentAgentPromptOverrideConfigurationArrayOutput `pulumi:"promptOverrideConfigurations"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Whether the in-use check is skipped when deleting the agent.
+	// Whether to skip the in-use check when deleting the agent. Defaults to `false`.
 	SkipResourceInUseCheck pulumi.BoolOutput `pulumi:"skipResourceInUseCheck"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -247,7 +247,7 @@ type agentAgentState struct {
 	IdleSessionTtlInSeconds *int `pulumi:"idleSessionTtlInSeconds"`
 	// Instructions that tell the agent what it should do and how it should interact with users. If `prepareAgent` is `true` this argument is required. The valid range is 40 - 20000 characters.
 	Instruction *string `pulumi:"instruction"`
-	// Configurations for the agent's ability to retain the conversational context.
+	// Configurations for the agent's ability to retain the conversational context. See `memoryConfiguration` Block for details.
 	MemoryConfigurations []AgentAgentMemoryConfiguration `pulumi:"memoryConfigurations"`
 	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent *bool `pulumi:"prepareAgent"`
@@ -257,7 +257,7 @@ type agentAgentState struct {
 	PromptOverrideConfigurations []AgentAgentPromptOverrideConfiguration `pulumi:"promptOverrideConfigurations"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Whether the in-use check is skipped when deleting the agent.
+	// Whether to skip the in-use check when deleting the agent. Defaults to `false`.
 	SkipResourceInUseCheck *bool `pulumi:"skipResourceInUseCheck"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -293,7 +293,7 @@ type AgentAgentState struct {
 	IdleSessionTtlInSeconds pulumi.IntPtrInput
 	// Instructions that tell the agent what it should do and how it should interact with users. If `prepareAgent` is `true` this argument is required. The valid range is 40 - 20000 characters.
 	Instruction pulumi.StringPtrInput
-	// Configurations for the agent's ability to retain the conversational context.
+	// Configurations for the agent's ability to retain the conversational context. See `memoryConfiguration` Block for details.
 	MemoryConfigurations AgentAgentMemoryConfigurationArrayInput
 	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent pulumi.BoolPtrInput
@@ -303,7 +303,7 @@ type AgentAgentState struct {
 	PromptOverrideConfigurations AgentAgentPromptOverrideConfigurationArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Whether the in-use check is skipped when deleting the agent.
+	// Whether to skip the in-use check when deleting the agent. Defaults to `false`.
 	SkipResourceInUseCheck pulumi.BoolPtrInput
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -337,7 +337,7 @@ type agentAgentArgs struct {
 	IdleSessionTtlInSeconds *int `pulumi:"idleSessionTtlInSeconds"`
 	// Instructions that tell the agent what it should do and how it should interact with users. If `prepareAgent` is `true` this argument is required. The valid range is 40 - 20000 characters.
 	Instruction *string `pulumi:"instruction"`
-	// Configurations for the agent's ability to retain the conversational context.
+	// Configurations for the agent's ability to retain the conversational context. See `memoryConfiguration` Block for details.
 	MemoryConfigurations []AgentAgentMemoryConfiguration `pulumi:"memoryConfigurations"`
 	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent *bool `pulumi:"prepareAgent"`
@@ -345,7 +345,7 @@ type agentAgentArgs struct {
 	PromptOverrideConfigurations []AgentAgentPromptOverrideConfiguration `pulumi:"promptOverrideConfigurations"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Whether the in-use check is skipped when deleting the agent.
+	// Whether to skip the in-use check when deleting the agent. Defaults to `false`.
 	SkipResourceInUseCheck *bool `pulumi:"skipResourceInUseCheck"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string   `pulumi:"tags"`
@@ -374,7 +374,7 @@ type AgentAgentArgs struct {
 	IdleSessionTtlInSeconds pulumi.IntPtrInput
 	// Instructions that tell the agent what it should do and how it should interact with users. If `prepareAgent` is `true` this argument is required. The valid range is 40 - 20000 characters.
 	Instruction pulumi.StringPtrInput
-	// Configurations for the agent's ability to retain the conversational context.
+	// Configurations for the agent's ability to retain the conversational context. See `memoryConfiguration` Block for details.
 	MemoryConfigurations AgentAgentMemoryConfigurationArrayInput
 	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent pulumi.BoolPtrInput
@@ -382,7 +382,7 @@ type AgentAgentArgs struct {
 	PromptOverrideConfigurations AgentAgentPromptOverrideConfigurationArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Whether the in-use check is skipped when deleting the agent.
+	// Whether to skip the in-use check when deleting the agent. Defaults to `false`.
 	SkipResourceInUseCheck pulumi.BoolPtrInput
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
@@ -538,7 +538,7 @@ func (o AgentAgentOutput) Instruction() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.StringOutput { return v.Instruction }).(pulumi.StringOutput)
 }
 
-// Configurations for the agent's ability to retain the conversational context.
+// Configurations for the agent's ability to retain the conversational context. See `memoryConfiguration` Block for details.
 func (o AgentAgentOutput) MemoryConfigurations() AgentAgentMemoryConfigurationArrayOutput {
 	return o.ApplyT(func(v *AgentAgent) AgentAgentMemoryConfigurationArrayOutput { return v.MemoryConfigurations }).(AgentAgentMemoryConfigurationArrayOutput)
 }
@@ -565,7 +565,7 @@ func (o AgentAgentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Whether the in-use check is skipped when deleting the agent.
+// Whether to skip the in-use check when deleting the agent. Defaults to `false`.
 func (o AgentAgentOutput) SkipResourceInUseCheck() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.BoolOutput { return v.SkipResourceInUseCheck }).(pulumi.BoolOutput)
 }

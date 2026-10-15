@@ -66,17 +66,17 @@ type LookupCatalogResult struct {
 	Arn string `pulumi:"arn"`
 	// ID of the parent catalog.
 	CatalogId string `pulumi:"catalogId"`
-	// Catalog properties. See `catalogProperties` below.
+	// Catalog properties. See `catalogProperties` Block below.
 	CatalogProperties []GetCatalogCatalogProperty `pulumi:"catalogProperties"`
-	// Default permissions on databases for principals. See `createDatabaseDefaultPermissions` below.
+	// Default permissions on databases for principals. See `createDatabaseDefaultPermissions` Block below.
 	CreateDatabaseDefaultPermissions []GetCatalogCreateDatabaseDefaultPermission `pulumi:"createDatabaseDefaultPermissions"`
-	// Default permissions on tables for principals. See `createTableDefaultPermissions` below.
+	// Default permissions on tables for principals. See `createTableDefaultPermissions` Block below.
 	CreateTableDefaultPermissions []GetCatalogCreateTableDefaultPermission `pulumi:"createTableDefaultPermissions"`
 	// Time at which the catalog was created.
 	CreateTime string `pulumi:"createTime"`
 	// Description of the catalog.
 	Description string `pulumi:"description"`
-	// Federated catalog configuration. See `federatedCatalog` below.
+	// Federated catalog configuration. See `federatedCatalog` Block below.
 	FederatedCatalogs []GetCatalogFederatedCatalog `pulumi:"federatedCatalogs"`
 	Name              string                       `pulumi:"name"`
 	// Map of key-value pairs that define parameters and properties of the catalog.
@@ -84,7 +84,7 @@ type LookupCatalogResult struct {
 	Region     string            `pulumi:"region"`
 	// Key-value map of resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// Target Redshift catalog configuration. See `targetRedshiftCatalog` below.
+	// Target Redshift catalog configuration. See `targetRedshiftCatalog` Block below.
 	TargetRedshiftCatalogs []GetCatalogTargetRedshiftCatalog `pulumi:"targetRedshiftCatalogs"`
 	// Time at which the catalog was last updated.
 	UpdateTime string `pulumi:"updateTime"`
@@ -139,19 +139,19 @@ func (o LookupCatalogResultOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCatalogResult) string { return v.CatalogId }).(pulumi.StringOutput)
 }
 
-// Catalog properties. See `catalogProperties` below.
+// Catalog properties. See `catalogProperties` Block below.
 func (o LookupCatalogResultOutput) CatalogProperties() GetCatalogCatalogPropertyArrayOutput {
 	return o.ApplyT(func(v LookupCatalogResult) []GetCatalogCatalogProperty { return v.CatalogProperties }).(GetCatalogCatalogPropertyArrayOutput)
 }
 
-// Default permissions on databases for principals. See `createDatabaseDefaultPermissions` below.
+// Default permissions on databases for principals. See `createDatabaseDefaultPermissions` Block below.
 func (o LookupCatalogResultOutput) CreateDatabaseDefaultPermissions() GetCatalogCreateDatabaseDefaultPermissionArrayOutput {
 	return o.ApplyT(func(v LookupCatalogResult) []GetCatalogCreateDatabaseDefaultPermission {
 		return v.CreateDatabaseDefaultPermissions
 	}).(GetCatalogCreateDatabaseDefaultPermissionArrayOutput)
 }
 
-// Default permissions on tables for principals. See `createTableDefaultPermissions` below.
+// Default permissions on tables for principals. See `createTableDefaultPermissions` Block below.
 func (o LookupCatalogResultOutput) CreateTableDefaultPermissions() GetCatalogCreateTableDefaultPermissionArrayOutput {
 	return o.ApplyT(func(v LookupCatalogResult) []GetCatalogCreateTableDefaultPermission {
 		return v.CreateTableDefaultPermissions
@@ -168,7 +168,7 @@ func (o LookupCatalogResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCatalogResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// Federated catalog configuration. See `federatedCatalog` below.
+// Federated catalog configuration. See `federatedCatalog` Block below.
 func (o LookupCatalogResultOutput) FederatedCatalogs() GetCatalogFederatedCatalogArrayOutput {
 	return o.ApplyT(func(v LookupCatalogResult) []GetCatalogFederatedCatalog { return v.FederatedCatalogs }).(GetCatalogFederatedCatalogArrayOutput)
 }
@@ -191,7 +191,7 @@ func (o LookupCatalogResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupCatalogResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Target Redshift catalog configuration. See `targetRedshiftCatalog` below.
+// Target Redshift catalog configuration. See `targetRedshiftCatalog` Block below.
 func (o LookupCatalogResultOutput) TargetRedshiftCatalogs() GetCatalogTargetRedshiftCatalogArrayOutput {
 	return o.ApplyT(func(v LookupCatalogResult) []GetCatalogTargetRedshiftCatalog { return v.TargetRedshiftCatalogs }).(GetCatalogTargetRedshiftCatalogArrayOutput)
 }

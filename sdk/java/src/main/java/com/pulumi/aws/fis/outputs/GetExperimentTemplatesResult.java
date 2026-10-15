@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetExperimentTemplatesResult {
     /**
-     * @return List of all the experiment template ids found.
+     * @return List of all the experiment template IDs found.
      * 
      */
     private List<String> ids;
@@ -23,7 +23,7 @@ public final class GetExperimentTemplatesResult {
 
     private GetExperimentTemplatesResult() {}
     /**
-     * @return List of all the experiment template ids found.
+     * @return List of all the experiment template IDs found.
      * 
      */
     public List<String> ids() {

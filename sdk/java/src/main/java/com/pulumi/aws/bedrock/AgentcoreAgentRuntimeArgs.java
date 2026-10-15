@@ -27,14 +27,14 @@ public final class AgentcoreAgentRuntimeArgs extends com.pulumi.resources.Resour
     public static final AgentcoreAgentRuntimeArgs Empty = new AgentcoreAgentRuntimeArgs();
 
     /**
-     * Container artifact configuration. See `agentRuntimeArtifact` below.
+     * Artifact configuration for the agent runtime, either a container image or code stored in Amazon S3. See `agentRuntimeArtifact` below.
      * 
      */
     @Import(name="agentRuntimeArtifact", required=true)
     private Output<AgentcoreAgentRuntimeAgentRuntimeArtifactArgs> agentRuntimeArtifact;
 
     /**
-     * @return Container artifact configuration. See `agentRuntimeArtifact` below.
+     * @return Artifact configuration for the agent runtime, either a container image or code stored in Amazon S3. See `agentRuntimeArtifact` below.
      * 
      */
     public Output<AgentcoreAgentRuntimeAgentRuntimeArtifactArgs> agentRuntimeArtifact() {
@@ -286,7 +286,7 @@ public final class AgentcoreAgentRuntimeArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param agentRuntimeArtifact Container artifact configuration. See `agentRuntimeArtifact` below.
+         * @param agentRuntimeArtifact Artifact configuration for the agent runtime, either a container image or code stored in Amazon S3. See `agentRuntimeArtifact` below.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class AgentcoreAgentRuntimeArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param agentRuntimeArtifact Container artifact configuration. See `agentRuntimeArtifact` below.
+         * @param agentRuntimeArtifact Artifact configuration for the agent runtime, either a container image or code stored in Amazon S3. See `agentRuntimeArtifact` below.
          * 
          * @return builder
          * 

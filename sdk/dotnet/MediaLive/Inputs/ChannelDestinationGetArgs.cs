@@ -13,7 +13,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
     public sealed class ChannelDestinationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// User-specified id. Ths is used in an output group or an output.
+        /// User-specified ID used in an output group or an output.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         private InputList<Inputs.ChannelDestinationMediaPackageSettingGetArgs>? _mediaPackageSettings;
 
         /// <summary>
-        /// Destination settings for a MediaPackage output; one destination for both encoders. See Media Package Settings for more details.
+        /// Destination settings for a MediaPackage output; one destination for both encoders. See `MediaPackageSettings` Block for details.
         /// </summary>
         public InputList<Inputs.ChannelDestinationMediaPackageSettingGetArgs> MediaPackageSettings
         {
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         }
 
         /// <summary>
-        /// Destination settings for a Multiplex output; one destination for both encoders. See Multiplex Settings for more details.
+        /// Destination settings for a Multiplex output; one destination for both encoders. See `MultiplexSettings` Block for details.
         /// </summary>
         [Input("multiplexSettings")]
         public Input<Inputs.ChannelDestinationMultiplexSettingsGetArgs>? MultiplexSettings { get; set; }
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         private InputList<Inputs.ChannelDestinationSettingGetArgs>? _settings;
 
         /// <summary>
-        /// Destination settings for a standard output; one destination for each redundant encoder. See Settings for more details.
+        /// Destination settings for a standard output; one destination for each redundant encoder. See `Settings` Block for details.
         /// </summary>
         public InputList<Inputs.ChannelDestinationSettingGetArgs> Settings
         {

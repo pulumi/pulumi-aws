@@ -54,7 +54,7 @@ type LookupConnectorArgs struct {
 	Name string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A map of tags assigned to the resource.
+	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -68,7 +68,7 @@ type LookupConnectorResult struct {
 	Id     string `pulumi:"id"`
 	Name   string `pulumi:"name"`
 	Region string `pulumi:"region"`
-	// A map of tags assigned to the resource.
+	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Current version of the connector.
 	Version string `pulumi:"version"`
@@ -85,7 +85,7 @@ type LookupConnectorOutputArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// A map of tags assigned to the resource.
+	// Map of tags assigned to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -131,7 +131,7 @@ func (o LookupConnectorResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectorResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags assigned to the resource.
+// Map of tags assigned to the resource.
 func (o LookupConnectorResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupConnectorResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

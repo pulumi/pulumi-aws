@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Route53
         /// 
         /// ## Example Usage
         /// 
-        /// The following example shows how to get a firewall rule group association from its id.
+        /// The following example shows how to get a firewall rule group association from its ID.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Route53
         /// 
         /// ## Example Usage
         /// 
-        /// The following example shows how to get a firewall rule group association from its id.
+        /// The following example shows how to get a firewall rule group association from its ID.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Route53
         /// 
         /// ## Example Usage
         /// 
-        /// The following example shows how to get a firewall rule group association from its id.
+        /// The following example shows how to get a firewall rule group association from its ID.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;

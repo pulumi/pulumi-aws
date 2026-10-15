@@ -194,56 +194,56 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:glue/classifier:Classifier")
 public class Classifier extends com.pulumi.resources.CustomResource {
     /**
-     * A classifier for CSV content. Defined below.
+     * Classifier for CSV content. Defined below.
      * 
      */
     @Export(name="csvClassifier", refs={ClassifierCsvClassifier.class}, tree="[0]")
     private Output</* @Nullable */ ClassifierCsvClassifier> csvClassifier;
 
     /**
-     * @return A classifier for CSV content. Defined below.
+     * @return Classifier for CSV content. Defined below.
      * 
      */
     public Output<Optional<ClassifierCsvClassifier>> csvClassifier() {
         return Codegen.optional(this.csvClassifier);
     }
     /**
-     * A classifier that uses grok patterns. Defined below.
+     * Classifier that uses grok patterns. Defined below.
      * 
      */
     @Export(name="grokClassifier", refs={ClassifierGrokClassifier.class}, tree="[0]")
     private Output</* @Nullable */ ClassifierGrokClassifier> grokClassifier;
 
     /**
-     * @return A classifier that uses grok patterns. Defined below.
+     * @return Classifier that uses grok patterns. Defined below.
      * 
      */
     public Output<Optional<ClassifierGrokClassifier>> grokClassifier() {
         return Codegen.optional(this.grokClassifier);
     }
     /**
-     * A classifier for JSON content. Defined below.
+     * Classifier for JSON content. Defined below.
      * 
      */
     @Export(name="jsonClassifier", refs={ClassifierJsonClassifier.class}, tree="[0]")
     private Output</* @Nullable */ ClassifierJsonClassifier> jsonClassifier;
 
     /**
-     * @return A classifier for JSON content. Defined below.
+     * @return Classifier for JSON content. Defined below.
      * 
      */
     public Output<Optional<ClassifierJsonClassifier>> jsonClassifier() {
         return Codegen.optional(this.jsonClassifier);
     }
     /**
-     * The name of the classifier.
+     * Name of the classifier.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the classifier.
+     * @return Name of the classifier.
      * 
      */
     public Output<String> name() {
@@ -264,14 +264,14 @@ public class Classifier extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A classifier for XML content. Defined below.
+     * Classifier for XML content. Defined below.
      * 
      */
     @Export(name="xmlClassifier", refs={ClassifierXmlClassifier.class}, tree="[0]")
     private Output</* @Nullable */ ClassifierXmlClassifier> xmlClassifier;
 
     /**
-     * @return A classifier for XML content. Defined below.
+     * @return Classifier for XML content. Defined below.
      * 
      */
     public Output<Optional<ClassifierXmlClassifier>> xmlClassifier() {

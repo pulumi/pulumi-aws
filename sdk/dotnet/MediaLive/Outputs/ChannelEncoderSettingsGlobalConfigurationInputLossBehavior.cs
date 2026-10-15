@@ -13,10 +13,25 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsGlobalConfigurationInputLossBehavior
     {
+        /// <summary>
+        /// Amount of time, in milliseconds, to display black video when the input is lost.
+        /// </summary>
         public readonly int? BlackFrameMsec;
+        /// <summary>
+        /// Color to display, as a hexadecimal RGBA value, when `InputLossImageType` is `Color`.
+        /// </summary>
         public readonly string? InputLossImageColor;
+        /// <summary>
+        /// Image to display when `InputLossImageType` is `Slate`. See `InputLossImageSlate` Block for details.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate? InputLossImageSlate;
+        /// <summary>
+        /// Whether to display a solid color or a slate image when input is lost.
+        /// </summary>
         public readonly string? InputLossImageType;
+        /// <summary>
+        /// Amount of time, in milliseconds, to repeat the previous picture when the input is lost.
+        /// </summary>
         public readonly int? RepeatFrameMsec;
 
         [OutputConstructor]

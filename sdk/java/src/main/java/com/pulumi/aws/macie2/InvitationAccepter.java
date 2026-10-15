@@ -80,28 +80,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:macie2/invitationAccepter:InvitationAccepter")
 public class InvitationAccepter extends com.pulumi.resources.CustomResource {
     /**
-     * The AWS account ID for the account that sent the invitation.
+     * AWS account ID for the account that sent the invitation.
      * 
      */
     @Export(name="administratorAccountId", refs={String.class}, tree="[0]")
     private Output<String> administratorAccountId;
 
     /**
-     * @return The AWS account ID for the account that sent the invitation.
+     * @return AWS account ID for the account that sent the invitation.
      * 
      */
     public Output<String> administratorAccountId() {
         return this.administratorAccountId;
     }
     /**
-     * The unique identifier for the invitation.
+     * Unique identifier for the invitation.
      * 
      */
     @Export(name="invitationId", refs={String.class}, tree="[0]")
     private Output<String> invitationId;
 
     /**
-     * @return The unique identifier for the invitation.
+     * @return Unique identifier for the invitation.
      * 
      */
     public Output<String> invitationId() {

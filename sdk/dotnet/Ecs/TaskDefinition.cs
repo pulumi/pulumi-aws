@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Ecs
     /// });
     /// ```
     /// 
-    /// ### With AppMesh Proxy
+    /// ### With App Mesh Proxy
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -376,7 +376,7 @@ namespace Pulumi.Aws.Ecs
         public Output<string> ContainerDefinitions { get; private set; } = null!;
 
         /// <summary>
-        /// Number of cpu units used by the task. If the `RequiresCompatibilities` is `FARGATE` this field is required.
+        /// Number of CPU units used by the task. If the `RequiresCompatibilities` is `FARGATE` this field is required.
         /// </summary>
         [Output("cpu")]
         public Output<string?> Cpu { get; private set; } = null!;
@@ -560,7 +560,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string> ContainerDefinitions { get; set; } = null!;
 
         /// <summary>
-        /// Number of cpu units used by the task. If the `RequiresCompatibilities` is `FARGATE` this field is required.
+        /// Number of CPU units used by the task. If the `RequiresCompatibilities` is `FARGATE` this field is required.
         /// </summary>
         [Input("cpu")]
         public Input<string>? Cpu { get; set; }
@@ -730,7 +730,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? ContainerDefinitions { get; set; }
 
         /// <summary>
-        /// Number of cpu units used by the task. If the `RequiresCompatibilities` is `FARGATE` this field is required.
+        /// Number of CPU units used by the task. If the `RequiresCompatibilities` is `FARGATE` this field is required.
         /// </summary>
         [Input("cpu")]
         public Input<string>? Cpu { get; set; }

@@ -12,7 +12,7 @@ import (
 )
 
 // Use this data source to get detailed information about
-// the specified KMS Key with flexible key id input.
+// the specified KMS Key with flexible key ID input.
 // This can be useful to reference key alias
 // without having to hard code the ARN as input.
 //

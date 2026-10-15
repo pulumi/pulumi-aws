@@ -280,7 +280,7 @@ namespace Pulumi.Aws.Fis
     public sealed class GetExperimentTemplatesResult
     {
         /// <summary>
-        /// List of all the experiment template ids found.
+        /// List of all the experiment template IDs found.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly string Region;

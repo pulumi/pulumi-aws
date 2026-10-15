@@ -106,7 +106,6 @@ import (
 //				EventExpiryDuration:    pulumi.Int(60),
 //				EncryptionKeyArn:       example.Arn,
 //				MemoryExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				ClientToken:            "unique-client-token",
 //			})
 //			if err != nil {
 //				return err
@@ -127,7 +126,7 @@ import (
 //
 // #### Optional
 //
-// * `accountId` (String) Account ID where this resource is managed.
+// * `accountId` (String) AWS Account where this resource is managed.
 // * `region` (String) Region where this resource is managed.
 //
 // Using `pulumi import`, import memories using `id`. For example:

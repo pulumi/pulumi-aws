@@ -220,7 +220,7 @@ class VpcOrigin(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Cloudfront VPC origins using the `id`. For example:
+        Using `pulumi import`, import CloudFront VPC origins using the `id`. For example:
 
         ```sh
         % pulumi import aws_cloudfront_vpc_origin vo_JQEa410sssUFoY6wMkx69j
@@ -271,7 +271,7 @@ class VpcOrigin(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Cloudfront VPC origins using the `id`. For example:
+        Using `pulumi import`, import CloudFront VPC origins using the `id`. For example:
 
         ```sh
         % pulumi import aws_cloudfront_vpc_origin vo_JQEa410sssUFoY6wMkx69j

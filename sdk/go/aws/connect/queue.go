@@ -147,7 +147,7 @@ type Queue struct {
 	OutboundCallerConfig QueueOutboundCallerConfigPtrOutput `pulumi:"outboundCallerConfig"`
 	// The identifier for the Queue.
 	QueueId pulumi.StringOutput `pulumi:"queueId"`
-	// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
+	// Specifies a list of quick connects IDs that determine the quick connects available to agents who are working the queue.
 	QuickConnectIds pulumi.StringArrayOutput `pulumi:"quickConnectIds"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -211,7 +211,7 @@ type queueState struct {
 	OutboundCallerConfig *QueueOutboundCallerConfig `pulumi:"outboundCallerConfig"`
 	// The identifier for the Queue.
 	QueueId *string `pulumi:"queueId"`
-	// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
+	// Specifies a list of quick connects IDs that determine the quick connects available to agents who are working the queue.
 	QuickConnectIds []string `pulumi:"quickConnectIds"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -240,7 +240,7 @@ type QueueState struct {
 	OutboundCallerConfig QueueOutboundCallerConfigPtrInput
 	// The identifier for the Queue.
 	QueueId pulumi.StringPtrInput
-	// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
+	// Specifies a list of quick connects IDs that determine the quick connects available to agents who are working the queue.
 	QuickConnectIds pulumi.StringArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -269,7 +269,7 @@ type queueArgs struct {
 	Name *string `pulumi:"name"`
 	// A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
 	OutboundCallerConfig *QueueOutboundCallerConfig `pulumi:"outboundCallerConfig"`
-	// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
+	// Specifies a list of quick connects IDs that determine the quick connects available to agents who are working the queue.
 	QuickConnectIds []string `pulumi:"quickConnectIds"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -293,7 +293,7 @@ type QueueArgs struct {
 	Name pulumi.StringPtrInput
 	// A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
 	OutboundCallerConfig QueueOutboundCallerConfigPtrInput
-	// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
+	// Specifies a list of quick connects IDs that determine the quick connects available to agents who are working the queue.
 	QuickConnectIds pulumi.StringArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -430,7 +430,7 @@ func (o QueueOutput) QueueId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.QueueId }).(pulumi.StringOutput)
 }
 
-// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
+// Specifies a list of quick connects IDs that determine the quick connects available to agents who are working the queue.
 func (o QueueOutput) QuickConnectIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringArrayOutput { return v.QuickConnectIds }).(pulumi.StringArrayOutput)
 }

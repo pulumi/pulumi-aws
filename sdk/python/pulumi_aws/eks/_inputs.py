@@ -2607,7 +2607,7 @@ class NodeGroupRemoteAccessArgs:
 class NodeGroupResourceArgsDict(TypedDict):
     autoscaling_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NodeGroupResourceAutoscalingGroupArgsDict']]]]]
     """
-    List of objects containing information about AutoScaling Groups.
+    List of objects containing information about Auto Scaling groups.
     """
     remote_access_security_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -2620,7 +2620,7 @@ class NodeGroupResourceArgs:
                  autoscaling_groups: pulumi.Input[Optional[Sequence[pulumi.Input['NodeGroupResourceAutoscalingGroupArgs']]]] = None,
                  remote_access_security_group_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['NodeGroupResourceAutoscalingGroupArgs']]] autoscaling_groups: List of objects containing information about AutoScaling Groups.
+        :param pulumi.Input[Sequence[pulumi.Input['NodeGroupResourceAutoscalingGroupArgs']]] autoscaling_groups: List of objects containing information about Auto Scaling groups.
         :param pulumi.Input[_builtins.str] remote_access_security_group_id: Identifier of the remote access EC2 Security Group.
         """
         if autoscaling_groups is not None:
@@ -2632,7 +2632,7 @@ class NodeGroupResourceArgs:
     @pulumi.getter(name="autoscalingGroups")
     def autoscaling_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NodeGroupResourceAutoscalingGroupArgs']]]]:
         """
-        List of objects containing information about AutoScaling Groups.
+        List of objects containing information about Auto Scaling groups.
         """
         return pulumi.get(self, "autoscaling_groups")
 
@@ -2656,7 +2656,7 @@ class NodeGroupResourceArgs:
 class NodeGroupResourceAutoscalingGroupArgsDict(TypedDict):
     name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Name of the AutoScaling Group.
+    Name of the Auto Scaling group.
     """
 
 @pulumi.input_type
@@ -2664,7 +2664,7 @@ class NodeGroupResourceAutoscalingGroupArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] name: Name of the AutoScaling Group.
+        :param pulumi.Input[_builtins.str] name: Name of the Auto Scaling group.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -2673,7 +2673,7 @@ class NodeGroupResourceAutoscalingGroupArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Name of the AutoScaling Group.
+        Name of the Auto Scaling group.
         """
         return pulumi.get(self, "name")
 
@@ -2887,7 +2887,7 @@ class NodeGroupUpdateConfigArgs:
 class NodeGroupWarmPoolConfigArgsDict(TypedDict):
     max_group_prepared_capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Maximum number of instances that are allowed to be in the warm pool combined with the Auto Scaling Group. Use `-1` to specify an unlimited capacity.
+    Maximum number of instances that are allowed to be in the warm pool combined with the Auto Scaling group. Use `-1` to specify an unlimited capacity.
     """
     min_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -2899,7 +2899,7 @@ class NodeGroupWarmPoolConfigArgsDict(TypedDict):
     """
     reuse_on_scale_in: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Whether to return instances in the Auto Scaling Group to the warm pool on scale in. Not supported on Bottlerocket. Defaults to `false`.
+    Whether to return instances in the Auto Scaling group to the warm pool on scale in. Not supported on Bottlerocket. Defaults to `false`.
     """
 
 @pulumi.input_type
@@ -2910,10 +2910,10 @@ class NodeGroupWarmPoolConfigArgs:
                  pool_state: pulumi.Input[Optional[_builtins.str]] = None,
                  reuse_on_scale_in: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.int] max_group_prepared_capacity: Maximum number of instances that are allowed to be in the warm pool combined with the Auto Scaling Group. Use `-1` to specify an unlimited capacity.
+        :param pulumi.Input[_builtins.int] max_group_prepared_capacity: Maximum number of instances that are allowed to be in the warm pool combined with the Auto Scaling group. Use `-1` to specify an unlimited capacity.
         :param pulumi.Input[_builtins.int] min_size: Minimum number of instances to maintain in the warm pool. Defaults to `0`.
         :param pulumi.Input[_builtins.str] pool_state: Instance state to transition warm pool instances to. Valid values: `STOPPED`, `RUNNING`, `HIBERNATED`. Defaults to `STOPPED`.
-        :param pulumi.Input[_builtins.bool] reuse_on_scale_in: Whether to return instances in the Auto Scaling Group to the warm pool on scale in. Not supported on Bottlerocket. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] reuse_on_scale_in: Whether to return instances in the Auto Scaling group to the warm pool on scale in. Not supported on Bottlerocket. Defaults to `false`.
         """
         if max_group_prepared_capacity is not None:
             pulumi.set(__self__, "max_group_prepared_capacity", max_group_prepared_capacity)
@@ -2928,7 +2928,7 @@ class NodeGroupWarmPoolConfigArgs:
     @pulumi.getter(name="maxGroupPreparedCapacity")
     def max_group_prepared_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Maximum number of instances that are allowed to be in the warm pool combined with the Auto Scaling Group. Use `-1` to specify an unlimited capacity.
+        Maximum number of instances that are allowed to be in the warm pool combined with the Auto Scaling group. Use `-1` to specify an unlimited capacity.
         """
         return pulumi.get(self, "max_group_prepared_capacity")
 
@@ -2964,7 +2964,7 @@ class NodeGroupWarmPoolConfigArgs:
     @pulumi.getter(name="reuseOnScaleIn")
     def reuse_on_scale_in(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether to return instances in the Auto Scaling Group to the warm pool on scale in. Not supported on Bottlerocket. Defaults to `false`.
+        Whether to return instances in the Auto Scaling group to the warm pool on scale in. Not supported on Bottlerocket. Defaults to `false`.
         """
         return pulumi.get(self, "reuse_on_scale_in")
 

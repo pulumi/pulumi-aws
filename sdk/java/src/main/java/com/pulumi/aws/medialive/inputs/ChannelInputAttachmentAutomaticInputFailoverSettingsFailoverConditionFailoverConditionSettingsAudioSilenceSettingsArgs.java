@@ -17,22 +17,30 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
 
     public static final ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs Empty = new ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs();
 
+    /**
+     * Name of the audio selector in the input that MediaLive monitors to detect silence. Select your most important rendition. Leave blank if you did not create an audio selector in this input.
+     * 
+     */
     @Import(name="audioSelectorName", required=true)
     private Output<String> audioSelectorName;
 
+    /**
+     * @return Name of the audio selector in the input that MediaLive monitors to detect silence. Select your most important rendition. Leave blank if you did not create an audio selector in this input.
+     * 
+     */
     public Output<String> audioSelectorName() {
         return this.audioSelectorName;
     }
 
     /**
-     * The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
+     * Amount of time, in milliseconds, that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
      * 
      */
     @Import(name="audioSilenceThresholdMsec")
     private @Nullable Output<Integer> audioSilenceThresholdMsec;
 
     /**
-     * @return The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
+     * @return Amount of time, in milliseconds, that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
      * 
      */
     public Optional<Output<Integer>> audioSilenceThresholdMsec() {
@@ -64,17 +72,29 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
             $ = new ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param audioSelectorName Name of the audio selector in the input that MediaLive monitors to detect silence. Select your most important rendition. Leave blank if you did not create an audio selector in this input.
+         * 
+         * @return builder
+         * 
+         */
         public Builder audioSelectorName(Output<String> audioSelectorName) {
             $.audioSelectorName = audioSelectorName;
             return this;
         }
 
+        /**
+         * @param audioSelectorName Name of the audio selector in the input that MediaLive monitors to detect silence. Select your most important rendition. Leave blank if you did not create an audio selector in this input.
+         * 
+         * @return builder
+         * 
+         */
         public Builder audioSelectorName(String audioSelectorName) {
             return audioSelectorName(Output.of(audioSelectorName));
         }
 
         /**
-         * @param audioSilenceThresholdMsec The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
+         * @param audioSilenceThresholdMsec Amount of time, in milliseconds, that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
          * 
          * @return builder
          * 
@@ -85,7 +105,7 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
         }
 
         /**
-         * @param audioSilenceThresholdMsec The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
+         * @param audioSilenceThresholdMsec Amount of time, in milliseconds, that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
          * 
          * @return builder
          * 

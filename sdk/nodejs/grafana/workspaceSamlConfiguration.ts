@@ -79,47 +79,47 @@ export class WorkspaceSamlConfiguration extends pulumi.CustomResource {
     }
 
     /**
-     * The admin role values.
+     * Admin role values.
      */
     declare public readonly adminRoleValues: pulumi.Output<string[] | undefined>;
     /**
-     * The allowed organizations.
+     * Allowed organizations.
      */
     declare public readonly allowedOrganizations: pulumi.Output<string[] | undefined>;
     /**
-     * The editor role values.
+     * Editor role values.
      */
     declare public readonly editorRoleValues: pulumi.Output<string[]>;
     /**
-     * The email assertion.
+     * Email assertion.
      */
     declare public readonly emailAssertion: pulumi.Output<string>;
     /**
-     * The groups assertion.
+     * Groups assertion.
      */
     declare public readonly groupsAssertion: pulumi.Output<string | undefined>;
     /**
-     * The IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
+     * IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
      */
     declare public readonly idpMetadataUrl: pulumi.Output<string | undefined>;
     /**
-     * The IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
+     * IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
      */
     declare public readonly idpMetadataXml: pulumi.Output<string | undefined>;
     /**
-     * The login assertion.
+     * Login assertion.
      */
     declare public readonly loginAssertion: pulumi.Output<string>;
     /**
-     * The login validity duration.
+     * Login validity duration.
      */
     declare public readonly loginValidityDuration: pulumi.Output<number>;
     /**
-     * The name assertion.
+     * Name assertion.
      */
     declare public readonly nameAssertion: pulumi.Output<string>;
     /**
-     * The org assertion.
+     * Org assertion.
      */
     declare public readonly orgAssertion: pulumi.Output<string | undefined>;
     /**
@@ -127,15 +127,15 @@ export class WorkspaceSamlConfiguration extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The role assertion.
+     * Role assertion.
      */
     declare public readonly roleAssertion: pulumi.Output<string | undefined>;
     /**
-     * The status of the SAML configuration.
+     * Status of the SAML configuration.
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
-     * The workspace id.
+     * Workspace ID.
      *
      * The following arguments are optional:
      */
@@ -203,47 +203,47 @@ export class WorkspaceSamlConfiguration extends pulumi.CustomResource {
  */
 export interface WorkspaceSamlConfigurationState {
     /**
-     * The admin role values.
+     * Admin role values.
      */
     adminRoleValues?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The allowed organizations.
+     * Allowed organizations.
      */
     allowedOrganizations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The editor role values.
+     * Editor role values.
      */
     editorRoleValues?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The email assertion.
+     * Email assertion.
      */
     emailAssertion?: pulumi.Input<string | undefined>;
     /**
-     * The groups assertion.
+     * Groups assertion.
      */
     groupsAssertion?: pulumi.Input<string | undefined>;
     /**
-     * The IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
+     * IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
      */
     idpMetadataUrl?: pulumi.Input<string | undefined>;
     /**
-     * The IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
+     * IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
      */
     idpMetadataXml?: pulumi.Input<string | undefined>;
     /**
-     * The login assertion.
+     * Login assertion.
      */
     loginAssertion?: pulumi.Input<string | undefined>;
     /**
-     * The login validity duration.
+     * Login validity duration.
      */
     loginValidityDuration?: pulumi.Input<number | undefined>;
     /**
-     * The name assertion.
+     * Name assertion.
      */
     nameAssertion?: pulumi.Input<string | undefined>;
     /**
-     * The org assertion.
+     * Org assertion.
      */
     orgAssertion?: pulumi.Input<string | undefined>;
     /**
@@ -251,15 +251,15 @@ export interface WorkspaceSamlConfigurationState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The role assertion.
+     * Role assertion.
      */
     roleAssertion?: pulumi.Input<string | undefined>;
     /**
-     * The status of the SAML configuration.
+     * Status of the SAML configuration.
      */
     status?: pulumi.Input<string | undefined>;
     /**
-     * The workspace id.
+     * Workspace ID.
      *
      * The following arguments are optional:
      */
@@ -271,47 +271,47 @@ export interface WorkspaceSamlConfigurationState {
  */
 export interface WorkspaceSamlConfigurationArgs {
     /**
-     * The admin role values.
+     * Admin role values.
      */
     adminRoleValues?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The allowed organizations.
+     * Allowed organizations.
      */
     allowedOrganizations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The editor role values.
+     * Editor role values.
      */
     editorRoleValues: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The email assertion.
+     * Email assertion.
      */
     emailAssertion?: pulumi.Input<string | undefined>;
     /**
-     * The groups assertion.
+     * Groups assertion.
      */
     groupsAssertion?: pulumi.Input<string | undefined>;
     /**
-     * The IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
+     * IDP Metadata URL. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
      */
     idpMetadataUrl?: pulumi.Input<string | undefined>;
     /**
-     * The IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
+     * IDP Metadata XML. Note that either `idpMetadataUrl` or `idpMetadataXml` (but not both) must be specified.
      */
     idpMetadataXml?: pulumi.Input<string | undefined>;
     /**
-     * The login assertion.
+     * Login assertion.
      */
     loginAssertion?: pulumi.Input<string | undefined>;
     /**
-     * The login validity duration.
+     * Login validity duration.
      */
     loginValidityDuration?: pulumi.Input<number | undefined>;
     /**
-     * The name assertion.
+     * Name assertion.
      */
     nameAssertion?: pulumi.Input<string | undefined>;
     /**
-     * The org assertion.
+     * Org assertion.
      */
     orgAssertion?: pulumi.Input<string | undefined>;
     /**
@@ -319,11 +319,11 @@ export interface WorkspaceSamlConfigurationArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The role assertion.
+     * Role assertion.
      */
     roleAssertion?: pulumi.Input<string | undefined>;
     /**
-     * The workspace id.
+     * Workspace ID.
      *
      * The following arguments are optional:
      */

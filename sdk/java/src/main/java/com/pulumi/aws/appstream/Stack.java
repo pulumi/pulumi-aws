@@ -107,7 +107,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import `aws.appstream.Stack` using the id. For example:
+ * Using `pulumi import`, import `aws.appstream.Stack` using the ID. For example:
  * 
  * ```sh
  * $ pulumi import aws:appstream/stack:Stack example stackID
@@ -145,14 +145,14 @@ public class Stack extends com.pulumi.resources.CustomResource {
         return this.applicationSettings;
     }
     /**
-     * ARN of the appstream stack.
+     * ARN of the AppStream stack.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return ARN of the appstream stack.
+     * @return ARN of the AppStream stack.
      * 
      */
     public Output<String> arn() {

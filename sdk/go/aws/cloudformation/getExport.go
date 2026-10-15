@@ -12,9 +12,9 @@ import (
 )
 
 // The CloudFormation Export data source allows access to stack
-// exports specified in the [Output](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) section of the Cloudformation Template using the optional Export Property.
+// exports specified in the [Output](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) section of the CloudFormation Template using the optional Export Property.
 //
-//	> Note: If you are trying to use a value from a Cloudformation Stack in the same deployment please use normal interpolation or Cloudformation Outputs.
+//	> Note: If you are trying to use a value from a CloudFormation Stack in the same Terraform run please use normal interpolation or CloudFormation Outputs.
 //
 // ## Example Usage
 //
@@ -76,7 +76,7 @@ type GetExportResult struct {
 	Id     string `pulumi:"id"`
 	Name   string `pulumi:"name"`
 	Region string `pulumi:"region"`
-	// Value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+	// Value from CloudFormation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
 	Value string `pulumi:"value"`
 }
 
@@ -130,7 +130,7 @@ func (o GetExportResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetExportResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+// Value from CloudFormation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
 func (o GetExportResultOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetExportResult) string { return v.Value }).(pulumi.StringOutput)
 }

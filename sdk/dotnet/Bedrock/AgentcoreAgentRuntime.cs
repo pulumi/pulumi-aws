@@ -271,7 +271,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> AgentRuntimeArn { get; private set; } = null!;
 
         /// <summary>
-        /// Container artifact configuration. See `AgentRuntimeArtifact` below.
+        /// Artifact configuration for the agent runtime, either a container image or code stored in Amazon S3. See `AgentRuntimeArtifact` below.
         /// </summary>
         [Output("agentRuntimeArtifact")]
         public Output<Outputs.AgentcoreAgentRuntimeAgentRuntimeArtifact> AgentRuntimeArtifact { get; private set; } = null!;
@@ -430,7 +430,7 @@ namespace Pulumi.Aws.Bedrock
     public sealed class AgentcoreAgentRuntimeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Container artifact configuration. See `AgentRuntimeArtifact` below.
+        /// Artifact configuration for the agent runtime, either a container image or code stored in Amazon S3. See `AgentRuntimeArtifact` below.
         /// </summary>
         [Input("agentRuntimeArtifact", required: true)]
         public Input<Inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactArgs> AgentRuntimeArtifact { get; set; } = null!;
@@ -557,7 +557,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? AgentRuntimeArn { get; set; }
 
         /// <summary>
-        /// Container artifact configuration. See `AgentRuntimeArtifact` below.
+        /// Artifact configuration for the agent runtime, either a container image or code stored in Amazon S3. See `AgentRuntimeArtifact` below.
         /// </summary>
         [Input("agentRuntimeArtifact")]
         public Input<Inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactGetArgs>? AgentRuntimeArtifact { get; set; }

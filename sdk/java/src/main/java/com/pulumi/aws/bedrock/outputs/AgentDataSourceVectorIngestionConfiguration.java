@@ -4,6 +4,7 @@
 package com.pulumi.aws.bedrock.outputs;
 
 import com.pulumi.aws.bedrock.outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfiguration;
+import com.pulumi.aws.bedrock.outputs.AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfiguration;
 import com.pulumi.aws.bedrock.outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration;
 import com.pulumi.aws.bedrock.outputs.AgentDataSourceVectorIngestionConfigurationParsingConfiguration;
 import com.pulumi.core.annotations.CustomType;
@@ -18,6 +19,11 @@ public final class AgentDataSourceVectorIngestionConfiguration {
      * 
      */
     private @Nullable AgentDataSourceVectorIngestionConfigurationChunkingConfiguration chunkingConfiguration;
+    /**
+     * @return Context enrichment configuration used to provide additional context to the RAG application. Required when the knowledge base uses Amazon Neptune Analytics (GraphRAG) storage. See `contextEnrichmentConfiguration` Block for details.
+     * 
+     */
+    private @Nullable AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfiguration contextEnrichmentConfiguration;
     /**
      * @return Configuration for custom transformation of data source documents. See `customTransformationConfiguration` Block for details.
      * 
@@ -36,6 +42,13 @@ public final class AgentDataSourceVectorIngestionConfiguration {
      */
     public Optional<AgentDataSourceVectorIngestionConfigurationChunkingConfiguration> chunkingConfiguration() {
         return Optional.ofNullable(this.chunkingConfiguration);
+    }
+    /**
+     * @return Context enrichment configuration used to provide additional context to the RAG application. Required when the knowledge base uses Amazon Neptune Analytics (GraphRAG) storage. See `contextEnrichmentConfiguration` Block for details.
+     * 
+     */
+    public Optional<AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfiguration> contextEnrichmentConfiguration() {
+        return Optional.ofNullable(this.contextEnrichmentConfiguration);
     }
     /**
      * @return Configuration for custom transformation of data source documents. See `customTransformationConfiguration` Block for details.
@@ -62,12 +75,14 @@ public final class AgentDataSourceVectorIngestionConfiguration {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable AgentDataSourceVectorIngestionConfigurationChunkingConfiguration chunkingConfiguration;
+        private @Nullable AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfiguration contextEnrichmentConfiguration;
         private @Nullable AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration customTransformationConfiguration;
         private @Nullable AgentDataSourceVectorIngestionConfigurationParsingConfiguration parsingConfiguration;
         public Builder() {}
         public Builder(AgentDataSourceVectorIngestionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.chunkingConfiguration = defaults.chunkingConfiguration;
+    	      this.contextEnrichmentConfiguration = defaults.contextEnrichmentConfiguration;
     	      this.customTransformationConfiguration = defaults.customTransformationConfiguration;
     	      this.parsingConfiguration = defaults.parsingConfiguration;
         }
@@ -76,6 +91,12 @@ public final class AgentDataSourceVectorIngestionConfiguration {
         public Builder chunkingConfiguration(@Nullable AgentDataSourceVectorIngestionConfigurationChunkingConfiguration chunkingConfiguration) {
 
             this.chunkingConfiguration = chunkingConfiguration;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder contextEnrichmentConfiguration(@Nullable AgentDataSourceVectorIngestionConfigurationContextEnrichmentConfiguration contextEnrichmentConfiguration) {
+
+            this.contextEnrichmentConfiguration = contextEnrichmentConfiguration;
             return this;
         }
         @CustomType.Setter
@@ -93,6 +114,7 @@ public final class AgentDataSourceVectorIngestionConfiguration {
         public AgentDataSourceVectorIngestionConfiguration build() {
             final var _resultValue = new AgentDataSourceVectorIngestionConfiguration();
             _resultValue.chunkingConfiguration = chunkingConfiguration;
+            _resultValue.contextEnrichmentConfiguration = contextEnrichmentConfiguration;
             _resultValue.customTransformationConfiguration = customTransformationConfiguration;
             _resultValue.parsingConfiguration = parsingConfiguration;
             return _resultValue;

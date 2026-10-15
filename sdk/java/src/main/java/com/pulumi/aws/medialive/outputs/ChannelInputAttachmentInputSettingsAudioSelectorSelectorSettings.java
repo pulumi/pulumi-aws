@@ -15,50 +15,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings {
     /**
-     * @return Audio HLS Rendition Selection. See Audio HLS Rendition Selection for more details.
+     * @return HLS rendition selection. See `audioHlsRenditionSelection` Block for details.
      * 
      */
     private @Nullable ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection audioHlsRenditionSelection;
     /**
-     * @return Audio Language Selection. See Audio Language Selection for more details.
+     * @return Language selection. See `audioLanguageSelection` Block for details.
      * 
      */
     private @Nullable ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection audioLanguageSelection;
     /**
-     * @return Audio Pid Selection. See Audio PID Selection for more details.
+     * @return PID selection. See `audioPidSelection` Block for details.
      * 
      */
     private @Nullable ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection audioPidSelection;
     /**
-     * @return Audio Track Selection. See Audio Track Selection for more details.
+     * @return Track selection. See `audioTrackSelection` Block for details.
      * 
      */
     private @Nullable ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection audioTrackSelection;
 
     private ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings() {}
     /**
-     * @return Audio HLS Rendition Selection. See Audio HLS Rendition Selection for more details.
+     * @return HLS rendition selection. See `audioHlsRenditionSelection` Block for details.
      * 
      */
     public Optional<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection> audioHlsRenditionSelection() {
         return Optional.ofNullable(this.audioHlsRenditionSelection);
     }
     /**
-     * @return Audio Language Selection. See Audio Language Selection for more details.
+     * @return Language selection. See `audioLanguageSelection` Block for details.
      * 
      */
     public Optional<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection> audioLanguageSelection() {
         return Optional.ofNullable(this.audioLanguageSelection);
     }
     /**
-     * @return Audio Pid Selection. See Audio PID Selection for more details.
+     * @return PID selection. See `audioPidSelection` Block for details.
      * 
      */
     public Optional<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection> audioPidSelection() {
         return Optional.ofNullable(this.audioPidSelection);
     }
     /**
-     * @return Audio Track Selection. See Audio Track Selection for more details.
+     * @return Track selection. See `audioTrackSelection` Block for details.
      * 
      */
     public Optional<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection> audioTrackSelection() {

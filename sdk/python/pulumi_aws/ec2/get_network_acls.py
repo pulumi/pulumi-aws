@@ -65,7 +65,7 @@ class GetNetworkAclsResult:
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
         """
-        List of all the network ACL ids found.
+        List of all the network ACL IDs found.
         """
         return pulumi.get(self, "ids")
 
@@ -107,7 +107,7 @@ def get_network_acls(filters: Optional[Sequence[Union['GetNetworkAclsFilterArgs'
     """
     ## Example Usage
 
-    The following shows outputting all network ACL ids in a vpc.
+    The following shows outputting all network ACL IDs in a VPC.
 
     ```python
     import pulumi
@@ -117,7 +117,7 @@ def get_network_acls(filters: Optional[Sequence[Union['GetNetworkAclsFilterArgs'
     pulumi.export("example", example.ids)
     ```
 
-    The following example retrieves a list of all network ACL ids in a VPC with a custom
+    The following example retrieves a list of all network ACL IDs in a VPC with a custom
     tag of `Tier` set to a value of "Private".
 
     ```python
@@ -130,7 +130,7 @@ def get_network_acls(filters: Optional[Sequence[Union['GetNetworkAclsFilterArgs'
         })
     ```
 
-    The following example retrieves a network ACL id in a VPC which associated
+    The following example retrieves a network ACL ID in a VPC which associated
     with specific subnet.
 
     ```python
@@ -174,7 +174,7 @@ def get_network_acls_output(filters: pulumi.Input[Optional[Optional[Sequence[Uni
     """
     ## Example Usage
 
-    The following shows outputting all network ACL ids in a vpc.
+    The following shows outputting all network ACL IDs in a VPC.
 
     ```python
     import pulumi
@@ -184,7 +184,7 @@ def get_network_acls_output(filters: pulumi.Input[Optional[Optional[Sequence[Uni
     pulumi.export("example", example.ids)
     ```
 
-    The following example retrieves a list of all network ACL ids in a VPC with a custom
+    The following example retrieves a list of all network ACL IDs in a VPC with a custom
     tag of `Tier` set to a value of "Private".
 
     ```python
@@ -197,7 +197,7 @@ def get_network_acls_output(filters: pulumi.Input[Optional[Optional[Sequence[Uni
         })
     ```
 
-    The following example retrieves a network ACL id in a VPC which associated
+    The following example retrieves a network ACL ID in a VPC which associated
     with specific subnet.
 
     ```python

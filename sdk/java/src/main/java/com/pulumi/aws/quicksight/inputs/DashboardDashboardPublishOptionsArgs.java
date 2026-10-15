@@ -85,14 +85,14 @@ public final class DashboardDashboardPublishOptionsArgs extends com.pulumi.resou
     }
 
     /**
-     * Export to .csv option. See `exportToCsvOption`.
+     * Export to `.csv` option. See `exportToCsvOption`.
      * 
      */
     @Import(name="exportToCsvOption")
     private @Nullable Output<DashboardDashboardPublishOptionsExportToCsvOptionArgs> exportToCsvOption;
 
     /**
-     * @return Export to .csv option. See `exportToCsvOption`.
+     * @return Export to `.csv` option. See `exportToCsvOption`.
      * 
      */
     public Optional<Output<DashboardDashboardPublishOptionsExportToCsvOptionArgs>> exportToCsvOption() {
@@ -292,7 +292,7 @@ public final class DashboardDashboardPublishOptionsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param exportToCsvOption Export to .csv option. See `exportToCsvOption`.
+         * @param exportToCsvOption Export to `.csv` option. See `exportToCsvOption`.
          * 
          * @return builder
          * 
@@ -303,7 +303,7 @@ public final class DashboardDashboardPublishOptionsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param exportToCsvOption Export to .csv option. See `exportToCsvOption`.
+         * @param exportToCsvOption Export to `.csv` option. See `exportToCsvOption`.
          * 
          * @return builder
          * 

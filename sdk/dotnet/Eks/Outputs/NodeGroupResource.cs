@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Eks.Outputs
     public sealed class NodeGroupResource
     {
         /// <summary>
-        /// List of objects containing information about AutoScaling Groups.
+        /// List of objects containing information about Auto Scaling groups.
         /// </summary>
         public readonly ImmutableArray<Outputs.NodeGroupResourceAutoscalingGroup> AutoscalingGroups;
         /// <summary>

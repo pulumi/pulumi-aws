@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Macie2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws.macie2.ClassificationJob` using the id. For example:
+    /// Using `pulumi import`, import `aws.macie2.ClassificationJob` using the ID. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:macie2/classificationJob:ClassificationJob example abcd1
@@ -65,49 +65,55 @@ namespace Pulumi.Aws.Macie2
     public partial class ClassificationJob : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The date and time, in UTC and extended RFC 3339 format, when the job was created.
+        /// Date and time, in UTC and extended RFC 3339 format, when the job was created.
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// The custom data identifiers to use for data analysis and classification.
+        /// Custom data identifiers to use for data analysis and classification.
         /// </summary>
         [Output("customDataIdentifierIds")]
         public Output<ImmutableArray<string>> CustomDataIdentifierIds { get; private set; } = null!;
 
         /// <summary>
-        /// A custom description of the job. The description can contain as many as 200 characters.
+        /// Custom description of the job. Can contain as many as 200 characters.
         /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether to analyze all existing, eligible objects immediately after the job is created.
+        /// Whether to analyze all existing, eligible objects immediately after the job is created.
         /// </summary>
         [Output("initialRun")]
         public Output<bool?> InitialRun { get; private set; } = null!;
 
+        /// <summary>
+        /// ARN of the classification job.
+        /// </summary>
         [Output("jobArn")]
         public Output<string> JobArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Unique identifier (ID) of the classification job.
+        /// </summary>
         [Output("jobId")]
         public Output<string> JobId { get; private set; } = null!;
 
         /// <summary>
-        /// The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
+        /// Status for the job. Valid values are `CANCELLED`, `RUNNING` and `USER_PAUSED`.
         /// </summary>
         [Output("jobStatus")]
         public Output<string> JobStatus { get; private set; } = null!;
 
         /// <summary>
-        /// The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don't specify a value for the `ScheduleFrequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `ScheduleFrequency` property to define the recurrence pattern for the job.
+        /// Schedule for running the job. Valid values are `ONE_TIME`, to run the job only once, and `SCHEDULED`, to run the job on a daily, weekly, or monthly basis. When set to `SCHEDULED`, use `ScheduleFrequency` to define the recurrence pattern for the job.
         /// </summary>
         [Output("jobType")]
         public Output<string> JobType { get; private set; } = null!;
 
         /// <summary>
-        /// A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
+        /// Custom name for the job. Can contain as many as 500 characters. If omitted, Terraform assigns a random, unique name. Conflicts with `NamePrefix`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -125,19 +131,19 @@ namespace Pulumi.Aws.Macie2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
+        /// S3 buckets that contain the objects to analyze, and the scope of that analysis. See `S3JobDefinition` Block for details.
         /// </summary>
         [Output("s3JobDefinition")]
         public Output<Outputs.ClassificationJobS3JobDefinition> S3JobDefinition { get; private set; } = null!;
 
         /// <summary>
-        /// The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
+        /// Sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
         /// </summary>
         [Output("samplingPercentage")]
         public Output<int> SamplingPercentage { get; private set; } = null!;
 
         /// <summary>
-        /// The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `JobType` property to `ONE_TIME`. (documented below)
+        /// Recurrence pattern for running the job. To run the job only once, omit this argument and set `JobType` to `ONE_TIME`. See `ScheduleFrequency` Block for details.
         /// </summary>
         [Output("scheduleFrequency")]
         public Output<Outputs.ClassificationJobScheduleFrequency> ScheduleFrequency { get; private set; } = null!;
@@ -149,13 +155,13 @@ namespace Pulumi.Aws.Macie2
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be canceled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
+        /// If the current status of the job is `USER_PAUSED`, information about when the job was paused and when the job or job run will expire and be cancelled if it isn't resumed. This value is present only if `JobStatus` is `USER_PAUSED`. See `UserPausedDetails` Block for details.
         /// </summary>
         [Output("userPausedDetails")]
         public Output<ImmutableArray<Outputs.ClassificationJobUserPausedDetail>> UserPausedDetails { get; private set; } = null!;
@@ -210,7 +216,7 @@ namespace Pulumi.Aws.Macie2
         private InputList<string>? _customDataIdentifierIds;
 
         /// <summary>
-        /// The custom data identifiers to use for data analysis and classification.
+        /// Custom data identifiers to use for data analysis and classification.
         /// </summary>
         public InputList<string> CustomDataIdentifierIds
         {
@@ -219,31 +225,31 @@ namespace Pulumi.Aws.Macie2
         }
 
         /// <summary>
-        /// A custom description of the job. The description can contain as many as 200 characters.
+        /// Custom description of the job. Can contain as many as 200 characters.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies whether to analyze all existing, eligible objects immediately after the job is created.
+        /// Whether to analyze all existing, eligible objects immediately after the job is created.
         /// </summary>
         [Input("initialRun")]
         public Input<bool>? InitialRun { get; set; }
 
         /// <summary>
-        /// The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
+        /// Status for the job. Valid values are `CANCELLED`, `RUNNING` and `USER_PAUSED`.
         /// </summary>
         [Input("jobStatus")]
         public Input<string>? JobStatus { get; set; }
 
         /// <summary>
-        /// The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don't specify a value for the `ScheduleFrequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `ScheduleFrequency` property to define the recurrence pattern for the job.
+        /// Schedule for running the job. Valid values are `ONE_TIME`, to run the job only once, and `SCHEDULED`, to run the job on a daily, weekly, or monthly basis. When set to `SCHEDULED`, use `ScheduleFrequency` to define the recurrence pattern for the job.
         /// </summary>
         [Input("jobType", required: true)]
         public Input<string> JobType { get; set; } = null!;
 
         /// <summary>
-        /// A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
+        /// Custom name for the job. Can contain as many as 500 characters. If omitted, Terraform assigns a random, unique name. Conflicts with `NamePrefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -261,19 +267,19 @@ namespace Pulumi.Aws.Macie2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
+        /// S3 buckets that contain the objects to analyze, and the scope of that analysis. See `S3JobDefinition` Block for details.
         /// </summary>
         [Input("s3JobDefinition", required: true)]
         public Input<Inputs.ClassificationJobS3JobDefinitionArgs> S3JobDefinition { get; set; } = null!;
 
         /// <summary>
-        /// The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
+        /// Sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
         /// </summary>
         [Input("samplingPercentage")]
         public Input<int>? SamplingPercentage { get; set; }
 
         /// <summary>
-        /// The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `JobType` property to `ONE_TIME`. (documented below)
+        /// Recurrence pattern for running the job. To run the job only once, omit this argument and set `JobType` to `ONE_TIME`. See `ScheduleFrequency` Block for details.
         /// </summary>
         [Input("scheduleFrequency")]
         public Input<Inputs.ClassificationJobScheduleFrequencyArgs>? ScheduleFrequency { get; set; }
@@ -299,7 +305,7 @@ namespace Pulumi.Aws.Macie2
     public sealed class ClassificationJobState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The date and time, in UTC and extended RFC 3339 format, when the job was created.
+        /// Date and time, in UTC and extended RFC 3339 format, when the job was created.
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
@@ -308,7 +314,7 @@ namespace Pulumi.Aws.Macie2
         private InputList<string>? _customDataIdentifierIds;
 
         /// <summary>
-        /// The custom data identifiers to use for data analysis and classification.
+        /// Custom data identifiers to use for data analysis and classification.
         /// </summary>
         public InputList<string> CustomDataIdentifierIds
         {
@@ -317,37 +323,43 @@ namespace Pulumi.Aws.Macie2
         }
 
         /// <summary>
-        /// A custom description of the job. The description can contain as many as 200 characters.
+        /// Custom description of the job. Can contain as many as 200 characters.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies whether to analyze all existing, eligible objects immediately after the job is created.
+        /// Whether to analyze all existing, eligible objects immediately after the job is created.
         /// </summary>
         [Input("initialRun")]
         public Input<bool>? InitialRun { get; set; }
 
+        /// <summary>
+        /// ARN of the classification job.
+        /// </summary>
         [Input("jobArn")]
         public Input<string>? JobArn { get; set; }
 
+        /// <summary>
+        /// Unique identifier (ID) of the classification job.
+        /// </summary>
         [Input("jobId")]
         public Input<string>? JobId { get; set; }
 
         /// <summary>
-        /// The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
+        /// Status for the job. Valid values are `CANCELLED`, `RUNNING` and `USER_PAUSED`.
         /// </summary>
         [Input("jobStatus")]
         public Input<string>? JobStatus { get; set; }
 
         /// <summary>
-        /// The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don't specify a value for the `ScheduleFrequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `ScheduleFrequency` property to define the recurrence pattern for the job.
+        /// Schedule for running the job. Valid values are `ONE_TIME`, to run the job only once, and `SCHEDULED`, to run the job on a daily, weekly, or monthly basis. When set to `SCHEDULED`, use `ScheduleFrequency` to define the recurrence pattern for the job.
         /// </summary>
         [Input("jobType")]
         public Input<string>? JobType { get; set; }
 
         /// <summary>
-        /// A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
+        /// Custom name for the job. Can contain as many as 500 characters. If omitted, Terraform assigns a random, unique name. Conflicts with `NamePrefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -365,19 +377,19 @@ namespace Pulumi.Aws.Macie2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
+        /// S3 buckets that contain the objects to analyze, and the scope of that analysis. See `S3JobDefinition` Block for details.
         /// </summary>
         [Input("s3JobDefinition")]
         public Input<Inputs.ClassificationJobS3JobDefinitionGetArgs>? S3JobDefinition { get; set; }
 
         /// <summary>
-        /// The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
+        /// Sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
         /// </summary>
         [Input("samplingPercentage")]
         public Input<int>? SamplingPercentage { get; set; }
 
         /// <summary>
-        /// The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `JobType` property to `ONE_TIME`. (documented below)
+        /// Recurrence pattern for running the job. To run the job only once, omit this argument and set `JobType` to `ONE_TIME`. See `ScheduleFrequency` Block for details.
         /// </summary>
         [Input("scheduleFrequency")]
         public Input<Inputs.ClassificationJobScheduleFrequencyGetArgs>? ScheduleFrequency { get; set; }
@@ -398,7 +410,7 @@ namespace Pulumi.Aws.Macie2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -410,7 +422,7 @@ namespace Pulumi.Aws.Macie2
         private InputList<Inputs.ClassificationJobUserPausedDetailGetArgs>? _userPausedDetails;
 
         /// <summary>
-        /// If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be canceled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
+        /// If the current status of the job is `USER_PAUSED`, information about when the job was paused and when the job or job run will expire and be cancelled if it isn't resumed. This value is present only if `JobStatus` is `USER_PAUSED`. See `UserPausedDetails` Block for details.
         /// </summary>
         public InputList<Inputs.ClassificationJobUserPausedDetailGetArgs> UserPausedDetails
         {

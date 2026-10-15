@@ -38,17 +38,21 @@ class MeteringPolicyEntryArgs:
         """
         The set of arguments for constructing a MeteringPolicyEntry resource.
 
-        :param pulumi.Input[_builtins.str] metered_account: The account to charge for matching traffic. Valid values are `source-attachment-owner` or `destination-attachment-owner`.
+        :param pulumi.Input[_builtins.str] metered_account: The account to charge for matching traffic. Valid values are `source-attachment-owner`, `destination-attachment-owner`, or `transit-gateway-owner`.
         :param pulumi.Input[_builtins.int] policy_rule_number: Rule number for this entry. Lower numbers have higher priority. Valid values are between `1` and `32766`.
         :param pulumi.Input[_builtins.str] transit_gateway_metering_policy_id: EC2 Transit Gateway Metering Policy identifier.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] destination_cidr_block: Destination CIDR block to match. If not specified, all destination CIDR blocks are matched.
-        :param pulumi.Input[_builtins.str] destination_transit_gateway_attachment_type: Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+        :param pulumi.Input[_builtins.str] destination_port_range: Destination port range to match. If not specified, all destination ports are matched.
+        :param pulumi.Input[_builtins.str] destination_transit_gateway_attachment_id: Destination Transit Gateway attachment ID to match.
+        :param pulumi.Input[_builtins.str] destination_transit_gateway_attachment_type: Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `vpn-concentrator`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`, `network-function`, `client-vpn`.
         :param pulumi.Input[_builtins.str] protocol: Protocol number to match (e.g., `6` for TCP, `17` for UDP). If not specified, all protocols are matched.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] source_cidr_block: Source CIDR block to match. If not specified, all source CIDR blocks are matched.
-        :param pulumi.Input[_builtins.str] source_transit_gateway_attachment_type: Source attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+        :param pulumi.Input[_builtins.str] source_port_range: Source port range to match. If not specified, all source ports are matched.
+        :param pulumi.Input[_builtins.str] source_transit_gateway_attachment_id: Source Transit Gateway attachment ID to match.
+        :param pulumi.Input[_builtins.str] source_transit_gateway_attachment_type: Source attachment resource type to match. Valid values are `vpc`, `vpn`, `vpn-concentrator`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`, `network-function`, `client-vpn`.
         """
         pulumi.set(__self__, "metered_account", metered_account)
         pulumi.set(__self__, "policy_rule_number", policy_rule_number)
@@ -80,7 +84,7 @@ class MeteringPolicyEntryArgs:
     @pulumi.getter(name="meteredAccount")
     def metered_account(self) -> pulumi.Input[_builtins.str]:
         """
-        The account to charge for matching traffic. Valid values are `source-attachment-owner` or `destination-attachment-owner`.
+        The account to charge for matching traffic. Valid values are `source-attachment-owner`, `destination-attachment-owner`, or `transit-gateway-owner`.
         """
         return pulumi.get(self, "metered_account")
 
@@ -129,6 +133,9 @@ class MeteringPolicyEntryArgs:
     @_builtins.property
     @pulumi.getter(name="destinationPortRange")
     def destination_port_range(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Destination port range to match. If not specified, all destination ports are matched.
+        """
         return pulumi.get(self, "destination_port_range")
 
     @destination_port_range.setter
@@ -138,6 +145,9 @@ class MeteringPolicyEntryArgs:
     @_builtins.property
     @pulumi.getter(name="destinationTransitGatewayAttachmentId")
     def destination_transit_gateway_attachment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Destination Transit Gateway attachment ID to match.
+        """
         return pulumi.get(self, "destination_transit_gateway_attachment_id")
 
     @destination_transit_gateway_attachment_id.setter
@@ -148,7 +158,7 @@ class MeteringPolicyEntryArgs:
     @pulumi.getter(name="destinationTransitGatewayAttachmentType")
     def destination_transit_gateway_attachment_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+        Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `vpn-concentrator`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`, `network-function`, `client-vpn`.
         """
         return pulumi.get(self, "destination_transit_gateway_attachment_type")
 
@@ -195,6 +205,9 @@ class MeteringPolicyEntryArgs:
     @_builtins.property
     @pulumi.getter(name="sourcePortRange")
     def source_port_range(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Source port range to match. If not specified, all source ports are matched.
+        """
         return pulumi.get(self, "source_port_range")
 
     @source_port_range.setter
@@ -204,6 +217,9 @@ class MeteringPolicyEntryArgs:
     @_builtins.property
     @pulumi.getter(name="sourceTransitGatewayAttachmentId")
     def source_transit_gateway_attachment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Source Transit Gateway attachment ID to match.
+        """
         return pulumi.get(self, "source_transit_gateway_attachment_id")
 
     @source_transit_gateway_attachment_id.setter
@@ -214,7 +230,7 @@ class MeteringPolicyEntryArgs:
     @pulumi.getter(name="sourceTransitGatewayAttachmentType")
     def source_transit_gateway_attachment_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Source attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+        Source attachment resource type to match. Valid values are `vpc`, `vpn`, `vpn-concentrator`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`, `network-function`, `client-vpn`.
         """
         return pulumi.get(self, "source_transit_gateway_attachment_type")
 
@@ -253,13 +269,17 @@ class _MeteringPolicyEntryState:
         Input properties used for looking up and filtering MeteringPolicyEntry resources.
 
         :param pulumi.Input[_builtins.str] destination_cidr_block: Destination CIDR block to match. If not specified, all destination CIDR blocks are matched.
-        :param pulumi.Input[_builtins.str] destination_transit_gateway_attachment_type: Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
-        :param pulumi.Input[_builtins.str] metered_account: The account to charge for matching traffic. Valid values are `source-attachment-owner` or `destination-attachment-owner`.
+        :param pulumi.Input[_builtins.str] destination_port_range: Destination port range to match. If not specified, all destination ports are matched.
+        :param pulumi.Input[_builtins.str] destination_transit_gateway_attachment_id: Destination Transit Gateway attachment ID to match.
+        :param pulumi.Input[_builtins.str] destination_transit_gateway_attachment_type: Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `vpn-concentrator`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`, `network-function`, `client-vpn`.
+        :param pulumi.Input[_builtins.str] metered_account: The account to charge for matching traffic. Valid values are `source-attachment-owner`, `destination-attachment-owner`, or `transit-gateway-owner`.
         :param pulumi.Input[_builtins.int] policy_rule_number: Rule number for this entry. Lower numbers have higher priority. Valid values are between `1` and `32766`.
         :param pulumi.Input[_builtins.str] protocol: Protocol number to match (e.g., `6` for TCP, `17` for UDP). If not specified, all protocols are matched.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] source_cidr_block: Source CIDR block to match. If not specified, all source CIDR blocks are matched.
-        :param pulumi.Input[_builtins.str] source_transit_gateway_attachment_type: Source attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+        :param pulumi.Input[_builtins.str] source_port_range: Source port range to match. If not specified, all source ports are matched.
+        :param pulumi.Input[_builtins.str] source_transit_gateway_attachment_id: Source Transit Gateway attachment ID to match.
+        :param pulumi.Input[_builtins.str] source_transit_gateway_attachment_type: Source attachment resource type to match. Valid values are `vpc`, `vpn`, `vpn-concentrator`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`, `network-function`, `client-vpn`.
         :param pulumi.Input[_builtins.str] transit_gateway_metering_policy_id: EC2 Transit Gateway Metering Policy identifier.
                
                The following arguments are optional:
@@ -308,6 +328,9 @@ class _MeteringPolicyEntryState:
     @_builtins.property
     @pulumi.getter(name="destinationPortRange")
     def destination_port_range(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Destination port range to match. If not specified, all destination ports are matched.
+        """
         return pulumi.get(self, "destination_port_range")
 
     @destination_port_range.setter
@@ -317,6 +340,9 @@ class _MeteringPolicyEntryState:
     @_builtins.property
     @pulumi.getter(name="destinationTransitGatewayAttachmentId")
     def destination_transit_gateway_attachment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Destination Transit Gateway attachment ID to match.
+        """
         return pulumi.get(self, "destination_transit_gateway_attachment_id")
 
     @destination_transit_gateway_attachment_id.setter
@@ -327,7 +353,7 @@ class _MeteringPolicyEntryState:
     @pulumi.getter(name="destinationTransitGatewayAttachmentType")
     def destination_transit_gateway_attachment_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+        Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `vpn-concentrator`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`, `network-function`, `client-vpn`.
         """
         return pulumi.get(self, "destination_transit_gateway_attachment_type")
 
@@ -339,7 +365,7 @@ class _MeteringPolicyEntryState:
     @pulumi.getter(name="meteredAccount")
     def metered_account(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The account to charge for matching traffic. Valid values are `source-attachment-owner` or `destination-attachment-owner`.
+        The account to charge for matching traffic. Valid values are `source-attachment-owner`, `destination-attachment-owner`, or `transit-gateway-owner`.
         """
         return pulumi.get(self, "metered_account")
 
@@ -398,6 +424,9 @@ class _MeteringPolicyEntryState:
     @_builtins.property
     @pulumi.getter(name="sourcePortRange")
     def source_port_range(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Source port range to match. If not specified, all source ports are matched.
+        """
         return pulumi.get(self, "source_port_range")
 
     @source_port_range.setter
@@ -407,6 +436,9 @@ class _MeteringPolicyEntryState:
     @_builtins.property
     @pulumi.getter(name="sourceTransitGatewayAttachmentId")
     def source_transit_gateway_attachment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Source Transit Gateway attachment ID to match.
+        """
         return pulumi.get(self, "source_transit_gateway_attachment_id")
 
     @source_transit_gateway_attachment_id.setter
@@ -417,7 +449,7 @@ class _MeteringPolicyEntryState:
     @pulumi.getter(name="sourceTransitGatewayAttachmentType")
     def source_transit_gateway_attachment_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Source attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+        Source attachment resource type to match. Valid values are `vpc`, `vpn`, `vpn-concentrator`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`, `network-function`, `client-vpn`.
         """
         return pulumi.get(self, "source_transit_gateway_attachment_type")
 
@@ -514,13 +546,17 @@ class MeteringPolicyEntry(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] destination_cidr_block: Destination CIDR block to match. If not specified, all destination CIDR blocks are matched.
-        :param pulumi.Input[_builtins.str] destination_transit_gateway_attachment_type: Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
-        :param pulumi.Input[_builtins.str] metered_account: The account to charge for matching traffic. Valid values are `source-attachment-owner` or `destination-attachment-owner`.
+        :param pulumi.Input[_builtins.str] destination_port_range: Destination port range to match. If not specified, all destination ports are matched.
+        :param pulumi.Input[_builtins.str] destination_transit_gateway_attachment_id: Destination Transit Gateway attachment ID to match.
+        :param pulumi.Input[_builtins.str] destination_transit_gateway_attachment_type: Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `vpn-concentrator`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`, `network-function`, `client-vpn`.
+        :param pulumi.Input[_builtins.str] metered_account: The account to charge for matching traffic. Valid values are `source-attachment-owner`, `destination-attachment-owner`, or `transit-gateway-owner`.
         :param pulumi.Input[_builtins.int] policy_rule_number: Rule number for this entry. Lower numbers have higher priority. Valid values are between `1` and `32766`.
         :param pulumi.Input[_builtins.str] protocol: Protocol number to match (e.g., `6` for TCP, `17` for UDP). If not specified, all protocols are matched.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] source_cidr_block: Source CIDR block to match. If not specified, all source CIDR blocks are matched.
-        :param pulumi.Input[_builtins.str] source_transit_gateway_attachment_type: Source attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+        :param pulumi.Input[_builtins.str] source_port_range: Source port range to match. If not specified, all source ports are matched.
+        :param pulumi.Input[_builtins.str] source_transit_gateway_attachment_id: Source Transit Gateway attachment ID to match.
+        :param pulumi.Input[_builtins.str] source_transit_gateway_attachment_type: Source attachment resource type to match. Valid values are `vpc`, `vpn`, `vpn-concentrator`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`, `network-function`, `client-vpn`.
         :param pulumi.Input[_builtins.str] transit_gateway_metering_policy_id: EC2 Transit Gateway Metering Policy identifier.
                
                The following arguments are optional:
@@ -662,13 +698,17 @@ class MeteringPolicyEntry(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] destination_cidr_block: Destination CIDR block to match. If not specified, all destination CIDR blocks are matched.
-        :param pulumi.Input[_builtins.str] destination_transit_gateway_attachment_type: Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
-        :param pulumi.Input[_builtins.str] metered_account: The account to charge for matching traffic. Valid values are `source-attachment-owner` or `destination-attachment-owner`.
+        :param pulumi.Input[_builtins.str] destination_port_range: Destination port range to match. If not specified, all destination ports are matched.
+        :param pulumi.Input[_builtins.str] destination_transit_gateway_attachment_id: Destination Transit Gateway attachment ID to match.
+        :param pulumi.Input[_builtins.str] destination_transit_gateway_attachment_type: Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `vpn-concentrator`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`, `network-function`, `client-vpn`.
+        :param pulumi.Input[_builtins.str] metered_account: The account to charge for matching traffic. Valid values are `source-attachment-owner`, `destination-attachment-owner`, or `transit-gateway-owner`.
         :param pulumi.Input[_builtins.int] policy_rule_number: Rule number for this entry. Lower numbers have higher priority. Valid values are between `1` and `32766`.
         :param pulumi.Input[_builtins.str] protocol: Protocol number to match (e.g., `6` for TCP, `17` for UDP). If not specified, all protocols are matched.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] source_cidr_block: Source CIDR block to match. If not specified, all source CIDR blocks are matched.
-        :param pulumi.Input[_builtins.str] source_transit_gateway_attachment_type: Source attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+        :param pulumi.Input[_builtins.str] source_port_range: Source port range to match. If not specified, all source ports are matched.
+        :param pulumi.Input[_builtins.str] source_transit_gateway_attachment_id: Source Transit Gateway attachment ID to match.
+        :param pulumi.Input[_builtins.str] source_transit_gateway_attachment_type: Source attachment resource type to match. Valid values are `vpc`, `vpn`, `vpn-concentrator`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`, `network-function`, `client-vpn`.
         :param pulumi.Input[_builtins.str] transit_gateway_metering_policy_id: EC2 Transit Gateway Metering Policy identifier.
                
                The following arguments are optional:
@@ -704,18 +744,24 @@ class MeteringPolicyEntry(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="destinationPortRange")
     def destination_port_range(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Destination port range to match. If not specified, all destination ports are matched.
+        """
         return pulumi.get(self, "destination_port_range")
 
     @_builtins.property
     @pulumi.getter(name="destinationTransitGatewayAttachmentId")
     def destination_transit_gateway_attachment_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Destination Transit Gateway attachment ID to match.
+        """
         return pulumi.get(self, "destination_transit_gateway_attachment_id")
 
     @_builtins.property
     @pulumi.getter(name="destinationTransitGatewayAttachmentType")
     def destination_transit_gateway_attachment_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+        Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `vpn-concentrator`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`, `network-function`, `client-vpn`.
         """
         return pulumi.get(self, "destination_transit_gateway_attachment_type")
 
@@ -723,7 +769,7 @@ class MeteringPolicyEntry(pulumi.CustomResource):
     @pulumi.getter(name="meteredAccount")
     def metered_account(self) -> pulumi.Output[_builtins.str]:
         """
-        The account to charge for matching traffic. Valid values are `source-attachment-owner` or `destination-attachment-owner`.
+        The account to charge for matching traffic. Valid values are `source-attachment-owner`, `destination-attachment-owner`, or `transit-gateway-owner`.
         """
         return pulumi.get(self, "metered_account")
 
@@ -762,18 +808,24 @@ class MeteringPolicyEntry(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="sourcePortRange")
     def source_port_range(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Source port range to match. If not specified, all source ports are matched.
+        """
         return pulumi.get(self, "source_port_range")
 
     @_builtins.property
     @pulumi.getter(name="sourceTransitGatewayAttachmentId")
     def source_transit_gateway_attachment_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Source Transit Gateway attachment ID to match.
+        """
         return pulumi.get(self, "source_transit_gateway_attachment_id")
 
     @_builtins.property
     @pulumi.getter(name="sourceTransitGatewayAttachmentType")
     def source_transit_gateway_attachment_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Source attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+        Source attachment resource type to match. Valid values are `vpc`, `vpn`, `vpn-concentrator`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`, `network-function`, `client-vpn`.
         """
         return pulumi.get(self, "source_transit_gateway_attachment_type")
 

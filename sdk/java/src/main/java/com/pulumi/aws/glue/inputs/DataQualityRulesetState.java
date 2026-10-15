@@ -33,14 +33,14 @@ public final class DataQualityRulesetState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The time and date that this data quality ruleset was created.
+     * Time and date that this data quality ruleset was created.
      * 
      */
     @Import(name="createdOn")
     private @Nullable Output<String> createdOn;
 
     /**
-     * @return The time and date that this data quality ruleset was created.
+     * @return Time and date that this data quality ruleset was created.
      * 
      */
     public Optional<Output<String>> createdOn() {
@@ -63,14 +63,14 @@ public final class DataQualityRulesetState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The time and date that this data quality ruleset was created.
+     * Time and date that this data quality ruleset was created.
      * 
      */
     @Import(name="lastModifiedOn")
     private @Nullable Output<String> lastModifiedOn;
 
     /**
-     * @return The time and date that this data quality ruleset was created.
+     * @return Time and date that this data quality ruleset was created.
      * 
      */
     public Optional<Output<String>> lastModifiedOn() {
@@ -123,14 +123,14 @@ public final class DataQualityRulesetState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
+     * Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
      * 
      */
     @Import(name="ruleset")
     private @Nullable Output<String> ruleset;
 
     /**
-     * @return A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
+     * @return Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
      * 
      */
     public Optional<Output<String>> ruleset() {
@@ -153,14 +153,14 @@ public final class DataQualityRulesetState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -168,14 +168,14 @@ public final class DataQualityRulesetState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` below.
+     * Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` Block below.
      * 
      */
     @Import(name="targetTable")
     private @Nullable Output<DataQualityRulesetTargetTableArgs> targetTable;
 
     /**
-     * @return A Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` below.
+     * @return Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` Block below.
      * 
      */
     public Optional<Output<DataQualityRulesetTargetTableArgs>> targetTable() {
@@ -238,7 +238,7 @@ public final class DataQualityRulesetState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param createdOn The time and date that this data quality ruleset was created.
+         * @param createdOn Time and date that this data quality ruleset was created.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class DataQualityRulesetState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param createdOn The time and date that this data quality ruleset was created.
+         * @param createdOn Time and date that this data quality ruleset was created.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class DataQualityRulesetState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param lastModifiedOn The time and date that this data quality ruleset was created.
+         * @param lastModifiedOn Time and date that this data quality ruleset was created.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class DataQualityRulesetState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param lastModifiedOn The time and date that this data quality ruleset was created.
+         * @param lastModifiedOn Time and date that this data quality ruleset was created.
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class DataQualityRulesetState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param ruleset A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
+         * @param ruleset Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class DataQualityRulesetState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param ruleset A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
+         * @param ruleset Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
          * 
          * @return builder
          * 
@@ -406,7 +406,7 @@ public final class DataQualityRulesetState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -417,7 +417,7 @@ public final class DataQualityRulesetState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -427,7 +427,7 @@ public final class DataQualityRulesetState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param targetTable A Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` below.
+         * @param targetTable Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` Block below.
          * 
          * @return builder
          * 
@@ -438,7 +438,7 @@ public final class DataQualityRulesetState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param targetTable A Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` below.
+         * @param targetTable Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` Block below.
          * 
          * @return builder
          * 

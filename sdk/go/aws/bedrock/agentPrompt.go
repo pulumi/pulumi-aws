@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Bedrock Agents Prompt.
+// Manages an AWS Bedrock Agents Prompt.
 //
 // ## Example Usage
 //

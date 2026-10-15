@@ -34,14 +34,14 @@ public final class PartitionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The time at which the partition was created.
+     * Time at which the partition was created.
      * 
      */
     @Import(name="creationTime")
     private @Nullable Output<String> creationTime;
 
     /**
-     * @return The time at which the partition was created.
+     * @return Time at which the partition was created.
      * 
      */
     public Optional<Output<String>> creationTime() {
@@ -64,14 +64,14 @@ public final class PartitionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The last time at which the partition was accessed.
+     * Last time at which the partition was accessed.
      * 
      */
     @Import(name="lastAccessedTime")
     private @Nullable Output<String> lastAccessedTime;
 
     /**
-     * @return The last time at which the partition was accessed.
+     * @return Last time at which the partition was accessed.
      * 
      */
     public Optional<Output<String>> lastAccessedTime() {
@@ -79,14 +79,14 @@ public final class PartitionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The last time at which column statistics were computed for this partition.
+     * Last time at which column statistics were computed for this partition.
      * 
      */
     @Import(name="lastAnalyzedTime")
     private @Nullable Output<String> lastAnalyzedTime;
 
     /**
-     * @return The last time at which column statistics were computed for this partition.
+     * @return Last time at which column statistics were computed for this partition.
      * 
      */
     public Optional<Output<String>> lastAnalyzedTime() {
@@ -109,14 +109,14 @@ public final class PartitionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The values that define the partition.
+     * Values that define the partition.
      * 
      */
     @Import(name="partitionValues")
     private @Nullable Output<List<String>> partitionValues;
 
     /**
-     * @return The values that define the partition.
+     * @return Values that define the partition.
      * 
      */
     public Optional<Output<List<String>>> partitionValues() {
@@ -139,23 +139,31 @@ public final class PartitionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+     * Storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
      * 
      */
     @Import(name="storageDescriptor")
     private @Nullable Output<PartitionStorageDescriptorArgs> storageDescriptor;
 
     /**
-     * @return A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+     * @return Storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
      * 
      */
     public Optional<Output<PartitionStorageDescriptorArgs>> storageDescriptor() {
         return Optional.ofNullable(this.storageDescriptor);
     }
 
+    /**
+     * Name of the table. For Hive compatibility, this must be entirely lowercase.
+     * 
+     */
     @Import(name="tableName")
     private @Nullable Output<String> tableName;
 
+    /**
+     * @return Name of the table. For Hive compatibility, this must be entirely lowercase.
+     * 
+     */
     public Optional<Output<String>> tableName() {
         return Optional.ofNullable(this.tableName);
     }
@@ -215,7 +223,7 @@ public final class PartitionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param creationTime The time at which the partition was created.
+         * @param creationTime Time at which the partition was created.
          * 
          * @return builder
          * 
@@ -226,7 +234,7 @@ public final class PartitionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param creationTime The time at which the partition was created.
+         * @param creationTime Time at which the partition was created.
          * 
          * @return builder
          * 
@@ -257,7 +265,7 @@ public final class PartitionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lastAccessedTime The last time at which the partition was accessed.
+         * @param lastAccessedTime Last time at which the partition was accessed.
          * 
          * @return builder
          * 
@@ -268,7 +276,7 @@ public final class PartitionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lastAccessedTime The last time at which the partition was accessed.
+         * @param lastAccessedTime Last time at which the partition was accessed.
          * 
          * @return builder
          * 
@@ -278,7 +286,7 @@ public final class PartitionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lastAnalyzedTime The last time at which column statistics were computed for this partition.
+         * @param lastAnalyzedTime Last time at which column statistics were computed for this partition.
          * 
          * @return builder
          * 
@@ -289,7 +297,7 @@ public final class PartitionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lastAnalyzedTime The last time at which column statistics were computed for this partition.
+         * @param lastAnalyzedTime Last time at which column statistics were computed for this partition.
          * 
          * @return builder
          * 
@@ -320,7 +328,7 @@ public final class PartitionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param partitionValues The values that define the partition.
+         * @param partitionValues Values that define the partition.
          * 
          * @return builder
          * 
@@ -331,7 +339,7 @@ public final class PartitionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param partitionValues The values that define the partition.
+         * @param partitionValues Values that define the partition.
          * 
          * @return builder
          * 
@@ -341,7 +349,7 @@ public final class PartitionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param partitionValues The values that define the partition.
+         * @param partitionValues Values that define the partition.
          * 
          * @return builder
          * 
@@ -372,7 +380,7 @@ public final class PartitionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageDescriptor A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+         * @param storageDescriptor Storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
          * 
          * @return builder
          * 
@@ -383,7 +391,7 @@ public final class PartitionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageDescriptor A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+         * @param storageDescriptor Storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
          * 
          * @return builder
          * 
@@ -392,11 +400,23 @@ public final class PartitionState extends com.pulumi.resources.ResourceArgs {
             return storageDescriptor(Output.of(storageDescriptor));
         }
 
+        /**
+         * @param tableName Name of the table. For Hive compatibility, this must be entirely lowercase.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tableName(@Nullable Output<String> tableName) {
             $.tableName = tableName;
             return this;
         }
 
+        /**
+         * @param tableName Name of the table. For Hive compatibility, this must be entirely lowercase.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tableName(String tableName) {
             return tableName(Output.of(tableName));
         }

@@ -64,7 +64,7 @@ import {Role} from "./index";
  *
  * * `accountId` (String) AWS Account where this resource is managed.
  *
- * Using `pulumi import`, import IAM role policy attachments using the role name and policy arn separated by `/`. For example:
+ * Using `pulumi import`, import IAM role policy attachments using the role name and policy ARN separated by `/`. For example:
  *
  * ```sh
  * $ pulumi import aws:iam/rolePolicyAttachment:RolePolicyAttachment example test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy

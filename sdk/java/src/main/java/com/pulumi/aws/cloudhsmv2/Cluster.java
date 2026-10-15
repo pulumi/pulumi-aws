@@ -118,14 +118,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.clusterCertificates;
     }
     /**
-     * The id of the CloudHSM cluster.
+     * The ID of the CloudHSM cluster.
      * 
      */
     @Export(name="clusterId", refs={String.class}, tree="[0]")
     private Output<String> clusterId;
 
     /**
-     * @return The id of the CloudHSM cluster.
+     * @return The ID of the CloudHSM cluster.
      * 
      */
     public Output<String> clusterId() {
@@ -258,14 +258,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The id of the VPC that the CloudHSM cluster resides in.
+     * The ID of the VPC that the CloudHSM cluster resides in.
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**
-     * @return The id of the VPC that the CloudHSM cluster resides in.
+     * @return The ID of the VPC that the CloudHSM cluster resides in.
      * 
      */
     public Output<String> vpcId() {

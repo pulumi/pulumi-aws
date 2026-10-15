@@ -25,13 +25,13 @@ namespace Pulumi.Aws.Glue.Inputs
         }
 
         /// <summary>
-        /// Configuration block for data lake access properties. See `DataLakeAccessProperties` below.
+        /// Configuration block for data lake access properties. See `DataLakeAccessProperties` Block below.
         /// </summary>
         [Input("dataLakeAccessProperties")]
         public Input<Inputs.CatalogCatalogPropertiesDataLakeAccessPropertiesGetArgs>? DataLakeAccessProperties { get; set; }
 
         /// <summary>
-        /// Configuration block for Iceberg optimization properties. See `IcebergOptimizationProperties` below.
+        /// Configuration block for Iceberg optimization properties. See `IcebergOptimizationProperties` Block below.
         /// </summary>
         [Input("icebergOptimizationProperties")]
         public Input<Inputs.CatalogCatalogPropertiesIcebergOptimizationPropertiesGetArgs>? IcebergOptimizationProperties { get; set; }

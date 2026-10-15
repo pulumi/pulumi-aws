@@ -388,14 +388,14 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN used by the service access IAM role for dynamodb endpoints.
+     * ARN used by the service access IAM role for DynamoDB endpoints.
      * 
      */
     @Import(name="serviceAccessRole")
     private @Nullable Output<String> serviceAccessRole;
 
     /**
-     * @return ARN used by the service access IAM role for dynamodb endpoints.
+     * @return ARN used by the service access IAM role for DynamoDB endpoints.
      * 
      */
     public Optional<Output<String>> serviceAccessRole() {
@@ -1015,7 +1015,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceAccessRole ARN used by the service access IAM role for dynamodb endpoints.
+         * @param serviceAccessRole ARN used by the service access IAM role for DynamoDB endpoints.
          * 
          * @return builder
          * 
@@ -1026,7 +1026,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceAccessRole ARN used by the service access IAM role for dynamodb endpoints.
+         * @param serviceAccessRole ARN used by the service access IAM role for DynamoDB endpoints.
          * 
          * @return builder
          * 

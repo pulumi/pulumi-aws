@@ -86,7 +86,7 @@ namespace Pulumi.Aws.Glue
         public Output<string> CatalogId { get; private set; } = null!;
 
         /// <summary>
-        /// Creates a set of default permissions on the table for principals. See `CreateTableDefaultPermission` below.
+        /// Creates a set of default permissions on the table for principals. See `CreateTableDefaultPermission` Block below.
         /// </summary>
         [Output("createTableDefaultPermissions")]
         public Output<ImmutableArray<Outputs.CatalogDatabaseCreateTableDefaultPermission>> CreateTableDefaultPermissions { get; private set; } = null!;
@@ -98,7 +98,7 @@ namespace Pulumi.Aws.Glue
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block that references an entity outside the AWS Glue Data Catalog. See `FederatedDatabase` below.
+        /// Configuration block that references an entity outside the AWS Glue Data Catalog. See `FederatedDatabase` Block below.
         /// </summary>
         [Output("federatedDatabase")]
         public Output<Outputs.CatalogDatabaseFederatedDatabase?> FederatedDatabase { get; private set; } = null!;
@@ -134,13 +134,13 @@ namespace Pulumi.Aws.Glue
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for a target database for resource linking. See `TargetDatabase` below.
+        /// Configuration block for a target database for resource linking. See `TargetDatabase` Block below.
         /// </summary>
         [Output("targetDatabase")]
         public Output<Outputs.CatalogDatabaseTargetDatabase?> TargetDatabase { get; private set; } = null!;
@@ -201,7 +201,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.CatalogDatabaseCreateTableDefaultPermissionArgs>? _createTableDefaultPermissions;
 
         /// <summary>
-        /// Creates a set of default permissions on the table for principals. See `CreateTableDefaultPermission` below.
+        /// Creates a set of default permissions on the table for principals. See `CreateTableDefaultPermission` Block below.
         /// </summary>
         public InputList<Inputs.CatalogDatabaseCreateTableDefaultPermissionArgs> CreateTableDefaultPermissions
         {
@@ -216,7 +216,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Configuration block that references an entity outside the AWS Glue Data Catalog. See `FederatedDatabase` below.
+        /// Configuration block that references an entity outside the AWS Glue Data Catalog. See `FederatedDatabase` Block below.
         /// </summary>
         [Input("federatedDatabase")]
         public Input<Inputs.CatalogDatabaseFederatedDatabaseArgs>? FederatedDatabase { get; set; }
@@ -264,7 +264,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// Configuration block for a target database for resource linking. See `TargetDatabase` below.
+        /// Configuration block for a target database for resource linking. See `TargetDatabase` Block below.
         /// </summary>
         [Input("targetDatabase")]
         public Input<Inputs.CatalogDatabaseTargetDatabaseArgs>? TargetDatabase { get; set; }
@@ -293,7 +293,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.CatalogDatabaseCreateTableDefaultPermissionGetArgs>? _createTableDefaultPermissions;
 
         /// <summary>
-        /// Creates a set of default permissions on the table for principals. See `CreateTableDefaultPermission` below.
+        /// Creates a set of default permissions on the table for principals. See `CreateTableDefaultPermission` Block below.
         /// </summary>
         public InputList<Inputs.CatalogDatabaseCreateTableDefaultPermissionGetArgs> CreateTableDefaultPermissions
         {
@@ -308,7 +308,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Configuration block that references an entity outside the AWS Glue Data Catalog. See `FederatedDatabase` below.
+        /// Configuration block that references an entity outside the AWS Glue Data Catalog. See `FederatedDatabase` Block below.
         /// </summary>
         [Input("federatedDatabase")]
         public Input<Inputs.CatalogDatabaseFederatedDatabaseGetArgs>? FederatedDatabase { get; set; }
@@ -359,7 +359,7 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -368,7 +368,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// Configuration block for a target database for resource linking. See `TargetDatabase` below.
+        /// Configuration block for a target database for resource linking. See `TargetDatabase` Block below.
         /// </summary>
         [Input("targetDatabase")]
         public Input<Inputs.CatalogDatabaseTargetDatabaseGetArgs>? TargetDatabase { get; set; }

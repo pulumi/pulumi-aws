@@ -17,14 +17,14 @@ public final class ClusterEncryptionInfoArgs extends com.pulumi.resources.Resour
     public static final ClusterEncryptionInfoArgs Empty = new ClusterEncryptionInfoArgs();
 
     /**
-     * You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS (&#39;aws/msk&#39; managed service) key will be used for encrypting the data at rest.
+     * KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest. If no key is specified, an AWS managed KMS (&#39;aws/msk&#39; managed service) key will be used for encrypting the data at rest.
      * 
      */
     @Import(name="encryptionAtRestKmsKeyArn")
     private @Nullable Output<String> encryptionAtRestKmsKeyArn;
 
     /**
-     * @return You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS (&#39;aws/msk&#39; managed service) key will be used for encrypting the data at rest.
+     * @return KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest. If no key is specified, an AWS managed KMS (&#39;aws/msk&#39; managed service) key will be used for encrypting the data at rest.
      * 
      */
     public Optional<Output<String>> encryptionAtRestKmsKeyArn() {
@@ -32,14 +32,14 @@ public final class ClusterEncryptionInfoArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Configuration block to specify encryption in transit. See encryptionInfo encryption_in_transit Argument Reference below.
+     * Configuration block to specify encryption in transit. See `encryptionInTransit` Block below.
      * 
      */
     @Import(name="encryptionInTransit")
     private @Nullable Output<ClusterEncryptionInfoEncryptionInTransitArgs> encryptionInTransit;
 
     /**
-     * @return Configuration block to specify encryption in transit. See encryptionInfo encryption_in_transit Argument Reference below.
+     * @return Configuration block to specify encryption in transit. See `encryptionInTransit` Block below.
      * 
      */
     public Optional<Output<ClusterEncryptionInfoEncryptionInTransitArgs>> encryptionInTransit() {
@@ -72,7 +72,7 @@ public final class ClusterEncryptionInfoArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param encryptionAtRestKmsKeyArn You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS (&#39;aws/msk&#39; managed service) key will be used for encrypting the data at rest.
+         * @param encryptionAtRestKmsKeyArn KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest. If no key is specified, an AWS managed KMS (&#39;aws/msk&#39; managed service) key will be used for encrypting the data at rest.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ClusterEncryptionInfoArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param encryptionAtRestKmsKeyArn You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS (&#39;aws/msk&#39; managed service) key will be used for encrypting the data at rest.
+         * @param encryptionAtRestKmsKeyArn KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest. If no key is specified, an AWS managed KMS (&#39;aws/msk&#39; managed service) key will be used for encrypting the data at rest.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ClusterEncryptionInfoArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param encryptionInTransit Configuration block to specify encryption in transit. See encryptionInfo encryption_in_transit Argument Reference below.
+         * @param encryptionInTransit Configuration block to specify encryption in transit. See `encryptionInTransit` Block below.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ClusterEncryptionInfoArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param encryptionInTransit Configuration block to specify encryption in transit. See encryptionInfo encryption_in_transit Argument Reference below.
+         * @param encryptionInTransit Configuration block to specify encryption in transit. See `encryptionInTransit` Block below.
          * 
          * @return builder
          * 

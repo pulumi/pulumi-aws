@@ -52,14 +52,14 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the autoscaling group.
+     * Name of the Auto Scaling group.
      * 
      */
     @Import(name="autoscalingGroupName")
     private @Nullable Output<String> autoscalingGroupName;
 
     /**
-     * @return Name of the autoscaling group.
+     * @return Name of the Auto Scaling group.
      * 
      */
     public Optional<Output<String>> autoscalingGroupName() {
@@ -509,7 +509,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoscalingGroupName Name of the autoscaling group.
+         * @param autoscalingGroupName Name of the Auto Scaling group.
          * 
          * @return builder
          * 
@@ -520,7 +520,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoscalingGroupName Name of the autoscaling group.
+         * @param autoscalingGroupName Name of the Auto Scaling group.
          * 
          * @return builder
          * 

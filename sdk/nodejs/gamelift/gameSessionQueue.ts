@@ -89,7 +89,7 @@ export class GameSessionQueue extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * An SNS topic ARN that is set up to receive game session placement notifications.
+     * SNS topic ARN that is set up to receive game session placement notifications.
      */
     declare public readonly notificationTarget: pulumi.Output<string | undefined>;
     /**
@@ -105,7 +105,7 @@ export class GameSessionQueue extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
@@ -175,7 +175,7 @@ export interface GameSessionQueueState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * An SNS topic ARN that is set up to receive game session placement notifications.
+     * SNS topic ARN that is set up to receive game session placement notifications.
      */
     notificationTarget?: pulumi.Input<string | undefined>;
     /**
@@ -191,7 +191,7 @@ export interface GameSessionQueueState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -217,7 +217,7 @@ export interface GameSessionQueueArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * An SNS topic ARN that is set up to receive game session placement notifications.
+     * SNS topic ARN that is set up to receive game session placement notifications.
      */
     notificationTarget?: pulumi.Input<string | undefined>;
     /**

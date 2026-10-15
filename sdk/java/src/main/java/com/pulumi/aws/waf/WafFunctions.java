@@ -28,7 +28,7 @@ import java.util.concurrent.CompletableFuture;
 
 public final class WafFunctions {
     /**
-     * `aws.waf.IpSet` Retrieves a WAF IP Set Resource Id.
+     * `aws.waf.IpSet` Retrieves a WAF IP Set Resource ID.
      * 
      * ## Example Usage
      * 
@@ -68,7 +68,7 @@ public final class WafFunctions {
         return getIpset(args, InvokeOptions.Empty);
     }
     /**
-     * `aws.waf.IpSet` Retrieves a WAF IP Set Resource Id.
+     * `aws.waf.IpSet` Retrieves a WAF IP Set Resource ID.
      * 
      * ## Example Usage
      * 
@@ -108,7 +108,7 @@ public final class WafFunctions {
         return getIpsetPlain(args, InvokeOptions.Empty);
     }
     /**
-     * `aws.waf.IpSet` Retrieves a WAF IP Set Resource Id.
+     * `aws.waf.IpSet` Retrieves a WAF IP Set Resource ID.
      * 
      * ## Example Usage
      * 
@@ -148,7 +148,7 @@ public final class WafFunctions {
         return Deployment.getInstance().invoke("aws:waf/getIpset:getIpset", TypeShape.of(GetIpsetResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * `aws.waf.IpSet` Retrieves a WAF IP Set Resource Id.
+     * `aws.waf.IpSet` Retrieves a WAF IP Set Resource ID.
      * 
      * ## Example Usage
      * 
@@ -188,7 +188,7 @@ public final class WafFunctions {
         return Deployment.getInstance().invoke("aws:waf/getIpset:getIpset", TypeShape.of(GetIpsetResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * `aws.waf.IpSet` Retrieves a WAF IP Set Resource Id.
+     * `aws.waf.IpSet` Retrieves a WAF IP Set Resource ID.
      * 
      * ## Example Usage
      * 
@@ -228,7 +228,7 @@ public final class WafFunctions {
         return Deployment.getInstance().invokeAsync("aws:waf/getIpset:getIpset", TypeShape.of(GetIpsetResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * `aws.waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource Id.
+     * `aws.waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource ID.
      * 
      * ## Example Usage
      * 
@@ -268,7 +268,7 @@ public final class WafFunctions {
         return getRateBasedRule(args, InvokeOptions.Empty);
     }
     /**
-     * `aws.waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource Id.
+     * `aws.waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource ID.
      * 
      * ## Example Usage
      * 
@@ -308,7 +308,7 @@ public final class WafFunctions {
         return getRateBasedRulePlain(args, InvokeOptions.Empty);
     }
     /**
-     * `aws.waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource Id.
+     * `aws.waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource ID.
      * 
      * ## Example Usage
      * 
@@ -348,7 +348,7 @@ public final class WafFunctions {
         return Deployment.getInstance().invoke("aws:waf/getRateBasedRule:getRateBasedRule", TypeShape.of(GetRateBasedRuleResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * `aws.waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource Id.
+     * `aws.waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource ID.
      * 
      * ## Example Usage
      * 
@@ -388,7 +388,7 @@ public final class WafFunctions {
         return Deployment.getInstance().invoke("aws:waf/getRateBasedRule:getRateBasedRule", TypeShape.of(GetRateBasedRuleResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * `aws.waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource Id.
+     * `aws.waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource ID.
      * 
      * ## Example Usage
      * 
@@ -428,7 +428,7 @@ public final class WafFunctions {
         return Deployment.getInstance().invokeAsync("aws:waf/getRateBasedRule:getRateBasedRule", TypeShape.of(GetRateBasedRuleResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * `aws.waf.Rule` Retrieves a WAF Rule Resource Id.
+     * `aws.waf.Rule` Retrieves a WAF Rule Resource ID.
      * 
      * ## Example Usage
      * 
@@ -468,7 +468,7 @@ public final class WafFunctions {
         return getRule(args, InvokeOptions.Empty);
     }
     /**
-     * `aws.waf.Rule` Retrieves a WAF Rule Resource Id.
+     * `aws.waf.Rule` Retrieves a WAF Rule Resource ID.
      * 
      * ## Example Usage
      * 
@@ -508,7 +508,7 @@ public final class WafFunctions {
         return getRulePlain(args, InvokeOptions.Empty);
     }
     /**
-     * `aws.waf.Rule` Retrieves a WAF Rule Resource Id.
+     * `aws.waf.Rule` Retrieves a WAF Rule Resource ID.
      * 
      * ## Example Usage
      * 
@@ -548,7 +548,7 @@ public final class WafFunctions {
         return Deployment.getInstance().invoke("aws:waf/getRule:getRule", TypeShape.of(GetRuleResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * `aws.waf.Rule` Retrieves a WAF Rule Resource Id.
+     * `aws.waf.Rule` Retrieves a WAF Rule Resource ID.
      * 
      * ## Example Usage
      * 
@@ -588,7 +588,7 @@ public final class WafFunctions {
         return Deployment.getInstance().invoke("aws:waf/getRule:getRule", TypeShape.of(GetRuleResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * `aws.waf.Rule` Retrieves a WAF Rule Resource Id.
+     * `aws.waf.Rule` Retrieves a WAF Rule Resource ID.
      * 
      * ## Example Usage
      * 
@@ -1055,7 +1055,7 @@ public final class WafFunctions {
         return Deployment.getInstance().invokeAsync("aws:waf/getSubscribedRuleGroup:getSubscribedRuleGroup", TypeShape.of(GetSubscribedRuleGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * `aws.waf.WebAcl` Retrieves a WAF Web ACL Resource Id.
+     * `aws.waf.WebAcl` Retrieves a WAF Web ACL Resource ID.
      * 
      * ## Example Usage
      * 
@@ -1095,7 +1095,7 @@ public final class WafFunctions {
         return getWebAcl(args, InvokeOptions.Empty);
     }
     /**
-     * `aws.waf.WebAcl` Retrieves a WAF Web ACL Resource Id.
+     * `aws.waf.WebAcl` Retrieves a WAF Web ACL Resource ID.
      * 
      * ## Example Usage
      * 
@@ -1135,7 +1135,7 @@ public final class WafFunctions {
         return getWebAclPlain(args, InvokeOptions.Empty);
     }
     /**
-     * `aws.waf.WebAcl` Retrieves a WAF Web ACL Resource Id.
+     * `aws.waf.WebAcl` Retrieves a WAF Web ACL Resource ID.
      * 
      * ## Example Usage
      * 
@@ -1175,7 +1175,7 @@ public final class WafFunctions {
         return Deployment.getInstance().invoke("aws:waf/getWebAcl:getWebAcl", TypeShape.of(GetWebAclResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * `aws.waf.WebAcl` Retrieves a WAF Web ACL Resource Id.
+     * `aws.waf.WebAcl` Retrieves a WAF Web ACL Resource ID.
      * 
      * ## Example Usage
      * 
@@ -1215,7 +1215,7 @@ public final class WafFunctions {
         return Deployment.getInstance().invoke("aws:waf/getWebAcl:getWebAcl", TypeShape.of(GetWebAclResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * `aws.waf.WebAcl` Retrieves a WAF Web ACL Resource Id.
+     * `aws.waf.WebAcl` Retrieves a WAF Web ACL Resource ID.
      * 
      * ## Example Usage
      * 

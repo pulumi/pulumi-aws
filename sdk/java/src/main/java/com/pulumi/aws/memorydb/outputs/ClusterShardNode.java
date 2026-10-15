@@ -14,12 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterShardNode {
     /**
-     * @return The Availability Zone in which the node resides.
+     * @return Availability Zone in which the node resides.
      * 
      */
     private @Nullable String availabilityZone;
     /**
-     * @return The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
+     * @return Date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
      * 
      */
     private @Nullable String createTime;
@@ -32,14 +32,14 @@ public final class ClusterShardNode {
 
     private ClusterShardNode() {}
     /**
-     * @return The Availability Zone in which the node resides.
+     * @return Availability Zone in which the node resides.
      * 
      */
     public Optional<String> availabilityZone() {
         return Optional.ofNullable(this.availabilityZone);
     }
     /**
-     * @return The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
+     * @return Date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
      * 
      */
     public Optional<String> createTime() {

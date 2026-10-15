@@ -22,11 +22,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string? DefaultReturnUrl;
         /// <summary>
-        /// OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
+        /// OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access), `TOKEN_EXCHANGE` (on-behalf-of token exchange).
         /// </summary>
         public readonly string? GrantType;
         /// <summary>
-        /// ARN of the Oauth credential provider for OAuth authentication.
+        /// ARN of the OAuth credential provider.
         /// </summary>
         public readonly string ProviderArn;
         /// <summary>

@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationInlineCodeGetArgs>? InlineCode { get; set; }
 
         /// <summary>
-        /// Configurations for an input flow node in your flow. The node `Inputs` can't be specified for this node. This block has no arguments.
+        /// Configurations for an input flow node in your flow. The `definition.node.input` block can't be specified for this node. This block has no arguments.
         /// </summary>
         [Input("input")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationInputGetArgs>? Input { get; set; }
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationIteratorGetArgs>? Iterator { get; set; }
 
         /// <summary>
-        /// Configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See `definition.node.configuration.knowledge_base` Block for details.
+        /// Configurations for a knowledge base node in your flow. Queries a knowledge base and returns a response generated from the retrieved results. See `definition.node.configuration.knowledge_base` Block for details.
         /// </summary>
         [Input("knowledgeBase")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationKnowledgeBaseGetArgs>? KnowledgeBase { get; set; }
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationLexGetArgs>? Lex { get; set; }
 
         /// <summary>
-        /// Configurations for an output flow node in your flow. The node `Outputs` can't be specified for this node. This block has no arguments.
+        /// Configurations for an output flow node in your flow. The `definition.node.output` block can't be specified for this node. This block has no arguments.
         /// </summary>
         [Input("output")]
         public Input<Inputs.AgentFlowDefinitionNodeConfigurationOutputGetArgs>? Output { get; set; }

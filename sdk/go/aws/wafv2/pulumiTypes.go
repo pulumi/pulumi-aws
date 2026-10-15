@@ -225,6 +225,479 @@ func (o RuleGroupCustomResponseBodyArrayOutput) Index(i pulumi.IntInput) RuleGro
 	}).(RuleGroupCustomResponseBodyOutput)
 }
 
+type RuleGroupMonetizationConfig struct {
+	// Cryptocurrency payment configuration for the rule group. See `cryptoConfig` below for details.
+	CryptoConfig *RuleGroupMonetizationConfigCryptoConfig `pulumi:"cryptoConfig"`
+	// Currency mode for monetized requests. Valid values are `TEST` and `REAL`. Defaults to `REAL`.
+	CurrencyMode *string `pulumi:"currencyMode"`
+}
+
+// RuleGroupMonetizationConfigInput is an input type that accepts RuleGroupMonetizationConfigArgs and RuleGroupMonetizationConfigOutput values.
+// You can construct a concrete instance of `RuleGroupMonetizationConfigInput` via:
+//
+//	RuleGroupMonetizationConfigArgs{...}
+type RuleGroupMonetizationConfigInput interface {
+	pulumi.Input
+
+	ToRuleGroupMonetizationConfigOutput() RuleGroupMonetizationConfigOutput
+	ToRuleGroupMonetizationConfigOutputWithContext(context.Context) RuleGroupMonetizationConfigOutput
+}
+
+type RuleGroupMonetizationConfigArgs struct {
+	// Cryptocurrency payment configuration for the rule group. See `cryptoConfig` below for details.
+	CryptoConfig RuleGroupMonetizationConfigCryptoConfigPtrInput `pulumi:"cryptoConfig"`
+	// Currency mode for monetized requests. Valid values are `TEST` and `REAL`. Defaults to `REAL`.
+	CurrencyMode pulumi.StringPtrInput `pulumi:"currencyMode"`
+}
+
+func (RuleGroupMonetizationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupMonetizationConfig)(nil)).Elem()
+}
+
+func (i RuleGroupMonetizationConfigArgs) ToRuleGroupMonetizationConfigOutput() RuleGroupMonetizationConfigOutput {
+	return i.ToRuleGroupMonetizationConfigOutputWithContext(context.Background())
+}
+
+func (i RuleGroupMonetizationConfigArgs) ToRuleGroupMonetizationConfigOutputWithContext(ctx context.Context) RuleGroupMonetizationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupMonetizationConfigOutput)
+}
+
+func (i RuleGroupMonetizationConfigArgs) ToRuleGroupMonetizationConfigPtrOutput() RuleGroupMonetizationConfigPtrOutput {
+	return i.ToRuleGroupMonetizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupMonetizationConfigArgs) ToRuleGroupMonetizationConfigPtrOutputWithContext(ctx context.Context) RuleGroupMonetizationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupMonetizationConfigOutput).ToRuleGroupMonetizationConfigPtrOutputWithContext(ctx)
+}
+
+// RuleGroupMonetizationConfigPtrInput is an input type that accepts RuleGroupMonetizationConfigArgs, RuleGroupMonetizationConfigPtr and RuleGroupMonetizationConfigPtrOutput values.
+// You can construct a concrete instance of `RuleGroupMonetizationConfigPtrInput` via:
+//
+//	        RuleGroupMonetizationConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleGroupMonetizationConfigPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupMonetizationConfigPtrOutput() RuleGroupMonetizationConfigPtrOutput
+	ToRuleGroupMonetizationConfigPtrOutputWithContext(context.Context) RuleGroupMonetizationConfigPtrOutput
+}
+
+type ruleGroupMonetizationConfigPtrType RuleGroupMonetizationConfigArgs
+
+func RuleGroupMonetizationConfigPtr(v *RuleGroupMonetizationConfigArgs) RuleGroupMonetizationConfigPtrInput {
+	return (*ruleGroupMonetizationConfigPtrType)(v)
+}
+
+func (*ruleGroupMonetizationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupMonetizationConfig)(nil)).Elem()
+}
+
+func (i *ruleGroupMonetizationConfigPtrType) ToRuleGroupMonetizationConfigPtrOutput() RuleGroupMonetizationConfigPtrOutput {
+	return i.ToRuleGroupMonetizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupMonetizationConfigPtrType) ToRuleGroupMonetizationConfigPtrOutputWithContext(ctx context.Context) RuleGroupMonetizationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupMonetizationConfigPtrOutput)
+}
+
+type RuleGroupMonetizationConfigOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupMonetizationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupMonetizationConfig)(nil)).Elem()
+}
+
+func (o RuleGroupMonetizationConfigOutput) ToRuleGroupMonetizationConfigOutput() RuleGroupMonetizationConfigOutput {
+	return o
+}
+
+func (o RuleGroupMonetizationConfigOutput) ToRuleGroupMonetizationConfigOutputWithContext(ctx context.Context) RuleGroupMonetizationConfigOutput {
+	return o
+}
+
+func (o RuleGroupMonetizationConfigOutput) ToRuleGroupMonetizationConfigPtrOutput() RuleGroupMonetizationConfigPtrOutput {
+	return o.ToRuleGroupMonetizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupMonetizationConfigOutput) ToRuleGroupMonetizationConfigPtrOutputWithContext(ctx context.Context) RuleGroupMonetizationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupMonetizationConfig) *RuleGroupMonetizationConfig {
+		return &v
+	}).(RuleGroupMonetizationConfigPtrOutput)
+}
+
+// Cryptocurrency payment configuration for the rule group. See `cryptoConfig` below for details.
+func (o RuleGroupMonetizationConfigOutput) CryptoConfig() RuleGroupMonetizationConfigCryptoConfigPtrOutput {
+	return o.ApplyT(func(v RuleGroupMonetizationConfig) *RuleGroupMonetizationConfigCryptoConfig { return v.CryptoConfig }).(RuleGroupMonetizationConfigCryptoConfigPtrOutput)
+}
+
+// Currency mode for monetized requests. Valid values are `TEST` and `REAL`. Defaults to `REAL`.
+func (o RuleGroupMonetizationConfigOutput) CurrencyMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleGroupMonetizationConfig) *string { return v.CurrencyMode }).(pulumi.StringPtrOutput)
+}
+
+type RuleGroupMonetizationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupMonetizationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupMonetizationConfig)(nil)).Elem()
+}
+
+func (o RuleGroupMonetizationConfigPtrOutput) ToRuleGroupMonetizationConfigPtrOutput() RuleGroupMonetizationConfigPtrOutput {
+	return o
+}
+
+func (o RuleGroupMonetizationConfigPtrOutput) ToRuleGroupMonetizationConfigPtrOutputWithContext(ctx context.Context) RuleGroupMonetizationConfigPtrOutput {
+	return o
+}
+
+func (o RuleGroupMonetizationConfigPtrOutput) Elem() RuleGroupMonetizationConfigOutput {
+	return o.ApplyT(func(v *RuleGroupMonetizationConfig) RuleGroupMonetizationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupMonetizationConfig
+		return ret
+	}).(RuleGroupMonetizationConfigOutput)
+}
+
+// Cryptocurrency payment configuration for the rule group. See `cryptoConfig` below for details.
+func (o RuleGroupMonetizationConfigPtrOutput) CryptoConfig() RuleGroupMonetizationConfigCryptoConfigPtrOutput {
+	return o.ApplyT(func(v *RuleGroupMonetizationConfig) *RuleGroupMonetizationConfigCryptoConfig {
+		if v == nil {
+			return nil
+		}
+		return v.CryptoConfig
+	}).(RuleGroupMonetizationConfigCryptoConfigPtrOutput)
+}
+
+// Currency mode for monetized requests. Valid values are `TEST` and `REAL`. Defaults to `REAL`.
+func (o RuleGroupMonetizationConfigPtrOutput) CurrencyMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleGroupMonetizationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CurrencyMode
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleGroupMonetizationConfigCryptoConfig struct {
+	// Blockchain payment networks configured to receive payments. You can specify 1 to 2 networks. See `paymentNetwork` below for details.
+	PaymentNetworks []RuleGroupMonetizationConfigCryptoConfigPaymentNetwork `pulumi:"paymentNetworks"`
+}
+
+// RuleGroupMonetizationConfigCryptoConfigInput is an input type that accepts RuleGroupMonetizationConfigCryptoConfigArgs and RuleGroupMonetizationConfigCryptoConfigOutput values.
+// You can construct a concrete instance of `RuleGroupMonetizationConfigCryptoConfigInput` via:
+//
+//	RuleGroupMonetizationConfigCryptoConfigArgs{...}
+type RuleGroupMonetizationConfigCryptoConfigInput interface {
+	pulumi.Input
+
+	ToRuleGroupMonetizationConfigCryptoConfigOutput() RuleGroupMonetizationConfigCryptoConfigOutput
+	ToRuleGroupMonetizationConfigCryptoConfigOutputWithContext(context.Context) RuleGroupMonetizationConfigCryptoConfigOutput
+}
+
+type RuleGroupMonetizationConfigCryptoConfigArgs struct {
+	// Blockchain payment networks configured to receive payments. You can specify 1 to 2 networks. See `paymentNetwork` below for details.
+	PaymentNetworks RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArrayInput `pulumi:"paymentNetworks"`
+}
+
+func (RuleGroupMonetizationConfigCryptoConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupMonetizationConfigCryptoConfig)(nil)).Elem()
+}
+
+func (i RuleGroupMonetizationConfigCryptoConfigArgs) ToRuleGroupMonetizationConfigCryptoConfigOutput() RuleGroupMonetizationConfigCryptoConfigOutput {
+	return i.ToRuleGroupMonetizationConfigCryptoConfigOutputWithContext(context.Background())
+}
+
+func (i RuleGroupMonetizationConfigCryptoConfigArgs) ToRuleGroupMonetizationConfigCryptoConfigOutputWithContext(ctx context.Context) RuleGroupMonetizationConfigCryptoConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupMonetizationConfigCryptoConfigOutput)
+}
+
+func (i RuleGroupMonetizationConfigCryptoConfigArgs) ToRuleGroupMonetizationConfigCryptoConfigPtrOutput() RuleGroupMonetizationConfigCryptoConfigPtrOutput {
+	return i.ToRuleGroupMonetizationConfigCryptoConfigPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupMonetizationConfigCryptoConfigArgs) ToRuleGroupMonetizationConfigCryptoConfigPtrOutputWithContext(ctx context.Context) RuleGroupMonetizationConfigCryptoConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupMonetizationConfigCryptoConfigOutput).ToRuleGroupMonetizationConfigCryptoConfigPtrOutputWithContext(ctx)
+}
+
+// RuleGroupMonetizationConfigCryptoConfigPtrInput is an input type that accepts RuleGroupMonetizationConfigCryptoConfigArgs, RuleGroupMonetizationConfigCryptoConfigPtr and RuleGroupMonetizationConfigCryptoConfigPtrOutput values.
+// You can construct a concrete instance of `RuleGroupMonetizationConfigCryptoConfigPtrInput` via:
+//
+//	        RuleGroupMonetizationConfigCryptoConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleGroupMonetizationConfigCryptoConfigPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupMonetizationConfigCryptoConfigPtrOutput() RuleGroupMonetizationConfigCryptoConfigPtrOutput
+	ToRuleGroupMonetizationConfigCryptoConfigPtrOutputWithContext(context.Context) RuleGroupMonetizationConfigCryptoConfigPtrOutput
+}
+
+type ruleGroupMonetizationConfigCryptoConfigPtrType RuleGroupMonetizationConfigCryptoConfigArgs
+
+func RuleGroupMonetizationConfigCryptoConfigPtr(v *RuleGroupMonetizationConfigCryptoConfigArgs) RuleGroupMonetizationConfigCryptoConfigPtrInput {
+	return (*ruleGroupMonetizationConfigCryptoConfigPtrType)(v)
+}
+
+func (*ruleGroupMonetizationConfigCryptoConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupMonetizationConfigCryptoConfig)(nil)).Elem()
+}
+
+func (i *ruleGroupMonetizationConfigCryptoConfigPtrType) ToRuleGroupMonetizationConfigCryptoConfigPtrOutput() RuleGroupMonetizationConfigCryptoConfigPtrOutput {
+	return i.ToRuleGroupMonetizationConfigCryptoConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupMonetizationConfigCryptoConfigPtrType) ToRuleGroupMonetizationConfigCryptoConfigPtrOutputWithContext(ctx context.Context) RuleGroupMonetizationConfigCryptoConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupMonetizationConfigCryptoConfigPtrOutput)
+}
+
+type RuleGroupMonetizationConfigCryptoConfigOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupMonetizationConfigCryptoConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupMonetizationConfigCryptoConfig)(nil)).Elem()
+}
+
+func (o RuleGroupMonetizationConfigCryptoConfigOutput) ToRuleGroupMonetizationConfigCryptoConfigOutput() RuleGroupMonetizationConfigCryptoConfigOutput {
+	return o
+}
+
+func (o RuleGroupMonetizationConfigCryptoConfigOutput) ToRuleGroupMonetizationConfigCryptoConfigOutputWithContext(ctx context.Context) RuleGroupMonetizationConfigCryptoConfigOutput {
+	return o
+}
+
+func (o RuleGroupMonetizationConfigCryptoConfigOutput) ToRuleGroupMonetizationConfigCryptoConfigPtrOutput() RuleGroupMonetizationConfigCryptoConfigPtrOutput {
+	return o.ToRuleGroupMonetizationConfigCryptoConfigPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupMonetizationConfigCryptoConfigOutput) ToRuleGroupMonetizationConfigCryptoConfigPtrOutputWithContext(ctx context.Context) RuleGroupMonetizationConfigCryptoConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupMonetizationConfigCryptoConfig) *RuleGroupMonetizationConfigCryptoConfig {
+		return &v
+	}).(RuleGroupMonetizationConfigCryptoConfigPtrOutput)
+}
+
+// Blockchain payment networks configured to receive payments. You can specify 1 to 2 networks. See `paymentNetwork` below for details.
+func (o RuleGroupMonetizationConfigCryptoConfigOutput) PaymentNetworks() RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArrayOutput {
+	return o.ApplyT(func(v RuleGroupMonetizationConfigCryptoConfig) []RuleGroupMonetizationConfigCryptoConfigPaymentNetwork {
+		return v.PaymentNetworks
+	}).(RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArrayOutput)
+}
+
+type RuleGroupMonetizationConfigCryptoConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupMonetizationConfigCryptoConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupMonetizationConfigCryptoConfig)(nil)).Elem()
+}
+
+func (o RuleGroupMonetizationConfigCryptoConfigPtrOutput) ToRuleGroupMonetizationConfigCryptoConfigPtrOutput() RuleGroupMonetizationConfigCryptoConfigPtrOutput {
+	return o
+}
+
+func (o RuleGroupMonetizationConfigCryptoConfigPtrOutput) ToRuleGroupMonetizationConfigCryptoConfigPtrOutputWithContext(ctx context.Context) RuleGroupMonetizationConfigCryptoConfigPtrOutput {
+	return o
+}
+
+func (o RuleGroupMonetizationConfigCryptoConfigPtrOutput) Elem() RuleGroupMonetizationConfigCryptoConfigOutput {
+	return o.ApplyT(func(v *RuleGroupMonetizationConfigCryptoConfig) RuleGroupMonetizationConfigCryptoConfig {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupMonetizationConfigCryptoConfig
+		return ret
+	}).(RuleGroupMonetizationConfigCryptoConfigOutput)
+}
+
+// Blockchain payment networks configured to receive payments. You can specify 1 to 2 networks. See `paymentNetwork` below for details.
+func (o RuleGroupMonetizationConfigCryptoConfigPtrOutput) PaymentNetworks() RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArrayOutput {
+	return o.ApplyT(func(v *RuleGroupMonetizationConfigCryptoConfig) []RuleGroupMonetizationConfigCryptoConfigPaymentNetwork {
+		if v == nil {
+			return nil
+		}
+		return v.PaymentNetworks
+	}).(RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArrayOutput)
+}
+
+type RuleGroupMonetizationConfigCryptoConfigPaymentNetwork struct {
+	// Blockchain network used for settlement. Valid values are `BASE`, `SOLANA`, `BASE_SEPOLIA`, and `SOLANA_DEVNET`.
+	Chain string `pulumi:"chain"`
+	// Price configuration for this payment network. Currently supports a single price entry. See `prices` below for details.
+	Prices RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPrices `pulumi:"prices"`
+	// Payee wallet address on the specified blockchain that receives payments.
+	WalletAddress string `pulumi:"walletAddress"`
+}
+
+// RuleGroupMonetizationConfigCryptoConfigPaymentNetworkInput is an input type that accepts RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArgs and RuleGroupMonetizationConfigCryptoConfigPaymentNetworkOutput values.
+// You can construct a concrete instance of `RuleGroupMonetizationConfigCryptoConfigPaymentNetworkInput` via:
+//
+//	RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArgs{...}
+type RuleGroupMonetizationConfigCryptoConfigPaymentNetworkInput interface {
+	pulumi.Input
+
+	ToRuleGroupMonetizationConfigCryptoConfigPaymentNetworkOutput() RuleGroupMonetizationConfigCryptoConfigPaymentNetworkOutput
+	ToRuleGroupMonetizationConfigCryptoConfigPaymentNetworkOutputWithContext(context.Context) RuleGroupMonetizationConfigCryptoConfigPaymentNetworkOutput
+}
+
+type RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArgs struct {
+	// Blockchain network used for settlement. Valid values are `BASE`, `SOLANA`, `BASE_SEPOLIA`, and `SOLANA_DEVNET`.
+	Chain pulumi.StringInput `pulumi:"chain"`
+	// Price configuration for this payment network. Currently supports a single price entry. See `prices` below for details.
+	Prices RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesInput `pulumi:"prices"`
+	// Payee wallet address on the specified blockchain that receives payments.
+	WalletAddress pulumi.StringInput `pulumi:"walletAddress"`
+}
+
+func (RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupMonetizationConfigCryptoConfigPaymentNetwork)(nil)).Elem()
+}
+
+func (i RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArgs) ToRuleGroupMonetizationConfigCryptoConfigPaymentNetworkOutput() RuleGroupMonetizationConfigCryptoConfigPaymentNetworkOutput {
+	return i.ToRuleGroupMonetizationConfigCryptoConfigPaymentNetworkOutputWithContext(context.Background())
+}
+
+func (i RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArgs) ToRuleGroupMonetizationConfigCryptoConfigPaymentNetworkOutputWithContext(ctx context.Context) RuleGroupMonetizationConfigCryptoConfigPaymentNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupMonetizationConfigCryptoConfigPaymentNetworkOutput)
+}
+
+// RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArrayInput is an input type that accepts RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArray and RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArrayOutput values.
+// You can construct a concrete instance of `RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArrayInput` via:
+//
+//	RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArray{ RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArgs{...} }
+type RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArrayInput interface {
+	pulumi.Input
+
+	ToRuleGroupMonetizationConfigCryptoConfigPaymentNetworkArrayOutput() RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArrayOutput
+	ToRuleGroupMonetizationConfigCryptoConfigPaymentNetworkArrayOutputWithContext(context.Context) RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArrayOutput
+}
+
+type RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArray []RuleGroupMonetizationConfigCryptoConfigPaymentNetworkInput
+
+func (RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupMonetizationConfigCryptoConfigPaymentNetwork)(nil)).Elem()
+}
+
+func (i RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArray) ToRuleGroupMonetizationConfigCryptoConfigPaymentNetworkArrayOutput() RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArrayOutput {
+	return i.ToRuleGroupMonetizationConfigCryptoConfigPaymentNetworkArrayOutputWithContext(context.Background())
+}
+
+func (i RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArray) ToRuleGroupMonetizationConfigCryptoConfigPaymentNetworkArrayOutputWithContext(ctx context.Context) RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArrayOutput)
+}
+
+type RuleGroupMonetizationConfigCryptoConfigPaymentNetworkOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupMonetizationConfigCryptoConfigPaymentNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupMonetizationConfigCryptoConfigPaymentNetwork)(nil)).Elem()
+}
+
+func (o RuleGroupMonetizationConfigCryptoConfigPaymentNetworkOutput) ToRuleGroupMonetizationConfigCryptoConfigPaymentNetworkOutput() RuleGroupMonetizationConfigCryptoConfigPaymentNetworkOutput {
+	return o
+}
+
+func (o RuleGroupMonetizationConfigCryptoConfigPaymentNetworkOutput) ToRuleGroupMonetizationConfigCryptoConfigPaymentNetworkOutputWithContext(ctx context.Context) RuleGroupMonetizationConfigCryptoConfigPaymentNetworkOutput {
+	return o
+}
+
+// Blockchain network used for settlement. Valid values are `BASE`, `SOLANA`, `BASE_SEPOLIA`, and `SOLANA_DEVNET`.
+func (o RuleGroupMonetizationConfigCryptoConfigPaymentNetworkOutput) Chain() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupMonetizationConfigCryptoConfigPaymentNetwork) string { return v.Chain }).(pulumi.StringOutput)
+}
+
+// Price configuration for this payment network. Currently supports a single price entry. See `prices` below for details.
+func (o RuleGroupMonetizationConfigCryptoConfigPaymentNetworkOutput) Prices() RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesOutput {
+	return o.ApplyT(func(v RuleGroupMonetizationConfigCryptoConfigPaymentNetwork) RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPrices {
+		return v.Prices
+	}).(RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesOutput)
+}
+
+// Payee wallet address on the specified blockchain that receives payments.
+func (o RuleGroupMonetizationConfigCryptoConfigPaymentNetworkOutput) WalletAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupMonetizationConfigCryptoConfigPaymentNetwork) string { return v.WalletAddress }).(pulumi.StringOutput)
+}
+
+type RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupMonetizationConfigCryptoConfigPaymentNetwork)(nil)).Elem()
+}
+
+func (o RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArrayOutput) ToRuleGroupMonetizationConfigCryptoConfigPaymentNetworkArrayOutput() RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArrayOutput {
+	return o
+}
+
+func (o RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArrayOutput) ToRuleGroupMonetizationConfigCryptoConfigPaymentNetworkArrayOutputWithContext(ctx context.Context) RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArrayOutput {
+	return o
+}
+
+func (o RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArrayOutput) Index(i pulumi.IntInput) RuleGroupMonetizationConfigCryptoConfigPaymentNetworkOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleGroupMonetizationConfigCryptoConfigPaymentNetwork {
+		return vs[0].([]RuleGroupMonetizationConfigCryptoConfigPaymentNetwork)[vs[1].(int)]
+	}).(RuleGroupMonetizationConfigCryptoConfigPaymentNetworkOutput)
+}
+
+type RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPrices struct {
+	// Base price amount per request, expressed as a decimal string with up to 3 decimal places. Minimum `0.001`, maximum `999999999.999` (for example, `"0.001"`).
+	Amount string `pulumi:"amount"`
+	// Currency of the price amount. Valid value is `USDC`.
+	Currency string `pulumi:"currency"`
+}
+
+// RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesInput is an input type that accepts RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesArgs and RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesOutput values.
+// You can construct a concrete instance of `RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesInput` via:
+//
+//	RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesArgs{...}
+type RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesInput interface {
+	pulumi.Input
+
+	ToRuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesOutput() RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesOutput
+	ToRuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesOutputWithContext(context.Context) RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesOutput
+}
+
+type RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesArgs struct {
+	// Base price amount per request, expressed as a decimal string with up to 3 decimal places. Minimum `0.001`, maximum `999999999.999` (for example, `"0.001"`).
+	Amount pulumi.StringInput `pulumi:"amount"`
+	// Currency of the price amount. Valid value is `USDC`.
+	Currency pulumi.StringInput `pulumi:"currency"`
+}
+
+func (RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPrices)(nil)).Elem()
+}
+
+func (i RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesArgs) ToRuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesOutput() RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesOutput {
+	return i.ToRuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesOutputWithContext(context.Background())
+}
+
+func (i RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesArgs) ToRuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesOutputWithContext(ctx context.Context) RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesOutput)
+}
+
+type RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPrices)(nil)).Elem()
+}
+
+func (o RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesOutput) ToRuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesOutput() RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesOutput {
+	return o
+}
+
+func (o RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesOutput) ToRuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesOutputWithContext(ctx context.Context) RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesOutput {
+	return o
+}
+
+// Base price amount per request, expressed as a decimal string with up to 3 decimal places. Minimum `0.001`, maximum `999999999.999` (for example, `"0.001"`).
+func (o RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesOutput) Amount() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPrices) string { return v.Amount }).(pulumi.StringOutput)
+}
+
+// Currency of the price amount. Valid value is `USDC`.
+func (o RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesOutput) Currency() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPrices) string { return v.Currency }).(pulumi.StringOutput)
+}
+
 type RuleGroupRule struct {
 	// Action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the `wafv2.WebAcl` level can override the rule action setting. See Action below for details.
 	Action RuleGroupRuleAction `pulumi:"action"`
@@ -387,6 +860,8 @@ type RuleGroupRuleAction struct {
 	Challenge *RuleGroupRuleActionChallenge `pulumi:"challenge"`
 	// Instructs AWS WAF to count the web request and allow it. See Count below for details.
 	Count *RuleGroupRuleActionCount `pulumi:"count"`
+	// Instructs AWS WAF to monetize the web request, charging per request according to the rule group's `monetizationConfig`. See Monetize below for details.
+	Monetize *RuleGroupRuleActionMonetize `pulumi:"monetize"`
 }
 
 // RuleGroupRuleActionInput is an input type that accepts RuleGroupRuleActionArgs and RuleGroupRuleActionOutput values.
@@ -411,6 +886,8 @@ type RuleGroupRuleActionArgs struct {
 	Challenge RuleGroupRuleActionChallengePtrInput `pulumi:"challenge"`
 	// Instructs AWS WAF to count the web request and allow it. See Count below for details.
 	Count RuleGroupRuleActionCountPtrInput `pulumi:"count"`
+	// Instructs AWS WAF to monetize the web request, charging per request according to the rule group's `monetizationConfig`. See Monetize below for details.
+	Monetize RuleGroupRuleActionMonetizePtrInput `pulumi:"monetize"`
 }
 
 func (RuleGroupRuleActionArgs) ElementType() reflect.Type {
@@ -462,6 +939,11 @@ func (o RuleGroupRuleActionOutput) Challenge() RuleGroupRuleActionChallengePtrOu
 // Instructs AWS WAF to count the web request and allow it. See Count below for details.
 func (o RuleGroupRuleActionOutput) Count() RuleGroupRuleActionCountPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleAction) *RuleGroupRuleActionCount { return v.Count }).(RuleGroupRuleActionCountPtrOutput)
+}
+
+// Instructs AWS WAF to monetize the web request, charging per request according to the rule group's `monetizationConfig`. See Monetize below for details.
+func (o RuleGroupRuleActionOutput) Monetize() RuleGroupRuleActionMonetizePtrOutput {
+	return o.ApplyT(func(v RuleGroupRuleAction) *RuleGroupRuleActionMonetize { return v.Monetize }).(RuleGroupRuleActionMonetizePtrOutput)
 }
 
 type RuleGroupRuleActionAllow struct {
@@ -2418,6 +2900,143 @@ func (o RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderArrayOutput) In
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleGroupRuleActionCountCustomRequestHandlingInsertHeader {
 		return vs[0].([]RuleGroupRuleActionCountCustomRequestHandlingInsertHeader)[vs[1].(int)]
 	}).(RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderOutput)
+}
+
+type RuleGroupRuleActionMonetize struct {
+	// Integer multiplier applied to the base price defined in the rule group's `monetizationConfig` when charging for a matching request. Expressed as a string. Valid values are `1` to `100` (for example, `"5"`).
+	PriceMultiplier *string `pulumi:"priceMultiplier"`
+}
+
+// RuleGroupRuleActionMonetizeInput is an input type that accepts RuleGroupRuleActionMonetizeArgs and RuleGroupRuleActionMonetizeOutput values.
+// You can construct a concrete instance of `RuleGroupRuleActionMonetizeInput` via:
+//
+//	RuleGroupRuleActionMonetizeArgs{...}
+type RuleGroupRuleActionMonetizeInput interface {
+	pulumi.Input
+
+	ToRuleGroupRuleActionMonetizeOutput() RuleGroupRuleActionMonetizeOutput
+	ToRuleGroupRuleActionMonetizeOutputWithContext(context.Context) RuleGroupRuleActionMonetizeOutput
+}
+
+type RuleGroupRuleActionMonetizeArgs struct {
+	// Integer multiplier applied to the base price defined in the rule group's `monetizationConfig` when charging for a matching request. Expressed as a string. Valid values are `1` to `100` (for example, `"5"`).
+	PriceMultiplier pulumi.StringPtrInput `pulumi:"priceMultiplier"`
+}
+
+func (RuleGroupRuleActionMonetizeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRuleActionMonetize)(nil)).Elem()
+}
+
+func (i RuleGroupRuleActionMonetizeArgs) ToRuleGroupRuleActionMonetizeOutput() RuleGroupRuleActionMonetizeOutput {
+	return i.ToRuleGroupRuleActionMonetizeOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRuleActionMonetizeArgs) ToRuleGroupRuleActionMonetizeOutputWithContext(ctx context.Context) RuleGroupRuleActionMonetizeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleActionMonetizeOutput)
+}
+
+func (i RuleGroupRuleActionMonetizeArgs) ToRuleGroupRuleActionMonetizePtrOutput() RuleGroupRuleActionMonetizePtrOutput {
+	return i.ToRuleGroupRuleActionMonetizePtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRuleActionMonetizeArgs) ToRuleGroupRuleActionMonetizePtrOutputWithContext(ctx context.Context) RuleGroupRuleActionMonetizePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleActionMonetizeOutput).ToRuleGroupRuleActionMonetizePtrOutputWithContext(ctx)
+}
+
+// RuleGroupRuleActionMonetizePtrInput is an input type that accepts RuleGroupRuleActionMonetizeArgs, RuleGroupRuleActionMonetizePtr and RuleGroupRuleActionMonetizePtrOutput values.
+// You can construct a concrete instance of `RuleGroupRuleActionMonetizePtrInput` via:
+//
+//	        RuleGroupRuleActionMonetizeArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleGroupRuleActionMonetizePtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupRuleActionMonetizePtrOutput() RuleGroupRuleActionMonetizePtrOutput
+	ToRuleGroupRuleActionMonetizePtrOutputWithContext(context.Context) RuleGroupRuleActionMonetizePtrOutput
+}
+
+type ruleGroupRuleActionMonetizePtrType RuleGroupRuleActionMonetizeArgs
+
+func RuleGroupRuleActionMonetizePtr(v *RuleGroupRuleActionMonetizeArgs) RuleGroupRuleActionMonetizePtrInput {
+	return (*ruleGroupRuleActionMonetizePtrType)(v)
+}
+
+func (*ruleGroupRuleActionMonetizePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRuleActionMonetize)(nil)).Elem()
+}
+
+func (i *ruleGroupRuleActionMonetizePtrType) ToRuleGroupRuleActionMonetizePtrOutput() RuleGroupRuleActionMonetizePtrOutput {
+	return i.ToRuleGroupRuleActionMonetizePtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupRuleActionMonetizePtrType) ToRuleGroupRuleActionMonetizePtrOutputWithContext(ctx context.Context) RuleGroupRuleActionMonetizePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleActionMonetizePtrOutput)
+}
+
+type RuleGroupRuleActionMonetizeOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRuleActionMonetizeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRuleActionMonetize)(nil)).Elem()
+}
+
+func (o RuleGroupRuleActionMonetizeOutput) ToRuleGroupRuleActionMonetizeOutput() RuleGroupRuleActionMonetizeOutput {
+	return o
+}
+
+func (o RuleGroupRuleActionMonetizeOutput) ToRuleGroupRuleActionMonetizeOutputWithContext(ctx context.Context) RuleGroupRuleActionMonetizeOutput {
+	return o
+}
+
+func (o RuleGroupRuleActionMonetizeOutput) ToRuleGroupRuleActionMonetizePtrOutput() RuleGroupRuleActionMonetizePtrOutput {
+	return o.ToRuleGroupRuleActionMonetizePtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupRuleActionMonetizeOutput) ToRuleGroupRuleActionMonetizePtrOutputWithContext(ctx context.Context) RuleGroupRuleActionMonetizePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRuleActionMonetize) *RuleGroupRuleActionMonetize {
+		return &v
+	}).(RuleGroupRuleActionMonetizePtrOutput)
+}
+
+// Integer multiplier applied to the base price defined in the rule group's `monetizationConfig` when charging for a matching request. Expressed as a string. Valid values are `1` to `100` (for example, `"5"`).
+func (o RuleGroupRuleActionMonetizeOutput) PriceMultiplier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleGroupRuleActionMonetize) *string { return v.PriceMultiplier }).(pulumi.StringPtrOutput)
+}
+
+type RuleGroupRuleActionMonetizePtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRuleActionMonetizePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRuleActionMonetize)(nil)).Elem()
+}
+
+func (o RuleGroupRuleActionMonetizePtrOutput) ToRuleGroupRuleActionMonetizePtrOutput() RuleGroupRuleActionMonetizePtrOutput {
+	return o
+}
+
+func (o RuleGroupRuleActionMonetizePtrOutput) ToRuleGroupRuleActionMonetizePtrOutputWithContext(ctx context.Context) RuleGroupRuleActionMonetizePtrOutput {
+	return o
+}
+
+func (o RuleGroupRuleActionMonetizePtrOutput) Elem() RuleGroupRuleActionMonetizeOutput {
+	return o.ApplyT(func(v *RuleGroupRuleActionMonetize) RuleGroupRuleActionMonetize {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupRuleActionMonetize
+		return ret
+	}).(RuleGroupRuleActionMonetizeOutput)
+}
+
+// Integer multiplier applied to the base price defined in the rule group's `monetizationConfig` when charging for a matching request. Expressed as a string. Valid values are `1` to `100` (for example, `"5"`).
+func (o RuleGroupRuleActionMonetizePtrOutput) PriceMultiplier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleGroupRuleActionMonetize) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PriceMultiplier
+	}).(pulumi.StringPtrOutput)
 }
 
 type RuleGroupRuleCaptchaConfig struct {
@@ -54947,6 +55566,479 @@ func (o WebAclLoggingConfigurationRedactedFieldUriPathPtrOutput) Elem() WebAclLo
 	}).(WebAclLoggingConfigurationRedactedFieldUriPathOutput)
 }
 
+type WebAclMonetizationConfig struct {
+	// Cryptocurrency payment configuration for the web ACL. See `cryptoConfig` below for details.
+	CryptoConfig *WebAclMonetizationConfigCryptoConfig `pulumi:"cryptoConfig"`
+	// Currency mode for monetized requests. Valid values are `TEST` and `REAL`. Defaults to `REAL`.
+	CurrencyMode *string `pulumi:"currencyMode"`
+}
+
+// WebAclMonetizationConfigInput is an input type that accepts WebAclMonetizationConfigArgs and WebAclMonetizationConfigOutput values.
+// You can construct a concrete instance of `WebAclMonetizationConfigInput` via:
+//
+//	WebAclMonetizationConfigArgs{...}
+type WebAclMonetizationConfigInput interface {
+	pulumi.Input
+
+	ToWebAclMonetizationConfigOutput() WebAclMonetizationConfigOutput
+	ToWebAclMonetizationConfigOutputWithContext(context.Context) WebAclMonetizationConfigOutput
+}
+
+type WebAclMonetizationConfigArgs struct {
+	// Cryptocurrency payment configuration for the web ACL. See `cryptoConfig` below for details.
+	CryptoConfig WebAclMonetizationConfigCryptoConfigPtrInput `pulumi:"cryptoConfig"`
+	// Currency mode for monetized requests. Valid values are `TEST` and `REAL`. Defaults to `REAL`.
+	CurrencyMode pulumi.StringPtrInput `pulumi:"currencyMode"`
+}
+
+func (WebAclMonetizationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclMonetizationConfig)(nil)).Elem()
+}
+
+func (i WebAclMonetizationConfigArgs) ToWebAclMonetizationConfigOutput() WebAclMonetizationConfigOutput {
+	return i.ToWebAclMonetizationConfigOutputWithContext(context.Background())
+}
+
+func (i WebAclMonetizationConfigArgs) ToWebAclMonetizationConfigOutputWithContext(ctx context.Context) WebAclMonetizationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclMonetizationConfigOutput)
+}
+
+func (i WebAclMonetizationConfigArgs) ToWebAclMonetizationConfigPtrOutput() WebAclMonetizationConfigPtrOutput {
+	return i.ToWebAclMonetizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclMonetizationConfigArgs) ToWebAclMonetizationConfigPtrOutputWithContext(ctx context.Context) WebAclMonetizationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclMonetizationConfigOutput).ToWebAclMonetizationConfigPtrOutputWithContext(ctx)
+}
+
+// WebAclMonetizationConfigPtrInput is an input type that accepts WebAclMonetizationConfigArgs, WebAclMonetizationConfigPtr and WebAclMonetizationConfigPtrOutput values.
+// You can construct a concrete instance of `WebAclMonetizationConfigPtrInput` via:
+//
+//	        WebAclMonetizationConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclMonetizationConfigPtrInput interface {
+	pulumi.Input
+
+	ToWebAclMonetizationConfigPtrOutput() WebAclMonetizationConfigPtrOutput
+	ToWebAclMonetizationConfigPtrOutputWithContext(context.Context) WebAclMonetizationConfigPtrOutput
+}
+
+type webAclMonetizationConfigPtrType WebAclMonetizationConfigArgs
+
+func WebAclMonetizationConfigPtr(v *WebAclMonetizationConfigArgs) WebAclMonetizationConfigPtrInput {
+	return (*webAclMonetizationConfigPtrType)(v)
+}
+
+func (*webAclMonetizationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclMonetizationConfig)(nil)).Elem()
+}
+
+func (i *webAclMonetizationConfigPtrType) ToWebAclMonetizationConfigPtrOutput() WebAclMonetizationConfigPtrOutput {
+	return i.ToWebAclMonetizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclMonetizationConfigPtrType) ToWebAclMonetizationConfigPtrOutputWithContext(ctx context.Context) WebAclMonetizationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclMonetizationConfigPtrOutput)
+}
+
+type WebAclMonetizationConfigOutput struct{ *pulumi.OutputState }
+
+func (WebAclMonetizationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclMonetizationConfig)(nil)).Elem()
+}
+
+func (o WebAclMonetizationConfigOutput) ToWebAclMonetizationConfigOutput() WebAclMonetizationConfigOutput {
+	return o
+}
+
+func (o WebAclMonetizationConfigOutput) ToWebAclMonetizationConfigOutputWithContext(ctx context.Context) WebAclMonetizationConfigOutput {
+	return o
+}
+
+func (o WebAclMonetizationConfigOutput) ToWebAclMonetizationConfigPtrOutput() WebAclMonetizationConfigPtrOutput {
+	return o.ToWebAclMonetizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclMonetizationConfigOutput) ToWebAclMonetizationConfigPtrOutputWithContext(ctx context.Context) WebAclMonetizationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclMonetizationConfig) *WebAclMonetizationConfig {
+		return &v
+	}).(WebAclMonetizationConfigPtrOutput)
+}
+
+// Cryptocurrency payment configuration for the web ACL. See `cryptoConfig` below for details.
+func (o WebAclMonetizationConfigOutput) CryptoConfig() WebAclMonetizationConfigCryptoConfigPtrOutput {
+	return o.ApplyT(func(v WebAclMonetizationConfig) *WebAclMonetizationConfigCryptoConfig { return v.CryptoConfig }).(WebAclMonetizationConfigCryptoConfigPtrOutput)
+}
+
+// Currency mode for monetized requests. Valid values are `TEST` and `REAL`. Defaults to `REAL`.
+func (o WebAclMonetizationConfigOutput) CurrencyMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAclMonetizationConfig) *string { return v.CurrencyMode }).(pulumi.StringPtrOutput)
+}
+
+type WebAclMonetizationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclMonetizationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclMonetizationConfig)(nil)).Elem()
+}
+
+func (o WebAclMonetizationConfigPtrOutput) ToWebAclMonetizationConfigPtrOutput() WebAclMonetizationConfigPtrOutput {
+	return o
+}
+
+func (o WebAclMonetizationConfigPtrOutput) ToWebAclMonetizationConfigPtrOutputWithContext(ctx context.Context) WebAclMonetizationConfigPtrOutput {
+	return o
+}
+
+func (o WebAclMonetizationConfigPtrOutput) Elem() WebAclMonetizationConfigOutput {
+	return o.ApplyT(func(v *WebAclMonetizationConfig) WebAclMonetizationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclMonetizationConfig
+		return ret
+	}).(WebAclMonetizationConfigOutput)
+}
+
+// Cryptocurrency payment configuration for the web ACL. See `cryptoConfig` below for details.
+func (o WebAclMonetizationConfigPtrOutput) CryptoConfig() WebAclMonetizationConfigCryptoConfigPtrOutput {
+	return o.ApplyT(func(v *WebAclMonetizationConfig) *WebAclMonetizationConfigCryptoConfig {
+		if v == nil {
+			return nil
+		}
+		return v.CryptoConfig
+	}).(WebAclMonetizationConfigCryptoConfigPtrOutput)
+}
+
+// Currency mode for monetized requests. Valid values are `TEST` and `REAL`. Defaults to `REAL`.
+func (o WebAclMonetizationConfigPtrOutput) CurrencyMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAclMonetizationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CurrencyMode
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebAclMonetizationConfigCryptoConfig struct {
+	// Blockchain payment networks configured to receive payments. You can specify 1 to 2 networks. See `paymentNetwork` below for details.
+	PaymentNetworks []WebAclMonetizationConfigCryptoConfigPaymentNetwork `pulumi:"paymentNetworks"`
+}
+
+// WebAclMonetizationConfigCryptoConfigInput is an input type that accepts WebAclMonetizationConfigCryptoConfigArgs and WebAclMonetizationConfigCryptoConfigOutput values.
+// You can construct a concrete instance of `WebAclMonetizationConfigCryptoConfigInput` via:
+//
+//	WebAclMonetizationConfigCryptoConfigArgs{...}
+type WebAclMonetizationConfigCryptoConfigInput interface {
+	pulumi.Input
+
+	ToWebAclMonetizationConfigCryptoConfigOutput() WebAclMonetizationConfigCryptoConfigOutput
+	ToWebAclMonetizationConfigCryptoConfigOutputWithContext(context.Context) WebAclMonetizationConfigCryptoConfigOutput
+}
+
+type WebAclMonetizationConfigCryptoConfigArgs struct {
+	// Blockchain payment networks configured to receive payments. You can specify 1 to 2 networks. See `paymentNetwork` below for details.
+	PaymentNetworks WebAclMonetizationConfigCryptoConfigPaymentNetworkArrayInput `pulumi:"paymentNetworks"`
+}
+
+func (WebAclMonetizationConfigCryptoConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclMonetizationConfigCryptoConfig)(nil)).Elem()
+}
+
+func (i WebAclMonetizationConfigCryptoConfigArgs) ToWebAclMonetizationConfigCryptoConfigOutput() WebAclMonetizationConfigCryptoConfigOutput {
+	return i.ToWebAclMonetizationConfigCryptoConfigOutputWithContext(context.Background())
+}
+
+func (i WebAclMonetizationConfigCryptoConfigArgs) ToWebAclMonetizationConfigCryptoConfigOutputWithContext(ctx context.Context) WebAclMonetizationConfigCryptoConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclMonetizationConfigCryptoConfigOutput)
+}
+
+func (i WebAclMonetizationConfigCryptoConfigArgs) ToWebAclMonetizationConfigCryptoConfigPtrOutput() WebAclMonetizationConfigCryptoConfigPtrOutput {
+	return i.ToWebAclMonetizationConfigCryptoConfigPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclMonetizationConfigCryptoConfigArgs) ToWebAclMonetizationConfigCryptoConfigPtrOutputWithContext(ctx context.Context) WebAclMonetizationConfigCryptoConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclMonetizationConfigCryptoConfigOutput).ToWebAclMonetizationConfigCryptoConfigPtrOutputWithContext(ctx)
+}
+
+// WebAclMonetizationConfigCryptoConfigPtrInput is an input type that accepts WebAclMonetizationConfigCryptoConfigArgs, WebAclMonetizationConfigCryptoConfigPtr and WebAclMonetizationConfigCryptoConfigPtrOutput values.
+// You can construct a concrete instance of `WebAclMonetizationConfigCryptoConfigPtrInput` via:
+//
+//	        WebAclMonetizationConfigCryptoConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclMonetizationConfigCryptoConfigPtrInput interface {
+	pulumi.Input
+
+	ToWebAclMonetizationConfigCryptoConfigPtrOutput() WebAclMonetizationConfigCryptoConfigPtrOutput
+	ToWebAclMonetizationConfigCryptoConfigPtrOutputWithContext(context.Context) WebAclMonetizationConfigCryptoConfigPtrOutput
+}
+
+type webAclMonetizationConfigCryptoConfigPtrType WebAclMonetizationConfigCryptoConfigArgs
+
+func WebAclMonetizationConfigCryptoConfigPtr(v *WebAclMonetizationConfigCryptoConfigArgs) WebAclMonetizationConfigCryptoConfigPtrInput {
+	return (*webAclMonetizationConfigCryptoConfigPtrType)(v)
+}
+
+func (*webAclMonetizationConfigCryptoConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclMonetizationConfigCryptoConfig)(nil)).Elem()
+}
+
+func (i *webAclMonetizationConfigCryptoConfigPtrType) ToWebAclMonetizationConfigCryptoConfigPtrOutput() WebAclMonetizationConfigCryptoConfigPtrOutput {
+	return i.ToWebAclMonetizationConfigCryptoConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclMonetizationConfigCryptoConfigPtrType) ToWebAclMonetizationConfigCryptoConfigPtrOutputWithContext(ctx context.Context) WebAclMonetizationConfigCryptoConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclMonetizationConfigCryptoConfigPtrOutput)
+}
+
+type WebAclMonetizationConfigCryptoConfigOutput struct{ *pulumi.OutputState }
+
+func (WebAclMonetizationConfigCryptoConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclMonetizationConfigCryptoConfig)(nil)).Elem()
+}
+
+func (o WebAclMonetizationConfigCryptoConfigOutput) ToWebAclMonetizationConfigCryptoConfigOutput() WebAclMonetizationConfigCryptoConfigOutput {
+	return o
+}
+
+func (o WebAclMonetizationConfigCryptoConfigOutput) ToWebAclMonetizationConfigCryptoConfigOutputWithContext(ctx context.Context) WebAclMonetizationConfigCryptoConfigOutput {
+	return o
+}
+
+func (o WebAclMonetizationConfigCryptoConfigOutput) ToWebAclMonetizationConfigCryptoConfigPtrOutput() WebAclMonetizationConfigCryptoConfigPtrOutput {
+	return o.ToWebAclMonetizationConfigCryptoConfigPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclMonetizationConfigCryptoConfigOutput) ToWebAclMonetizationConfigCryptoConfigPtrOutputWithContext(ctx context.Context) WebAclMonetizationConfigCryptoConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclMonetizationConfigCryptoConfig) *WebAclMonetizationConfigCryptoConfig {
+		return &v
+	}).(WebAclMonetizationConfigCryptoConfigPtrOutput)
+}
+
+// Blockchain payment networks configured to receive payments. You can specify 1 to 2 networks. See `paymentNetwork` below for details.
+func (o WebAclMonetizationConfigCryptoConfigOutput) PaymentNetworks() WebAclMonetizationConfigCryptoConfigPaymentNetworkArrayOutput {
+	return o.ApplyT(func(v WebAclMonetizationConfigCryptoConfig) []WebAclMonetizationConfigCryptoConfigPaymentNetwork {
+		return v.PaymentNetworks
+	}).(WebAclMonetizationConfigCryptoConfigPaymentNetworkArrayOutput)
+}
+
+type WebAclMonetizationConfigCryptoConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclMonetizationConfigCryptoConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclMonetizationConfigCryptoConfig)(nil)).Elem()
+}
+
+func (o WebAclMonetizationConfigCryptoConfigPtrOutput) ToWebAclMonetizationConfigCryptoConfigPtrOutput() WebAclMonetizationConfigCryptoConfigPtrOutput {
+	return o
+}
+
+func (o WebAclMonetizationConfigCryptoConfigPtrOutput) ToWebAclMonetizationConfigCryptoConfigPtrOutputWithContext(ctx context.Context) WebAclMonetizationConfigCryptoConfigPtrOutput {
+	return o
+}
+
+func (o WebAclMonetizationConfigCryptoConfigPtrOutput) Elem() WebAclMonetizationConfigCryptoConfigOutput {
+	return o.ApplyT(func(v *WebAclMonetizationConfigCryptoConfig) WebAclMonetizationConfigCryptoConfig {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclMonetizationConfigCryptoConfig
+		return ret
+	}).(WebAclMonetizationConfigCryptoConfigOutput)
+}
+
+// Blockchain payment networks configured to receive payments. You can specify 1 to 2 networks. See `paymentNetwork` below for details.
+func (o WebAclMonetizationConfigCryptoConfigPtrOutput) PaymentNetworks() WebAclMonetizationConfigCryptoConfigPaymentNetworkArrayOutput {
+	return o.ApplyT(func(v *WebAclMonetizationConfigCryptoConfig) []WebAclMonetizationConfigCryptoConfigPaymentNetwork {
+		if v == nil {
+			return nil
+		}
+		return v.PaymentNetworks
+	}).(WebAclMonetizationConfigCryptoConfigPaymentNetworkArrayOutput)
+}
+
+type WebAclMonetizationConfigCryptoConfigPaymentNetwork struct {
+	// Blockchain network used for settlement. Valid values are `BASE`, `SOLANA`, `BASE_SEPOLIA`, and `SOLANA_DEVNET`.
+	Chain string `pulumi:"chain"`
+	// Price configuration for this payment network. Currently supports a single price entry. See `prices` below for details.
+	Prices WebAclMonetizationConfigCryptoConfigPaymentNetworkPrices `pulumi:"prices"`
+	// Payee wallet address on the specified blockchain that receives payments.
+	WalletAddress string `pulumi:"walletAddress"`
+}
+
+// WebAclMonetizationConfigCryptoConfigPaymentNetworkInput is an input type that accepts WebAclMonetizationConfigCryptoConfigPaymentNetworkArgs and WebAclMonetizationConfigCryptoConfigPaymentNetworkOutput values.
+// You can construct a concrete instance of `WebAclMonetizationConfigCryptoConfigPaymentNetworkInput` via:
+//
+//	WebAclMonetizationConfigCryptoConfigPaymentNetworkArgs{...}
+type WebAclMonetizationConfigCryptoConfigPaymentNetworkInput interface {
+	pulumi.Input
+
+	ToWebAclMonetizationConfigCryptoConfigPaymentNetworkOutput() WebAclMonetizationConfigCryptoConfigPaymentNetworkOutput
+	ToWebAclMonetizationConfigCryptoConfigPaymentNetworkOutputWithContext(context.Context) WebAclMonetizationConfigCryptoConfigPaymentNetworkOutput
+}
+
+type WebAclMonetizationConfigCryptoConfigPaymentNetworkArgs struct {
+	// Blockchain network used for settlement. Valid values are `BASE`, `SOLANA`, `BASE_SEPOLIA`, and `SOLANA_DEVNET`.
+	Chain pulumi.StringInput `pulumi:"chain"`
+	// Price configuration for this payment network. Currently supports a single price entry. See `prices` below for details.
+	Prices WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesInput `pulumi:"prices"`
+	// Payee wallet address on the specified blockchain that receives payments.
+	WalletAddress pulumi.StringInput `pulumi:"walletAddress"`
+}
+
+func (WebAclMonetizationConfigCryptoConfigPaymentNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclMonetizationConfigCryptoConfigPaymentNetwork)(nil)).Elem()
+}
+
+func (i WebAclMonetizationConfigCryptoConfigPaymentNetworkArgs) ToWebAclMonetizationConfigCryptoConfigPaymentNetworkOutput() WebAclMonetizationConfigCryptoConfigPaymentNetworkOutput {
+	return i.ToWebAclMonetizationConfigCryptoConfigPaymentNetworkOutputWithContext(context.Background())
+}
+
+func (i WebAclMonetizationConfigCryptoConfigPaymentNetworkArgs) ToWebAclMonetizationConfigCryptoConfigPaymentNetworkOutputWithContext(ctx context.Context) WebAclMonetizationConfigCryptoConfigPaymentNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclMonetizationConfigCryptoConfigPaymentNetworkOutput)
+}
+
+// WebAclMonetizationConfigCryptoConfigPaymentNetworkArrayInput is an input type that accepts WebAclMonetizationConfigCryptoConfigPaymentNetworkArray and WebAclMonetizationConfigCryptoConfigPaymentNetworkArrayOutput values.
+// You can construct a concrete instance of `WebAclMonetizationConfigCryptoConfigPaymentNetworkArrayInput` via:
+//
+//	WebAclMonetizationConfigCryptoConfigPaymentNetworkArray{ WebAclMonetizationConfigCryptoConfigPaymentNetworkArgs{...} }
+type WebAclMonetizationConfigCryptoConfigPaymentNetworkArrayInput interface {
+	pulumi.Input
+
+	ToWebAclMonetizationConfigCryptoConfigPaymentNetworkArrayOutput() WebAclMonetizationConfigCryptoConfigPaymentNetworkArrayOutput
+	ToWebAclMonetizationConfigCryptoConfigPaymentNetworkArrayOutputWithContext(context.Context) WebAclMonetizationConfigCryptoConfigPaymentNetworkArrayOutput
+}
+
+type WebAclMonetizationConfigCryptoConfigPaymentNetworkArray []WebAclMonetizationConfigCryptoConfigPaymentNetworkInput
+
+func (WebAclMonetizationConfigCryptoConfigPaymentNetworkArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebAclMonetizationConfigCryptoConfigPaymentNetwork)(nil)).Elem()
+}
+
+func (i WebAclMonetizationConfigCryptoConfigPaymentNetworkArray) ToWebAclMonetizationConfigCryptoConfigPaymentNetworkArrayOutput() WebAclMonetizationConfigCryptoConfigPaymentNetworkArrayOutput {
+	return i.ToWebAclMonetizationConfigCryptoConfigPaymentNetworkArrayOutputWithContext(context.Background())
+}
+
+func (i WebAclMonetizationConfigCryptoConfigPaymentNetworkArray) ToWebAclMonetizationConfigCryptoConfigPaymentNetworkArrayOutputWithContext(ctx context.Context) WebAclMonetizationConfigCryptoConfigPaymentNetworkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclMonetizationConfigCryptoConfigPaymentNetworkArrayOutput)
+}
+
+type WebAclMonetizationConfigCryptoConfigPaymentNetworkOutput struct{ *pulumi.OutputState }
+
+func (WebAclMonetizationConfigCryptoConfigPaymentNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclMonetizationConfigCryptoConfigPaymentNetwork)(nil)).Elem()
+}
+
+func (o WebAclMonetizationConfigCryptoConfigPaymentNetworkOutput) ToWebAclMonetizationConfigCryptoConfigPaymentNetworkOutput() WebAclMonetizationConfigCryptoConfigPaymentNetworkOutput {
+	return o
+}
+
+func (o WebAclMonetizationConfigCryptoConfigPaymentNetworkOutput) ToWebAclMonetizationConfigCryptoConfigPaymentNetworkOutputWithContext(ctx context.Context) WebAclMonetizationConfigCryptoConfigPaymentNetworkOutput {
+	return o
+}
+
+// Blockchain network used for settlement. Valid values are `BASE`, `SOLANA`, `BASE_SEPOLIA`, and `SOLANA_DEVNET`.
+func (o WebAclMonetizationConfigCryptoConfigPaymentNetworkOutput) Chain() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclMonetizationConfigCryptoConfigPaymentNetwork) string { return v.Chain }).(pulumi.StringOutput)
+}
+
+// Price configuration for this payment network. Currently supports a single price entry. See `prices` below for details.
+func (o WebAclMonetizationConfigCryptoConfigPaymentNetworkOutput) Prices() WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesOutput {
+	return o.ApplyT(func(v WebAclMonetizationConfigCryptoConfigPaymentNetwork) WebAclMonetizationConfigCryptoConfigPaymentNetworkPrices {
+		return v.Prices
+	}).(WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesOutput)
+}
+
+// Payee wallet address on the specified blockchain that receives payments.
+func (o WebAclMonetizationConfigCryptoConfigPaymentNetworkOutput) WalletAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclMonetizationConfigCryptoConfigPaymentNetwork) string { return v.WalletAddress }).(pulumi.StringOutput)
+}
+
+type WebAclMonetizationConfigCryptoConfigPaymentNetworkArrayOutput struct{ *pulumi.OutputState }
+
+func (WebAclMonetizationConfigCryptoConfigPaymentNetworkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebAclMonetizationConfigCryptoConfigPaymentNetwork)(nil)).Elem()
+}
+
+func (o WebAclMonetizationConfigCryptoConfigPaymentNetworkArrayOutput) ToWebAclMonetizationConfigCryptoConfigPaymentNetworkArrayOutput() WebAclMonetizationConfigCryptoConfigPaymentNetworkArrayOutput {
+	return o
+}
+
+func (o WebAclMonetizationConfigCryptoConfigPaymentNetworkArrayOutput) ToWebAclMonetizationConfigCryptoConfigPaymentNetworkArrayOutputWithContext(ctx context.Context) WebAclMonetizationConfigCryptoConfigPaymentNetworkArrayOutput {
+	return o
+}
+
+func (o WebAclMonetizationConfigCryptoConfigPaymentNetworkArrayOutput) Index(i pulumi.IntInput) WebAclMonetizationConfigCryptoConfigPaymentNetworkOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebAclMonetizationConfigCryptoConfigPaymentNetwork {
+		return vs[0].([]WebAclMonetizationConfigCryptoConfigPaymentNetwork)[vs[1].(int)]
+	}).(WebAclMonetizationConfigCryptoConfigPaymentNetworkOutput)
+}
+
+type WebAclMonetizationConfigCryptoConfigPaymentNetworkPrices struct {
+	// Base price amount per request, expressed as a decimal string with up to 3 decimal places. Minimum `0.001`, maximum `999999999.999` (for example, `"0.001"`).
+	Amount string `pulumi:"amount"`
+	// Currency of the price amount. Valid value is `USDC`.
+	Currency string `pulumi:"currency"`
+}
+
+// WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesInput is an input type that accepts WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesArgs and WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesOutput values.
+// You can construct a concrete instance of `WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesInput` via:
+//
+//	WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesArgs{...}
+type WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesInput interface {
+	pulumi.Input
+
+	ToWebAclMonetizationConfigCryptoConfigPaymentNetworkPricesOutput() WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesOutput
+	ToWebAclMonetizationConfigCryptoConfigPaymentNetworkPricesOutputWithContext(context.Context) WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesOutput
+}
+
+type WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesArgs struct {
+	// Base price amount per request, expressed as a decimal string with up to 3 decimal places. Minimum `0.001`, maximum `999999999.999` (for example, `"0.001"`).
+	Amount pulumi.StringInput `pulumi:"amount"`
+	// Currency of the price amount. Valid value is `USDC`.
+	Currency pulumi.StringInput `pulumi:"currency"`
+}
+
+func (WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclMonetizationConfigCryptoConfigPaymentNetworkPrices)(nil)).Elem()
+}
+
+func (i WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesArgs) ToWebAclMonetizationConfigCryptoConfigPaymentNetworkPricesOutput() WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesOutput {
+	return i.ToWebAclMonetizationConfigCryptoConfigPaymentNetworkPricesOutputWithContext(context.Background())
+}
+
+func (i WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesArgs) ToWebAclMonetizationConfigCryptoConfigPaymentNetworkPricesOutputWithContext(ctx context.Context) WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesOutput)
+}
+
+type WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesOutput struct{ *pulumi.OutputState }
+
+func (WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclMonetizationConfigCryptoConfigPaymentNetworkPrices)(nil)).Elem()
+}
+
+func (o WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesOutput) ToWebAclMonetizationConfigCryptoConfigPaymentNetworkPricesOutput() WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesOutput {
+	return o
+}
+
+func (o WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesOutput) ToWebAclMonetizationConfigCryptoConfigPaymentNetworkPricesOutputWithContext(ctx context.Context) WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesOutput {
+	return o
+}
+
+// Base price amount per request, expressed as a decimal string with up to 3 decimal places. Minimum `0.001`, maximum `999999999.999` (for example, `"0.001"`).
+func (o WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesOutput) Amount() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclMonetizationConfigCryptoConfigPaymentNetworkPrices) string { return v.Amount }).(pulumi.StringOutput)
+}
+
+// Currency of the price amount. Valid value is `USDC`.
+func (o WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesOutput) Currency() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclMonetizationConfigCryptoConfigPaymentNetworkPrices) string { return v.Currency }).(pulumi.StringOutput)
+}
+
 type WebAclRuleType struct {
 	// Action that AWS WAF should take on a web request when it matches the rule's statement. This is used only for rules whose **statements do not reference a rule group**. See `action` for details.
 	Action *WebAclRuleAction `pulumi:"action"`
@@ -57283,6 +58375,58 @@ func (o WebAclRuleActionCountCustomRequestHandlingInsertHeaderArrayOutput) Index
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebAclRuleActionCountCustomRequestHandlingInsertHeader {
 		return vs[0].([]WebAclRuleActionCountCustomRequestHandlingInsertHeader)[vs[1].(int)]
 	}).(WebAclRuleActionCountCustomRequestHandlingInsertHeaderOutput)
+}
+
+type WebAclRuleActionMonetize struct {
+	// Integer multiplier applied to the base price defined in the web ACL `monetizationConfig` when charging for a matching request. Expressed as a string. Valid values are `1` to `100` (for example, `"5"`).
+	PriceMultiplier *string `pulumi:"priceMultiplier"`
+}
+
+// WebAclRuleActionMonetizeInput is an input type that accepts WebAclRuleActionMonetizeArgs and WebAclRuleActionMonetizeOutput values.
+// You can construct a concrete instance of `WebAclRuleActionMonetizeInput` via:
+//
+//	WebAclRuleActionMonetizeArgs{...}
+type WebAclRuleActionMonetizeInput interface {
+	pulumi.Input
+
+	ToWebAclRuleActionMonetizeOutput() WebAclRuleActionMonetizeOutput
+	ToWebAclRuleActionMonetizeOutputWithContext(context.Context) WebAclRuleActionMonetizeOutput
+}
+
+type WebAclRuleActionMonetizeArgs struct {
+	// Integer multiplier applied to the base price defined in the web ACL `monetizationConfig` when charging for a matching request. Expressed as a string. Valid values are `1` to `100` (for example, `"5"`).
+	PriceMultiplier pulumi.StringPtrInput `pulumi:"priceMultiplier"`
+}
+
+func (WebAclRuleActionMonetizeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleActionMonetize)(nil)).Elem()
+}
+
+func (i WebAclRuleActionMonetizeArgs) ToWebAclRuleActionMonetizeOutput() WebAclRuleActionMonetizeOutput {
+	return i.ToWebAclRuleActionMonetizeOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleActionMonetizeArgs) ToWebAclRuleActionMonetizeOutputWithContext(ctx context.Context) WebAclRuleActionMonetizeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleActionMonetizeOutput)
+}
+
+type WebAclRuleActionMonetizeOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleActionMonetizeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleActionMonetize)(nil)).Elem()
+}
+
+func (o WebAclRuleActionMonetizeOutput) ToWebAclRuleActionMonetizeOutput() WebAclRuleActionMonetizeOutput {
+	return o
+}
+
+func (o WebAclRuleActionMonetizeOutput) ToWebAclRuleActionMonetizeOutputWithContext(ctx context.Context) WebAclRuleActionMonetizeOutput {
+	return o
+}
+
+// Integer multiplier applied to the base price defined in the web ACL `monetizationConfig` when charging for a matching request. Expressed as a string. Valid values are `1` to `100` (for example, `"5"`).
+func (o WebAclRuleActionMonetizeOutput) PriceMultiplier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAclRuleActionMonetize) *string { return v.PriceMultiplier }).(pulumi.StringPtrOutput)
 }
 
 type WebAclRuleCaptchaConfig struct {
@@ -70835,1368 +71979,18 @@ func (o WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAllPt
 	}).(WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAllOutput)
 }
 
-type WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrder struct {
-	// How to handle requests with headers larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
-	OversizeHandling string `pulumi:"oversizeHandling"`
-}
-
-// WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArgs and WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderInput` via:
-//
-//	WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArgs{...}
-type WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutput() WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutput
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutput
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArgs struct {
-	// How to handle requests with headers larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
-	OversizeHandling pulumi.StringInput `pulumi:"oversizeHandling"`
-}
-
-func (WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrder)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutput() WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutput {
-	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutput)
-}
-
-// WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArray and WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayInput` via:
-//
-//	WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArray{ WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArgs{...} }
-type WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutput() WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutput
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutput
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArray []WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderInput
-
-func (WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrder)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArray) ToWebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutput() WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutput {
-	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArray) ToWebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutput)
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrder)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutput() WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutput {
-	return o
-}
-
-// How to handle requests with headers larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutput) OversizeHandling() pulumi.StringOutput {
-	return o.ApplyT(func(v WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrder) string { return v.OversizeHandling }).(pulumi.StringOutput)
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrder)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutput() WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutput) Index(i pulumi.IntInput) WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrder {
-		return vs[0].([]WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrder)[vs[1].(int)]
-	}).(WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutput)
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint struct {
-	// Action to take if WAF cannot calculate the fingerprint. Valid values: `MATCH`, `NO_MATCH`.
-	FallbackBehavior string `pulumi:"fallbackBehavior"`
-}
-
-// WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs and WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintInput` via:
-//
-//	WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs{...}
-type WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs struct {
-	// Action to take if WAF cannot calculate the fingerprint. Valid values: `MATCH`, `NO_MATCH`.
-	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
-}
-
-func (WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput {
-	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput)
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput {
-	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput).ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs, WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtr and WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrInput` via:
-//
-//	        WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput
-}
-
-type webAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrType WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs
-
-func WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtr(v *WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs) WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrInput {
-	return (*webAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrType)(v)
-}
-
-func (*webAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput {
-	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput)
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput {
-	return o.ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint) *WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint {
-		return &v
-	}).(WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput)
-}
-
-// Action to take if WAF cannot calculate the fingerprint. Valid values: `MATCH`, `NO_MATCH`.
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput) FallbackBehavior() pulumi.StringOutput {
-	return o.ApplyT(func(v WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint) string {
-		return v.FallbackBehavior
-	}).(pulumi.StringOutput)
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput) Elem() WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint) WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint
-		return ret
-	}).(WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput)
-}
-
-// Action to take if WAF cannot calculate the fingerprint. Valid values: `MATCH`, `NO_MATCH`.
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.FallbackBehavior
-	}).(pulumi.StringPtrOutput)
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint struct {
-	// Action to take if WAF cannot calculate the fingerprint. Valid values: `MATCH`, `NO_MATCH`.
-	FallbackBehavior string `pulumi:"fallbackBehavior"`
-}
-
-// WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintArgs and WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintInput` via:
-//
-//	WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintArgs{...}
-type WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintArgs struct {
-	// Action to take if WAF cannot calculate the fingerprint. Valid values: `MATCH`, `NO_MATCH`.
-	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
-}
-
-func (WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput {
-	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput)
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput {
-	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput).ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintArgs, WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtr and WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrInput` via:
-//
-//	        WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput
-}
-
-type webAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrType WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintArgs
-
-func WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtr(v *WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintArgs) WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrInput {
-	return (*webAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrType)(v)
-}
-
-func (*webAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput {
-	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput)
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput {
-	return o.ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint) *WebAclRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint {
-		return &v
-	}).(WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput)
-}
-
-// Action to take if WAF cannot calculate the fingerprint. Valid values: `MATCH`, `NO_MATCH`.
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput) FallbackBehavior() pulumi.StringOutput {
-	return o.ApplyT(func(v WebAclRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint) string {
-		return v.FallbackBehavior
-	}).(pulumi.StringOutput)
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput) Elem() WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint) WebAclRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint
-		return ret
-	}).(WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput)
-}
-
-// Action to take if WAF cannot calculate the fingerprint. Valid values: `MATCH`, `NO_MATCH`.
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.FallbackBehavior
-	}).(pulumi.StringPtrOutput)
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody struct {
-	// How to handle requests with invalid JSON body. Valid values: `EVALUATE_AS_STRING`, `MATCH`, `NO_MATCH`.
-	InvalidFallbackBehavior *string `pulumi:"invalidFallbackBehavior"`
-	// JSON content to inspect. See JSON Body Match Pattern below.
-	MatchPattern *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern `pulumi:"matchPattern"`
-	// Parts of the JSON to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
-	MatchScope string `pulumi:"matchScope"`
-	// How to handle requests with a body larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`. Defaults to `CONTINUE`.
-	OversizeHandling *string `pulumi:"oversizeHandling"`
-}
-
-// WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs and WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyInput` via:
-//
-//	WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs{...}
-type WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs struct {
-	// How to handle requests with invalid JSON body. Valid values: `EVALUATE_AS_STRING`, `MATCH`, `NO_MATCH`.
-	InvalidFallbackBehavior pulumi.StringPtrInput `pulumi:"invalidFallbackBehavior"`
-	// JSON content to inspect. See JSON Body Match Pattern below.
-	MatchPattern WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrInput `pulumi:"matchPattern"`
-	// Parts of the JSON to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
-	MatchScope pulumi.StringInput `pulumi:"matchScope"`
-	// How to handle requests with a body larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`. Defaults to `CONTINUE`.
-	OversizeHandling pulumi.StringPtrInput `pulumi:"oversizeHandling"`
-}
-
-func (WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput {
-	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput)
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput {
-	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput).ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs, WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtr and WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrInput` via:
-//
-//	        WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput
-}
-
-type webAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrType WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs
-
-func WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtr(v *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrInput {
-	return (*webAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrType)(v)
-}
-
-func (*webAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput {
-	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput)
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput {
-	return o.ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody) *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody {
-		return &v
-	}).(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput)
-}
-
-// How to handle requests with invalid JSON body. Valid values: `EVALUATE_AS_STRING`, `MATCH`, `NO_MATCH`.
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput) InvalidFallbackBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody) *string {
-		return v.InvalidFallbackBehavior
-	}).(pulumi.StringPtrOutput)
-}
-
-// JSON content to inspect. See JSON Body Match Pattern below.
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput) MatchPattern() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
-	return o.ApplyT(func(v WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody) *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern {
-		return v.MatchPattern
-	}).(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
-}
-
-// Parts of the JSON to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput) MatchScope() pulumi.StringOutput {
-	return o.ApplyT(func(v WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody) string { return v.MatchScope }).(pulumi.StringOutput)
-}
-
-// How to handle requests with a body larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`. Defaults to `CONTINUE`.
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput) OversizeHandling() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody) *string { return v.OversizeHandling }).(pulumi.StringPtrOutput)
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput) Elem() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody
-		return ret
-	}).(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput)
-}
-
-// How to handle requests with invalid JSON body. Valid values: `EVALUATE_AS_STRING`, `MATCH`, `NO_MATCH`.
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput) InvalidFallbackBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody) *string {
-		if v == nil {
-			return nil
-		}
-		return v.InvalidFallbackBehavior
-	}).(pulumi.StringPtrOutput)
-}
-
-// JSON content to inspect. See JSON Body Match Pattern below.
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput) MatchPattern() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody) *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern {
-		if v == nil {
-			return nil
-		}
-		return v.MatchPattern
-	}).(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
-}
-
-// Parts of the JSON to inspect. Valid values: `ALL`, `KEY`, `VALUE`.
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput) MatchScope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.MatchScope
-	}).(pulumi.StringPtrOutput)
-}
-
-// How to handle requests with a body larger than the inspection limit. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`. Defaults to `CONTINUE`.
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput) OversizeHandling() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OversizeHandling
-	}).(pulumi.StringPtrOutput)
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern struct {
-	All *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll `pulumi:"all"`
-	// List of JSON pointer expressions to inspect (e.g., `/foo/bar`).
-	IncludedPaths []string `pulumi:"includedPaths"`
-}
-
-// WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs and WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternInput` via:
-//
-//	WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs{...}
-type WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs struct {
-	All WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrInput `pulumi:"all"`
-	// List of JSON pointer expressions to inspect (e.g., `/foo/bar`).
-	IncludedPaths pulumi.StringArrayInput `pulumi:"includedPaths"`
-}
-
-func (WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput {
-	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput)
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
-	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput).ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs, WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtr and WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrInput` via:
-//
-//	        WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput
-}
-
-type webAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrType WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs
-
-func WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtr(v *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrInput {
-	return (*webAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrType)(v)
-}
-
-func (*webAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
-	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
-	return o.ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern) *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern {
-		return &v
-	}).(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput)
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput) All() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
-	return o.ApplyT(func(v WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern) *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll {
-		return v.All
-	}).(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput)
-}
-
-// List of JSON pointer expressions to inspect (e.g., `/foo/bar`).
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput) IncludedPaths() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern) []string {
-		return v.IncludedPaths
-	}).(pulumi.StringArrayOutput)
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput) Elem() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern
-		return ret
-	}).(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput)
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput) All() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern) *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll {
-		if v == nil {
-			return nil
-		}
-		return v.All
-	}).(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput)
-}
-
-// List of JSON pointer expressions to inspect (e.g., `/foo/bar`).
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput) IncludedPaths() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern) []string {
-		if v == nil {
-			return nil
-		}
-		return v.IncludedPaths
-	}).(pulumi.StringArrayOutput)
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll struct {
-}
-
-// WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs and WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllInput` via:
-//
-//	WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs{...}
-type WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs struct {
-}
-
-func (WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput {
-	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput)
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
-	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput).ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs, WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtr and WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrInput` via:
-//
-//	        WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput
-}
-
-type webAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrType WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs
-
-func WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtr(v *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrInput {
-	return (*webAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrType)(v)
-}
-
-func (*webAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
-	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput)
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
-	return o.ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll) *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll {
-		return &v
-	}).(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput)
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput) Elem() WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll) WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll
-		return ret
-	}).(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput)
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchMethod struct {
-}
-
-// WebAclRuleStatementByteMatchStatementFieldToMatchMethodInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchMethodArgs and WebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchMethodInput` via:
-//
-//	WebAclRuleStatementByteMatchStatementFieldToMatchMethodArgs{...}
-type WebAclRuleStatementByteMatchStatementFieldToMatchMethodInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput() WebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchMethodArgs struct {
-}
-
-func (WebAclRuleStatementByteMatchStatementFieldToMatchMethodArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchMethod)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchMethodArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput() WebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput {
-	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchMethodArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput)
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchMethodArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput {
-	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchMethodArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput).ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchMethodArgs, WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtr and WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrInput` via:
-//
-//	        WebAclRuleStatementByteMatchStatementFieldToMatchMethodArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput
-}
-
-type webAclRuleStatementByteMatchStatementFieldToMatchMethodPtrType WebAclRuleStatementByteMatchStatementFieldToMatchMethodArgs
-
-func WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtr(v *WebAclRuleStatementByteMatchStatementFieldToMatchMethodArgs) WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrInput {
-	return (*webAclRuleStatementByteMatchStatementFieldToMatchMethodPtrType)(v)
-}
-
-func (*webAclRuleStatementByteMatchStatementFieldToMatchMethodPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchMethod)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementByteMatchStatementFieldToMatchMethodPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput {
-	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementByteMatchStatementFieldToMatchMethodPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput)
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchMethod)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput() WebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput {
-	return o.ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementByteMatchStatementFieldToMatchMethod) *WebAclRuleStatementByteMatchStatementFieldToMatchMethod {
-		return &v
-	}).(WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput)
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchMethod)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput) Elem() WebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchMethod) WebAclRuleStatementByteMatchStatementFieldToMatchMethod {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementByteMatchStatementFieldToMatchMethod
-		return ret
-	}).(WebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput)
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchQueryString struct {
-}
-
-// WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringArgs and WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringInput` via:
-//
-//	WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringArgs{...}
-type WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput() WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringArgs struct {
-}
-
-func (WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchQueryString)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput() WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput {
-	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput)
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput {
-	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput).ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringArgs, WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtr and WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrInput` via:
-//
-//	        WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput
-}
-
-type webAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrType WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringArgs
-
-func WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtr(v *WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringArgs) WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrInput {
-	return (*webAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrType)(v)
-}
-
-func (*webAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchQueryString)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput {
-	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput)
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchQueryString)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput() WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput {
-	return o.ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementByteMatchStatementFieldToMatchQueryString) *WebAclRuleStatementByteMatchStatementFieldToMatchQueryString {
-		return &v
-	}).(WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput)
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchQueryString)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput) Elem() WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchQueryString) WebAclRuleStatementByteMatchStatementFieldToMatchQueryString {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementByteMatchStatementFieldToMatchQueryString
-		return ret
-	}).(WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput)
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeader struct {
-	// Name of the header to inspect (case insensitive).
-	Name string `pulumi:"name"`
-}
-
-// WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs and WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderInput` via:
-//
-//	WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs{...}
-type WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput() WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs struct {
-	// Name of the header to inspect (case insensitive).
-	Name pulumi.StringInput `pulumi:"name"`
-}
-
-func (WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeader)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput() WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput {
-	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput)
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput {
-	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput).ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs, WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtr and WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrInput` via:
-//
-//	        WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput
-}
-
-type webAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrType WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs
-
-func WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtr(v *WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs) WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrInput {
-	return (*webAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrType)(v)
-}
-
-func (*webAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeader)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput {
-	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput)
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeader)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput() WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput {
-	return o.ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeader) *WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeader {
-		return &v
-	}).(WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput)
-}
-
-// Name of the header to inspect (case insensitive).
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeader) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeader)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput) Elem() WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeader) WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeader {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeader
-		return ret
-	}).(WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput)
-}
-
-// Name of the header to inspect (case insensitive).
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeader) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument struct {
-	// Name of the query argument to inspect.
-	Name string `pulumi:"name"`
-}
-
-// WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs and WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentInput` via:
-//
-//	WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs{...}
-type WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput() WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs struct {
-	// Name of the query argument to inspect.
-	Name pulumi.StringInput `pulumi:"name"`
-}
-
-func (WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument)(nil)).Elem()
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput() WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput {
-	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput)
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
-	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput).ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutputWithContext(ctx)
-}
-
-// WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrInput is an input type that accepts WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs, WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtr and WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput values.
-// You can construct a concrete instance of `WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrInput` via:
-//
-//	        WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs{...}
-//
-//	or:
-//
-//	        nil
-type WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrInput interface {
-	pulumi.Input
-
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput
-	ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutputWithContext(context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput
-}
-
-type webAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrType WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs
-
-func WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtr(v *WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs) WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrInput {
-	return (*webAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrType)(v)
-}
-
-func (*webAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument)(nil)).Elem()
-}
-
-func (i *webAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
-	return i.ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrType) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput() WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
-	return o.ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument) *WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument {
-		return &v
-	}).(WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
-}
-
-// Name of the query argument to inspect.
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument)(nil)).Elem()
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput() WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) ToWebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutputWithContext(ctx context.Context) WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
-	return o
-}
-
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) Elem() WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument) WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument
-		return ret
-	}).(WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput)
-}
-
-// Name of the query argument to inspect.
-func (o WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RegexPatternSetRegularExpressionInput)(nil)).Elem(), RegexPatternSetRegularExpressionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegexPatternSetRegularExpressionArrayInput)(nil)).Elem(), RegexPatternSetRegularExpressionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCustomResponseBodyInput)(nil)).Elem(), RuleGroupCustomResponseBodyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCustomResponseBodyArrayInput)(nil)).Elem(), RuleGroupCustomResponseBodyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupMonetizationConfigInput)(nil)).Elem(), RuleGroupMonetizationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupMonetizationConfigPtrInput)(nil)).Elem(), RuleGroupMonetizationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupMonetizationConfigCryptoConfigInput)(nil)).Elem(), RuleGroupMonetizationConfigCryptoConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupMonetizationConfigCryptoConfigPtrInput)(nil)).Elem(), RuleGroupMonetizationConfigCryptoConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupMonetizationConfigCryptoConfigPaymentNetworkInput)(nil)).Elem(), RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArrayInput)(nil)).Elem(), RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesInput)(nil)).Elem(), RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleInput)(nil)).Elem(), RuleGroupRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleArrayInput)(nil)).Elem(), RuleGroupRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleActionInput)(nil)).Elem(), RuleGroupRuleActionArgs{})
@@ -72230,6 +72024,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleActionCountCustomRequestHandlingPtrInput)(nil)).Elem(), RuleGroupRuleActionCountCustomRequestHandlingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderInput)(nil)).Elem(), RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderArrayInput)(nil)).Elem(), RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleActionMonetizeInput)(nil)).Elem(), RuleGroupRuleActionMonetizeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleActionMonetizePtrInput)(nil)).Elem(), RuleGroupRuleActionMonetizeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleCaptchaConfigInput)(nil)).Elem(), RuleGroupRuleCaptchaConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleCaptchaConfigPtrInput)(nil)).Elem(), RuleGroupRuleCaptchaConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleCaptchaConfigImmunityTimePropertyInput)(nil)).Elem(), RuleGroupRuleCaptchaConfigImmunityTimePropertyArgs{})
@@ -72950,6 +72746,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclLoggingConfigurationRedactedFieldSingleHeaderPtrInput)(nil)).Elem(), WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclLoggingConfigurationRedactedFieldUriPathInput)(nil)).Elem(), WebAclLoggingConfigurationRedactedFieldUriPathArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclLoggingConfigurationRedactedFieldUriPathPtrInput)(nil)).Elem(), WebAclLoggingConfigurationRedactedFieldUriPathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclMonetizationConfigInput)(nil)).Elem(), WebAclMonetizationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclMonetizationConfigPtrInput)(nil)).Elem(), WebAclMonetizationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclMonetizationConfigCryptoConfigInput)(nil)).Elem(), WebAclMonetizationConfigCryptoConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclMonetizationConfigCryptoConfigPtrInput)(nil)).Elem(), WebAclMonetizationConfigCryptoConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclMonetizationConfigCryptoConfigPaymentNetworkInput)(nil)).Elem(), WebAclMonetizationConfigCryptoConfigPaymentNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclMonetizationConfigCryptoConfigPaymentNetworkArrayInput)(nil)).Elem(), WebAclMonetizationConfigCryptoConfigPaymentNetworkArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesInput)(nil)).Elem(), WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleTypeInput)(nil)).Elem(), WebAclRuleTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleTypeArrayInput)(nil)).Elem(), WebAclRuleTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleActionInput)(nil)).Elem(), WebAclRuleActionArgs{})
@@ -72984,6 +72787,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleActionCountCustomRequestHandlingPtrInput)(nil)).Elem(), WebAclRuleActionCountCustomRequestHandlingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleActionCountCustomRequestHandlingInsertHeaderInput)(nil)).Elem(), WebAclRuleActionCountCustomRequestHandlingInsertHeaderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleActionCountCustomRequestHandlingInsertHeaderArrayInput)(nil)).Elem(), WebAclRuleActionCountCustomRequestHandlingInsertHeaderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleActionMonetizeInput)(nil)).Elem(), WebAclRuleActionMonetizeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleCaptchaConfigInput)(nil)).Elem(), WebAclRuleCaptchaConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleCaptchaConfigPtrInput)(nil)).Elem(), WebAclRuleCaptchaConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleCaptchaConfigImmunityTimePropertyInput)(nil)).Elem(), WebAclRuleCaptchaConfigImmunityTimePropertyArgs{})
@@ -73159,30 +72963,17 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternPtrInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAllInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAllArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAllPtrInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAllArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchMethodInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchMethodArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchMethodArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrInput)(nil)).Elem(), WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs{})
 	pulumi.RegisterOutputType(RegexPatternSetRegularExpressionOutput{})
 	pulumi.RegisterOutputType(RegexPatternSetRegularExpressionArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupCustomResponseBodyOutput{})
 	pulumi.RegisterOutputType(RuleGroupCustomResponseBodyArrayOutput{})
+	pulumi.RegisterOutputType(RuleGroupMonetizationConfigOutput{})
+	pulumi.RegisterOutputType(RuleGroupMonetizationConfigPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupMonetizationConfigCryptoConfigOutput{})
+	pulumi.RegisterOutputType(RuleGroupMonetizationConfigCryptoConfigPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupMonetizationConfigCryptoConfigPaymentNetworkOutput{})
+	pulumi.RegisterOutputType(RuleGroupMonetizationConfigCryptoConfigPaymentNetworkArrayOutput{})
+	pulumi.RegisterOutputType(RuleGroupMonetizationConfigCryptoConfigPaymentNetworkPricesOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleActionOutput{})
@@ -73216,6 +73007,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupRuleActionCountCustomRequestHandlingPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderArrayOutput{})
+	pulumi.RegisterOutputType(RuleGroupRuleActionMonetizeOutput{})
+	pulumi.RegisterOutputType(RuleGroupRuleActionMonetizePtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleCaptchaConfigOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleCaptchaConfigPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleCaptchaConfigImmunityTimePropertyOutput{})
@@ -73936,6 +73729,13 @@ func init() {
 	pulumi.RegisterOutputType(WebAclLoggingConfigurationRedactedFieldSingleHeaderPtrOutput{})
 	pulumi.RegisterOutputType(WebAclLoggingConfigurationRedactedFieldUriPathOutput{})
 	pulumi.RegisterOutputType(WebAclLoggingConfigurationRedactedFieldUriPathPtrOutput{})
+	pulumi.RegisterOutputType(WebAclMonetizationConfigOutput{})
+	pulumi.RegisterOutputType(WebAclMonetizationConfigPtrOutput{})
+	pulumi.RegisterOutputType(WebAclMonetizationConfigCryptoConfigOutput{})
+	pulumi.RegisterOutputType(WebAclMonetizationConfigCryptoConfigPtrOutput{})
+	pulumi.RegisterOutputType(WebAclMonetizationConfigCryptoConfigPaymentNetworkOutput{})
+	pulumi.RegisterOutputType(WebAclMonetizationConfigCryptoConfigPaymentNetworkArrayOutput{})
+	pulumi.RegisterOutputType(WebAclMonetizationConfigCryptoConfigPaymentNetworkPricesOutput{})
 	pulumi.RegisterOutputType(WebAclRuleTypeOutput{})
 	pulumi.RegisterOutputType(WebAclRuleTypeArrayOutput{})
 	pulumi.RegisterOutputType(WebAclRuleActionOutput{})
@@ -73970,6 +73770,7 @@ func init() {
 	pulumi.RegisterOutputType(WebAclRuleActionCountCustomRequestHandlingPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRuleActionCountCustomRequestHandlingInsertHeaderOutput{})
 	pulumi.RegisterOutputType(WebAclRuleActionCountCustomRequestHandlingInsertHeaderArrayOutput{})
+	pulumi.RegisterOutputType(WebAclRuleActionMonetizeOutput{})
 	pulumi.RegisterOutputType(WebAclRuleCaptchaConfigOutput{})
 	pulumi.RegisterOutputType(WebAclRuleCaptchaConfigPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRuleCaptchaConfigImmunityTimePropertyOutput{})
@@ -74145,24 +73946,4 @@ func init() {
 	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAllOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAllPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchHeaderOrderArrayOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchJa4FingerprintPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchMethodOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchMethodPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput{})
-	pulumi.RegisterOutputType(WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput{})
 }

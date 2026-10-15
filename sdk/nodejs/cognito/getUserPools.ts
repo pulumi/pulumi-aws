@@ -40,7 +40,7 @@ export function getUserPools(args: GetUserPoolsArgs, opts?: pulumi.InvokeOptions
  */
 export interface GetUserPoolsArgs {
     /**
-     * Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool id via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
+     * Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool ID via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
      */
     name: string;
     /**
@@ -62,7 +62,7 @@ export interface GetUserPoolsResult {
      */
     readonly id: string;
     /**
-     * Set of cognito user pool ids.
+     * Set of cognito user pool IDs.
      */
     readonly ids: string[];
     readonly name: string;
@@ -104,7 +104,7 @@ export function getUserPoolsOutput(args: GetUserPoolsOutputArgs, opts?: pulumi.I
  */
 export interface GetUserPoolsOutputArgs {
     /**
-     * Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool id via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
+     * Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool ID via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
      */
     name: pulumi.Input<string>;
     /**

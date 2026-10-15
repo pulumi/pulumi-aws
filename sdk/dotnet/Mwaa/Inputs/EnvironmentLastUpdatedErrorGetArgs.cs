@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Mwaa.Inputs
 
     public sealed class EnvironmentLastUpdatedErrorGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Error code of the last update error.
+        /// </summary>
         [Input("errorCode")]
         public Input<string>? ErrorCode { get; set; }
 
+        /// <summary>
+        /// Error message of the last update error.
+        /// </summary>
         [Input("errorMessage")]
         public Input<string>? ErrorMessage { get; set; }
 

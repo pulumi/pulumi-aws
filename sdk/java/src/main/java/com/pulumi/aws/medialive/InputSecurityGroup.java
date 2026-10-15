@@ -96,14 +96,14 @@ public class InputSecurityGroup extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The list of inputs currently using this InputSecurityGroup.
+     * List of inputs currently using this InputSecurityGroup.
      * 
      */
     @Export(name="inputs", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> inputs;
 
     /**
-     * @return The list of inputs currently using this InputSecurityGroup.
+     * @return List of inputs currently using this InputSecurityGroup.
      * 
      */
     public Output<List<String>> inputs() {
@@ -144,7 +144,7 @@ public class InputSecurityGroup extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Whitelist rules. See Whitelist Rules for more details.
+     * Whitelist rules. See `whitelistRules` Block for more details.
      * 
      * The following arguments are optional:
      * 
@@ -153,7 +153,7 @@ public class InputSecurityGroup extends com.pulumi.resources.CustomResource {
     private Output<List<InputSecurityGroupWhitelistRule>> whitelistRules;
 
     /**
-     * @return Whitelist rules. See Whitelist Rules for more details.
+     * @return Whitelist rules. See `whitelistRules` Block for more details.
      * 
      * The following arguments are optional:
      * 

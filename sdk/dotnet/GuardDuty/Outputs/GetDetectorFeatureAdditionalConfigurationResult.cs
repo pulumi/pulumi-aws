@@ -14,7 +14,7 @@ namespace Pulumi.Aws.GuardDuty.Outputs
     public sealed class GetDetectorFeatureAdditionalConfigurationResult
     {
         /// <summary>
-        /// The name of the detector feature.
+        /// Name of the detector feature.
         /// </summary>
         public readonly string Name;
         /// <summary>

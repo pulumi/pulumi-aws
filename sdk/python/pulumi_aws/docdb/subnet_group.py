@@ -29,8 +29,8 @@ class SubnetGroupArgs:
         The set of arguments for constructing a SubnetGroup resource.
 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of VPC subnet IDs.
-        :param pulumi.Input[_builtins.str] description: The description of the docDB subnet group. Defaults to "Managed by Pulumi".
-        :param pulumi.Input[_builtins.str] name: The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
+        :param pulumi.Input[_builtins.str] description: The description of the DocDB subnet group. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[_builtins.str] name: The name of the DocDB subnet group. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -65,7 +65,7 @@ class SubnetGroupArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The description of the docDB subnet group. Defaults to "Managed by Pulumi".
+        The description of the DocDB subnet group. Defaults to "Managed by Pulumi".
         """
         return pulumi.get(self, "description")
 
@@ -77,7 +77,7 @@ class SubnetGroupArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
+        The name of the DocDB subnet group. If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 
@@ -137,13 +137,13 @@ class _SubnetGroupState:
         """
         Input properties used for looking up and filtering SubnetGroup resources.
 
-        :param pulumi.Input[_builtins.str] arn: The ARN of the docDB subnet group.
-        :param pulumi.Input[_builtins.str] description: The description of the docDB subnet group. Defaults to "Managed by Pulumi".
-        :param pulumi.Input[_builtins.str] name: The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
+        :param pulumi.Input[_builtins.str] arn: The ARN of the DocDB subnet group.
+        :param pulumi.Input[_builtins.str] description: The description of the DocDB subnet group. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[_builtins.str] name: The name of the DocDB subnet group. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of VPC subnet IDs.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] supported_network_types: The network type of the docDB subnet group (`IPV4` or `DUAL`).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] supported_network_types: The network type of the DocDB subnet group (`IPV4` or `DUAL`).
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -172,7 +172,7 @@ class _SubnetGroupState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the docDB subnet group.
+        The ARN of the DocDB subnet group.
         """
         return pulumi.get(self, "arn")
 
@@ -184,7 +184,7 @@ class _SubnetGroupState:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The description of the docDB subnet group. Defaults to "Managed by Pulumi".
+        The description of the DocDB subnet group. Defaults to "Managed by Pulumi".
         """
         return pulumi.get(self, "description")
 
@@ -196,7 +196,7 @@ class _SubnetGroupState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
+        The name of the DocDB subnet group. If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 
@@ -244,7 +244,7 @@ class _SubnetGroupState:
     @pulumi.getter(name="supportedNetworkTypes")
     def supported_network_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The network type of the docDB subnet group (`IPV4` or `DUAL`).
+        The network type of the DocDB subnet group (`IPV4` or `DUAL`).
         """
         return pulumi.get(self, "supported_network_types")
 
@@ -321,8 +321,8 @@ class SubnetGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: The description of the docDB subnet group. Defaults to "Managed by Pulumi".
-        :param pulumi.Input[_builtins.str] name: The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
+        :param pulumi.Input[_builtins.str] description: The description of the DocDB subnet group. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[_builtins.str] name: The name of the DocDB subnet group. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of VPC subnet IDs.
@@ -432,13 +432,13 @@ class SubnetGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the docDB subnet group.
-        :param pulumi.Input[_builtins.str] description: The description of the docDB subnet group. Defaults to "Managed by Pulumi".
-        :param pulumi.Input[_builtins.str] name: The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
+        :param pulumi.Input[_builtins.str] arn: The ARN of the DocDB subnet group.
+        :param pulumi.Input[_builtins.str] description: The description of the DocDB subnet group. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[_builtins.str] name: The name of the DocDB subnet group. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of VPC subnet IDs.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] supported_network_types: The network type of the docDB subnet group (`IPV4` or `DUAL`).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] supported_network_types: The network type of the DocDB subnet group (`IPV4` or `DUAL`).
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -461,7 +461,7 @@ class SubnetGroup(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the docDB subnet group.
+        The ARN of the DocDB subnet group.
         """
         return pulumi.get(self, "arn")
 
@@ -469,7 +469,7 @@ class SubnetGroup(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[_builtins.str]:
         """
-        The description of the docDB subnet group. Defaults to "Managed by Pulumi".
+        The description of the DocDB subnet group. Defaults to "Managed by Pulumi".
         """
         return pulumi.get(self, "description")
 
@@ -477,7 +477,7 @@ class SubnetGroup(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the docDB subnet group. If omitted, this provider will assign a random, unique name.
+        The name of the DocDB subnet group. If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 
@@ -509,7 +509,7 @@ class SubnetGroup(pulumi.CustomResource):
     @pulumi.getter(name="supportedNetworkTypes")
     def supported_network_types(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        The network type of the docDB subnet group (`IPV4` or `DUAL`).
+        The network type of the DocDB subnet group (`IPV4` or `DUAL`).
         """
         return pulumi.get(self, "supported_network_types")
 

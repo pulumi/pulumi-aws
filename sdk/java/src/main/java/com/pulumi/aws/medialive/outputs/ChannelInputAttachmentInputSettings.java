@@ -18,27 +18,27 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelInputAttachmentInputSettings {
     /**
-     * @return Used to select the audio stream to decode for inputs that have multiple. See Audio Selectors for more details.
+     * @return Select the audio stream to decode for inputs that have multiple. See `audioSelector` Block for details.
      * 
      */
     private @Nullable List<ChannelInputAttachmentInputSettingsAudioSelector> audioSelectors;
     /**
-     * @return Used to select the caption input to use for inputs that have multiple available. See Caption Selectors for more details.
+     * @return Select the caption input to use for inputs that have multiple available. See `captionSelector` Block for details.
      * 
      */
     private @Nullable List<ChannelInputAttachmentInputSettingsCaptionSelector> captionSelectors;
     /**
-     * @return Enable or disable the deblock filter when filtering.
+     * @return Whether to enable the deblock filter when filtering.
      * 
      */
     private @Nullable String deblockFilter;
     /**
-     * @return Enable or disable the denoise filter when filtering.
+     * @return Whether to enable the denoise filter when filtering.
      * 
      */
     private @Nullable String denoiseFilter;
     /**
-     * @return Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
+     * @return Magnitude of filtering from 1 (minimal) to 5 (strongest).
      * 
      */
     private @Nullable Integer filterStrength;
@@ -48,7 +48,7 @@ public final class ChannelInputAttachmentInputSettings {
      */
     private @Nullable String inputFilter;
     /**
-     * @return Input settings. See Network Input Settings for more details.
+     * @return Input settings. See `networkInputSettings` Block for details.
      * 
      */
     private @Nullable ChannelInputAttachmentInputSettingsNetworkInputSettings networkInputSettings;
@@ -58,7 +58,7 @@ public final class ChannelInputAttachmentInputSettings {
      */
     private @Nullable Integer scte35Pid;
     /**
-     * @return Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
+     * @return Whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
      * 
      */
     private @Nullable String smpte2038DataPreference;
@@ -67,39 +67,43 @@ public final class ChannelInputAttachmentInputSettings {
      * 
      */
     private @Nullable String sourceEndBehavior;
+    /**
+     * @return Information about one video to extract from the input. See `videoSelector` Block for details.
+     * 
+     */
     private @Nullable ChannelInputAttachmentInputSettingsVideoSelector videoSelector;
 
     private ChannelInputAttachmentInputSettings() {}
     /**
-     * @return Used to select the audio stream to decode for inputs that have multiple. See Audio Selectors for more details.
+     * @return Select the audio stream to decode for inputs that have multiple. See `audioSelector` Block for details.
      * 
      */
     public List<ChannelInputAttachmentInputSettingsAudioSelector> audioSelectors() {
         return this.audioSelectors == null ? List.of() : this.audioSelectors;
     }
     /**
-     * @return Used to select the caption input to use for inputs that have multiple available. See Caption Selectors for more details.
+     * @return Select the caption input to use for inputs that have multiple available. See `captionSelector` Block for details.
      * 
      */
     public List<ChannelInputAttachmentInputSettingsCaptionSelector> captionSelectors() {
         return this.captionSelectors == null ? List.of() : this.captionSelectors;
     }
     /**
-     * @return Enable or disable the deblock filter when filtering.
+     * @return Whether to enable the deblock filter when filtering.
      * 
      */
     public Optional<String> deblockFilter() {
         return Optional.ofNullable(this.deblockFilter);
     }
     /**
-     * @return Enable or disable the denoise filter when filtering.
+     * @return Whether to enable the denoise filter when filtering.
      * 
      */
     public Optional<String> denoiseFilter() {
         return Optional.ofNullable(this.denoiseFilter);
     }
     /**
-     * @return Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
+     * @return Magnitude of filtering from 1 (minimal) to 5 (strongest).
      * 
      */
     public Optional<Integer> filterStrength() {
@@ -113,7 +117,7 @@ public final class ChannelInputAttachmentInputSettings {
         return Optional.ofNullable(this.inputFilter);
     }
     /**
-     * @return Input settings. See Network Input Settings for more details.
+     * @return Input settings. See `networkInputSettings` Block for details.
      * 
      */
     public Optional<ChannelInputAttachmentInputSettingsNetworkInputSettings> networkInputSettings() {
@@ -127,7 +131,7 @@ public final class ChannelInputAttachmentInputSettings {
         return Optional.ofNullable(this.scte35Pid);
     }
     /**
-     * @return Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
+     * @return Whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
      * 
      */
     public Optional<String> smpte2038DataPreference() {
@@ -140,6 +144,10 @@ public final class ChannelInputAttachmentInputSettings {
     public Optional<String> sourceEndBehavior() {
         return Optional.ofNullable(this.sourceEndBehavior);
     }
+    /**
+     * @return Information about one video to extract from the input. See `videoSelector` Block for details.
+     * 
+     */
     public Optional<ChannelInputAttachmentInputSettingsVideoSelector> videoSelector() {
         return Optional.ofNullable(this.videoSelector);
     }

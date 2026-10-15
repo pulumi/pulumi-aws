@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Eks.Inputs
     public sealed class NodeGroupWarmPoolConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Maximum number of instances that are allowed to be in the warm pool combined with the Auto Scaling Group. Use `-1` to specify an unlimited capacity.
+        /// Maximum number of instances that are allowed to be in the warm pool combined with the Auto Scaling group. Use `-1` to specify an unlimited capacity.
         /// </summary>
         [Input("maxGroupPreparedCapacity")]
         public Input<int>? MaxGroupPreparedCapacity { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Eks.Inputs
         public Input<string>? PoolState { get; set; }
 
         /// <summary>
-        /// Whether to return instances in the Auto Scaling Group to the warm pool on scale in. Not supported on Bottlerocket. Defaults to `False`.
+        /// Whether to return instances in the Auto Scaling group to the warm pool on scale in. Not supported on Bottlerocket. Defaults to `False`.
         /// </summary>
         [Input("reuseOnScaleIn")]
         public Input<bool>? ReuseOnScaleIn { get; set; }

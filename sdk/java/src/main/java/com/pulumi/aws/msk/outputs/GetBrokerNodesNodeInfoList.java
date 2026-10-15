@@ -13,74 +13,74 @@ import java.util.Objects;
 @CustomType
 public final class GetBrokerNodesNodeInfoList {
     /**
-     * @return Attached elastic network interface of the broker
+     * @return Attached elastic network interface of the broker.
      * 
      */
     private String attachedEniId;
     /**
-     * @return ID of the broker
+     * @return ID of the broker.
      * 
      */
     private Double brokerId;
     /**
-     * @return Client subnet to which this broker node belongs
+     * @return Client subnet to which this broker node belongs.
      * 
      */
     private String clientSubnet;
     /**
-     * @return Client VPC IP address
+     * @return Client VPC IP address.
      * 
      */
     private String clientVpcIpAddress;
     /**
-     * @return Set of endpoints for accessing the broker. This does not include ports
+     * @return Set of endpoints for accessing the broker. This does not include ports.
      * 
      */
     private List<String> endpoints;
     /**
-     * @return ARN of the node
+     * @return ARN of the node.
      * 
      */
     private String nodeArn;
 
     private GetBrokerNodesNodeInfoList() {}
     /**
-     * @return Attached elastic network interface of the broker
+     * @return Attached elastic network interface of the broker.
      * 
      */
     public String attachedEniId() {
         return this.attachedEniId;
     }
     /**
-     * @return ID of the broker
+     * @return ID of the broker.
      * 
      */
     public Double brokerId() {
         return this.brokerId;
     }
     /**
-     * @return Client subnet to which this broker node belongs
+     * @return Client subnet to which this broker node belongs.
      * 
      */
     public String clientSubnet() {
         return this.clientSubnet;
     }
     /**
-     * @return Client VPC IP address
+     * @return Client VPC IP address.
      * 
      */
     public String clientVpcIpAddress() {
         return this.clientVpcIpAddress;
     }
     /**
-     * @return Set of endpoints for accessing the broker. This does not include ports
+     * @return Set of endpoints for accessing the broker. This does not include ports.
      * 
      */
     public List<String> endpoints() {
         return this.endpoints;
     }
     /**
-     * @return ARN of the node
+     * @return ARN of the node.
      * 
      */
     public String nodeArn() {

@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class IdcApplicationServiceIntegrationLakeFormation {
     /**
-     * @return Lake formation scope.
+     * @return Lake Formation scope.
      * 
      */
     private @Nullable IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery lakeFormationQuery;
 
     private IdcApplicationServiceIntegrationLakeFormation() {}
     /**
-     * @return Lake formation scope.
+     * @return Lake Formation scope.
      * 
      */
     public Optional<IdcApplicationServiceIntegrationLakeFormationLakeFormationQuery> lakeFormationQuery() {

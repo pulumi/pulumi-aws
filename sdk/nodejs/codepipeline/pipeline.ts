@@ -194,7 +194,7 @@ export class Pipeline extends pulumi.CustomResource {
     }
 
     /**
-     * Codepipeline ARN.
+     * CodePipeline ARN.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -309,7 +309,7 @@ export class Pipeline extends pulumi.CustomResource {
  */
 export interface PipelineState {
     /**
-     * Codepipeline ARN.
+     * CodePipeline ARN.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

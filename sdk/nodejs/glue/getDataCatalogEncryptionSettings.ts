@@ -40,7 +40,7 @@ export interface GetDataCatalogEncryptionSettingsArgs {
 export interface GetDataCatalogEncryptionSettingsResult {
     readonly catalogId: string;
     /**
-     * The security configuration to set. see Data Catalog Encryption Settings.
+     * Security configuration to set. see `dataCatalogEncryptionSettings` Block.
      */
     readonly dataCatalogEncryptionSettings: outputs.glue.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting[];
     /**

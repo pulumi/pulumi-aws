@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperationModelArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Model ID or glob pattern that identifies the model (for example, `anthropic.claude-opus-*` or `openai.gpt-oss-*`).
+        /// </summary>
         [Input("model", required: true)]
         public Input<string> Model { get; set; } = null!;
 

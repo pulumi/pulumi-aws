@@ -19,14 +19,14 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
     public static final SubnetGroupState Empty = new SubnetGroupState();
 
     /**
-     * ARN of the db subnet group.
+     * ARN of the DB subnet group.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return ARN of the db subnet group.
+     * @return ARN of the DB subnet group.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -109,14 +109,14 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Network type of the db subnet group.
+     * Network type of the DB subnet group.
      * 
      */
     @Import(name="supportedNetworkTypes")
     private @Nullable Output<List<String>> supportedNetworkTypes;
 
     /**
-     * @return Network type of the db subnet group.
+     * @return Network type of the DB subnet group.
      * 
      */
     public Optional<Output<List<String>>> supportedNetworkTypes() {
@@ -202,7 +202,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of the db subnet group.
+         * @param arn ARN of the DB subnet group.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of the db subnet group.
+         * @param arn ARN of the DB subnet group.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param supportedNetworkTypes Network type of the db subnet group.
+         * @param supportedNetworkTypes Network type of the DB subnet group.
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param supportedNetworkTypes Network type of the db subnet group.
+         * @param supportedNetworkTypes Network type of the DB subnet group.
          * 
          * @return builder
          * 
@@ -359,7 +359,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param supportedNetworkTypes Network type of the db subnet group.
+         * @param supportedNetworkTypes Network type of the DB subnet group.
          * 
          * @return builder
          * 

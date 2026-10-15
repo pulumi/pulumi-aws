@@ -18,23 +18,47 @@ public final class ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs exten
 
     public static final ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs Empty = new ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs();
 
+    /**
+     * Mapping of input channels to output channels. See `channelMappings` Block for details.
+     * 
+     */
     @Import(name="channelMappings", required=true)
     private Output<List<ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingArgs>> channelMappings;
 
+    /**
+     * @return Mapping of input channels to output channels. See `channelMappings` Block for details.
+     * 
+     */
     public Output<List<ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingArgs>> channelMappings() {
         return this.channelMappings;
     }
 
+    /**
+     * Number of input channels to be used.
+     * 
+     */
     @Import(name="channelsIn")
     private @Nullable Output<Integer> channelsIn;
 
+    /**
+     * @return Number of input channels to be used.
+     * 
+     */
     public Optional<Output<Integer>> channelsIn() {
         return Optional.ofNullable(this.channelsIn);
     }
 
+    /**
+     * Number of output channels to be produced.
+     * 
+     */
     @Import(name="channelsOut")
     private @Nullable Output<Integer> channelsOut;
 
+    /**
+     * @return Number of output channels to be produced.
+     * 
+     */
     public Optional<Output<Integer>> channelsOut() {
         return Optional.ofNullable(this.channelsOut);
     }
@@ -65,33 +89,75 @@ public final class ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs exten
             $ = new ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param channelMappings Mapping of input channels to output channels. See `channelMappings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder channelMappings(Output<List<ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingArgs>> channelMappings) {
             $.channelMappings = channelMappings;
             return this;
         }
 
+        /**
+         * @param channelMappings Mapping of input channels to output channels. See `channelMappings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder channelMappings(List<ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingArgs> channelMappings) {
             return channelMappings(Output.of(channelMappings));
         }
 
+        /**
+         * @param channelMappings Mapping of input channels to output channels. See `channelMappings` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder channelMappings(ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingArgs... channelMappings) {
             return channelMappings(List.of(channelMappings));
         }
 
+        /**
+         * @param channelsIn Number of input channels to be used.
+         * 
+         * @return builder
+         * 
+         */
         public Builder channelsIn(@Nullable Output<Integer> channelsIn) {
             $.channelsIn = channelsIn;
             return this;
         }
 
+        /**
+         * @param channelsIn Number of input channels to be used.
+         * 
+         * @return builder
+         * 
+         */
         public Builder channelsIn(Integer channelsIn) {
             return channelsIn(Output.of(channelsIn));
         }
 
+        /**
+         * @param channelsOut Number of output channels to be produced.
+         * 
+         * @return builder
+         * 
+         */
         public Builder channelsOut(@Nullable Output<Integer> channelsOut) {
             $.channelsOut = channelsOut;
             return this;
         }
 
+        /**
+         * @param channelsOut Number of output channels to be produced.
+         * 
+         * @return builder
+         * 
+         */
         public Builder channelsOut(Integer channelsOut) {
             return channelsOut(Output.of(channelsOut));
         }

@@ -58,11 +58,13 @@ type Deployment struct {
 	// Application to deploy.
 	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
 	// Version to application to deploy
-	ApplicationVersion pulumi.IntOutput    `pulumi:"applicationVersion"`
-	DeploymentId       pulumi.StringOutput `pulumi:"deploymentId"`
+	ApplicationVersion pulumi.IntOutput `pulumi:"applicationVersion"`
+	// Unique identifier of the deployment.
+	DeploymentId pulumi.StringOutput `pulumi:"deploymentId"`
 	// Environment to deploy application to.
-	EnvironmentId pulumi.StringOutput  `pulumi:"environmentId"`
-	ForceStop     pulumi.BoolPtrOutput `pulumi:"forceStop"`
+	EnvironmentId pulumi.StringOutput `pulumi:"environmentId"`
+	// Stop the application during deployment, even if it is running.
+	ForceStop pulumi.BoolPtrOutput `pulumi:"forceStop"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Start the application once deployed.
@@ -115,11 +117,13 @@ type deploymentState struct {
 	// Application to deploy.
 	ApplicationId *string `pulumi:"applicationId"`
 	// Version to application to deploy
-	ApplicationVersion *int    `pulumi:"applicationVersion"`
-	DeploymentId       *string `pulumi:"deploymentId"`
+	ApplicationVersion *int `pulumi:"applicationVersion"`
+	// Unique identifier of the deployment.
+	DeploymentId *string `pulumi:"deploymentId"`
 	// Environment to deploy application to.
 	EnvironmentId *string `pulumi:"environmentId"`
-	ForceStop     *bool   `pulumi:"forceStop"`
+	// Stop the application during deployment, even if it is running.
+	ForceStop *bool `pulumi:"forceStop"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Start the application once deployed.
@@ -132,10 +136,12 @@ type DeploymentState struct {
 	ApplicationId pulumi.StringPtrInput
 	// Version to application to deploy
 	ApplicationVersion pulumi.IntPtrInput
-	DeploymentId       pulumi.StringPtrInput
+	// Unique identifier of the deployment.
+	DeploymentId pulumi.StringPtrInput
 	// Environment to deploy application to.
 	EnvironmentId pulumi.StringPtrInput
-	ForceStop     pulumi.BoolPtrInput
+	// Stop the application during deployment, even if it is running.
+	ForceStop pulumi.BoolPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Start the application once deployed.
@@ -154,7 +160,8 @@ type deploymentArgs struct {
 	ApplicationVersion int `pulumi:"applicationVersion"`
 	// Environment to deploy application to.
 	EnvironmentId string `pulumi:"environmentId"`
-	ForceStop     *bool  `pulumi:"forceStop"`
+	// Stop the application during deployment, even if it is running.
+	ForceStop *bool `pulumi:"forceStop"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Start the application once deployed.
@@ -170,7 +177,8 @@ type DeploymentArgs struct {
 	ApplicationVersion pulumi.IntInput
 	// Environment to deploy application to.
 	EnvironmentId pulumi.StringInput
-	ForceStop     pulumi.BoolPtrInput
+	// Stop the application during deployment, even if it is running.
+	ForceStop pulumi.BoolPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Start the application once deployed.
@@ -275,6 +283,7 @@ func (o DeploymentOutput) ApplicationVersion() pulumi.IntOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.IntOutput { return v.ApplicationVersion }).(pulumi.IntOutput)
 }
 
+// Unique identifier of the deployment.
 func (o DeploymentOutput) DeploymentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.DeploymentId }).(pulumi.StringOutput)
 }
@@ -284,6 +293,7 @@ func (o DeploymentOutput) EnvironmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.EnvironmentId }).(pulumi.StringOutput)
 }
 
+// Stop the application during deployment, even if it is running.
 func (o DeploymentOutput) ForceStop() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.BoolPtrOutput { return v.ForceStop }).(pulumi.BoolPtrOutput)
 }

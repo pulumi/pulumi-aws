@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class DataQualityRulesetTargetTable
     {
         /// <summary>
-        /// The catalog id where the AWS Glue table exists.
+        /// Catalog ID where the AWS Glue table exists.
         /// </summary>
         public readonly string? CatalogId;
         /// <summary>

@@ -20,14 +20,14 @@ public final class CustomRoutingEndpointGroupArgs extends com.pulumi.resources.R
     public static final CustomRoutingEndpointGroupArgs Empty = new CustomRoutingEndpointGroupArgs();
 
     /**
-     * The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
+     * Port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. See `destinationConfiguration` below.
      * 
      */
     @Import(name="destinationConfigurations", required=true)
     private Output<List<CustomRoutingEndpointGroupDestinationConfigurationArgs>> destinationConfigurations;
 
     /**
-     * @return The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
+     * @return Port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. See `destinationConfiguration` below.
      * 
      */
     public Output<List<CustomRoutingEndpointGroupDestinationConfigurationArgs>> destinationConfigurations() {
@@ -35,14 +35,14 @@ public final class CustomRoutingEndpointGroupArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The list of endpoint objects. Fields documented below.
+     * Endpoint objects. See `endpointConfiguration` below.
      * 
      */
     @Import(name="endpointConfigurations")
     private @Nullable Output<List<CustomRoutingEndpointGroupEndpointConfigurationArgs>> endpointConfigurations;
 
     /**
-     * @return The list of endpoint objects. Fields documented below.
+     * @return Endpoint objects. See `endpointConfiguration` below.
      * 
      */
     public Optional<Output<List<CustomRoutingEndpointGroupEndpointConfigurationArgs>>> endpointConfigurations() {
@@ -50,14 +50,14 @@ public final class CustomRoutingEndpointGroupArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The name of the AWS Region where the custom routing endpoint group is located.
+     * AWS Region where the custom routing endpoint group is located.
      * 
      */
     @Import(name="endpointGroupRegion")
     private @Nullable Output<String> endpointGroupRegion;
 
     /**
-     * @return The name of the AWS Region where the custom routing endpoint group is located.
+     * @return AWS Region where the custom routing endpoint group is located.
      * 
      */
     public Optional<Output<String>> endpointGroupRegion() {
@@ -107,7 +107,7 @@ public final class CustomRoutingEndpointGroupArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param destinationConfigurations The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
+         * @param destinationConfigurations Port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. See `destinationConfiguration` below.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class CustomRoutingEndpointGroupArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param destinationConfigurations The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
+         * @param destinationConfigurations Port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. See `destinationConfiguration` below.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class CustomRoutingEndpointGroupArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param destinationConfigurations The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
+         * @param destinationConfigurations Port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. See `destinationConfiguration` below.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class CustomRoutingEndpointGroupArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param endpointConfigurations The list of endpoint objects. Fields documented below.
+         * @param endpointConfigurations Endpoint objects. See `endpointConfiguration` below.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class CustomRoutingEndpointGroupArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param endpointConfigurations The list of endpoint objects. Fields documented below.
+         * @param endpointConfigurations Endpoint objects. See `endpointConfiguration` below.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class CustomRoutingEndpointGroupArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param endpointConfigurations The list of endpoint objects. Fields documented below.
+         * @param endpointConfigurations Endpoint objects. See `endpointConfiguration` below.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class CustomRoutingEndpointGroupArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param endpointGroupRegion The name of the AWS Region where the custom routing endpoint group is located.
+         * @param endpointGroupRegion AWS Region where the custom routing endpoint group is located.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class CustomRoutingEndpointGroupArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param endpointGroupRegion The name of the AWS Region where the custom routing endpoint group is located.
+         * @param endpointGroupRegion AWS Region where the custom routing endpoint group is located.
          * 
          * @return builder
          * 

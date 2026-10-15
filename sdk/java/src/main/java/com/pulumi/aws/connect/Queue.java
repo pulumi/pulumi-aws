@@ -266,14 +266,14 @@ public class Queue extends com.pulumi.resources.CustomResource {
         return this.queueId;
     }
     /**
-     * Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
+     * Specifies a list of quick connects IDs that determine the quick connects available to agents who are working the queue.
      * 
      */
     @Export(name="quickConnectIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> quickConnectIds;
 
     /**
-     * @return Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
+     * @return Specifies a list of quick connects IDs that determine the quick connects available to agents who are working the queue.
      * 
      */
     public Output<Optional<List<String>>> quickConnectIds() {

@@ -92,7 +92,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Id of the usage plan resource representing to associate the key to.
+        /// ID of the usage plan resource representing to associate the key to.
         /// </summary>
         [Output("usagePlanId")]
         public Output<string> UsagePlanId { get; private set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Id of the usage plan resource representing to associate the key to.
+        /// ID of the usage plan resource representing to associate the key to.
         /// </summary>
         [Input("usagePlanId", required: true)]
         public Input<string> UsagePlanId { get; set; } = null!;
@@ -206,7 +206,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Id of the usage plan resource representing to associate the key to.
+        /// ID of the usage plan resource representing to associate the key to.
         /// </summary>
         [Input("usagePlanId")]
         public Input<string>? UsagePlanId { get; set; }

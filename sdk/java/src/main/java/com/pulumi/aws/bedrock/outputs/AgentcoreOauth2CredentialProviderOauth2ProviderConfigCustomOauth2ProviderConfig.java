@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig {
     /**
-     * @return Client authentication method used with the token endpoint. Valid values: `CLIENT_SECRET_BASIC`, `CLIENT_SECRET_POST`, `AWS_IAM_ID_TOKEN_JWT`.
+     * @return Client authentication method used with the token endpoint. Valid values: `CLIENT_SECRET_BASIC`, `CLIENT_SECRET_POST`, `AWS_IAM_ID_TOKEN_JWT`, `PRIVATE_KEY_JWT`.
      * 
      */
     private @Nullable String clientAuthenticationMethod;
@@ -31,7 +31,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
      */
     private @Nullable Integer clientCredentialsWoVersion;
     /**
-     * @return OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
+     * @return OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret` unless `clientSecretSource` is `EXTERNAL` or `clientAuthenticationMethod` is `AWS_IAM_ID_TOKEN_JWT` or `PRIVATE_KEY_JWT`.
      * 
      */
     private @Nullable String clientId;
@@ -90,7 +90,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
 
     private AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig() {}
     /**
-     * @return Client authentication method used with the token endpoint. Valid values: `CLIENT_SECRET_BASIC`, `CLIENT_SECRET_POST`, `AWS_IAM_ID_TOKEN_JWT`.
+     * @return Client authentication method used with the token endpoint. Valid values: `CLIENT_SECRET_BASIC`, `CLIENT_SECRET_POST`, `AWS_IAM_ID_TOKEN_JWT`, `PRIVATE_KEY_JWT`.
      * 
      */
     public Optional<String> clientAuthenticationMethod() {
@@ -104,7 +104,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
         return Optional.ofNullable(this.clientCredentialsWoVersion);
     }
     /**
-     * @return OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
+     * @return OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret` unless `clientSecretSource` is `EXTERNAL` or `clientAuthenticationMethod` is `AWS_IAM_ID_TOKEN_JWT` or `PRIVATE_KEY_JWT`.
      * 
      */
     public Optional<String> clientId() {

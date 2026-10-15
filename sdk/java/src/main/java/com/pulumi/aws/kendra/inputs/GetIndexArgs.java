@@ -18,14 +18,14 @@ public final class GetIndexArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetIndexArgs Empty = new GetIndexArgs();
 
     /**
-     * Returns information on a specific Index by id.
+     * Returns information on a specific Index by ID.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return Returns information on a specific Index by id.
+     * @return Returns information on a specific Index by ID.
      * 
      */
     public Output<String> id() {
@@ -89,7 +89,7 @@ public final class GetIndexArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id Returns information on a specific Index by id.
+         * @param id Returns information on a specific Index by ID.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class GetIndexArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id Returns information on a specific Index by id.
+         * @param id Returns information on a specific Index by ID.
          * 
          * @return builder
          * 

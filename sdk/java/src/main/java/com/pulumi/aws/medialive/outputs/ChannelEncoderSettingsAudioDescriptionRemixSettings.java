@@ -14,17 +14,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsAudioDescriptionRemixSettings {
+    /**
+     * @return Mapping of input channels to output channels. See `channelMappings` Block for details.
+     * 
+     */
     private List<ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping> channelMappings;
+    /**
+     * @return Number of input channels to be used.
+     * 
+     */
     private @Nullable Integer channelsIn;
+    /**
+     * @return Number of output channels to be produced.
+     * 
+     */
     private @Nullable Integer channelsOut;
 
     private ChannelEncoderSettingsAudioDescriptionRemixSettings() {}
+    /**
+     * @return Mapping of input channels to output channels. See `channelMappings` Block for details.
+     * 
+     */
     public List<ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping> channelMappings() {
         return this.channelMappings;
     }
+    /**
+     * @return Number of input channels to be used.
+     * 
+     */
     public Optional<Integer> channelsIn() {
         return Optional.ofNullable(this.channelsIn);
     }
+    /**
+     * @return Number of output channels to be produced.
+     * 
+     */
     public Optional<Integer> channelsOut() {
         return Optional.ofNullable(this.channelsOut);
     }

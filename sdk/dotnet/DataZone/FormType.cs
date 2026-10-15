@@ -203,13 +203,13 @@ namespace Pulumi.Aws.DataZone
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Origin domain id of the Form Type.
+        /// Origin domain ID of the Form Type.
         /// </summary>
         [Output("originDomainId")]
         public Output<string> OriginDomainId { get; private set; } = null!;
 
         /// <summary>
-        /// Origin project id of the Form Type.
+        /// Origin project ID of the Form Type.
         /// </summary>
         [Output("originProjectId")]
         public Output<string> OriginProjectId { get; private set; } = null!;
@@ -385,13 +385,13 @@ namespace Pulumi.Aws.DataZone
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Origin domain id of the Form Type.
+        /// Origin domain ID of the Form Type.
         /// </summary>
         [Input("originDomainId")]
         public Input<string>? OriginDomainId { get; set; }
 
         /// <summary>
-        /// Origin project id of the Form Type.
+        /// Origin project ID of the Form Type.
         /// </summary>
         [Input("originProjectId")]
         public Input<string>? OriginProjectId { get; set; }

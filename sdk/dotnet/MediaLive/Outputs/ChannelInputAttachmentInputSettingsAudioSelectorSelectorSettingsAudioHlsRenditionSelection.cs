@@ -14,11 +14,11 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection
     {
         /// <summary>
-        /// Specifies the GROUP-ID in the #EXT-X-MEDIA tag of the target HLS audio rendition.
+        /// GROUP-ID in the `#EXT-X-MEDIA` tag of the target HLS audio rendition.
         /// </summary>
         public readonly string GroupId;
         /// <summary>
-        /// Specifies the NAME in the #EXT-X-MEDIA tag of the target HLS audio rendition.
+        /// NAME in the `#EXT-X-MEDIA` tag of the target HLS audio rendition.
         /// </summary>
         public readonly string Name;
 

@@ -16,16 +16,32 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Setting
 
     public static final ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs Empty = new ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs();
 
+    /**
+     * Average bitrate in bits/second.
+     * 
+     */
     @Import(name="bitrate")
     private @Nullable Output<Double> bitrate;
 
+    /**
+     * @return Average bitrate in bits/second.
+     * 
+     */
     public Optional<Output<Double>> bitrate() {
         return Optional.ofNullable(this.bitrate);
     }
 
+    /**
+     * MPEG-2 coding mode.
+     * 
+     */
     @Import(name="codingMode")
     private @Nullable Output<String> codingMode;
 
+    /**
+     * @return MPEG-2 coding mode.
+     * 
+     */
     public Optional<Output<String>> codingMode() {
         return Optional.ofNullable(this.codingMode);
     }
@@ -71,20 +87,44 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Setting
             $ = new ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param bitrate Average bitrate in bits/second.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bitrate(@Nullable Output<Double> bitrate) {
             $.bitrate = bitrate;
             return this;
         }
 
+        /**
+         * @param bitrate Average bitrate in bits/second.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bitrate(Double bitrate) {
             return bitrate(Output.of(bitrate));
         }
 
+        /**
+         * @param codingMode MPEG-2 coding mode.
+         * 
+         * @return builder
+         * 
+         */
         public Builder codingMode(@Nullable Output<String> codingMode) {
             $.codingMode = codingMode;
             return this;
         }
 
+        /**
+         * @param codingMode MPEG-2 coding mode.
+         * 
+         * @return builder
+         * 
+         */
         public Builder codingMode(String codingMode) {
             return codingMode(Output.of(codingMode));
         }

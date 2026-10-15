@@ -263,14 +263,14 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
         return this.pipelineArn;
     }
     /**
-     * The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with `\n`.
+     * The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a `.yaml` file. If you provide the configuration as a string, each new line must be escaped with `\n`.
      * 
      */
     @Export(name="pipelineConfigurationBody", refs={String.class}, tree="[0]")
     private Output<String> pipelineConfigurationBody;
 
     /**
-     * @return The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with `\n`.
+     * @return The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a `.yaml` file. If you provide the configuration as a string, each new line must be escaped with `\n`.
      * 
      */
     public Output<String> pipelineConfigurationBody() {

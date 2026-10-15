@@ -44,19 +44,19 @@ namespace Pulumi.Aws.MediaStore
     public partial class Container : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the container.
+        /// ARN of the container.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The DNS endpoint of the container.
+        /// DNS endpoint of the container.
         /// </summary>
         [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the container. Must contain alphanumeric characters or underscores.
+        /// Name of the container. Must contain alphanumeric characters or underscores.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -68,13 +68,13 @@ namespace Pulumi.Aws.MediaStore
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.MediaStore
     public sealed class ContainerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the container. Must contain alphanumeric characters or underscores.
+        /// Name of the container. Must contain alphanumeric characters or underscores.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -141,7 +141,7 @@ namespace Pulumi.Aws.MediaStore
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -158,19 +158,19 @@ namespace Pulumi.Aws.MediaStore
     public sealed class ContainerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the container.
+        /// ARN of the container.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The DNS endpoint of the container.
+        /// DNS endpoint of the container.
         /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// The name of the container. Must contain alphanumeric characters or underscores.
+        /// Name of the container. Must contain alphanumeric characters or underscores.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -185,7 +185,7 @@ namespace Pulumi.Aws.MediaStore
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -197,7 +197,7 @@ namespace Pulumi.Aws.MediaStore
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

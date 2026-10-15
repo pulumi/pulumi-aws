@@ -92,11 +92,11 @@ export class Listener extends pulumi.CustomResource {
      */
     declare public readonly clientAffinity: pulumi.Output<string | undefined>;
     /**
-     * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+     * Port ranges for the connections from clients to the accelerator. See `portRange` below.
      */
     declare public readonly portRanges: pulumi.Output<outputs.globalaccelerator.ListenerPortRange[]>;
     /**
-     * The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
+     * Protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
      */
     declare public readonly protocol: pulumi.Output<string>;
 
@@ -157,11 +157,11 @@ export interface ListenerState {
      */
     clientAffinity?: pulumi.Input<string | undefined>;
     /**
-     * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+     * Port ranges for the connections from clients to the accelerator. See `portRange` below.
      */
     portRanges?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.ListenerPortRange>[] | undefined>;
     /**
-     * The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
+     * Protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
      */
     protocol?: pulumi.Input<string | undefined>;
 }
@@ -179,11 +179,11 @@ export interface ListenerArgs {
      */
     clientAffinity?: pulumi.Input<string | undefined>;
     /**
-     * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+     * Port ranges for the connections from clients to the accelerator. See `portRange` below.
      */
     portRanges: pulumi.Input<pulumi.Input<inputs.globalaccelerator.ListenerPortRange>[]>;
     /**
-     * The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
+     * Protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
      */
     protocol: pulumi.Input<string>;
 }

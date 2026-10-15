@@ -60,19 +60,19 @@ export class WorkspaceServiceAccountToken extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies when the service account token was created.
+     * When the service account token was created.
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
-     * Specifies when the service account token will expire.
+     * When the service account token will expire.
      */
     declare public /*out*/ readonly expiresAt: pulumi.Output<string>;
     /**
-     * The key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
+     * Key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
      */
     declare public /*out*/ readonly key: pulumi.Output<string>;
     /**
-     * A name for the token to create. The name must be unique within the workspace.
+     * Name for the token to create. The name must be unique within the workspace.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -84,7 +84,7 @@ export class WorkspaceServiceAccountToken extends pulumi.CustomResource {
      */
     declare public readonly secondsToLive: pulumi.Output<number>;
     /**
-     * The ID of the service account for which to create a token.
+     * ID of the service account for which to create a token.
      */
     declare public readonly serviceAccountId: pulumi.Output<string>;
     /**
@@ -92,7 +92,7 @@ export class WorkspaceServiceAccountToken extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly serviceAccountTokenId: pulumi.Output<string>;
     /**
-     * The Grafana workspace with which the service account token is associated.
+     * Grafana workspace with which the service account token is associated.
      */
     declare public readonly workspaceId: pulumi.Output<string>;
 
@@ -151,19 +151,19 @@ export class WorkspaceServiceAccountToken extends pulumi.CustomResource {
  */
 export interface WorkspaceServiceAccountTokenState {
     /**
-     * Specifies when the service account token was created.
+     * When the service account token was created.
      */
     createdAt?: pulumi.Input<string | undefined>;
     /**
-     * Specifies when the service account token will expire.
+     * When the service account token will expire.
      */
     expiresAt?: pulumi.Input<string | undefined>;
     /**
-     * The key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
+     * Key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
      */
     key?: pulumi.Input<string | undefined>;
     /**
-     * A name for the token to create. The name must be unique within the workspace.
+     * Name for the token to create. The name must be unique within the workspace.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -175,7 +175,7 @@ export interface WorkspaceServiceAccountTokenState {
      */
     secondsToLive?: pulumi.Input<number | undefined>;
     /**
-     * The ID of the service account for which to create a token.
+     * ID of the service account for which to create a token.
      */
     serviceAccountId?: pulumi.Input<string | undefined>;
     /**
@@ -183,7 +183,7 @@ export interface WorkspaceServiceAccountTokenState {
      */
     serviceAccountTokenId?: pulumi.Input<string | undefined>;
     /**
-     * The Grafana workspace with which the service account token is associated.
+     * Grafana workspace with which the service account token is associated.
      */
     workspaceId?: pulumi.Input<string | undefined>;
 }
@@ -193,7 +193,7 @@ export interface WorkspaceServiceAccountTokenState {
  */
 export interface WorkspaceServiceAccountTokenArgs {
     /**
-     * A name for the token to create. The name must be unique within the workspace.
+     * Name for the token to create. The name must be unique within the workspace.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -205,11 +205,11 @@ export interface WorkspaceServiceAccountTokenArgs {
      */
     secondsToLive: pulumi.Input<number>;
     /**
-     * The ID of the service account for which to create a token.
+     * ID of the service account for which to create a token.
      */
     serviceAccountId: pulumi.Input<string>;
     /**
-     * The Grafana workspace with which the service account token is associated.
+     * Grafana workspace with which the service account token is associated.
      */
     workspaceId: pulumi.Input<string>;
 }

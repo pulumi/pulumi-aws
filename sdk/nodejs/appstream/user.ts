@@ -58,7 +58,7 @@ export class User extends pulumi.CustomResource {
     }
 
     /**
-     * ARN of the appstream user.
+     * ARN of the AppStream user.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -146,7 +146,7 @@ export class User extends pulumi.CustomResource {
  */
 export interface UserState {
     /**
-     * ARN of the appstream user.
+     * ARN of the AppStream user.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

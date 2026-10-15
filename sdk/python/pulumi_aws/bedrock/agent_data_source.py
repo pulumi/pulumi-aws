@@ -355,7 +355,7 @@ class AgentDataSource(pulumi.CustomResource):
                  vector_ingestion_configuration: pulumi.Input[Optional[Union['AgentDataSourceVectorIngestionConfigurationArgs', 'AgentDataSourceVectorIngestionConfigurationArgsDict', 'outputs.AgentDataSourceVectorIngestionConfiguration']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Agents for Amazon Bedrock Data Source.
+        Manages an AWS Agents for Amazon Bedrock Data Source.
 
         ## Example Usage
 
@@ -485,6 +485,63 @@ class AgentDataSource(pulumi.CustomResource):
             },
             knowledge_base_id=example_aws_bedrockagent_knowledge_base["id"],
             name="multimodal-example")
+        ```
+
+        ### GraphRAG with Neptune Analytics
+
+        Knowledge bases that use `NEPTUNE_ANALYTICS` storage require every associated data source to set `context_enrichment_configuration`.
+
+        The graph construction model must be one that GraphRAG currently supports, and the supported models are reachable only through a cross-Region [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html). Passing a plain foundation model ARN fails with `ValidationException: Invalid graph bedrock foundation model provided`.
+
+        The knowledge base service role needs:
+
+        * `bedrock:GetInferenceProfile` on `*`. Scoping this to the profile ARN is not honored, and creation fails with `Not authorized to call GetInferenceProfile` even when the granted ARN matches the one in the error.
+        * `bedrock:InvokeModel` on the inference profile ARN.
+        * `bedrock:InvokeModel` on the underlying foundation model in every Region the profile routes to, which `aws bedrock get-inference-profile` reports as `models[].modelArn`.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.bedrock.AgentKnowledgeBase("example",
+            knowledge_base_configuration={
+                "vector_knowledge_base_configuration": {
+                    "embedding_model_arn": "arn:aws:bedrock:us-east-1::foundation-model/cohere.embed-english-v3",
+                },
+                "type": "VECTOR",
+            },
+            storage_configuration={
+                "neptune_analytics_configuration": {
+                    "field_mapping": {
+                        "metadata_field": "metadata",
+                        "text_field": "text",
+                    },
+                    "graph_arn": example_aws_neptunegraph_graph["arn"],
+                },
+                "type": "NEPTUNE_ANALYTICS",
+            },
+            name="graphrag-example",
+            role_arn=example_aws_iam_role["arn"])
+        example_agent_data_source = aws.bedrock.AgentDataSource("example",
+            data_source_configuration={
+                "s3_configuration": {
+                    "bucket_arn": example_aws_s3_bucket["arn"],
+                },
+                "type": "S3",
+            },
+            vector_ingestion_configuration={
+                "context_enrichment_configuration": {
+                    "bedrock_foundation_model_configuration": {
+                        "enrichment_strategy_configuration": {
+                            "method": "CHUNK_ENTITY_EXTRACTION",
+                        },
+                        "model_arn": f"arn:aws:bedrock:us-east-1:{current['accountId']}:inference-profile/us.anthropic.claude-haiku-4-5-20251001-v1:0",
+                    },
+                    "type": "BEDROCK_FOUNDATION_MODEL",
+                },
+            },
+            knowledge_base_id=example.id,
+            name="graphrag-example")
         ```
 
         ## Import
@@ -516,7 +573,7 @@ class AgentDataSource(pulumi.CustomResource):
                  args: AgentDataSourceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Agents for Amazon Bedrock Data Source.
+        Manages an AWS Agents for Amazon Bedrock Data Source.
 
         ## Example Usage
 
@@ -646,6 +703,63 @@ class AgentDataSource(pulumi.CustomResource):
             },
             knowledge_base_id=example_aws_bedrockagent_knowledge_base["id"],
             name="multimodal-example")
+        ```
+
+        ### GraphRAG with Neptune Analytics
+
+        Knowledge bases that use `NEPTUNE_ANALYTICS` storage require every associated data source to set `context_enrichment_configuration`.
+
+        The graph construction model must be one that GraphRAG currently supports, and the supported models are reachable only through a cross-Region [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html). Passing a plain foundation model ARN fails with `ValidationException: Invalid graph bedrock foundation model provided`.
+
+        The knowledge base service role needs:
+
+        * `bedrock:GetInferenceProfile` on `*`. Scoping this to the profile ARN is not honored, and creation fails with `Not authorized to call GetInferenceProfile` even when the granted ARN matches the one in the error.
+        * `bedrock:InvokeModel` on the inference profile ARN.
+        * `bedrock:InvokeModel` on the underlying foundation model in every Region the profile routes to, which `aws bedrock get-inference-profile` reports as `models[].modelArn`.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.bedrock.AgentKnowledgeBase("example",
+            knowledge_base_configuration={
+                "vector_knowledge_base_configuration": {
+                    "embedding_model_arn": "arn:aws:bedrock:us-east-1::foundation-model/cohere.embed-english-v3",
+                },
+                "type": "VECTOR",
+            },
+            storage_configuration={
+                "neptune_analytics_configuration": {
+                    "field_mapping": {
+                        "metadata_field": "metadata",
+                        "text_field": "text",
+                    },
+                    "graph_arn": example_aws_neptunegraph_graph["arn"],
+                },
+                "type": "NEPTUNE_ANALYTICS",
+            },
+            name="graphrag-example",
+            role_arn=example_aws_iam_role["arn"])
+        example_agent_data_source = aws.bedrock.AgentDataSource("example",
+            data_source_configuration={
+                "s3_configuration": {
+                    "bucket_arn": example_aws_s3_bucket["arn"],
+                },
+                "type": "S3",
+            },
+            vector_ingestion_configuration={
+                "context_enrichment_configuration": {
+                    "bedrock_foundation_model_configuration": {
+                        "enrichment_strategy_configuration": {
+                            "method": "CHUNK_ENTITY_EXTRACTION",
+                        },
+                        "model_arn": f"arn:aws:bedrock:us-east-1:{current['accountId']}:inference-profile/us.anthropic.claude-haiku-4-5-20251001-v1:0",
+                    },
+                    "type": "BEDROCK_FOUNDATION_MODEL",
+                },
+            },
+            knowledge_base_id=example.id,
+            name="graphrag-example")
         ```
 
         ## Import

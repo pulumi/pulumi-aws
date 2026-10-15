@@ -21,11 +21,11 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a resource to create a new launch configuration, used for autoscaling groups.
+ * Provides a resource to create a new launch configuration, used for Auto Scaling groups.
  * 
  * &gt; **WARNING:** The use of launch configurations is discouraged in favor of launch templates. Read more in the [AWS EC2 Documentation](https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-configurations.html).
  * 
- * &gt; **Note** When using `aws.ec2.LaunchConfiguration` with `aws.autoscaling.Group`, it is recommended to use the `namePrefix` (Optional) instead of the `name` (Optional) attribute.
+ * &gt; **Note** When using `aws.ec2.LaunchConfiguration` with `aws.autoscaling.Group`, it is recommended to use the `namePrefix` (Optional) instead of the `name` (Optional) attribute. This will allow Terraform lifecycles to detect changes to the launch configuration and update the Auto Scaling group correctly.
  * 
  * ## Example Usage
  * 
@@ -108,14 +108,14 @@ public class LaunchConfiguration extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Associate a public ip address with an instance in a VPC.
+     * Associate a public IP address with an instance in a VPC.
      * 
      */
     @Export(name="associatePublicIpAddress", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> associatePublicIpAddress;
 
     /**
-     * @return Associate a public ip address with an instance in a VPC.
+     * @return Associate a public IP address with an instance in a VPC.
      * 
      */
     public Output<Optional<Boolean>> associatePublicIpAddress() {
@@ -322,14 +322,14 @@ public class LaunchConfiguration extends com.pulumi.resources.CustomResource {
         return this.rootBlockDevice;
     }
     /**
-     * A list of associated security group IDS.
+     * A list of associated security group IDs.
      * 
      */
     @Export(name="securityGroups", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> securityGroups;
 
     /**
-     * @return A list of associated security group IDS.
+     * @return A list of associated security group IDs.
      * 
      */
     public Output<Optional<List<String>>> securityGroups() {

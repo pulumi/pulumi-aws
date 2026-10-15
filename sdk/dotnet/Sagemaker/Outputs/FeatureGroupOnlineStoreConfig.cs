@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly string? StorageType;
         /// <summary>
-        /// Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.
+        /// Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTL Duration Below.
         /// </summary>
         public readonly Outputs.FeatureGroupOnlineStoreConfigTtlDuration? TtlDuration;
 

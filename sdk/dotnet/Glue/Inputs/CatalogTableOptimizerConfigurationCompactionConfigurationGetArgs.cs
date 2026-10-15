@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Glue.Inputs
     public sealed class CatalogTableOptimizerConfigurationCompactionConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The configuration for an Iceberg compaction optimizer.
+        /// Configuration for an Iceberg compaction optimizer. See `configuration.compaction_configuration.iceberg_configuration` Block for additional details.
         /// </summary>
         [Input("icebergConfiguration")]
         public Input<Inputs.CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationGetArgs>? IcebergConfiguration { get; set; }

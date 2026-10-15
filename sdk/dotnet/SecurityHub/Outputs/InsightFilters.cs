@@ -130,11 +130,11 @@ namespace Pulumi.Aws.SecurityHub.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.InsightFiltersNetworkDestinationDomain> NetworkDestinationDomains;
         /// <summary>
-        /// The destination IPv4 address of network-related information about a finding. See Ip Filter below for more details.
+        /// The destination IPv4 address of network-related information about a finding. See IP Filter below for more details.
         /// </summary>
         public readonly ImmutableArray<Outputs.InsightFiltersNetworkDestinationIpv4> NetworkDestinationIpv4s;
         /// <summary>
-        /// The destination IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+        /// The destination IPv6 address of network-related information about a finding. See IP Filter below for more details.
         /// </summary>
         public readonly ImmutableArray<Outputs.InsightFiltersNetworkDestinationIpv6> NetworkDestinationIpv6s;
         /// <summary>
@@ -154,11 +154,11 @@ namespace Pulumi.Aws.SecurityHub.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.InsightFiltersNetworkSourceDomain> NetworkSourceDomains;
         /// <summary>
-        /// The source IPv4 address of network-related information about a finding. See Ip Filter below for more details.
+        /// The source IPv4 address of network-related information about a finding. See IP Filter below for more details.
         /// </summary>
         public readonly ImmutableArray<Outputs.InsightFiltersNetworkSourceIpv4> NetworkSourceIpv4s;
         /// <summary>
-        /// The source IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+        /// The source IPv6 address of network-related information about a finding. See IP Filter below for more details.
         /// </summary>
         public readonly ImmutableArray<Outputs.InsightFiltersNetworkSourceIpv6> NetworkSourceIpv6s;
         /// <summary>
@@ -242,11 +242,11 @@ namespace Pulumi.Aws.SecurityHub.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.InsightFiltersResourceAwsEc2InstanceImageId> ResourceAwsEc2InstanceImageIds;
         /// <summary>
-        /// The IPv4 addresses associated with the instance. See Ip Filter below for more details.
+        /// The IPv4 addresses associated with the instance. See IP Filter below for more details.
         /// </summary>
         public readonly ImmutableArray<Outputs.InsightFiltersResourceAwsEc2InstanceIpv4Address> ResourceAwsEc2InstanceIpv4Addresses;
         /// <summary>
-        /// The IPv6 addresses associated with the instance. See Ip Filter below for more details.
+        /// The IPv6 addresses associated with the instance. See IP Filter below for more details.
         /// </summary>
         public readonly ImmutableArray<Outputs.InsightFiltersResourceAwsEc2InstanceIpv6Address> ResourceAwsEc2InstanceIpv6Addresses;
         /// <summary>

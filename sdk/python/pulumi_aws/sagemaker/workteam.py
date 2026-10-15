@@ -376,7 +376,7 @@ class Workteam(pulumi.CustomResource):
             description="example")
         ```
 
-        ### Oidc Usage
+        ### OIDC Usage
 
         ```python
         import pulumi
@@ -443,7 +443,7 @@ class Workteam(pulumi.CustomResource):
             description="example")
         ```
 
-        ### Oidc Usage
+        ### OIDC Usage
 
         ```python
         import pulumi

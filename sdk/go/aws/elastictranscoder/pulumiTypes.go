@@ -1836,7 +1836,7 @@ type PresetVideoWatermark struct {
 	HorizontalAlign *string `pulumi:"horizontalAlign"`
 	// The amount by which you want the horizontal position of the watermark to be offset from the position specified by `horizontalAlign`.
 	HorizontalOffset *string `pulumi:"horizontalOffset"`
-	// A unique identifier for the settings for one watermark. The value of Id can be up to 40 characters long. You can specify settings for up to four watermarks.
+	// A unique identifier for the settings for one watermark. The value of ID can be up to 40 characters long. You can specify settings for up to four watermarks.
 	Id *string `pulumi:"id"`
 	// The maximum height of the watermark.
 	MaxHeight *string `pulumi:"maxHeight"`
@@ -1870,7 +1870,7 @@ type PresetVideoWatermarkArgs struct {
 	HorizontalAlign pulumi.StringPtrInput `pulumi:"horizontalAlign"`
 	// The amount by which you want the horizontal position of the watermark to be offset from the position specified by `horizontalAlign`.
 	HorizontalOffset pulumi.StringPtrInput `pulumi:"horizontalOffset"`
-	// A unique identifier for the settings for one watermark. The value of Id can be up to 40 characters long. You can specify settings for up to four watermarks.
+	// A unique identifier for the settings for one watermark. The value of ID can be up to 40 characters long. You can specify settings for up to four watermarks.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The maximum height of the watermark.
 	MaxHeight pulumi.StringPtrInput `pulumi:"maxHeight"`
@@ -1949,7 +1949,7 @@ func (o PresetVideoWatermarkOutput) HorizontalOffset() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PresetVideoWatermark) *string { return v.HorizontalOffset }).(pulumi.StringPtrOutput)
 }
 
-// A unique identifier for the settings for one watermark. The value of Id can be up to 40 characters long. You can specify settings for up to four watermarks.
+// A unique identifier for the settings for one watermark. The value of ID can be up to 40 characters long. You can specify settings for up to four watermarks.
 func (o PresetVideoWatermarkOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PresetVideoWatermark) *string { return v.Id }).(pulumi.StringPtrOutput)
 }

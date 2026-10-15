@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get information about a Workspaces image.
+// Use this data source to get information about a WorkSpaces image.
 //
 // ## Example Usage
 //

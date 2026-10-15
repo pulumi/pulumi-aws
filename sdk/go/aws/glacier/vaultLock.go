@@ -125,7 +125,7 @@ type VaultLock struct {
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The name of the Glacier Vault.
+	// Name of the Glacier Vault.
 	VaultName pulumi.StringOutput `pulumi:"vaultName"`
 }
 
@@ -176,7 +176,7 @@ type vaultLockState struct {
 	Policy *string `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The name of the Glacier Vault.
+	// Name of the Glacier Vault.
 	VaultName *string `pulumi:"vaultName"`
 }
 
@@ -189,7 +189,7 @@ type VaultLockState struct {
 	Policy pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The name of the Glacier Vault.
+	// Name of the Glacier Vault.
 	VaultName pulumi.StringPtrInput
 }
 
@@ -206,7 +206,7 @@ type vaultLockArgs struct {
 	Policy string `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The name of the Glacier Vault.
+	// Name of the Glacier Vault.
 	VaultName string `pulumi:"vaultName"`
 }
 
@@ -220,7 +220,7 @@ type VaultLockArgs struct {
 	Policy pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The name of the Glacier Vault.
+	// Name of the Glacier Vault.
 	VaultName pulumi.StringInput
 }
 
@@ -331,7 +331,7 @@ func (o VaultLockOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VaultLock) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The name of the Glacier Vault.
+// Name of the Glacier Vault.
 func (o VaultLockOutput) VaultName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VaultLock) pulumi.StringOutput { return v.VaultName }).(pulumi.StringOutput)
 }

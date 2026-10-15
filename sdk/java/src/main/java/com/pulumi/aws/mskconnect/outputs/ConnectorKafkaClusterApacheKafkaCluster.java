@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class ConnectorKafkaClusterApacheKafkaCluster {
     /**
-     * @return The bootstrap servers of the cluster.
+     * @return Bootstrap servers of the cluster.
      * 
      */
     private String bootstrapServers;
@@ -24,7 +24,7 @@ public final class ConnectorKafkaClusterApacheKafkaCluster {
 
     private ConnectorKafkaClusterApacheKafkaCluster() {}
     /**
-     * @return The bootstrap servers of the cluster.
+     * @return Bootstrap servers of the cluster.
      * 
      */
     public String bootstrapServers() {

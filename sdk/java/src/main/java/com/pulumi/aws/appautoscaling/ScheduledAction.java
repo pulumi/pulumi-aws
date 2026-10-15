@@ -16,11 +16,11 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides an Application AutoScaling ScheduledAction resource.
+ * Provides an Application Auto Scaling ScheduledAction resource.
  * 
  * ## Example Usage
  * 
- * ### DynamoDB Table Autoscaling
+ * ### DynamoDB Table AutoScaling
  * 
  * <pre>
  * {@code
@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### ECS Service Autoscaling
+ * ### ECS Service AutoScaling
  * 
  * <pre>
  * {@code
@@ -240,14 +240,14 @@ public class ScheduledAction extends com.pulumi.resources.CustomResource {
         return this.schedule;
     }
     /**
-     * Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs
+     * Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: `ecs`
      * 
      */
     @Export(name="serviceNamespace", refs={String.class}, tree="[0]")
     private Output<String> serviceNamespace;
 
     /**
-     * @return Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs
+     * @return Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: `ecs`
      * 
      */
     public Output<String> serviceNamespace() {

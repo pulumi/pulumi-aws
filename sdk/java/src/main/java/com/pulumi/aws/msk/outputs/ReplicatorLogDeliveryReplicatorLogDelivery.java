@@ -14,38 +14,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ReplicatorLogDeliveryReplicatorLogDelivery {
     /**
-     * @return Configuration block for replicator log delivery to Amazon CloudWatch Logs. Detailed below.
+     * @return Configuration block for replicator log delivery to Amazon CloudWatch Logs. See `cloudwatchLogs` Block below.
      * 
      */
     private @Nullable ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogs cloudwatchLogs;
     /**
-     * @return Configuration block for replicator log delivery to Amazon Data Firehose. Detailed below.
+     * @return Configuration block for replicator log delivery to Amazon Data Firehose. See `firehose` Block below.
      * 
      */
     private @Nullable ReplicatorLogDeliveryReplicatorLogDeliveryFirehose firehose;
     /**
-     * @return Configuration block for replicator log delivery to Amazon S3. Detailed below.
+     * @return Configuration block for replicator log delivery to Amazon S3. See `s3` Block below.
      * 
      */
     private @Nullable ReplicatorLogDeliveryReplicatorLogDeliveryS3 s3;
 
     private ReplicatorLogDeliveryReplicatorLogDelivery() {}
     /**
-     * @return Configuration block for replicator log delivery to Amazon CloudWatch Logs. Detailed below.
+     * @return Configuration block for replicator log delivery to Amazon CloudWatch Logs. See `cloudwatchLogs` Block below.
      * 
      */
     public Optional<ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogs> cloudwatchLogs() {
         return Optional.ofNullable(this.cloudwatchLogs);
     }
     /**
-     * @return Configuration block for replicator log delivery to Amazon Data Firehose. Detailed below.
+     * @return Configuration block for replicator log delivery to Amazon Data Firehose. See `firehose` Block below.
      * 
      */
     public Optional<ReplicatorLogDeliveryReplicatorLogDeliveryFirehose> firehose() {
         return Optional.ofNullable(this.firehose);
     }
     /**
-     * @return Configuration block for replicator log delivery to Amazon S3. Detailed below.
+     * @return Configuration block for replicator log delivery to Amazon S3. See `s3` Block below.
      * 
      */
     public Optional<ReplicatorLogDeliveryReplicatorLogDeliveryS3> s3() {

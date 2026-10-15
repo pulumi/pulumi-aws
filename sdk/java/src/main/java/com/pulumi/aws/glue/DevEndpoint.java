@@ -96,42 +96,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:glue/devEndpoint:DevEndpoint")
 public class DevEndpoint extends com.pulumi.resources.CustomResource {
     /**
-     * A map of arguments used to configure the endpoint.
+     * Map of arguments used to configure the endpoint.
      * 
      */
     @Export(name="arguments", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> arguments;
 
     /**
-     * @return A map of arguments used to configure the endpoint.
+     * @return Map of arguments used to configure the endpoint.
      * 
      */
     public Output<Optional<Map<String,String>>> arguments() {
         return Codegen.optional(this.arguments);
     }
     /**
-     * The ARN of the endpoint.
+     * ARN of the endpoint.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the endpoint.
+     * @return ARN of the endpoint.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The AWS availability zone where this endpoint is located.
+     * AWS availability zone where this endpoint is located.
      * 
      */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
 
     /**
-     * @return The AWS availability zone where this endpoint is located.
+     * @return AWS availability zone where this endpoint is located.
      * 
      */
     public Output<String> availabilityZone() {
@@ -166,14 +166,14 @@ public class DevEndpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.extraPythonLibsS3Path);
     }
     /**
-     * The reason for a current failure in this endpoint.
+     * Reason for a current failure in this endpoint.
      * 
      */
     @Export(name="failureReason", refs={String.class}, tree="[0]")
     private Output<String> failureReason;
 
     /**
-     * @return The reason for a current failure in this endpoint.
+     * @return Reason for a current failure in this endpoint.
      * 
      */
     public Output<String> failureReason() {
@@ -194,98 +194,98 @@ public class DevEndpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.glueVersion);
     }
     /**
-     * The name of this endpoint. It must be unique in your account.
+     * Name of this endpoint. It must be unique in your account.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of this endpoint. It must be unique in your account.
+     * @return Name of this endpoint. It must be unique in your account.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `workerType`.
+     * Number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `workerType`.
      * 
      */
     @Export(name="numberOfNodes", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> numberOfNodes;
 
     /**
-     * @return The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `workerType`.
+     * @return Number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `workerType`.
      * 
      */
     public Output<Optional<Integer>> numberOfNodes() {
         return Codegen.optional(this.numberOfNodes);
     }
     /**
-     * The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
+     * Number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
      * 
      */
     @Export(name="numberOfWorkers", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> numberOfWorkers;
 
     /**
-     * @return The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
+     * @return Number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
      * 
      */
     public Output<Optional<Integer>> numberOfWorkers() {
         return Codegen.optional(this.numberOfWorkers);
     }
     /**
-     * A private IP address to access the endpoint within a VPC, if this endpoint is created within one.
+     * Private IP address to access the endpoint within a VPC, if this endpoint is created within one.
      * 
      */
     @Export(name="privateAddress", refs={String.class}, tree="[0]")
     private Output<String> privateAddress;
 
     /**
-     * @return A private IP address to access the endpoint within a VPC, if this endpoint is created within one.
+     * @return Private IP address to access the endpoint within a VPC, if this endpoint is created within one.
      * 
      */
     public Output<String> privateAddress() {
         return this.privateAddress;
     }
     /**
-     * The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
+     * Public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
      * 
      */
     @Export(name="publicAddress", refs={String.class}, tree="[0]")
     private Output<String> publicAddress;
 
     /**
-     * @return The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
+     * @return Public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
      * 
      */
     public Output<String> publicAddress() {
         return this.publicAddress;
     }
     /**
-     * The public key to be used by this endpoint for authentication.
+     * Public key to be used by this endpoint for authentication.
      * 
      */
     @Export(name="publicKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> publicKey;
 
     /**
-     * @return The public key to be used by this endpoint for authentication.
+     * @return Public key to be used by this endpoint for authentication.
      * 
      */
     public Output<Optional<String>> publicKey() {
         return Codegen.optional(this.publicKey);
     }
     /**
-     * A list of public keys to be used by this endpoint for authentication.
+     * List of public keys to be used by this endpoint for authentication.
      * 
      */
     @Export(name="publicKeys", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> publicKeys;
 
     /**
-     * @return A list of public keys to be used by this endpoint for authentication.
+     * @return List of public keys to be used by this endpoint for authentication.
      * 
      */
     public Output<Optional<List<String>>> publicKeys() {
@@ -306,28 +306,28 @@ public class DevEndpoint extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The IAM role for this endpoint.
+     * IAM role for this endpoint.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
-     * @return The IAM role for this endpoint.
+     * @return IAM role for this endpoint.
      * 
      */
     public Output<String> roleArn() {
         return this.roleArn;
     }
     /**
-     * The name of the Security Configuration structure to be used with this endpoint.
+     * Name of the Security Configuration structure to be used with this endpoint.
      * 
      */
     @Export(name="securityConfiguration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> securityConfiguration;
 
     /**
-     * @return The name of the Security Configuration structure to be used with this endpoint.
+     * @return Name of the Security Configuration structure to be used with this endpoint.
      * 
      */
     public Output<Optional<String>> securityConfiguration() {
@@ -348,28 +348,28 @@ public class DevEndpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.securityGroupIds);
     }
     /**
-     * The current status of this endpoint.
+     * Current status of this endpoint.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The current status of this endpoint.
+     * @return Current status of this endpoint.
      * 
      */
     public Output<String> status() {
         return this.status;
     }
     /**
-     * The subnet ID for the new endpoint to use.
+     * Subnet ID for the new endpoint to use.
      * 
      */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subnetId;
 
     /**
-     * @return The subnet ID for the new endpoint to use.
+     * @return Subnet ID for the new endpoint to use.
      * 
      */
     public Output<Optional<String>> subnetId() {
@@ -390,70 +390,70 @@ public class DevEndpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * he ID of the VPC used by this endpoint.
+     * ID of the VPC used by this endpoint.
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**
-     * @return he ID of the VPC used by this endpoint.
+     * @return ID of the VPC used by this endpoint.
      * 
      */
     public Output<String> vpcId() {
         return this.vpcId;
     }
     /**
-     * The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
+     * Type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
      * 
      */
     @Export(name="workerType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> workerType;
 
     /**
-     * @return The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
+     * @return Type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
      * 
      */
     public Output<Optional<String>> workerType() {
         return Codegen.optional(this.workerType);
     }
     /**
-     * The YARN endpoint address used by this endpoint.
+     * YARN endpoint address used by this endpoint.
      * 
      */
     @Export(name="yarnEndpointAddress", refs={String.class}, tree="[0]")
     private Output<String> yarnEndpointAddress;
 
     /**
-     * @return The YARN endpoint address used by this endpoint.
+     * @return YARN endpoint address used by this endpoint.
      * 
      */
     public Output<String> yarnEndpointAddress() {
         return this.yarnEndpointAddress;
     }
     /**
-     * The Apache Zeppelin port for the remote Apache Spark interpreter.
+     * Apache Zeppelin port for the remote Apache Spark interpreter.
      * 
      */
     @Export(name="zeppelinRemoteSparkInterpreterPort", refs={Integer.class}, tree="[0]")
     private Output<Integer> zeppelinRemoteSparkInterpreterPort;
 
     /**
-     * @return The Apache Zeppelin port for the remote Apache Spark interpreter.
+     * @return Apache Zeppelin port for the remote Apache Spark interpreter.
      * 
      */
     public Output<Integer> zeppelinRemoteSparkInterpreterPort() {

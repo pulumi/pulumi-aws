@@ -30,14 +30,14 @@ public final class DomainSamlOptionsSamlOptionsIdpArgs extends com.pulumi.resour
     }
 
     /**
-     * The Metadata of the SAML application in xml format.
+     * The Metadata of the SAML application in XML format.
      * 
      */
     @Import(name="metadataContent", required=true)
     private Output<String> metadataContent;
 
     /**
-     * @return The Metadata of the SAML application in xml format.
+     * @return The Metadata of the SAML application in XML format.
      * 
      */
     public Output<String> metadataContent() {
@@ -91,7 +91,7 @@ public final class DomainSamlOptionsSamlOptionsIdpArgs extends com.pulumi.resour
         }
 
         /**
-         * @param metadataContent The Metadata of the SAML application in xml format.
+         * @param metadataContent The Metadata of the SAML application in XML format.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class DomainSamlOptionsSamlOptionsIdpArgs extends com.pulumi.resour
         }
 
         /**
-         * @param metadataContent The Metadata of the SAML application in xml format.
+         * @param metadataContent The Metadata of the SAML application in XML format.
          * 
          * @return builder
          * 

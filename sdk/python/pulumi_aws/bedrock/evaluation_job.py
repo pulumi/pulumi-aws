@@ -258,6 +258,7 @@ class _EvaluationJobState:
         :param pulumi.Input[_builtins.bool] skip_destroy: Whether to leave the evaluation job in its current state when destroying the resource, instead of stopping it.
         :param pulumi.Input[_builtins.str] status: Current status of the evaluation job.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the evaluation job. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if application_type is not None:
             pulumi.set(__self__, "application_type", application_type)
@@ -507,6 +508,9 @@ class _EvaluationJobState:
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -545,7 +549,7 @@ class EvaluationJob(pulumi.CustomResource):
         """
         Manages an Amazon Bedrock evaluation job. An evaluation job assesses model or knowledge base performance using either automated metrics or human workers.
 
-        > Amazon Bedrock does not support permanently deleting an evaluation job. Destroying this resource stops the job (if it is still running) using the [StopEvaluationJob](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_StopEvaluationJob.html) API, then removes it from Terraform state. Set `skip_destroy` to leave the job in its current state instead.
+        > **Note:** Amazon Bedrock does not support permanently deleting an evaluation job. Destroying this resource stops the job (if it is still running) using the [StopEvaluationJob](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_StopEvaluationJob.html) API, then removes it from Terraform state. Set `skip_destroy` to leave the job in its current state instead.
 
         ## Example Usage
 
@@ -587,7 +591,7 @@ class EvaluationJob(pulumi.CustomResource):
 
         #### Required
 
-        - `job_arn` (String) ARN of the evaluation job.
+        * `job_arn` (String) ARN of the evaluation job.
 
         Using `pulumi import`, import Bedrock Evaluation Job using the `job_arn`. For example:
 
@@ -621,7 +625,7 @@ class EvaluationJob(pulumi.CustomResource):
         """
         Manages an Amazon Bedrock evaluation job. An evaluation job assesses model or knowledge base performance using either automated metrics or human workers.
 
-        > Amazon Bedrock does not support permanently deleting an evaluation job. Destroying this resource stops the job (if it is still running) using the [StopEvaluationJob](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_StopEvaluationJob.html) API, then removes it from Terraform state. Set `skip_destroy` to leave the job in its current state instead.
+        > **Note:** Amazon Bedrock does not support permanently deleting an evaluation job. Destroying this resource stops the job (if it is still running) using the [StopEvaluationJob](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_StopEvaluationJob.html) API, then removes it from Terraform state. Set `skip_destroy` to leave the job in its current state instead.
 
         ## Example Usage
 
@@ -663,7 +667,7 @@ class EvaluationJob(pulumi.CustomResource):
 
         #### Required
 
-        - `job_arn` (String) ARN of the evaluation job.
+        * `job_arn` (String) ARN of the evaluation job.
 
         Using `pulumi import`, import Bedrock Evaluation Job using the `job_arn`. For example:
 
@@ -792,6 +796,7 @@ class EvaluationJob(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] skip_destroy: Whether to leave the evaluation job in its current state when destroying the resource, instead of stopping it.
         :param pulumi.Input[_builtins.str] status: Current status of the evaluation job.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the evaluation job. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -959,6 +964,9 @@ class EvaluationJob(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property

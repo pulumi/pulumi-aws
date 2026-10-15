@@ -13,13 +13,14 @@ namespace Pulumi.Aws.MediaLive.Inputs
     public sealed class ChannelInputAttachmentInputSettingsAudioSelectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the Channel.
-        /// 
-        /// The following arguments are optional:
+        /// Name of the audio selector.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Audio selector settings. See `audio_selector.selector_settings` Block for details.
+        /// </summary>
         [Input("selectorSettings")]
         public Input<Inputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs>? SelectorSettings { get; set; }
 

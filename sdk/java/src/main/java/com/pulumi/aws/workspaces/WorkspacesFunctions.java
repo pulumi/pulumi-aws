@@ -757,7 +757,7 @@ public final class WorkspacesFunctions {
         return Deployment.getInstance().invokeAsync("aws:workspaces/getDirectory:getDirectory", TypeShape.of(GetDirectoryResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get information about a Workspaces image.
+     * Use this data source to get information about a WorkSpaces image.
      * 
      * ## Example Usage
      * 
@@ -797,7 +797,7 @@ public final class WorkspacesFunctions {
         return getImage(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about a Workspaces image.
+     * Use this data source to get information about a WorkSpaces image.
      * 
      * ## Example Usage
      * 
@@ -837,7 +837,7 @@ public final class WorkspacesFunctions {
         return getImagePlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about a Workspaces image.
+     * Use this data source to get information about a WorkSpaces image.
      * 
      * ## Example Usage
      * 
@@ -877,7 +877,7 @@ public final class WorkspacesFunctions {
         return Deployment.getInstance().invoke("aws:workspaces/getImage:getImage", TypeShape.of(GetImageResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get information about a Workspaces image.
+     * Use this data source to get information about a WorkSpaces image.
      * 
      * ## Example Usage
      * 
@@ -917,7 +917,7 @@ public final class WorkspacesFunctions {
         return Deployment.getInstance().invoke("aws:workspaces/getImage:getImage", TypeShape.of(GetImageResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get information about a Workspaces image.
+     * Use this data source to get information about a WorkSpaces image.
      * 
      * ## Example Usage
      * 
@@ -957,7 +957,7 @@ public final class WorkspacesFunctions {
         return Deployment.getInstance().invokeAsync("aws:workspaces/getImage:getImage", TypeShape.of(GetImageResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
+     * Use this data source to get information about a workspace in [AWS WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
      * 
      * ## Example Usage
      * 
@@ -1033,7 +1033,7 @@ public final class WorkspacesFunctions {
         return getWorkspace(GetWorkspaceArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
+     * Use this data source to get information about a workspace in [AWS WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
      * 
      * ## Example Usage
      * 
@@ -1109,7 +1109,7 @@ public final class WorkspacesFunctions {
         return getWorkspacePlain(GetWorkspacePlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
+     * Use this data source to get information about a workspace in [AWS WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
      * 
      * ## Example Usage
      * 
@@ -1185,7 +1185,7 @@ public final class WorkspacesFunctions {
         return getWorkspace(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
+     * Use this data source to get information about a workspace in [AWS WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
      * 
      * ## Example Usage
      * 
@@ -1261,7 +1261,7 @@ public final class WorkspacesFunctions {
         return getWorkspacePlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
+     * Use this data source to get information about a workspace in [AWS WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
      * 
      * ## Example Usage
      * 
@@ -1337,7 +1337,7 @@ public final class WorkspacesFunctions {
         return Deployment.getInstance().invoke("aws:workspaces/getWorkspace:getWorkspace", TypeShape.of(GetWorkspaceResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
+     * Use this data source to get information about a workspace in [AWS WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
      * 
      * ## Example Usage
      * 
@@ -1413,7 +1413,7 @@ public final class WorkspacesFunctions {
         return Deployment.getInstance().invoke("aws:workspaces/getWorkspace:getWorkspace", TypeShape.of(GetWorkspaceResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
+     * Use this data source to get information about a workspace in [AWS WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
      * 
      * ## Example Usage
      * 

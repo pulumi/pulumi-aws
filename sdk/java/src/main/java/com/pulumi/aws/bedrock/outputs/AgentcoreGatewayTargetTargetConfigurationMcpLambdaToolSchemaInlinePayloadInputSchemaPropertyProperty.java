@@ -34,7 +34,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
      */
     private @Nullable String propertiesJson;
     /**
-     * @return Whether this property is required. Defaults to `false`.
+     * @return Whether to mark this property as required. Defaults to `false`.
      * 
      */
     private @Nullable Boolean required;
@@ -74,7 +74,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
         return Optional.ofNullable(this.propertiesJson);
     }
     /**
-     * @return Whether this property is required. Defaults to `false`.
+     * @return Whether to mark this property as required. Defaults to `false`.
      * 
      */
     public Optional<Boolean> required() {

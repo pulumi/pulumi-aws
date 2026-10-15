@@ -35,14 +35,14 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesfor
     }
 
     /**
-     * OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
+     * OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret` unless `clientSecretSource` is `EXTERNAL`.
      * 
      */
     @Import(name="clientId")
     private @Nullable Output<String> clientId;
 
     /**
-     * @return OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
+     * @return OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret` unless `clientSecretSource` is `EXTERNAL`.
      * 
      */
     public Optional<Output<String>> clientId() {
@@ -196,7 +196,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesfor
         }
 
         /**
-         * @param clientId OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
+         * @param clientId OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret` unless `clientSecretSource` is `EXTERNAL`.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesfor
         }
 
         /**
-         * @param clientId OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
+         * @param clientId OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret` unless `clientSecretSource` is `EXTERNAL`.
          * 
          * @return builder
          * 

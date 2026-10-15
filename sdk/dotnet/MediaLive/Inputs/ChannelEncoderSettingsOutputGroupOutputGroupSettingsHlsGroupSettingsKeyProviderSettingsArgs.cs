@@ -14,6 +14,10 @@ namespace Pulumi.Aws.MediaLive.Inputs
     {
         [Input("staticKeySettings")]
         private InputList<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgs>? _staticKeySettings;
+
+        /// <summary>
+        /// Static key settings. See `StaticKeySettings` Block for details.
+        /// </summary>
         public InputList<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgs> StaticKeySettings
         {
             get => _staticKeySettings ?? (_staticKeySettings = new InputList<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgs>());

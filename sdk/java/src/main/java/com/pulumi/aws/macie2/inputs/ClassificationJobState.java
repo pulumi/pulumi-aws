@@ -23,14 +23,14 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
     public static final ClassificationJobState Empty = new ClassificationJobState();
 
     /**
-     * The date and time, in UTC and extended RFC 3339 format, when the job was created.
+     * Date and time, in UTC and extended RFC 3339 format, when the job was created.
      * 
      */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
     /**
-     * @return The date and time, in UTC and extended RFC 3339 format, when the job was created.
+     * @return Date and time, in UTC and extended RFC 3339 format, when the job was created.
      * 
      */
     public Optional<Output<String>> createdAt() {
@@ -38,14 +38,14 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The custom data identifiers to use for data analysis and classification.
+     * Custom data identifiers to use for data analysis and classification.
      * 
      */
     @Import(name="customDataIdentifierIds")
     private @Nullable Output<List<String>> customDataIdentifierIds;
 
     /**
-     * @return The custom data identifiers to use for data analysis and classification.
+     * @return Custom data identifiers to use for data analysis and classification.
      * 
      */
     public Optional<Output<List<String>>> customDataIdentifierIds() {
@@ -53,14 +53,14 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A custom description of the job. The description can contain as many as 200 characters.
+     * Custom description of the job. Can contain as many as 200 characters.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A custom description of the job. The description can contain as many as 200 characters.
+     * @return Custom description of the job. Can contain as many as 200 characters.
      * 
      */
     public Optional<Output<String>> description() {
@@ -68,43 +68,59 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Specifies whether to analyze all existing, eligible objects immediately after the job is created.
+     * Whether to analyze all existing, eligible objects immediately after the job is created.
      * 
      */
     @Import(name="initialRun")
     private @Nullable Output<Boolean> initialRun;
 
     /**
-     * @return Specifies whether to analyze all existing, eligible objects immediately after the job is created.
+     * @return Whether to analyze all existing, eligible objects immediately after the job is created.
      * 
      */
     public Optional<Output<Boolean>> initialRun() {
         return Optional.ofNullable(this.initialRun);
     }
 
+    /**
+     * ARN of the classification job.
+     * 
+     */
     @Import(name="jobArn")
     private @Nullable Output<String> jobArn;
 
+    /**
+     * @return ARN of the classification job.
+     * 
+     */
     public Optional<Output<String>> jobArn() {
         return Optional.ofNullable(this.jobArn);
     }
 
+    /**
+     * Unique identifier (ID) of the classification job.
+     * 
+     */
     @Import(name="jobId")
     private @Nullable Output<String> jobId;
 
+    /**
+     * @return Unique identifier (ID) of the classification job.
+     * 
+     */
     public Optional<Output<String>> jobId() {
         return Optional.ofNullable(this.jobId);
     }
 
     /**
-     * The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
+     * Status for the job. Valid values are `CANCELLED`, `RUNNING` and `USER_PAUSED`.
      * 
      */
     @Import(name="jobStatus")
     private @Nullable Output<String> jobStatus;
 
     /**
-     * @return The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
+     * @return Status for the job. Valid values are `CANCELLED`, `RUNNING` and `USER_PAUSED`.
      * 
      */
     public Optional<Output<String>> jobStatus() {
@@ -112,14 +128,14 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don&#39;t specify a value for the `scheduleFrequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `scheduleFrequency` property to define the recurrence pattern for the job.
+     * Schedule for running the job. Valid values are `ONE_TIME`, to run the job only once, and `SCHEDULED`, to run the job on a daily, weekly, or monthly basis. When set to `SCHEDULED`, use `scheduleFrequency` to define the recurrence pattern for the job.
      * 
      */
     @Import(name="jobType")
     private @Nullable Output<String> jobType;
 
     /**
-     * @return The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don&#39;t specify a value for the `scheduleFrequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `scheduleFrequency` property to define the recurrence pattern for the job.
+     * @return Schedule for running the job. Valid values are `ONE_TIME`, to run the job only once, and `SCHEDULED`, to run the job on a daily, weekly, or monthly basis. When set to `SCHEDULED`, use `scheduleFrequency` to define the recurrence pattern for the job.
      * 
      */
     public Optional<Output<String>> jobType() {
@@ -127,14 +143,14 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     * Custom name for the job. Can contain as many as 500 characters. If omitted, Terraform assigns a random, unique name. Conflicts with `namePrefix`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     * @return Custom name for the job. Can contain as many as 500 characters. If omitted, Terraform assigns a random, unique name. Conflicts with `namePrefix`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -172,14 +188,14 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
+     * S3 buckets that contain the objects to analyze, and the scope of that analysis. See `s3JobDefinition` Block for details.
      * 
      */
     @Import(name="s3JobDefinition")
     private @Nullable Output<ClassificationJobS3JobDefinitionArgs> s3JobDefinition;
 
     /**
-     * @return The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
+     * @return S3 buckets that contain the objects to analyze, and the scope of that analysis. See `s3JobDefinition` Block for details.
      * 
      */
     public Optional<Output<ClassificationJobS3JobDefinitionArgs>> s3JobDefinition() {
@@ -187,14 +203,14 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
+     * Sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
      * 
      */
     @Import(name="samplingPercentage")
     private @Nullable Output<Integer> samplingPercentage;
 
     /**
-     * @return The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
+     * @return Sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
      * 
      */
     public Optional<Output<Integer>> samplingPercentage() {
@@ -202,14 +218,14 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The recurrence pattern for running the job. To run the job only once, don&#39;t specify a value for this property and set the value for the `jobType` property to `ONE_TIME`. (documented below)
+     * Recurrence pattern for running the job. To run the job only once, omit this argument and set `jobType` to `ONE_TIME`. See `scheduleFrequency` Block for details.
      * 
      */
     @Import(name="scheduleFrequency")
     private @Nullable Output<ClassificationJobScheduleFrequencyArgs> scheduleFrequency;
 
     /**
-     * @return The recurrence pattern for running the job. To run the job only once, don&#39;t specify a value for this property and set the value for the `jobType` property to `ONE_TIME`. (documented below)
+     * @return Recurrence pattern for running the job. To run the job only once, omit this argument and set `jobType` to `ONE_TIME`. See `scheduleFrequency` Block for details.
      * 
      */
     public Optional<Output<ClassificationJobScheduleFrequencyArgs>> scheduleFrequency() {
@@ -232,14 +248,14 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -247,14 +263,14 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be canceled if it isn&#39;t resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
+     * If the current status of the job is `USER_PAUSED`, information about when the job was paused and when the job or job run will expire and be cancelled if it isn&#39;t resumed. This value is present only if `jobStatus` is `USER_PAUSED`. See `userPausedDetails` Block for details.
      * 
      */
     @Import(name="userPausedDetails")
     private @Nullable Output<List<ClassificationJobUserPausedDetailArgs>> userPausedDetails;
 
     /**
-     * @return If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be canceled if it isn&#39;t resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
+     * @return If the current status of the job is `USER_PAUSED`, information about when the job was paused and when the job or job run will expire and be cancelled if it isn&#39;t resumed. This value is present only if `jobStatus` is `USER_PAUSED`. See `userPausedDetails` Block for details.
      * 
      */
     public Optional<Output<List<ClassificationJobUserPausedDetailArgs>>> userPausedDetails() {
@@ -302,7 +318,7 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param createdAt The date and time, in UTC and extended RFC 3339 format, when the job was created.
+         * @param createdAt Date and time, in UTC and extended RFC 3339 format, when the job was created.
          * 
          * @return builder
          * 
@@ -313,7 +329,7 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param createdAt The date and time, in UTC and extended RFC 3339 format, when the job was created.
+         * @param createdAt Date and time, in UTC and extended RFC 3339 format, when the job was created.
          * 
          * @return builder
          * 
@@ -323,7 +339,7 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param customDataIdentifierIds The custom data identifiers to use for data analysis and classification.
+         * @param customDataIdentifierIds Custom data identifiers to use for data analysis and classification.
          * 
          * @return builder
          * 
@@ -334,7 +350,7 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param customDataIdentifierIds The custom data identifiers to use for data analysis and classification.
+         * @param customDataIdentifierIds Custom data identifiers to use for data analysis and classification.
          * 
          * @return builder
          * 
@@ -344,7 +360,7 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param customDataIdentifierIds The custom data identifiers to use for data analysis and classification.
+         * @param customDataIdentifierIds Custom data identifiers to use for data analysis and classification.
          * 
          * @return builder
          * 
@@ -354,7 +370,7 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param description A custom description of the job. The description can contain as many as 200 characters.
+         * @param description Custom description of the job. Can contain as many as 200 characters.
          * 
          * @return builder
          * 
@@ -365,7 +381,7 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param description A custom description of the job. The description can contain as many as 200 characters.
+         * @param description Custom description of the job. Can contain as many as 200 characters.
          * 
          * @return builder
          * 
@@ -375,7 +391,7 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param initialRun Specifies whether to analyze all existing, eligible objects immediately after the job is created.
+         * @param initialRun Whether to analyze all existing, eligible objects immediately after the job is created.
          * 
          * @return builder
          * 
@@ -386,7 +402,7 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param initialRun Specifies whether to analyze all existing, eligible objects immediately after the job is created.
+         * @param initialRun Whether to analyze all existing, eligible objects immediately after the job is created.
          * 
          * @return builder
          * 
@@ -395,26 +411,50 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
             return initialRun(Output.of(initialRun));
         }
 
+        /**
+         * @param jobArn ARN of the classification job.
+         * 
+         * @return builder
+         * 
+         */
         public Builder jobArn(@Nullable Output<String> jobArn) {
             $.jobArn = jobArn;
             return this;
         }
 
+        /**
+         * @param jobArn ARN of the classification job.
+         * 
+         * @return builder
+         * 
+         */
         public Builder jobArn(String jobArn) {
             return jobArn(Output.of(jobArn));
         }
 
+        /**
+         * @param jobId Unique identifier (ID) of the classification job.
+         * 
+         * @return builder
+         * 
+         */
         public Builder jobId(@Nullable Output<String> jobId) {
             $.jobId = jobId;
             return this;
         }
 
+        /**
+         * @param jobId Unique identifier (ID) of the classification job.
+         * 
+         * @return builder
+         * 
+         */
         public Builder jobId(String jobId) {
             return jobId(Output.of(jobId));
         }
 
         /**
-         * @param jobStatus The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
+         * @param jobStatus Status for the job. Valid values are `CANCELLED`, `RUNNING` and `USER_PAUSED`.
          * 
          * @return builder
          * 
@@ -425,7 +465,7 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param jobStatus The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
+         * @param jobStatus Status for the job. Valid values are `CANCELLED`, `RUNNING` and `USER_PAUSED`.
          * 
          * @return builder
          * 
@@ -435,7 +475,7 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param jobType The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don&#39;t specify a value for the `scheduleFrequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `scheduleFrequency` property to define the recurrence pattern for the job.
+         * @param jobType Schedule for running the job. Valid values are `ONE_TIME`, to run the job only once, and `SCHEDULED`, to run the job on a daily, weekly, or monthly basis. When set to `SCHEDULED`, use `scheduleFrequency` to define the recurrence pattern for the job.
          * 
          * @return builder
          * 
@@ -446,7 +486,7 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param jobType The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don&#39;t specify a value for the `scheduleFrequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `scheduleFrequency` property to define the recurrence pattern for the job.
+         * @param jobType Schedule for running the job. Valid values are `ONE_TIME`, to run the job only once, and `SCHEDULED`, to run the job on a daily, weekly, or monthly basis. When set to `SCHEDULED`, use `scheduleFrequency` to define the recurrence pattern for the job.
          * 
          * @return builder
          * 
@@ -456,7 +496,7 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+         * @param name Custom name for the job. Can contain as many as 500 characters. If omitted, Terraform assigns a random, unique name. Conflicts with `namePrefix`.
          * 
          * @return builder
          * 
@@ -467,7 +507,7 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+         * @param name Custom name for the job. Can contain as many as 500 characters. If omitted, Terraform assigns a random, unique name. Conflicts with `namePrefix`.
          * 
          * @return builder
          * 
@@ -519,7 +559,7 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param s3JobDefinition The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
+         * @param s3JobDefinition S3 buckets that contain the objects to analyze, and the scope of that analysis. See `s3JobDefinition` Block for details.
          * 
          * @return builder
          * 
@@ -530,7 +570,7 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param s3JobDefinition The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
+         * @param s3JobDefinition S3 buckets that contain the objects to analyze, and the scope of that analysis. See `s3JobDefinition` Block for details.
          * 
          * @return builder
          * 
@@ -540,7 +580,7 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param samplingPercentage The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
+         * @param samplingPercentage Sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
          * 
          * @return builder
          * 
@@ -551,7 +591,7 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param samplingPercentage The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
+         * @param samplingPercentage Sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
          * 
          * @return builder
          * 
@@ -561,7 +601,7 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param scheduleFrequency The recurrence pattern for running the job. To run the job only once, don&#39;t specify a value for this property and set the value for the `jobType` property to `ONE_TIME`. (documented below)
+         * @param scheduleFrequency Recurrence pattern for running the job. To run the job only once, omit this argument and set `jobType` to `ONE_TIME`. See `scheduleFrequency` Block for details.
          * 
          * @return builder
          * 
@@ -572,7 +612,7 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param scheduleFrequency The recurrence pattern for running the job. To run the job only once, don&#39;t specify a value for this property and set the value for the `jobType` property to `ONE_TIME`. (documented below)
+         * @param scheduleFrequency Recurrence pattern for running the job. To run the job only once, omit this argument and set `jobType` to `ONE_TIME`. See `scheduleFrequency` Block for details.
          * 
          * @return builder
          * 
@@ -603,7 +643,7 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -614,7 +654,7 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -624,7 +664,7 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param userPausedDetails If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be canceled if it isn&#39;t resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
+         * @param userPausedDetails If the current status of the job is `USER_PAUSED`, information about when the job was paused and when the job or job run will expire and be cancelled if it isn&#39;t resumed. This value is present only if `jobStatus` is `USER_PAUSED`. See `userPausedDetails` Block for details.
          * 
          * @return builder
          * 
@@ -635,7 +675,7 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param userPausedDetails If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be canceled if it isn&#39;t resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
+         * @param userPausedDetails If the current status of the job is `USER_PAUSED`, information about when the job was paused and when the job or job run will expire and be cancelled if it isn&#39;t resumed. This value is present only if `jobStatus` is `USER_PAUSED`. See `userPausedDetails` Block for details.
          * 
          * @return builder
          * 
@@ -645,7 +685,7 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param userPausedDetails If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be canceled if it isn&#39;t resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
+         * @param userPausedDetails If the current status of the job is `USER_PAUSED`, information about when the job was paused and when the job or job run will expire and be cancelled if it isn&#39;t resumed. This value is present only if `jobStatus` is `USER_PAUSED`. See `userPausedDetails` Block for details.
          * 
          * @return builder
          * 

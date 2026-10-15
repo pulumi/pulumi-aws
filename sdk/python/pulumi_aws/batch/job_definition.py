@@ -45,7 +45,7 @@ class JobDefinitionArgs:
         :param pulumi.Input[_builtins.str] container_properties: Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
         :param pulumi.Input[_builtins.bool] deregister_on_new_revision: When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
         :param pulumi.Input[_builtins.str] ecs_properties: Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
-        :param pulumi.Input['JobDefinitionEksPropertiesArgs'] eks_properties: Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+        :param pulumi.Input['JobDefinitionEksPropertiesArgs'] eks_properties: Valid EKS properties. This parameter is only valid if the `type` parameter is `container`.
         :param pulumi.Input[_builtins.str] name: Name of the job definition.
         :param pulumi.Input[_builtins.str] node_properties: Valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Parameter substitution placeholders to set in the job definition.
@@ -141,7 +141,7 @@ class JobDefinitionArgs:
     @pulumi.getter(name="eksProperties")
     def eks_properties(self) -> pulumi.Input[Optional['JobDefinitionEksPropertiesArgs']]:
         """
-        Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+        Valid EKS properties. This parameter is only valid if the `type` parameter is `container`.
         """
         return pulumi.get(self, "eks_properties")
 
@@ -300,7 +300,7 @@ class _JobDefinitionState:
         :param pulumi.Input[_builtins.str] container_properties: Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
         :param pulumi.Input[_builtins.bool] deregister_on_new_revision: When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
         :param pulumi.Input[_builtins.str] ecs_properties: Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
-        :param pulumi.Input['JobDefinitionEksPropertiesArgs'] eks_properties: Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+        :param pulumi.Input['JobDefinitionEksPropertiesArgs'] eks_properties: Valid EKS properties. This parameter is only valid if the `type` parameter is `container`.
         :param pulumi.Input[_builtins.str] name: Name of the job definition.
         :param pulumi.Input[_builtins.str] node_properties: Valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Parameter substitution placeholders to set in the job definition.
@@ -420,7 +420,7 @@ class _JobDefinitionState:
     @pulumi.getter(name="eksProperties")
     def eks_properties(self) -> pulumi.Input[Optional['JobDefinitionEksPropertiesArgs']]:
         """
-        Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+        Valid EKS properties. This parameter is only valid if the `type` parameter is `container`.
         """
         return pulumi.get(self, "eks_properties")
 
@@ -887,7 +887,7 @@ class JobDefinition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] container_properties: Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
         :param pulumi.Input[_builtins.bool] deregister_on_new_revision: When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
         :param pulumi.Input[_builtins.str] ecs_properties: Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
-        :param pulumi.Input[Union['JobDefinitionEksPropertiesArgs', 'JobDefinitionEksPropertiesArgsDict', 'outputs.JobDefinitionEksProperties']] eks_properties: Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+        :param pulumi.Input[Union['JobDefinitionEksPropertiesArgs', 'JobDefinitionEksPropertiesArgsDict', 'outputs.JobDefinitionEksProperties']] eks_properties: Valid EKS properties. This parameter is only valid if the `type` parameter is `container`.
         :param pulumi.Input[_builtins.str] name: Name of the job definition.
         :param pulumi.Input[_builtins.str] node_properties: Valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Parameter substitution placeholders to set in the job definition.
@@ -1282,7 +1282,7 @@ class JobDefinition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] container_properties: Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
         :param pulumi.Input[_builtins.bool] deregister_on_new_revision: When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
         :param pulumi.Input[_builtins.str] ecs_properties: Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
-        :param pulumi.Input[Union['JobDefinitionEksPropertiesArgs', 'JobDefinitionEksPropertiesArgsDict', 'outputs.JobDefinitionEksProperties']] eks_properties: Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+        :param pulumi.Input[Union['JobDefinitionEksPropertiesArgs', 'JobDefinitionEksPropertiesArgsDict', 'outputs.JobDefinitionEksProperties']] eks_properties: Valid EKS properties. This parameter is only valid if the `type` parameter is `container`.
         :param pulumi.Input[_builtins.str] name: Name of the job definition.
         :param pulumi.Input[_builtins.str] node_properties: Valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Parameter substitution placeholders to set in the job definition.
@@ -1368,7 +1368,7 @@ class JobDefinition(pulumi.CustomResource):
     @pulumi.getter(name="eksProperties")
     def eks_properties(self) -> pulumi.Output[Optional['outputs.JobDefinitionEksProperties']]:
         """
-        Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
+        Valid EKS properties. This parameter is only valid if the `type` parameter is `container`.
         """
         return pulumi.get(self, "eks_properties")
 

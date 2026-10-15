@@ -17,14 +17,14 @@ public final class GetHttpNamespacePlainArgs extends com.pulumi.resources.Invoke
     public static final GetHttpNamespacePlainArgs Empty = new GetHttpNamespacePlainArgs();
 
     /**
-     * Name of the http namespace.
+     * Name of the HTTP namespace.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return Name of the http namespace.
+     * @return Name of the HTTP namespace.
      * 
      */
     public String name() {
@@ -88,7 +88,7 @@ public final class GetHttpNamespacePlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param name Name of the http namespace.
+         * @param name Name of the HTTP namespace.
          * 
          * @return builder
          * 

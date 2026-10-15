@@ -16,14 +16,14 @@ public final class CatalogTableOptimizerConfigurationRetentionConfigurationArgs 
     public static final CatalogTableOptimizerConfigurationRetentionConfigurationArgs Empty = new CatalogTableOptimizerConfigurationRetentionConfigurationArgs();
 
     /**
-     * The configuration for an Iceberg snapshot retention optimizer.
+     * Configuration for an Iceberg snapshot retention optimizer. See `configuration.retention_configuration.iceberg_configuration` Block for additional details.
      * 
      */
     @Import(name="icebergConfiguration")
     private @Nullable Output<CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs> icebergConfiguration;
 
     /**
-     * @return The configuration for an Iceberg snapshot retention optimizer.
+     * @return Configuration for an Iceberg snapshot retention optimizer. See `configuration.retention_configuration.iceberg_configuration` Block for additional details.
      * 
      */
     public Optional<Output<CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs>> icebergConfiguration() {
@@ -55,7 +55,7 @@ public final class CatalogTableOptimizerConfigurationRetentionConfigurationArgs 
         }
 
         /**
-         * @param icebergConfiguration The configuration for an Iceberg snapshot retention optimizer.
+         * @param icebergConfiguration Configuration for an Iceberg snapshot retention optimizer. See `configuration.retention_configuration.iceberg_configuration` Block for additional details.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class CatalogTableOptimizerConfigurationRetentionConfigurationArgs 
         }
 
         /**
-         * @param icebergConfiguration The configuration for an Iceberg snapshot retention optimizer.
+         * @param icebergConfiguration Configuration for an Iceberg snapshot retention optimizer. See `configuration.retention_configuration.iceberg_configuration` Block for additional details.
          * 
          * @return builder
          * 

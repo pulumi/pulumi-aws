@@ -469,7 +469,7 @@ class GetAccessPointPosixUserResult(dict):
         """
         :param _builtins.int gid: Group ID
         :param Sequence[_builtins.int] secondary_gids: Secondary group IDs
-        :param _builtins.int uid: User Id
+        :param _builtins.int uid: User ID
         """
         pulumi.set(__self__, "gid", gid)
         pulumi.set(__self__, "secondary_gids", secondary_gids)
@@ -495,7 +495,7 @@ class GetAccessPointPosixUserResult(dict):
     @pulumi.getter
     def uid(self) -> _builtins.int:
         """
-        User Id
+        User ID
         """
         return pulumi.get(self, "uid")
 

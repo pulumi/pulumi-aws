@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class RouteSpecArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// GRPC routing information for the route. See `spec.grpc_route` Block for details.
+        /// gRPC routing information for the route. See `spec.grpc_route` Block for details.
         /// </summary>
         [Input("grpcRoute")]
         public Input<Inputs.RouteSpecGrpcRouteArgs>? GrpcRoute { get; set; }

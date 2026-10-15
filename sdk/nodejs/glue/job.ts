@@ -252,15 +252,15 @@ export class Job extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The command of the job. Defined below.
+     * Command of the job. Defined below.
      */
     declare public readonly command: pulumi.Output<outputs.glue.JobCommand>;
     /**
-     * The list of connections used for this job.
+     * List of connections used for this job.
      */
     declare public readonly connections: pulumi.Output<string[] | undefined>;
     /**
-     * The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
+     * Map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
      */
     declare public readonly defaultArguments: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -268,7 +268,7 @@ export class Job extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
+     * Execution class for the job. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
      */
     declare public readonly executionClass: pulumi.Output<string | undefined>;
     /**
@@ -276,31 +276,31 @@ export class Job extends pulumi.CustomResource {
      */
     declare public readonly executionProperty: pulumi.Output<outputs.glue.JobExecutionProperty>;
     /**
-     * The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+     * Version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
      */
     declare public readonly glueVersion: pulumi.Output<string>;
     /**
-     * Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
+     * How a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
      */
     declare public readonly jobMode: pulumi.Output<string>;
     /**
-     * Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
+     * Whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
      */
     declare public readonly jobRunQueuingEnabled: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the day of the week and hour for the maintenance window for streaming jobs.
+     * Day of the week and hour for the maintenance window for streaming jobs.
      */
     declare public readonly maintenanceWindow: pulumi.Output<string | undefined>;
     /**
-     * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
+     * Maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
      */
     declare public readonly maxCapacity: pulumi.Output<number>;
     /**
-     * The maximum number of times to retry this job if it fails.
+     * Maximum number of times to retry this job if it fails.
      */
     declare public readonly maxRetries: pulumi.Output<number | undefined>;
     /**
-     * The name you assign to this job. It must be unique in your account.
+     * Name you assign to this job. It must be unique in your account.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -312,7 +312,7 @@ export class Job extends pulumi.CustomResource {
      */
     declare public readonly notificationProperty: pulumi.Output<outputs.glue.JobNotificationProperty>;
     /**
-     * The number of workers of a defined workerType that are allocated when a job runs.
+     * Number of workers of a defined workerType that are allocated when a job runs.
      */
     declare public readonly numberOfWorkers: pulumi.Output<number>;
     /**
@@ -320,15 +320,15 @@ export class Job extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The ARN of the IAM role associated with this job.
+     * ARN of the IAM role associated with this job.
      */
     declare public readonly roleArn: pulumi.Output<string>;
     /**
-     * The name of the Security Configuration to be associated with the job.
+     * Name of the Security Configuration to be associated with the job.
      */
     declare public readonly securityConfiguration: pulumi.Output<string | undefined>;
     /**
-     * The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
+     * Details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
      */
     declare public readonly sourceControlDetails: pulumi.Output<outputs.glue.JobSourceControlDetails | undefined>;
     /**
@@ -336,15 +336,15 @@ export class Job extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and 0 (unlimited) for `gluestreaming` jobs. Leave this attribute argument unconfigured for `glueray` jobs.
+     * Job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and 0 (unlimited) for `gluestreaming` jobs. Leave this attribute argument unconfigured for `glueray` jobs.
      */
     declare public readonly timeout: pulumi.Output<number>;
     /**
-     * The type of predefined worker that is allocated when a job runs. Valid values: `Standard`, `G.1X`, `G.2X`, `G.025X`, `G.4X`, `G.8X`, `G.12X`, `G.16X`, `R.1X`, `R.2X`, `R.4X`, `R.8X`, `Z.2X` (Ray jobs). See the [AWS documentation](https://docs.aws.amazon.com/glue/latest/dg/worker-types.html) for details.
+     * Type of predefined worker that is allocated when a job runs. Valid values: `Standard`, `G.1X`, `G.2X`, `G.025X`, `G.4X`, `G.8X`, `G.12X`, `G.16X`, `R.1X`, `R.2X`, `R.4X`, `R.8X`, `Z.2X` (Ray jobs). See the [AWS documentation](https://docs.aws.amazon.com/glue/latest/dg/worker-types.html) for details.
      */
     declare public readonly workerType: pulumi.Output<string>;
 
@@ -434,15 +434,15 @@ export interface JobState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The command of the job. Defined below.
+     * Command of the job. Defined below.
      */
     command?: pulumi.Input<inputs.glue.JobCommand | undefined>;
     /**
-     * The list of connections used for this job.
+     * List of connections used for this job.
      */
     connections?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
+     * Map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
      */
     defaultArguments?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -450,7 +450,7 @@ export interface JobState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
+     * Execution class for the job. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
      */
     executionClass?: pulumi.Input<string | undefined>;
     /**
@@ -458,31 +458,31 @@ export interface JobState {
      */
     executionProperty?: pulumi.Input<inputs.glue.JobExecutionProperty | undefined>;
     /**
-     * The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+     * Version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
      */
     glueVersion?: pulumi.Input<string | undefined>;
     /**
-     * Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
+     * How a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
      */
     jobMode?: pulumi.Input<string | undefined>;
     /**
-     * Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
+     * Whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
      */
     jobRunQueuingEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * Specifies the day of the week and hour for the maintenance window for streaming jobs.
+     * Day of the week and hour for the maintenance window for streaming jobs.
      */
     maintenanceWindow?: pulumi.Input<string | undefined>;
     /**
-     * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
+     * Maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
      */
     maxCapacity?: pulumi.Input<number | undefined>;
     /**
-     * The maximum number of times to retry this job if it fails.
+     * Maximum number of times to retry this job if it fails.
      */
     maxRetries?: pulumi.Input<number | undefined>;
     /**
-     * The name you assign to this job. It must be unique in your account.
+     * Name you assign to this job. It must be unique in your account.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -494,7 +494,7 @@ export interface JobState {
      */
     notificationProperty?: pulumi.Input<inputs.glue.JobNotificationProperty | undefined>;
     /**
-     * The number of workers of a defined workerType that are allocated when a job runs.
+     * Number of workers of a defined workerType that are allocated when a job runs.
      */
     numberOfWorkers?: pulumi.Input<number | undefined>;
     /**
@@ -502,15 +502,15 @@ export interface JobState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the IAM role associated with this job.
+     * ARN of the IAM role associated with this job.
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**
-     * The name of the Security Configuration to be associated with the job.
+     * Name of the Security Configuration to be associated with the job.
      */
     securityConfiguration?: pulumi.Input<string | undefined>;
     /**
-     * The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
+     * Details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
      */
     sourceControlDetails?: pulumi.Input<inputs.glue.JobSourceControlDetails | undefined>;
     /**
@@ -518,15 +518,15 @@ export interface JobState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and 0 (unlimited) for `gluestreaming` jobs. Leave this attribute argument unconfigured for `glueray` jobs.
+     * Job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and 0 (unlimited) for `gluestreaming` jobs. Leave this attribute argument unconfigured for `glueray` jobs.
      */
     timeout?: pulumi.Input<number | undefined>;
     /**
-     * The type of predefined worker that is allocated when a job runs. Valid values: `Standard`, `G.1X`, `G.2X`, `G.025X`, `G.4X`, `G.8X`, `G.12X`, `G.16X`, `R.1X`, `R.2X`, `R.4X`, `R.8X`, `Z.2X` (Ray jobs). See the [AWS documentation](https://docs.aws.amazon.com/glue/latest/dg/worker-types.html) for details.
+     * Type of predefined worker that is allocated when a job runs. Valid values: `Standard`, `G.1X`, `G.2X`, `G.025X`, `G.4X`, `G.8X`, `G.12X`, `G.16X`, `R.1X`, `R.2X`, `R.4X`, `R.8X`, `Z.2X` (Ray jobs). See the [AWS documentation](https://docs.aws.amazon.com/glue/latest/dg/worker-types.html) for details.
      */
     workerType?: pulumi.Input<string | undefined>;
 }
@@ -536,15 +536,15 @@ export interface JobState {
  */
 export interface JobArgs {
     /**
-     * The command of the job. Defined below.
+     * Command of the job. Defined below.
      */
     command: pulumi.Input<inputs.glue.JobCommand>;
     /**
-     * The list of connections used for this job.
+     * List of connections used for this job.
      */
     connections?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
+     * Map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
      */
     defaultArguments?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -552,7 +552,7 @@ export interface JobArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
+     * Execution class for the job. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
      */
     executionClass?: pulumi.Input<string | undefined>;
     /**
@@ -560,31 +560,31 @@ export interface JobArgs {
      */
     executionProperty?: pulumi.Input<inputs.glue.JobExecutionProperty | undefined>;
     /**
-     * The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+     * Version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
      */
     glueVersion?: pulumi.Input<string | undefined>;
     /**
-     * Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
+     * How a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
      */
     jobMode?: pulumi.Input<string | undefined>;
     /**
-     * Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
+     * Whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
      */
     jobRunQueuingEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * Specifies the day of the week and hour for the maintenance window for streaming jobs.
+     * Day of the week and hour for the maintenance window for streaming jobs.
      */
     maintenanceWindow?: pulumi.Input<string | undefined>;
     /**
-     * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
+     * Maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
      */
     maxCapacity?: pulumi.Input<number | undefined>;
     /**
-     * The maximum number of times to retry this job if it fails.
+     * Maximum number of times to retry this job if it fails.
      */
     maxRetries?: pulumi.Input<number | undefined>;
     /**
-     * The name you assign to this job. It must be unique in your account.
+     * Name you assign to this job. It must be unique in your account.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -596,7 +596,7 @@ export interface JobArgs {
      */
     notificationProperty?: pulumi.Input<inputs.glue.JobNotificationProperty | undefined>;
     /**
-     * The number of workers of a defined workerType that are allocated when a job runs.
+     * Number of workers of a defined workerType that are allocated when a job runs.
      */
     numberOfWorkers?: pulumi.Input<number | undefined>;
     /**
@@ -604,15 +604,15 @@ export interface JobArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the IAM role associated with this job.
+     * ARN of the IAM role associated with this job.
      */
     roleArn: pulumi.Input<string>;
     /**
-     * The name of the Security Configuration to be associated with the job.
+     * Name of the Security Configuration to be associated with the job.
      */
     securityConfiguration?: pulumi.Input<string | undefined>;
     /**
-     * The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
+     * Details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
      */
     sourceControlDetails?: pulumi.Input<inputs.glue.JobSourceControlDetails | undefined>;
     /**
@@ -620,11 +620,11 @@ export interface JobArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and 0 (unlimited) for `gluestreaming` jobs. Leave this attribute argument unconfigured for `glueray` jobs.
+     * Job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and 0 (unlimited) for `gluestreaming` jobs. Leave this attribute argument unconfigured for `glueray` jobs.
      */
     timeout?: pulumi.Input<number | undefined>;
     /**
-     * The type of predefined worker that is allocated when a job runs. Valid values: `Standard`, `G.1X`, `G.2X`, `G.025X`, `G.4X`, `G.8X`, `G.12X`, `G.16X`, `R.1X`, `R.2X`, `R.4X`, `R.8X`, `Z.2X` (Ray jobs). See the [AWS documentation](https://docs.aws.amazon.com/glue/latest/dg/worker-types.html) for details.
+     * Type of predefined worker that is allocated when a job runs. Valid values: `Standard`, `G.1X`, `G.2X`, `G.025X`, `G.4X`, `G.8X`, `G.12X`, `G.16X`, `R.1X`, `R.2X`, `R.4X`, `R.8X`, `Z.2X` (Ray jobs). See the [AWS documentation](https://docs.aws.amazon.com/glue/latest/dg/worker-types.html) for details.
      */
     workerType?: pulumi.Input<string | undefined>;
 }

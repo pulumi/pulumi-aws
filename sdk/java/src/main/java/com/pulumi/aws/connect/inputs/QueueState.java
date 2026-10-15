@@ -140,14 +140,14 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
+     * Specifies a list of quick connects IDs that determine the quick connects available to agents who are working the queue.
      * 
      */
     @Import(name="quickConnectIds")
     private @Nullable Output<List<String>> quickConnectIds;
 
     /**
-     * @return Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
+     * @return Specifies a list of quick connects IDs that determine the quick connects available to agents who are working the queue.
      * 
      */
     public Optional<Output<List<String>>> quickConnectIds() {
@@ -419,7 +419,7 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param quickConnectIds Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
+         * @param quickConnectIds Specifies a list of quick connects IDs that determine the quick connects available to agents who are working the queue.
          * 
          * @return builder
          * 
@@ -430,7 +430,7 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param quickConnectIds Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
+         * @param quickConnectIds Specifies a list of quick connects IDs that determine the quick connects available to agents who are working the queue.
          * 
          * @return builder
          * 
@@ -440,7 +440,7 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param quickConnectIds Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
+         * @param quickConnectIds Specifies a list of quick connects IDs that determine the quick connects available to agents who are working the queue.
          * 
          * @return builder
          * 

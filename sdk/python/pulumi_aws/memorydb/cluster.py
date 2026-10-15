@@ -53,37 +53,37 @@ class ClusterArgs:
         """
         The set of arguments for constructing a Cluster resource.
 
-        :param pulumi.Input[_builtins.str] acl_name: The name of the Access Control List to associate with the cluster.
-        :param pulumi.Input[_builtins.str] node_type: The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+        :param pulumi.Input[_builtins.str] acl_name: Name of the Access Control List to associate with the cluster.
+        :param pulumi.Input[_builtins.str] node_type: Compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] data_tiering: Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
         :param pulumi.Input[_builtins.str] description: Description for the cluster. Defaults to `"Managed by Pulumi"`.
-        :param pulumi.Input[_builtins.str] engine: The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+        :param pulumi.Input[_builtins.str] engine: Engine that will run on your nodes. Supported values are `redis` and `valkey`.
         :param pulumi.Input[_builtins.str] engine_version: Version number of the engine to be used for the cluster. Downgrades are not supported.
         :param pulumi.Input[_builtins.str] final_snapshot_name: Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
         :param pulumi.Input[_builtins.str] ip_discovery: Mechanism that the cluster uses to discover IP addresses. Valid values are `ipv4` and `ipv6`. Defaults to `ipv4`. To specify `ipv6`, `network_type` must be `ipv6` or `dual_stack`.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt the cluster at rest.
-        :param pulumi.Input[_builtins.str] maintenance_window: Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
-        :param pulumi.Input[_builtins.str] multi_region_cluster_name: The multi region cluster identifier specified on `memorydb.MultiRegionCluster`.
+        :param pulumi.Input[_builtins.str] maintenance_window: Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+        :param pulumi.Input[_builtins.str] multi_region_cluster_name: Multi region cluster identifier specified on `memorydb.MultiRegionCluster`.
         :param pulumi.Input[_builtins.str] name: Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] network_type: IP address type for the cluster. Valid values are `ipv4`, `ipv6` and `dual_stack`. Defaults to `ipv4`.
-        :param pulumi.Input[_builtins.int] num_replicas_per_shard: The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
-        :param pulumi.Input[_builtins.int] num_shards: The number of shards in the cluster. Defaults to `1`.
-        :param pulumi.Input[_builtins.str] parameter_group_name: The name of the parameter group associated with the cluster.
-        :param pulumi.Input[_builtins.int] port: The port number on which each of the nodes accepts connections. Defaults to `6379`.
+        :param pulumi.Input[_builtins.int] num_replicas_per_shard: Number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
+        :param pulumi.Input[_builtins.int] num_shards: Number of shards in the cluster. Defaults to `1`.
+        :param pulumi.Input[_builtins.str] parameter_group_name: Name of the parameter group associated with the cluster.
+        :param pulumi.Input[_builtins.int] port: Port number on which each of the nodes accepts connections. Defaults to `6379`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: Set of VPC Security Group ID-s to associate with this cluster.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] snapshot_arns: List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
-        :param pulumi.Input[_builtins.str] snapshot_name: The name of a snapshot from which to restore data into the new cluster.
-        :param pulumi.Input[_builtins.int] snapshot_retention_limit: The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
-        :param pulumi.Input[_builtins.str] snapshot_window: The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
+        :param pulumi.Input[_builtins.str] snapshot_name: Name of a snapshot from which to restore data into the new cluster.
+        :param pulumi.Input[_builtins.int] snapshot_retention_limit: Number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
+        :param pulumi.Input[_builtins.str] snapshot_window: Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
         :param pulumi.Input[_builtins.str] sns_topic_arn: ARN of the SNS topic to which cluster notifications are sent.
-        :param pulumi.Input[_builtins.str] subnet_group_name: The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.bool] tls_enabled: A flag to enable in-transit encryption on the cluster. When set to `false`, the `acl_name` must be `open-access`. Defaults to `true`.
+        :param pulumi.Input[_builtins.str] subnet_group_name: Name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.bool] tls_enabled: Whether to enable in-transit encryption on the cluster. When set to `false`, the `acl_name` must be `open-access`. Defaults to `true`.
         """
         pulumi.set(__self__, "acl_name", acl_name)
         pulumi.set(__self__, "node_type", node_type)
@@ -146,7 +146,7 @@ class ClusterArgs:
     @pulumi.getter(name="aclName")
     def acl_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the Access Control List to associate with the cluster.
+        Name of the Access Control List to associate with the cluster.
         """
         return pulumi.get(self, "acl_name")
 
@@ -158,7 +158,7 @@ class ClusterArgs:
     @pulumi.getter(name="nodeType")
     def node_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+        Compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
 
         The following arguments are optional:
         """
@@ -208,7 +208,7 @@ class ClusterArgs:
     @pulumi.getter
     def engine(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+        Engine that will run on your nodes. Supported values are `redis` and `valkey`.
         """
         return pulumi.get(self, "engine")
 
@@ -268,7 +268,7 @@ class ClusterArgs:
     @pulumi.getter(name="maintenanceWindow")
     def maintenance_window(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+        Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
         """
         return pulumi.get(self, "maintenance_window")
 
@@ -280,7 +280,7 @@ class ClusterArgs:
     @pulumi.getter(name="multiRegionClusterName")
     def multi_region_cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The multi region cluster identifier specified on `memorydb.MultiRegionCluster`.
+        Multi region cluster identifier specified on `memorydb.MultiRegionCluster`.
         """
         return pulumi.get(self, "multi_region_cluster_name")
 
@@ -328,7 +328,7 @@ class ClusterArgs:
     @pulumi.getter(name="numReplicasPerShard")
     def num_replicas_per_shard(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
+        Number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
         """
         return pulumi.get(self, "num_replicas_per_shard")
 
@@ -340,7 +340,7 @@ class ClusterArgs:
     @pulumi.getter(name="numShards")
     def num_shards(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The number of shards in the cluster. Defaults to `1`.
+        Number of shards in the cluster. Defaults to `1`.
         """
         return pulumi.get(self, "num_shards")
 
@@ -352,7 +352,7 @@ class ClusterArgs:
     @pulumi.getter(name="parameterGroupName")
     def parameter_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the parameter group associated with the cluster.
+        Name of the parameter group associated with the cluster.
         """
         return pulumi.get(self, "parameter_group_name")
 
@@ -364,7 +364,7 @@ class ClusterArgs:
     @pulumi.getter
     def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The port number on which each of the nodes accepts connections. Defaults to `6379`.
+        Port number on which each of the nodes accepts connections. Defaults to `6379`.
         """
         return pulumi.get(self, "port")
 
@@ -412,7 +412,7 @@ class ClusterArgs:
     @pulumi.getter(name="snapshotName")
     def snapshot_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of a snapshot from which to restore data into the new cluster.
+        Name of a snapshot from which to restore data into the new cluster.
         """
         return pulumi.get(self, "snapshot_name")
 
@@ -424,7 +424,7 @@ class ClusterArgs:
     @pulumi.getter(name="snapshotRetentionLimit")
     def snapshot_retention_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
+        Number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
         """
         return pulumi.get(self, "snapshot_retention_limit")
 
@@ -436,7 +436,7 @@ class ClusterArgs:
     @pulumi.getter(name="snapshotWindow")
     def snapshot_window(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
+        Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
         """
         return pulumi.get(self, "snapshot_window")
 
@@ -460,7 +460,7 @@ class ClusterArgs:
     @pulumi.getter(name="subnetGroupName")
     def subnet_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
+        Name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
         """
         return pulumi.get(self, "subnet_group_name")
 
@@ -472,7 +472,7 @@ class ClusterArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -484,7 +484,7 @@ class ClusterArgs:
     @pulumi.getter(name="tlsEnabled")
     def tls_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        A flag to enable in-transit encryption on the cluster. When set to `false`, the `acl_name` must be `open-access`. Defaults to `true`.
+        Whether to enable in-transit encryption on the cluster. When set to `false`, the `acl_name` must be `open-access`. Defaults to `true`.
         """
         return pulumi.get(self, "tls_enabled")
 
@@ -533,41 +533,41 @@ class _ClusterState:
         """
         Input properties used for looking up and filtering Cluster resources.
 
-        :param pulumi.Input[_builtins.str] acl_name: The name of the Access Control List to associate with the cluster.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the cluster.
+        :param pulumi.Input[_builtins.str] acl_name: Name of the Access Control List to associate with the cluster.
+        :param pulumi.Input[_builtins.str] arn: ARN of the cluster.
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] data_tiering: Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
         :param pulumi.Input[_builtins.str] description: Description for the cluster. Defaults to `"Managed by Pulumi"`.
-        :param pulumi.Input[_builtins.str] engine: The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+        :param pulumi.Input[_builtins.str] engine: Engine that will run on your nodes. Supported values are `redis` and `valkey`.
         :param pulumi.Input[_builtins.str] engine_patch_version: Patch version number of the engine used by the cluster.
         :param pulumi.Input[_builtins.str] engine_version: Version number of the engine to be used for the cluster. Downgrades are not supported.
         :param pulumi.Input[_builtins.str] final_snapshot_name: Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
         :param pulumi.Input[_builtins.str] ip_discovery: Mechanism that the cluster uses to discover IP addresses. Valid values are `ipv4` and `ipv6`. Defaults to `ipv4`. To specify `ipv6`, `network_type` must be `ipv6` or `dual_stack`.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt the cluster at rest.
-        :param pulumi.Input[_builtins.str] maintenance_window: Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
-        :param pulumi.Input[_builtins.str] multi_region_cluster_name: The multi region cluster identifier specified on `memorydb.MultiRegionCluster`.
+        :param pulumi.Input[_builtins.str] maintenance_window: Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+        :param pulumi.Input[_builtins.str] multi_region_cluster_name: Multi region cluster identifier specified on `memorydb.MultiRegionCluster`.
         :param pulumi.Input[_builtins.str] name: Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] network_type: IP address type for the cluster. Valid values are `ipv4`, `ipv6` and `dual_stack`. Defaults to `ipv4`.
-        :param pulumi.Input[_builtins.str] node_type: The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+        :param pulumi.Input[_builtins.str] node_type: Compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.int] num_replicas_per_shard: The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
-        :param pulumi.Input[_builtins.int] num_shards: The number of shards in the cluster. Defaults to `1`.
-        :param pulumi.Input[_builtins.str] parameter_group_name: The name of the parameter group associated with the cluster.
-        :param pulumi.Input[_builtins.int] port: The port number on which each of the nodes accepts connections. Defaults to `6379`.
+        :param pulumi.Input[_builtins.int] num_replicas_per_shard: Number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
+        :param pulumi.Input[_builtins.int] num_shards: Number of shards in the cluster. Defaults to `1`.
+        :param pulumi.Input[_builtins.str] parameter_group_name: Name of the parameter group associated with the cluster.
+        :param pulumi.Input[_builtins.int] port: Port number on which each of the nodes accepts connections. Defaults to `6379`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: Set of VPC Security Group ID-s to associate with this cluster.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterShardArgs']]] shards: Set of shards in this cluster.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] snapshot_arns: List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
-        :param pulumi.Input[_builtins.str] snapshot_name: The name of a snapshot from which to restore data into the new cluster.
-        :param pulumi.Input[_builtins.int] snapshot_retention_limit: The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
-        :param pulumi.Input[_builtins.str] snapshot_window: The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
+        :param pulumi.Input[_builtins.str] snapshot_name: Name of a snapshot from which to restore data into the new cluster.
+        :param pulumi.Input[_builtins.int] snapshot_retention_limit: Number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
+        :param pulumi.Input[_builtins.str] snapshot_window: Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
         :param pulumi.Input[_builtins.str] sns_topic_arn: ARN of the SNS topic to which cluster notifications are sent.
-        :param pulumi.Input[_builtins.str] subnet_group_name: The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.bool] tls_enabled: A flag to enable in-transit encryption on the cluster. When set to `false`, the `acl_name` must be `open-access`. Defaults to `true`.
+        :param pulumi.Input[_builtins.str] subnet_group_name: Name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.bool] tls_enabled: Whether to enable in-transit encryption on the cluster. When set to `false`, the `acl_name` must be `open-access`. Defaults to `true`.
         """
         if acl_name is not None:
             pulumi.set(__self__, "acl_name", acl_name)
@@ -642,7 +642,7 @@ class _ClusterState:
     @pulumi.getter(name="aclName")
     def acl_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the Access Control List to associate with the cluster.
+        Name of the Access Control List to associate with the cluster.
         """
         return pulumi.get(self, "acl_name")
 
@@ -654,7 +654,7 @@ class _ClusterState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the cluster.
+        ARN of the cluster.
         """
         return pulumi.get(self, "arn")
 
@@ -711,7 +711,7 @@ class _ClusterState:
     @pulumi.getter
     def engine(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+        Engine that will run on your nodes. Supported values are `redis` and `valkey`.
         """
         return pulumi.get(self, "engine")
 
@@ -783,7 +783,7 @@ class _ClusterState:
     @pulumi.getter(name="maintenanceWindow")
     def maintenance_window(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+        Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
         """
         return pulumi.get(self, "maintenance_window")
 
@@ -795,7 +795,7 @@ class _ClusterState:
     @pulumi.getter(name="multiRegionClusterName")
     def multi_region_cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The multi region cluster identifier specified on `memorydb.MultiRegionCluster`.
+        Multi region cluster identifier specified on `memorydb.MultiRegionCluster`.
         """
         return pulumi.get(self, "multi_region_cluster_name")
 
@@ -843,7 +843,7 @@ class _ClusterState:
     @pulumi.getter(name="nodeType")
     def node_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+        Compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
 
         The following arguments are optional:
         """
@@ -857,7 +857,7 @@ class _ClusterState:
     @pulumi.getter(name="numReplicasPerShard")
     def num_replicas_per_shard(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
+        Number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
         """
         return pulumi.get(self, "num_replicas_per_shard")
 
@@ -869,7 +869,7 @@ class _ClusterState:
     @pulumi.getter(name="numShards")
     def num_shards(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The number of shards in the cluster. Defaults to `1`.
+        Number of shards in the cluster. Defaults to `1`.
         """
         return pulumi.get(self, "num_shards")
 
@@ -881,7 +881,7 @@ class _ClusterState:
     @pulumi.getter(name="parameterGroupName")
     def parameter_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the parameter group associated with the cluster.
+        Name of the parameter group associated with the cluster.
         """
         return pulumi.get(self, "parameter_group_name")
 
@@ -893,7 +893,7 @@ class _ClusterState:
     @pulumi.getter
     def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The port number on which each of the nodes accepts connections. Defaults to `6379`.
+        Port number on which each of the nodes accepts connections. Defaults to `6379`.
         """
         return pulumi.get(self, "port")
 
@@ -953,7 +953,7 @@ class _ClusterState:
     @pulumi.getter(name="snapshotName")
     def snapshot_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of a snapshot from which to restore data into the new cluster.
+        Name of a snapshot from which to restore data into the new cluster.
         """
         return pulumi.get(self, "snapshot_name")
 
@@ -965,7 +965,7 @@ class _ClusterState:
     @pulumi.getter(name="snapshotRetentionLimit")
     def snapshot_retention_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
+        Number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
         """
         return pulumi.get(self, "snapshot_retention_limit")
 
@@ -977,7 +977,7 @@ class _ClusterState:
     @pulumi.getter(name="snapshotWindow")
     def snapshot_window(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
+        Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
         """
         return pulumi.get(self, "snapshot_window")
 
@@ -1001,7 +1001,7 @@ class _ClusterState:
     @pulumi.getter(name="subnetGroupName")
     def subnet_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
+        Name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
         """
         return pulumi.get(self, "subnet_group_name")
 
@@ -1013,7 +1013,7 @@ class _ClusterState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -1025,7 +1025,7 @@ class _ClusterState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -1037,7 +1037,7 @@ class _ClusterState:
     @pulumi.getter(name="tlsEnabled")
     def tls_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        A flag to enable in-transit encryption on the cluster. When set to `false`, the `acl_name` must be `open-access`. Defaults to `true`.
+        Whether to enable in-transit encryption on the cluster. When set to `false`, the `acl_name` must be `open-access`. Defaults to `true`.
         """
         return pulumi.get(self, "tls_enabled")
 
@@ -1116,37 +1116,37 @@ class Cluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] acl_name: The name of the Access Control List to associate with the cluster.
+        :param pulumi.Input[_builtins.str] acl_name: Name of the Access Control List to associate with the cluster.
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] data_tiering: Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
         :param pulumi.Input[_builtins.str] description: Description for the cluster. Defaults to `"Managed by Pulumi"`.
-        :param pulumi.Input[_builtins.str] engine: The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+        :param pulumi.Input[_builtins.str] engine: Engine that will run on your nodes. Supported values are `redis` and `valkey`.
         :param pulumi.Input[_builtins.str] engine_version: Version number of the engine to be used for the cluster. Downgrades are not supported.
         :param pulumi.Input[_builtins.str] final_snapshot_name: Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
         :param pulumi.Input[_builtins.str] ip_discovery: Mechanism that the cluster uses to discover IP addresses. Valid values are `ipv4` and `ipv6`. Defaults to `ipv4`. To specify `ipv6`, `network_type` must be `ipv6` or `dual_stack`.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt the cluster at rest.
-        :param pulumi.Input[_builtins.str] maintenance_window: Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
-        :param pulumi.Input[_builtins.str] multi_region_cluster_name: The multi region cluster identifier specified on `memorydb.MultiRegionCluster`.
+        :param pulumi.Input[_builtins.str] maintenance_window: Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+        :param pulumi.Input[_builtins.str] multi_region_cluster_name: Multi region cluster identifier specified on `memorydb.MultiRegionCluster`.
         :param pulumi.Input[_builtins.str] name: Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] network_type: IP address type for the cluster. Valid values are `ipv4`, `ipv6` and `dual_stack`. Defaults to `ipv4`.
-        :param pulumi.Input[_builtins.str] node_type: The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+        :param pulumi.Input[_builtins.str] node_type: Compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.int] num_replicas_per_shard: The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
-        :param pulumi.Input[_builtins.int] num_shards: The number of shards in the cluster. Defaults to `1`.
-        :param pulumi.Input[_builtins.str] parameter_group_name: The name of the parameter group associated with the cluster.
-        :param pulumi.Input[_builtins.int] port: The port number on which each of the nodes accepts connections. Defaults to `6379`.
+        :param pulumi.Input[_builtins.int] num_replicas_per_shard: Number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
+        :param pulumi.Input[_builtins.int] num_shards: Number of shards in the cluster. Defaults to `1`.
+        :param pulumi.Input[_builtins.str] parameter_group_name: Name of the parameter group associated with the cluster.
+        :param pulumi.Input[_builtins.int] port: Port number on which each of the nodes accepts connections. Defaults to `6379`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: Set of VPC Security Group ID-s to associate with this cluster.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] snapshot_arns: List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
-        :param pulumi.Input[_builtins.str] snapshot_name: The name of a snapshot from which to restore data into the new cluster.
-        :param pulumi.Input[_builtins.int] snapshot_retention_limit: The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
-        :param pulumi.Input[_builtins.str] snapshot_window: The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
+        :param pulumi.Input[_builtins.str] snapshot_name: Name of a snapshot from which to restore data into the new cluster.
+        :param pulumi.Input[_builtins.int] snapshot_retention_limit: Number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
+        :param pulumi.Input[_builtins.str] snapshot_window: Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
         :param pulumi.Input[_builtins.str] sns_topic_arn: ARN of the SNS topic to which cluster notifications are sent.
-        :param pulumi.Input[_builtins.str] subnet_group_name: The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.bool] tls_enabled: A flag to enable in-transit encryption on the cluster. When set to `false`, the `acl_name` must be `open-access`. Defaults to `true`.
+        :param pulumi.Input[_builtins.str] subnet_group_name: Name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.bool] tls_enabled: Whether to enable in-transit encryption on the cluster. When set to `false`, the `acl_name` must be `open-access`. Defaults to `true`.
         """
         ...
     @overload
@@ -1328,41 +1328,41 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] acl_name: The name of the Access Control List to associate with the cluster.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the cluster.
+        :param pulumi.Input[_builtins.str] acl_name: Name of the Access Control List to associate with the cluster.
+        :param pulumi.Input[_builtins.str] arn: ARN of the cluster.
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] data_tiering: Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
         :param pulumi.Input[_builtins.str] description: Description for the cluster. Defaults to `"Managed by Pulumi"`.
-        :param pulumi.Input[_builtins.str] engine: The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+        :param pulumi.Input[_builtins.str] engine: Engine that will run on your nodes. Supported values are `redis` and `valkey`.
         :param pulumi.Input[_builtins.str] engine_patch_version: Patch version number of the engine used by the cluster.
         :param pulumi.Input[_builtins.str] engine_version: Version number of the engine to be used for the cluster. Downgrades are not supported.
         :param pulumi.Input[_builtins.str] final_snapshot_name: Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
         :param pulumi.Input[_builtins.str] ip_discovery: Mechanism that the cluster uses to discover IP addresses. Valid values are `ipv4` and `ipv6`. Defaults to `ipv4`. To specify `ipv6`, `network_type` must be `ipv6` or `dual_stack`.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt the cluster at rest.
-        :param pulumi.Input[_builtins.str] maintenance_window: Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
-        :param pulumi.Input[_builtins.str] multi_region_cluster_name: The multi region cluster identifier specified on `memorydb.MultiRegionCluster`.
+        :param pulumi.Input[_builtins.str] maintenance_window: Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+        :param pulumi.Input[_builtins.str] multi_region_cluster_name: Multi region cluster identifier specified on `memorydb.MultiRegionCluster`.
         :param pulumi.Input[_builtins.str] name: Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] network_type: IP address type for the cluster. Valid values are `ipv4`, `ipv6` and `dual_stack`. Defaults to `ipv4`.
-        :param pulumi.Input[_builtins.str] node_type: The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+        :param pulumi.Input[_builtins.str] node_type: Compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.int] num_replicas_per_shard: The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
-        :param pulumi.Input[_builtins.int] num_shards: The number of shards in the cluster. Defaults to `1`.
-        :param pulumi.Input[_builtins.str] parameter_group_name: The name of the parameter group associated with the cluster.
-        :param pulumi.Input[_builtins.int] port: The port number on which each of the nodes accepts connections. Defaults to `6379`.
+        :param pulumi.Input[_builtins.int] num_replicas_per_shard: Number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
+        :param pulumi.Input[_builtins.int] num_shards: Number of shards in the cluster. Defaults to `1`.
+        :param pulumi.Input[_builtins.str] parameter_group_name: Name of the parameter group associated with the cluster.
+        :param pulumi.Input[_builtins.int] port: Port number on which each of the nodes accepts connections. Defaults to `6379`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: Set of VPC Security Group ID-s to associate with this cluster.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterShardArgs', 'ClusterShardArgsDict', 'outputs.ClusterShard']]]] shards: Set of shards in this cluster.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] snapshot_arns: List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
-        :param pulumi.Input[_builtins.str] snapshot_name: The name of a snapshot from which to restore data into the new cluster.
-        :param pulumi.Input[_builtins.int] snapshot_retention_limit: The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
-        :param pulumi.Input[_builtins.str] snapshot_window: The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
+        :param pulumi.Input[_builtins.str] snapshot_name: Name of a snapshot from which to restore data into the new cluster.
+        :param pulumi.Input[_builtins.int] snapshot_retention_limit: Number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
+        :param pulumi.Input[_builtins.str] snapshot_window: Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
         :param pulumi.Input[_builtins.str] sns_topic_arn: ARN of the SNS topic to which cluster notifications are sent.
-        :param pulumi.Input[_builtins.str] subnet_group_name: The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.bool] tls_enabled: A flag to enable in-transit encryption on the cluster. When set to `false`, the `acl_name` must be `open-access`. Defaults to `true`.
+        :param pulumi.Input[_builtins.str] subnet_group_name: Name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.bool] tls_enabled: Whether to enable in-transit encryption on the cluster. When set to `false`, the `acl_name` must be `open-access`. Defaults to `true`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1408,7 +1408,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="aclName")
     def acl_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the Access Control List to associate with the cluster.
+        Name of the Access Control List to associate with the cluster.
         """
         return pulumi.get(self, "acl_name")
 
@@ -1416,7 +1416,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the cluster.
+        ARN of the cluster.
         """
         return pulumi.get(self, "arn")
 
@@ -1453,7 +1453,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def engine(self) -> pulumi.Output[_builtins.str]:
         """
-        The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+        Engine that will run on your nodes. Supported values are `redis` and `valkey`.
         """
         return pulumi.get(self, "engine")
 
@@ -1501,7 +1501,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="maintenanceWindow")
     def maintenance_window(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+        Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
         """
         return pulumi.get(self, "maintenance_window")
 
@@ -1509,7 +1509,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="multiRegionClusterName")
     def multi_region_cluster_name(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The multi region cluster identifier specified on `memorydb.MultiRegionCluster`.
+        Multi region cluster identifier specified on `memorydb.MultiRegionCluster`.
         """
         return pulumi.get(self, "multi_region_cluster_name")
 
@@ -1541,7 +1541,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="nodeType")
     def node_type(self) -> pulumi.Output[_builtins.str]:
         """
-        The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+        Compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
 
         The following arguments are optional:
         """
@@ -1551,7 +1551,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="numReplicasPerShard")
     def num_replicas_per_shard(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
+        Number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
         """
         return pulumi.get(self, "num_replicas_per_shard")
 
@@ -1559,7 +1559,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="numShards")
     def num_shards(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The number of shards in the cluster. Defaults to `1`.
+        Number of shards in the cluster. Defaults to `1`.
         """
         return pulumi.get(self, "num_shards")
 
@@ -1567,7 +1567,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="parameterGroupName")
     def parameter_group_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the parameter group associated with the cluster.
+        Name of the parameter group associated with the cluster.
         """
         return pulumi.get(self, "parameter_group_name")
 
@@ -1575,7 +1575,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def port(self) -> pulumi.Output[_builtins.int]:
         """
-        The port number on which each of the nodes accepts connections. Defaults to `6379`.
+        Port number on which each of the nodes accepts connections. Defaults to `6379`.
         """
         return pulumi.get(self, "port")
 
@@ -1615,7 +1615,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="snapshotName")
     def snapshot_name(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The name of a snapshot from which to restore data into the new cluster.
+        Name of a snapshot from which to restore data into the new cluster.
         """
         return pulumi.get(self, "snapshot_name")
 
@@ -1623,7 +1623,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="snapshotRetentionLimit")
     def snapshot_retention_limit(self) -> pulumi.Output[_builtins.int]:
         """
-        The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
+        Number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
         """
         return pulumi.get(self, "snapshot_retention_limit")
 
@@ -1631,7 +1631,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="snapshotWindow")
     def snapshot_window(self) -> pulumi.Output[_builtins.str]:
         """
-        The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
+        Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
         """
         return pulumi.get(self, "snapshot_window")
 
@@ -1647,7 +1647,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="subnetGroupName")
     def subnet_group_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
+        Name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
         """
         return pulumi.get(self, "subnet_group_name")
 
@@ -1655,7 +1655,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -1663,7 +1663,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -1671,7 +1671,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="tlsEnabled")
     def tls_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        A flag to enable in-transit encryption on the cluster. When set to `false`, the `acl_name` must be `open-access`. Defaults to `true`.
+        Whether to enable in-transit encryption on the cluster. When set to `false`, the `acl_name` must be `open-access`. Defaults to `true`.
         """
         return pulumi.get(self, "tls_enabled")
 

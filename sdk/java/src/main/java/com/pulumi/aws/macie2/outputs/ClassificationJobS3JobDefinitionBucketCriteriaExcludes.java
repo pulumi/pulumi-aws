@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClassificationJobS3JobDefinitionBucketCriteriaExcludes {
     /**
-     * @return An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
+     * @return Array of conditions, one for each condition that determines which objects to include or exclude from the job. See `scoping.excludes.and` Block for details.
      * 
      */
     private @Nullable List<ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd> ands;
 
     private ClassificationJobS3JobDefinitionBucketCriteriaExcludes() {}
     /**
-     * @return An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
+     * @return Array of conditions, one for each condition that determines which objects to include or exclude from the job. See `scoping.excludes.and` Block for details.
      * 
      */
     public List<ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd> ands() {

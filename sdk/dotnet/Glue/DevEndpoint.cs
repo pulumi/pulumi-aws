@@ -82,19 +82,19 @@ namespace Pulumi.Aws.Glue
     public partial class DevEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A map of arguments used to configure the endpoint.
+        /// Map of arguments used to configure the endpoint.
         /// </summary>
         [Output("arguments")]
         public Output<ImmutableDictionary<string, string>?> Arguments { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the endpoint.
+        /// ARN of the endpoint.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS availability zone where this endpoint is located.
+        /// AWS availability zone where this endpoint is located.
         /// </summary>
         [Output("availabilityZone")]
         public Output<string> AvailabilityZone { get; private set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.Aws.Glue
         public Output<string?> ExtraPythonLibsS3Path { get; private set; } = null!;
 
         /// <summary>
-        /// The reason for a current failure in this endpoint.
+        /// Reason for a current failure in this endpoint.
         /// </summary>
         [Output("failureReason")]
         public Output<string> FailureReason { get; private set; } = null!;
@@ -124,43 +124,43 @@ namespace Pulumi.Aws.Glue
         public Output<string?> GlueVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The name of this endpoint. It must be unique in your account.
+        /// Name of this endpoint. It must be unique in your account.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `WorkerType`.
+        /// Number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `WorkerType`.
         /// </summary>
         [Output("numberOfNodes")]
         public Output<int?> NumberOfNodes { get; private set; } = null!;
 
         /// <summary>
-        /// The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
+        /// Number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
         /// </summary>
         [Output("numberOfWorkers")]
         public Output<int?> NumberOfWorkers { get; private set; } = null!;
 
         /// <summary>
-        /// A private IP address to access the endpoint within a VPC, if this endpoint is created within one.
+        /// Private IP address to access the endpoint within a VPC, if this endpoint is created within one.
         /// </summary>
         [Output("privateAddress")]
         public Output<string> PrivateAddress { get; private set; } = null!;
 
         /// <summary>
-        /// The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
+        /// Public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
         /// </summary>
         [Output("publicAddress")]
         public Output<string> PublicAddress { get; private set; } = null!;
 
         /// <summary>
-        /// The public key to be used by this endpoint for authentication.
+        /// Public key to be used by this endpoint for authentication.
         /// </summary>
         [Output("publicKey")]
         public Output<string?> PublicKey { get; private set; } = null!;
 
         /// <summary>
-        /// A list of public keys to be used by this endpoint for authentication.
+        /// List of public keys to be used by this endpoint for authentication.
         /// </summary>
         [Output("publicKeys")]
         public Output<ImmutableArray<string>> PublicKeys { get; private set; } = null!;
@@ -172,13 +172,13 @@ namespace Pulumi.Aws.Glue
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The IAM role for this endpoint.
+        /// IAM role for this endpoint.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Security Configuration structure to be used with this endpoint.
+        /// Name of the Security Configuration structure to be used with this endpoint.
         /// </summary>
         [Output("securityConfiguration")]
         public Output<string?> SecurityConfiguration { get; private set; } = null!;
@@ -190,13 +190,13 @@ namespace Pulumi.Aws.Glue
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// The current status of this endpoint.
+        /// Current status of this endpoint.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The subnet ID for the new endpoint to use.
+        /// Subnet ID for the new endpoint to use.
         /// </summary>
         [Output("subnetId")]
         public Output<string?> SubnetId { get; private set; } = null!;
@@ -208,31 +208,31 @@ namespace Pulumi.Aws.Glue
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// he ID of the VPC used by this endpoint.
+        /// ID of the VPC used by this endpoint.
         /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
         /// <summary>
-        /// The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
+        /// Type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
         /// </summary>
         [Output("workerType")]
         public Output<string?> WorkerType { get; private set; } = null!;
 
         /// <summary>
-        /// The YARN endpoint address used by this endpoint.
+        /// YARN endpoint address used by this endpoint.
         /// </summary>
         [Output("yarnEndpointAddress")]
         public Output<string> YarnEndpointAddress { get; private set; } = null!;
 
         /// <summary>
-        /// The Apache Zeppelin port for the remote Apache Spark interpreter.
+        /// Apache Zeppelin port for the remote Apache Spark interpreter.
         /// </summary>
         [Output("zeppelinRemoteSparkInterpreterPort")]
         public Output<int> ZeppelinRemoteSparkInterpreterPort { get; private set; } = null!;
@@ -287,7 +287,7 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _arguments;
 
         /// <summary>
-        /// A map of arguments used to configure the endpoint.
+        /// Map of arguments used to configure the endpoint.
         /// </summary>
         public InputMap<string> Arguments
         {
@@ -314,25 +314,25 @@ namespace Pulumi.Aws.Glue
         public Input<string>? GlueVersion { get; set; }
 
         /// <summary>
-        /// The name of this endpoint. It must be unique in your account.
+        /// Name of this endpoint. It must be unique in your account.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `WorkerType`.
+        /// Number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `WorkerType`.
         /// </summary>
         [Input("numberOfNodes")]
         public Input<int>? NumberOfNodes { get; set; }
 
         /// <summary>
-        /// The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
+        /// Number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
         /// </summary>
         [Input("numberOfWorkers")]
         public Input<int>? NumberOfWorkers { get; set; }
 
         /// <summary>
-        /// The public key to be used by this endpoint for authentication.
+        /// Public key to be used by this endpoint for authentication.
         /// </summary>
         [Input("publicKey")]
         public Input<string>? PublicKey { get; set; }
@@ -341,7 +341,7 @@ namespace Pulumi.Aws.Glue
         private InputList<string>? _publicKeys;
 
         /// <summary>
-        /// A list of public keys to be used by this endpoint for authentication.
+        /// List of public keys to be used by this endpoint for authentication.
         /// </summary>
         public InputList<string> PublicKeys
         {
@@ -356,13 +356,13 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The IAM role for this endpoint.
+        /// IAM role for this endpoint.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Security Configuration structure to be used with this endpoint.
+        /// Name of the Security Configuration structure to be used with this endpoint.
         /// </summary>
         [Input("securityConfiguration")]
         public Input<string>? SecurityConfiguration { get; set; }
@@ -380,7 +380,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The subnet ID for the new endpoint to use.
+        /// Subnet ID for the new endpoint to use.
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
@@ -398,7 +398,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
+        /// Type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
         /// </summary>
         [Input("workerType")]
         public Input<string>? WorkerType { get; set; }
@@ -415,7 +415,7 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _arguments;
 
         /// <summary>
-        /// A map of arguments used to configure the endpoint.
+        /// Map of arguments used to configure the endpoint.
         /// </summary>
         public InputMap<string> Arguments
         {
@@ -424,13 +424,13 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The ARN of the endpoint.
+        /// ARN of the endpoint.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The AWS availability zone where this endpoint is located.
+        /// AWS availability zone where this endpoint is located.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
@@ -448,7 +448,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? ExtraPythonLibsS3Path { get; set; }
 
         /// <summary>
-        /// The reason for a current failure in this endpoint.
+        /// Reason for a current failure in this endpoint.
         /// </summary>
         [Input("failureReason")]
         public Input<string>? FailureReason { get; set; }
@@ -460,37 +460,37 @@ namespace Pulumi.Aws.Glue
         public Input<string>? GlueVersion { get; set; }
 
         /// <summary>
-        /// The name of this endpoint. It must be unique in your account.
+        /// Name of this endpoint. It must be unique in your account.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `WorkerType`.
+        /// Number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `WorkerType`.
         /// </summary>
         [Input("numberOfNodes")]
         public Input<int>? NumberOfNodes { get; set; }
 
         /// <summary>
-        /// The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
+        /// Number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
         /// </summary>
         [Input("numberOfWorkers")]
         public Input<int>? NumberOfWorkers { get; set; }
 
         /// <summary>
-        /// A private IP address to access the endpoint within a VPC, if this endpoint is created within one.
+        /// Private IP address to access the endpoint within a VPC, if this endpoint is created within one.
         /// </summary>
         [Input("privateAddress")]
         public Input<string>? PrivateAddress { get; set; }
 
         /// <summary>
-        /// The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
+        /// Public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
         /// </summary>
         [Input("publicAddress")]
         public Input<string>? PublicAddress { get; set; }
 
         /// <summary>
-        /// The public key to be used by this endpoint for authentication.
+        /// Public key to be used by this endpoint for authentication.
         /// </summary>
         [Input("publicKey")]
         public Input<string>? PublicKey { get; set; }
@@ -499,7 +499,7 @@ namespace Pulumi.Aws.Glue
         private InputList<string>? _publicKeys;
 
         /// <summary>
-        /// A list of public keys to be used by this endpoint for authentication.
+        /// List of public keys to be used by this endpoint for authentication.
         /// </summary>
         public InputList<string> PublicKeys
         {
@@ -514,13 +514,13 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The IAM role for this endpoint.
+        /// IAM role for this endpoint.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
         /// <summary>
-        /// The name of the Security Configuration structure to be used with this endpoint.
+        /// Name of the Security Configuration structure to be used with this endpoint.
         /// </summary>
         [Input("securityConfiguration")]
         public Input<string>? SecurityConfiguration { get; set; }
@@ -538,13 +538,13 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The current status of this endpoint.
+        /// Current status of this endpoint.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// The subnet ID for the new endpoint to use.
+        /// Subnet ID for the new endpoint to use.
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
@@ -565,7 +565,7 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -574,25 +574,25 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// he ID of the VPC used by this endpoint.
+        /// ID of the VPC used by this endpoint.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 
         /// <summary>
-        /// The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
+        /// Type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
         /// </summary>
         [Input("workerType")]
         public Input<string>? WorkerType { get; set; }
 
         /// <summary>
-        /// The YARN endpoint address used by this endpoint.
+        /// YARN endpoint address used by this endpoint.
         /// </summary>
         [Input("yarnEndpointAddress")]
         public Input<string>? YarnEndpointAddress { get; set; }
 
         /// <summary>
-        /// The Apache Zeppelin port for the remote Apache Spark interpreter.
+        /// Apache Zeppelin port for the remote Apache Spark interpreter.
         /// </summary>
         [Input("zeppelinRemoteSparkInterpreterPort")]
         public Input<int>? ZeppelinRemoteSparkInterpreterPort { get; set; }

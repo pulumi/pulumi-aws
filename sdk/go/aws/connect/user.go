@@ -176,7 +176,7 @@ import (
 //
 // ```
 //
-// ### With multiple Security profile ids specified in securityProfileIds
+// ### With multiple Security profile IDs specified in securityProfileIds
 //
 // ```go
 // package main
@@ -245,7 +245,7 @@ type User struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The identifier of the routing profile for the user.
 	RoutingProfileId pulumi.StringOutput `pulumi:"routingProfileId"`
-	// A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
+	// A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile IDs. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
 	SecurityProfileIds pulumi.StringArrayOutput `pulumi:"securityProfileIds"`
 	// Tags to apply to the user. If configured with a provider
 	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -325,7 +325,7 @@ type userState struct {
 	Region *string `pulumi:"region"`
 	// The identifier of the routing profile for the user.
 	RoutingProfileId *string `pulumi:"routingProfileId"`
-	// A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
+	// A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile IDs. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
 	SecurityProfileIds []string `pulumi:"securityProfileIds"`
 	// Tags to apply to the user. If configured with a provider
 	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -357,7 +357,7 @@ type UserState struct {
 	Region pulumi.StringPtrInput
 	// The identifier of the routing profile for the user.
 	RoutingProfileId pulumi.StringPtrInput
-	// A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
+	// A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile IDs. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
 	SecurityProfileIds pulumi.StringArrayInput
 	// Tags to apply to the user. If configured with a provider
 	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -391,7 +391,7 @@ type userArgs struct {
 	Region *string `pulumi:"region"`
 	// The identifier of the routing profile for the user.
 	RoutingProfileId string `pulumi:"routingProfileId"`
-	// A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
+	// A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile IDs. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
 	SecurityProfileIds []string `pulumi:"securityProfileIds"`
 	// Tags to apply to the user. If configured with a provider
 	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -418,7 +418,7 @@ type UserArgs struct {
 	Region pulumi.StringPtrInput
 	// The identifier of the routing profile for the user.
 	RoutingProfileId pulumi.StringInput
-	// A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
+	// A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile IDs. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
 	SecurityProfileIds pulumi.StringArrayInput
 	// Tags to apply to the user. If configured with a provider
 	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -562,7 +562,7 @@ func (o UserOutput) RoutingProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.RoutingProfileId }).(pulumi.StringOutput)
 }
 
-// A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
+// A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile IDs. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
 func (o UserOutput) SecurityProfileIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *User) pulumi.StringArrayOutput { return v.SecurityProfileIds }).(pulumi.StringArrayOutput)
 }

@@ -65,14 +65,14 @@ public final class GameSessionQueueArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * An SNS topic ARN that is set up to receive game session placement notifications.
+     * SNS topic ARN that is set up to receive game session placement notifications.
      * 
      */
     @Import(name="notificationTarget")
     private @Nullable Output<String> notificationTarget;
 
     /**
-     * @return An SNS topic ARN that is set up to receive game session placement notifications.
+     * @return SNS topic ARN that is set up to receive game session placement notifications.
      * 
      */
     public Optional<Output<String>> notificationTarget() {
@@ -244,7 +244,7 @@ public final class GameSessionQueueArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param notificationTarget An SNS topic ARN that is set up to receive game session placement notifications.
+         * @param notificationTarget SNS topic ARN that is set up to receive game session placement notifications.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class GameSessionQueueArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param notificationTarget An SNS topic ARN that is set up to receive game session placement notifications.
+         * @param notificationTarget SNS topic ARN that is set up to receive game session placement notifications.
          * 
          * @return builder
          * 

@@ -17,14 +17,14 @@ public final class VpcBlockPublicAccessOptionsState extends com.pulumi.resources
     public static final VpcBlockPublicAccessOptionsState Empty = new VpcBlockPublicAccessOptionsState();
 
     /**
-     * AWS account id to which these options apply.
+     * AWS account ID to which these options apply.
      * 
      */
     @Import(name="awsAccountId")
     private @Nullable Output<String> awsAccountId;
 
     /**
-     * @return AWS account id to which these options apply.
+     * @return AWS account ID to which these options apply.
      * 
      */
     public Optional<Output<String>> awsAccountId() {
@@ -112,7 +112,7 @@ public final class VpcBlockPublicAccessOptionsState extends com.pulumi.resources
         }
 
         /**
-         * @param awsAccountId AWS account id to which these options apply.
+         * @param awsAccountId AWS account ID to which these options apply.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class VpcBlockPublicAccessOptionsState extends com.pulumi.resources
         }
 
         /**
-         * @param awsAccountId AWS account id to which these options apply.
+         * @param awsAccountId AWS account ID to which these options apply.
          * 
          * @return builder
          * 

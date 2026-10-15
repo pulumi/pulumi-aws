@@ -22,7 +22,7 @@ namespace Pulumi.Aws.GameLift.Outputs
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// A specific version of the file. If not set, the latest version of the file is retrieved.
+        /// Specific version of the file. If not set, the latest version of the file is retrieved.
         /// </summary>
         public readonly string? ObjectVersion;
         /// <summary>

@@ -354,14 +354,14 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Bgp asn number of the first VPN tunnel.
+     * BGP ASN number of the first VPN tunnel.
      * 
      */
     @Import(name="tunnel1BgpAsn")
     private @Nullable Output<String> tunnel1BgpAsn;
 
     /**
-     * @return Bgp asn number of the first VPN tunnel.
+     * @return BGP ASN number of the first VPN tunnel.
      * 
      */
     public Optional<Output<String>> tunnel1BgpAsn() {
@@ -369,14 +369,14 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Bgp holdtime of the first VPN tunnel.
+     * BGP holdtime of the first VPN tunnel.
      * 
      */
     @Import(name="tunnel1BgpHoldtime")
     private @Nullable Output<Integer> tunnel1BgpHoldtime;
 
     /**
-     * @return Bgp holdtime of the first VPN tunnel.
+     * @return BGP holdtime of the first VPN tunnel.
      * 
      */
     public Optional<Output<Integer>> tunnel1BgpHoldtime() {
@@ -729,14 +729,14 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Bgp asn number of the second VPN tunnel.
+     * BGP ASN number of the second VPN tunnel.
      * 
      */
     @Import(name="tunnel2BgpAsn")
     private @Nullable Output<String> tunnel2BgpAsn;
 
     /**
-     * @return Bgp asn number of the second VPN tunnel.
+     * @return BGP ASN number of the second VPN tunnel.
      * 
      */
     public Optional<Output<String>> tunnel2BgpAsn() {
@@ -744,14 +744,14 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Bgp holdtime of the second VPN tunnel.
+     * BGP holdtime of the second VPN tunnel.
      * 
      */
     @Import(name="tunnel2BgpHoldtime")
     private @Nullable Output<Integer> tunnel2BgpHoldtime;
 
     /**
-     * @return Bgp holdtime of the second VPN tunnel.
+     * @return BGP holdtime of the second VPN tunnel.
      * 
      */
     public Optional<Output<Integer>> tunnel2BgpHoldtime() {
@@ -1751,7 +1751,7 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tunnel1BgpAsn Bgp asn number of the first VPN tunnel.
+         * @param tunnel1BgpAsn BGP ASN number of the first VPN tunnel.
          * 
          * @return builder
          * 
@@ -1762,7 +1762,7 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tunnel1BgpAsn Bgp asn number of the first VPN tunnel.
+         * @param tunnel1BgpAsn BGP ASN number of the first VPN tunnel.
          * 
          * @return builder
          * 
@@ -1772,7 +1772,7 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tunnel1BgpHoldtime Bgp holdtime of the first VPN tunnel.
+         * @param tunnel1BgpHoldtime BGP holdtime of the first VPN tunnel.
          * 
          * @return builder
          * 
@@ -1783,7 +1783,7 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tunnel1BgpHoldtime Bgp holdtime of the first VPN tunnel.
+         * @param tunnel1BgpHoldtime BGP holdtime of the first VPN tunnel.
          * 
          * @return builder
          * 
@@ -2346,7 +2346,7 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tunnel2BgpAsn Bgp asn number of the second VPN tunnel.
+         * @param tunnel2BgpAsn BGP ASN number of the second VPN tunnel.
          * 
          * @return builder
          * 
@@ -2357,7 +2357,7 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tunnel2BgpAsn Bgp asn number of the second VPN tunnel.
+         * @param tunnel2BgpAsn BGP ASN number of the second VPN tunnel.
          * 
          * @return builder
          * 
@@ -2367,7 +2367,7 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tunnel2BgpHoldtime Bgp holdtime of the second VPN tunnel.
+         * @param tunnel2BgpHoldtime BGP holdtime of the second VPN tunnel.
          * 
          * @return builder
          * 
@@ -2378,7 +2378,7 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tunnel2BgpHoldtime Bgp holdtime of the second VPN tunnel.
+         * @param tunnel2BgpHoldtime BGP holdtime of the second VPN tunnel.
          * 
          * @return builder
          * 

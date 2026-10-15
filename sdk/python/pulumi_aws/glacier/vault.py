@@ -29,12 +29,11 @@ class VaultArgs:
         """
         The set of arguments for constructing a Vault resource.
 
-        :param pulumi.Input[_builtins.str] access_policy: The policy document. This is a JSON formatted string.
-               The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
-        :param pulumi.Input[_builtins.str] name: The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
-        :param pulumi.Input['VaultNotificationArgs'] notification: The notifications for the Vault. Fields documented below.
+        :param pulumi.Input[_builtins.str] access_policy: Policy document. This is a JSON formatted string. The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
+        :param pulumi.Input[_builtins.str] name: Name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
+        :param pulumi.Input['VaultNotificationArgs'] notification: Notifications for the Vault. See below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if access_policy is not None:
             pulumi.set(__self__, "access_policy", access_policy)
@@ -51,8 +50,7 @@ class VaultArgs:
     @pulumi.getter(name="accessPolicy")
     def access_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The policy document. This is a JSON formatted string.
-        The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
+        Policy document. This is a JSON formatted string. The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
         """
         return pulumi.get(self, "access_policy")
 
@@ -64,7 +62,7 @@ class VaultArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
+        Name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
         """
         return pulumi.get(self, "name")
 
@@ -76,7 +74,7 @@ class VaultArgs:
     @pulumi.getter
     def notification(self) -> pulumi.Input[Optional['VaultNotificationArgs']]:
         """
-        The notifications for the Vault. Fields documented below.
+        Notifications for the Vault. See below.
         """
         return pulumi.get(self, "notification")
 
@@ -100,7 +98,7 @@ class VaultArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -123,15 +121,14 @@ class _VaultState:
         """
         Input properties used for looking up and filtering Vault resources.
 
-        :param pulumi.Input[_builtins.str] access_policy: The policy document. This is a JSON formatted string.
-               The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
-        :param pulumi.Input[_builtins.str] arn: The ARN of the vault.
-        :param pulumi.Input[_builtins.str] location: The URI of the vault that was created.
-        :param pulumi.Input[_builtins.str] name: The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
-        :param pulumi.Input['VaultNotificationArgs'] notification: The notifications for the Vault. Fields documented below.
+        :param pulumi.Input[_builtins.str] access_policy: Policy document. This is a JSON formatted string. The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
+        :param pulumi.Input[_builtins.str] arn: ARN of the vault.
+        :param pulumi.Input[_builtins.str] location: URI of the vault that was created.
+        :param pulumi.Input[_builtins.str] name: Name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
+        :param pulumi.Input['VaultNotificationArgs'] notification: Notifications for the Vault. See below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if access_policy is not None:
             pulumi.set(__self__, "access_policy", access_policy)
@@ -154,8 +151,7 @@ class _VaultState:
     @pulumi.getter(name="accessPolicy")
     def access_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The policy document. This is a JSON formatted string.
-        The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
+        Policy document. This is a JSON formatted string. The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
         """
         return pulumi.get(self, "access_policy")
 
@@ -167,7 +163,7 @@ class _VaultState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the vault.
+        ARN of the vault.
         """
         return pulumi.get(self, "arn")
 
@@ -179,7 +175,7 @@ class _VaultState:
     @pulumi.getter
     def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The URI of the vault that was created.
+        URI of the vault that was created.
         """
         return pulumi.get(self, "location")
 
@@ -191,7 +187,7 @@ class _VaultState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
+        Name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
         """
         return pulumi.get(self, "name")
 
@@ -203,7 +199,7 @@ class _VaultState:
     @pulumi.getter
     def notification(self) -> pulumi.Input[Optional['VaultNotificationArgs']]:
         """
-        The notifications for the Vault. Fields documented below.
+        Notifications for the Vault. See below.
         """
         return pulumi.get(self, "notification")
 
@@ -227,7 +223,7 @@ class _VaultState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -239,7 +235,7 @@ class _VaultState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -311,12 +307,11 @@ class Vault(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_policy: The policy document. This is a JSON formatted string.
-               The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
-        :param pulumi.Input[_builtins.str] name: The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
-        :param pulumi.Input[Union['VaultNotificationArgs', 'VaultNotificationArgsDict', 'outputs.VaultNotification']] notification: The notifications for the Vault. Fields documented below.
+        :param pulumi.Input[_builtins.str] access_policy: Policy document. This is a JSON formatted string. The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
+        :param pulumi.Input[_builtins.str] name: Name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
+        :param pulumi.Input[Union['VaultNotificationArgs', 'VaultNotificationArgsDict', 'outputs.VaultNotification']] notification: Notifications for the Vault. See below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -435,15 +430,14 @@ class Vault(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_policy: The policy document. This is a JSON formatted string.
-               The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
-        :param pulumi.Input[_builtins.str] arn: The ARN of the vault.
-        :param pulumi.Input[_builtins.str] location: The URI of the vault that was created.
-        :param pulumi.Input[_builtins.str] name: The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
-        :param pulumi.Input[Union['VaultNotificationArgs', 'VaultNotificationArgsDict', 'outputs.VaultNotification']] notification: The notifications for the Vault. Fields documented below.
+        :param pulumi.Input[_builtins.str] access_policy: Policy document. This is a JSON formatted string. The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
+        :param pulumi.Input[_builtins.str] arn: ARN of the vault.
+        :param pulumi.Input[_builtins.str] location: URI of the vault that was created.
+        :param pulumi.Input[_builtins.str] name: Name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
+        :param pulumi.Input[Union['VaultNotificationArgs', 'VaultNotificationArgsDict', 'outputs.VaultNotification']] notification: Notifications for the Vault. See below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -463,8 +457,7 @@ class Vault(pulumi.CustomResource):
     @pulumi.getter(name="accessPolicy")
     def access_policy(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The policy document. This is a JSON formatted string.
-        The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
+        Policy document. This is a JSON formatted string. The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
         """
         return pulumi.get(self, "access_policy")
 
@@ -472,7 +465,7 @@ class Vault(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the vault.
+        ARN of the vault.
         """
         return pulumi.get(self, "arn")
 
@@ -480,7 +473,7 @@ class Vault(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[_builtins.str]:
         """
-        The URI of the vault that was created.
+        URI of the vault that was created.
         """
         return pulumi.get(self, "location")
 
@@ -488,7 +481,7 @@ class Vault(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
+        Name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
         """
         return pulumi.get(self, "name")
 
@@ -496,7 +489,7 @@ class Vault(pulumi.CustomResource):
     @pulumi.getter
     def notification(self) -> pulumi.Output[Optional['outputs.VaultNotification']]:
         """
-        The notifications for the Vault. Fields documented below.
+        Notifications for the Vault. See below.
         """
         return pulumi.get(self, "notification")
 
@@ -512,7 +505,7 @@ class Vault(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -520,7 +513,7 @@ class Vault(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

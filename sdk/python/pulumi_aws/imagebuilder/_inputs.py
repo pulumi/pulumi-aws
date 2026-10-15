@@ -611,7 +611,7 @@ class DistributionConfigurationDistributionArgsDict(TypedDict):
     """
     ssm_parameter_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DistributionConfigurationDistributionSsmParameterConfigurationArgsDict']]]]]
     """
-    Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
+    Configuration block with SSM parameter configuration to use as AMI ID output. Detailed below.
     """
 
 @pulumi.input_type
@@ -633,7 +633,7 @@ class DistributionConfigurationDistributionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionLaunchTemplateConfigurationArgs']]] launch_template_configurations: Set of launch template configuration settings that apply to image distribution. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] license_configuration_arns: Set of ARNs of License Manager License Configurations.
         :param pulumi.Input['DistributionConfigurationDistributionS3ExportConfigurationArgs'] s3_export_configuration: Configuration block with S3 export settings. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionSsmParameterConfigurationArgs']]] ssm_parameter_configurations: Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionSsmParameterConfigurationArgs']]] ssm_parameter_configurations: Configuration block with SSM parameter configuration to use as AMI ID output. Detailed below.
         """
         pulumi.set(__self__, "region", region)
         if ami_distribution_configuration is not None:
@@ -739,7 +739,7 @@ class DistributionConfigurationDistributionArgs:
     @pulumi.getter(name="ssmParameterConfigurations")
     def ssm_parameter_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DistributionConfigurationDistributionSsmParameterConfigurationArgs']]]]:
         """
-        Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
+        Configuration block with SSM parameter configuration to use as AMI ID output. Detailed below.
         """
         return pulumi.get(self, "ssm_parameter_configurations")
 

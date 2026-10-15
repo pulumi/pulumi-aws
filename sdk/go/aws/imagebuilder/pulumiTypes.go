@@ -952,7 +952,7 @@ type DistributionConfigurationDistribution struct {
 	Region string `pulumi:"region"`
 	// Configuration block with S3 export settings. Detailed below.
 	S3ExportConfiguration *DistributionConfigurationDistributionS3ExportConfiguration `pulumi:"s3ExportConfiguration"`
-	// Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
+	// Configuration block with SSM parameter configuration to use as AMI ID output. Detailed below.
 	SsmParameterConfigurations []DistributionConfigurationDistributionSsmParameterConfiguration `pulumi:"ssmParameterConfigurations"`
 }
 
@@ -982,7 +982,7 @@ type DistributionConfigurationDistributionArgs struct {
 	Region pulumi.StringInput `pulumi:"region"`
 	// Configuration block with S3 export settings. Detailed below.
 	S3ExportConfiguration DistributionConfigurationDistributionS3ExportConfigurationPtrInput `pulumi:"s3ExportConfiguration"`
-	// Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
+	// Configuration block with SSM parameter configuration to use as AMI ID output. Detailed below.
 	SsmParameterConfigurations DistributionConfigurationDistributionSsmParameterConfigurationArrayInput `pulumi:"ssmParameterConfigurations"`
 }
 
@@ -1082,7 +1082,7 @@ func (o DistributionConfigurationDistributionOutput) S3ExportConfiguration() Dis
 	}).(DistributionConfigurationDistributionS3ExportConfigurationPtrOutput)
 }
 
-// Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
+// Configuration block with SSM parameter configuration to use as AMI ID output. Detailed below.
 func (o DistributionConfigurationDistributionOutput) SsmParameterConfigurations() DistributionConfigurationDistributionSsmParameterConfigurationArrayOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistribution) []DistributionConfigurationDistributionSsmParameterConfiguration {
 		return v.SsmParameterConfigurations
@@ -10743,7 +10743,7 @@ func (o GetImageOutputResourceContainerArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 type GetImagePipelineImageScanningConfiguration struct {
-	// List if an object with ecr configuration for image scanning
+	// List if an object with ECR configuration for image scanning
 	EcrConfigurations []GetImagePipelineImageScanningConfigurationEcrConfiguration `pulumi:"ecrConfigurations"`
 	// Whether image scanning is enabled.
 	ImageScanningEnabled bool `pulumi:"imageScanningEnabled"`
@@ -10761,7 +10761,7 @@ type GetImagePipelineImageScanningConfigurationInput interface {
 }
 
 type GetImagePipelineImageScanningConfigurationArgs struct {
-	// List if an object with ecr configuration for image scanning
+	// List if an object with ECR configuration for image scanning
 	EcrConfigurations GetImagePipelineImageScanningConfigurationEcrConfigurationArrayInput `pulumi:"ecrConfigurations"`
 	// Whether image scanning is enabled.
 	ImageScanningEnabled pulumi.BoolInput `pulumi:"imageScanningEnabled"`
@@ -10818,7 +10818,7 @@ func (o GetImagePipelineImageScanningConfigurationOutput) ToGetImagePipelineImag
 	return o
 }
 
-// List if an object with ecr configuration for image scanning
+// List if an object with ECR configuration for image scanning
 func (o GetImagePipelineImageScanningConfigurationOutput) EcrConfigurations() GetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput {
 	return o.ApplyT(func(v GetImagePipelineImageScanningConfiguration) []GetImagePipelineImageScanningConfigurationEcrConfiguration {
 		return v.EcrConfigurations

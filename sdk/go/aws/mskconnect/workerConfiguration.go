@@ -55,11 +55,11 @@ type WorkerConfiguration struct {
 
 	// the ARN of the worker configuration.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A summary description of the worker configuration.
+	// Summary description of the worker configuration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// an ID of the latest successfully created revision of the worker configuration.
 	LatestRevision pulumi.IntOutput `pulumi:"latestRevision"`
-	// The name of the worker configuration.
+	// Name of the worker configuration.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
 	//
@@ -67,9 +67,9 @@ type WorkerConfiguration struct {
 	PropertiesFileContent pulumi.StringOutput `pulumi:"propertiesFileContent"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -108,11 +108,11 @@ func GetWorkerConfiguration(ctx *pulumi.Context,
 type workerConfigurationState struct {
 	// the ARN of the worker configuration.
 	Arn *string `pulumi:"arn"`
-	// A summary description of the worker configuration.
+	// Summary description of the worker configuration.
 	Description *string `pulumi:"description"`
 	// an ID of the latest successfully created revision of the worker configuration.
 	LatestRevision *int `pulumi:"latestRevision"`
-	// The name of the worker configuration.
+	// Name of the worker configuration.
 	Name *string `pulumi:"name"`
 	// Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
 	//
@@ -120,20 +120,20 @@ type workerConfigurationState struct {
 	PropertiesFileContent *string `pulumi:"propertiesFileContent"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type WorkerConfigurationState struct {
 	// the ARN of the worker configuration.
 	Arn pulumi.StringPtrInput
-	// A summary description of the worker configuration.
+	// Summary description of the worker configuration.
 	Description pulumi.StringPtrInput
 	// an ID of the latest successfully created revision of the worker configuration.
 	LatestRevision pulumi.IntPtrInput
-	// The name of the worker configuration.
+	// Name of the worker configuration.
 	Name pulumi.StringPtrInput
 	// Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
 	//
@@ -141,9 +141,9 @@ type WorkerConfigurationState struct {
 	PropertiesFileContent pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -152,9 +152,9 @@ func (WorkerConfigurationState) ElementType() reflect.Type {
 }
 
 type workerConfigurationArgs struct {
-	// A summary description of the worker configuration.
+	// Summary description of the worker configuration.
 	Description *string `pulumi:"description"`
-	// The name of the worker configuration.
+	// Name of the worker configuration.
 	Name *string `pulumi:"name"`
 	// Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
 	//
@@ -162,15 +162,15 @@ type workerConfigurationArgs struct {
 	PropertiesFileContent string `pulumi:"propertiesFileContent"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a WorkerConfiguration resource.
 type WorkerConfigurationArgs struct {
-	// A summary description of the worker configuration.
+	// Summary description of the worker configuration.
 	Description pulumi.StringPtrInput
-	// The name of the worker configuration.
+	// Name of the worker configuration.
 	Name pulumi.StringPtrInput
 	// Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
 	//
@@ -178,7 +178,7 @@ type WorkerConfigurationArgs struct {
 	PropertiesFileContent pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -274,7 +274,7 @@ func (o WorkerConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkerConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A summary description of the worker configuration.
+// Summary description of the worker configuration.
 func (o WorkerConfigurationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkerConfiguration) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -284,7 +284,7 @@ func (o WorkerConfigurationOutput) LatestRevision() pulumi.IntOutput {
 	return o.ApplyT(func(v *WorkerConfiguration) pulumi.IntOutput { return v.LatestRevision }).(pulumi.IntOutput)
 }
 
-// The name of the worker configuration.
+// Name of the worker configuration.
 func (o WorkerConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkerConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -301,12 +301,12 @@ func (o WorkerConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkerConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o WorkerConfigurationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *WorkerConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o WorkerConfigurationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *WorkerConfiguration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

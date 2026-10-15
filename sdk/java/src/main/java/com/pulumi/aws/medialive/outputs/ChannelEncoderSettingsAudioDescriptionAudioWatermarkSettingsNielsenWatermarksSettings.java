@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings {
     /**
-     * @return Used to insert watermarks of type Nielsen CBET. See Nielsen CBET Settings for more details.
+     * @return Settings to insert watermarks of type Nielsen CBET. See `nielsenCbetSettings` Block for details.
      * 
      */
     private @Nullable ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings nielsenCbetSettings;
@@ -25,14 +25,14 @@ public final class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsN
      */
     private @Nullable String nielsenDistributionType;
     /**
-     * @return Used to insert watermarks of type Nielsen NAES, II (N2) and Nielsen NAES VI (NW). See Nielsen NAES II NW Settings for more details.
+     * @return Settings to insert watermarks of type Nielsen NAES, II (N2) and Nielsen NAES VI (NW). See `nielsenNaesIiNwSettings` Block for details.
      * 
      */
     private @Nullable List<ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting> nielsenNaesIiNwSettings;
 
     private ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings() {}
     /**
-     * @return Used to insert watermarks of type Nielsen CBET. See Nielsen CBET Settings for more details.
+     * @return Settings to insert watermarks of type Nielsen CBET. See `nielsenCbetSettings` Block for details.
      * 
      */
     public Optional<ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings> nielsenCbetSettings() {
@@ -46,7 +46,7 @@ public final class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsN
         return Optional.ofNullable(this.nielsenDistributionType);
     }
     /**
-     * @return Used to insert watermarks of type Nielsen NAES, II (N2) and Nielsen NAES VI (NW). See Nielsen NAES II NW Settings for more details.
+     * @return Settings to insert watermarks of type Nielsen NAES, II (N2) and Nielsen NAES VI (NW). See `nielsenNaesIiNwSettings` Block for details.
      * 
      */
     public List<ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting> nielsenNaesIiNwSettings() {

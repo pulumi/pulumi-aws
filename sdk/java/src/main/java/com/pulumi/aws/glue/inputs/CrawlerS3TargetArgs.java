@@ -19,14 +19,14 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
     public static final CrawlerS3TargetArgs Empty = new CrawlerS3TargetArgs();
 
     /**
-     * The name of a connection which allows crawler to access data in S3 within a VPC.
+     * Name of a connection which allows crawler to access data in S3 within a VPC.
      * 
      */
     @Import(name="connectionName")
     private @Nullable Output<String> connectionName;
 
     /**
-     * @return The name of a connection which allows crawler to access data in S3 within a VPC.
+     * @return Name of a connection which allows crawler to access data in S3 within a VPC.
      * 
      */
     public Optional<Output<String>> connectionName() {
@@ -34,14 +34,14 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The ARN of the dead-letter SQS queue.
+     * ARN of the dead-letter SQS queue.
      * 
      */
     @Import(name="dlqEventQueueArn")
     private @Nullable Output<String> dlqEventQueueArn;
 
     /**
-     * @return The ARN of the dead-letter SQS queue.
+     * @return ARN of the dead-letter SQS queue.
      * 
      */
     public Optional<Output<String>> dlqEventQueueArn() {
@@ -49,14 +49,14 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The ARN of the SQS queue to receive S3 notifications from.
+     * ARN of the SQS queue to receive S3 notifications from.
      * 
      */
     @Import(name="eventQueueArn")
     private @Nullable Output<String> eventQueueArn;
 
     /**
-     * @return The ARN of the SQS queue to receive S3 notifications from.
+     * @return ARN of the SQS queue to receive S3 notifications from.
      * 
      */
     public Optional<Output<String>> eventQueueArn() {
@@ -64,14 +64,14 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A list of glob patterns used to exclude from the crawl.
+     * List of glob patterns used to exclude from the crawl.
      * 
      */
     @Import(name="exclusions")
     private @Nullable Output<List<String>> exclusions;
 
     /**
-     * @return A list of glob patterns used to exclude from the crawl.
+     * @return List of glob patterns used to exclude from the crawl.
      * 
      */
     public Optional<Output<List<String>>> exclusions() {
@@ -79,14 +79,14 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The path to the Amazon S3 target.
+     * Path to the Amazon S3 target.
      * 
      */
     @Import(name="path", required=true)
     private Output<String> path;
 
     /**
-     * @return The path to the Amazon S3 target.
+     * @return Path to the Amazon S3 target.
      * 
      */
     public Output<String> path() {
@@ -138,7 +138,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param connectionName The name of a connection which allows crawler to access data in S3 within a VPC.
+         * @param connectionName Name of a connection which allows crawler to access data in S3 within a VPC.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param connectionName The name of a connection which allows crawler to access data in S3 within a VPC.
+         * @param connectionName Name of a connection which allows crawler to access data in S3 within a VPC.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param dlqEventQueueArn The ARN of the dead-letter SQS queue.
+         * @param dlqEventQueueArn ARN of the dead-letter SQS queue.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param dlqEventQueueArn The ARN of the dead-letter SQS queue.
+         * @param dlqEventQueueArn ARN of the dead-letter SQS queue.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param eventQueueArn The ARN of the SQS queue to receive S3 notifications from.
+         * @param eventQueueArn ARN of the SQS queue to receive S3 notifications from.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param eventQueueArn The ARN of the SQS queue to receive S3 notifications from.
+         * @param eventQueueArn ARN of the SQS queue to receive S3 notifications from.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param exclusions A list of glob patterns used to exclude from the crawl.
+         * @param exclusions List of glob patterns used to exclude from the crawl.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param exclusions A list of glob patterns used to exclude from the crawl.
+         * @param exclusions List of glob patterns used to exclude from the crawl.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param exclusions A list of glob patterns used to exclude from the crawl.
+         * @param exclusions List of glob patterns used to exclude from the crawl.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param path The path to the Amazon S3 target.
+         * @param path Path to the Amazon S3 target.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param path The path to the Amazon S3 target.
+         * @param path Path to the Amazon S3 target.
          * 
          * @return builder
          * 

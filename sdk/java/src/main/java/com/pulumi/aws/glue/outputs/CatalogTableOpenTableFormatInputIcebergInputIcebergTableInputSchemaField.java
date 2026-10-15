@@ -21,7 +21,6 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
     private @Nullable String doc;
     /**
      * @return Catalog ID, database name, and table name, separated by colons (`:`).
-     * * `partition_index[*].index_status` - Status of the partition index.
      * 
      */
     private Integer id;
@@ -59,7 +58,6 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
     }
     /**
      * @return Catalog ID, database name, and table name, separated by colons (`:`).
-     * * `partition_index[*].index_status` - Status of the partition index.
      * 
      */
     public Integer id() {

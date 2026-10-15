@@ -298,13 +298,13 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Tunnel1Address { get; private set; } = null!;
 
         /// <summary>
-        /// Bgp asn number of the first VPN tunnel.
+        /// BGP ASN number of the first VPN tunnel.
         /// </summary>
         [Output("tunnel1BgpAsn")]
         public Output<string> Tunnel1BgpAsn { get; private set; } = null!;
 
         /// <summary>
-        /// Bgp holdtime of the first VPN tunnel.
+        /// BGP holdtime of the first VPN tunnel.
         /// </summary>
         [Output("tunnel1BgpHoldtime")]
         public Output<int> Tunnel1BgpHoldtime { get; private set; } = null!;
@@ -448,13 +448,13 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Tunnel2Address { get; private set; } = null!;
 
         /// <summary>
-        /// Bgp asn number of the second VPN tunnel.
+        /// BGP ASN number of the second VPN tunnel.
         /// </summary>
         [Output("tunnel2BgpAsn")]
         public Output<string> Tunnel2BgpAsn { get; private set; } = null!;
 
         /// <summary>
-        /// Bgp holdtime of the second VPN tunnel.
+        /// BGP holdtime of the second VPN tunnel.
         /// </summary>
         [Output("tunnel2BgpHoldtime")]
         public Output<int> Tunnel2BgpHoldtime { get; private set; } = null!;
@@ -1306,13 +1306,13 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Tunnel1Address { get; set; }
 
         /// <summary>
-        /// Bgp asn number of the first VPN tunnel.
+        /// BGP ASN number of the first VPN tunnel.
         /// </summary>
         [Input("tunnel1BgpAsn")]
         public Input<string>? Tunnel1BgpAsn { get; set; }
 
         /// <summary>
-        /// Bgp holdtime of the first VPN tunnel.
+        /// BGP holdtime of the first VPN tunnel.
         /// </summary>
         [Input("tunnel1BgpHoldtime")]
         public Input<int>? Tunnel1BgpHoldtime { get; set; }
@@ -1508,13 +1508,13 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Tunnel2Address { get; set; }
 
         /// <summary>
-        /// Bgp asn number of the second VPN tunnel.
+        /// BGP ASN number of the second VPN tunnel.
         /// </summary>
         [Input("tunnel2BgpAsn")]
         public Input<string>? Tunnel2BgpAsn { get; set; }
 
         /// <summary>
-        /// Bgp holdtime of the second VPN tunnel.
+        /// BGP holdtime of the second VPN tunnel.
         /// </summary>
         [Input("tunnel2BgpHoldtime")]
         public Input<int>? Tunnel2BgpHoldtime { get; set; }

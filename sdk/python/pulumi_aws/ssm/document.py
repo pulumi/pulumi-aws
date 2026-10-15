@@ -603,7 +603,7 @@ class Document(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Create an ssm document in JSON format
+        ### Create an SSM document in JSON format
 
         ```python
         import pulumi
@@ -632,7 +632,7 @@ class Document(pulumi.CustomResource):
         \"\"\")
         ```
 
-        ### Create an ssm document in YAML format
+        ### Create an SSM document in YAML format
 
         ```python
         import pulumi
@@ -717,7 +717,7 @@ class Document(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Create an ssm document in JSON format
+        ### Create an SSM document in JSON format
 
         ```python
         import pulumi
@@ -746,7 +746,7 @@ class Document(pulumi.CustomResource):
         \"\"\")
         ```
 
-        ### Create an ssm document in YAML format
+        ### Create an SSM document in YAML format
 
         ```python
         import pulumi

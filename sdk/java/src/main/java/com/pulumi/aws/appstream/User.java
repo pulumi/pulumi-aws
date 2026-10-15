@@ -66,14 +66,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:appstream/user:User")
 public class User extends com.pulumi.resources.CustomResource {
     /**
-     * ARN of the appstream user.
+     * ARN of the AppStream user.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return ARN of the appstream user.
+     * @return ARN of the AppStream user.
      * 
      */
     public Output<String> arn() {

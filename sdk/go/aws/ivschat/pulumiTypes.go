@@ -195,7 +195,7 @@ func (o LoggingConfigurationDestinationConfigurationPtrOutput) S3() LoggingConfi
 }
 
 type LoggingConfigurationDestinationConfigurationCloudwatchLogs struct {
-	// Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
+	// Name of the Amazon CloudWatch Logs destination where chat activity will be logged.
 	LogGroupName string `pulumi:"logGroupName"`
 }
 
@@ -211,7 +211,7 @@ type LoggingConfigurationDestinationConfigurationCloudwatchLogsInput interface {
 }
 
 type LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs struct {
-	// Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
+	// Name of the Amazon CloudWatch Logs destination where chat activity will be logged.
 	LogGroupName pulumi.StringInput `pulumi:"logGroupName"`
 }
 
@@ -292,7 +292,7 @@ func (o LoggingConfigurationDestinationConfigurationCloudwatchLogsOutput) ToLogg
 	}).(LoggingConfigurationDestinationConfigurationCloudwatchLogsPtrOutput)
 }
 
-// Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
+// Name of the Amazon CloudWatch Logs destination where chat activity will be logged.
 func (o LoggingConfigurationDestinationConfigurationCloudwatchLogsOutput) LogGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LoggingConfigurationDestinationConfigurationCloudwatchLogs) string { return v.LogGroupName }).(pulumi.StringOutput)
 }
@@ -321,7 +321,7 @@ func (o LoggingConfigurationDestinationConfigurationCloudwatchLogsPtrOutput) Ele
 	}).(LoggingConfigurationDestinationConfigurationCloudwatchLogsOutput)
 }
 
-// Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
+// Name of the Amazon CloudWatch Logs destination where chat activity will be logged.
 func (o LoggingConfigurationDestinationConfigurationCloudwatchLogsPtrOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoggingConfigurationDestinationConfigurationCloudwatchLogs) *string {
 		if v == nil {

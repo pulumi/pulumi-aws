@@ -16,14 +16,14 @@ public final class MLTransformParametersArgs extends com.pulumi.resources.Resour
     public static final MLTransformParametersArgs Empty = new MLTransformParametersArgs();
 
     /**
-     * The parameters for the find matches algorithm. see Find Matches Parameters.
+     * Parameters for the find matches algorithm. See `findMatchesParameters`.
      * 
      */
     @Import(name="findMatchesParameters", required=true)
     private Output<MLTransformParametersFindMatchesParametersArgs> findMatchesParameters;
 
     /**
-     * @return The parameters for the find matches algorithm. see Find Matches Parameters.
+     * @return Parameters for the find matches algorithm. See `findMatchesParameters`.
      * 
      */
     public Output<MLTransformParametersFindMatchesParametersArgs> findMatchesParameters() {
@@ -31,14 +31,14 @@ public final class MLTransformParametersArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The type of machine learning transform. For information about the types of machine learning transforms, see [Creating Machine Learning Transforms](http://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html).
+     * Type of machine learning transform. For information about the types of machine learning transforms, see [Creating Machine Learning Transforms](http://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html).
      * 
      */
     @Import(name="transformType", required=true)
     private Output<String> transformType;
 
     /**
-     * @return The type of machine learning transform. For information about the types of machine learning transforms, see [Creating Machine Learning Transforms](http://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html).
+     * @return Type of machine learning transform. For information about the types of machine learning transforms, see [Creating Machine Learning Transforms](http://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html).
      * 
      */
     public Output<String> transformType() {
@@ -71,7 +71,7 @@ public final class MLTransformParametersArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param findMatchesParameters The parameters for the find matches algorithm. see Find Matches Parameters.
+         * @param findMatchesParameters Parameters for the find matches algorithm. See `findMatchesParameters`.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class MLTransformParametersArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param findMatchesParameters The parameters for the find matches algorithm. see Find Matches Parameters.
+         * @param findMatchesParameters Parameters for the find matches algorithm. See `findMatchesParameters`.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class MLTransformParametersArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param transformType The type of machine learning transform. For information about the types of machine learning transforms, see [Creating Machine Learning Transforms](http://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html).
+         * @param transformType Type of machine learning transform. For information about the types of machine learning transforms, see [Creating Machine Learning Transforms](http://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html).
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class MLTransformParametersArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param transformType The type of machine learning transform. For information about the types of machine learning transforms, see [Creating Machine Learning Transforms](http://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html).
+         * @param transformType Type of machine learning transform. For information about the types of machine learning transforms, see [Creating Machine Learning Transforms](http://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html).
          * 
          * @return builder
          * 

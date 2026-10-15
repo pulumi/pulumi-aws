@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private List<Inputs.GetAgentAgentVersionsAgentVersionSummaryGuardrailConfigurationArgs>? _guardrailConfigurations;
 
         /// <summary>
-        /// Details about the guardrail associated with the agent. See `GuardrailConfiguration` Block
+        /// Details about the guardrail associated with the agent. See `GuardrailConfiguration` Block.
         /// </summary>
         public List<Inputs.GetAgentAgentVersionsAgentVersionSummaryGuardrailConfigurationArgs> GuardrailConfigurations
         {

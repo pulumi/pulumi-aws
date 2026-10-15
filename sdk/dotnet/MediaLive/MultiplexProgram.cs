@@ -99,15 +99,15 @@ namespace Pulumi.Aws.MediaLive
         public Output<string> MultiplexId { get; private set; } = null!;
 
         /// <summary>
-        /// MultiplexProgram settings. See Multiplex Program Settings for more details.
-        /// 
-        /// The following arguments are optional:
+        /// MultiplexProgram settings. See `MultiplexProgramSettings` Block for more details.
         /// </summary>
         [Output("multiplexProgramSettings")]
         public Output<Outputs.MultiplexProgramMultiplexProgramSettings?> MultiplexProgramSettings { get; private set; } = null!;
 
         /// <summary>
         /// Unique program name.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("programName")]
         public Output<string> ProgramName { get; private set; } = null!;
@@ -174,15 +174,15 @@ namespace Pulumi.Aws.MediaLive
         public Input<string> MultiplexId { get; set; } = null!;
 
         /// <summary>
-        /// MultiplexProgram settings. See Multiplex Program Settings for more details.
-        /// 
-        /// The following arguments are optional:
+        /// MultiplexProgram settings. See `MultiplexProgramSettings` Block for more details.
         /// </summary>
         [Input("multiplexProgramSettings")]
         public Input<Inputs.MultiplexProgramMultiplexProgramSettingsArgs>? MultiplexProgramSettings { get; set; }
 
         /// <summary>
         /// Unique program name.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("programName", required: true)]
         public Input<string> ProgramName { get; set; } = null!;
@@ -211,15 +211,15 @@ namespace Pulumi.Aws.MediaLive
         public Input<string>? MultiplexId { get; set; }
 
         /// <summary>
-        /// MultiplexProgram settings. See Multiplex Program Settings for more details.
-        /// 
-        /// The following arguments are optional:
+        /// MultiplexProgram settings. See `MultiplexProgramSettings` Block for more details.
         /// </summary>
         [Input("multiplexProgramSettings")]
         public Input<Inputs.MultiplexProgramMultiplexProgramSettingsGetArgs>? MultiplexProgramSettings { get; set; }
 
         /// <summary>
         /// Unique program name.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("programName")]
         public Input<string>? ProgramName { get; set; }

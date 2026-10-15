@@ -59,19 +59,19 @@ export class Channel extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the channel
+     * ARN of the channel
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * A unique identifier describing the channel
+     * Unique identifier describing the channel
      */
     declare public readonly channelId: pulumi.Output<string>;
     /**
-     * A description of the channel
+     * Description of the channel
      */
     declare public readonly description: pulumi.Output<string>;
     /**
-     * A single item list of HLS ingest information
+     * Single item list of HLS ingest information
      */
     declare public /*out*/ readonly hlsIngests: pulumi.Output<outputs.mediapackage.ChannelHlsIngest[]>;
     /**
@@ -79,11 +79,11 @@ export class Channel extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -130,19 +130,19 @@ export class Channel extends pulumi.CustomResource {
  */
 export interface ChannelState {
     /**
-     * The ARN of the channel
+     * ARN of the channel
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * A unique identifier describing the channel
+     * Unique identifier describing the channel
      */
     channelId?: pulumi.Input<string | undefined>;
     /**
-     * A description of the channel
+     * Description of the channel
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * A single item list of HLS ingest information
+     * Single item list of HLS ingest information
      */
     hlsIngests?: pulumi.Input<pulumi.Input<inputs.mediapackage.ChannelHlsIngest>[] | undefined>;
     /**
@@ -150,11 +150,11 @@ export interface ChannelState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -164,11 +164,11 @@ export interface ChannelState {
  */
 export interface ChannelArgs {
     /**
-     * A unique identifier describing the channel
+     * Unique identifier describing the channel
      */
     channelId: pulumi.Input<string>;
     /**
-     * A description of the channel
+     * Description of the channel
      */
     description?: pulumi.Input<string | undefined>;
     /**
@@ -176,7 +176,7 @@ export interface ChannelArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

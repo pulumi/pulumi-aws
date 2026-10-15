@@ -2335,9 +2335,9 @@ func (o ApplicationMonitoringConfigurationS3MonitoringConfigurationPtrOutput) Lo
 }
 
 type ApplicationNetworkConfiguration struct {
-	// The array of security group Ids for customer VPC connectivity.
+	// The array of security group IDs for customer VPC connectivity.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// The array of subnet Ids for customer VPC connectivity.
+	// The array of subnet IDs for customer VPC connectivity.
 	SubnetIds []string `pulumi:"subnetIds"`
 }
 
@@ -2353,9 +2353,9 @@ type ApplicationNetworkConfigurationInput interface {
 }
 
 type ApplicationNetworkConfigurationArgs struct {
-	// The array of security group Ids for customer VPC connectivity.
+	// The array of security group IDs for customer VPC connectivity.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// The array of subnet Ids for customer VPC connectivity.
+	// The array of subnet IDs for customer VPC connectivity.
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 }
 
@@ -2436,12 +2436,12 @@ func (o ApplicationNetworkConfigurationOutput) ToApplicationNetworkConfiguration
 	}).(ApplicationNetworkConfigurationPtrOutput)
 }
 
-// The array of security group Ids for customer VPC connectivity.
+// The array of security group IDs for customer VPC connectivity.
 func (o ApplicationNetworkConfigurationOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApplicationNetworkConfiguration) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// The array of subnet Ids for customer VPC connectivity.
+// The array of subnet IDs for customer VPC connectivity.
 func (o ApplicationNetworkConfigurationOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApplicationNetworkConfiguration) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -2470,7 +2470,7 @@ func (o ApplicationNetworkConfigurationPtrOutput) Elem() ApplicationNetworkConfi
 	}).(ApplicationNetworkConfigurationOutput)
 }
 
-// The array of security group Ids for customer VPC connectivity.
+// The array of security group IDs for customer VPC connectivity.
 func (o ApplicationNetworkConfigurationPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApplicationNetworkConfiguration) []string {
 		if v == nil {
@@ -2480,7 +2480,7 @@ func (o ApplicationNetworkConfigurationPtrOutput) SecurityGroupIds() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
-// The array of subnet Ids for customer VPC connectivity.
+// The array of subnet IDs for customer VPC connectivity.
 func (o ApplicationNetworkConfigurationPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApplicationNetworkConfiguration) []string {
 		if v == nil {

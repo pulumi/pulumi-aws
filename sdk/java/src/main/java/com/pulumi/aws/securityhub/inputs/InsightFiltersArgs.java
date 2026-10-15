@@ -544,14 +544,14 @@ public final class InsightFiltersArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The destination IPv4 address of network-related information about a finding. See Ip Filter below for more details.
+     * The destination IPv4 address of network-related information about a finding. See IP Filter below for more details.
      * 
      */
     @Import(name="networkDestinationIpv4s")
     private @Nullable Output<List<InsightFiltersNetworkDestinationIpv4Args>> networkDestinationIpv4s;
 
     /**
-     * @return The destination IPv4 address of network-related information about a finding. See Ip Filter below for more details.
+     * @return The destination IPv4 address of network-related information about a finding. See IP Filter below for more details.
      * 
      */
     public Optional<Output<List<InsightFiltersNetworkDestinationIpv4Args>>> networkDestinationIpv4s() {
@@ -559,14 +559,14 @@ public final class InsightFiltersArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The destination IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+     * The destination IPv6 address of network-related information about a finding. See IP Filter below for more details.
      * 
      */
     @Import(name="networkDestinationIpv6s")
     private @Nullable Output<List<InsightFiltersNetworkDestinationIpv6Args>> networkDestinationIpv6s;
 
     /**
-     * @return The destination IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+     * @return The destination IPv6 address of network-related information about a finding. See IP Filter below for more details.
      * 
      */
     public Optional<Output<List<InsightFiltersNetworkDestinationIpv6Args>>> networkDestinationIpv6s() {
@@ -634,14 +634,14 @@ public final class InsightFiltersArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The source IPv4 address of network-related information about a finding. See Ip Filter below for more details.
+     * The source IPv4 address of network-related information about a finding. See IP Filter below for more details.
      * 
      */
     @Import(name="networkSourceIpv4s")
     private @Nullable Output<List<InsightFiltersNetworkSourceIpv4Args>> networkSourceIpv4s;
 
     /**
-     * @return The source IPv4 address of network-related information about a finding. See Ip Filter below for more details.
+     * @return The source IPv4 address of network-related information about a finding. See IP Filter below for more details.
      * 
      */
     public Optional<Output<List<InsightFiltersNetworkSourceIpv4Args>>> networkSourceIpv4s() {
@@ -649,14 +649,14 @@ public final class InsightFiltersArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The source IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+     * The source IPv6 address of network-related information about a finding. See IP Filter below for more details.
      * 
      */
     @Import(name="networkSourceIpv6s")
     private @Nullable Output<List<InsightFiltersNetworkSourceIpv6Args>> networkSourceIpv6s;
 
     /**
-     * @return The source IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+     * @return The source IPv6 address of network-related information about a finding. See IP Filter below for more details.
      * 
      */
     public Optional<Output<List<InsightFiltersNetworkSourceIpv6Args>>> networkSourceIpv6s() {
@@ -964,14 +964,14 @@ public final class InsightFiltersArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The IPv4 addresses associated with the instance. See Ip Filter below for more details.
+     * The IPv4 addresses associated with the instance. See IP Filter below for more details.
      * 
      */
     @Import(name="resourceAwsEc2InstanceIpv4Addresses")
     private @Nullable Output<List<InsightFiltersResourceAwsEc2InstanceIpv4AddressArgs>> resourceAwsEc2InstanceIpv4Addresses;
 
     /**
-     * @return The IPv4 addresses associated with the instance. See Ip Filter below for more details.
+     * @return The IPv4 addresses associated with the instance. See IP Filter below for more details.
      * 
      */
     public Optional<Output<List<InsightFiltersResourceAwsEc2InstanceIpv4AddressArgs>>> resourceAwsEc2InstanceIpv4Addresses() {
@@ -979,14 +979,14 @@ public final class InsightFiltersArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The IPv6 addresses associated with the instance. See Ip Filter below for more details.
+     * The IPv6 addresses associated with the instance. See IP Filter below for more details.
      * 
      */
     @Import(name="resourceAwsEc2InstanceIpv6Addresses")
     private @Nullable Output<List<InsightFiltersResourceAwsEc2InstanceIpv6AddressArgs>> resourceAwsEc2InstanceIpv6Addresses;
 
     /**
-     * @return The IPv6 addresses associated with the instance. See Ip Filter below for more details.
+     * @return The IPv6 addresses associated with the instance. See IP Filter below for more details.
      * 
      */
     public Optional<Output<List<InsightFiltersResourceAwsEc2InstanceIpv6AddressArgs>>> resourceAwsEc2InstanceIpv6Addresses() {
@@ -2519,7 +2519,7 @@ public final class InsightFiltersArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param networkDestinationIpv4s The destination IPv4 address of network-related information about a finding. See Ip Filter below for more details.
+         * @param networkDestinationIpv4s The destination IPv4 address of network-related information about a finding. See IP Filter below for more details.
          * 
          * @return builder
          * 
@@ -2530,7 +2530,7 @@ public final class InsightFiltersArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param networkDestinationIpv4s The destination IPv4 address of network-related information about a finding. See Ip Filter below for more details.
+         * @param networkDestinationIpv4s The destination IPv4 address of network-related information about a finding. See IP Filter below for more details.
          * 
          * @return builder
          * 
@@ -2540,7 +2540,7 @@ public final class InsightFiltersArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param networkDestinationIpv4s The destination IPv4 address of network-related information about a finding. See Ip Filter below for more details.
+         * @param networkDestinationIpv4s The destination IPv4 address of network-related information about a finding. See IP Filter below for more details.
          * 
          * @return builder
          * 
@@ -2550,7 +2550,7 @@ public final class InsightFiltersArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param networkDestinationIpv6s The destination IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+         * @param networkDestinationIpv6s The destination IPv6 address of network-related information about a finding. See IP Filter below for more details.
          * 
          * @return builder
          * 
@@ -2561,7 +2561,7 @@ public final class InsightFiltersArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param networkDestinationIpv6s The destination IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+         * @param networkDestinationIpv6s The destination IPv6 address of network-related information about a finding. See IP Filter below for more details.
          * 
          * @return builder
          * 
@@ -2571,7 +2571,7 @@ public final class InsightFiltersArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param networkDestinationIpv6s The destination IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+         * @param networkDestinationIpv6s The destination IPv6 address of network-related information about a finding. See IP Filter below for more details.
          * 
          * @return builder
          * 
@@ -2705,7 +2705,7 @@ public final class InsightFiltersArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param networkSourceIpv4s The source IPv4 address of network-related information about a finding. See Ip Filter below for more details.
+         * @param networkSourceIpv4s The source IPv4 address of network-related information about a finding. See IP Filter below for more details.
          * 
          * @return builder
          * 
@@ -2716,7 +2716,7 @@ public final class InsightFiltersArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param networkSourceIpv4s The source IPv4 address of network-related information about a finding. See Ip Filter below for more details.
+         * @param networkSourceIpv4s The source IPv4 address of network-related information about a finding. See IP Filter below for more details.
          * 
          * @return builder
          * 
@@ -2726,7 +2726,7 @@ public final class InsightFiltersArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param networkSourceIpv4s The source IPv4 address of network-related information about a finding. See Ip Filter below for more details.
+         * @param networkSourceIpv4s The source IPv4 address of network-related information about a finding. See IP Filter below for more details.
          * 
          * @return builder
          * 
@@ -2736,7 +2736,7 @@ public final class InsightFiltersArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param networkSourceIpv6s The source IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+         * @param networkSourceIpv6s The source IPv6 address of network-related information about a finding. See IP Filter below for more details.
          * 
          * @return builder
          * 
@@ -2747,7 +2747,7 @@ public final class InsightFiltersArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param networkSourceIpv6s The source IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+         * @param networkSourceIpv6s The source IPv6 address of network-related information about a finding. See IP Filter below for more details.
          * 
          * @return builder
          * 
@@ -2757,7 +2757,7 @@ public final class InsightFiltersArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param networkSourceIpv6s The source IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+         * @param networkSourceIpv6s The source IPv6 address of network-related information about a finding. See IP Filter below for more details.
          * 
          * @return builder
          * 
@@ -3387,7 +3387,7 @@ public final class InsightFiltersArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param resourceAwsEc2InstanceIpv4Addresses The IPv4 addresses associated with the instance. See Ip Filter below for more details.
+         * @param resourceAwsEc2InstanceIpv4Addresses The IPv4 addresses associated with the instance. See IP Filter below for more details.
          * 
          * @return builder
          * 
@@ -3398,7 +3398,7 @@ public final class InsightFiltersArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param resourceAwsEc2InstanceIpv4Addresses The IPv4 addresses associated with the instance. See Ip Filter below for more details.
+         * @param resourceAwsEc2InstanceIpv4Addresses The IPv4 addresses associated with the instance. See IP Filter below for more details.
          * 
          * @return builder
          * 
@@ -3408,7 +3408,7 @@ public final class InsightFiltersArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param resourceAwsEc2InstanceIpv4Addresses The IPv4 addresses associated with the instance. See Ip Filter below for more details.
+         * @param resourceAwsEc2InstanceIpv4Addresses The IPv4 addresses associated with the instance. See IP Filter below for more details.
          * 
          * @return builder
          * 
@@ -3418,7 +3418,7 @@ public final class InsightFiltersArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param resourceAwsEc2InstanceIpv6Addresses The IPv6 addresses associated with the instance. See Ip Filter below for more details.
+         * @param resourceAwsEc2InstanceIpv6Addresses The IPv6 addresses associated with the instance. See IP Filter below for more details.
          * 
          * @return builder
          * 
@@ -3429,7 +3429,7 @@ public final class InsightFiltersArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param resourceAwsEc2InstanceIpv6Addresses The IPv6 addresses associated with the instance. See Ip Filter below for more details.
+         * @param resourceAwsEc2InstanceIpv6Addresses The IPv6 addresses associated with the instance. See IP Filter below for more details.
          * 
          * @return builder
          * 
@@ -3439,7 +3439,7 @@ public final class InsightFiltersArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param resourceAwsEc2InstanceIpv6Addresses The IPv6 addresses associated with the instance. See Ip Filter below for more details.
+         * @param resourceAwsEc2InstanceIpv6Addresses The IPv6 addresses associated with the instance. See IP Filter below for more details.
          * 
          * @return builder
          * 

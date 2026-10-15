@@ -53,7 +53,7 @@ export interface GetInstanceArgs {
      */
     instanceAlias?: string;
     /**
-     * Returns information on a specific connect instance by id
+     * Returns information on a specific connect instance by ID
      */
     instanceId?: string;
     /**
@@ -176,7 +176,7 @@ export interface GetInstanceOutputArgs {
      */
     instanceAlias?: pulumi.Input<string | undefined>;
     /**
-     * Returns information on a specific connect instance by id
+     * Returns information on a specific connect instance by ID
      */
     instanceId?: pulumi.Input<string | undefined>;
     /**

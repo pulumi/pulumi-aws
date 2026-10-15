@@ -1255,11 +1255,11 @@ class DistributionDefaultCacheBehaviorArgsDict(TypedDict):
     """
     function_associations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DistributionDefaultCacheBehaviorFunctionAssociationArgsDict']]]]]
     """
-    A config block that triggers a cloudfront function with specific actions (maximum 2).
+    A config block that triggers a CloudFront function with specific actions (maximum 2).
     """
     grpc_config: NotRequired[pulumi.Input[Optional['DistributionDefaultCacheBehaviorGrpcConfigArgsDict']]]
     """
-    A config block that sets the grpc config.
+    A config block that sets the gRPC config.
     """
     lambda_function_associations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgsDict']]]]]
     """
@@ -1331,8 +1331,8 @@ class DistributionDefaultCacheBehaviorArgs:
         :param pulumi.Input[_builtins.int] default_ttl: Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header. The TTL defined in Cache Policy overrides this configuration.
         :param pulumi.Input[_builtins.str] field_level_encryption_id: Field level encryption configuration ID.
         :param pulumi.Input['DistributionDefaultCacheBehaviorForwardedValuesArgs'] forwarded_values: The forwarded values configuration that specifies how CloudFront handles query strings, cookies and headers (maximum one).
-        :param pulumi.Input[Sequence[pulumi.Input['DistributionDefaultCacheBehaviorFunctionAssociationArgs']]] function_associations: A config block that triggers a cloudfront function with specific actions (maximum 2).
-        :param pulumi.Input['DistributionDefaultCacheBehaviorGrpcConfigArgs'] grpc_config: A config block that sets the grpc config.
+        :param pulumi.Input[Sequence[pulumi.Input['DistributionDefaultCacheBehaviorFunctionAssociationArgs']]] function_associations: A config block that triggers a CloudFront function with specific actions (maximum 2).
+        :param pulumi.Input['DistributionDefaultCacheBehaviorGrpcConfigArgs'] grpc_config: A config block that sets the gRPC config.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs']]] lambda_function_associations: A config block that triggers a lambda function with specific actions (maximum 4).
         :param pulumi.Input[_builtins.int] max_ttl: Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers. The TTL defined in Cache Policy overrides this configuration.
         :param pulumi.Input[_builtins.int] min_ttl: Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds. The TTL defined in Cache Policy overrides this configuration.
@@ -1492,7 +1492,7 @@ class DistributionDefaultCacheBehaviorArgs:
     @pulumi.getter(name="functionAssociations")
     def function_associations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DistributionDefaultCacheBehaviorFunctionAssociationArgs']]]]:
         """
-        A config block that triggers a cloudfront function with specific actions (maximum 2).
+        A config block that triggers a CloudFront function with specific actions (maximum 2).
         """
         return pulumi.get(self, "function_associations")
 
@@ -1504,7 +1504,7 @@ class DistributionDefaultCacheBehaviorArgs:
     @pulumi.getter(name="grpcConfig")
     def grpc_config(self) -> pulumi.Input[Optional['DistributionDefaultCacheBehaviorGrpcConfigArgs']]:
         """
-        A config block that sets the grpc config.
+        A config block that sets the gRPC config.
         """
         return pulumi.get(self, "grpc_config")
 
@@ -1764,6 +1764,8 @@ class DistributionDefaultCacheBehaviorFunctionAssociationArgsDict(TypedDict):
     function_arn: pulumi.Input[_builtins.str]
     """
     ARN of the CloudFront function.
+
+    #### `GRPC` config arguments
     """
 
 @pulumi.input_type
@@ -1774,6 +1776,8 @@ class DistributionDefaultCacheBehaviorFunctionAssociationArgs:
         """
         :param pulumi.Input[_builtins.str] event_type: Specific event to trigger this function. Valid values: `viewer-request` or `viewer-response`.
         :param pulumi.Input[_builtins.str] function_arn: ARN of the CloudFront function.
+               
+               #### `GRPC` config arguments
         """
         pulumi.set(__self__, "event_type", event_type)
         pulumi.set(__self__, "function_arn", function_arn)
@@ -1795,6 +1799,8 @@ class DistributionDefaultCacheBehaviorFunctionAssociationArgs:
     def function_arn(self) -> pulumi.Input[_builtins.str]:
         """
         ARN of the CloudFront function.
+
+        #### `GRPC` config arguments
         """
         return pulumi.get(self, "function_arn")
 
@@ -2011,11 +2017,11 @@ class DistributionOrderedCacheBehaviorArgsDict(TypedDict):
     """
     function_associations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorFunctionAssociationArgsDict']]]]]
     """
-    A config block that triggers a cloudfront function with specific actions (maximum 2).
+    A config block that triggers a CloudFront function with specific actions (maximum 2).
     """
     grpc_config: NotRequired[pulumi.Input[Optional['DistributionOrderedCacheBehaviorGrpcConfigArgsDict']]]
     """
-    A config block that sets the grpc config.
+    A config block that sets the gRPC config.
     """
     lambda_function_associations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgsDict']]]]]
     """
@@ -2089,8 +2095,8 @@ class DistributionOrderedCacheBehaviorArgs:
         :param pulumi.Input[_builtins.int] default_ttl: Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header. The TTL defined in Cache Policy overrides this configuration.
         :param pulumi.Input[_builtins.str] field_level_encryption_id: Field level encryption configuration ID.
         :param pulumi.Input['DistributionOrderedCacheBehaviorForwardedValuesArgs'] forwarded_values: The forwarded values configuration that specifies how CloudFront handles query strings, cookies and headers (maximum one).
-        :param pulumi.Input[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorFunctionAssociationArgs']]] function_associations: A config block that triggers a cloudfront function with specific actions (maximum 2).
-        :param pulumi.Input['DistributionOrderedCacheBehaviorGrpcConfigArgs'] grpc_config: A config block that sets the grpc config.
+        :param pulumi.Input[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorFunctionAssociationArgs']]] function_associations: A config block that triggers a CloudFront function with specific actions (maximum 2).
+        :param pulumi.Input['DistributionOrderedCacheBehaviorGrpcConfigArgs'] grpc_config: A config block that sets the gRPC config.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgs']]] lambda_function_associations: A config block that triggers a lambda function with specific actions (maximum 4).
         :param pulumi.Input[_builtins.int] max_ttl: Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers. The TTL defined in Cache Policy overrides this configuration.
         :param pulumi.Input[_builtins.int] min_ttl: Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds. The TTL defined in Cache Policy overrides this configuration.
@@ -2263,7 +2269,7 @@ class DistributionOrderedCacheBehaviorArgs:
     @pulumi.getter(name="functionAssociations")
     def function_associations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorFunctionAssociationArgs']]]]:
         """
-        A config block that triggers a cloudfront function with specific actions (maximum 2).
+        A config block that triggers a CloudFront function with specific actions (maximum 2).
         """
         return pulumi.get(self, "function_associations")
 
@@ -2275,7 +2281,7 @@ class DistributionOrderedCacheBehaviorArgs:
     @pulumi.getter(name="grpcConfig")
     def grpc_config(self) -> pulumi.Input[Optional['DistributionOrderedCacheBehaviorGrpcConfigArgs']]:
         """
-        A config block that sets the grpc config.
+        A config block that sets the gRPC config.
         """
         return pulumi.get(self, "grpc_config")
 
@@ -2535,6 +2541,8 @@ class DistributionOrderedCacheBehaviorFunctionAssociationArgsDict(TypedDict):
     function_arn: pulumi.Input[_builtins.str]
     """
     ARN of the CloudFront function.
+
+    #### `GRPC` config arguments
     """
 
 @pulumi.input_type
@@ -2545,6 +2553,8 @@ class DistributionOrderedCacheBehaviorFunctionAssociationArgs:
         """
         :param pulumi.Input[_builtins.str] event_type: Specific event to trigger this function. Valid values: `viewer-request` or `viewer-response`.
         :param pulumi.Input[_builtins.str] function_arn: ARN of the CloudFront function.
+               
+               #### `GRPC` config arguments
         """
         pulumi.set(__self__, "event_type", event_type)
         pulumi.set(__self__, "function_arn", function_arn)
@@ -2566,6 +2576,8 @@ class DistributionOrderedCacheBehaviorFunctionAssociationArgs:
     def function_arn(self) -> pulumi.Input[_builtins.str]:
         """
         ARN of the CloudFront function.
+
+        #### `GRPC` config arguments
         """
         return pulumi.get(self, "function_arn")
 

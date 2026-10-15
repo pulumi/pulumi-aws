@@ -112,19 +112,19 @@ namespace Pulumi.Aws.GlobalAccelerator
         public Output<ImmutableArray<string>> Principals { get; private set; } = null!;
 
         /// <summary>
-        /// List of resources to be associated with the accelerator.
+        /// List of resources to be associated with the accelerator. See `Resource` below.
         /// </summary>
         [Output("resources")]
         public Output<ImmutableArray<Outputs.CrossAccountAttachmentResource>> Resources { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         private InputList<Inputs.CrossAccountAttachmentResourceArgs>? _resources;
 
         /// <summary>
-        /// List of resources to be associated with the accelerator.
+        /// List of resources to be associated with the accelerator. See `Resource` below.
         /// </summary>
         public InputList<Inputs.CrossAccountAttachmentResourceArgs> Resources
         {
@@ -211,7 +211,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -269,7 +269,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         private InputList<Inputs.CrossAccountAttachmentResourceGetArgs>? _resources;
 
         /// <summary>
-        /// List of resources to be associated with the accelerator.
+        /// List of resources to be associated with the accelerator. See `Resource` below.
         /// </summary>
         public InputList<Inputs.CrossAccountAttachmentResourceGetArgs> Resources
         {
@@ -281,7 +281,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -293,7 +293,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

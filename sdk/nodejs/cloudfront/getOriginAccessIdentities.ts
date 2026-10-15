@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
+ * Use this data source to get ARNs, IDs and S3 canonical user IDs of Amazon CloudFront origin access identities.
  *
  * ## Example Usage
  *
@@ -66,7 +66,7 @@ export interface GetOriginAccessIdentitiesResult {
      */
     readonly id: string;
     /**
-     * Set of ids of the matched origin access identities.
+     * Set of IDs of the matched origin access identities.
      */
     readonly ids: string[];
     /**
@@ -75,7 +75,7 @@ export interface GetOriginAccessIdentitiesResult {
     readonly s3CanonicalUserIds: string[];
 }
 /**
- * Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
+ * Use this data source to get ARNs, IDs and S3 canonical user IDs of Amazon CloudFront origin access identities.
  *
  * ## Example Usage
  *

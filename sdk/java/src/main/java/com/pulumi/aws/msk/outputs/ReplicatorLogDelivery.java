@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ReplicatorLogDelivery {
     /**
-     * @return Configuration block for replicator log delivery. Detailed below.
+     * @return Configuration block for replicator log delivery. See `replicatorLogDelivery` Block below.
      * 
      */
     private @Nullable ReplicatorLogDeliveryReplicatorLogDelivery replicatorLogDelivery;
 
     private ReplicatorLogDelivery() {}
     /**
-     * @return Configuration block for replicator log delivery. Detailed below.
+     * @return Configuration block for replicator log delivery. See `replicatorLogDelivery` Block below.
      * 
      */
     public Optional<ReplicatorLogDeliveryReplicatorLogDelivery> replicatorLogDelivery() {

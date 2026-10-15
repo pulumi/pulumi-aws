@@ -15,7 +15,7 @@ import (
 //
 // ## Example Usage
 //
-// The following shows outputting all Transit Gateway Route Table Ids.
+// The following shows outputting all Transit Gateway Route Table IDs.
 //
 // ```go
 // package main

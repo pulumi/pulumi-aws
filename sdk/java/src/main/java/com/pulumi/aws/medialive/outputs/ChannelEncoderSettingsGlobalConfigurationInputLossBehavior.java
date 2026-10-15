@@ -13,25 +13,65 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsGlobalConfigurationInputLossBehavior {
+    /**
+     * @return Amount of time, in milliseconds, to display black video when the input is lost.
+     * 
+     */
     private @Nullable Integer blackFrameMsec;
+    /**
+     * @return Color to display, as a hexadecimal RGBA value, when `inputLossImageType` is `color`.
+     * 
+     */
     private @Nullable String inputLossImageColor;
+    /**
+     * @return Image to display when `inputLossImageType` is `slate`. See `inputLossImageSlate` Block for details.
+     * 
+     */
     private @Nullable ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate inputLossImageSlate;
+    /**
+     * @return Whether to display a solid color or a slate image when input is lost.
+     * 
+     */
     private @Nullable String inputLossImageType;
+    /**
+     * @return Amount of time, in milliseconds, to repeat the previous picture when the input is lost.
+     * 
+     */
     private @Nullable Integer repeatFrameMsec;
 
     private ChannelEncoderSettingsGlobalConfigurationInputLossBehavior() {}
+    /**
+     * @return Amount of time, in milliseconds, to display black video when the input is lost.
+     * 
+     */
     public Optional<Integer> blackFrameMsec() {
         return Optional.ofNullable(this.blackFrameMsec);
     }
+    /**
+     * @return Color to display, as a hexadecimal RGBA value, when `inputLossImageType` is `color`.
+     * 
+     */
     public Optional<String> inputLossImageColor() {
         return Optional.ofNullable(this.inputLossImageColor);
     }
+    /**
+     * @return Image to display when `inputLossImageType` is `slate`. See `inputLossImageSlate` Block for details.
+     * 
+     */
     public Optional<ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate> inputLossImageSlate() {
         return Optional.ofNullable(this.inputLossImageSlate);
     }
+    /**
+     * @return Whether to display a solid color or a slate image when input is lost.
+     * 
+     */
     public Optional<String> inputLossImageType() {
         return Optional.ofNullable(this.inputLossImageType);
     }
+    /**
+     * @return Amount of time, in milliseconds, to repeat the previous picture when the input is lost.
+     * 
+     */
     public Optional<Integer> repeatFrameMsec() {
         return Optional.ofNullable(this.repeatFrameMsec);
     }

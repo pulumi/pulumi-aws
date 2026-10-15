@@ -21,14 +21,14 @@ public final class MultiRegionClusterArgs extends com.pulumi.resources.ResourceA
     public static final MultiRegionClusterArgs Empty = new MultiRegionClusterArgs();
 
     /**
-     * description for the multi-region cluster.
+     * Description for the multi-region cluster.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return description for the multi-region cluster.
+     * @return Description for the multi-region cluster.
      * 
      */
     public Optional<Output<String>> description() {
@@ -36,14 +36,14 @@ public final class MultiRegionClusterArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
+     * Name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
      * 
      */
     @Import(name="engine")
     private @Nullable Output<String> engine;
 
     /**
-     * @return The name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
+     * @return Name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
      * 
      */
     public Optional<Output<String>> engine() {
@@ -51,14 +51,14 @@ public final class MultiRegionClusterArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The version of the engine to be used for the multi-region cluster. Downgrades are not supported.
+     * Version of the engine to be used for the multi-region cluster. Downgrades are not supported.
      * 
      */
     @Import(name="engineVersion")
     private @Nullable Output<String> engineVersion;
 
     /**
-     * @return The version of the engine to be used for the multi-region cluster. Downgrades are not supported.
+     * @return Version of the engine to be used for the multi-region cluster. Downgrades are not supported.
      * 
      */
     public Optional<Output<String>> engineVersion() {
@@ -66,14 +66,14 @@ public final class MultiRegionClusterArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
+     * Suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
      * 
      */
     @Import(name="multiRegionClusterNameSuffix", required=true)
     private Output<String> multiRegionClusterNameSuffix;
 
     /**
-     * @return A suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
+     * @return Suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
      * 
      */
     public Output<String> multiRegionClusterNameSuffix() {
@@ -81,14 +81,14 @@ public final class MultiRegionClusterArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The name of the multi-region parameter group to be associated with the cluster.
+     * Name of the multi-region parameter group to be associated with the cluster.
      * 
      */
     @Import(name="multiRegionParameterGroupName")
     private @Nullable Output<String> multiRegionParameterGroupName;
 
     /**
-     * @return The name of the multi-region parameter group to be associated with the cluster.
+     * @return Name of the multi-region parameter group to be associated with the cluster.
      * 
      */
     public Optional<Output<String>> multiRegionParameterGroupName() {
@@ -96,7 +96,7 @@ public final class MultiRegionClusterArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The node type to be used for the multi-region cluster.
+     * Node type to be used for the multi-region cluster.
      * 
      * The following arguments are optional:
      * 
@@ -105,7 +105,7 @@ public final class MultiRegionClusterArgs extends com.pulumi.resources.ResourceA
     private Output<String> nodeType;
 
     /**
-     * @return The node type to be used for the multi-region cluster.
+     * @return Node type to be used for the multi-region cluster.
      * 
      * The following arguments are optional:
      * 
@@ -115,14 +115,14 @@ public final class MultiRegionClusterArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The number of shards for the multi-region cluster.
+     * Number of shards for the multi-region cluster.
      * 
      */
     @Import(name="numShards")
     private @Nullable Output<Integer> numShards;
 
     /**
-     * @return The number of shards for the multi-region cluster.
+     * @return Number of shards for the multi-region cluster.
      * 
      */
     public Optional<Output<Integer>> numShards() {
@@ -145,14 +145,14 @@ public final class MultiRegionClusterArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -167,23 +167,31 @@ public final class MultiRegionClusterArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A flag to enable in-transit encryption on the cluster.
+     * Whether to enable in-transit encryption on the cluster.
      * 
      */
     @Import(name="tlsEnabled")
     private @Nullable Output<Boolean> tlsEnabled;
 
     /**
-     * @return A flag to enable in-transit encryption on the cluster.
+     * @return Whether to enable in-transit encryption on the cluster.
      * 
      */
     public Optional<Output<Boolean>> tlsEnabled() {
         return Optional.ofNullable(this.tlsEnabled);
     }
 
+    /**
+     * Strategy to use for the multi-region cluster update. Valid values are `coordinated` and `uncoordinated`.
+     * 
+     */
     @Import(name="updateStrategy")
     private @Nullable Output<String> updateStrategy;
 
+    /**
+     * @return Strategy to use for the multi-region cluster update. Valid values are `coordinated` and `uncoordinated`.
+     * 
+     */
     public Optional<Output<String>> updateStrategy() {
         return Optional.ofNullable(this.updateStrategy);
     }
@@ -224,7 +232,7 @@ public final class MultiRegionClusterArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param description description for the multi-region cluster.
+         * @param description Description for the multi-region cluster.
          * 
          * @return builder
          * 
@@ -235,7 +243,7 @@ public final class MultiRegionClusterArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param description description for the multi-region cluster.
+         * @param description Description for the multi-region cluster.
          * 
          * @return builder
          * 
@@ -245,7 +253,7 @@ public final class MultiRegionClusterArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param engine The name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
+         * @param engine Name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
          * 
          * @return builder
          * 
@@ -256,7 +264,7 @@ public final class MultiRegionClusterArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param engine The name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
+         * @param engine Name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
          * 
          * @return builder
          * 
@@ -266,7 +274,7 @@ public final class MultiRegionClusterArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param engineVersion The version of the engine to be used for the multi-region cluster. Downgrades are not supported.
+         * @param engineVersion Version of the engine to be used for the multi-region cluster. Downgrades are not supported.
          * 
          * @return builder
          * 
@@ -277,7 +285,7 @@ public final class MultiRegionClusterArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param engineVersion The version of the engine to be used for the multi-region cluster. Downgrades are not supported.
+         * @param engineVersion Version of the engine to be used for the multi-region cluster. Downgrades are not supported.
          * 
          * @return builder
          * 
@@ -287,7 +295,7 @@ public final class MultiRegionClusterArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param multiRegionClusterNameSuffix A suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
+         * @param multiRegionClusterNameSuffix Suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
          * 
          * @return builder
          * 
@@ -298,7 +306,7 @@ public final class MultiRegionClusterArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param multiRegionClusterNameSuffix A suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
+         * @param multiRegionClusterNameSuffix Suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
          * 
          * @return builder
          * 
@@ -308,7 +316,7 @@ public final class MultiRegionClusterArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param multiRegionParameterGroupName The name of the multi-region parameter group to be associated with the cluster.
+         * @param multiRegionParameterGroupName Name of the multi-region parameter group to be associated with the cluster.
          * 
          * @return builder
          * 
@@ -319,7 +327,7 @@ public final class MultiRegionClusterArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param multiRegionParameterGroupName The name of the multi-region parameter group to be associated with the cluster.
+         * @param multiRegionParameterGroupName Name of the multi-region parameter group to be associated with the cluster.
          * 
          * @return builder
          * 
@@ -329,7 +337,7 @@ public final class MultiRegionClusterArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param nodeType The node type to be used for the multi-region cluster.
+         * @param nodeType Node type to be used for the multi-region cluster.
          * 
          * The following arguments are optional:
          * 
@@ -342,7 +350,7 @@ public final class MultiRegionClusterArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param nodeType The node type to be used for the multi-region cluster.
+         * @param nodeType Node type to be used for the multi-region cluster.
          * 
          * The following arguments are optional:
          * 
@@ -354,7 +362,7 @@ public final class MultiRegionClusterArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param numShards The number of shards for the multi-region cluster.
+         * @param numShards Number of shards for the multi-region cluster.
          * 
          * @return builder
          * 
@@ -365,7 +373,7 @@ public final class MultiRegionClusterArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param numShards The number of shards for the multi-region cluster.
+         * @param numShards Number of shards for the multi-region cluster.
          * 
          * @return builder
          * 
@@ -396,7 +404,7 @@ public final class MultiRegionClusterArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -407,7 +415,7 @@ public final class MultiRegionClusterArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -426,7 +434,7 @@ public final class MultiRegionClusterArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tlsEnabled A flag to enable in-transit encryption on the cluster.
+         * @param tlsEnabled Whether to enable in-transit encryption on the cluster.
          * 
          * @return builder
          * 
@@ -437,7 +445,7 @@ public final class MultiRegionClusterArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tlsEnabled A flag to enable in-transit encryption on the cluster.
+         * @param tlsEnabled Whether to enable in-transit encryption on the cluster.
          * 
          * @return builder
          * 
@@ -446,11 +454,23 @@ public final class MultiRegionClusterArgs extends com.pulumi.resources.ResourceA
             return tlsEnabled(Output.of(tlsEnabled));
         }
 
+        /**
+         * @param updateStrategy Strategy to use for the multi-region cluster update. Valid values are `coordinated` and `uncoordinated`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder updateStrategy(@Nullable Output<String> updateStrategy) {
             $.updateStrategy = updateStrategy;
             return this;
         }
 
+        /**
+         * @param updateStrategy Strategy to use for the multi-region cluster update. Valid values are `coordinated` and `uncoordinated`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder updateStrategy(String updateStrategy) {
             return updateStrategy(Output.of(updateStrategy));
         }

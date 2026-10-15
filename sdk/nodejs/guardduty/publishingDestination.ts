@@ -129,7 +129,7 @@ export class PublishingDestination extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+     * Bucket ARN and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
      */
     declare public readonly destinationArn: pulumi.Output<string>;
     /**
@@ -141,11 +141,11 @@ export class PublishingDestination extends pulumi.CustomResource {
      */
     declare public readonly destinationType: pulumi.Output<string | undefined>;
     /**
-     * The detector ID of the GuardDuty.
+     * Detector ID of the GuardDuty.
      */
     declare public readonly detectorId: pulumi.Output<string>;
     /**
-     * The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
+     * ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
      */
     declare public readonly kmsKeyArn: pulumi.Output<string>;
     /**
@@ -159,7 +159,7 @@ export class PublishingDestination extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -220,7 +220,7 @@ export interface PublishingDestinationState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+     * Bucket ARN and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
      */
     destinationArn?: pulumi.Input<string | undefined>;
     /**
@@ -232,11 +232,11 @@ export interface PublishingDestinationState {
      */
     destinationType?: pulumi.Input<string | undefined>;
     /**
-     * The detector ID of the GuardDuty.
+     * Detector ID of the GuardDuty.
      */
     detectorId?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
+     * ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
      */
     kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
@@ -250,7 +250,7 @@ export interface PublishingDestinationState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -260,7 +260,7 @@ export interface PublishingDestinationState {
  */
 export interface PublishingDestinationArgs {
     /**
-     * The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+     * Bucket ARN and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
      */
     destinationArn: pulumi.Input<string>;
     /**
@@ -268,11 +268,11 @@ export interface PublishingDestinationArgs {
      */
     destinationType?: pulumi.Input<string | undefined>;
     /**
-     * The detector ID of the GuardDuty.
+     * Detector ID of the GuardDuty.
      */
     detectorId: pulumi.Input<string>;
     /**
-     * The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
+     * ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
      */
     kmsKeyArn: pulumi.Input<string>;
     /**

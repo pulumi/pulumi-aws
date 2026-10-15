@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var example = new Aws.Bedrock.AgentcoreAgentRuntimeEndpoint("example", new()
     ///     {
-    ///         Name = "example-endpoint",
+    ///         Name = "example_endpoint",
     ///         AgentRuntimeId = exampleAwsBedrockagentcoreAgentRuntime.AgentRuntimeId,
     ///         Description = "Endpoint for agent runtime communication",
     ///     });
@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Bedrock
     /// Using `pulumi import`, import Bedrock AgentCore Agent Runtime Endpoint using the `AgentRuntimeId` and `Name` separated by a comma. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:bedrock/agentcoreAgentRuntimeEndpoint:AgentcoreAgentRuntimeEndpoint example AGENTRUNTIME1234567890,example-endpoint
+    /// $ pulumi import aws:bedrock/agentcoreAgentRuntimeEndpoint:AgentcoreAgentRuntimeEndpoint example AGENTRUNTIME1234567890,example_endpoint
     /// ```
     /// </summary>
     [AwsResourceType("aws:bedrock/agentcoreAgentRuntimeEndpoint:AgentcoreAgentRuntimeEndpoint")]

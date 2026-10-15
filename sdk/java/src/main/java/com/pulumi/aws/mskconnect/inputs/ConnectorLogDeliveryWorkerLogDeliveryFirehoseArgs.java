@@ -18,14 +18,14 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs extends com
     public static final ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs Empty = new ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs();
 
     /**
-     * The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
+     * Name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
      * 
      */
     @Import(name="deliveryStream")
     private @Nullable Output<String> deliveryStream;
 
     /**
-     * @return The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
+     * @return Name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
      * 
      */
     public Optional<Output<String>> deliveryStream() {
@@ -33,14 +33,14 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs extends com
     }
 
     /**
-     * Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.
+     * Whether connector logs get delivered to Amazon Kinesis Data Firehose.
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.
+     * @return Whether connector logs get delivered to Amazon Kinesis Data Firehose.
      * 
      */
     public Output<Boolean> enabled() {
@@ -73,7 +73,7 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs extends com
         }
 
         /**
-         * @param deliveryStream The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
+         * @param deliveryStream Name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs extends com
         }
 
         /**
-         * @param deliveryStream The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
+         * @param deliveryStream Name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs extends com
         }
 
         /**
-         * @param enabled Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.
+         * @param enabled Whether connector logs get delivered to Amazon Kinesis Data Firehose.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs extends com
         }
 
         /**
-         * @param enabled Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.
+         * @param enabled Whether connector logs get delivered to Amazon Kinesis Data Firehose.
          * 
          * @return builder
          * 

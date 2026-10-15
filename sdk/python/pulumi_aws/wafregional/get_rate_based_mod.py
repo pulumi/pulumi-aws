@@ -71,7 +71,7 @@ def get_rate_based_mod(name: Optional[_builtins.str] = None,
                        region: Optional[_builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRateBasedModResult:
     """
-    `wafregional.RateBasedRule` Retrieves a WAF Regional Rate Based Rule Resource Id.
+    `wafregional.RateBasedRule` Retrieves a WAF Regional Rate Based Rule Resource ID.
 
     ## Example Usage
 
@@ -100,7 +100,7 @@ def get_rate_based_mod_output(name: pulumi.Input[Optional[_builtins.str]] = None
                               region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRateBasedModResult]:
     """
-    `wafregional.RateBasedRule` Retrieves a WAF Regional Rate Based Rule Resource Id.
+    `wafregional.RateBasedRule` Retrieves a WAF Regional Rate Based Rule Resource ID.
 
     ## Example Usage
 

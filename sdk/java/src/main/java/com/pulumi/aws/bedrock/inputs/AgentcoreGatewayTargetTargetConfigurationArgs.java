@@ -18,14 +18,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationArgs extends com.pul
     public static final AgentcoreGatewayTargetTargetConfigurationArgs Empty = new AgentcoreGatewayTargetTargetConfigurationArgs();
 
     /**
-     * HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` Block below.
+     * HTTP target configuration for routing requests directly to an AgentCore Runtime agent or to an external HTTPS endpoint. See `http` Block below.
      * 
      */
     @Import(name="http")
     private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationHttpArgs> http;
 
     /**
-     * @return HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` Block below.
+     * @return HTTP target configuration for routing requests directly to an AgentCore Runtime agent or to an external HTTPS endpoint. See `http` Block below.
      * 
      */
     public Optional<Output<AgentcoreGatewayTargetTargetConfigurationHttpArgs>> http() {
@@ -89,7 +89,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationArgs extends com.pul
         }
 
         /**
-         * @param http HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` Block below.
+         * @param http HTTP target configuration for routing requests directly to an AgentCore Runtime agent or to an external HTTPS endpoint. See `http` Block below.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationArgs extends com.pul
         }
 
         /**
-         * @param http HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` Block below.
+         * @param http HTTP target configuration for routing requests directly to an AgentCore Runtime agent or to an external HTTPS endpoint. See `http` Block below.
          * 
          * @return builder
          * 

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource for managing an AWS Agents for Amazon Bedrock Agent Knowledge Base Association.
+ * Manages an AWS Agents for Amazon Bedrock Agent Knowledge Base Association.
  *
  * ## Example Usage
  *
@@ -67,7 +67,7 @@ export class AgentAgentKnowledgeBaseAssociation extends pulumi.CustomResource {
      */
     declare public readonly agentId: pulumi.Output<string>;
     /**
-     * Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
+     * Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`. Defaults to `DRAFT`.
      */
     declare public readonly agentVersion: pulumi.Output<string>;
     /**
@@ -146,7 +146,7 @@ export interface AgentAgentKnowledgeBaseAssociationState {
      */
     agentId?: pulumi.Input<string | undefined>;
     /**
-     * Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
+     * Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`. Defaults to `DRAFT`.
      */
     agentVersion?: pulumi.Input<string | undefined>;
     /**
@@ -179,7 +179,7 @@ export interface AgentAgentKnowledgeBaseAssociationArgs {
      */
     agentId: pulumi.Input<string>;
     /**
-     * Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
+     * Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`. Defaults to `DRAFT`.
      */
     agentVersion?: pulumi.Input<string | undefined>;
     /**

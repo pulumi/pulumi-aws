@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * `aws.wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource Id.
+ * `aws.wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource ID.
  *
  * ## Example Usage
  *
@@ -52,7 +52,7 @@ export interface GetWebAclResult {
     readonly region: string;
 }
 /**
- * `aws.wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource Id.
+ * `aws.wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource ID.
  *
  * ## Example Usage
  *

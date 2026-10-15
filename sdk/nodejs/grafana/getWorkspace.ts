@@ -52,7 +52,7 @@ export interface GetWorkspaceArgs {
  */
 export interface GetWorkspaceResult {
     /**
-     * (Required) Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
+     * Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
      */
     readonly accountAccessType: string;
     /**
@@ -60,7 +60,7 @@ export interface GetWorkspaceResult {
      */
     readonly arn: string;
     /**
-     * (Required) Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
+     * Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
      */
     readonly authenticationProviders: string[];
     /**
@@ -88,7 +88,7 @@ export interface GetWorkspaceResult {
      */
     readonly id: string;
     /**
-     * The ID or ARN of the AWS KMS key for encrypting workspace data.
+     * ID or ARN of the AWS KMS key for encrypting workspace data.
      */
     readonly kmsKeyId: string;
     /**
@@ -100,15 +100,15 @@ export interface GetWorkspaceResult {
      */
     readonly name: string;
     /**
-     * The notification destinations.
+     * Notification destinations.
      */
     readonly notificationDestinations: string[];
     /**
-     * The role name that the workspace uses to access resources through Amazon Organizations.
+     * Role name that the workspace uses to access resources through Amazon Organizations.
      */
     readonly organizationRoleName: string;
     /**
-     * The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
+     * Amazon Organizations organizational units that the workspace is authorized to use data sources from.
      */
     readonly organizationalUnits: string[];
     /**
@@ -120,6 +120,9 @@ export interface GetWorkspaceResult {
      * IAM role ARN that the workspace assumes.
      */
     readonly roleArn: string;
+    /**
+     * Status of the SAML configuration.
+     */
     readonly samlConfigurationStatus: string;
     /**
      * AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.

@@ -74,7 +74,7 @@ func GetUserPools(ctx *pulumi.Context, args *GetUserPoolsArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getUserPools.
 type GetUserPoolsArgs struct {
-	// Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool id via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
+	// Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool ID via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
 	Name string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -86,7 +86,7 @@ type GetUserPoolsResult struct {
 	Arns []string `pulumi:"arns"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// Set of cognito user pool ids.
+	// Set of cognito user pool IDs.
 	Ids    []string `pulumi:"ids"`
 	Name   string   `pulumi:"name"`
 	Region string   `pulumi:"region"`
@@ -99,7 +99,7 @@ func GetUserPoolsOutput(ctx *pulumi.Context, args GetUserPoolsOutputArgs, opts .
 
 // A collection of arguments for invoking getUserPools.
 type GetUserPoolsOutputArgs struct {
-	// Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool id via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
+	// Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool ID via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
 	Name pulumi.StringInput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
@@ -134,7 +134,7 @@ func (o GetUserPoolsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserPoolsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Set of cognito user pool ids.
+// Set of cognito user pool IDs.
 func (o GetUserPoolsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetUserPoolsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

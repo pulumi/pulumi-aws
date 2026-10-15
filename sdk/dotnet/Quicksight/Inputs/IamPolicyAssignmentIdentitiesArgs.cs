@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
         private InputList<string>? _groups;
 
         /// <summary>
-        /// Array of Quicksight group names to assign the policy to.
+        /// Array of QuickSight group names to assign the policy to.
         /// </summary>
         public InputList<string> Groups
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
         private InputList<string>? _users;
 
         /// <summary>
-        /// Array of Quicksight user names to assign the policy to.
+        /// Array of QuickSight user names to assign the policy to.
         /// </summary>
         public InputList<string> Users
         {

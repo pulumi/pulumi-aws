@@ -25,8 +25,8 @@ class ContainerPolicyArgs:
         """
         The set of arguments for constructing a ContainerPolicy resource.
 
-        :param pulumi.Input[_builtins.str] container_name: The name of the container.
-        :param pulumi.Input[_builtins.str] policy: The contents of the policy.
+        :param pulumi.Input[_builtins.str] container_name: Name of the container.
+        :param pulumi.Input[_builtins.str] policy: Contents of the policy. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "container_name", container_name)
@@ -38,7 +38,7 @@ class ContainerPolicyArgs:
     @pulumi.getter(name="containerName")
     def container_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the container.
+        Name of the container.
         """
         return pulumi.get(self, "container_name")
 
@@ -50,7 +50,7 @@ class ContainerPolicyArgs:
     @pulumi.getter
     def policy(self) -> pulumi.Input[_builtins.str]:
         """
-        The contents of the policy.
+        Contents of the policy. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
         """
         return pulumi.get(self, "policy")
 
@@ -80,8 +80,8 @@ class _ContainerPolicyState:
         """
         Input properties used for looking up and filtering ContainerPolicy resources.
 
-        :param pulumi.Input[_builtins.str] container_name: The name of the container.
-        :param pulumi.Input[_builtins.str] policy: The contents of the policy.
+        :param pulumi.Input[_builtins.str] container_name: Name of the container.
+        :param pulumi.Input[_builtins.str] policy: Contents of the policy. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if container_name is not None:
@@ -95,7 +95,7 @@ class _ContainerPolicyState:
     @pulumi.getter(name="containerName")
     def container_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the container.
+        Name of the container.
         """
         return pulumi.get(self, "container_name")
 
@@ -107,7 +107,7 @@ class _ContainerPolicyState:
     @pulumi.getter
     def policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The contents of the policy.
+        Contents of the policy. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
         """
         return pulumi.get(self, "policy")
 
@@ -185,8 +185,8 @@ class ContainerPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] container_name: The name of the container.
-        :param pulumi.Input[_builtins.str] policy: The contents of the policy.
+        :param pulumi.Input[_builtins.str] container_name: Name of the container.
+        :param pulumi.Input[_builtins.str] policy: Contents of the policy. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -294,8 +294,8 @@ class ContainerPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] container_name: The name of the container.
-        :param pulumi.Input[_builtins.str] policy: The contents of the policy.
+        :param pulumi.Input[_builtins.str] container_name: Name of the container.
+        :param pulumi.Input[_builtins.str] policy: Contents of the policy. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -311,7 +311,7 @@ class ContainerPolicy(pulumi.CustomResource):
     @pulumi.getter(name="containerName")
     def container_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the container.
+        Name of the container.
         """
         return pulumi.get(self, "container_name")
 
@@ -319,7 +319,7 @@ class ContainerPolicy(pulumi.CustomResource):
     @pulumi.getter
     def policy(self) -> pulumi.Output[_builtins.str]:
         """
-        The contents of the policy.
+        Contents of the policy. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
         """
         return pulumi.get(self, "policy")
 

@@ -16,30 +16,62 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
 
     public static final ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsArgs();
 
+    /**
+     * Group to which the audio rendition belongs.
+     * 
+     */
     @Import(name="audioGroupId")
     private @Nullable Output<String> audioGroupId;
 
+    /**
+     * @return Group to which the audio rendition belongs.
+     * 
+     */
     public Optional<Output<String>> audioGroupId() {
         return Optional.ofNullable(this.audioGroupId);
     }
 
+    /**
+     * Image for an audio-only output. See `audioOnlyImage` Block for details.
+     * 
+     */
     @Import(name="audioOnlyImage")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImageArgs> audioOnlyImage;
 
+    /**
+     * @return Image for an audio-only output. See `audioOnlyImage` Block for details.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImageArgs>> audioOnlyImage() {
         return Optional.ofNullable(this.audioOnlyImage);
     }
 
+    /**
+     * Four types of audio-only tracks.
+     * 
+     */
     @Import(name="audioTrackType")
     private @Nullable Output<String> audioTrackType;
 
+    /**
+     * @return Four types of audio-only tracks.
+     * 
+     */
     public Optional<Output<String>> audioTrackType() {
         return Optional.ofNullable(this.audioTrackType);
     }
 
+    /**
+     * Whether the stream is an audio-only stream.
+     * 
+     */
     @Import(name="segmentType")
     private @Nullable Output<String> segmentType;
 
+    /**
+     * @return Whether the stream is an audio-only stream.
+     * 
+     */
     public Optional<Output<String>> segmentType() {
         return Optional.ofNullable(this.segmentType);
     }
@@ -71,38 +103,86 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
             $ = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param audioGroupId Group to which the audio rendition belongs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder audioGroupId(@Nullable Output<String> audioGroupId) {
             $.audioGroupId = audioGroupId;
             return this;
         }
 
+        /**
+         * @param audioGroupId Group to which the audio rendition belongs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder audioGroupId(String audioGroupId) {
             return audioGroupId(Output.of(audioGroupId));
         }
 
+        /**
+         * @param audioOnlyImage Image for an audio-only output. See `audioOnlyImage` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder audioOnlyImage(@Nullable Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImageArgs> audioOnlyImage) {
             $.audioOnlyImage = audioOnlyImage;
             return this;
         }
 
+        /**
+         * @param audioOnlyImage Image for an audio-only output. See `audioOnlyImage` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder audioOnlyImage(ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImageArgs audioOnlyImage) {
             return audioOnlyImage(Output.of(audioOnlyImage));
         }
 
+        /**
+         * @param audioTrackType Four types of audio-only tracks.
+         * 
+         * @return builder
+         * 
+         */
         public Builder audioTrackType(@Nullable Output<String> audioTrackType) {
             $.audioTrackType = audioTrackType;
             return this;
         }
 
+        /**
+         * @param audioTrackType Four types of audio-only tracks.
+         * 
+         * @return builder
+         * 
+         */
         public Builder audioTrackType(String audioTrackType) {
             return audioTrackType(Output.of(audioTrackType));
         }
 
+        /**
+         * @param segmentType Whether the stream is an audio-only stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder segmentType(@Nullable Output<String> segmentType) {
             $.segmentType = segmentType;
             return this;
         }
 
+        /**
+         * @param segmentType Whether the stream is an audio-only stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder segmentType(String segmentType) {
             return segmentType(Output.of(segmentType));
         }

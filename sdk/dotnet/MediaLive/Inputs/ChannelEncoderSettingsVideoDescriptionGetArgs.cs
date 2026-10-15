@@ -13,25 +13,25 @@ namespace Pulumi.Aws.MediaLive.Inputs
     public sealed class ChannelEncoderSettingsVideoDescriptionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The video codec settings. See Video Codec Settings for more details.
+        /// Video codec settings. See `video_descriptions.codec_settings` Block for details.
         /// </summary>
         [Input("codecSettings")]
         public Input<Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsGetArgs>? CodecSettings { get; set; }
 
         /// <summary>
-        /// Output video height in pixels.
+        /// Output video height, in pixels.
         /// </summary>
         [Input("height")]
         public Input<int>? Height { get; set; }
 
         /// <summary>
-        /// The name of the video description.
+        /// Name of the video description.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Indicate how to respond to the AFD values that might be in the input video.
+        /// How to respond to the AFD values that might be in the input video.
         /// </summary>
         [Input("respondToAfd")]
         public Input<string>? RespondToAfd { get; set; }
@@ -43,13 +43,13 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<string>? ScalingBehavior { get; set; }
 
         /// <summary>
-        /// Changes the strength of the anti-alias filter used for scaling.
+        /// Strength of the anti-alias filter used for scaling.
         /// </summary>
         [Input("sharpness")]
         public Input<int>? Sharpness { get; set; }
 
         /// <summary>
-        /// Output video width in pixels.
+        /// Output video width, in pixels.
         /// </summary>
         [Input("width")]
         public Input<int>? Width { get; set; }

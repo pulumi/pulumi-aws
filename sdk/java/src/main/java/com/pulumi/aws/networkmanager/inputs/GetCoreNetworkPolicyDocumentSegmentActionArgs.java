@@ -66,14 +66,14 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionArgs extends com.pul
     }
 
     /**
-     * A list of strings. Valid values include `[&#34;blackhole&#34;]` or a list of attachment ids.
+     * A list of strings. Valid values include `[&#34;blackhole&#34;]` or a list of attachment IDs.
      * 
      */
     @Import(name="destinations")
     private @Nullable Output<List<String>> destinations;
 
     /**
-     * @return A list of strings. Valid values include `[&#34;blackhole&#34;]` or a list of attachment ids.
+     * @return A list of strings. Valid values include `[&#34;blackhole&#34;]` or a list of attachment IDs.
      * 
      */
     public Optional<Output<List<String>>> destinations() {
@@ -309,7 +309,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionArgs extends com.pul
         }
 
         /**
-         * @param destinations A list of strings. Valid values include `[&#34;blackhole&#34;]` or a list of attachment ids.
+         * @param destinations A list of strings. Valid values include `[&#34;blackhole&#34;]` or a list of attachment IDs.
          * 
          * @return builder
          * 
@@ -320,7 +320,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionArgs extends com.pul
         }
 
         /**
-         * @param destinations A list of strings. Valid values include `[&#34;blackhole&#34;]` or a list of attachment ids.
+         * @param destinations A list of strings. Valid values include `[&#34;blackhole&#34;]` or a list of attachment IDs.
          * 
          * @return builder
          * 
@@ -330,7 +330,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionArgs extends com.pul
         }
 
         /**
-         * @param destinations A list of strings. Valid values include `[&#34;blackhole&#34;]` or a list of attachment ids.
+         * @param destinations A list of strings. Valid values include `[&#34;blackhole&#34;]` or a list of attachment IDs.
          * 
          * @return builder
          * 

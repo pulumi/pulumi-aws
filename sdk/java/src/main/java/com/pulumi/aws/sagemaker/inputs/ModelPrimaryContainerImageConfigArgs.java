@@ -33,14 +33,14 @@ public final class ModelPrimaryContainerImageConfigArgs extends com.pulumi.resou
     }
 
     /**
-     * Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
+     * Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified `Vpc` as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
      * 
      */
     @Import(name="repositoryAuthConfig")
     private @Nullable Output<ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs> repositoryAuthConfig;
 
     /**
-     * @return Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
+     * @return Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified `Vpc` as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
      * 
      */
     public Optional<Output<ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs>> repositoryAuthConfig() {
@@ -94,7 +94,7 @@ public final class ModelPrimaryContainerImageConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param repositoryAuthConfig Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
+         * @param repositoryAuthConfig Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified `Vpc` as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class ModelPrimaryContainerImageConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param repositoryAuthConfig Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
+         * @param repositoryAuthConfig Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified `Vpc` as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
          * 
          * @return builder
          * 

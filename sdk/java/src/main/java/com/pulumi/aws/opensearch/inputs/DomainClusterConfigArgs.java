@@ -172,14 +172,14 @@ public final class DomainClusterConfigArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Instance type for the OpenSearch cluster&#39;s warm nodes. Valid values are `ultrawarm1.medium.search`, `ultrawarm1.large.search` and `ultrawarm1.xlarge.search`. `warmType` can be only and must be set when `warmEnabled` is set to `true`.
+     * Instance type for the OpenSearch cluster&#39;s warm nodes. `warmType` can be only and must be set when `warmEnabled` is set to `true`.
      * 
      */
     @Import(name="warmType")
     private @Nullable Output<String> warmType;
 
     /**
-     * @return Instance type for the OpenSearch cluster&#39;s warm nodes. Valid values are `ultrawarm1.medium.search`, `ultrawarm1.large.search` and `ultrawarm1.xlarge.search`. `warmType` can be only and must be set when `warmEnabled` is set to `true`.
+     * @return Instance type for the OpenSearch cluster&#39;s warm nodes. `warmType` can be only and must be set when `warmEnabled` is set to `true`.
      * 
      */
     public Optional<Output<String>> warmType() {
@@ -473,7 +473,7 @@ public final class DomainClusterConfigArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param warmType Instance type for the OpenSearch cluster&#39;s warm nodes. Valid values are `ultrawarm1.medium.search`, `ultrawarm1.large.search` and `ultrawarm1.xlarge.search`. `warmType` can be only and must be set when `warmEnabled` is set to `true`.
+         * @param warmType Instance type for the OpenSearch cluster&#39;s warm nodes. `warmType` can be only and must be set when `warmEnabled` is set to `true`.
          * 
          * @return builder
          * 
@@ -484,7 +484,7 @@ public final class DomainClusterConfigArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param warmType Instance type for the OpenSearch cluster&#39;s warm nodes. Valid values are `ultrawarm1.medium.search`, `ultrawarm1.large.search` and `ultrawarm1.xlarge.search`. `warmType` can be only and must be set when `warmEnabled` is set to `true`.
+         * @param warmType Instance type for the OpenSearch cluster&#39;s warm nodes. `warmType` can be only and must be set when `warmEnabled` is set to `true`.
          * 
          * @return builder
          * 

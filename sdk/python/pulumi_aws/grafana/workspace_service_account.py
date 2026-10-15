@@ -26,9 +26,9 @@ class WorkspaceServiceAccountArgs:
         """
         The set of arguments for constructing a WorkspaceServiceAccount resource.
 
-        :param pulumi.Input[_builtins.str] grafana_role: The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
-        :param pulumi.Input[_builtins.str] workspace_id: The Grafana workspace with which the service account is associated.
-        :param pulumi.Input[_builtins.str] name: A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
+        :param pulumi.Input[_builtins.str] grafana_role: Permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
+        :param pulumi.Input[_builtins.str] workspace_id: Grafana workspace with which the service account is associated.
+        :param pulumi.Input[_builtins.str] name: Name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "grafana_role", grafana_role)
@@ -42,7 +42,7 @@ class WorkspaceServiceAccountArgs:
     @pulumi.getter(name="grafanaRole")
     def grafana_role(self) -> pulumi.Input[_builtins.str]:
         """
-        The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
+        Permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
         """
         return pulumi.get(self, "grafana_role")
 
@@ -54,7 +54,7 @@ class WorkspaceServiceAccountArgs:
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The Grafana workspace with which the service account is associated.
+        Grafana workspace with which the service account is associated.
         """
         return pulumi.get(self, "workspace_id")
 
@@ -66,7 +66,7 @@ class WorkspaceServiceAccountArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
+        Name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
         """
         return pulumi.get(self, "name")
 
@@ -98,11 +98,11 @@ class _WorkspaceServiceAccountState:
         """
         Input properties used for looking up and filtering WorkspaceServiceAccount resources.
 
-        :param pulumi.Input[_builtins.str] grafana_role: The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
-        :param pulumi.Input[_builtins.str] name: A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
+        :param pulumi.Input[_builtins.str] grafana_role: Permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
+        :param pulumi.Input[_builtins.str] name: Name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] service_account_id: Identifier of the service account in the given Grafana workspace
-        :param pulumi.Input[_builtins.str] workspace_id: The Grafana workspace with which the service account is associated.
+        :param pulumi.Input[_builtins.str] workspace_id: Grafana workspace with which the service account is associated.
         """
         if grafana_role is not None:
             pulumi.set(__self__, "grafana_role", grafana_role)
@@ -119,7 +119,7 @@ class _WorkspaceServiceAccountState:
     @pulumi.getter(name="grafanaRole")
     def grafana_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
+        Permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
         """
         return pulumi.get(self, "grafana_role")
 
@@ -131,7 +131,7 @@ class _WorkspaceServiceAccountState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
+        Name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
         """
         return pulumi.get(self, "name")
 
@@ -167,7 +167,7 @@ class _WorkspaceServiceAccountState:
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Grafana workspace with which the service account is associated.
+        Grafana workspace with which the service account is associated.
         """
         return pulumi.get(self, "workspace_id")
 
@@ -218,10 +218,10 @@ class WorkspaceServiceAccount(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] grafana_role: The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
-        :param pulumi.Input[_builtins.str] name: A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
+        :param pulumi.Input[_builtins.str] grafana_role: Permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
+        :param pulumi.Input[_builtins.str] name: Name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] workspace_id: The Grafana workspace with which the service account is associated.
+        :param pulumi.Input[_builtins.str] workspace_id: Grafana workspace with which the service account is associated.
         """
         ...
     @overload
@@ -317,11 +317,11 @@ class WorkspaceServiceAccount(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] grafana_role: The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
-        :param pulumi.Input[_builtins.str] name: A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
+        :param pulumi.Input[_builtins.str] grafana_role: Permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
+        :param pulumi.Input[_builtins.str] name: Name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] service_account_id: Identifier of the service account in the given Grafana workspace
-        :param pulumi.Input[_builtins.str] workspace_id: The Grafana workspace with which the service account is associated.
+        :param pulumi.Input[_builtins.str] workspace_id: Grafana workspace with which the service account is associated.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -338,7 +338,7 @@ class WorkspaceServiceAccount(pulumi.CustomResource):
     @pulumi.getter(name="grafanaRole")
     def grafana_role(self) -> pulumi.Output[_builtins.str]:
         """
-        The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
+        Permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
         """
         return pulumi.get(self, "grafana_role")
 
@@ -346,7 +346,7 @@ class WorkspaceServiceAccount(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
+        Name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
         """
         return pulumi.get(self, "name")
 
@@ -370,7 +370,7 @@ class WorkspaceServiceAccount(pulumi.CustomResource):
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The Grafana workspace with which the service account is associated.
+        Grafana workspace with which the service account is associated.
         """
         return pulumi.get(self, "workspace_id")
 

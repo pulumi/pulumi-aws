@@ -19,7 +19,7 @@ namespace Pulumi.Aws.DataSync.Inputs
         public Input<Inputs.LocationFsxOntapFileSystemProtocolNfsArgs>? Nfs { get; set; }
 
         /// <summary>
-        /// Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
+        /// Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See SMB below.
         /// </summary>
         [Input("smb")]
         public Input<Inputs.LocationFsxOntapFileSystemProtocolSmbArgs>? Smb { get; set; }

@@ -13,9 +13,21 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class GetInputDestinationResult
     {
+        /// <summary>
+        /// IP address.
+        /// </summary>
         public readonly string Ip;
+        /// <summary>
+        /// Port.
+        /// </summary>
         public readonly string Port;
+        /// <summary>
+        /// URL where the stream is pulled from.
+        /// </summary>
         public readonly string Url;
+        /// <summary>
+        /// VPC settings. See `destinations.vpc` Block for more details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetInputDestinationVpcResult> Vpcs;
 
         [OutputConstructor]

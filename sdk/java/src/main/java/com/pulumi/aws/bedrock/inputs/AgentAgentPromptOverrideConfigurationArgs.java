@@ -17,14 +17,14 @@ public final class AgentAgentPromptOverrideConfigurationArgs extends com.pulumi.
     public static final AgentAgentPromptOverrideConfigurationArgs Empty = new AgentAgentPromptOverrideConfigurationArgs();
 
     /**
-     * ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `promptConfigurations` block must contain a `parserMode` value that is set to `OVERRIDDEN`.
+     * ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `promptConfigurations` blocks must contain a `parserMode` value that is set to `OVERRIDDEN`.
      * 
      */
     @Import(name="overrideLambda", required=true)
     private Output<String> overrideLambda;
 
     /**
-     * @return ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `promptConfigurations` block must contain a `parserMode` value that is set to `OVERRIDDEN`.
+     * @return ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `promptConfigurations` blocks must contain a `parserMode` value that is set to `OVERRIDDEN`.
      * 
      */
     public Output<String> overrideLambda() {
@@ -72,7 +72,7 @@ public final class AgentAgentPromptOverrideConfigurationArgs extends com.pulumi.
         }
 
         /**
-         * @param overrideLambda ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `promptConfigurations` block must contain a `parserMode` value that is set to `OVERRIDDEN`.
+         * @param overrideLambda ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `promptConfigurations` blocks must contain a `parserMode` value that is set to `OVERRIDDEN`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class AgentAgentPromptOverrideConfigurationArgs extends com.pulumi.
         }
 
         /**
-         * @param overrideLambda ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `promptConfigurations` block must contain a `parserMode` value that is set to `OVERRIDDEN`.
+         * @param overrideLambda ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `promptConfigurations` blocks must contain a `parserMode` value that is set to `OVERRIDDEN`.
          * 
          * @return builder
          * 

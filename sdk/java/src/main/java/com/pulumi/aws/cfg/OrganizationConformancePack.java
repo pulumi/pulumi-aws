@@ -294,14 +294,14 @@ public class OrganizationConformancePack extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.templateBody);
     }
     /**
-     * Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
+     * Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The URI must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
      * 
      */
     @Export(name="templateS3Uri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> templateS3Uri;
 
     /**
-     * @return Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
+     * @return Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The URI must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
      * 
      */
     public Output<Optional<String>> templateS3Uri() {

@@ -228,14 +228,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:codepipeline/pipeline:Pipeline")
 public class Pipeline extends com.pulumi.resources.CustomResource {
     /**
-     * Codepipeline ARN.
+     * CodePipeline ARN.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Codepipeline ARN.
+     * @return CodePipeline ARN.
      * 
      */
     public Output<String> arn() {

@@ -13,8 +13,17 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsAudioDescriptionRemixSettings
     {
+        /// <summary>
+        /// Mapping of input channels to output channels. See `ChannelMappings` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping> ChannelMappings;
+        /// <summary>
+        /// Number of input channels to be used.
+        /// </summary>
         public readonly int? ChannelsIn;
+        /// <summary>
+        /// Number of output channels to be produced.
+        /// </summary>
         public readonly int? ChannelsOut;
 
         [OutputConstructor]

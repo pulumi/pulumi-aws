@@ -16,14 +16,14 @@ public final class CatalogTableOptimizerConfigurationCompactionConfigurationArgs
     public static final CatalogTableOptimizerConfigurationCompactionConfigurationArgs Empty = new CatalogTableOptimizerConfigurationCompactionConfigurationArgs();
 
     /**
-     * The configuration for an Iceberg compaction optimizer.
+     * Configuration for an Iceberg compaction optimizer. See `configuration.compaction_configuration.iceberg_configuration` Block for additional details.
      * 
      */
     @Import(name="icebergConfiguration")
     private @Nullable Output<CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationArgs> icebergConfiguration;
 
     /**
-     * @return The configuration for an Iceberg compaction optimizer.
+     * @return Configuration for an Iceberg compaction optimizer. See `configuration.compaction_configuration.iceberg_configuration` Block for additional details.
      * 
      */
     public Optional<Output<CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationArgs>> icebergConfiguration() {
@@ -55,7 +55,7 @@ public final class CatalogTableOptimizerConfigurationCompactionConfigurationArgs
         }
 
         /**
-         * @param icebergConfiguration The configuration for an Iceberg compaction optimizer.
+         * @param icebergConfiguration Configuration for an Iceberg compaction optimizer. See `configuration.compaction_configuration.iceberg_configuration` Block for additional details.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class CatalogTableOptimizerConfigurationCompactionConfigurationArgs
         }
 
         /**
-         * @param icebergConfiguration The configuration for an Iceberg compaction optimizer.
+         * @param icebergConfiguration Configuration for an Iceberg compaction optimizer. See `configuration.compaction_configuration.iceberg_configuration` Block for additional details.
          * 
          * @return builder
          * 
