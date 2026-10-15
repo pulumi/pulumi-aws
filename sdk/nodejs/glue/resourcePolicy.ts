@@ -73,7 +73,7 @@ export class ResourcePolicy extends pulumi.CustomResource {
     }
 
     /**
-     * Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the terraform will not perform drift detetction on this field as its not return on read.
+     * Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note that the provider does not perform drift detection on this field because it is not returned on read.
      */
     declare public readonly enableHybrid: pulumi.Output<string | undefined>;
     /**
@@ -120,7 +120,7 @@ export class ResourcePolicy extends pulumi.CustomResource {
  */
 export interface ResourcePolicyState {
     /**
-     * Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the terraform will not perform drift detetction on this field as its not return on read.
+     * Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note that the provider does not perform drift detection on this field because it is not returned on read.
      */
     enableHybrid?: pulumi.Input<string | undefined>;
     /**
@@ -138,7 +138,7 @@ export interface ResourcePolicyState {
  */
 export interface ResourcePolicyArgs {
     /**
-     * Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the terraform will not perform drift detetction on this field as its not return on read.
+     * Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note that the provider does not perform drift detection on this field because it is not returned on read.
      */
     enableHybrid?: pulumi.Input<string | undefined>;
     /**

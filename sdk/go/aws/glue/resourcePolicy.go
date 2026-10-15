@@ -96,7 +96,7 @@ import (
 type ResourcePolicy struct {
 	pulumi.CustomResourceState
 
-	// Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the terraform will not perform drift detetction on this field as its not return on read.
+	// Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note that the provider does not perform drift detection on this field because it is not returned on read.
 	EnableHybrid pulumi.StringPtrOutput `pulumi:"enableHybrid"`
 	// Policy to be applied to the aws glue data catalog.
 	Policy pulumi.StringOutput `pulumi:"policy"`
@@ -137,7 +137,7 @@ func GetResourcePolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResourcePolicy resources.
 type resourcePolicyState struct {
-	// Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the terraform will not perform drift detetction on this field as its not return on read.
+	// Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note that the provider does not perform drift detection on this field because it is not returned on read.
 	EnableHybrid *string `pulumi:"enableHybrid"`
 	// Policy to be applied to the aws glue data catalog.
 	Policy *string `pulumi:"policy"`
@@ -146,7 +146,7 @@ type resourcePolicyState struct {
 }
 
 type ResourcePolicyState struct {
-	// Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the terraform will not perform drift detetction on this field as its not return on read.
+	// Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note that the provider does not perform drift detection on this field because it is not returned on read.
 	EnableHybrid pulumi.StringPtrInput
 	// Policy to be applied to the aws glue data catalog.
 	Policy pulumi.StringPtrInput
@@ -159,7 +159,7 @@ func (ResourcePolicyState) ElementType() reflect.Type {
 }
 
 type resourcePolicyArgs struct {
-	// Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the terraform will not perform drift detetction on this field as its not return on read.
+	// Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note that the provider does not perform drift detection on this field because it is not returned on read.
 	EnableHybrid *string `pulumi:"enableHybrid"`
 	// Policy to be applied to the aws glue data catalog.
 	Policy string `pulumi:"policy"`
@@ -169,7 +169,7 @@ type resourcePolicyArgs struct {
 
 // The set of arguments for constructing a ResourcePolicy resource.
 type ResourcePolicyArgs struct {
-	// Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the terraform will not perform drift detetction on this field as its not return on read.
+	// Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note that the provider does not perform drift detection on this field because it is not returned on read.
 	EnableHybrid pulumi.StringPtrInput
 	// Policy to be applied to the aws glue data catalog.
 	Policy pulumi.StringInput
@@ -264,7 +264,7 @@ func (o ResourcePolicyOutput) ToResourcePolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the terraform will not perform drift detetction on this field as its not return on read.
+// Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note that the provider does not perform drift detection on this field because it is not returned on read.
 func (o ResourcePolicyOutput) EnableHybrid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringPtrOutput { return v.EnableHybrid }).(pulumi.StringPtrOutput)
 }

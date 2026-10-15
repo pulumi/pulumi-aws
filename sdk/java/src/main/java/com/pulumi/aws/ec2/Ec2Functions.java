@@ -7752,7 +7752,7 @@ public final class Ec2Functions {
     /**
      * Previews a CIDR from an IPAM address pool. Only works for private IPv4.
      * 
-     * &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the CIDR in a calculation of the same Root module, `count` for example. However, once a CIDR range has been allocated that was previewed, the next refresh will find a **new** CIDR and may force new resources downstream. Make sure to use Terraform&#39;s lifecycle `ignoreChanges` policy if this is undesirable.
+     * &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the CIDR in a calculation of the same Root module, `count` for example. However, once a CIDR range has been allocated that was previewed, the next refresh will find a **new** CIDR and may force new resources downstream. Make sure to use Pulumi&#39;s `ignoreChanges` resource option if this is undesirable.
      * 
      * ## Example Usage
      * 
@@ -7807,7 +7807,7 @@ public final class Ec2Functions {
     /**
      * Previews a CIDR from an IPAM address pool. Only works for private IPv4.
      * 
-     * &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the CIDR in a calculation of the same Root module, `count` for example. However, once a CIDR range has been allocated that was previewed, the next refresh will find a **new** CIDR and may force new resources downstream. Make sure to use Terraform&#39;s lifecycle `ignoreChanges` policy if this is undesirable.
+     * &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the CIDR in a calculation of the same Root module, `count` for example. However, once a CIDR range has been allocated that was previewed, the next refresh will find a **new** CIDR and may force new resources downstream. Make sure to use Pulumi&#39;s `ignoreChanges` resource option if this is undesirable.
      * 
      * ## Example Usage
      * 
@@ -7862,7 +7862,7 @@ public final class Ec2Functions {
     /**
      * Previews a CIDR from an IPAM address pool. Only works for private IPv4.
      * 
-     * &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the CIDR in a calculation of the same Root module, `count` for example. However, once a CIDR range has been allocated that was previewed, the next refresh will find a **new** CIDR and may force new resources downstream. Make sure to use Terraform&#39;s lifecycle `ignoreChanges` policy if this is undesirable.
+     * &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the CIDR in a calculation of the same Root module, `count` for example. However, once a CIDR range has been allocated that was previewed, the next refresh will find a **new** CIDR and may force new resources downstream. Make sure to use Pulumi&#39;s `ignoreChanges` resource option if this is undesirable.
      * 
      * ## Example Usage
      * 
@@ -7917,7 +7917,7 @@ public final class Ec2Functions {
     /**
      * Previews a CIDR from an IPAM address pool. Only works for private IPv4.
      * 
-     * &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the CIDR in a calculation of the same Root module, `count` for example. However, once a CIDR range has been allocated that was previewed, the next refresh will find a **new** CIDR and may force new resources downstream. Make sure to use Terraform&#39;s lifecycle `ignoreChanges` policy if this is undesirable.
+     * &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the CIDR in a calculation of the same Root module, `count` for example. However, once a CIDR range has been allocated that was previewed, the next refresh will find a **new** CIDR and may force new resources downstream. Make sure to use Pulumi&#39;s `ignoreChanges` resource option if this is undesirable.
      * 
      * ## Example Usage
      * 
@@ -7972,7 +7972,7 @@ public final class Ec2Functions {
     /**
      * Previews a CIDR from an IPAM address pool. Only works for private IPv4.
      * 
-     * &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the CIDR in a calculation of the same Root module, `count` for example. However, once a CIDR range has been allocated that was previewed, the next refresh will find a **new** CIDR and may force new resources downstream. Make sure to use Terraform&#39;s lifecycle `ignoreChanges` policy if this is undesirable.
+     * &gt; **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the CIDR in a calculation of the same Root module, `count` for example. However, once a CIDR range has been allocated that was previewed, the next refresh will find a **new** CIDR and may force new resources downstream. Make sure to use Pulumi&#39;s `ignoreChanges` resource option if this is undesirable.
      * 
      * ## Example Usage
      * 

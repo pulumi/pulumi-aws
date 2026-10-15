@@ -17,14 +17,14 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.ResourceArgs 
     public static final ResourcePolicyArgs Empty = new ResourcePolicyArgs();
 
     /**
-     * Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the terraform will not perform drift detetction on this field as its not return on read.
+     * Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note that the provider does not perform drift detection on this field because it is not returned on read.
      * 
      */
     @Import(name="enableHybrid")
     private @Nullable Output<String> enableHybrid;
 
     /**
-     * @return Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the terraform will not perform drift detetction on this field as its not return on read.
+     * @return Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note that the provider does not perform drift detection on this field because it is not returned on read.
      * 
      */
     public Optional<Output<String>> enableHybrid() {
@@ -88,7 +88,7 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param enableHybrid Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the terraform will not perform drift detetction on this field as its not return on read.
+         * @param enableHybrid Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note that the provider does not perform drift detection on this field because it is not returned on read.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param enableHybrid Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the terraform will not perform drift detetction on this field as its not return on read.
+         * @param enableHybrid Whether you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note that the provider does not perform drift detection on this field because it is not returned on read.
          * 
          * @return builder
          * 

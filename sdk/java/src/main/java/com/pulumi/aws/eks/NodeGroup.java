@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  * 
  * ### Ignoring Changes to Desired Size
  * 
- * You can utilize the generic Terraform resource lifecycle configuration block with `ignoreChanges` to create an EKS Node Group with an initial size of running instances, then ignore any changes to that count caused externally (e.g., Application Auto Scaling).
+ * You can utilize the Pulumi `ignoreChanges` resource option to create an EKS Node Group with an initial size of running instances, then ignore any changes to that count caused externally (e.g., Application Auto Scaling).
  * 
  * <pre>
  * {@code

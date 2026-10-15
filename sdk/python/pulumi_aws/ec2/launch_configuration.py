@@ -697,7 +697,7 @@ class LaunchConfiguration(pulumi.CustomResource):
 
         > **WARNING:** The use of launch configurations is discouraged in favor of launch templates. Read more in the [AWS EC2 Documentation](https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-configurations.html).
 
-        > **Note** When using `ec2.LaunchConfiguration` with `autoscaling.Group`, it is recommended to use the `name_prefix` (Optional) instead of the `name` (Optional) attribute. This will allow Terraform lifecycles to detect changes to the launch configuration and update the Auto Scaling group correctly.
+        > **Note** When using `ec2.LaunchConfiguration` with `autoscaling.Group`, it is recommended to use the `name_prefix` (Optional) instead of the `name` (Optional) attribute. This will allow Pulumi lifecycles to detect changes to the launch configuration and update the Auto Scaling group correctly.
 
         ## Example Usage
 
@@ -770,7 +770,7 @@ class LaunchConfiguration(pulumi.CustomResource):
 
         > **WARNING:** The use of launch configurations is discouraged in favor of launch templates. Read more in the [AWS EC2 Documentation](https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-configurations.html).
 
-        > **Note** When using `ec2.LaunchConfiguration` with `autoscaling.Group`, it is recommended to use the `name_prefix` (Optional) instead of the `name` (Optional) attribute. This will allow Terraform lifecycles to detect changes to the launch configuration and update the Auto Scaling group correctly.
+        > **Note** When using `ec2.LaunchConfiguration` with `autoscaling.Group`, it is recommended to use the `name_prefix` (Optional) instead of the `name` (Optional) attribute. This will allow Pulumi lifecycles to detect changes to the launch configuration and update the Auto Scaling group correctly.
 
         ## Example Usage
 
