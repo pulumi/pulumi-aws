@@ -1,3 +1,0 @@
-name: kms-alias
-runtime: nodejs
-description: Example to show autonaming of Kms Alias resources
